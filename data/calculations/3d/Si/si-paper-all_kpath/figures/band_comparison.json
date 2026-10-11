@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "calculation_id": "si-paper-all_kpath",
+  "source_result_paths": [
+    "data/calculations/3d/Si/si-paper-all_kpath/results/KS_band_spin_1.dat",
+    "data/calculations/3d/Si/si-paper-all_kpath/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/Si/si-paper-all_kpath/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/Si/si-paper-all_kpath/results/KS_band_spin_1.dat": "886b771ddffcb50857c7a86c1e8100f006c06865a2b1cca5fc9fcb1fc48121e6",
+    "data/calculations/3d/Si/si-paper-all_kpath/results/EXX_band_spin_1.dat": "c5ec34d9597f34122de1d86c44464745c62b1093f3055d0443a12a6e2c6b9881",
+    "data/calculations/3d/Si/si-paper-all_kpath/results/GW_band_spin_1.dat": "2f035d82faae86a4d36338b4a7e26cbe33ba9aea5a88503800d4ab233386845f"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "X"
+      },
+      {
+        "x": 40.0,
+        "label": "W"
+      },
+      {
+        "x": 60.0,
+        "label": "K"
+      },
+      {
+        "x": 80.0,
+        "label": "G"
+      },
+      {
+        "x": 100.0,
+        "label": "L"
+      },
+      {
+        "x": 120.0,
+        "label": "U"
+      },
+      {
+        "x": 140.0,
+        "label": "W"
+      },
+      {
+        "x": 160.0,
+        "label": "L"
+      },
+      {
+        "x": 180.0,
+        "label": "K"
+      },
+      {
+        "x": 200.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

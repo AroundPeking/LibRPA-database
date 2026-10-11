@@ -192,7 +192,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/figures/band_comparison.svg",
+        "sha256": "03ddf08aa97aaa9d9acb8c79e48fada6be3d170c2184bf9fead4d7f0315e7516",
+        "size_bytes": 52877,
+        "original_sha256": "03ddf08aa97aaa9d9acb8c79e48fada6be3d170c2184bf9fead4d7f0315e7516",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/LiF/lif-paper-jy/results/KS_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-paper-jy/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-paper-jy/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/figures/band_comparison.json",
+        "sha256": "63682667a00cb218e4a8729bf5c391355c06a8d48dcd6865d312a482322b5a27",
+        "size_bytes": 1332,
+        "original_sha256": "63682667a00cb218e4a8729bf5c391355c06a8d48dcd6865d312a482322b5a27",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/LiF/lif-paper-jy/results/KS_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-paper-jy/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-paper-jy/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

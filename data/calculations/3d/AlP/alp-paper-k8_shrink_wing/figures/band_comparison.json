@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "calculation_id": "alp-paper-k8_shrink_wing",
+  "source_result_paths": [
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/KS_band_spin_1.dat": "c8576204451599f2b40b2af4a897dc82ccca9f6c9b60e6173e2242951c1bad1f",
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat": "b6320270dc221a46c18411ad999ef00bea520bcf700f1dbc7b3f66653c5bf645",
+    "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat": "edbd68435493e7a581d3c165b0cbd6ccfe10e1a75c23edc236a36ee7ce4677ec"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "K"
+      },
+      {
+        "x": 40.0,
+        "label": "L"
+      },
+      {
+        "x": 60.0,
+        "label": "U"
+      },
+      {
+        "x": 80.0,
+        "label": "W"
+      },
+      {
+        "x": 100.0,
+        "label": "W2"
+      },
+      {
+        "x": 120.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

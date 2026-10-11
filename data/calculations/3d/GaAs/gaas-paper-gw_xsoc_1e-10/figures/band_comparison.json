@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "calculation_id": "gaas-paper-gw_xsoc_1e-10",
+  "source_result_paths": [
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat": "2b855827619c859a02e959f6ccfe4faf7069f0d65fc69f99cb50458587d62e3e",
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat": "28472a00ad9289a58fe4ab64fd92d5fe25e9da34e61197b5c857b1c8b329b361",
+    "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "X"
+      },
+      {
+        "x": 40.0,
+        "label": "W"
+      },
+      {
+        "x": 60.0,
+        "label": "K"
+      },
+      {
+        "x": 80.0,
+        "label": "G"
+      },
+      {
+        "x": 100.0,
+        "label": "L"
+      },
+      {
+        "x": 120.0,
+        "label": "U"
+      },
+      {
+        "x": 140.0,
+        "label": "W"
+      },
+      {
+        "x": 160.0,
+        "label": "L"
+      },
+      {
+        "x": 180.0,
+        "label": "K"
+      },
+      {
+        "x": 200.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

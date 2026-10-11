@@ -181,7 +181,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/figures/band_comparison.svg",
+        "sha256": "4521075e478ea3ee43e7df7ede73416cc9fa56bf6976604784c53f67323e47bc",
+        "size_bytes": 48830,
+        "original_sha256": "4521075e478ea3ee43e7df7ede73416cc9fa56bf6976604784c53f67323e47bc",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/KS_band_spin_1.dat",
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/figures/band_comparison.json",
+        "sha256": "3c8a8d457ccbc9387f13e74cbd8ad18643059922dcb34808252fe43de07fec40",
+        "size_bytes": 1599,
+        "original_sha256": "3c8a8d457ccbc9387f13e74cbd8ad18643059922dcb34808252fe43de07fec40",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/KS_band_spin_1.dat",
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

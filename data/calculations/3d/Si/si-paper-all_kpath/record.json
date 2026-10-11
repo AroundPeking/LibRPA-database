@@ -181,7 +181,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/band_comparison.svg",
+        "sha256": "0b3f44bf67a492abcd487efe3e86f80f5f5d20793bd020f426f764e1b97b7b73",
+        "size_bytes": 68555,
+        "original_sha256": "0b3f44bf67a492abcd487efe3e86f80f5f5d20793bd020f426f764e1b97b7b73",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/Si/si-paper-all_kpath/results/KS_band_spin_1.dat",
+          "data/calculations/3d/Si/si-paper-all_kpath/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/Si/si-paper-all_kpath/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/band_comparison.json",
+        "sha256": "285b49633e5dd1e0068a9afa7f5f1a16c3d2a0e6059b79ea14150c20edd6b80c",
+        "size_bytes": 1592,
+        "original_sha256": "285b49633e5dd1e0068a9afa7f5f1a16c3d2a0e6059b79ea14150c20edd6b80c",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/Si/si-paper-all_kpath/results/KS_band_spin_1.dat",
+          "data/calculations/3d/Si/si-paper-all_kpath/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/Si/si-paper-all_kpath/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

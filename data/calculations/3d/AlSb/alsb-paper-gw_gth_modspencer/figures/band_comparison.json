@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "calculation_id": "alsb-paper-gw_gth_modspencer",
+  "source_result_paths": [
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat": "da3b2be9139558c81cb3c12b9760f473197aa31416e6a0e7fded4210625be794",
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat": "42034f6e66be12674dd8f599a9829f1a1a5d233ea7482da8337f80d993dbd0d5",
+    "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat": "a3fab04990ca41af6b0c149b3ac2c46d388d9bc0ad4cb35e20287ad1e8136f50"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "L"
+      },
+      {
+        "x": 20.0,
+        "label": "G"
+      },
+      {
+        "x": 40.0,
+        "label": "X"
+      },
+      {
+        "x": 60.0,
+        "label": "W"
+      },
+      {
+        "x": 80.0,
+        "label": "L"
+      },
+      {
+        "x": 100.0,
+        "label": "K"
+      },
+      {
+        "x": 120.0,
+        "label": "G"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

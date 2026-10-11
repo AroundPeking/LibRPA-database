@@ -197,7 +197,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.svg",
+        "sha256": "7ba7cbcc1cc986d74548ec24d98a0ea691cc7401da6c16cb501ab5bc5f80de6b",
+        "size_bytes": 43524,
+        "original_sha256": "7ba7cbcc1cc986d74548ec24d98a0ea691cc7401da6c16cb501ab5bc5f80de6b",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.json",
+        "sha256": "12330b6cc56fa560c77a193d5ef15428e98dbf3c0a4fcbf60a2251705b266f65",
+        "size_bytes": 1367,
+        "original_sha256": "12330b6cc56fa560c77a193d5ef15428e98dbf3c0a4fcbf60a2251705b266f65",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

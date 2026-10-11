@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "calculation_id": "sic-paper-pca1e-6",
+  "source_result_paths": [
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/KS_band_spin_1.dat",
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/KS_band_spin_1.dat": "6ce296ec7d275f6ab20287dd3a3ca6a84050fb6527e770e7af62a7c205a01022",
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/EXX_band_spin_1.dat": "5aabcf02f8666838a92ae4915b6deffd0f8fbede0abefef2292d0ec39e7f45d8",
+    "data/calculations/3d/SiC/sic-paper-pca1e-6/results/GW_band_spin_1.dat": "9eafc81bb62df0f06c6cc39d919b61e7ef6f365d7df2a21564782827cdf10d8c"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "X"
+      },
+      {
+        "x": 40.0,
+        "label": "W"
+      },
+      {
+        "x": 60.0,
+        "label": "K"
+      },
+      {
+        "x": 80.0,
+        "label": "G"
+      },
+      {
+        "x": 100.0,
+        "label": "L"
+      },
+      {
+        "x": 120.0,
+        "label": "U"
+      },
+      {
+        "x": 140.0,
+        "label": "W"
+      },
+      {
+        "x": 160.0,
+        "label": "L"
+      },
+      {
+        "x": 180.0,
+        "label": "K"
+      },
+      {
+        "x": 200.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

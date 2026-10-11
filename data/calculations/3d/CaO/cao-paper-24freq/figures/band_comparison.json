@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "calculation_id": "cao-paper-24freq",
+  "source_result_paths": [
+    "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+    "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat": "9308f0fa99574d5d9758d32355518776d8210065b332d03245cbf2682e2a9c3a",
+    "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat": "f8540ff6aab56183c0caa3ae14284112404539b0eabbaab86113cda4953e1f87",
+    "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat": "4b19b87fce743d08cb13763973a5344bcaab22ebd06984f7febce3060aed4355"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      9.3680761
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "L"
+      },
+      {
+        "x": 20.0,
+        "label": "G"
+      },
+      {
+        "x": 40.0,
+        "label": "X"
+      },
+      {
+        "x": 60.0,
+        "label": "W"
+      },
+      {
+        "x": 80.0,
+        "label": "K"
+      },
+      {
+        "x": 100.0,
+        "label": "G"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

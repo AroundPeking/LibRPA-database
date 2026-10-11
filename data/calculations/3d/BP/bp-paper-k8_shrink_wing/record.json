@@ -196,7 +196,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/figures/band_comparison.svg",
+        "sha256": "ca183468622312d9429ccfedd0bbf31ca4da396d50584c947e4e8ddb963e06e7",
+        "size_bytes": 9317,
+        "original_sha256": "ca183468622312d9429ccfedd0bbf31ca4da396d50584c947e4e8ddb963e06e7",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/figures/band_comparison.json",
+        "sha256": "ec0dc26fc4a28f2c86aaf9270dff785cb412fa17443b0eafdaf9e937d520c7c5",
+        "size_bytes": 1108,
+        "original_sha256": "ec0dc26fc4a28f2c86aaf9270dff785cb412fa17443b0eafdaf9e937d520c7c5",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

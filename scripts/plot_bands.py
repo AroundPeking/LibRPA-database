@@ -44,6 +44,38 @@ def parse_band_table(path: Path) -> BandTable:
     return BandTable(x_values, rows)
 
 
+def parse_abacus_band_table(path: Path) -> BandTable:
+    """Read an ABACUS ``*_band_spin_*.dat`` table.
+
+    ABACUS writes one row per k point as ``index kx ky kz`` followed by
+    ``occupation energy`` pairs.  The occupations are metadata; this helper
+    keeps the energy columns in their original band order and uses the row
+    order as a portable k-path coordinate.
+    """
+    rows: list[list[float]] = []
+    width: int | None = None
+    for line_number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        stripped = raw.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        fields = stripped.split()
+        if len(fields) < 6 or (len(fields) - 4) % 2:
+            raise ValueError(f"line {line_number}: expected occupation/energy pairs")
+        try:
+            values = [float(item) for item in fields]
+        except ValueError as exc:
+            raise ValueError(f"line {line_number}: expected numeric columns") from exc
+        energies = values[5::2]
+        if width is None:
+            width = len(energies)
+        elif len(energies) != width:
+            raise ValueError("all ABACUS rows must have the same number of bands")
+        rows.append(energies)
+    if not rows:
+        raise ValueError("ABACUS band table contains no data rows")
+    return BandTable([float(index) for index in range(len(rows))], rows)
+
+
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 

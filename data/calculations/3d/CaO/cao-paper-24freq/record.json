@@ -190,7 +190,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/band_comparison.svg",
+        "sha256": "3df225b3c6328abdc53a3544bff46178664cec889d3def847e9c952f31cae010",
+        "size_bytes": 59003,
+        "original_sha256": "3df225b3c6328abdc53a3544bff46178664cec889d3def847e9c952f31cae010",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/band_comparison.json",
+        "sha256": "534dc212d8fece33596fe80e5f394935aa8a520ff2946a2a0f6c34f3b7a6b192",
+        "size_bytes": 1300,
+        "original_sha256": "534dc212d8fece33596fe80e5f394935aa8a520ff2946a2a0f6c34f3b7a6b192",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "missing": [

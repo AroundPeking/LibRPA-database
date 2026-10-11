@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "calculation_id": "c-paper-sg15_cs1e-5",
+  "source_result_paths": [
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/KS_band_spin_1.dat",
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/KS_band_spin_1.dat": "4525779bf996f6ce0483e5089d9f6bd4c8cf46e961f90b366adb255c66f71320",
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/EXX_band_spin_1.dat": "eed827a8da25ebe0e6a42eb001765ca94b4cf2e341cb831689ec7093b3181fdd",
+    "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/GW_band_spin_1.dat": "50472e416a6f46cb086b4e6884073ca8515f32b4973731067c3ec4f1ad861e05"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.5489936
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 21.0,
+        "label": "X"
+      },
+      {
+        "x": 42.0,
+        "label": "W"
+      },
+      {
+        "x": 63.0,
+        "label": "K"
+      },
+      {
+        "x": 84.0,
+        "label": "G"
+      },
+      {
+        "x": 105.0,
+        "label": "L"
+      },
+      {
+        "x": 126.0,
+        "label": "U"
+      },
+      {
+        "x": 147.0,
+        "label": "W"
+      },
+      {
+        "x": 168.0,
+        "label": "L"
+      },
+      {
+        "x": 189.0,
+        "label": "K"
+      },
+      {
+        "x": 210.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

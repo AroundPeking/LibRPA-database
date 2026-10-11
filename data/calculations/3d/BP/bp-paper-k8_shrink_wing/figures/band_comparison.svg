@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="68" y="34" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1c3441">BP · KS / EXX / GW</text>
+<text x="1120" y="34" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64747c">ABACUS band tables</text>
+<defs>
+<clipPath id="panel-0"><rect x="68" y="72" width="350" height="350"/></clipPath>
+<clipPath id="panel-1"><rect x="443" y="72" width="350" height="350"/></clipPath>
+<clipPath id="panel-2"><rect x="818" y="72" width="350" height="350"/></clipPath>
+</defs>
+<text x="68" y="58" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#496ca8">KS</text>
+<line x1="68" y1="422.00" x2="418" y2="422.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="68" y1="272.00" x2="418" y2="272.00" stroke="#b9c5ca" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="68" y1="72.00" x2="418" y2="72.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="68.00" y1="72" x2="68.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="68.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">G</text>
+<line x1="418.00" y1="72" x2="418.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="418.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">X</text>
+<path d="M68.00,427.15 L85.50,426.78 L103.00,425.66 L120.50,423.78 L138.00,421.17 L155.50,417.81 L173.00,413.72 L190.50,408.91 L208.00,403.38 L225.50,397.14 L243.00,390.23 L260.50,382.65 L278.00,374.44 L295.50,365.63 L313.00,356.30 L330.50,346.52 L348.00,336.45 L365.50,326.37 L383.00,316.88 L400.50,309.31 L418.00,306.19" fill="none" stroke="#496ca8" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-0)"/>
+<path d="M68.00,41.13 L85.50,42.85 L103.00,47.54 L120.50,54.23 L138.00,62.01 L155.50,70.53 L173.00,81.53 L190.50,93.50 L208.00,106.23 L225.50,119.55 L243.00,133.31 L260.50,147.40 L278.00,161.69 L295.50,176.06 L313.00,190.39 L330.50,204.52 L348.00,218.24 L365.50,231.21 L383.00,242.80 L400.50,251.65 L418.00,255.20" fill="none" stroke="#496ca8" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-0)"/>
+<path d="M68.00,41.13 L85.50,42.85 L103.00,47.54 L120.50,54.23 L138.00,62.01 L155.50,70.27 L173.00,78.62 L190.50,86.80 L208.00,94.66 L225.50,102.10 L243.00,109.04 L260.50,115.42 L278.00,121.21 L295.50,126.37 L313.00,130.89 L330.50,134.73 L348.00,137.90 L365.50,140.37 L383.00,142.14 L400.50,143.21 L418.00,143.56" fill="none" stroke="#496ca8" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-0)"/>
+<path d="M68.00,41.13 L85.50,42.47 L103.00,46.38 L120.50,52.61 L138.00,60.78 L155.50,70.27 L173.00,78.62 L190.50,86.80 L208.00,94.66 L225.50,102.10 L243.00,109.04 L260.50,115.42 L278.00,121.21 L295.50,126.37 L313.00,130.89 L330.50,134.73 L348.00,137.90 L365.50,140.37 L383.00,142.14 L400.50,143.21 L418.00,143.56" fill="none" stroke="#496ca8" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-0)"/>
+<line x1="68" y1="72" x2="68" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<line x1="68" y1="422" x2="418" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<text x="243.00" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64747c">k-path</text>
+<text x="58" y="426.00" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64747c">-6</text>
+<text x="58" y="276.00" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64747c">0</text>
+<text x="58" y="76.00" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64747c">8</text>
+<text x="20" y="247.00" transform="rotate(-90 20,247.00)" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4e616a">Energy (eV)</text>
+<text x="443" y="58" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#c4773c">EXX</text>
+<line x1="443" y1="422.00" x2="793" y2="422.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="443" y1="272.00" x2="793" y2="272.00" stroke="#b9c5ca" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="443" y1="72.00" x2="793" y2="72.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="443.00" y1="72" x2="443.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="443.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">G</text>
+<line x1="793.00" y1="72" x2="793.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="793.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">X</text>
+<path d="M443.00,639.17 L460.50,638.69 L478.00,637.23 L495.50,634.77 L513.00,631.25 L530.50,626.65 L548.00,620.97 L565.50,614.22 L583.00,606.44 L600.50,597.67 L618.00,587.95 L635.50,577.31 L653.00,565.76 L670.50,553.34 L688.00,540.10 L705.50,526.14 L723.00,511.61 L740.50,496.85 L758.00,482.59 L775.50,470.74 L793.00,465.64" fill="none" stroke="#c4773c" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-1)"/>
+<path d="M443.00,82.48 L460.50,84.32 L478.00,89.80 L495.50,98.43 L513.00,109.20 L530.50,126.31 L548.00,143.27 L565.50,161.67 L583.00,181.07 L600.50,201.17 L618.00,221.81 L635.50,242.84 L653.00,264.13 L670.50,285.50 L688.00,306.76 L705.50,327.69 L723.00,348.04 L740.50,367.43 L758.00,385.06 L775.50,398.96 L793.00,404.75" fill="none" stroke="#c4773c" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-1)"/>
+<path d="M443.00,82.48 L460.50,84.32 L478.00,89.80 L495.50,98.43 L513.00,109.20 L530.50,121.09 L548.00,133.37 L565.50,145.57 L583.00,157.39 L600.50,168.59 L618.00,179.01 L635.50,188.55 L653.00,197.15 L670.50,204.79 L688.00,211.47 L705.50,217.15 L723.00,221.83 L740.50,225.45 L758.00,228.03 L775.50,229.56 L793.00,230.07" fill="none" stroke="#c4773c" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-1)"/>
+<path d="M443.00,82.48 L460.50,84.36 L478.00,89.94 L495.50,99.06 L513.00,111.36 L530.50,121.09 L548.00,133.37 L565.50,145.57 L583.00,157.39 L600.50,168.59 L618.00,179.01 L635.50,188.55 L653.00,197.15 L670.50,204.79 L688.00,211.47 L705.50,217.15 L723.00,221.83 L740.50,225.45 L758.00,228.03 L775.50,229.56 L793.00,230.07" fill="none" stroke="#c4773c" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-1)"/>
+<line x1="443" y1="72" x2="443" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<line x1="443" y1="422" x2="793" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<text x="618.00" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64747c">k-path</text>
+<text x="818" y="58" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#16818a">GW</text>
+<line x1="818" y1="422.00" x2="1168" y2="422.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="818" y1="272.00" x2="1168" y2="272.00" stroke="#b9c5ca" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="818" y1="72.00" x2="1168" y2="72.00" stroke="#edf1f2" stroke-width="1"/>
+<line x1="818.00" y1="72" x2="818.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="818.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">G</text>
+<line x1="1168.00" y1="72" x2="1168.00" y2="422" stroke="#dfe7e9" stroke-width="1"/>
+<text x="1168.00" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">X</text>
+<path d="M818.00,439.78 L835.50,439.39 L853.00,438.23 L870.50,436.32 L888.00,433.67 L905.50,430.28 L923.00,426.16 L940.50,421.32 L958.00,415.76 L975.50,409.50 L993.00,402.55 L1010.50,394.92 L1028.00,386.64 L1045.50,377.72 L1063.00,368.23 L1080.50,358.24 L1098.00,347.88 L1115.50,337.40 L1133.00,327.39 L1150.50,319.21 L1168.00,315.75" fill="none" stroke="#16818a" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-2)"/>
+<path d="M818.00,46.94 L835.50,48.66 L853.00,53.43 L870.50,60.37 L888.00,68.56 L905.50,79.04 L923.00,90.84 L940.50,103.56 L958.00,116.97 L975.50,130.87 L993.00,145.09 L1010.50,159.52 L1028.00,174.04 L1045.50,188.56 L1063.00,202.96 L1080.50,217.12 L1098.00,230.71 L1115.50,243.22 L1133.00,255.06 L1150.50,264.94 L1168.00,269.06" fill="none" stroke="#16818a" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-2)"/>
+<path d="M818.00,46.95 L835.50,48.66 L853.00,53.44 L870.50,60.34 L888.00,68.52 L905.50,77.27 L923.00,86.15 L940.50,94.88 L958.00,103.30 L975.50,111.21 L993.00,118.58 L1010.50,125.34 L1028.00,131.47 L1045.50,136.91 L1063.00,141.68 L1080.50,145.73 L1098.00,149.06 L1115.50,151.70 L1133.00,153.56 L1150.50,154.60 L1168.00,154.96" fill="none" stroke="#16818a" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-2)"/>
+<path d="M818.00,46.97 L835.50,48.45 L853.00,52.76 L870.50,59.58 L888.00,68.49 L905.50,77.31 L923.00,86.19 L940.50,94.92 L958.00,103.27 L975.50,111.20 L993.00,118.58 L1010.50,125.34 L1028.00,131.46 L1045.50,136.92 L1063.00,141.68 L1080.50,145.75 L1098.00,149.09 L1115.50,151.64 L1133.00,153.49 L1150.50,154.67 L1168.00,155.05" fill="none" stroke="#16818a" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-2)"/>
+<line x1="818" y1="72" x2="818" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<line x1="818" y1="422" x2="1168" y2="422" stroke="#8b9aa0" stroke-width="1"/>
+<text x="993.00" y="468" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64747c">k-path</text>
+</svg>

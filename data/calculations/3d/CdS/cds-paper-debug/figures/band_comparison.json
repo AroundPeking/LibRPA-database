@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "calculation_id": "cds-paper-debug",
+  "source_result_paths": [
+    "data/calculations/3d/CdS/cds-paper-debug/results/KS_band_spin_1.dat",
+    "data/calculations/3d/CdS/cds-paper-debug/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/CdS/cds-paper-debug/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/CdS/cds-paper-debug/results/KS_band_spin_1.dat": "ebf583b82b86d6cfecd60e65448b5a923b28348d3f05211477bf9a392a512c38",
+    "data/calculations/3d/CdS/cds-paper-debug/results/EXX_band_spin_1.dat": "c54e1f2885588da2400ffce28dbcf5262fd8d5b454ed72a14e6e3307366cf9ef",
+    "data/calculations/3d/CdS/cds-paper-debug/results/GW_band_spin_1.dat": "3f71c8456308e1aad422bd9b9a42dfd3389fc30ffeae2eff3222bc6d95d39efc"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "K"
+      },
+      {
+        "x": 40.0,
+        "label": "L"
+      },
+      {
+        "x": 60.0,
+        "label": "U"
+      },
+      {
+        "x": 80.0,
+        "label": "W"
+      },
+      {
+        "x": 100.0,
+        "label": "W2"
+      },
+      {
+        "x": 120.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "calculation_id": "nacl-paper-sg15",
+  "source_result_paths": [
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat": "85d3ba9e42ecf3b24a8668b1b639fa0fce577efe346310c59be26e6eeafabcf6",
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat": "76d3cb51c23988932bd8bf032a1d670aca9c746410ad94f7c854dbaedb92dd81",
+    "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat": "b0ac0390876e295cce1825e1483ab8ef3f9deedb525c12985558edd8b5ed640a"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      10.832240200000001
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "K"
+      },
+      {
+        "x": 40.0,
+        "label": "L"
+      },
+      {
+        "x": 60.0,
+        "label": "U"
+      },
+      {
+        "x": 80.0,
+        "label": "W"
+      },
+      {
+        "x": 100.0,
+        "label": "W2"
+      },
+      {
+        "x": 120.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}

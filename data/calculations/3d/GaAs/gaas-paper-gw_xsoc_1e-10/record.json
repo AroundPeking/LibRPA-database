@@ -192,7 +192,36 @@
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       }
     ],
-    "figures": []
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.svg",
+        "sha256": "d264e04e026c35a6673fcd01d3cbe3f1bda34ca049070e9593b42ecf56f688d3",
+        "size_bytes": 145155,
+        "original_sha256": "d264e04e026c35a6673fcd01d3cbe3f1bda34ca049070e9593b42ecf56f688d3",
+        "label": "KS / EXX / GW band comparison",
+        "transformation": "generated from archived ABACUS band tables",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
+        ]
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.json",
+        "sha256": "5392ac98028d468f170ce9f272bf1443f7988c3c512e7166e2ab00e3756b2506",
+        "size_bytes": 1646,
+        "original_sha256": "5392ac98028d468f170ce9f272bf1443f7988c3c512e7166e2ab00e3756b2506",
+        "label": "Band figure provenance",
+        "transformation": "generated alongside the band comparison figure",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
+        ]
+      }
+    ]
   },
   "recommendation": null,
   "basis_comparison": {
@@ -218,9 +247,24 @@
       "status": "low-precision reference"
     },
     "failed_candidates": [
-      {"label": "occ+8 SVD", "gw_gap_ev": -2.780726, "exx_gap_ev": -9.289548, "status": "divergent or unphysical"},
-      {"label": "occ+16 SVD", "gw_gap_ev": -237.111778, "exx_gap_ev": -22.024007, "status": "divergent or unphysical"},
-      {"label": "occ+49 SVD", "gw_gap_ev": -541170.106235, "exx_gap_ev": -541168.450410, "status": "divergent or unphysical"}
+      {
+        "label": "occ+8 SVD",
+        "gw_gap_ev": -2.780726,
+        "exx_gap_ev": -9.289548,
+        "status": "divergent or unphysical"
+      },
+      {
+        "label": "occ+16 SVD",
+        "gw_gap_ev": -237.111778,
+        "exx_gap_ev": -22.024007,
+        "status": "divergent or unphysical"
+      },
+      {
+        "label": "occ+49 SVD",
+        "gw_gap_ev": -541170.106235,
+        "exx_gap_ev": -541168.45041,
+        "status": "divergent or unphysical"
+      }
     ],
     "conclusion": "SVD replacements diverged and must not replace the stable physical basis; retain them as diagnostic evidence."
   },

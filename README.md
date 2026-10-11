@@ -19,9 +19,15 @@ Serve the repository as a static site to open the catalog, or read `database/dat
 
 The local catalog has separate Materials and Basis sets views. Search accepts a
 material, formula, element, set ID, or calculation ID; the dimension filter
-keeps 2D and 3D records visibly separate. Material cards expose DFT/EXX/GW
-band files, figures, RPA fields when recorded, validation gates, input files,
-logs, and ABACUS/LibRPA commits.
+keeps 2D and 3D records visibly separate. The material list stays compact and
+opens a dedicated detail page for each record. That page contains the DFT/EXX/GW
+figures, raw band files, RPA fields when recorded, validation gates, input
+files, logs, and ABACUS/LibRPA commits. Figures are deliberately kept off the
+list so the catalog remains usable when more materials are added.
+
+For archived 3D ABACUS band tables, the checked-in SVG figures can be rebuilt
+with `python3 scripts/generate_band_figures.py`. The script preserves the raw
+tables and records source paths and SHA-256 hashes in each figure sidecar.
 
 The generation protocol, validation ladder, and ABACUS-to-LibRPA handoff are documented in the companion skill, especially [`references/database.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/references/database.md), [`SKILL.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/SKILL.md), and [`CONTRIBUTING.md`](CONTRIBUTING.md).
 

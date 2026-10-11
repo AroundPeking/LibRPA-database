@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "calculation_id": "alas-paper-paper",
+  "source_result_paths": [
+    "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+    "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat"
+  ],
+  "source_sha256": {
+    "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2",
+    "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158",
+    "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437"
+  },
+  "plot": {
+    "y_limits": [
+      -6.0,
+      8.0
+    ],
+    "ticks": [
+      {
+        "x": 0.0,
+        "label": "G"
+      },
+      {
+        "x": 20.0,
+        "label": "K"
+      },
+      {
+        "x": 40.0,
+        "label": "L"
+      },
+      {
+        "x": 60.0,
+        "label": "U"
+      },
+      {
+        "x": 80.0,
+        "label": "W"
+      },
+      {
+        "x": 100.0,
+        "label": "W2"
+      },
+      {
+        "x": 120.0,
+        "label": "X"
+      }
+    ]
+  },
+  "note": "Derived from archived ABACUS band tables; source tables are unchanged."
+}
