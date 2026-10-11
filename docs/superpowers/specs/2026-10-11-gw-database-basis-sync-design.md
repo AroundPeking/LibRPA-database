@@ -64,11 +64,20 @@ cannot silently diverge. No CI job compiles ABACUS or LibRPA.
 ## Static website information architecture
 
 The landing page follows the C2DB-style information architecture without
-copying its CC BY-NC implementation: a global search accepts either an element,
-material name, formula, or record ID; dimension and evidence filters remain
-visible; and a basis-first browse view lists published sets by element and
-family. Selecting a set shows its linked 2D/3D calculations. Selecting a
-material opens a detail view with a compact summary and accordion sections:
+copying its CC BY-NC implementation. The first screen is basis-first, because
+the immediate reuse question is “which tested set can I download and bind?”;
+material-first browsing remains available beside it. A global search accepts
+either an element, material name, formula, or record ID. Dimension and
+evidence filters remain visible. The two entry points share one catalog and
+URL-addressable detail state:
+
+- element/basis browse groups published sets by element and family, then shows
+  their linked 2D/3D calculations;
+- material browse groups calculations by material and dimension, then shows
+  the exact basis sets used by each calculation.
+
+Selecting a material opens a detail view with a compact summary and accordion
+sections:
 
 1. structure and provenance;
 2. PP / physical NAO / `for_aux` / ABF bindings;
