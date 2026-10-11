@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "calculation_id": "alas-paper-paper",
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/abacus.out",
+      "sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "alas-paper-paper",
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+      "sha256": "155d3136b4037439e2df49259ace4cacaaaf088cb8d46df0d0d71c11b93e425e",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "alp-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/abacus.out",
+      "sha256": "89af1adce1b36efe86e8d208cf82ef882ed751f08edd7c83923c9dfd391fd702",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "alp-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out",
+      "sha256": "e4e68d0bc5e86248bd119688c0f5881f11ca5308cb70404e0be195570809c254",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "alsb-paper-gw_gth_modspencer",
+      "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/abacus.out",
+      "sha256": "8f1fb380e624bd5163335a47004e52ed72bd972873590eb08c12f5c57dca6708",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "alsb-paper-gw_gth_modspencer",
+      "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out",
+      "sha256": "19179ef7f858abd5690a2a4a4b07722ae3f5b6b4f7fd10e1529d62b03182185a",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "bas-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/abacus.out",
+      "sha256": "f1d25c37c9787bcbb61875303a2dc3845e20aa9f66b6ee515f4ff4fa60942ffe",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "bas-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out",
+      "sha256": "246e6583826db72fdc4e4607e070d04835ae0e085071054dff817484b7fc5e3c",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "bn-paper-sg15",
+      "path": "data/calculations/3d/BN/bn-paper-sg15/logs/abacus.out",
+      "sha256": "38e41edf05f0e9720262510b4db8790ff17f87e88bbcb878b9b8a7d577c09bfa",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "bn-paper-sg15",
+      "path": "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out",
+      "sha256": "129a32449d822fedf470e1f80a35c6ef8534de0a4e9211c4b33ee8d73ab5710b",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "bp-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/abacus.out",
+      "sha256": "73d3591f535abb8d08621ae2230ee9eb4ed84a245e482276649c939054a7c8ef",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "bp-paper-k8_shrink_wing",
+      "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out",
+      "sha256": "3a2e05dcc07afb9f03bcb515a092a2e70fee5319a1b2f5c3bc8b4ef1e52f246f",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "c-paper-sg15_cs1e-5",
+      "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/abacus.out",
+      "sha256": "3c603b045e3b8251b6ed3392db52f1edff69248690615e88110b0b972b29a905",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "c-paper-sg15_cs1e-5",
+      "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out",
+      "sha256": "51e78fb2d67e6b32f8989ac9db4517b321063b6b72b4c9fe4949b9bf4ba0dc51",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "cao-paper-24freq",
+      "path": "data/calculations/3d/CaO/cao-paper-24freq/logs/abacus.out",
+      "sha256": "fd95d46f7c5515aa61611e8522f7c0d2f0f0d9380c409647537967401d2426cc",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "cao-paper-24freq",
+      "path": "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out",
+      "sha256": "0b4f3f133ef49913246697243de501eca3c23fc317b0e3585792a463ccd690ce",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "cds-paper-debug",
+      "path": "data/calculations/3d/CdS/cds-paper-debug/logs/abacus.out",
+      "sha256": "4e781d23d3dba9ea111fd582d644598a092d08425cbe66fc7eb79f1fe47e870c",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "cds-paper-debug",
+      "path": "data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out",
+      "sha256": "ba51dafc0507573078ca59347107c78c1f8b9d0c4d1e4c6226503a21cc59118d",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "gaas-paper-gw_xsoc_1e-10",
+      "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out",
+      "sha256": "eb58115569bf32a41ce35e04166443b412ed54a87c8299465654ec61ad4d0798",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "gaas-paper-gw_xsoc_1e-10",
+      "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out",
+      "sha256": "5936f6cee7e3bc652f10f4d75ce54ff4c0b9055dab4ec9cea8a517f3c0ba3f6c",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "gan-paper-pca1e-6",
+      "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/logs/abacus.out",
+      "sha256": "7754ca032b78e1993ba03b5a39a5fe107561fc375c83563d51ff9d71dbbbaf90",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "gan-paper-pca1e-6",
+      "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out",
+      "sha256": "5e92347c928ed6987a8351a4687167b8d6d7fc38e3585dac340d040655346d57",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "gap-paper-gw_shrink_chi",
+      "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/abacus.out",
+      "sha256": "3ca0f96d4bfc73b4da5dbdf01042105899f2ac071b4512e4d023f5ea161ecef7",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "gap-paper-gw_shrink_chi",
+      "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out",
+      "sha256": "884e136391cf8580026702af72e49c151b7cd1e7fedb9df3290592d2654beb7d",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+      "sha256": "65b92feb5197f4d2aee35d2ebd8fdc5742dd64c0eb958e9bc937361f13751485",
+      "label": "running_scf.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__warning.log",
+      "sha256": "b73218594670594cb218eb89d0b99e4deda3ac3c17bb6f3e78508de998368fb4",
+      "label": "warning.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__direct_spectrum_validation.recovered.out",
+      "sha256": "0e9a86120b377eb59df309cc52c2e900245b8e5fc0cd00c3253a237e57857cf6",
+      "label": "direct_spectrum_validation.recovered.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out",
+      "sha256": "d04bfb441ebdacedeef4e1d96a28d3ffc50851af9704ee36584b01114a739a04",
+      "label": "librpa_gw_fgext_k12_3601934.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_para_nprocs_1_myid_0.out",
+      "sha256": "7d6d3a842cda1ab5bb1178215436e9103146626c236aaf5d6500166e408c0751",
+      "label": "librpa_para_nprocs_1_myid_0.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__slurm-3601934.out",
+      "sha256": "88b579a2ec9987dcd88e05fbe8d40e14611adcad76fc732392ec83666c7b402b",
+      "label": "slurm-3601934.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log",
+      "sha256": "68ad323b26293dce4eaf3d7dd60e0524a23d2e28a0b5095128697161e6acafe1",
+      "label": "running_nscf.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__warning.log",
+      "sha256": "d7e0e97908010619e577634028820335e3f953fdb63f6055548c8fb218bf9a04",
+      "label": "warning.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__abacus_pbe_path.out",
+      "sha256": "97cd5f5607d9139885c902114cc27a69cb49b430e65a3ca7f846d03f2774ea49",
+      "label": "abacus_pbe_path.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__OUT.ABACUS__running_scf.log",
+      "sha256": "65b92feb5197f4d2aee35d2ebd8fdc5742dd64c0eb958e9bc937361f13751485",
+      "label": "running_scf.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__Out__running.log",
+      "sha256": "75645b35898f3113a50b9204ed4360bd33d7eb7b1bcd6824ed2b20141718d294",
+      "label": "running.log"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__pyatb_velocity_gen.out",
+      "sha256": "a1592e5d424008a49cd09716f98497a9380d29b6d514996ed82f654d7bd2b24d",
+      "label": "pyatb_velocity_gen.out"
+    },
+    {
+      "calculation_id": "hbn-tzdp10-fgext-20261008",
+      "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out",
+      "sha256": "d04bfb441ebdacedeef4e1d96a28d3ffc50851af9704ee36584b01114a739a04",
+      "label": "librpa_gw_fgext_k12_3601934.out"
+    },
+    {
+      "calculation_id": "lif-paper-jy",
+      "path": "data/calculations/3d/LiF/lif-paper-jy/logs/abacus.out",
+      "sha256": "c40948db9b98e455240355ac328857f79eef582c8650a553d1a7b677b0ad6a96",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "lif-paper-jy",
+      "path": "data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out",
+      "sha256": "3d585699b32f6d941f2eb6f521e7dcf4cc48018e1918bb22ee8e68f701e028c6",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "mgo-paper-fix_gap",
+      "path": "data/calculations/3d/MgO/mgo-paper-fix_gap/logs/abacus.out",
+      "sha256": "d8489b84bfd35f77caf0799a9d762f400dd85d3b32451392b6beefac7fcf239a",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "mgo-paper-fix_gap",
+      "path": "data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out",
+      "sha256": "99c3d66f49535dc85bfe8cf133d6be4131104892bf280cd5feb5577eb98b886f",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "nacl-paper-sg15",
+      "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out",
+      "sha256": "0cbbab472eb92485e5e6789b207c4292e486c39ffe57a408c7ccc842b8dd9a2f",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "nacl-paper-sg15",
+      "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
+      "sha256": "9afaf30081782e030d928f00a5d799c8a77317ffea76aa452d309e1a45aa29ef",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "si-paper-all_kpath",
+      "path": "data/calculations/3d/Si/si-paper-all_kpath/logs/abacus.out",
+      "sha256": "1750b47b3eae15660558ef1ac329d151b74bf9affb45adbe41c1e69e8ac1cd8e",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "si-paper-all_kpath",
+      "path": "data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out",
+      "sha256": "1653704f04fb840984511b5e8a7842c9a5725cebdd91155a4a4b3d942b8aee22",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "sic-paper-pca1e-6",
+      "path": "data/calculations/3d/SiC/sic-paper-pca1e-6/logs/abacus.out",
+      "sha256": "9cf21d42864778ae304a2b53af113fcd6deb006945c56135e69f9489f492519a",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "sic-paper-pca1e-6",
+      "path": "data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out",
+      "sha256": "d68aae360246c284d7808989aa7aa9960c8d23616845f01047e5c1a0d6f6f14f",
+      "label": "librpa.out"
+    }
+  ]
+}

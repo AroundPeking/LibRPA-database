@@ -83,6 +83,91 @@ class LibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "private path"):
             self.lib.validate(self.root, [self.set], [self.case])
 
+    def _make_publishable(self):
+        self.set["files"] = [
+            self.file,
+            self._add_file("elements/Si/orbitals/test.orb", b"physical nao\n", "nao"),
+            self._add_file("elements/Si/auxiliary/test.abfs", b"auxiliary basis\n", "abf"),
+        ]
+        self.set["source"] = {
+            "url": "https://example.org/si-basis",
+            "license": "CC0-1.0",
+            "redistribution": "permitted",
+        }
+        self.set["publication"] = {
+            "status": "publishable",
+            "calculation_ids": ["si-control"],
+        }
+        self.case["status"] = "gw_validated"
+        self.case["software"] = {
+            "abacus": {"commit": "a" * 40},
+            "librpa": {"commit": "b" * 40},
+        }
+        self.case["files"] = {
+            "inputs": [self._add_file("calculations/si/INPUT", b"input\n", "inputs")],
+            "results": [self._add_file("calculations/si/GW_band.dat", b"bands\n", "results")],
+        }
+        self.case["publication"] = {
+            "status": "publishable",
+            "basis_set_ids": ["Si-test"],
+        }
+
+    def _add_file(self, relative_path, contents, role):
+        path = self.root / relative_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(contents)
+        return {
+            "path": path.relative_to(self.root).as_posix(),
+            "sha256": hashlib.sha256(contents).hexdigest(),
+            "role": role,
+        }
+
+    def test_complete_publishable_case_and_basis_are_accepted(self):
+        self._make_publishable()
+        self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_publishable_case_requires_exact_full_commits(self):
+        self._make_publishable()
+        self.case["software"]["librpa"]["commit"] = None
+        with self.assertRaisesRegex(ValueError, "publishable.*full.*commit"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_publishable_case_requires_inputs_and_final_results(self):
+        self._make_publishable()
+        self.case["files"]["inputs"] = []
+        with self.assertRaisesRegex(ValueError, "publishable.*input"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_publishable_case_rejects_intermediate_files(self):
+        self._make_publishable()
+        self.case["files"]["results"].append(
+            self._add_file("calculations/si/restart/WFC_restart.wfc", b"scratch\n", "results")
+        )
+        with self.assertRaisesRegex(ValueError, "intermediate"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_publishable_basis_requires_explicit_redistribution_terms(self):
+        self._make_publishable()
+        self.set["source"]["redistribution"] = "unknown"
+        with self.assertRaisesRegex(ValueError, "redistribution"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_publishable_case_requires_gw_validation_and_linked_sets(self):
+        self._make_publishable()
+        self.case["status"] = "gw_diagnostic"
+        with self.assertRaisesRegex(ValueError, "gw_validated"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_generated_catalog_check_detects_stale_output(self):
+        catalog = {"schema_version": 1, "basis_sets": [], "calculations": []}
+        with self.assertRaisesRegex(ValueError, "missing or stale"):
+            self.lib.sync_catalog(self.root, catalog, write=False)
+        self.lib.sync_catalog(self.root, catalog, write=True)
+        self.lib.sync_catalog(self.root, catalog, write=False)
+        (self.root / "database/data.json").write_text("{}\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "missing or stale"):
+            self.lib.sync_catalog(self.root, catalog, write=False)
+
 
 if __name__ == "__main__":
     unittest.main()

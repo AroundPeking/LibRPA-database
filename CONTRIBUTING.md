@@ -22,9 +22,16 @@ Use `basis_candidates` for useful follow-up sets whose exact production binding 
 
 ```bash
 python3 scripts/library.py --write-catalog
+python3 scripts/build_indexes.py --write
 python3 scripts/public_scan.py .
 python3 -m unittest discover -s tests -v
 git diff --check
 ```
 
 These checks do not compile ABACUS or LibRPA. Review the exact PP/NAO/ABF association, software commit identity, and physical gate evidence before calling a record validated.
+
+The generated log index is a bijection: every retained file under a case's
+`logs/` directory must appear exactly once in `data/log-index.json`. A basis
+set enters `data/release-index.json` only when both the set and its linked case
+are explicitly `publishable`; the basis-skill mirror then validates those
+same IDs and hashes before accepting a copy.

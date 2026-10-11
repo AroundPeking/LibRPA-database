@@ -26,6 +26,11 @@ data/
 database/data.json
 ```
 
+The generated `data/log-index.json` records one owner for each retained log;
+`data/release-index.json` is the machine-readable list of directly mirrored
+sets. Rebuild both with `python3 scripts/build_indexes.py --write` and use
+`--check` in CI.
+
 `set.json` binds one element's PP, physical NAO, optional auxiliary-generation
 orbital, and ABF. It may also contain portable generation evidence. A
 calculation `record.json` binds the exact set IDs used by that case when the
