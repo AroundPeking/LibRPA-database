@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "id": "Sn-SG15-ecc33ae61185",
+  "element": "Sn",
+  "family": "SG15",
+  "validation_scope": "radial_sanity_passed_material_validation_pending",
+  "notes": "Existing physical NAO and PP reused. New auxiliary-only smooth g, PCA1e-4. No rerun after stale wrapper failure.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "4d51e0bc0169c6a9c9294a114cb5f44095f526a3b63cb5b2224883a4116dfbed"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Sn/pseudopotentials/824e166b680846306c682f7ed838b310c2058da89de4414c32a88cefc66cf7d7.upf",
+      "sha256": "824e166b680846306c682f7ed838b310c2058da89de4414c32a88cefc66cf7d7",
+      "size_bytes": 115413,
+      "original_sha256": "824e166b680846306c682f7ed838b310c2058da89de4414c32a88cefc66cf7d7",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Sn/orbitals/201fce7ba7f3d1c22ba18232a5bce36583be8840248ff08a92a97e59f33fb77e.orb",
+      "sha256": "201fce7ba7f3d1c22ba18232a5bce36583be8840248ff08a92a97e59f33fb77e",
+      "size_bytes": 253539,
+      "original_sha256": "201fce7ba7f3d1c22ba18232a5bce36583be8840248ff08a92a97e59f33fb77e",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Sn/auxiliary/b2345f5db0cd391869e804be93cad6107bef220b55fe08540c77a013139c29b9.abfs",
+      "sha256": "b2345f5db0cd391869e804be93cad6107bef220b55fe08540c77a013139c29b9",
+      "size_bytes": 1499764,
+      "original_sha256": "b2345f5db0cd391869e804be93cad6107bef220b55fe08540c77a013139c29b9",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 11,
+          "P": 8,
+          "D": 10,
+          "F": 8,
+          "G": 8,
+          "H": 6,
+          "I": 6
+        },
+        "basis_dimension": 357
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Sn/for_aux/a362fa110f3a2d2c187f2788da459d9b7d8d4d635cd7692a9b4d39f1d6c94b35.orb",
+      "sha256": "a362fa110f3a2d2c187f2788da459d9b7d8d4d635cd7692a9b4d39f1d6c94b35",
+      "size_bytes": 287796,
+      "original_sha256": "a362fa110f3a2d2c187f2788da459d9b7d8d4d635cd7692a9b4d39f1d6c94b35",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 50
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-0_INPUT",
+      "sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "size_bytes": 720,
+      "original_sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-1_STRU",
+      "sha256": "0f28b6297a31f27f6575f3c0600bf71ea6e4e6a81ac1e23fe7174aecb4bae5b6",
+      "size_bytes": 176,
+      "original_sha256": "0f28b6297a31f27f6575f3c0600bf71ea6e4e6a81ac1e23fe7174aecb4bae5b6",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-2_KPT",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-3_gaussian_recipe.json",
+      "sha256": "b753d53abe08346643e11c257d31f967c02e1fd02a0542c9e5eb5709afea96b3",
+      "size_bytes": 378,
+      "original_sha256": "8ce383f8a57617247018b50ce654f4cd503bb2f8aef4677c6994afb6c19ae96e",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-4_RADIAL_INPUT_GATE.json",
+      "sha256": "48763427c6990958144481fa7daf52270eb39e7986e74696886f4ee5c4d2bc41",
+      "size_bytes": 560,
+      "original_sha256": "48763427c6990958144481fa7daf52270eb39e7986e74696886f4ee5c4d2bc41",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-5_abacus.out",
+      "sha256": "0e0a4069efb1be8fda25c530ca6d6dafe4f2fcde374b85775324e3770c78db1d",
+      "size_bytes": 3352,
+      "original_sha256": "1c357c37ff164501ef11e241a7ce7fad04141db46d63dcd5c06b5ca6071face7",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-6_running_scf.log",
+      "sha256": "f23635d84dcd957470a86d5d510b52db798304d9a44065b7cfd2f622a3d3bd57",
+      "size_bytes": 24093,
+      "original_sha256": "f23635d84dcd957470a86d5d510b52db798304d9a44065b7cfd2f622a3d3bd57",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-SG15-ecc33ae61185/evidence/evidence-7_INDEPENDENT_EXPORT_AUDIT.json",
+      "sha256": "abfb6686b93e91d6be2b3abc9f31f89bbb00ed3042692cfeeb7220425bb5eb87",
+      "size_bytes": 1038,
+      "original_sha256": "abfb6686b93e91d6be2b3abc9f31f89bbb00ed3042692cfeeb7220425bb5eb87",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

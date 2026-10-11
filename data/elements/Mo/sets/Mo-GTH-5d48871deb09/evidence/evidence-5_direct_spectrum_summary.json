@@ -1,0 +1,221 @@
+{
+  "eigenvalue_clipping": false,
+  "gate": "passed",
+  "global_lambda_max": 117205.9139296353,
+  "global_lambda_min": 5.444164772287622e-07,
+  "max_hermitian_relative_fro": 0.0,
+  "method": "direct_mixed_fourier",
+  "negative_count_relative_1e-10": 0,
+  "q_count": 19,
+  "rows": [
+    {
+      "file": "v1_coulomb_full_iq_1_rank0.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 1,
+      "lambda_max": 117205.9139296353,
+      "lambda_min": 1.8863087050485055e-06,
+      "min_diagonal": 2.871494678241128e-05,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_2_rank1.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 2,
+      "lambda_max": 16264.451660537157,
+      "lambda_min": 8.076786935993115e-07,
+      "min_diagonal": 0.11203961566936772,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_3_rank2.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 3,
+      "lambda_max": 4737.879709234672,
+      "lambda_min": 7.276708209283385e-07,
+      "min_diagonal": 0.11641654401525678,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_4_rank3.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 4,
+      "lambda_max": 2206.1784789952326,
+      "lambda_min": 7.306257750160895e-07,
+      "min_diagonal": 0.11943657264111457,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_5_rank4.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 5,
+      "lambda_max": 1296.7082765920945,
+      "lambda_min": 6.69034275288268e-07,
+      "min_diagonal": 0.12110774385765793,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_6_rank5.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 6,
+      "lambda_max": 817.1298051517808,
+      "lambda_min": 6.64809184085638e-07,
+      "min_diagonal": 0.12078572777648555,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_7_rank6.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 7,
+      "lambda_max": 549.567625037728,
+      "lambda_min": 7.121852703902898e-07,
+      "min_diagonal": 0.12057165134008271,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_8_rank7.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 8,
+      "lambda_max": 6210.996838432837,
+      "lambda_min": 7.613369300193741e-07,
+      "min_diagonal": 0.11548025237535256,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_9_rank8.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 9,
+      "lambda_max": 2787.2785138608288,
+      "lambda_min": 7.103894719048294e-07,
+      "min_diagonal": 0.11845819356852283,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_10_rank0.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 10,
+      "lambda_max": 1574.433065476504,
+      "lambda_min": 6.752070399300875e-07,
+      "min_diagonal": 0.12174073293531017,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_11_rank1.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 11,
+      "lambda_max": 988.3075724817525,
+      "lambda_min": 6.621786375469434e-07,
+      "min_diagonal": 0.1219195273182245,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_12_rank2.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 12,
+      "lambda_max": 633.9494078020637,
+      "lambda_min": 6.374106295694798e-07,
+      "min_diagonal": 0.12008339026607719,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_13_rank3.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 13,
+      "lambda_max": 1694.3905269456568,
+      "lambda_min": 7.015971640381655e-07,
+      "min_diagonal": 0.12164017686364523,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_14_rank4.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 14,
+      "lambda_max": 1095.379875373992,
+      "lambda_min": 6.35652729103093e-07,
+      "min_diagonal": 0.12221666298019272,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_15_rank5.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 15,
+      "lambda_max": 715.4361887207087,
+      "lambda_min": 6.225694801823825e-07,
+      "min_diagonal": 0.11938236203306063,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_16_rank6.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 16,
+      "lambda_max": 486.3412191364169,
+      "lambda_min": 5.837201492636422e-07,
+      "min_diagonal": 0.11759681922863138,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_17_rank7.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 17,
+      "lambda_max": 746.6514485226439,
+      "lambda_min": 5.997188363390622e-07,
+      "min_diagonal": 0.11899722361969979,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_18_rank8.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 18,
+      "lambda_max": 507.3722949902831,
+      "lambda_min": 5.64252918652636e-07,
+      "min_diagonal": 0.11682481826557287,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    },
+    {
+      "file": "v1_coulomb_full_iq_19_rank0.dat",
+      "hermitian_relative_fro": 0.0,
+      "iq": 19,
+      "lambda_max": 381.50609832647035,
+      "lambda_min": 5.444164772287622e-07,
+      "min_diagonal": 0.031323426838963754,
+      "naux": 1319,
+      "negative_count_relative_1e-10": 0,
+      "psd_pass_relative_1e-10": true
+    }
+  ]
+}

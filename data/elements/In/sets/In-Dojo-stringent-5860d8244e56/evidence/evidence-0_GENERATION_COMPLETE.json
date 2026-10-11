@@ -1,0 +1,23 @@
+{
+  "array_id": "3349707",
+  "task_id": 0,
+  "task": {
+    "index": 0,
+    "key": "Dojo-stringent_In",
+    "element": "In",
+    "family": "Dojo-stringent",
+    "pp_source": "AroundPeking/ABACUS-orbitals Dojo-NC-SR/Pseudopotential/In.upf",
+    "pp_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+    "recipe_source": "AroundPeking/ABACUS-orbitals main, Dojo-NC-SR/Orbitals_v2.0/In_TZDP/info/10/SIAB_INPUT",
+    "recipe_note": "150 Ry candidate using the upstream 100 Ry training geometry and level definitions",
+    "configuration": "3s3p3d2f",
+    "rcut_bohr": 10,
+    "ecut_ry": 150,
+    "siab_input_sha256": "ab5c52608126fc9c905e5f00a92e70954409271a8c966ef14fb7b048bcbd1e11",
+    "status": "retry1_staged_not_submitted"
+  },
+  "status": "generation_completed_pending_spillage_overlap_PW_NAO_gates",
+  "orbital_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "siab_sha256": "0bdbf228709fdfab172177c1a5ac6c8473f39292f5c6074e2f2ead4b132c7b74"
+}

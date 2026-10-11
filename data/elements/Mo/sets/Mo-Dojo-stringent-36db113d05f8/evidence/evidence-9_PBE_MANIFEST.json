@@ -1,0 +1,103 @@
+{
+  "material": "MoTe2",
+  "phase": "isolated trigonal-prismatic 1H monolayer (2H family)",
+  "structure_source": "C2DB 1MoTe2-1 original downloadable JSON, not a fitted GW-paper geometry",
+  "geometry_source_hash": "f00d6e3780e76b93099dfebaf7bb9a831f79ff0038a14389dfe35384c35439fd",
+  "cell_angstrom": [
+    [
+      3.547392311830623,
+      0.0,
+      0.0
+    ],
+    [
+      -1.7736961559153115,
+      3.0721318592349283,
+      0.0
+    ],
+    [
+      0.0,
+      -0.0,
+      18.6102
+    ]
+  ],
+  "source_pbc": [
+    true,
+    true,
+    false
+  ],
+  "abacus_pbc": [
+    true,
+    true,
+    true
+  ],
+  "pbc_note": "ABACUS periodic vacuum supercell; later direct strict2D Coulomb. No geometry change.",
+  "layer_thickness_angstrom": 3.610199999999999,
+  "fractional_positions": [
+    [
+      0.0,
+      0.0,
+      0.5
+    ],
+    [
+      0.6666666666666666,
+      0.33333333333333337,
+      0.5969951961827384
+    ],
+    [
+      0.6666666666666666,
+      0.33333333333333337,
+      0.40300480381726156
+    ]
+  ],
+  "numbers": [
+    42,
+    52,
+    52
+  ],
+  "scf_mesh": [
+    12,
+    12,
+    1
+  ],
+  "band_path": "Gamma-M-K-Gamma, same endpoint sequence as Champagne2023 Fig3; our 50 intervals per segment, not author-original KPT",
+  "band_points": 151,
+  "nspin": 1,
+  "soc": false,
+  "neutral": true,
+  "physical_nbands": 126,
+  "electrons": 46,
+  "nocc": 23,
+  "asset_origins": {
+    "assets/Mo/pp.upf": "[private-path]",
+    "assets/Mo/physical.orb": "[private-path]",
+    "assets/Te/pp.upf": "[private-path]",
+    "assets/Te/physical.orb": "[private-path]"
+  },
+  "pbe_ecut_ry": 150,
+  "abacus": "[private-path]",
+  "abacus_sha256": "f747d0bc02c05f22bfb5f4e1bb6e85b4a5616bac2b82f4c94f2c543223d65a7d",
+  "abacus_revision": "fee8bbff0b7e0962d6ac350b2ca4bd2c18eda7a5",
+  "latest_master_checked": "4e97815cf162e644eb2c24cc4eabab4067dd23e8",
+  "version_verdict": "REVIEWED_FIXED_BINARY_EXCEPTION: tested SnSe/GeTe ordinary PBE/direct route; later master changes inactive Sternheimer, not latest binary",
+  "oml_profile": "abacus-librpa-2026-09-06-v6",
+  "oml_match": false,
+  "scientific_acceptance": "not evaluated; initial PBE screening only; no head or GW submission",
+  "inputs": {
+    "assets/Mo/physical.orb": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+    "assets/Mo/pp.upf": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+    "assets/Te/physical.orb": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+    "assets/Te/pp.upf": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+    "check_pbe_inputs.py": "172edab94387b82e211bee905e9c6e6dad870cab623e244af9dabb9b3ed95a5a",
+    "environment.sh": "85222bcb6cf15b3edfc91c749100d810bbb0399ca1c5f2fe0739bb4be645767c",
+    "pbe_band/INPUT": "04279d7ddce00cbd4f7b0778a050e6f1679a8aa439d00da01e362dbcb3bd0311",
+    "pbe_band/KPT": "72513e3b1504563bf85b46ffc9cb5f595789ed439e2ed6059f1b6ef3b72f0889",
+    "pbe_band/STRU": "1e7c726b41f00ba476573d103f8ad32d140d36d130fda7a4c916e8a947cb26ce",
+    "pbe_scf/INPUT": "3ec70ebcbcc93327809ce0c198f53d216e05ad7d77fb7b13f7f72527fa692e85",
+    "pbe_scf/KPT": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+    "pbe_scf/STRU": "1e7c726b41f00ba476573d103f8ad32d140d36d130fda7a4c916e8a947cb26ce",
+    "pbe_scf.sbatch": "82c1dad199521765706f2df2f24716a8bc90b916cf7a24eccecd78a312d7aa35",
+    "prepare_pbe.py": "95a1098e71caa212c3cc91e7cb066f2cd1c25a74cfca33cf43bb0b612612cdaf",
+    "provenance/c2db_1MoTe2-1.json": "f00d6e3780e76b93099dfebaf7bb9a831f79ff0038a14389dfe35384c35439fd",
+    "submit_pbe.py": "58cc7935d717a7325f7d919afdf563a44b78353a831f78c6065aafdf01e862db"
+  }
+}

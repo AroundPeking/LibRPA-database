@@ -1,0 +1,11 @@
+{
+  "stage": "bounded_login_NSCF",
+  "parent_job": "3328958",
+  "threads": 4,
+  "timeout_seconds": 600,
+  "charge_sha256": "85a0c9f428de4687b81fc4de61d0f8e65af84fa98c557508081eb8cac367d49e",
+  "binary_sha256": "f747d0bc02c05f22bfb5f4e1bb6e85b4a5616bac2b82f4c94f2c543223d65a7d",
+  "started": 1789206228.1860018,
+  "returncode": 0,
+  "elapsed_seconds": 111.94797682762146
+}

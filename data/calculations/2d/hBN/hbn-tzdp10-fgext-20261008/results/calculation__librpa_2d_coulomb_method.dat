@@ -1,0 +1,9 @@
+# ABACUS reader-v1 strict 2D Coulomb method
+version = 1
+method = direct_mixed_fourier
+ecut_ry = 110
+kz_order = 64
+gamma_order = 8
+nq = 19
+naux = 232
+source_revision = unknown

@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "id": "hbn-table-gw",
+  "dimension": "2d",
+  "material": "hBN",
+  "formula": "hBN",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "B", "set_id": "B-GTH-e07d6fb55c4a", "scope": "contextual hBN extension candidate; exact older case binding pending"},
+    {"element": "N", "set_id": "N-GTH-f896bb84c70f", "scope": "contextual hBN extension candidate; exact older case binding pending"},
+    {"element": "B", "set_id": "B-SG15-4a1c4e291908", "scope": "contextual alternative PP family; exact older case binding pending"},
+    {"element": "N", "set_id": "N-SG15-da2244926434", "scope": "contextual alternative PP family; exact older case binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 6.68084,
+    "unit": "eV",
+    "notes": "near-frontier diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/results/KS_bands.dat",
+        "sha256": "b0a31b72fda382ce94ed1c705baf8201ba4369af86bc3683d2f83ee0735ec5a6",
+        "size_bytes": 165891,
+        "original_sha256": "b0a31b72fda382ce94ed1c705baf8201ba4369af86bc3683d2f83ee0735ec5a6",
+        "label": "hbn_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/results/EXX_bands.dat",
+        "sha256": "bd5dfa088b2fc400cdd16c156068dea94c771261ab5f61528096e2dc4049de89",
+        "size_bytes": 165891,
+        "original_sha256": "bd5dfa088b2fc400cdd16c156068dea94c771261ab5f61528096e2dc4049de89",
+        "label": "hbn_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat",
+        "sha256": "621e67ca32a9038401cd2d17818382497a3df755032151133606c07abd28175f",
+        "size_bytes": 165891,
+        "original_sha256": "621e67ca32a9038401cd2d17818382497a3df755032151133606c07abd28175f",
+        "label": "hbn_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json",
+        "sha256": "6a10f56bffc3372c0549b22f442f0069b7152ba79a702c67d2876e18d95e05df",
+        "size_bytes": 56803,
+        "original_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
+        "label": "hbn.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_ks.png",
+        "sha256": "4eb2e0d71eb2c43194307a55554de7130cca65faa0024efbb7e764d6533f575b",
+        "size_bytes": 268661,
+        "original_sha256": "4eb2e0d71eb2c43194307a55554de7130cca65faa0024efbb7e764d6533f575b",
+        "label": "hbn_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_ks.pdf",
+        "sha256": "ca0d66407ac954942f753eb81f1d07ce405e6e60a06a564195b27b0352fa9997",
+        "size_bytes": 51119,
+        "original_sha256": "ca0d66407ac954942f753eb81f1d07ce405e6e60a06a564195b27b0352fa9997",
+        "label": "hbn_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_exx.png",
+        "sha256": "5f6a105229e491698b34bba7bf6ac24943fae2c70a6c48947f1f24d270b042e7",
+        "size_bytes": 258049,
+        "original_sha256": "5f6a105229e491698b34bba7bf6ac24943fae2c70a6c48947f1f24d270b042e7",
+        "label": "hbn_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_exx.pdf",
+        "sha256": "25aa4365242978598e854d99f6f7d0a561e953c7d69e573643b5f430ad213079",
+        "size_bytes": 52719,
+        "original_sha256": "25aa4365242978598e854d99f6f7d0a561e953c7d69e573643b5f430ad213079",
+        "label": "hbn_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_gw.png",
+        "sha256": "bbf8fef476ac1fbf69670d88066f846b7d47be90cf87e62a799dfc371c957f63",
+        "size_bytes": 309333,
+        "original_sha256": "bbf8fef476ac1fbf69670d88066f846b7d47be90cf87e62a799dfc371c957f63",
+        "label": "hbn_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_gw.pdf",
+        "sha256": "c0317577055edbce7635e8a53ddb2bbcb68d67ab24fa72a88c91c04f8a7a37f1",
+        "size_bytes": 53091,
+        "original_sha256": "c0317577055edbce7635e8a53ddb2bbcb68d67ab24fa72a88c91c04f8a7a37f1",
+        "label": "hbn_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf"
+  },
+  "scientific_scope": {
+    "original_status": "near-frontier diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

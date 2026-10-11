@@ -1,0 +1,229 @@
+{
+  "element": "Ge",
+  "family": "Dojo-NC-SR",
+  "files": [
+    {
+      "asset": "assets/111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72/payload",
+      "path": "pp.upf",
+      "pp_header": {
+        "author": "anonymous",
+        "comment": "",
+        "core_correction": "T",
+        "date": "171031",
+        "element": "Ge",
+        "functional": "PBE",
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "has_gipaw": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "is_coulomb": "F",
+        "is_paw": "F",
+        "is_ultrasoft": "F",
+        "l_local": "-1",
+        "l_max": "2",
+        "mesh_size": "  1560",
+        "number_of_proj": "6",
+        "number_of_wfc": "3",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "rho_cutoff": "   1.55900000000E+01",
+        "total_psenergy": "  -1.59497251239E+02",
+        "z_valence": "   14.00"
+      },
+      "role": "pp",
+      "sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72",
+      "size_bytes": 262557,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72"
+      }
+    },
+    {
+      "asset": "assets/5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d/payload",
+      "dimensions": {
+        "basis_dimension": 41,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "P": 3,
+          "S": 3
+        },
+        "dr": 0.01,
+        "element": "Ge",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 3,
+        "mesh": 1001,
+        "radial_channels": 11,
+        "radius_cutoff": 10.0
+      },
+      "path": "physical.orb",
+      "role": "nao",
+      "sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d",
+      "size_bytes": 252498,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d"
+      }
+    },
+    {
+      "asset": "assets/6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d/payload",
+      "dimensions": {
+        "basis_dimension": 415,
+        "counts": {
+          "D": 10,
+          "F": 8,
+          "G": 9,
+          "H": 6,
+          "I": 6,
+          "J": 2,
+          "K": 1,
+          "P": 9,
+          "S": 10
+        },
+        "dr": 0.01,
+        "element": "Ge",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 8,
+        "mesh": 1001,
+        "radial_channels": 61,
+        "radius_cutoff": 10.0
+      },
+      "path": "auxiliary.abfs",
+      "role": "abfs",
+      "sha256": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d",
+      "size_bytes": 1517176,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d"
+      }
+    },
+    {
+      "asset": "assets/beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d/payload",
+      "dimensions": {
+        "basis_dimension": 50,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "G": 1,
+          "P": 3,
+          "S": 3
+        },
+        "dr": 0.01,
+        "element": "Ge",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 4,
+        "mesh": 1001,
+        "radial_channels": 12,
+        "radius_cutoff": 10.0
+      },
+      "path": "for_aux_0.orb",
+      "role": "for_aux",
+      "sha256": "beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d",
+      "size_bytes": 286755,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d"
+      }
+    },
+    {
+      "asset": "assets/dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9/payload",
+      "path": "evidence/0_INPUT",
+      "role": "evidence",
+      "sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "size_bytes": 720,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece/payload",
+      "path": "evidence/1_KPT",
+      "role": "evidence",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/09f98dac6d67bc49260ba78387646a3bb46e152a4a98f1e1e91fb5fb23c25066/payload",
+      "path": "evidence/2_STRU",
+      "role": "evidence",
+      "sha256": "09f98dac6d67bc49260ba78387646a3bb46e152a4a98f1e1e91fb5fb23c25066",
+      "size_bytes": 175,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/2fc91bbdac4374a80f08184495437382599507b68014e231dc5bcae76395f347/payload",
+      "path": "evidence/3_abacus.out",
+      "role": "evidence",
+      "sha256": "2fc91bbdac4374a80f08184495437382599507b68014e231dc5bcae76395f347",
+      "size_bytes": 3002,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/544eeb0e760566cbc305f557f91fa324a536b6b0f3b5e1c0cedead27f1f1fd1a/payload",
+      "path": "evidence/4_running_scf.log",
+      "role": "evidence",
+      "sha256": "544eeb0e760566cbc305f557f91fa324a536b6b0f3b5e1c0cedead27f1f1fd1a",
+      "size_bytes": 21083,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/b817e09c0c4057ddb5e165429345c8df7abc64574c5281287b1cb9bf6d7173f0/payload",
+      "path": "evidence/5_GENERATION_COMPLETE.json",
+      "role": "evidence",
+      "sha256": "b817e09c0c4057ddb5e165429345c8df7abc64574c5281287b1cb9bf6d7173f0",
+      "size_bytes": 964,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/f34800d12b27b39f1cc58f9212042a5329f08b0e04af8d1e3bdaa285a45a08a9/payload",
+      "path": "evidence/6_INDEPENDENT_EXPORT_AUDIT.json",
+      "role": "evidence",
+      "sha256": "f34800d12b27b39f1cc58f9212042a5329f08b0e04af8d1e3bdaa285a45a08a9",
+      "size_bytes": 1550,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    },
+    {
+      "asset": "assets/b4b19150f5158de4afcd25c011846bc8c612f25285acf33140042702079ee3dc/payload",
+      "path": "evidence/7_LIBRARY_SELECTION.json",
+      "role": "evidence",
+      "sha256": "b4b19150f5158de4afcd25c011846bc8c612f25285acf33140042702079ee3dc",
+      "size_bytes": 5502,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]"
+      }
+    }
+  ],
+  "id": "Dojo_NC_SR_Ge_library_TZDP10_plusg_ABFS_20260908",
+  "import_validation_scope": "Historical inventory; file integrity and syntax only, not physical acceptance.",
+  "notes": "Repository main3b634f1 Ge q14 physical3s3p3d2f10au unchanged; auxiliary-only1g single PCA1e-4; ABFS415; no material physical acceptance inferred",
+  "physical_acceptance_inferred": false,
+  "schema_version": 1,
+  "selected_for_new_campaign": false,
+  "source_case": "[private-path]",
+  "validation_scope": "Atomic auxiliary export and independent radial validation passed; material PBE/Coulomb/LRI/EXX pending"
+}

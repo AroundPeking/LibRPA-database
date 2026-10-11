@@ -1,0 +1,17 @@
+{
+  "job": "3298475",
+  "review_date": "2026-09-09",
+  "figure": "GeTe_PBE_GW.pdf",
+  "figure_sha256": "d5003b41a806996829732fb92cfe4038fb1f68c8490e08c7c6d197e4dd6f8e67",
+  "rendered_review": "GeTe_PBE_GW_pdf_review.png",
+  "rendered_review_sha256": "888f704bc6c982e6925cb28df8f0ce7cbd345320592b63491c053db385ae7fe1",
+  "native_png_and_pdf_raster_inspected": true,
+  "labels_legend_and_axes_readable": true,
+  "unintended_text_clipping_or_overlap": false,
+  "mapping": "All164 original PBE band indices; each method independently aligned to occupied VBM; no smoothing or reordering.",
+  "window_ev": [-4, 5],
+  "gap_markers": false,
+  "difference_panel": false,
+  "observations": "Near-gap spectrum is separated and finite. Local raw-branch kinks, including conduction features, remain visible and unmodified. Figure does not prove convergence or wavefunction continuity.",
+  "scientific_acceptance": "NOT_EVALUATED"
+}

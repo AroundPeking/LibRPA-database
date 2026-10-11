@@ -1,0 +1,30 @@
+{
+  "job": "3267153_1",
+  "abfs_sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+  "dimensions": {
+    "element": "Te",
+    "lmax": 8,
+    "counts": {
+      "S": 15,
+      "P": 12,
+      "D": 13,
+      "F": 10,
+      "G": 9,
+      "H": 6,
+      "I": 5,
+      "J": 2,
+      "K": 1
+    },
+    "radial_channels": 73,
+    "basis_dimension": 445,
+    "mesh": 1001,
+    "dr": 0.01,
+    "radius_cutoff": 10.0,
+    "energy_cutoff_ry": 100.0
+  },
+  "same_l_gram_lambda_min": 0.9999999999999964,
+  "same_l_gram_lambda_max": 1.0000000000000315,
+  "max_norm_error": 2.7977620220553945e-14,
+  "status": "RADIAL_SANITY_PASSED",
+  "scope": "Atomic auxiliary export only; periodic Coulomb/shrink/EXX/GW not yet validated."
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "mos2-table-gw",
+  "dimension": "2d",
+  "material": "MoS2",
+  "formula": "MoS2",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Mo", "set_id": "Mo-GTH-055578b42276", "scope": "contextual PBE candidate; exact GW binding pending"},
+    {"element": "S", "set_id": "S-GTH-e25dc80ae001", "scope": "contextual PBE candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 2.37339,
+    "unit": "eV",
+    "notes": "accepted",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
+        "sha256": "3d20e800b4657551660bbfe67cbd30a0907543abddb7e4b89c5e09ccb459f151",
+        "size_bytes": 198561,
+        "original_sha256": "3d20e800b4657551660bbfe67cbd30a0907543abddb7e4b89c5e09ccb459f151",
+        "label": "mos2_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
+        "sha256": "637b221fb560831cbb977fc3731c0bde155fc452026d45468406156912a711a9",
+        "size_bytes": 198561,
+        "original_sha256": "637b221fb560831cbb977fc3731c0bde155fc452026d45468406156912a711a9",
+        "label": "mos2_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
+        "sha256": "f49ac0485c9f159ae1cdbb54690f8942c53414e743aea314a64b4ef8252f412d",
+        "size_bytes": 198561,
+        "original_sha256": "f49ac0485c9f159ae1cdbb54690f8942c53414e743aea314a64b4ef8252f412d",
+        "label": "mos2_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json",
+        "sha256": "f82df974daf64e47b101252d925e2e36acb09595d0a68a85741bb82742d19402",
+        "size_bytes": 59942,
+        "original_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4",
+        "label": "mos2.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.png",
+        "sha256": "0dbdd73a00cc289c5909aca517ff8a0cd809ba7113a354c5d5c0259d417bb98f",
+        "size_bytes": 283386,
+        "original_sha256": "0dbdd73a00cc289c5909aca517ff8a0cd809ba7113a354c5d5c0259d417bb98f",
+        "label": "mos2_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.pdf",
+        "sha256": "d1dc703423d99883fe3002e96762ef119301ca01b7e6bf0edac821a638cb6d51",
+        "size_bytes": 47226,
+        "original_sha256": "d1dc703423d99883fe3002e96762ef119301ca01b7e6bf0edac821a638cb6d51",
+        "label": "mos2_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.png",
+        "sha256": "877594e88a73f7149e663f6bcb6725eb25c4288fc1d6123f0bd41796367a1bda",
+        "size_bytes": 245700,
+        "original_sha256": "877594e88a73f7149e663f6bcb6725eb25c4288fc1d6123f0bd41796367a1bda",
+        "label": "mos2_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.pdf",
+        "sha256": "f387df06b7a19fc12de382237a777b8137858969a0f49fef8585316f918dab46",
+        "size_bytes": 48287,
+        "original_sha256": "f387df06b7a19fc12de382237a777b8137858969a0f49fef8585316f918dab46",
+        "label": "mos2_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.png",
+        "sha256": "e478a8fe492654d01b2ccab220ed4de7cc1339dfcf084629a242b8df292798f1",
+        "size_bytes": 300810,
+        "original_sha256": "e478a8fe492654d01b2ccab220ed4de7cc1339dfcf084629a242b8df292798f1",
+        "label": "mos2_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.pdf",
+        "sha256": "d76f675e0d183c338e68bd973fb8ed1ecec76a46480667a2e46234122e1611ce",
+        "size_bytes": 49104,
+        "original_sha256": "d76f675e0d183c338e68bd973fb8ed1ecec76a46480667a2e46234122e1611ce",
+        "label": "mos2_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4"
+  },
+  "scientific_scope": {
+    "original_status": "accepted",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

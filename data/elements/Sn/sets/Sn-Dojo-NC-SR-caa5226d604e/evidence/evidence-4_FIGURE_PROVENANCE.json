@@ -1,0 +1,35 @@
+{
+  "raw_sha256": "be9e66c6ffc7a4866a0b7383106908f635b2eb05e192ce9be19824091ed1262f",
+  "gap_ev": 0.948626206229,
+  "nocc": 30,
+  "raw_shape": [
+    400,
+    164
+  ],
+  "selected_raw_1based": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "stops_0based": [
+    0,
+    72,
+    146,
+    218,
+    293,
+    399
+  ],
+  "mapping_sha256": "57d00f3a089b426d78f506173dbdf722b6af06e9b4d8f135f83b3d755c932f7b",
+  "reference_vbm_ev": 0.178485117814,
+  "ordering": "Energy-ranked separately within frozen occupied and empty windows; no smoothing",
+  "scientific_status": "PBE numerical/visual screening, not convergence or EXX/GW acceptance"
+}

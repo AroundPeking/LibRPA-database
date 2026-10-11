@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search tested ABACUS + LibRPA pseudopotential, NAO, ABF, and GW calculation records.">
+  <title>ABACUS + LibRPA GW database</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">ABACUS + LibRPA</a>
+    <span class="header-note">Open basis and calculation records</span>
+    <a class="source-link" href="https://github.com/AroundPeking/abacus-librpa-gw-database">Repository</a>
+  </header>
+  <main>
+    <h1>GW basis and calculation database</h1>
+    <div class="toolbar" aria-label="Calculation filters">
+      <label class="search-label" for="search">Search</label>
+      <input id="search" type="search" placeholder="Material, element, basis, or commit">
+      <fieldset class="segmented" id="dimension-filter">
+        <legend>Dimensionality</legend>
+        <label><input type="radio" name="dimension" value="all" checked>All</label>
+        <label><input type="radio" name="dimension" value="2d">2D</label>
+        <label><input type="radio" name="dimension" value="3d">3D</label>
+      </fieldset>
+      <label for="status-filter">Evidence level</label>
+      <select id="status-filter"><option value="all">All levels</option></select>
+      <label for="sort">Sort by</label>
+      <select id="sort"><option value="material">Material</option><option value="status">Evidence level</option></select>
+    </div>
+    <p id="result-count" class="result-count" aria-live="polite">Loading records…</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Material</th><th>Dimension</th><th>Evidence</th><th>Result</th><th>Basis files</th><th>Details</th></tr></thead>
+        <tbody id="records"></tbody>
+      </table>
+    </div>
+    <p id="empty" hidden>No calculation records match these filters.</p>
+    <footer>
+      <span>Evidence levels describe the recorded calculation and its gates; they are not universal rankings.</span>
+      <a href="../CONTRIBUTING.md">Contribute a case</a>
+    </footer>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

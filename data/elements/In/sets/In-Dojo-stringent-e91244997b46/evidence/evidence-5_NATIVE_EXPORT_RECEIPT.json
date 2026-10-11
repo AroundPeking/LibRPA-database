@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "job_id": "3350856",
+  "slurm_state": "FAILED",
+  "slurm_exit_code": "1:0",
+  "elapsed": "00:03:02",
+  "node": "c21349",
+  "native_abacus_status": "completed_atomic_scf_and_abfs_export",
+  "native_evidence": {
+    "atomic_scf_converged": true,
+    "final_energy_ev": -1805.6739427,
+    "export_marker": "Exx_LRI.hpp line 73",
+    "abfs_path": "work/In_3350856/In.abfs",
+    "abfs_sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+    "abfs_dimension": 362,
+    "abfs_counts": {
+      "S": 10,
+      "P": 9,
+      "D": 10,
+      "F": 7,
+      "G": 8,
+      "H": 5,
+      "I": 4,
+      "J": 2,
+      "K": 1
+    }
+  },
+  "wrapper_failure": "The post-solver observer looked for OUT.ABACUS/running_scf.log, while suffix In_ABFS_GEN_20260915 correctly placed it under OUT.In_ABFS_GEN_20260915. The failure happened after the native export and did not modify the ABFS.",
+  "independent_audit": "INDEPENDENT_EXPORT_AUDIT.json",
+  "scientific_scope": "atomic auxiliary export and radial sanity only; no material Coulomb, shrink, EXX or GW acceptance"
+}

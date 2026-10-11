@@ -1,0 +1,138 @@
+{
+  "all_hash_checks_passed": true,
+  "checks": [
+    {
+      "actual_sha256": "32161d0e8a1f266310e3dccd7d73c47acbed828f53625a5886b7258a488d412b",
+      "expected_sha256": "32161d0e8a1f266310e3dccd7d73c47acbed828f53625a5886b7258a488d412b",
+      "file": "calculation/INPUT",
+      "passed": true
+    },
+    {
+      "actual_sha256": "cf543a4c076336c17353f80188fce3509aa6fe57a970a3570c899db72f21271c",
+      "expected_sha256": "cf543a4c076336c17353f80188fce3509aa6fe57a970a3570c899db72f21271c",
+      "file": "calculation/INPUT_band_path",
+      "passed": true
+    },
+    {
+      "actual_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "expected_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "file": "calculation/KPT",
+      "passed": true
+    },
+    {
+      "actual_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "expected_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "file": "calculation/KPT_scf",
+      "passed": true
+    },
+    {
+      "actual_sha256": "805dbfef78571add79440e7ef63f3d3e2e30575795f10ed46d78fef5340eb335",
+      "expected_sha256": "805dbfef78571add79440e7ef63f3d3e2e30575795f10ed46d78fef5340eb335",
+      "file": "calculation/KPT_nscf",
+      "passed": true
+    },
+    {
+      "actual_sha256": "d495df9da2ca235463e7cfbe94b1e9e897a02d3a3473bd7f5b544390f67fca32",
+      "expected_sha256": "d495df9da2ca235463e7cfbe94b1e9e897a02d3a3473bd7f5b544390f67fca32",
+      "file": "calculation/STRU",
+      "passed": true
+    },
+    {
+      "actual_sha256": "f3fccc2fcce6ba431ee40acc90838c3293945061e80e5cc1b5079f1924f98183",
+      "expected_sha256": "f3fccc2fcce6ba431ee40acc90838c3293945061e80e5cc1b5079f1924f98183",
+      "file": "calculation/B-GTH-PBE-q3-cp2k-default-grid.upf",
+      "passed": true
+    },
+    {
+      "actual_sha256": "f30aaa82b74a8d4d622c3b760b913caadd94f2061fa1e7c30dd5ebf045293e47",
+      "expected_sha256": "f30aaa82b74a8d4d622c3b760b913caadd94f2061fa1e7c30dd5ebf045293e47",
+      "file": "calculation/N-GTH-PBE-q5-cp2k-default-grid.upf",
+      "passed": true
+    },
+    {
+      "actual_sha256": "602811eab6532c105caf61992b5e4b97fa90c06101c472eb490aa64bc177bfe5",
+      "expected_sha256": "602811eab6532c105caf61992b5e4b97fa90c06101c472eb490aa64bc177bfe5",
+      "file": "calculation/B_gga_10au_100Ry_3s3p2d.orb",
+      "passed": true
+    },
+    {
+      "actual_sha256": "ea3db03bb4d5a2d0d3be3a7a91b5da08fde7e6c0c2e0bffe8f8bbd9aaef046b5",
+      "expected_sha256": "ea3db03bb4d5a2d0d3be3a7a91b5da08fde7e6c0c2e0bffe8f8bbd9aaef046b5",
+      "file": "calculation/N_gga_10au_100Ry_3s3p2d.orb",
+      "passed": true
+    },
+    {
+      "actual_sha256": "34e7fba281ac665c3b5d6015215c69e64ca344039c0c6e08c890956c7b427d49",
+      "expected_sha256": "34e7fba281ac665c3b5d6015215c69e64ca344039c0c6e08c890956c7b427d49",
+      "file": "calculation/B_GTH-PBE_TZDP_fgext_foraux_pca1e-4_242.abfs",
+      "passed": true
+    },
+    {
+      "actual_sha256": "050336f8247e8311378686d844edc79ef0a2bc688af0e158b3231901a4693adb",
+      "expected_sha256": "050336f8247e8311378686d844edc79ef0a2bc688af0e158b3231901a4693adb",
+      "file": "calculation/N_GTH-PBE_TZDP_fgext_foraux_pca1e-4_268.abfs",
+      "passed": true
+    },
+    {
+      "actual_sha256": "fffd4a64f36e2c47fa2ab4d13c22fd63f3168b2f54915762c9dea0f7a75ed819",
+      "expected_sha256": "fffd4a64f36e2c47fa2ab4d13c22fd63f3168b2f54915762c9dea0f7a75ed819",
+      "file": "calculation/validate_direct_coulomb.py",
+      "passed": true
+    },
+    {
+      "actual_sha256": "cc4139c9587d920275b4d01d19c558147723fcf877753f4a99f02cc6c2609775",
+      "expected_sha256": "cc4139c9587d920275b4d01d19c558147723fcf877753f4a99f02cc6c2609775",
+      "file": "calculation/run_producer.slurm",
+      "passed": true
+    },
+    {
+      "actual_sha256": "33dfd03b2981003adf363e8f2cfea689abaf4eb63655f6f92be8c95eb9a1c1a8",
+      "expected_sha256": "33dfd03b2981003adf363e8f2cfea689abaf4eb63655f6f92be8c95eb9a1c1a8",
+      "file": "calculation/pyatb_k12_20261008/pyatb_librpa_df/velocity_matrix",
+      "passed": true
+    },
+    {
+      "actual_sha256": "cf003a5e4f130f3c778f727ef5bfd69888a61ffabececb0c0ccb24970fb422c8",
+      "expected_sha256": "cf003a5e4f130f3c778f727ef5bfd69888a61ffabececb0c0ccb24970fb422c8",
+      "file": "calculation/pyatb_k12_20261008/pyatb_librpa_df/KS_eigenvector_0.dat",
+      "passed": true
+    },
+    {
+      "actual_sha256": "240b957d8cf6dd782a1a0d90c131a49b2800004c07143fccd9f5c3d1c7538ac5",
+      "expected_sha256": "240b957d8cf6dd782a1a0d90c131a49b2800004c07143fccd9f5c3d1c7538ac5",
+      "file": "calculation/pyatb_k12_20261008/pyatb_librpa_df/band_out",
+      "passed": true
+    },
+    {
+      "actual_sha256": "89ca08408aab32fdd303e804a8417c4416a7cae9f276373c5c369b799caf80cc",
+      "expected_sha256": "89ca08408aab32fdd303e804a8417c4416a7cae9f276373c5c369b799caf80cc",
+      "file": "calculation/pyatb_k12_20261008/pyatb_librpa_df/k_path_info",
+      "passed": true
+    },
+    {
+      "actual_sha256": "77163cfe7f3fb04fa326109de98a0098026c4fd0b2f30e5d7eced8c8301c4642",
+      "expected_sha256": "77163cfe7f3fb04fa326109de98a0098026c4fd0b2f30e5d7eced8c8301c4642",
+      "file": "KS_band_spin_1.dat",
+      "passed": true
+    },
+    {
+      "actual_sha256": "cdef24b7181b13b3d186c88d318e1f6c0776ed1b3dd3e8158641049ef0f2ccb9",
+      "expected_sha256": "cdef24b7181b13b3d186c88d318e1f6c0776ed1b3dd3e8158641049ef0f2ccb9",
+      "file": "GW_band_spin_1.dat",
+      "passed": true
+    },
+    {
+      "actual_sha256": "236ba8054c02716d6366adca3de342820418e760e9eea2dafd948e7014f28934",
+      "expected_sha256": "236ba8054c02716d6366adca3de342820418e760e9eea2dafd948e7014f28934",
+      "file": "EXX_band_spin_1.dat",
+      "passed": true
+    }
+  ],
+  "complete_path": true,
+  "pbe_path_counts": {
+    "band_KS_eigenvalue_k_": 91,
+    "band_KS_eigenvector_k_": 91,
+    "band_vxc_k_": 91
+  },
+  "scope": "definition inputs, final bands, PBE path and PyATB response payload; large generated reader matrices excluded and recorded in original manifests"
+}

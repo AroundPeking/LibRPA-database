@@ -1,0 +1,486 @@
+                                                                                     
+                              ABACUS v3.3.2
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+    Start Time is Sun Sep  6 23:11:41 2026
+                                                                                     
+ ------------------------------------------------------------------------------------
+
+ READING GENERAL INFORMATION
+                           global_out_dir = OUT.ABACUS/
+                           global_in_card = INPUT
+                               pseudo_dir = 
+                              orbital_dir = 
+                                    DRANK = 1
+                                    DSIZE = 1
+                                   DCOLOR = 1
+                                    GRANK = 1
+                                    GSIZE = 1
+ The esolver type has been set to : ksdft_lcao
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Reading atom information in unitcell:                              |
+ | From the input file and the structure file we know the number of   |
+ | different elments in this unitcell, then we list the detail        |
+ | information for each element, especially the zeta and polar atomic |
+ | orbital number for each element. The total atom number is counted. |
+ | We calculate the nearest atom distance for each atom and show the  |
+ | Cartesian and Direct coordinates for each atom. We list the file   |
+ | address for atomic orbitals. The volume and the lattice vectors    |
+ | in real and reciprocal space is also shown.                        |
+ |                                                                    |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+ READING UNITCELL INFORMATION
+                                    ntype = 1
+                  lattice constant (Bohr) = 1.88973
+              lattice constant (Angstrom) = 1
+
+ READING ATOM TYPE 1
+                               atom label = Ge
+                      L=0, number of zeta = 6
+                      L=1, number of zeta = 6
+                      L=2, number of zeta = 3
+                      L=3, number of zeta = 2
+                      L=4, number of zeta = 1
+             number of atom for this type = 1
+
+                        TOTAL ATOM NUMBER = 1
+
+ CARTESIAN COORDINATES ( UNIT = 1.88973 Bohr ).
+         atom                   x                   y                   z                 mag                  vx                  vy                  vz
+     tauc_Ge1                   0                   0                   0                   0                   0                   0                   0
+
+
+                          Volume (Bohr^3) = 22775.6303429
+                             Volume (A^3) = 3374.99617566
+
+ Lattice vectors: (Cartesian coordinate: in unit of a_0)
+                  +15                  +0                  +0
+                   +0                 +15                  +0
+                   +0                  +0                 +15
+ Reciprocal vectors: (Cartesian coordinate: in unit of 2 pi/a_0)
+     +0.0666666666667                  +0                  +0
+                   +0    +0.0666666666667                  +0
+                   +0                  +0    +0.0666666666667
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Reading pseudopotentials files:                                    |
+ | The pseudopotential file is in UPF format. The 'NC' indicates that |
+ | the type of pseudopotential is 'norm conserving'. Functional of    |
+ | exchange and correlation is decided by 4 given parameters in UPF   |
+ | file.  We also read in the 'core correction' if there exists.      |
+ | Also we can read the valence electrons number and the maximal      |
+ | angular momentum used in this pseudopotential. We also read in the |
+ | trail wave function, trail atomic density and local-pseudopotential|
+ | on logrithmic grid. The non-local pseudopotential projector is also|
+ | read in if there is any.                                           |
+ |                                                                    |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+                PAO radial cut off (Bohr) = 15
+
+ Read in pseudopotential file is PP.upf
+                     pseudopotential type = NC
+          exchange-correlation functional = PBE
+                 nonlocal core correction = 1
+                        valence electrons = 22
+                                     lmax = 2
+                           number of zeta = 5
+                     number of projectors = 6
+                           L of projector = 0
+                           L of projector = 0
+                           L of projector = 1
+                           L of projector = 1
+                           L of projector = 2
+                           L of projector = 2
+     initial pseudo atomic orbital number = 13
+                                   NLOCAL = 62
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 4 for Ge: [Ar] 3d10 4s2 4p2
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  
+
+ Warning_Memory_Consuming allocated:  FFT::grid 347.61428833 MB
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Setup plane waves of charge/potential:                             |
+ | Use the energy cutoff and the lattice vectors to generate the      |
+ | dimensions of FFT grid. The number of FFT grid on each processor   |
+ | is 'nrxx'. The number of plane wave basis in reciprocal space is   |
+ | different for charege/potential and wave functions. We also set    |
+ | the 'sticks' for the parallel of FFT. The number of plane waves    |
+ | is 'npw' in each processor.                                        |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+ SETUP THE PLANE WAVE BASIS
+ energy cutoff for charge/potential (unit:Ry) = 600
+            fft grid for charge/potential = [ 225, 225, 225 ]
+                        fft grid division = [ 3, 3, 3 ]
+        big fft grid for charge/potential = [ 75, 75, 75 ]
+                                     nbxx = 421875
+                                     nrxx = 11390625
+
+ SETUP PLANE WAVES FOR CHARGE/POTENTIAL
+                    number of plane waves = 5653693
+                         number of sticks = 38393
+
+ PARALLEL PW FOR CHARGE/POTENTIAL
+     PROC   COLUMNS(POT)             PW
+        1          38393        5653693
+ --------------- sum -------------------
+        1          38393        5653693
+                            number of |g| = 10180
+                                  max |g| = 54.2711111111
+                                  min |g| = 0
+
+ SETUP THE ELECTRONS NUMBER
+            electron number of element Ge = 22
+      total electron number of element Ge = 22
+            AUTOSET number of electrons:  = 22
+ DONE : SETUP UNITCELL Time : 1.75184490765 (SEC)
+
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Setup K-points                                                     |
+ | We setup the k-points according to input parameters.               |
+ | The reduced k-points are set according to symmetry operations.     |
+ | We treat the spin as another set of k-points.                      |
+ |                                                                    |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+ SETUP K-POINTS
+                                    nspin = 1
+                   Input type of k points = Monkhorst-Pack(Gamma)
+                                   nkstot = 1
+
+  KPOINTS            DIRECT_X            DIRECT_Y            DIRECT_Z              WEIGHT
+        1                   0                   0                   0                   1
+
+           k-point number in this process = 1
+       minimum distributed K point number = 1
+
+  KPOINTS         CARTESIAN_X         CARTESIAN_Y         CARTESIAN_Z              WEIGHT
+        1                   0                   0                   0                   2
+
+  KPOINTS            DIRECT_X            DIRECT_Y            DIRECT_Z              WEIGHT
+        1                   0                   0                   0                   2
+ DONE : INIT K-POINTS Time : 1.75287564564 (SEC)
+
+
+ Warning_Memory_Consuming allocated:  SF::strucFac 86.2685089111 MB
+                           occupied bands = 11
+                                   NLOCAL = 62
+                                   NBANDS = 21
+                                   NBANDS = 21
+
+ READING ORBITAL FILE NAMES FOR LCAO
+ orbital file: for_aux.orb
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Setup numerical orbitals:                                          |
+ | This part setup: numerical atomic orbitals, non-local projectors   |
+ | and neutral potential (1D). The atomic orbitals information        |
+ | including the radius, angular momentum and zeta number.            |
+ | The neutral potential is the sum of local part of pseudopotential  |
+ | and potential given by atomic charge, they will cancel out beyond  |
+ | a certain radius cutoff, because the Z/r character.                |
+ |                                                                    |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+ SETUP ONE DIMENSIONAL ORBITALS/POTENTIAL
+                        delta k  (1/Bohr) = 0.01
+                        delta r    (Bohr) = 0.01
+                        dr_uniform (Bohr) = 0.001
+                        rmax       (Bohr) = 30
+                                    kmesh = 1229
+      ORBITAL  L  N      nr      dr    RCUT  CHECK_UNIT    NEW_UNIT
+            1  0  0    1001    0.01      10           1           1
+            2  0  1    1001    0.01      10           1           1
+            3  0  2    1001    0.01      10           1           1
+            4  0  3    1001    0.01      10           1           1
+            5  0  4    1001    0.01      10           1           1
+            6  0  5    1001    0.01      10           1           1
+            7  1  0    1001    0.01      10           1           1
+            8  1  1    1001    0.01      10           1           1
+            9  1  2    1001    0.01      10           1           1
+           10  1  3    1001    0.01      10           1           1
+           11  1  4    1001    0.01      10           1           1
+           12  1  5    1001    0.01      10           1           1
+           13  2  0    1001    0.01      10           1           1
+           14  2  1    1001    0.01      10           1           1
+           15  2  2    1001    0.01      10           1           1
+           16  3  0    1001    0.01      10           1           1
+           17  3  1    1001    0.01      10           1           1
+           18  4  0    1001    0.01      10           1           1
+ SET NONLOCAL PSEUDOPOTENTIAL PROJECTORS
+ max number of nonlocal projetors among all species is 6
+
+ SETUP THE TWO-CENTER INTEGRATION TABLES
+
+ Warning_Memory_Consuming allocated:  ORB::Jl(x) 282 MB
+
+ Warning_Memory_Consuming allocated:  ORB::Table_SR&TR 178 MB
+
+ Warning_Memory_Consuming allocated:  ORB::Table_NR 17 MB
+
+ SETUP THE DIVISION OF H/S MATRIX
+ divide the H&S matrix using 2D block algorithms.
+                                     nb2d = 1
+               global2local_row dimension = 62
+               global2local_col dimension = 62
+                                     nloc = 3844
+
+ Warning_Memory_Consuming allocated:  Chg::rho 86.9 MB
+
+ Warning_Memory_Consuming allocated:  Chg::rho_save 86.9 MB
+
+ Warning_Memory_Consuming allocated:  Chg::rhog 43.1 MB
+
+ Warning_Memory_Consuming allocated:  Chg::rhog_save 43.1 MB
+
+ Warning_Memory_Consuming allocated:  Chg::rho_core 86.9 MB
+
+ Warning_Memory_Consuming allocated:  Chg::rhog_core 43.1 MB
+
+ Warning_Memory_Consuming allocated:  Pot::veff_fix 86.9 MB
+
+ Warning_Memory_Consuming allocated:  Pot::veff 86.9 MB
+
+ -------------------------------------------
+ SELF-CONSISTENT
+ -------------------------------------------
+
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ |                                                                    |
+ | Search adjacent atoms:                                             |
+ | Set the adjacent atoms for each atom and set the periodic boundary |
+ | condition for the atoms on real space FFT grid. For k-dependent    |
+ | algorithm, we also need to set the sparse H and S matrix element   |
+ | for each atom.                                                     |
+ |                                                                    |
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+ SETUP SEARCHING RADIUS FOR PROGRAM TO SEARCH ADJACENT ATOMS
+                  longest orb rcut (Bohr) = 10
+   longest nonlocal projector rcut (Bohr) = 1.54
+              searching radius is (Bohr)) = 23.1
+         searching radius unit is (Bohr)) = 1.89
+
+ SETUP EXTENDED REAL SPACE GRID FOR GRID INTEGRATION
+                          real space grid = [ 225, 225, 225 ]
+                 big cell numbers in grid = [ 75, 75, 75 ]
+             meshcell numbers in big cell = [ 3, 3, 3 ]
+                        extended fft grid = [ 27, 27, 27 ]
+                dimension of extened grid = [ 130, 130, 130 ]
+                            UnitCellTotal = 27
+
+ Warning_Memory_Consuming allocated:  GT::index2normal 8.38 MB
+
+ Warning_Memory_Consuming allocated:  GT::index2ucell 8.38 MB
+              Atom number in sub-FFT-grid = 1
+    Local orbitals number in sub-FFT-grid = 62
+                                ParaV.nnr = 3844
+                                     nnrg = 3844
+                                nnrg_last = 0
+                                 nnrg_now = 3844
+                                 init_chg = atomic
+ DONE : INIT SCF Time : 6.6318 (SEC)
+
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   1--------------------------------
+
+ Warning_Memory_Consuming allocated:  ChgMix::Rrho 695.229 MB
+
+ Warning_Memory_Consuming allocated:  ChgMix::dRrho 608.325 MB
+
+ Warning_Memory_Consuming allocated:  ChgMix::drho 608.325 MB
+
+ Warning_Memory_Consuming allocated:  ChgMix::rho_save2 86.9036 MB
+
+ Density error is 0.00162289141396
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957262671                 -7605.0037108
+         E_Harris                -558.957271415                -7605.00382978
+          E_Fermi               -0.277894262993                -3.78094541821
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   2--------------------------------
+
+ Density error is 0.00132375324009
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957258104                -7605.00364867
+         E_Harris                -558.759175217                -7602.30859273
+          E_Fermi               -0.276904865113                -3.76748396945
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   3--------------------------------
+
+ Density error is 0.000554569867092
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264216                -7605.00373183
+         E_Harris                -558.910256125                -7604.36415393
+          E_Fermi               -0.274481348935                -3.73451034024
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   4--------------------------------
+
+ Density error is 7.31956972896e-05
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264439                -7605.00373486
+         E_Harris                 -558.98050947                -7605.31999973
+          E_Fermi               -0.274367101641                -3.73295592606
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   5--------------------------------
+
+ Density error is 0.000931709614579
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264441                -7605.00373489
+         E_Harris                -558.959460951                -7605.03361994
+          E_Fermi               -0.274517316739                -3.73499970732
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   6--------------------------------
+
+ Density error is 1.44577964233e-05
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                 -558.95726446                -7605.00373515
+         E_Harris                -558.955054811                -7604.97367133
+          E_Fermi               -0.274523195506                -3.73507969205
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   7--------------------------------
+
+ Density error is 4.30130005159e-05
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                 -558.95726446                -7605.00373515
+         E_Harris                -558.955859379                -7604.98461804
+          E_Fermi               -0.274502847686                -3.73480284576
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   8--------------------------------
+
+ Density error is 4.63403206917e-06
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264456                 -7605.0037351
+         E_Harris                 -558.95660795                -7604.99480287
+          E_Fermi               -0.274502433575                -3.73479721149
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=   9--------------------------------
+
+ Density error is 5.70336790257e-06
+
+       Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264456                 -7605.0037351
+         E_Harris                -558.957021372                -7605.00042776
+          E_Fermi               -0.274491188103                -3.73464420899
+
+ LCAO ALGORITHM --------------- ION=   1  ELEC=  10--------------------------------
+
+ Density error is 1.1363969528e-07
+
+           Energy                       Rydberg                            eV
+       E_KohnSham                -558.957264456                 -7605.0037351
+   E_KS(sigma->0)                -558.957187325                -7605.00268567
+         E_Harris                -558.957281039                -7605.00396071
+           E_band                -99.2656799175                -1350.57886272
+       E_one_elec                -873.923678603                -11890.3416461
+        E_Hartree                +418.140085278                +5689.08772199
+             E_xc                -54.7272743644                -744.602767365
+          E_Ewald                -48.4462425045                -659.144944752
+   E_entropy(-TS)            -0.000154262319788             -0.00209884653581
+          E_descf                            +0                            +0
+            E_exx                            +0                            +0
+          E_Fermi               -0.274491455548                -3.73464784776
+
+ charge density convergence is achieved
+ final etot is -7605.0037351 eV
+ EFERMI = -3.7346478478 eV
+
+ STATE ENERGY(eV) AND OCCUPATIONS    NSPIN == 1
+ 1/1 kpoint (Cartesian) = 0.0000 0.0000 0.0000 (0 pws)
+       1       -168.280        2.00000
+       2       -115.407        2.00000
+       3       -115.407        2.00000
+       4       -115.407        2.00000
+       5       -29.0982        2.00000
+       6       -29.0982        2.00000
+       7       -29.0982        2.00000
+       8       -29.0982        2.00000
+       9       -29.0982        2.00000
+      10       -11.5642        2.00000
+      11       -3.73423       0.666667
+      12       -3.73423       0.666667
+      13       -3.73423       0.666666
+      14       0.578341        0.00000
+      15        3.51919        0.00000
+      16        3.51919        0.00000
+      17        3.51919        0.00000
+      18        4.15468        0.00000
+      19        4.15468        0.00000
+      20        4.15468        0.00000
+      21        4.15468        0.00000
+
+
+ Warning_Memory_Consuming allocated:  ORB::Jl(x) 2029.12 MB
+
+ Warning_Memory_Consuming allocated:  ORB::Gaunt_CH 7.17545 MB
+ Auxiliary basis functions
+		Ge		14 s		12 p		12 d		10 f		9 g		6 h		4 i		2 j		1 k		

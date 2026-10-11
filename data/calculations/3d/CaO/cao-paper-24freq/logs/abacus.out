@@ -1,0 +1,98 @@
+                                                                                     
+                              ABACUS v3.9.0.7
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: 5800f00 (Tue Jul 1 16:56:13 2025 +0800)
+
+ Sat Jul 12 13:25:49 2025
+ MAKE THE DIR         : OUT.ABACUS/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: The lattice vector is left-handed; a right-handed vector is prefered.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ RUNNING WITH DEVICE  : CPU / Montage Jintide(R) C6226R
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 2 for Ca: [Ar] 4s2
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 48 * 48 * 48
+ UNIFORM GRID DIM(BIG): 12 * 12 * 12
+ DONE(0.451006   SEC) : SETUP UNITCELL
+ DONE(0.458846   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       512             1           32          47          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Ca      6s3p2d-10au     25          1           
+ O       3s3p2d-8au      22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.627718   SEC) : INIT PLANEWAVE
+ DONE(0.927823   SEC) : LOCAL POTENTIAL
+ -------------------------------------------
+ SELF-CONSISTENT : 
+ -------------------------------------------
+ START CHARGE      : atomic
+ DONE(1.04346    SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -1.43802772e+03   0.00000000e+00   1.3014e-01   3.00
+ GE2     -1.43841144e+03  -3.83717941e-01   1.8475e-01   2.04
+ GE3     -1.44189789e+03  -3.48644744e+00   2.2856e-02   2.07
+ GE4     -1.44185276e+03   4.51322679e-02   2.1064e-02   2.14
+ GE5     -1.44189139e+03  -3.86304081e-02   1.1623e-03   2.14
+ GE6     -1.44189135e+03   3.51309781e-05   5.8405e-04   2.30
+ GE7     -1.44189137e+03  -2.17072569e-05   2.7098e-05   2.08
+ GE8     -1.44189137e+03  -4.74777149e-08   9.2565e-06   2.07
+ GE9     -1.44189137e+03  -5.07636743e-09   1.3838e-07   2.07
+ GE10    -1.44189137e+03  -1.16009159e-11   2.8091e-08   2.06
+Use rpa_ccp_rmesh_times=6 to calculate cut Coulomb
+rpa_pca_threshold: 10
+rpa_ccp_rmesh_times: 6
+rpa_lcao_exx(Ha): -8.122141984700168
+etxc(Ha): -8.733932846098190
+etot(Ha): -52.988511602069131
+Etot_without_rpa(Ha): -52.376720740671104
+Use exx_ccp_rmesh_times=3.000000000000000 to calculate full Coulomb
+
+TIME STATISTICS
+---------------------------------------------------------------------
+   CLASS_NAME          NAME         TIME/s   CALLS    AVG/s   PER/%  
+---------------------------------------------------------------------
+                 total             11864.96 42811    0.28     100.00 
+ Driver          atomic_world      11864.97 1        11864.97 100.00 
+ Ions            opt_ions          11861.39 1        11861.39 99.97  
+ ESolver_KS      runner            11861.38 1        11861.38 99.97  
+ PW_Basis_Sup    gathers_scatterp  11861.75 36       329.49   99.97  
+ ESolver_KS_LCAO after_scf         11839.30 1        11839.30 99.78  
+ ModuleIO        ctrl_output_lcao  11839.27 1        11839.27 99.78  
+ Center2_Orb     cal_ST_Phi12_R    5378.16  891956   0.01     45.33  
+ RPA_LRI         cal_postSCF_exx   2554.99  1        2554.99  21.53  
+ Matrix_Orbs21   init_radial_table 1185.27  5        237.05   9.99   
+ Exx_LRI         init              3695.41  3        1231.80  31.15  
+ LRI_CV          set_orbitals      5378.56  7        768.37   45.33  
+ Matrix_Orbs11   init_radial_table 4412.46  9        490.27   37.19  
+ Ewald_Vq        init              1144.48  3        381.49   9.65   
+ Exx_LRI         cal_exx_ions_rpa  125.94   2        62.97    1.06   
+ Exx_LRI         cal_exx_elec      715.06   1        715.06   6.03   
+ RPA_LRI         cal_large_Cs      5308.91  1        5308.91  44.74  
+ RPA_LRI         out_abfs_overlap  2361.43  1        2361.43  19.90  
+---------------------------------------------------------------------
+
+
+ START  Time  : Sat Jul 12 13:25:49 2025
+ FINISH Time  : Sat Jul 12 16:43:35 2025
+ TOTAL  Time  : 11866
+ SEE INFORMATION IN : OUT.ABACUS/

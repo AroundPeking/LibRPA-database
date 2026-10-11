@@ -1,0 +1,20 @@
+{
+  "file": "Na_dojo_sr_10au_6s3p2d1f1g_pca1e-4_naux309.abfs",
+  "sha256": "d17c187708dcf9f4747ab90e19583e6ac29cd86ea59198df43d81c03d4f74763",
+  "raw_naux": 309,
+  "channels": {
+    "0": 13,
+    "1": 10,
+    "2": 10,
+    "3": 7,
+    "4": 7,
+    "5": 3,
+    "6": 3,
+    "7": 1,
+    "8": 1
+  },
+  "radial_values_finite": true,
+  "generation_pca": 0.0001,
+  "physical_nao_unchanged": true,
+  "downstream_validation_pending": true
+}

@@ -1,0 +1,34 @@
+{
+  "job": "3254812_1",
+  "scheduler_state": "FAILED 1:0",
+  "generator_status": "abfs_export_only",
+  "wrapper_error": "stale Finish Time requirement after intentional write_orb/exit(0)",
+  "abfs_sha256": "b2345f5db0cd391869e804be93cad6107bef220b55fe08540c77a013139c29b9",
+  "dimensions": {
+    "element": "Sn",
+    "lmax": 8,
+    "counts": {
+      "S": 11,
+      "P": 8,
+      "D": 10,
+      "F": 8,
+      "G": 8,
+      "H": 6,
+      "I": 6,
+      "J": 2,
+      "K": 1
+    },
+    "radial_channels": 60,
+    "basis_dimension": 404,
+    "mesh": 1001,
+    "dr": 0.01,
+    "radius_cutoff": 10.0,
+    "energy_cutoff_ry": 100.0
+  },
+  "same_l_gram_lambda_min": 0.9999999999999973,
+  "same_l_gram_lambda_max": 1.0000000000000289,
+  "max_norm_error": 2.042810365310288e-14,
+  "status": "radial_sanity_passed_material_validation_pending",
+  "source_exit_proof_sha256": "6c4b24e78372e389b72ad951c8241fa2167de19ee3a922f00743e38ba91637c4",
+  "scope": "Atomic export, radial syntax/norm/Gram only; no periodic Coulomb, EXX or PBE/head acceptance"
+}

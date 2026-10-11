@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "Mg-SG15-49e1c0303f21",
+  "element": "Mg",
+  "family": "SG15",
+  "validation_scope": "Used by mgo-paper-fix_gap; see case-specific gates.",
+  "notes": "",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "mgo-paper-fix_gap"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mg/pseudopotentials/47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee.upf",
+      "sha256": "47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee",
+      "size_bytes": 90002,
+      "original_sha256": "47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee",
+      "label": "Mg_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mg/orbitals/15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734.orb",
+      "sha256": "15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734",
+      "size_bytes": 253098,
+      "original_sha256": "15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734",
+      "label": "Mg_gga_10au_100Ry_6s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 25
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Mg/auxiliary/8c1fecaf4066fffbfc9f34a4ab9c8a59e0a2569a1c5ecfa83d3d25a61b7e63fb.abfs",
+      "sha256": "8c1fecaf4066fffbfc9f34a4ab9c8a59e0a2569a1c5ecfa83d3d25a61b7e63fb",
+      "size_bytes": 2396658,
+      "original_sha256": "8c1fecaf4066fffbfc9f34a4ab9c8a59e0a2569a1c5ecfa83d3d25a61b7e63fb",
+      "label": "Mg_6s3p2d2f2g_1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 18,
+          "P": 15,
+          "D": 15,
+          "F": 14,
+          "G": 12,
+          "H": 8,
+          "I": 8
+        },
+        "basis_dimension": 536
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

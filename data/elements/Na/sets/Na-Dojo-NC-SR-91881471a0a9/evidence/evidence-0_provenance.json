@@ -1,0 +1,37 @@
+{
+  "scope": "Na auxiliary-only 1f1g + shrink controlled test",
+  "profile": "user-authorized metal finite-T feature-branch exception",
+  "abacus_commit": "0d4fefa58ea54e407685942d0009ee7dc37c2e49",
+  "librpa_parent": "ec281d50 plus recorded coulmat.cpp mixed-layout patch",
+  "generator": "historical skill recipe binary, source git metadata unavailable; binary hash pinned",
+  "generator_reference": "[private-path]",
+  "reusable_asset_search": "No Na set in canonical reuse_index/CATALOG; no Na*.abfs under DF basis_pp or historical Na producer tree",
+  "executable_sha256": {
+    "[private-path]": "a3450e2e7a341563639d155e4df349cfda942afe1ef9e53d2c95841b54964936",
+    "[private-path]": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+    "[private-path]": "5eca6d658f630d3ab41baa34fba13a9983a65eda64fae2df489e05533728e724"
+  },
+  "inputs_sha256": {
+    "KPT": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+    "Na.upf": "9451b6a1be0db8045279837afd86635a030ebbd1499275565df434053fbfbbb5",
+    "Na_gga_10au_100Ry_6s3p2d1f1g_gaus.orb": "c63011bc576c28c6f135f781c3d124f85e47ea812dfe29eafe4785e8bbe7e215",
+    "Na_gga_10au_100Ry_6s3p2d.orb": "6a0ec1d9536433aafebfb4632cde70e46d91d96dbd577cff3c5c685bf9f065a8",
+    "STRU": "daadbc9d9ddd0ac2a868e1418dea9182d52d70a51a1ffe13905ccab5f0932f9d",
+    "INPUT": "0175dd318ad714fa7749dec6fbf1e14371a09acf72a5b59c762101259e9c7812",
+    "gaussian_report.json": "637c92cadffc0682fbf286f01aa855e16d577892c3d10c67f9afbb30b17dee66"
+  },
+  "physical_nao_count": 25,
+  "generator_nao_count": 41,
+  "temperature_kelvin": 1000,
+  "kmesh": [
+    8,
+    8,
+    8
+  ],
+  "full_coulomb": "direct_reciprocal 100 Ry",
+  "cut_coulomb": "Spencer",
+  "shrink_pca": "1e-4",
+  "shrink_lu_inv": "1e-3",
+  "exx_cs_inv": "1e-5",
+  "physical_acceptance": false
+}

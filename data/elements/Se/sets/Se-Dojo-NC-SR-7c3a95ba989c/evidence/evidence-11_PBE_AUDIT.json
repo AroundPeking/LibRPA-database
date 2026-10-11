@@ -1,0 +1,69 @@
+{
+  "cbm_ev": 1.127111324043,
+  "cbm_k_index_1based": 231,
+  "continuity_caveat": "0.25 eV adjacent-step screen only; main must inspect raw branches and path corners",
+  "continuity_screen_threshold_ev": 0.25,
+  "electrons": 60,
+  "exx_authorized": false,
+  "finite": true,
+  "gap_ev": 0.948626206229,
+  "gw_authorized": false,
+  "input_hashes": {
+    "pbe_band_recovery_20260912/OUT.ABACUS/band.txt": "be9e66c6ffc7a4866a0b7383106908f635b2eb05e192ce9be19824091ed1262f",
+    "pbe_band_recovery_20260912/OUT.ABACUS/eig_occ.txt": "d123498d21e19443be13a90d382f3f1868652ddc18a36a89e994dc31fb5ec1e6",
+    "pbe_band_recovery_20260912/OUT.ABACUS/running_nscf.log": "bda3fe3b1ef191e307dff4689d505457d2367f6f0de4725d259955c992393b7d",
+    "pbe_band_recovery_20260912/RUN_ONCE/PROCESS_RESULT.json": "62d93a916e1f70b0cd056aa767584da6274c052d2f5f420d2d2c4c765adea9f3",
+    "pbe_band_recovery_20260912/RUN_ONCE/SOURCE_RECEIPT.json": "bcd49e44662c226660e06e486659f710f140aa72c38e9752c381ff9f8d394a08",
+    "pbe_band_recovery_20260912/abacus.stderr": "08cf469420b57f4a8481b43962994f102cb397c41a471328ab807a2a1efc34ef",
+    "pbe_band_recovery_20260912/abacus.stdout": "32cb0cbf323354427c2bfd1fbf61b21e963e75f3c0a2944fceea34fd4a0e8aa3"
+  },
+  "material": "SnSe",
+  "max_adjacent_steps_ev": [
+    0.05433888571500001,
+    0.04811266767500033,
+    0.047482053381999734,
+    0.06084597504400002,
+    0.052674554272000074,
+    0.06346163274400007,
+    0.08002866847300005,
+    0.08556236916300008,
+    0.08622441219100008,
+    0.07625657476900027
+  ],
+  "nbands": 164,
+  "near_gap_raw_bands": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "npoints": 400,
+  "occupied": 30,
+  "parent_scf_job_id": "3299784",
+  "process": {
+    "command": [
+      "[private-path]"
+    ],
+    "elapsed_seconds": 184.5079552109819,
+    "pgid": 3364922,
+    "pid": 3364922,
+    "returncode": 0,
+    "timed_out": false,
+    "timeout_seconds": 600
+  },
+  "producer_authorized": false,
+  "raw_band_inversions": 0,
+  "reviewed_by_main": false,
+  "scf_converged": true,
+  "smooth_near_gap": true,
+  "sorting_applied": false,
+  "status": "PBE_NUMERICAL_AUDIT_MAIN_REVIEW_PENDING",
+  "vbm_ev": 0.178485117814,
+  "vbm_k_index_1based": 60
+}

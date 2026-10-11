@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "id": "Ge-Dojo-NC-SR-d7e00de0eca1",
+  "element": "Ge",
+  "family": "Dojo-NC-SR",
+  "validation_scope": "Historical GeTe producer3293908/GW3298475 numerical and figure evidence; atomic export/radial checks passed. No converged scientific benchmark or cross-material acceptance inferred.",
+  "notes": "Exact local case pairing; PP/physical NAO match prior library set Dojo_NC_SR_Ge_library_TZDP10_plusg_ABFS_20260908. Full-content SHA256 dedup is delegated to the existing importer. for_aux is auxiliary-only, not a replacement physical orbital. Material shrink/Coulomb/Cs/density/symmetry/PyATB data are not element assets. Compact material reports are historical evidence only; no new scientific gate was run. Latest hollow-edge plot and raw spectrum also retained. GeTe valley reversal is provisional and differs from references; not a validated valley-order conclusion.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "ad287cf6818dad580efb071930a851dbf1e1882ad27aea8dfaeb0d4749770442"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Ge/pseudopotentials/111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72.upf",
+      "sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72",
+      "size_bytes": 262557,
+      "original_sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Ge/orbitals/5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d.orb",
+      "sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d",
+      "size_bytes": 252498,
+      "original_sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Ge/auxiliary/6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d.abfs",
+      "sha256": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d",
+      "size_bytes": 1517176,
+      "original_sha256": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 10,
+          "P": 9,
+          "D": 10,
+          "F": 8,
+          "G": 9,
+          "H": 6,
+          "I": 6
+        },
+        "basis_dimension": 368
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Ge/for_aux/beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d.orb",
+      "sha256": "beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d",
+      "size_bytes": 286755,
+      "original_sha256": "beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 50
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-0_manifest.json",
+      "sha256": "7c5e90cc0def032ccd5509cb068f539cea194ce45a5012911356c84ddb871be6",
+      "size_bytes": 7538,
+      "original_sha256": "3bcb265681e0a605f1f92a87fd7946c9541a3ad181969b9f00f7b7b78c4e81ea",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-1_MANIFEST.json",
+      "sha256": "a09f102eaf026ec78bbdb7a128a96e13a0db03756501cd0d14f773505f83e5d9",
+      "size_bytes": 4052,
+      "original_sha256": "667be4c207c14c2646bfca287812a23628a22c254eb7cb256937569bdaa0df98",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-2_LIBRARY_SELECTION.json",
+      "sha256": "c92f8eb6ab832dabe668c0495c141933f3f42163145b3cda314337246c76bf4d",
+      "size_bytes": 5002,
+      "original_sha256": "b4b19150f5158de4afcd25c011846bc8c612f25285acf33140042702079ee3dc",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-3_summary.json",
+      "sha256": "fd1c6f88c014d695fa465c0a54f0ff8cd0c233743e449df3aaa017422c0a8f49",
+      "size_bytes": 6439,
+      "original_sha256": "fd1c6f88c014d695fa465c0a54f0ff8cd0c233743e449df3aaa017422c0a8f49",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-4_FIGURE_PROVENANCE.json",
+      "sha256": "933eddfd5ff5a421e9486b88bc6ed5d6fb2479e1f003102aeae26e35b71ba35a",
+      "size_bytes": 977,
+      "original_sha256": "be184f1fdb8e2d497cd31503034ad097ba699a8e5a061788e3f81b59d221211d",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-5_VISUAL_QA.json",
+      "sha256": "ffb99aec20c09ef280c15a2d17e268c06b74512569f71d3734e247b005765066",
+      "size_bytes": 919,
+      "original_sha256": "ffb99aec20c09ef280c15a2d17e268c06b74512569f71d3734e247b005765066",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-6_GeTe_PBE_GW.png",
+      "sha256": "29943d257645fee55221cee87e7e3000c79dd7a96e7a956938e6436611a98220",
+      "size_bytes": 371795,
+      "original_sha256": "29943d257645fee55221cee87e7e3000c79dd7a96e7a956938e6436611a98220",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-7_INDEPENDENT_EXPORT_AUDIT.json",
+      "sha256": "e2de6221d6742f8c5f8c52fa92e7abaeb8b660d930e6433c299e09861802537e",
+      "size_bytes": 1423,
+      "original_sha256": "f34800d12b27b39f1cc58f9212042a5329f08b0e04af8d1e3bdaa285a45a08a9",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-8_GENERATION_COMPLETE.json",
+      "sha256": "b817e09c0c4057ddb5e165429345c8df7abc64574c5281287b1cb9bf6d7173f0",
+      "size_bytes": 964,
+      "original_sha256": "b817e09c0c4057ddb5e165429345c8df7abc64574c5281287b1cb9bf6d7173f0",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-9_bands.npz",
+      "sha256": "e166994f130c8dcdf49cc05acf4b32c849fa2420f271d5f64083f3de695ce94e",
+      "size_bytes": 950464,
+      "original_sha256": "e166994f130c8dcdf49cc05acf4b32c849fa2420f271d5f64083f3de695ce94e",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-10_display_mapping.npz",
+      "sha256": "c94b44560db8d5829fc09b93e0c52302644db023e576c605bda29a645dae6069",
+      "size_bytes": 34415,
+      "original_sha256": "c94b44560db8d5829fc09b93e0c52302644db023e576c605bda29a645dae6069",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-11_GeTe_PBE_GW_reordered.png",
+      "sha256": "f0846e765a7ced82f5b12d1cb2f4695ac46a289ac99a8ea47297a35383714d98",
+      "size_bytes": 379143,
+      "original_sha256": "f0846e765a7ced82f5b12d1cb2f4695ac46a289ac99a8ea47297a35383714d98",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-12_GeTe_PBE_GW_reordered.pdf",
+      "sha256": "43d11b3d8b53772ebd574535ed982f6fdb44dbb12223a24bb908449adb0c30fa",
+      "size_bytes": 48356,
+      "original_sha256": "43d11b3d8b53772ebd574535ed982f6fdb44dbb12223a24bb908449adb0c30fa",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-13_DELIVERY_QA.json",
+      "sha256": "1b8aca9819fd4d505917b2f8ec828b96b7308dbda0caa5d5f308a1f15b244736",
+      "size_bytes": 1621,
+      "original_sha256": "1b8aca9819fd4d505917b2f8ec828b96b7308dbda0caa5d5f308a1f15b244736",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-NC-SR-d7e00de0eca1/evidence/evidence-14_gete_snse_pbe_selection_20260906.tex",
+      "sha256": "0d26fd555f378e504caa3debfcfc0047e53a6be5c943bf4e3f53ea9fbf16e142",
+      "size_bytes": 11585,
+      "original_sha256": "0d26fd555f378e504caa3debfcfc0047e53a6be5c943bf4e3f53ea9fbf16e142",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

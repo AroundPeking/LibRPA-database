@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "Sn-GTH-1917eba7c6d7",
+  "element": "Sn",
+  "family": "GTH",
+  "validation_scope": "Generation completed 0:0; radial finite normalization and same-l Gram passed; material PBE/head and ABFS pending.",
+  "notes": "Rcut10 bohr Ecut150 Ry; pinned PP and runtime; no physical selection inferred.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "5f032d1cfd2868376053b9a16b22a0e51a44813f8658feb78807a13adc3a6e8a"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Sn/pseudopotentials/ee4270b58ad280a82b93c4de0e4aa7306ebac7708ac61bcf256697c55c69d7a0.upf",
+      "sha256": "ee4270b58ad280a82b93c4de0e4aa7306ebac7708ac61bcf256697c55c69d7a0",
+      "size_bytes": 118657,
+      "original_sha256": "ee4270b58ad280a82b93c4de0e4aa7306ebac7708ac61bcf256697c55c69d7a0",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Sn/orbitals/6b0c5497c0b7f3a261e417b30addec59a123430ace03b9e2cba641dd6fe1911c.orb",
+      "sha256": "6b0c5497c0b7f3a261e417b30addec59a123430ace03b9e2cba641dd6fe1911c",
+      "size_bytes": 252481,
+      "original_sha256": "6b0c5497c0b7f3a261e417b30addec59a123430ace03b9e2cba641dd6fe1911c",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-GTH-1917eba7c6d7/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "40447559eb8ffb445b173cb1f2c5150029f354d171dec6628bdeeabcdef770ab",
+      "size_bytes": 1849,
+      "original_sha256": "137a40c757493602e36a511807ec4f6a18ecc2b5fdd70b4251daeee3a6300264",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-GTH-1917eba7c6d7/evidence/evidence-1_SIAB_INPUT",
+      "sha256": "65bd7d0843b0d2b126c00c2d61de777546408ca78b0fd2812618f1f30a03a805",
+      "size_bytes": 406,
+      "original_sha256": "298e647d670cc1b305181756996b2b8a8e83ecf9b19b7d2e1e36cbe419a60c8c",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-GTH-1917eba7c6d7/evidence/evidence-2_Level3.ORBITAL_RESULTS.txt",
+      "sha256": "5caab53ce6868c062d1728f0c6306db72468d90cca882731f5ef4ac1c5cb1c35",
+      "size_bytes": 9287,
+      "original_sha256": "5caab53ce6868c062d1728f0c6306db72468d90cca882731f5ef4ac1c5cb1c35",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-GTH-1917eba7c6d7/evidence/evidence-3_radial_audit.json",
+      "sha256": "4dc460e936b59cef7cd270d0977046d09c52a9bb5a751620e81307973ec14a5c",
+      "size_bytes": 3343,
+      "original_sha256": "7841684faf53fac3a139497c895872c8f9ec7a9dd366c3918652792dadb19f79",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

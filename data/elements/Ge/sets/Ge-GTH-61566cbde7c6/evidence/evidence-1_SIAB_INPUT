@@ -1,0 +1,16 @@
+# Missing asset only; scalar PBE TZDP seed, not a converged material result.
+EXE_mpi mpiexec.hydra -np 20
+EXE_pw [private-path]
+element Ge
+Ecut 150
+Rcut 10
+Pseudo_dir [private-path]
+Pseudo_name PP.upf
+sigma 0.01
+STRU1 dimer 22 3 1 1.8 2.0 2.4 3.0 4.0
+STRU2 trimer 29 3 1 1.9 2.2 2.8
+max_steps 9000
+Level1 STRU1 18 none 1s1p1d
+Level2 STRU1 auto fix 2s2p2d1f
+Level3 STRU2 auto fix 3s3p3d2f
+Save1 Level3 TZDP

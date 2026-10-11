@@ -1,0 +1,27 @@
+{
+  "index": 3,
+  "element": "Ga",
+  "family": "Dojo-NC-SR",
+  "pp_sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+  "physical_sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+  "for_aux_sha256": "b84ea98280e165703a2ddbc3e7da29e09e79533232b61cb8093c91c10ef9026f",
+  "physical_dimension": "source-dependent; audit from orbital channels",
+  "source_pp": "[private-path]",
+  "source_physical": "[private-path]",
+  "pca_threshold": 0.0001,
+  "status": "generation_completed_pending_independent_radial_and_material_gates",
+  "array_id": "3364412",
+  "task_id": 3,
+  "abfs_sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+  "abfs_counts": {
+    "S": "10",
+    "P": "8",
+    "D": "10",
+    "F": "7",
+    "G": "8",
+    "H": "5",
+    "I": "4",
+    "J": "2",
+    "K": "1"
+  }
+}

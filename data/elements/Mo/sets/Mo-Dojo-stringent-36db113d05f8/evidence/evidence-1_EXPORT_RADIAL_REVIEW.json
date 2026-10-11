@@ -1,0 +1,16 @@
+{
+  "job": "3328959",
+  "scheduler": "FAILED1:0: original wrapper requires converged atomic SCF",
+  "native_exit": 0,
+  "atomic_scf_converged": false,
+  "export_receipt": true,
+  "abfs_sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+  "naux": 396,
+  "counts": {"0": 12, "1": 10, "2": 10, "3": 9, "4": 7, "5": 6, "6": 5, "7": 2, "8": 1},
+  "raw_mote2_naux": 1074,
+  "max_norm_error": 2.7755575615628914e-14,
+  "min_same_l_gram": 0.9999999999999967,
+  "max_endpoint": 0.0,
+  "radial_pass": true,
+  "acceptance": "Export/radial evidence only; original gate not overridden; no library promotion or material EXX/GW acceptance"
+}

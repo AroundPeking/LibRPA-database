@@ -1,0 +1,24 @@
+{
+  "abacus": "[private-path]",
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "auxiliary_input_dimension": 53,
+  "element": "Mo",
+  "family": "Dojo-NC-SR",
+  "generated_naux": null,
+  "input_hashes": {
+    "prepared/Mo/INPUT": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+    "prepared/Mo/KPT": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+    "prepared/Mo/PP.upf": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+    "prepared/Mo/STRU": "b8484b2164f99ffcc21ec6669b9628a92f75db43958eaac802ee72922aae02e6",
+    "prepared/Mo/for_aux.orb": "776bafee4a7f744adf484cde3d46ee58244941cde9e353e70c0d54f4854e9e11",
+    "prepared/Mo/gaussian_recipe.json": "aad430f76653394caf2449e470347fb6f8c04366420cbff42317e46f67e8860c",
+    "prepared/Mo/physical.orb": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+    "prepared/RADIAL_INPUT_GATE.json": "d0d97cac91dae7feec53f57ff9d380568a3e392bbab0bfa1a5d19db3291f9b7d"
+  },
+  "pca_threshold": 0.0001,
+  "physical_dimension": 44,
+  "raw_mote2_physical_dimension": 126,
+  "scientific_acceptance": "NOT_EVALUATED",
+  "source_manifest_sha256": "ba228b464f7abd97b54d57de5b4fe5bcbc081c41d04ab56dc9446ad488f947ef",
+  "status": "PREPARED_NOT_SUBMITTED"
+}

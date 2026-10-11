@@ -1,0 +1,86 @@
+{
+  "parser": "[private-path]",
+  "parser_sha256": "df16352101dd1bfaf410120d3c4b0fd1d3bea768ee70e900fc6a79be3c16b8b3",
+  "results": [
+    {
+      "key": "Dojo-stringent_Ge",
+      "job": "3254775_2",
+      "orbital_sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+      "basis_dimension": 53,
+      "radial_norm_minmax": [
+        0.9999999999999996,
+        1.0000000000000002
+      ],
+      "max_norm_error": 4.440892098500626e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999987,
+      "last_printed_Level3_spillage": 5.971906092986297e-05,
+      "last_printed_optimizer_step": 600,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    },
+    {
+      "key": "Dojo-stringent_Sn",
+      "job": "3254775_3",
+      "orbital_sha256": "469f8a3161086e70168273b6f80857e8027343a756886ff31fed2ee43e350271",
+      "basis_dimension": 53,
+      "radial_norm_minmax": [
+        0.9999999999999994,
+        1.0000000000000004
+      ],
+      "max_norm_error": 5.551115123125783e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999989,
+      "last_printed_Level3_spillage": 7.404200657430293e-05,
+      "last_printed_optimizer_step": 700,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    },
+    {
+      "key": "Dojo-stringent_Te",
+      "job": "3254775_4",
+      "orbital_sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+      "basis_dimension": 53,
+      "radial_norm_minmax": [
+        0.9999999999999994,
+        1.0000000000000004
+      ],
+      "max_norm_error": 5.551115123125783e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999994,
+      "last_printed_Level3_spillage": 6.110573070376164e-05,
+      "last_printed_optimizer_step": 400,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    },
+    {
+      "key": "GTH_Ge",
+      "job": "3254775_0",
+      "orbital_sha256": "1a96326ae989248a99298128198353be65f928354964bfd09371d9b1694985ac",
+      "basis_dimension": 41,
+      "radial_norm_minmax": [
+        0.9999999999999999,
+        1.0000000000000004
+      ],
+      "max_norm_error": 4.440892098500626e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999997,
+      "last_printed_Level3_spillage": 0.0002049634577553498,
+      "last_printed_optimizer_step": 300,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    },
+    {
+      "key": "GTH_Sn",
+      "job": "3254775_1",
+      "orbital_sha256": "6b0c5497c0b7f3a261e417b30addec59a123430ace03b9e2cba641dd6fe1911c",
+      "basis_dimension": 41,
+      "radial_norm_minmax": [
+        0.9999999999999997,
+        1.0000000000000004
+      ],
+      "max_norm_error": 4.440892098500626e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999993,
+      "last_printed_Level3_spillage": 0.00022752915549501394,
+      "last_printed_optimizer_step": 600,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    }
+  ]
+}

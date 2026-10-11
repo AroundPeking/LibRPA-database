@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "id": "cuinp2se6-table-gw",
+  "dimension": "2d",
+  "material": "CuInP2Se6",
+  "formula": "CuInP2Se6",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Cu", "set_id": "Cu-Dojo-NC-SR-02a16f01f27e", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "In", "set_id": "In-Dojo-NC-SR-42d20f9dfceb", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "P", "set_id": "P-Dojo-NC-SR-c5d36e93d8c7", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "Se", "set_id": "Se-Dojo-NC-SR-7c3a95ba989c", "scope": "contextual matched PBE candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.79705,
+    "unit": "eV",
+    "notes": "low-energy path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/KS_bands.dat",
+        "sha256": "641d43ce6bb05a40cbce3633f1630ec50204b86b5797ddccd0eedbca5833c4f6",
+        "size_bytes": 1367421,
+        "original_sha256": "641d43ce6bb05a40cbce3633f1630ec50204b86b5797ddccd0eedbca5833c4f6",
+        "label": "cuinp2se6_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/EXX_bands.dat",
+        "sha256": "ba233dbec79b5a682cadaf167c0930dd9d8a11f6db0fad53237941c83f60d329",
+        "size_bytes": 1367421,
+        "original_sha256": "ba233dbec79b5a682cadaf167c0930dd9d8a11f6db0fad53237941c83f60d329",
+        "label": "cuinp2se6_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/GW_bands.dat",
+        "sha256": "c847452dc1bf684fdceba3f2c0bb66dc2c16757d9085986fc356cf1fc48eb2f5",
+        "size_bytes": 1367421,
+        "original_sha256": "c847452dc1bf684fdceba3f2c0bb66dc2c16757d9085986fc356cf1fc48eb2f5",
+        "label": "cuinp2se6_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/band_window_and_provenance.json",
+        "sha256": "97f643cd3d507c689967f5e5f630a3912e6706dde5791a0714fe2925e2958011",
+        "size_bytes": 75272,
+        "original_sha256": "009f7284c2653a2f60fa8c3c7936552e644e03812841fde87eb066254aaf0ee4",
+        "label": "cuinp2se6.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_ks.png",
+        "sha256": "aa2ad6e75e97e4e9071f050b2ac01bcbf7bdb57fa9b685a62f0c62f037312dfd",
+        "size_bytes": 272556,
+        "original_sha256": "aa2ad6e75e97e4e9071f050b2ac01bcbf7bdb57fa9b685a62f0c62f037312dfd",
+        "label": "cuinp2se6_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_ks.pdf",
+        "sha256": "b8d67aca92296065c8bbcaafed493090bb9846b67bbb723adc67a0b1511dabb6",
+        "size_bytes": 57533,
+        "original_sha256": "b8d67aca92296065c8bbcaafed493090bb9846b67bbb723adc67a0b1511dabb6",
+        "label": "cuinp2se6_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_exx.png",
+        "sha256": "4c99a1a22bfb0464370a924a637ba708eee8e13185677695310f8825ca3c9fb1",
+        "size_bytes": 244333,
+        "original_sha256": "4c99a1a22bfb0464370a924a637ba708eee8e13185677695310f8825ca3c9fb1",
+        "label": "cuinp2se6_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_exx.pdf",
+        "sha256": "e3012f9af2476842dcc65920a00dca85c215789d31159fa34c6a562813b6ef9b",
+        "size_bytes": 57534,
+        "original_sha256": "e3012f9af2476842dcc65920a00dca85c215789d31159fa34c6a562813b6ef9b",
+        "label": "cuinp2se6_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_gw.png",
+        "sha256": "cdcf0c0d8554a4bd1ed8e1b25fc10d6e493c1a6f454c590988d4d08c10e0450c",
+        "size_bytes": 269097,
+        "original_sha256": "cdcf0c0d8554a4bd1ed8e1b25fc10d6e493c1a6f454c590988d4d08c10e0450c",
+        "label": "cuinp2se6_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/figures/cuinp2se6_gw.pdf",
+        "sha256": "30cd50b2622a26884e2b84f95076c82f2cd5cf6f66f2d46de99e563b9fa1cb30",
+        "size_bytes": 58633,
+        "original_sha256": "30cd50b2622a26884e2b84f95076c82f2cd5cf6f66f2d46de99e563b9fa1cb30",
+        "label": "cuinp2se6_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "009f7284c2653a2f60fa8c3c7936552e644e03812841fde87eb066254aaf0ee4"
+  },
+  "scientific_scope": {
+    "original_status": "low-energy path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

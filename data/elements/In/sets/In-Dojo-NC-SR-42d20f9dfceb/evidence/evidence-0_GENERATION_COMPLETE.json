@@ -1,0 +1,24 @@
+{
+  "index": 1,
+  "element": "In",
+  "family": "Dojo-NC-SR",
+  "pp_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+  "physical_sha256": "1e03723e53061421c4371dbe5c96240db00767f3f0f1b1304a16bd06b29c2460",
+  "for_aux_sha256": "04acca0fc01e5b95819788bff81f5a63f76fb1fe3f6ba33eb45edbe94c77c17f",
+  "pca_threshold": 0.0001,
+  "status": "generation_completed",
+  "array_id": "3364768",
+  "task_id": 1,
+  "abfs_sha256": "6e1db5b44e379ac50e5c0104e98fc7463d4be2d3fd38a3242c0d218fc0bde0c6",
+  "abfs_counts": {
+    "S": "10",
+    "P": "9",
+    "D": "10",
+    "F": "8",
+    "G": "8",
+    "H": "6",
+    "I": "4",
+    "J": "2",
+    "K": "1"
+  }
+}

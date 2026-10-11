@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "id": "phosphorene-table-gw",
+  "dimension": "2d",
+  "material": "Phosphorene",
+  "formula": "Phosphorene",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "P", "set_id": "P-Dojo-NC-SR-c5d36e93d8c7", "scope": "contextual atomic-generation candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.93526,
+    "unit": "eV",
+    "notes": "accepted",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/KS_bands.dat",
+        "sha256": "084d0bef68a697a4c1564b64a0482c859a54c87c32fca927dccf444b1b15890e",
+        "size_bytes": 325611,
+        "original_sha256": "084d0bef68a697a4c1564b64a0482c859a54c87c32fca927dccf444b1b15890e",
+        "label": "p4_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/EXX_bands.dat",
+        "sha256": "bface75f48a612aaa64162ec03e77e2324c4905da9fdb1801e9d94f819efebc9",
+        "size_bytes": 325611,
+        "original_sha256": "bface75f48a612aaa64162ec03e77e2324c4905da9fdb1801e9d94f819efebc9",
+        "label": "p4_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat",
+        "sha256": "dc79e7b39c14791bcbe4a5928fb6d20861d7fda4a028d4075deefec307213d44",
+        "size_bytes": 325611,
+        "original_sha256": "dc79e7b39c14791bcbe4a5928fb6d20861d7fda4a028d4075deefec307213d44",
+        "label": "p4_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json",
+        "sha256": "18df5ace9eaec56f7ebe021147822af8050380dc6448b74db839231d0d8cfaf1",
+        "size_bytes": 58441,
+        "original_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0",
+        "label": "phosphorene.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.png",
+        "sha256": "ac61a6deb1757262f235df7db6a1925cd885f1164f3ae751b8cce90aefe05813",
+        "size_bytes": 300275,
+        "original_sha256": "ac61a6deb1757262f235df7db6a1925cd885f1164f3ae751b8cce90aefe05813",
+        "label": "phosphorene_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.pdf",
+        "sha256": "e5a9536889d43514f0991563bf3d6c521e6fe197769466ed609a894eb3f28042",
+        "size_bytes": 50126,
+        "original_sha256": "e5a9536889d43514f0991563bf3d6c521e6fe197769466ed609a894eb3f28042",
+        "label": "phosphorene_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.png",
+        "sha256": "4a9ef38545cfa2b5345775c730f67aeb3cb8e83cd3b656899691174ff317ab76",
+        "size_bytes": 266158,
+        "original_sha256": "4a9ef38545cfa2b5345775c730f67aeb3cb8e83cd3b656899691174ff317ab76",
+        "label": "phosphorene_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.pdf",
+        "sha256": "f183573951b4f751479764a60bf8f1a1ca00c05f1ea4c2e3e924a399f4a5ba89",
+        "size_bytes": 49926,
+        "original_sha256": "f183573951b4f751479764a60bf8f1a1ca00c05f1ea4c2e3e924a399f4a5ba89",
+        "label": "phosphorene_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.png",
+        "sha256": "13abaeb10214145160c8a8df589570d9c6c04e0790cc58f7c5d5ec479c4c529e",
+        "size_bytes": 349466,
+        "original_sha256": "13abaeb10214145160c8a8df589570d9c6c04e0790cc58f7c5d5ec479c4c529e",
+        "label": "phosphorene_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.pdf",
+        "sha256": "d10b006d109ebed6d617c6ff0878ed9419bf5ed487f0b7fe053f8bfa937bc91f",
+        "size_bytes": 52472,
+        "original_sha256": "d10b006d109ebed6d617c6ff0878ed9419bf5ed487f0b7fe053f8bfa937bc91f",
+        "label": "phosphorene_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0"
+  },
+  "scientific_scope": {
+    "original_status": "accepted",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

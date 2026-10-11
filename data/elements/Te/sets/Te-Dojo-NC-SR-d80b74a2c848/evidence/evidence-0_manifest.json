@@ -1,0 +1,189 @@
+{
+  "element": "Te",
+  "family": "Dojo-NC-SR",
+  "files": [
+    {
+      "asset": "assets/25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5/payload",
+      "path": "pp.upf",
+      "pp_header": {
+        "author": "anonymous",
+        "comment": "",
+        "core_correction": "T",
+        "date": "171031",
+        "element": "Te",
+        "functional": "PBE",
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "has_gipaw": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "is_coulomb": "F",
+        "is_paw": "F",
+        "is_ultrasoft": "F",
+        "l_local": "-1",
+        "l_max": "2",
+        "mesh_size": "  1294",
+        "number_of_proj": "6",
+        "number_of_wfc": "3",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "rho_cutoff": "   1.29300000000E+01",
+        "total_psenergy": "  -1.86480035507E+02",
+        "z_valence": "   16.00"
+      },
+      "role": "pp",
+      "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+      "size_bytes": 225387,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5"
+      }
+    },
+    {
+      "asset": "assets/1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d/payload",
+      "dimensions": {
+        "basis_dimension": 41,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "P": 3,
+          "S": 3
+        },
+        "dr": 0.01,
+        "element": "Te",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 3,
+        "mesh": 1001,
+        "radial_channels": 11,
+        "radius_cutoff": 10.0
+      },
+      "path": "physical.orb",
+      "role": "nao",
+      "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+      "size_bytes": 251663,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d"
+      }
+    },
+    {
+      "asset": "assets/76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5/payload",
+      "dimensions": {
+        "basis_dimension": 339,
+        "counts": {
+          "D": 10,
+          "F": 7,
+          "G": 7,
+          "H": 5,
+          "I": 4,
+          "J": 1,
+          "K": 1,
+          "P": 9,
+          "S": 11
+        },
+        "dr": 0.01,
+        "element": "Te",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 8,
+        "mesh": 1001,
+        "radial_channels": 55,
+        "radius_cutoff": 10.0
+      },
+      "path": "auxiliary.abfs",
+      "role": "abfs",
+      "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+      "size_bytes": 1366910,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5"
+      }
+    },
+    {
+      "asset": "assets/378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3/payload",
+      "dimensions": {
+        "basis_dimension": 50,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "G": 1,
+          "P": 3,
+          "S": 3
+        },
+        "dr": 0.01,
+        "element": "Te",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 4,
+        "mesh": 1001,
+        "radial_channels": 12,
+        "radius_cutoff": 10.0
+      },
+      "path": "for_aux_0.orb",
+      "role": "for_aux",
+      "sha256": "378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3",
+      "size_bytes": 285920,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3"
+      }
+    },
+    {
+      "asset": "assets/6afe1f8919f7030bdcdb631988cc1af39e09fe37b35518744c072146f3252c31/payload",
+      "path": "evidence/0_INPUT",
+      "role": "evidence",
+      "sha256": "6afe1f8919f7030bdcdb631988cc1af39e09fe37b35518744c072146f3252c31",
+      "size_bytes": 548,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "6afe1f8919f7030bdcdb631988cc1af39e09fe37b35518744c072146f3252c31"
+      }
+    },
+    {
+      "asset": "assets/06103fc25471fab059d513f0ba759855d566ad0112e081fa8e6fa9ed1e62574c/payload",
+      "path": "evidence/1_STRU",
+      "role": "evidence",
+      "sha256": "06103fc25471fab059d513f0ba759855d566ad0112e081fa8e6fa9ed1e62574c",
+      "size_bytes": 249,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "06103fc25471fab059d513f0ba759855d566ad0112e081fa8e6fa9ed1e62574c"
+      }
+    },
+    {
+      "asset": "assets/91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece/payload",
+      "path": "evidence/2_KPT",
+      "role": "evidence",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece"
+      }
+    },
+    {
+      "asset": "assets/2aed490af6745d3e42cc81dd4dfec712b9e953b47454a302888652e8a8a39e20/payload",
+      "path": "evidence/3_gaussian_report.json",
+      "role": "evidence",
+      "sha256": "2aed490af6745d3e42cc81dd4dfec712b9e953b47454a302888652e8a8a39e20",
+      "size_bytes": 432,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "2aed490af6745d3e42cc81dd4dfec712b9e953b47454a302888652e8a8a39e20"
+      }
+    }
+  ],
+  "id": "Te_Dojo_NC_SR_existing_ABFS",
+  "import_validation_scope": "Historical inventory; file integrity and syntax only, not physical acceptance.",
+  "notes": "Existing physical TZDP plus auxiliary-only smooth g and ABFS reused. This is not a GeTe/SnSe producer or a material acceptance. Dojo-NC-SR PP is not identical to nc-sr-05 stringent. No material shrink transformation is attached.",
+  "physical_acceptance_inferred": false,
+  "schema_version": 1,
+  "selected_for_new_campaign": false,
+  "source_case": "[host]:[private-path]",
+  "validation_scope": "historical_atomic_ABFS_generation_inputs_and_files; target_material_PBE_head_Coulomb_gates_pending"
+}

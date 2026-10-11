@@ -1,0 +1,17 @@
+INPUT_PARAMETERS
+pseudo_dir                      ./
+orbital_dir                     ./
+latname                         user_defined_lattice
+ntype                           2
+nbands                          126
+ecutwfc                         100
+smearing_method                 gaussian
+smearing_sigma                  1e-4
+basis_type                      lcao
+ks_solver                       genelpa
+dft_functional                  pbe
+calculation                     scf
+scf_thr                         1e-8
+scf_nmax                        160
+symmetry                        1
+out_chg                         1

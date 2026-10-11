@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "id": "gaas-paper-gw_xsoc_1e-10",
+  "dimension": "3d",
+  "material": "GaAs",
+  "formula": "GaAs",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Ga",
+      "set_id": "Ga-ONCV-or-other-recorded-PP-6599bdcd9ee4",
+      "asset_aliases": {
+        "pp": "Ga.upf",
+        "nao": "Ga_gga_10au_130Ry_4s4p3d2f.orb",
+        "abf": "Ga_4s4p3d2f2g_1e-10.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "As",
+      "set_id": "As-ONCV-or-other-recorded-PP-1e37448cad59",
+      "asset_aliases": {
+        "pp": "As.upf",
+        "nao": "As_gga_10au_130Ry_3s3p2d.orb",
+        "abf": "As_3s3p2d2f2g_1e-6.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [],
+      "identity_note": "Full commit resolved from the unique local Git object matching the producer-logged prefix; the producer printed only the shortened ID, and executable SHA/source dirtiness were not retained."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 1.3783827,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 1.3783827,
+    "exx_gap_ev": 5.3961736,
+    "dft_gap_ev": 0.5177866,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT",
+        "sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
+        "size_bytes": 587,
+        "original_sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
+        "label": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_nscf",
+        "sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
+        "size_bytes": 587,
+        "original_sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
+        "label": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_scf",
+        "sha256": "0c34ecfccbc12873c080bb83758371c38d51308c88e7416760eb3a0c3990ddaf",
+        "size_bytes": 707,
+        "original_sha256": "0c34ecfccbc12873c080bb83758371c38d51308c88e7416760eb3a0c3990ddaf",
+        "label": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT",
+        "sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "size_bytes": 453,
+        "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+        "sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "size_bytes": 453,
+        "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/STRU",
+        "sha256": "19cc99d88fff7dfcb5de32c6c4a2a0eb89d30a31db2255e464a1fafa5ed87fad",
+        "size_bytes": 398,
+        "original_sha256": "19cc99d88fff7dfcb5de32c6c4a2a0eb89d30a31db2255e464a1fafa5ed87fad",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/librpa.in",
+        "sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "size_bytes": 196,
+        "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+        "sha256": "28472a00ad9289a58fe4ab64fd92d5fe25e9da34e61197b5c857b1c8b329b361",
+        "size_bytes": 414261,
+        "original_sha256": "28472a00ad9289a58fe4ab64fd92d5fe25e9da34e61197b5c857b1c8b329b361",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat",
+        "sha256": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60",
+        "size_bytes": 414261,
+        "original_sha256": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+        "sha256": "2b855827619c859a02e959f6ccfe4faf7069f0d65fc69f99cb50458587d62e3e",
+        "size_bytes": 414261,
+        "original_sha256": "2b855827619c859a02e959f6ccfe4faf7069f0d65fc69f99cb50458587d62e3e",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+        "sha256": "23b2378c16b98c181066be5808cc5d5ef9f72d4c47b7093205eb89f59a18bdcc",
+        "size_bytes": 11080,
+        "original_sha256": "23b2378c16b98c181066be5808cc5d5ef9f72d4c47b7093205eb89f59a18bdcc",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out",
+        "sha256": "eb58115569bf32a41ce35e04166443b412ed54a87c8299465654ec61ad4d0798",
+        "size_bytes": 40581,
+        "original_sha256": "eb58115569bf32a41ce35e04166443b412ed54a87c8299465654ec61ad4d0798",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out",
+        "sha256": "5936f6cee7e3bc652f10f4d75ce54ff4c0b9055dab4ec9cea8a517f3c0ba3f6c",
+        "size_bytes": 5334229,
+        "original_sha256": "e81d164b33b14668f8ffcf1c6b11ccc34b3c3a52351815e0e194c552e7a5d055",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "basis_comparison": {
+    "scope": "Codex session comparison of historical GaAs basis or occupied-window variants; values are diagnostic and are not a universal ranking.",
+    "accepted_candidates": [
+      {
+        "label": "Level3",
+        "gw_gap_ev": 1.029514,
+        "exx_gap_ev": 5.601551,
+        "status": "usable historical window"
+      },
+      {
+        "label": "occ+4",
+        "gw_gap_ev": 1.400496,
+        "exx_gap_ev": 5.057121,
+        "status": "usable historical window, not Lfull"
+      }
+    ],
+    "reference_candidate": {
+      "label": "Lfull 13e/5e",
+      "gw_gap_ev": 0.768947,
+      "exx_gap_ev": 4.499609,
+      "status": "low-precision reference"
+    },
+    "failed_candidates": [
+      {"label": "occ+8 SVD", "gw_gap_ev": -2.780726, "exx_gap_ev": -9.289548, "status": "divergent or unphysical"},
+      {"label": "occ+16 SVD", "gw_gap_ev": -237.111778, "exx_gap_ev": -22.024007, "status": "divergent or unphysical"},
+      {"label": "occ+49 SVD", "gw_gap_ev": -541170.106235, "exx_gap_ev": -541168.450410, "status": "divergent or unphysical"}
+    ],
+    "conclusion": "SVD replacements diverged and must not replace the stable physical basis; retain them as diagnostic evidence."
+  },
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/GaAs__src_gw_xsoc_1e-10"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": true,
+    "paper_gap_ev": 1.269,
+    "paper_difference_abs_ev": 0.109,
+    "commit_resolution": "unique local Git object matching logged prefix"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "repository": "https://github.com/AroundPeking/ABACUS-orbitals",
+  "commit": "3b634f1618f5c56baa97084a41ae17e801d46ab9",
+  "assets": {
+    "Ge": {
+      "PP.upf": {
+        "git_path": "Dojo-NC-SR/Pseudopotential/Ge.upf",
+        "sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72"
+      },
+      "physical.orb": {
+        "git_path": "Dojo-NC-SR/Orbitals_v2.0/Ge_TZDP/Ge_gga_10au_100Ry_3s3p3d2f.orb",
+        "sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d"
+      },
+      "valence_electrons": 14,
+      "pp_header": {
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "author": "anonymous",
+        "date": "171031",
+        "comment": "",
+        "element": "Ge",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "is_ultrasoft": "F",
+        "is_paw": "F",
+        "is_coulomb": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "has_gipaw": "F",
+        "core_correction": "T",
+        "functional": "PBE",
+        "z_valence": "   14.00",
+        "total_psenergy": "  -1.59497251239E+02",
+        "rho_cutoff": "   1.55900000000E+01",
+        "l_max": "2",
+        "l_local": "-1",
+        "mesh_size": "  1560",
+        "number_of_wfc": "3",
+        "number_of_proj": "6"
+      }
+    },
+    "Te": {
+      "PP.upf": {
+        "git_path": "Dojo-NC-SR/Pseudopotential/Te.upf",
+        "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5"
+      },
+      "physical.orb": {
+        "git_path": "Dojo-NC-SR/Orbitals_v2.0/Te_TZDP/Te_gga_10au_100Ry_3s3p3d2f.orb",
+        "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d"
+      },
+      "valence_electrons": 16,
+      "pp_header": {
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "author": "anonymous",
+        "date": "171031",
+        "comment": "",
+        "element": "Te",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "is_ultrasoft": "F",
+        "is_paw": "F",
+        "is_coulomb": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "has_gipaw": "F",
+        "core_correction": "T",
+        "functional": "PBE",
+        "z_valence": "   16.00",
+        "total_psenergy": "  -1.86480035507E+02",
+        "rho_cutoff": "   1.29300000000E+01",
+        "l_max": "2",
+        "l_local": "-1",
+        "mesh_size": "  1294",
+        "number_of_wfc": "3",
+        "number_of_proj": "6"
+      },
+      "auxiliary.abfs": {
+        "asset": "assets/76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5/payload",
+        "dimensions": {
+          "basis_dimension": 339,
+          "counts": {
+            "D": 10,
+            "F": 7,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1,
+            "P": 9,
+            "S": 11
+          },
+          "dr": 0.01,
+          "element": "Te",
+          "energy_cutoff_ry": 100.0,
+          "lmax": 8,
+          "mesh": 1001,
+          "radial_channels": 55,
+          "radius_cutoff": 10.0
+        },
+        "path": "auxiliary.abfs",
+        "role": "abfs",
+        "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+        "size_bytes": 1366910,
+        "source": {
+          "path": "[private-path]",
+          "resolved_path": "[private-path]",
+          "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5"
+        }
+      },
+      "for_aux.orb": {
+        "asset": "assets/378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3/payload",
+        "dimensions": {
+          "basis_dimension": 50,
+          "counts": {
+            "D": 3,
+            "F": 2,
+            "G": 1,
+            "P": 3,
+            "S": 3
+          },
+          "dr": 0.01,
+          "element": "Te",
+          "energy_cutoff_ry": 100.0,
+          "lmax": 4,
+          "mesh": 1001,
+          "radial_channels": 12,
+          "radius_cutoff": 10.0
+        },
+        "path": "for_aux_0.orb",
+        "role": "for_aux",
+        "sha256": "378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3",
+        "size_bytes": 285920,
+        "source": {
+          "path": "[private-path]",
+          "resolved_path": "[private-path]",
+          "sha256": "378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3"
+        }
+      }
+    }
+  },
+  "physical_AO_total": 164,
+  "electrons": 60,
+  "occupied_bands": 30,
+  "old_physical_AO_total": 212,
+  "old_electrons": 92,
+  "old_occupied_bands": 46,
+  "comparison": "PP+NAO library replacement, not a basis-only causal test",
+  "te_abfs": "Reuse exact matched historical +1g extend PCA1e-4; no regeneration",
+  "ge_abfs": "Generate missing matched +1g single PCA1e-4 using existing pinned generator",
+  "method": "direct_mixed_fourier",
+  "kmesh": [
+    12,
+    12,
+    1
+  ],
+  "band_path_points": 201,
+  "exx_cs_inv_thr": "Omitted; effective default -1, cal_I uses potrf, no syev truncation",
+  "gw_authorized": false
+}

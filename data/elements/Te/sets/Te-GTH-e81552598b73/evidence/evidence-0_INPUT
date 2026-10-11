@@ -1,0 +1,23 @@
+INPUT_PARAMETERS
+pseudo_dir              ./
+
+calculation             scf
+ntype                   1
+
+ecutwfc                 150
+
+smearing_method         gaussian
+smearing_sigma          1e-4
+basis_type              lcao
+ks_solver               genelpa
+dft_functional          pbe
+rpa                     1
+symmetry                -1
+exx_separate_loop       1
+exx_pca_threshold       1e-4
+gs_orth_thr             -1
+exx_ccp_rmesh_times     5
+exx_c_threshold         0
+exx_dm_threshold        0
+exx_schwarz_threshold   0
+exx_cauchy_threshold    1e-7

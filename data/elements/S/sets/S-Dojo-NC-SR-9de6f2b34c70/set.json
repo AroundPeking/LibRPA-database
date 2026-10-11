@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "S-Dojo-NC-SR-9de6f2b34c70",
+  "element": "S",
+  "family": "Dojo-NC-SR",
+  "validation_scope": "repository_paired_candidate; periodic_PBE_head_pending",
+  "notes": "Existing TZDP and SIAB recipe reused. Current PP byte-identical to nc-sr-05 stringent: False. Original generation-time PP hash is not available from the SIAB filename alone. Do not substitute another PP into this pair. No matched ABFS attached.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "45ea13f98b9aee61a2dcd31b8626f7db232d382e6bf0b3393f56fc3b982de8f8"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/S/pseudopotentials/7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7.upf",
+      "sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+      "size_bytes": 174131,
+      "original_sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/S/orbitals/b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b.orb",
+      "sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+      "size_bytes": 184113,
+      "original_sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/S/sets/S-Dojo-NC-SR-9de6f2b34c70/evidence/evidence-0_SIAB_INPUT",
+      "sha256": "621629aac19ce9c1befc58b751bc5892d9ff8d8864ecfa32cf9e47808d9ef14c",
+      "size_bytes": 1568,
+      "original_sha256": "fe60f949373b93e3af980a17f8581b419bf2081a62f15236c85c392d37d5e220",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/S/sets/S-Dojo-NC-SR-9de6f2b34c70/evidence/evidence-1_INPUT",
+      "sha256": "c971f0250fcc396ca7678afec5ffbb0f602724f2918db944f49500b73bb4064c",
+      "size_bytes": 1101,
+      "original_sha256": "c971f0250fcc396ca7678afec5ffbb0f602724f2918db944f49500b73bb4064c",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/S/sets/S-Dojo-NC-SR-9de6f2b34c70/evidence/evidence-2_ORBITAL_RESULTS.txt",
+      "sha256": "32c79f2453e79757c6651fcadfec7fbc96190e3c92783dfa04ee21af2c78e50b",
+      "size_bytes": 5600,
+      "original_sha256": "32c79f2453e79757c6651fcadfec7fbc96190e3c92783dfa04ee21af2c78e50b",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

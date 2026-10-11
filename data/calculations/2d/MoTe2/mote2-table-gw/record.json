@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "mote2-table-gw",
+  "dimension": "2d",
+  "material": "MoTe2",
+  "formula": "MoTe2",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Mo", "set_id": "Mo-Dojo-stringent-36db113d05f8", "scope": "contextual generation/radial candidate; material acceptance pending"},
+    {"element": "Te", "set_id": "Te-Dojo-NC-SR-6a1ccd56018e", "scope": "contextual repository paired candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.65241,
+    "unit": "eV",
+    "notes": "near-gap path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/KS_bands.dat",
+        "sha256": "5166d7204208d5e3f6368c15a6219be34014906e5b852d1ac2380890b758ae16",
+        "size_bytes": 578481,
+        "original_sha256": "5166d7204208d5e3f6368c15a6219be34014906e5b852d1ac2380890b758ae16",
+        "label": "mote2_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/EXX_bands.dat",
+        "sha256": "91801b1c3618d2db293ae5ebaa836e40b66f8f85e9c1ab11a74cc76a04907cbb",
+        "size_bytes": 578481,
+        "original_sha256": "91801b1c3618d2db293ae5ebaa836e40b66f8f85e9c1ab11a74cc76a04907cbb",
+        "label": "mote2_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/GW_bands.dat",
+        "sha256": "0763658d49ea58acb0dd22b61eb8eeff639ca5e83178d72299d5fcfe4c8079af",
+        "size_bytes": 578481,
+        "original_sha256": "0763658d49ea58acb0dd22b61eb8eeff639ca5e83178d72299d5fcfe4c8079af",
+        "label": "mote2_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json",
+        "sha256": "a0b4013d6568931fb900e8e34eaa52a2bf7e36f8fd55c4f9f6abe2e2fb51b6d9",
+        "size_bytes": 136953,
+        "original_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165",
+        "label": "mote2.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_ks.png",
+        "sha256": "467957bb7c5de3e0b44a8dc7e3b575d09b9a0b10d3054ca196a67c3f8bd3538b",
+        "size_bytes": 380970,
+        "original_sha256": "467957bb7c5de3e0b44a8dc7e3b575d09b9a0b10d3054ca196a67c3f8bd3538b",
+        "label": "mote2_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_ks.pdf",
+        "sha256": "7991ade201eb2762e3cd8ef839cba15c9270a9dfeddcdd82e80089d3469b917e",
+        "size_bytes": 64661,
+        "original_sha256": "7991ade201eb2762e3cd8ef839cba15c9270a9dfeddcdd82e80089d3469b917e",
+        "label": "mote2_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_exx.png",
+        "sha256": "ff949330eab470bece57ccf1a28a245b219253a718c41ea5c87309b93d4b3bf9",
+        "size_bytes": 348122,
+        "original_sha256": "ff949330eab470bece57ccf1a28a245b219253a718c41ea5c87309b93d4b3bf9",
+        "label": "mote2_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_exx.pdf",
+        "sha256": "ff8fb4b6c301ec4fd5f42217f0a75bbe0f819ceb4f4bb733c361eddb2e713c6c",
+        "size_bytes": 64442,
+        "original_sha256": "ff8fb4b6c301ec4fd5f42217f0a75bbe0f819ceb4f4bb733c361eddb2e713c6c",
+        "label": "mote2_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_gw.png",
+        "sha256": "462c3ed5534c2be01a7acb51532aa55611516a83c14f360934ebce9c82189e7a",
+        "size_bytes": 392120,
+        "original_sha256": "462c3ed5534c2be01a7acb51532aa55611516a83c14f360934ebce9c82189e7a",
+        "label": "mote2_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/figures/mote2_gw.pdf",
+        "sha256": "f834132fff9bbc012bd393b318d7b373b45b7c08cf56be63c956e8bf967af9e4",
+        "size_bytes": 66132,
+        "original_sha256": "f834132fff9bbc012bd393b318d7b373b45b7c08cf56be63c956e8bf967af9e4",
+        "label": "mote2_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165"
+  },
+  "scientific_scope": {
+    "original_status": "near-gap path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

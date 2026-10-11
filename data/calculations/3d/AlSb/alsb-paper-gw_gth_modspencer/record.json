@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "alsb-paper-gw_gth_modspencer",
+  "dimension": "3d",
+  "material": "AlSb",
+  "formula": "AlSb",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Al",
+      "set_id": "Al-GTH-17a69dda1e90",
+      "asset_aliases": {
+        "pp": "Al-GTH-PBE-q3-cp2k-default-grid.upf",
+        "nao": "Al_gga_10au_110Ry_3s3p2d.orb",
+        "abf": "Al_gth_3s3p2d2f2g_1e-6.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "Sb",
+      "set_id": "Sb-GTH-2e1fc942cd09",
+      "asset_aliases": {
+        "pp": "Sb-GTH-PBE-q5-cp2k-default-grid.upf",
+        "nao": "Sb_gga_10au_150Ry_3s3p2d2f.orb",
+        "abf": "Sb_gth_3s3p2d2f2g_1e-8.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [],
+      "identity_note": "Full commit resolved from the unique local Git object matching the producer-logged prefix; the producer printed only the shortened ID, and executable SHA/source dirtiness were not retained."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 1.5756189,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 1.5756189,
+    "exx_gap_ev": 5.5468341,
+    "dft_gap_ev": 1.1911308,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/INPUT",
+        "sha256": "996204a489116079f6245f48ba0ab12685015dadbf34ae20816e7753b85b6bc6",
+        "size_bytes": 587,
+        "original_sha256": "996204a489116079f6245f48ba0ab12685015dadbf34ae20816e7753b85b6bc6",
+        "label": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/INPUT_nscf",
+        "sha256": "996204a489116079f6245f48ba0ab12685015dadbf34ae20816e7753b85b6bc6",
+        "size_bytes": 587,
+        "original_sha256": "996204a489116079f6245f48ba0ab12685015dadbf34ae20816e7753b85b6bc6",
+        "label": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/INPUT_scf",
+        "sha256": "cdcc8269930bf101ca67dc38e13f4125ed048fe7a8d6df54a4d0c9ba8f48b3d5",
+        "size_bytes": 729,
+        "original_sha256": "cdcc8269930bf101ca67dc38e13f4125ed048fe7a8d6df54a4d0c9ba8f48b3d5",
+        "label": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT",
+        "sha256": "4baef53f5bbfccf29650d8530444991ca0e710be47bb5a741011a4cbd621c026",
+        "size_bytes": 292,
+        "original_sha256": "4baef53f5bbfccf29650d8530444991ca0e710be47bb5a741011a4cbd621c026",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_nscf",
+        "sha256": "4baef53f5bbfccf29650d8530444991ca0e710be47bb5a741011a4cbd621c026",
+        "size_bytes": 292,
+        "original_sha256": "4baef53f5bbfccf29650d8530444991ca0e710be47bb5a741011a4cbd621c026",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/STRU",
+        "sha256": "238058ecf384cdf16dfd75fa6d7d4170f94cef4b7378c2722a84cfe876e5fc64",
+        "size_bytes": 479,
+        "original_sha256": "238058ecf384cdf16dfd75fa6d7d4170f94cef4b7378c2722a84cfe876e5fc64",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/librpa.in",
+        "sha256": "631f51c5f13feff6b6288ea3f84454d94e857a27fb31981983f2742d6c4917e0",
+        "size_bytes": 465,
+        "original_sha256": "631f51c5f13feff6b6288ea3f84454d94e857a27fb31981983f2742d6c4917e0",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
+        "sha256": "42034f6e66be12674dd8f599a9829f1a1a5d233ea7482da8337f80d993dbd0d5",
+        "size_bytes": 216711,
+        "original_sha256": "42034f6e66be12674dd8f599a9829f1a1a5d233ea7482da8337f80d993dbd0d5",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat",
+        "sha256": "a3fab04990ca41af6b0c149b3ac2c46d388d9bc0ad4cb35e20287ad1e8136f50",
+        "size_bytes": 216711,
+        "original_sha256": "a3fab04990ca41af6b0c149b3ac2c46d388d9bc0ad4cb35e20287ad1e8136f50",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
+        "sha256": "da3b2be9139558c81cb3c12b9760f473197aa31416e6a0e7fded4210625be794",
+        "size_bytes": 216711,
+        "original_sha256": "da3b2be9139558c81cb3c12b9760f473197aa31416e6a0e7fded4210625be794",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/band_kpath_info",
+        "sha256": "dea6fafacb973161faf413851e416b2219b763f3673ef758ebcba4e7b60ca825",
+        "size_bytes": 6680,
+        "original_sha256": "dea6fafacb973161faf413851e416b2219b763f3673ef758ebcba4e7b60ca825",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/abacus.out",
+        "sha256": "8f1fb380e624bd5163335a47004e52ed72bd972873590eb08c12f5c57dca6708",
+        "size_bytes": 58456,
+        "original_sha256": "8f1fb380e624bd5163335a47004e52ed72bd972873590eb08c12f5c57dca6708",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out",
+        "sha256": "19179ef7f858abd5690a2a4a4b07722ae3f5b6b4f7fd10e1529d62b03182185a",
+        "size_bytes": 4754801,
+        "original_sha256": "a6791c8c9faccb6029fcd1cf91488929600f7ef21171249e397cd23d75a3bfdc",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/AlSb__src_gw_gth_modspencer"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": true,
+    "paper_gap_ev": 1.628,
+    "paper_difference_abs_ev": 0.052,
+    "commit_resolution": "unique local Git object matching logged prefix"
+  }
+}

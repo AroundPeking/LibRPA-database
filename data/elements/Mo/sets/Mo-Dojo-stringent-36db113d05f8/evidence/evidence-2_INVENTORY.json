@@ -1,0 +1,152 @@
+{
+  "abfs_counts": {
+    "Mo": null,
+    "MoTe2_raw": null,
+    "Te": 339
+  },
+  "auxiliary_input_counts": {
+    "Mo_after_remote_plusg": 53,
+    "Te_reused": 50
+  },
+  "files": {
+    "README.md": {
+      "sha256": "9f3469099a4d05a6359df1461d431b25e875b9fde84ce7792e1b6f593fe50033",
+      "size_bytes": 5686,
+      "source": "new isolated preparation; adapted from archived SnSe recipe"
+    },
+    "assets/Mo/manifest.json": {
+      "copy_verification": "byte_identical",
+      "sha256": "da29fa111fbd5d160f00a57e0adaa1afe09488cb86ff286013a438e22515fb0b",
+      "size_bytes": 5454,
+      "source": "[private-path]"
+    },
+    "assets/Mo/physical.orb": {
+      "copy_verification": "byte_identical",
+      "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+      "size_bytes": 321277,
+      "source": "[private-path]"
+    },
+    "assets/Mo/pp.upf": {
+      "copy_verification": "byte_identical",
+      "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+      "size_bytes": 302634,
+      "source": "[private-path]"
+    },
+    "assets/Te/auxiliary.abfs": {
+      "copy_verification": "byte_identical",
+      "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+      "size_bytes": 1366910,
+      "source": "[private-path]"
+    },
+    "assets/Te/for_aux_0.orb": {
+      "copy_verification": "byte_identical",
+      "sha256": "378abaf67d73699ae5b692614b2f178fa3e0eac99351d5ac1927587468559ca3",
+      "size_bytes": 285920,
+      "source": "[private-path]"
+    },
+    "assets/Te/manifest.json": {
+      "copy_verification": "byte_identical",
+      "sha256": "3483eced6d2d143593dde463f20964e161a8f2f38c27c668eec5fd1b8c951adc",
+      "size_bytes": 7975,
+      "source": "[private-path]"
+    },
+    "assets/Te/physical.orb": {
+      "copy_verification": "byte_identical",
+      "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+      "size_bytes": 251663,
+      "source": "[private-path]"
+    },
+    "assets/Te/pp.upf": {
+      "copy_verification": "byte_identical",
+      "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+      "size_bytes": 225387,
+      "source": "[private-path]"
+    },
+    "aux_workflow.py": {
+      "sha256": "91c9220f310a9b8b33a92942d1192754cc52e5e6f0bf808e20e4b978789da858",
+      "size_bytes": 15712,
+      "source": "new isolated preparation; adapted from archived SnSe recipe"
+    },
+    "provenance/gaussian_recipe.json": {
+      "copy_verification": "byte_identical",
+      "sha256": "c4e6c2f687ce6546aaea3171f5a42d3860d1265c24b1cc81a33155c69cd2f3c7",
+      "size_bytes": 638,
+      "source": "[private-path]"
+    },
+    "provenance/prepare_aux_remote.py": {
+      "copy_verification": "byte_identical",
+      "sha256": "52e3c5c9b1379bd940d81dc72d52960d3c727a041c14a61ec3f7de5aafbe3cba",
+      "size_bytes": 5722,
+      "source": "[private-path]"
+    },
+    "provenance/run_abfs.slurm": {
+      "copy_verification": "byte_identical",
+      "sha256": "d372a40ad0ebdcf9ec930d119a5d193ce0d6cbb664667fc68f18d2fe1333cf1c",
+      "size_bytes": 1128,
+      "source": "[private-path]"
+    },
+    "provenance/tasks.json": {
+      "copy_verification": "byte_identical",
+      "sha256": "cb508cc57871aacb8d753f9e050a9ca3f33c1871641927fbf665dcff09c95744",
+      "size_bytes": 1344,
+      "source": "[private-path]"
+    },
+    "run_mo_abfs.slurm": {
+      "sha256": "95670683e0d90a8d4eb854a8232fa7503dfd2e9fbac6151aa4445629476b562c",
+      "size_bytes": 1092,
+      "source": "new isolated preparation; adapted from archived SnSe recipe"
+    },
+    "templates/Mo/INPUT": {
+      "copy_verification": "byte_identical",
+      "sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "size_bytes": 720,
+      "source": "[private-path]"
+    },
+    "templates/Mo/KPT": {
+      "copy_verification": "byte_identical",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "source": "[private-path]"
+    },
+    "templates/Mo/STRU": {
+      "sha256": "b8484b2164f99ffcc21ec6669b9628a92f75db43958eaac802ee72922aae02e6",
+      "size_bytes": 202,
+      "source": "new isolated preparation; adapted from archived SnSe recipe"
+    },
+    "tests/test_aux_workflow.py": {
+      "sha256": "c8d611e17e7f0fd535d42977ad70fcd40577dc4461a42034936f4e6edf8b8539",
+      "size_bytes": 3131,
+      "source": "new isolated preparation; adapted from archived SnSe recipe"
+    },
+    "vendor/generate_gaussian_aux_orb.py": {
+      "copy_verification": "byte_identical",
+      "sha256": "df16352101dd1bfaf410120d3c4b0fd1d3bea768ee70e900fc6a79be3c16b8b3",
+      "size_bytes": 12577,
+      "source": "[private-path]"
+    },
+    "vendor/run_missing_abfs.py": {
+      "copy_verification": "byte_identical",
+      "sha256": "c9b2b3790f9a23f49569de6d65f9b5330702b8597593a089317ad85866f1332c",
+      "size_bytes": 3098,
+      "source": "[private-path]"
+    }
+  },
+  "formal_job_id": null,
+  "generator": {
+    "path": "[private-path]",
+    "reverified_remote_this_turn": false,
+    "sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+    "source_revision": "unknown; explicitly reused historical binary"
+  },
+  "nonmagnetic_occupied_states": 23,
+  "physical_counts": {
+    "Mo": 44,
+    "MoTe2_three_atom_cell": 126,
+    "Te": 41
+  },
+  "schema_version": 1,
+  "scope": "Only auxiliary preparation; no remote actions performed",
+  "status": "STAGED_NOT_GENERATED_NOT_SUBMITTED",
+  "valence_electrons": 46,
+  "validation_scope": "Local file identity, parser/safety tests only. Remote generation and material gates pending."
+}

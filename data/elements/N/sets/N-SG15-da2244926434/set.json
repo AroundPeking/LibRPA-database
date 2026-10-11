@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "N-SG15-da2244926434",
+  "element": "N",
+  "family": "SG15",
+  "validation_scope": "Used by bn-paper-sg15; see case-specific gates.",
+  "notes": "",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "bn-paper-sg15"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/N/pseudopotentials/b8b7334fbc55c79ced5bb9486c45ce5f0dcae1b7ea5e7523cfcd9814ca58f1c8.upf",
+      "sha256": "b8b7334fbc55c79ced5bb9486c45ce5f0dcae1b7ea5e7523cfcd9814ca58f1c8",
+      "size_bytes": 89982,
+      "original_sha256": "b8b7334fbc55c79ced5bb9486c45ce5f0dcae1b7ea5e7523cfcd9814ca58f1c8",
+      "label": "N_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/N/orbitals/7a5bfda0df420b3b4215066df47e50d260ccfd0106d9f9c4e2dfc2ec26c6388c.orb",
+      "sha256": "7a5bfda0df420b3b4215066df47e50d260ccfd0106d9f9c4e2dfc2ec26c6388c",
+      "size_bytes": 146648,
+      "original_sha256": "7a5bfda0df420b3b4215066df47e50d260ccfd0106d9f9c4e2dfc2ec26c6388c",
+      "label": "N_gga_8au_100Ry_3s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/N/auxiliary/b2f4e1b88790f566ea5e5590ff875b4b8f62c745ae7f2899170cf5b337f5d165.abfs",
+      "sha256": "b2f4e1b88790f566ea5e5590ff875b4b8f62c745ae7f2899170cf5b337f5d165",
+      "size_bytes": 1286615,
+      "original_sha256": "b2f4e1b88790f566ea5e5590ff875b4b8f62c745ae7f2899170cf5b337f5d165",
+      "label": "N_3s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 12,
+          "P": 11,
+          "D": 12,
+          "F": 9,
+          "G": 9,
+          "H": 6,
+          "I": 4
+        },
+        "basis_dimension": 367
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

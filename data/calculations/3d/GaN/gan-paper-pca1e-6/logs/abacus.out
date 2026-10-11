@@ -1,0 +1,993 @@
+                                                                                     
+                              ABACUS v3.9.0.7
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: 23986c1 (Mon Jan 12 20:55:15 2026 +0800)
+
+ Sat Feb  7 11:22:40 2026
+ MAKE THE DIR         : OUT.ABACUS/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: The lattice vector is left-handed; a right-handed vector is prefered.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ RUNNING WITH DEVICE  : CPU / Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 3 for Ga: [Ar] 3d10 4s2 4p1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 45 * 45 * 45
+ UNIFORM GRID DIM(BIG): 15 * 15 * 15
+ DONE(0.199481   SEC) : SETUP UNITCELL
+ DONE(0.207949   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       512             4           192         80          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Ga      6s6p4d2f-8au    58          1           
+ N       3s3p2d-8au      22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.241348   SEC) : INIT PLANEWAVE
+ DONE(0.602688   SEC) : LOCAL POTENTIAL
+ -------------------------------------------
+ SELF-CONSISTENT : 
+ -------------------------------------------
+ START CHARGE      : atomic
+ DONE(0.728328   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -7.03611412e+03   0.00000000e+00   8.3952e-02   5.33
+ GE2     -7.03816096e+03  -2.04684191e+00   7.2840e-02   4.62
+ GE3     -7.03929722e+03  -1.13626010e+00   9.3543e-03   4.67
+ GE4     -7.03930346e+03  -6.24051128e-03   1.5316e-03   4.63
+ GE5     -7.03930429e+03  -8.26861381e-04   4.9729e-04   4.52
+ GE6     -7.03930430e+03  -5.46730592e-06   1.0501e-04   4.51
+ GE7     -7.03930430e+03  -5.24463485e-07   1.0774e-05   4.83
+ GE8     -7.03930430e+03  -1.12002976e-08   8.9877e-07   4.46
+ GE9     -7.03930430e+03  -9.12605381e-11   9.7927e-08   4.42
+Use rpa_ccp_rmesh_times=6 to calculate cut Coulomb
+Inside No. VIJR =5114
+All No. VIJR =5114
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 12
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 12
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+rpa_pca_threshold: 10
+rpa_ccp_rmesh_times: 6
+rpa_lcao_exx(Ha): -22.862959489086261
+etxc(Ha): -28.955964030949932
+etot(Ha): -258.689568731755116
+Etot_without_rpa(Ha): -252.596564189891438
+ DONE(3216.943964779376984 SEC) : exx_lri_rpa->init
+ DONE(3900.041924918070436 SEC) : before cal_large_Vs
+ DONE(3939.183474790304899 SEC) : cal_large_Vs
+No. of singularity: 0
+No. of singularity: 5
+No. of singularity: 5
+No. of singularity: 18
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 18
+No. of singularity: 18
+No. of singularity: 18
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 46
+No. of singularity: 1
+No. of singularity: 46
+No. of singularity: 46
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 5
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 10
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 18
+No. of singularity: 1
+No. of singularity: 18
+No. of singularity: 18
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 18
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 18
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 10
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 46
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 0
+No. of singularity: 10
+No. of singularity: 10
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+ DONE(3967.573960572481155 SEC) : cal_large_Cs
+ DONE(4123.404057661071420 SEC) : out_large_Cs
+No. of singularity: 115
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 110
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 107
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 107
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 107
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 108
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 109
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 109
+No. of singularity: 111
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 110
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 113
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 111
+No. of singularity: 112
+No. of singularity: 113
+No. of singularity: 113
+Inside No. VIJR =1920
+All No. VIJR =1920
+Use exx_ccp_rmesh_times=4.000000000000000 to calculate full Coulomb
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 1
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 6
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 12
+Calculating velocity matrix in KS presentation...
+ DONE(7207.802472712472081 SEC) : Finish velocity matrix in KS presentation.
+
+TIME STATISTICS
+-------------------------------------------------------------------
+   CLASS_NAME          NAME        TIME/s   CALLS    AVG/s  PER/%  
+-------------------------------------------------------------------
+                 total             7238.75 40169    0.18    100.00 
+ Driver          atomic_world      7238.75 1        7238.75 100.00 
+ NOrbital_Lm     extra_uniform     141.42  577437   0.00    1.95   
+ Ions            opt_ions          7234.19 1        7234.19 99.94  
+ ESolver_KS      runner            7234.18 1        7234.18 99.94  
+ ESolver_KS_LCAO after_scf         7191.79 1        7191.79 99.35  
+ ModuleIO        ctrl_output_lcao  7191.75 1        7191.75 99.35  
+ Center2_Orb     cal_ST_Phi12_R    1806.91 1381801  0.00    24.96  
+ RPA_LRI         cal_postSCF_exx   2390.02 1        2390.02 33.02  
+ Matrix_Orbs21   init_radial_table 1396.45 5        279.29  19.29  
+ Exx_LRI         init              1525.00 3        508.33  21.07  
+ LRI_CV          set_orbitals      2033.44 7        290.49  28.09  
+ Matrix_Orbs11   init_radial_table 917.18  9        101.91  12.67  
+ Ewald_Vq        init              316.53  3        105.51  4.37   
+ Exx_LRI         cal_exx_ions_rpa  441.46  2        220.73  6.10   
+ LRI_CV          cal_datas         115.46  7        16.49   1.60   
+ Exx_LRI         cal_exx_elec      1019.99 1        1019.99 14.09  
+ RPA_LRI         cal_large_Cs      1674.11 1        1674.11 23.13  
+ RPA_LRI         out_abfs_overlap  2079.68 1        2079.68 28.73  
+ Ewald_Vq        cal_Vs            171.25  1        171.25  2.37   
+ Ewald_Vq        cal_Vq            105.50  1        105.50  1.46   
+ Ewald_Vq        set_Vq_dVq        103.16  1        103.16  1.43   
+-------------------------------------------------------------------
+
+
+ START  Time  : Sat Feb  7 11:22:40 2026
+ FINISH Time  : Sat Feb  7 13:23:35 2026
+ TOTAL  Time  : 7255
+ SEE INFORMATION IN : OUT.ABACUS/

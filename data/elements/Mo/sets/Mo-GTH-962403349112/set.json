@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "Mo-GTH-962403349112",
+  "element": "Mo",
+  "family": "GTH",
+  "validation_scope": "generation_and_radial_sanity_only; PBE_head_pending; no_ABFS",
+  "notes": "Completed before reuse-first correction. Preserved as an additional candidate, not a reason to replace historical validated combinations or to regenerate others.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "fc36ac5c2a327b3178d9ca3b2d5278e1ec5414ec4386e5b364f182252bb2b686"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mo/pseudopotentials/f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a.upf",
+      "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "size_bytes": 118292,
+      "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mo/orbitals/4ab324fb45dc207a3109c0e44541ea36ff739e3f6584096cd50f0f91099da127.orb",
+      "sha256": "4ab324fb45dc207a3109c0e44541ea36ff739e3f6584096cd50f0f91099da127",
+      "size_bytes": 320074,
+      "original_sha256": "4ab324fb45dc207a3109c0e44541ea36ff739e3f6584096cd50f0f91099da127",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 44
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-962403349112/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "3061e251e6e65986ca58a82279a23774d5c97da62f8e17b0c5cb4505155821d7",
+      "size_bytes": 1907,
+      "original_sha256": "5dd102d680797230f891e30baa28b40a03c1b71e33fe889c4bf4ca87a9ac25e1",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-962403349112/evidence/evidence-1_SIAB_INPUT",
+      "sha256": "aea99bc2bf421ade66346c8ad7a2c8e989d2633d913e09383c896781c070dee8",
+      "size_bytes": 400,
+      "original_sha256": "07671c1e16441c8ab710d0d8798589b71e5d9159f6cebaef872e2adf17e5f468",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-962403349112/evidence/evidence-2_Level3.ORBITAL_RESULTS.txt",
+      "sha256": "1a0ec940923d58a53e969f25b97f19a1542ee1a27a2b4598cb5f990f0f3d6cb3",
+      "size_bytes": 11789,
+      "original_sha256": "1a0ec940923d58a53e969f25b97f19a1542ee1a27a2b4598cb5f990f0f3d6cb3",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-962403349112/evidence/evidence-3_siab.time",
+      "sha256": "94badbea0377935e3d92130619ce0fc76d49fac5a97c69c8f73b40771267c02b",
+      "size_bytes": 771,
+      "original_sha256": "9249dde98bf41b4b8ddf7e51be27972c918131b3f72ed6f3cad8b5ebef68df19",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "Al-PP-unresolved-b58dd8eabafc",
+  "element": "Al",
+  "family": "PP-unresolved",
+  "validation_scope": "Used by alas-paper-paper; see case-specific gates.",
+  "notes": "Missing original payload roles: pp,nao",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "alas-paper-paper"
+  },
+  "files": [
+    {
+      "role": "abf",
+      "path": "data/elements/Al/auxiliary/7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44.abfs",
+      "sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+      "size_bytes": 2063259,
+      "original_sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+      "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 23,
+          "P": 21,
+          "D": 20,
+          "F": 16,
+          "G": 11,
+          "H": 8,
+          "I": 4
+        },
+        "basis_dimension": 537
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

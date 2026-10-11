@@ -1,0 +1,32 @@
+{
+  "cbm_ev": -0.28141255,
+  "cbm_location": "K",
+  "cbm_point": 41,
+  "cp2k_comparison_gate": "fail",
+  "cp2k_reference": {
+    "delta_v_ev": 0.012,
+    "direct_k_gap_ev": 1.679,
+    "global_gap_ev": 1.667
+  },
+  "delta_v_gamma_minus_k_ev": -0.000641729999999896,
+  "direct_k_gap_ev": 1.6793818600000001,
+  "errors_vs_cp2k": {
+    "delta_v_ev": -0.012641729999999896,
+    "direct_k_gap_ev": 0.00038186000000006715,
+    "global_gap_ev": 0.012381860000000078
+  },
+  "global_gap_ev": 1.6793818600000001,
+  "integrity_gate": "fail",
+  "material": "MoS2",
+  "max_adjacent_conduction_ev": 0.07668861999999999,
+  "max_adjacent_valence_ev": 0.07118813999999984,
+  "nbands": 126,
+  "npoints": 121,
+  "occupied_bands": 13,
+  "path_distance_end": 0.49545079,
+  "path_distance_start": 0.0,
+  "source": "[private-path]",
+  "vbm_ev": -1.96079441,
+  "vbm_location": "K",
+  "vbm_point": 41
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "wse2-table-gw",
+  "dimension": "2d",
+  "material": "WSe2",
+  "formula": "WSe2",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "W", "set_id": "W-GTH-759520698480", "scope": "contextual producer-used candidate; exact GW binding pending"},
+    {"element": "Se", "set_id": "Se-GTH-4b941920e1f4", "scope": "contextual producer-used candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 2.299,
+    "unit": "eV",
+    "notes": "near-gap diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/results/KS_bands.dat",
+        "sha256": "751b276945bec6a16d92db1c39959afa3f6511c92da3df5056f6558daf6a0db8",
+        "size_bytes": 463551,
+        "original_sha256": "751b276945bec6a16d92db1c39959afa3f6511c92da3df5056f6558daf6a0db8",
+        "label": "wse2_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/results/EXX_bands.dat",
+        "sha256": "db18c64563cefe51454e9e97286625719f90e4788f9a50320a8e5faa270adb54",
+        "size_bytes": 463551,
+        "original_sha256": "db18c64563cefe51454e9e97286625719f90e4788f9a50320a8e5faa270adb54",
+        "label": "wse2_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/results/GW_bands.dat",
+        "sha256": "7864ce7bd21de0ccd58400de0f1398d44507866807846c5e1e5947f603125e62",
+        "size_bytes": 463551,
+        "original_sha256": "7864ce7bd21de0ccd58400de0f1398d44507866807846c5e1e5947f603125e62",
+        "label": "wse2_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/results/band_window_and_provenance.json",
+        "sha256": "74fa5a2cd5c0ddc14aaad2f19ff1a0a2c4bf8cab53aa39bb0619410b42642cf0",
+        "size_bytes": 49722,
+        "original_sha256": "b9c3c70b2de5af54e51d11d394796f7f8aef0969d1884859bb8148481d5baa1f",
+        "label": "wse2.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_ks.png",
+        "sha256": "5f8c33f45c89d948b24469ae9588ccd842337d1548ca86c133f62ab0e5d9f462",
+        "size_bytes": 241402,
+        "original_sha256": "5f8c33f45c89d948b24469ae9588ccd842337d1548ca86c133f62ab0e5d9f462",
+        "label": "wse2_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_ks.pdf",
+        "sha256": "7537068a02aff0bed5a485374ba40c502dc26db542f90d66e5f5e168eae0e6c1",
+        "size_bytes": 49047,
+        "original_sha256": "7537068a02aff0bed5a485374ba40c502dc26db542f90d66e5f5e168eae0e6c1",
+        "label": "wse2_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_exx.png",
+        "sha256": "a5692fe09800e580c7a4dfe8b56fc326247fd6ea6925175b3371f9d3c2e8dc93",
+        "size_bytes": 229958,
+        "original_sha256": "a5692fe09800e580c7a4dfe8b56fc326247fd6ea6925175b3371f9d3c2e8dc93",
+        "label": "wse2_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_exx.pdf",
+        "sha256": "f56e3140b201fce37134a10d8955fb778711813f000177fdaf45e5ea0063a209",
+        "size_bytes": 50559,
+        "original_sha256": "f56e3140b201fce37134a10d8955fb778711813f000177fdaf45e5ea0063a209",
+        "label": "wse2_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_gw.png",
+        "sha256": "3f64552f292592878980555d3bc5253f7c73e6c3c810ae7fd293866bcc5d3c45",
+        "size_bytes": 283343,
+        "original_sha256": "3f64552f292592878980555d3bc5253f7c73e6c3c810ae7fd293866bcc5d3c45",
+        "label": "wse2_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/figures/wse2_gw.pdf",
+        "sha256": "c40293bcd8b37411a5f3a68f987ef506d5fbb28f198ad680d115443e6f49b3d6",
+        "size_bytes": 51334,
+        "original_sha256": "c40293bcd8b37411a5f3a68f987ef506d5fbb28f198ad680d115443e6f49b3d6",
+        "label": "wse2_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "b9c3c70b2de5af54e51d11d394796f7f8aef0969d1884859bb8148481d5baa1f"
+  },
+  "scientific_scope": {
+    "original_status": "near-gap diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

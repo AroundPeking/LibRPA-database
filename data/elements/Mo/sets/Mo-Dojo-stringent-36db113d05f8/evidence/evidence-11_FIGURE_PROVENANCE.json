@@ -1,0 +1,81 @@
+{
+  "raw_sha256": "e440837eaf8f677b9b6ca03ce0a9b88d8b6946d7f0ecb3f02ca9d6f1088f81d5",
+  "shape": [
+    151,
+    126
+  ],
+  "nocc": 23,
+  "nonfinite": 0,
+  "edges": {
+    "gap_ev": 1.0750769763830001,
+    "VBM": {
+      "energy_ev": 1.59845700482,
+      "indices_1based": [
+        [
+          101,
+          23
+        ]
+      ],
+      "endpoints": [
+        {
+          "path_1based": 101,
+          "raw_band_1based": 23,
+          "k_fractional": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.0
+          ],
+          "x": 1.6130141038471209,
+          "aligned_ev": 0.0
+        }
+      ]
+    },
+    "CBM": {
+      "energy_ev": 2.673533981203,
+      "indices_1based": [
+        [
+          101,
+          24
+        ]
+      ],
+      "endpoints": [
+        {
+          "path_1based": 101,
+          "raw_band_1based": 24,
+          "k_fractional": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.0
+          ],
+          "x": 1.6130141038471209,
+          "aligned_ev": 1.0750769763830001
+        }
+      ]
+    }
+  },
+  "reference_vbm_ev": 1.59845700482,
+  "selected_raw_1based": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "mapping_sha256": "f48878a441196e34a75c81f8e004c30b4b83032e5a339adc60e628f4a77996e0",
+  "stops_0based": [
+    0,
+    50,
+    100,
+    150
+  ],
+  "near_gap_max_step_ev": 0.1508786815750005,
+  "ordering": "Occupied/empty energy ranks separately; no smoothing or energy changes",
+  "scientific_status": "Initial sampled PBE screen only; no convergence/EXX/GW acceptance",
+  "visual_review": "2026-09-12 PNG inspected: finite continuous near-gap curves, unfilled K-point VBM/CBM markers at saved raw coordinates, legible labels, no clipping. PBE screen only."
+}

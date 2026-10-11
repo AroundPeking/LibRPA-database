@@ -1,0 +1,33 @@
+{
+  "job": "3298475",
+  "producer": "3293908",
+  "raw_bands_1based": [
+    1,
+    164
+  ],
+  "raw_shape": [
+    201,
+    164
+  ],
+  "reference_vbm_ev": {
+    "PBE": -0.16791,
+    "GW": -0.56794
+  },
+  "ylim_ev": [
+    -4,
+    5
+  ],
+  "gap_ev": {
+    "PBE": 0.86874,
+    "GW": 1.3807
+  },
+  "mapping": "Raw PBE indices unchanged; no sorting, interpolation, smoothing or state deletion.",
+  "comparison": "PBE versus GW; separate occupied VBM references; no gap markers or difference panel.",
+  "scientific_acceptance": "NOT_EVALUATED: convergence and same-chain full-q control still absent.",
+  "input_hashes": {
+    "[private-path]": "e166994f130c8dcdf49cc05acf4b32c849fa2420f271d5f64083f3de695ce94e",
+    "[private-path]": "fd1c6f88c014d695fa465c0a54f0ff8cd0c233743e449df3aaa017422c0a8f49",
+    "[private-path]": "9af90608c68e26e81e8f018bcc25026accc8968ff71ef70a93b878f53fdb8d46",
+    "[private-path]": "0c06a30c98ba6875a067dda2f765c733b8e940f9db84fe14ceb37fdca4b930b9"
+  }
+}

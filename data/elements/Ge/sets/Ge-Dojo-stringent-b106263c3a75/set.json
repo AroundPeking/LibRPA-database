@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "Ge-Dojo-stringent-b106263c3a75",
+  "element": "Ge",
+  "family": "Dojo-stringent",
+  "validation_scope": "Generation completed 0:0; radial finite normalization and same-l Gram passed; material PBE/head and ABFS pending.",
+  "notes": "Rcut10 bohr Ecut150 Ry; pinned PP and runtime; no physical selection inferred.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "a36fe321c91197bd5de65d874689da3521a89a727b2bf4bc46e598b30c01ed05"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Ge/pseudopotentials/cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33.upf",
+      "sha256": "cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33",
+      "size_bytes": 319730,
+      "original_sha256": "cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Ge/orbitals/ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01.orb",
+      "sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+      "size_bytes": 391002,
+      "original_sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 53
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-stringent-b106263c3a75/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "9a7fd3a95a1b873fa8797606b7573bc197c1402258a7fc1777fb62e795ba8af7",
+      "size_bytes": 1760,
+      "original_sha256": "49e136397fc0e3a6b358564f0e36709fc7b396a3491a20b2d6b2fec9435b4793",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-stringent-b106263c3a75/evidence/evidence-1_SIAB_INPUT",
+      "sha256": "521f6921ae38559b6c4c69f42c0dac57c281609e424d2dd121f738e121b13f9a",
+      "size_bytes": 406,
+      "original_sha256": "54d6f213c2531b2b15fb489a4bbbf3775bd54ac1750eb415f2463f454e80826b",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-stringent-b106263c3a75/evidence/evidence-2_Level3.ORBITAL_RESULTS.txt",
+      "sha256": "6c21eaad0483dddb593725694ca3980c2949a9499e0e3fd37d1953e9a88e32e4",
+      "size_bytes": 14291,
+      "original_sha256": "6c21eaad0483dddb593725694ca3980c2949a9499e0e3fd37d1953e9a88e32e4",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ge/sets/Ge-Dojo-stringent-b106263c3a75/evidence/evidence-3_radial_audit.json",
+      "sha256": "4dc460e936b59cef7cd270d0977046d09c52a9bb5a751620e81307973ec14a5c",
+      "size_bytes": 3343,
+      "original_sha256": "7841684faf53fac3a139497c895872c8f9ec7a9dd366c3918652792dadb19f79",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

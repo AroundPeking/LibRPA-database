@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "Te-Dojo-stringent-c5637057f1bd",
+  "element": "Te",
+  "family": "Dojo-stringent",
+  "validation_scope": "Atomic auxiliary export only; periodic Coulomb/shrink/EXX/GW not yet validated.",
+  "notes": "User-selected PP/physical NAO unchanged. Smooth auxiliary-only g; PCA1e-4; no physical acceptance inferred.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "e0a4e5ef36da721b402ffb95856f6474c4f437cf394d2be21f42db89c4612bd9"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Te/pseudopotentials/97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339.upf",
+      "sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+      "size_bytes": 285515,
+      "original_sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Te/orbitals/ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc.orb",
+      "sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+      "size_bytes": 388048,
+      "original_sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 53
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Te/auxiliary/c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f.abfs",
+      "sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+      "size_bytes": 1824914,
+      "original_sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 15,
+          "P": 12,
+          "D": 13,
+          "F": 10,
+          "G": 9,
+          "H": 6,
+          "I": 5
+        },
+        "basis_dimension": 398
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Te/for_aux/642a8feca29570ee71a0eeb92e0a1bbb919f114d55bf6d0115189264489c282a.orb",
+      "sha256": "642a8feca29570ee71a0eeb92e0a1bbb919f114d55bf6d0115189264489c282a",
+      "size_bytes": 428221,
+      "original_sha256": "642a8feca29570ee71a0eeb92e0a1bbb919f114d55bf6d0115189264489c282a",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 62
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-0_INPUT",
+      "sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "size_bytes": 720,
+      "original_sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-1_STRU",
+      "sha256": "a8eb3cd650cb5787fd7ba65491054bcb3c54d9a736c299c35993d99cd86ca4be",
+      "size_bytes": 175,
+      "original_sha256": "a8eb3cd650cb5787fd7ba65491054bcb3c54d9a736c299c35993d99cd86ca4be",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-2_KPT",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-3_gaussian_recipe.json",
+      "sha256": "7c2ac4b9121480d13b0604e8313fcea373a346e49b9e21c114694aa957744eb1",
+      "size_bytes": 379,
+      "original_sha256": "ff13e081598026fb8848e11e2f3858c486b2b93102281d9b05a49ec25e676259",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-4_RADIAL_INPUT_GATE.json",
+      "sha256": "083f8076524d969904f7be4313bcdeafb7016a5cf2907dfe6543f46f9ac04ae7",
+      "size_bytes": 594,
+      "original_sha256": "083f8076524d969904f7be4313bcdeafb7016a5cf2907dfe6543f46f9ac04ae7",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-5_abacus.out",
+      "sha256": "9edca1fc81b9634225349cac10da57f9d578c421dbed56cdfbb8bbab4fe7f669",
+      "size_bytes": 2926,
+      "original_sha256": "3193066ed6445a1d37a40cf77d05214fa9b0219c6014f2a0bcdbecf007bf390f",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-6_running_scf.log",
+      "sha256": "da18000effa81ee713003f61ca7c4f149eca7a3ecaa9d37d4d1d50c7e19c50d2",
+      "size_bytes": 21782,
+      "original_sha256": "da18000effa81ee713003f61ca7c4f149eca7a3ecaa9d37d4d1d50c7e19c50d2",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-7_GENERATION_COMPLETE.json",
+      "sha256": "072a599649c2c783b741ac2f742cb4227eb9446cfd377752dd02e0ddc17e777f",
+      "size_bytes": 941,
+      "original_sha256": "072a599649c2c783b741ac2f742cb4227eb9446cfd377752dd02e0ddc17e777f",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Te/sets/Te-Dojo-stringent-c5637057f1bd/evidence/evidence-8_INDEPENDENT_EXPORT_AUDIT.json",
+      "sha256": "4b09a147ceed3d910541432ba894e94dd1e9a4e1d2528f56efbf51cf1ef18483",
+      "size_bytes": 737,
+      "original_sha256": "4b09a147ceed3d910541432ba894e94dd1e9a4e1d2528f56efbf51cf1ef18483",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

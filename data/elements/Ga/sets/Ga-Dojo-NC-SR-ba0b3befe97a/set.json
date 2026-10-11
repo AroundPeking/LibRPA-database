@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "id": "Ga-Dojo-NC-SR-ba0b3befe97a",
+  "element": "Ga",
+  "family": "Dojo-NC-SR",
+  "validation_scope": "Atomic PP/NAO/for_aux/ABFS generation and file-integrity pass; material PBE, Coulomb, EXX and GW pending.",
+  "notes": "Matched repository Dojo-NC-SR PP and TZDP10 physical NAO. ABFS generated once with PCA threshold 1e-4 by job 3364412; retain generation receipt and do not infer material acceptance.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "6c532f42c99e9a43bbb6b1cb947339b22f71e5c23e921c46100bc58c1e52fe5e"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Ga/pseudopotentials/e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723.upf",
+      "sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+      "size_bytes": 314895,
+      "original_sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Ga/orbitals/91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61.orb",
+      "sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+      "size_bytes": 250448,
+      "original_sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Ga/auxiliary/be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc.abfs",
+      "sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+      "size_bytes": 1369494,
+      "original_sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 10,
+          "P": 8,
+          "D": 10,
+          "F": 7,
+          "G": 8,
+          "H": 5,
+          "I": 4
+        },
+        "basis_dimension": 312
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Ga/for_aux/b84ea98280e165703a2ddbc3e7da29e09e79533232b61cb8093c91c10ef9026f.orb",
+      "sha256": "b84ea98280e165703a2ddbc3e7da29e09e79533232b61cb8093c91c10ef9026f",
+      "size_bytes": 284705,
+      "original_sha256": "b84ea98280e165703a2ddbc3e7da29e09e79533232b61cb8093c91c10ef9026f",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 50
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ga/sets/Ga-Dojo-NC-SR-ba0b3befe97a/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "ce289056fb53f75a8f74ff54c98f7219cf05a15957109b3789dd65886fefe374",
+      "size_bytes": 853,
+      "original_sha256": "2a304428edfceca5bf29e4efd73425e5532e509b2a0df6e004af99c05ca8089c",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Ga/sets/Ga-Dojo-NC-SR-ba0b3befe97a/evidence/evidence-1_gaussian_recipe.json",
+      "sha256": "cb5f8dabbccd0b7443450984c0206517333b020bde985b4c493f353a283769e6",
+      "size_bytes": 376,
+      "original_sha256": "45beed8d7cd321afaa779fdbd4aa3d756fd5a5a0c83cab77d6860e1c7ee7c3f2",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

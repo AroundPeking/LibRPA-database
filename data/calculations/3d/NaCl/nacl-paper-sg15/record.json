@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "id": "nacl-paper-sg15",
+  "dimension": "3d",
+  "material": "NaCl",
+  "formula": "NaCl",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Na",
+      "set_id": "Na-PP-unresolved-ca34912849fe",
+      "asset_aliases": {
+        "pp": "Na_ONCV_PBE-1.0.upf",
+        "nao": "Na_gga_10au_100Ry_6s3p2d.orb",
+        "abf": "Na_6s3p2d1f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [
+        "pp",
+        "nao"
+      ],
+      "linkage": "partial archive; no substitution made"
+    },
+    {
+      "element": "Cl",
+      "set_id": "Cl-PP-unresolved-264140e3d907",
+      "asset_aliases": {
+        "pp": "Cl_ONCV_PBE-1.0.upf",
+        "nao": "Cl_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "Cl_8au3s3p2d1f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [
+        "pp",
+        "nao"
+      ],
+      "linkage": "partial archive; no substitution made"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence",
+      "identity_note": "The imported producer log did not contain a resolvable full commit ID."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 7.8322402,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 7.8322402,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT",
+        "sha256": "a725ea14fef197dca477091b1d621f8649ff643b120fe8cbb8cd22107687dfca",
+        "size_bytes": 611,
+        "original_sha256": "6dfabcace03f994ca9065268b070633858d9fc4abeb158acff1a90146e8e7f06",
+        "label": "INPUT",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_nscf",
+        "sha256": "a725ea14fef197dca477091b1d621f8649ff643b120fe8cbb8cd22107687dfca",
+        "size_bytes": 611,
+        "original_sha256": "6dfabcace03f994ca9065268b070633858d9fc4abeb158acff1a90146e8e7f06",
+        "label": "INPUT_nscf",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_scf",
+        "sha256": "90bf2671d4fa228f41329d27e5dac66195829b9ceaa1e14c059792f4971a7988",
+        "size_bytes": 669,
+        "original_sha256": "0cfc668bc5db54928d8576af32ba89bc1579dfff92c051db54356dc3f5c95fce",
+        "label": "INPUT_scf",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/STRU",
+        "sha256": "472b0a629096e395cb1cdccb25a31d8b194a0a7335f7ea27e21fa1558cc8a577",
+        "size_bytes": 454,
+        "original_sha256": "472b0a629096e395cb1cdccb25a31d8b194a0a7335f7ea27e21fa1558cc8a577",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/librpa.in",
+        "sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "size_bytes": 196,
+        "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+        "sha256": "76d3cb51c23988932bd8bf032a1d670aca9c746410ad94f7c854dbaedb92dd81",
+        "size_bytes": 176781,
+        "original_sha256": "76d3cb51c23988932bd8bf032a1d670aca9c746410ad94f7c854dbaedb92dd81",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat",
+        "sha256": "b0ac0390876e295cce1825e1483ab8ef3f9deedb525c12985558edd8b5ed640a",
+        "size_bytes": 176781,
+        "original_sha256": "b0ac0390876e295cce1825e1483ab8ef3f9deedb525c12985558edd8b5ed640a",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+        "sha256": "85d3ba9e42ecf3b24a8668b1b639fa0fce577efe346310c59be26e6eeafabcf6",
+        "size_bytes": 176781,
+        "original_sha256": "85d3ba9e42ecf3b24a8668b1b639fa0fce577efe346310c59be26e6eeafabcf6",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+        "sha256": "315e8b13dbf3bb777d361dff91e16c2afebd3df97b7770838d3caa69dc6a9f88",
+        "size_bytes": 6680,
+        "original_sha256": "315e8b13dbf3bb777d361dff91e16c2afebd3df97b7770838d3caa69dc6a9f88",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out",
+        "sha256": "0cbbab472eb92485e5e6789b207c4292e486c39ffe57a408c7ccc842b8dd9a2f",
+        "size_bytes": 13124,
+        "original_sha256": "0cbbab472eb92485e5e6789b207c4292e486c39ffe57a408c7ccc842b8dd9a2f",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
+        "sha256": "9afaf30081782e030d928f00a5d799c8a77317ffea76aa452d309e1a45aa29ef",
+        "size_bytes": 4051054,
+        "original_sha256": "c3fd6f9feab95801eb03491802fe42571e90a7392bbbff527ca6df51c9adbb9f",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
+    "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": false,
+    "paper_gap_ev": 7.962,
+    "paper_difference_abs_ev": 0.13,
+    "commit_resolution": null,
+    "asset_limitation": "The archived case has no exact PP/NAO payload in the imported source; unresolved aliases are retained for audit only."
+  }
+}

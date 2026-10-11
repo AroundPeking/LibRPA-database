@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "id": "Mo-GTH-5d48871deb09",
+  "element": "Mo",
+  "family": "GTH",
+  "validation_scope": "historical_producer_Cs_exchange_and_direct_Coulomb_passed; near_gap_GW_only; new_AE_screening_pending",
+  "notes": "Exact historical producer-use association, not a universal material acceptance or proof of original atomic generator PP lineage. Filename channel counts are not authoritative. No material Coulomb/Cs/shrink transform is imported for cross-structure reuse. for_aux is a preserved generation-family reference; original atomic generator logs are not a new acceptance gate.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "6eb3051f87c6e1ea527f5022ca62e67ea75e35f4aa148add34f36e0f7ceaf3e9"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mo/pseudopotentials/f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a.upf",
+      "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "size_bytes": 118292,
+      "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mo/orbitals/84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161.orb",
+      "sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+      "size_bytes": 207297,
+      "original_sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 4,
+          "P": 2,
+          "D": 2,
+          "F": 1
+        },
+        "basis_dimension": 27
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Mo/auxiliary/3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6.abfs",
+      "sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+      "size_bytes": 1004049,
+      "original_sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 8,
+          "P": 6,
+          "D": 7,
+          "F": 5,
+          "G": 5,
+          "H": 4,
+          "I": 3
+        },
+        "basis_dimension": 224
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Mo/for_aux/51b16f82ace419e0f28cd04c2dc22cf8ac956898b68fd9a580fa3e252a83f40e.orb",
+      "sha256": "51b16f82ace419e0f28cd04c2dc22cf8ac956898b68fd9a580fa3e252a83f40e",
+      "size_bytes": 239582,
+      "original_sha256": "51b16f82ace419e0f28cd04c2dc22cf8ac956898b68fd9a580fa3e252a83f40e",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 4,
+          "P": 2,
+          "D": 2,
+          "F": 1,
+          "G": 1
+        },
+        "basis_dimension": 36
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-0_INPUT",
+      "sha256": "062567cbfa5e74b78439ec796474b8f036534f638412936f16c16aea0261b227",
+      "size_bytes": 1499,
+      "original_sha256": "062567cbfa5e74b78439ec796474b8f036534f638412936f16c16aea0261b227",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-1_STRU",
+      "sha256": "3fcc6837c97860b97bc456a91475153ba5075edb368e1f72d82d9c0e8ce0e679",
+      "size_bytes": 963,
+      "original_sha256": "3fcc6837c97860b97bc456a91475153ba5075edb368e1f72d82d9c0e8ce0e679",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-2_KPT",
+      "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "size_bytes": 31,
+      "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-3_INPUT_MANIFEST.sha256",
+      "sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+      "size_bytes": 1581,
+      "original_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-4_stable_producer_metrics.json",
+      "sha256": "f568d4e627923be0725913453efcf6cb8e5ea76404efae24b34e29d6492007d9",
+      "size_bytes": 904,
+      "original_sha256": "f568d4e627923be0725913453efcf6cb8e5ea76404efae24b34e29d6492007d9",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-5_direct_spectrum_summary.json",
+      "sha256": "ac5d78ca55005055b596894a559f2bd77e8430802fb26577ab4caa081a8c9ff2",
+      "size_bytes": 6733,
+      "original_sha256": "ac5d78ca55005055b596894a559f2bd77e8430802fb26577ab4caa081a8c9ff2",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Mo/sets/Mo-GTH-5d48871deb09/evidence/evidence-6_VALIDATION_INPUTS.sha256",
+      "sha256": "348fca90d9866445ea9f9ba42533e6f0e859708a23cbbdd742a39e9f094f2ec4",
+      "size_bytes": 4114,
+      "original_sha256": "a91f2139e9bcf87d38b510adb43ffde71c89a2478ff364ed38783e026f6a1f56",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

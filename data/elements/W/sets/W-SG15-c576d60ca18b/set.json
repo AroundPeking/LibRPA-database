@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "W-SG15-c576d60ca18b",
+  "element": "W",
+  "family": "SG15",
+  "validation_scope": "repository_paired_candidate; periodic_PBE_head_pending",
+  "notes": "Existing TZDP and SIAB recipe reused. Current PP byte-identical to nc-sr-05 stringent: False. Original generation-time PP hash is not available from the SIAB filename alone. Do not substitute another PP into this pair. No matched ABFS attached.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "51bafb7e3673db9ba7d5055559cb0c367f2eac63161d83fed5f06933bc5ceeb3"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/W/pseudopotentials/605eec3e2d4202737d9c006ab7fdd9d5af1c1c2ba9e30945cb5acecdcd9cd983.upf",
+      "sha256": "605eec3e2d4202737d9c006ab7fdd9d5af1c1c2ba9e30945cb5acecdcd9cd983",
+      "size_bytes": 140909,
+      "original_sha256": "605eec3e2d4202737d9c006ab7fdd9d5af1c1c2ba9e30945cb5acecdcd9cd983",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/W/orbitals/9877b397fa781ecd091832fb222f4dbdcefc085d49bfc7b0d4666058c116a0a5.orb",
+      "sha256": "9877b397fa781ecd091832fb222f4dbdcefc085d49bfc7b0d4666058c116a0a5",
+      "size_bytes": 387789,
+      "original_sha256": "9877b397fa781ecd091832fb222f4dbdcefc085d49bfc7b0d4666058c116a0a5",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 3,
+          "F": 3,
+          "G": 2
+        },
+        "basis_dimension": 69
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-SG15-c576d60ca18b/evidence/evidence-0_SIAB_INPUT",
+      "sha256": "fe6299aece58c668b2343a3ba0c6faa0586e25699b7d16bdd69dee417c6f445f",
+      "size_bytes": 1588,
+      "original_sha256": "0f0a160bb59634e70e3260687d6223904793077ed9bf669c18853f89d28a7078",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-SG15-c576d60ca18b/evidence/evidence-1_INPUT",
+      "sha256": "e4b87962034758ed00a4c20113abcd5462ed73fb7e46f8ea95a00035645c1f05",
+      "size_bytes": 1123,
+      "original_sha256": "e4b87962034758ed00a4c20113abcd5462ed73fb7e46f8ea95a00035645c1f05",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-SG15-c576d60ca18b/evidence/evidence-2_ORBITAL_RESULTS.txt",
+      "sha256": "d5512aa7c11181842dcf6c1fa1e0fd68ec4f70cc2f5241b3b6650bf10d1b1750",
+      "size_bytes": 11775,
+      "original_sha256": "d5512aa7c11181842dcf6c1fa1e0fd68ec4f70cc2f5241b3b6650bf10d1b1750",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

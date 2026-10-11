@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "In-Dojo-stringent-5860d8244e56",
+  "element": "In",
+  "family": "Dojo-stringent",
+  "validation_scope": "generation_and_radial_sanity_only; material_PBE_head_pending; no_ABFS",
+  "notes": "Complete upstream 13-electron scalar UPF and matched SIAB 3s3p3d2f orbital. Actual dimension41; rcut10bohr; training150Ry. Retry replaced a proven truncated PP and changed no generation physics. Do not infer periodic-material, response, RI, EXX, or GW acceptance.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "acd6358b7d00eceb1c61d5714471cee22596a63194667589ca76fed65a8d8986"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/In/pseudopotentials/de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6.upf",
+      "sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+      "size_bytes": 329156,
+      "original_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/In/orbitals/31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f.orb",
+      "sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+      "size_bytes": 251896,
+      "original_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "b4a8f6e936aeaf52b8109ea67e09cbe0556b6ac01e42311cc26f504ddaf9d7e8",
+      "size_bytes": 1091,
+      "original_sha256": "b4a8f6e936aeaf52b8109ea67e09cbe0556b6ac01e42311cc26f504ddaf9d7e8",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-1_SIAB_INPUT",
+      "sha256": "abeec84b63aaea7d4e52bab82d5ce06947b641a0d30595c16547b14066398c6d",
+      "size_bytes": 641,
+      "original_sha256": "ab5c52608126fc9c905e5f00a92e70954409271a8c966ef14fb7b048bcbd1e11",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-2_Level3.ORBITAL_RESULTS.txt",
+      "sha256": "162c4c2418979078811c7b7092bb662acc1944dffeb0b5009ddc0ef04e1135ee",
+      "size_bytes": 9287,
+      "original_sha256": "162c4c2418979078811c7b7092bb662acc1944dffeb0b5009ddc0ef04e1135ee",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-3_siab.time",
+      "sha256": "083a862f4511ccbd455e12cd37a2a328cf8e54a9adadd3f72c6d76c64f9e1843",
+      "size_bytes": 771,
+      "original_sha256": "ff7e79188d21193b6eaf8ca3ee838a0d1fd63d648273eec8fd8ab3725480bb59",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-4_radial_audit.json",
+      "sha256": "a71addc274ee6cc502ba18fd3175b3dfc6e07cbbe0c7e094cc0841b1b5b7d489",
+      "size_bytes": 983,
+      "original_sha256": "b718f1cea3402508cd77012781d19597ab5edf326a5057c62e5a3497c548a230",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-5_BASIS_PLAN.md",
+      "sha256": "8d520baff704874533e8a8a5e919a0714c6b22e1a2b16cc7b7e01f4adcbf7043",
+      "size_bytes": 1485,
+      "original_sha256": "8d520baff704874533e8a8a5e919a0714c6b22e1a2b16cc7b7e01f4adcbf7043",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/In/sets/In-Dojo-stringent-5860d8244e56/evidence/evidence-6_PLACEMENT.md",
+      "sha256": "c962471b81bc7314d391e173f40c077fbd4be69fbadfaf4648621943e803f3d8",
+      "size_bytes": 899,
+      "original_sha256": "924ba095ba20332abbb6542b5363fe819735d661009fab441562ff123eedb676",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "W-GTH-759520698480",
+  "element": "W",
+  "family": "GTH",
+  "validation_scope": "historical_producer_use; accepted numerical gate recorded in central ledger; new_AE_screening_pending",
+  "notes": "Input-manifest association verified. Physical orbital has extra channels not all present in filename. Atomic ABFS generation lineage is not inferred from producer use.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "8eae5b487d95672ab77b1733a0f93f66774f633794a6aa065ca872736fdd38dd"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/W/pseudopotentials/d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1.upf",
+      "sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+      "size_bytes": 127004,
+      "original_sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/W/orbitals/ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825.orb",
+      "sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+      "size_bytes": 342838,
+      "original_sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 53
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/W/auxiliary/bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52.abfs",
+      "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "size_bytes": 2664329,
+      "original_sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 19,
+          "P": 17,
+          "D": 19,
+          "F": 17,
+          "G": 16,
+          "H": 9,
+          "I": 7
+        },
+        "basis_dimension": 618
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-GTH-759520698480/evidence/evidence-0_INPUT",
+      "sha256": "cd6cf334873c82ee34445cd84c114ab8ead09e66b7a40e9127b46f285fe11a57",
+      "size_bytes": 1371,
+      "original_sha256": "cd6cf334873c82ee34445cd84c114ab8ead09e66b7a40e9127b46f285fe11a57",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-GTH-759520698480/evidence/evidence-1_STRU",
+      "sha256": "a54b246bd1bcbd53cd13ef5223014c9c7b54ff2a9631aba48cfd3504d47bfc1b",
+      "size_bytes": 596,
+      "original_sha256": "a54b246bd1bcbd53cd13ef5223014c9c7b54ff2a9631aba48cfd3504d47bfc1b",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-GTH-759520698480/evidence/evidence-2_KPT",
+      "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "size_bytes": 31,
+      "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-GTH-759520698480/evidence/evidence-3_INPUT_MANIFEST.sha256",
+      "sha256": "9c49c1eae1f63adde7781e7afbccde34457c07282fa6bed737e0a7056f0b218e",
+      "size_bytes": 973,
+      "original_sha256": "9c49c1eae1f63adde7781e7afbccde34457c07282fa6bed737e0a7056f0b218e",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/W/sets/W-GTH-759520698480/evidence/evidence-4_FORMAL_JOB_ID",
+      "sha256": "1e92a37cbf18c7fdba6f6a2ff8d5f8254c7adcc8137be64f91ff975c1e85b271",
+      "size_bytes": 8,
+      "original_sha256": "1e92a37cbf18c7fdba6f6a2ff8d5f8254c7adcc8137be64f91ff975c1e85b271",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

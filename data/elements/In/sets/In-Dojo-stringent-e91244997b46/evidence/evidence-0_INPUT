@@ -1,0 +1,30 @@
+INPUT_PARAMETERS
+suffix                  In_ABFS_GEN_20260915
+pseudo_dir              ./
+
+calculation             scf
+ntype                   1
+ecutwfc                 150
+
+init_chg                atomic
+scf_nmax                200
+scf_thr                 1e-6
+smearing_method         gaussian
+smearing_sigma          1e-4
+mixing_type             pulay
+mixing_beta             0.2
+mixing_ndim             8
+
+basis_type              lcao
+ks_solver               genelpa
+dft_functional          pbe
+rpa                     1
+symmetry                -1
+exx_separate_loop       1
+exx_pca_threshold       1e-4
+gs_orth_thr             -1
+exx_ccp_rmesh_times     5
+exx_c_threshold         0
+exx_dm_threshold        0
+exx_schwarz_threshold   0
+exx_cauchy_threshold    1e-7

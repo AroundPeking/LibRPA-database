@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "element": "In",
+  "source_set": "Dojo-stringent_In_generation_3349707",
+  "pp_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+  "physical_orbital_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+  "for_aux_sha256": "376391b0fdebe3956777b46cbf3f43938e2ab3375bc6505c5f91ca8f36978896",
+  "physical_dimension": 41,
+  "for_aux_dimension": 50,
+  "pca_threshold": 0.0001,
+  "abacus": "[private-path]",
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "production_abacus_revision": "15f3a42b159c183068024e955f710b4700e131cb",
+  "production_abacus_sha256": "d84feea2b7d530c5aed1bb5f7ab49678de291a4b29a0e76081bb807c6eb79734",
+  "scope": "atomic ABFS export only; no material scientific acceptance"
+}

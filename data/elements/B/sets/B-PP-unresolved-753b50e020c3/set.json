@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "B-PP-unresolved-753b50e020c3",
+  "element": "B",
+  "family": "PP-unresolved",
+  "validation_scope": "Used by bas-paper-k8_shrink_wing; see case-specific gates.",
+  "notes": "Missing original payload roles: pp,nao",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "bas-paper-k8_shrink_wing"
+  },
+  "files": [
+    {
+      "role": "abf",
+      "path": "data/elements/B/auxiliary/f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912.abfs",
+      "sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+      "size_bytes": 1376619,
+      "original_sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+      "label": "B_3s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 13,
+          "P": 13,
+          "D": 13,
+          "F": 10,
+          "G": 9,
+          "H": 6,
+          "I": 4
+        },
+        "basis_dimension": 386
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

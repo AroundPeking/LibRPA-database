@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "P-Dojo-NC-SR-c5d36e93d8c7",
+  "element": "P",
+  "family": "Dojo-NC-SR",
+  "validation_scope": "Atomic PP/NAO/for_aux/ABFS generation and file-integrity pass; material PBE, Coulomb, EXX and GW pending.",
+  "notes": "Matched repository Dojo-NC-SR PP and TZDP10 physical NAO. ABFS generated once with PCA threshold 1e-4 by job 3364412; retain generation receipt and do not infer material acceptance.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "06dbfdb99f8aab0ab0b612eee08856e7d02e8be8cacacf5a633d40c876123c99"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/P/pseudopotentials/3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151.upf",
+      "sha256": "3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151",
+      "size_bytes": 195263,
+      "original_sha256": "3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/P/orbitals/fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4.orb",
+      "sha256": "fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4",
+      "size_bytes": 183407,
+      "original_sha256": "fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/P/auxiliary/4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e.abfs",
+      "sha256": "4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e",
+      "size_bytes": 1181782,
+      "original_sha256": "4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 9,
+          "P": 8,
+          "D": 8,
+          "F": 7,
+          "G": 6,
+          "H": 4,
+          "I": 3
+        },
+        "basis_dimension": 259
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/P/for_aux/804fc330bd0b623b24788cfccb3a05b4500381fa3a3e134eba321f68dd108e3c.orb",
+      "sha256": "804fc330bd0b623b24788cfccb3a05b4500381fa3a3e134eba321f68dd108e3c",
+      "size_bytes": 238117,
+      "original_sha256": "804fc330bd0b623b24788cfccb3a05b4500381fa3a3e134eba321f68dd108e3c",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2,
+          "F": 1,
+          "G": 1
+        },
+        "basis_dimension": 38
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/P/sets/P-Dojo-NC-SR-c5d36e93d8c7/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "b172ed2962461736d3feebec791234b64f15efa749ee748f97f5934c11491703",
+      "size_bytes": 850,
+      "original_sha256": "5551130cfc9781992c01801633f4add7824eae939be9f194d7ea6c9e4d72c4d7",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/P/sets/P-Dojo-NC-SR-c5d36e93d8c7/evidence/evidence-1_gaussian_recipe.json",
+      "sha256": "200ac3a8b4972702f85ce397829d729a275e0cbb103d2a38c4893f46eeb864e0",
+      "size_bytes": 465,
+      "original_sha256": "61ea387af45ed66a1bce01c198760738a3c5ac038a3cf8ced8f042b7e507569d",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

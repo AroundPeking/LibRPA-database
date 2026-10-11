@@ -1,0 +1,27 @@
+{
+  "data_and_mapping_checks": "passed",
+  "gap_and_valley_checks": "passed",
+  "hollow_edge_raw_coordinate_checks": "passed",
+  "review_date": "2026-09-12",
+  "prior_review": "DELIVERY_QA_before_edge_markers_20260912.json",
+  "latex_build": "passed",
+  "page_count": 89,
+  "inspected_pages": [
+    70,
+    71,
+    72
+  ],
+  "visual_review": "Labels, caption scope, table values, references and figure framing inspected; no clipping.",
+  "residual_warnings": "Existing hyperref math-bookmark and underfull-box warnings; no unresolved references or overfull boxes.",
+  "scientific_status": "Preliminary numerical result; no convergence or quantitative-reference acceptance.",
+  "hashes": {
+    "main.pdf": "e6396e76fb8ca12ca42255333e4516c53aff918e20b073f152170a89d45cfffb",
+    "sections/gete_snse_pbe_selection_20260906.tex": "0d26fd555f378e504caa3debfcfc0047e53a6be5c943bf4e3f53ea9fbf16e142",
+    "figures/gete_gw_20260909/GeTe_PBE_GW_reordered.pdf": "43d11b3d8b53772ebd574535ed982f6fdb44dbb12223a24bb908449adb0c30fa",
+    "data/gete_gw_20260909/bands.npz": "e166994f130c8dcdf49cc05acf4b32c849fa2420f271d5f64083f3de695ce94e",
+    "data/gete_gw_20260909/display_mapping.npz": "c94b44560db8d5829fc09b93e0c52302644db023e576c605bda29a645dae6069",
+    "provenance/gete_gw_20260909/rendered/main-70.png": "8441c42752dbd87dce1664e2408d5c2dd8cf824b5e37b0432a27d731239f3710",
+    "provenance/gete_gw_20260909/rendered/main-71.png": "465f02b1d753b22ba1a3b3c424579bdf493c7fdfc2709211b79eb16b9f5ca238",
+    "provenance/gete_gw_20260909/rendered/main-72.png": "6c92f7803c03a8a035ae02156d8a3379eb26129fd57a42bf690352c0b818a5f6"
+  }
+}

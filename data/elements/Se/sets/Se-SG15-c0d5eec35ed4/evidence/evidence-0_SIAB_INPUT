@@ -1,0 +1,37 @@
+ 
+#--------------------------------------------------------------------------------
+#1. CMD & ENV
+EXE_env     source /etc/profile.d/modules.sh; module load /opt/Modules/compiler/gcc/9.2.0 /opt/Modules/lib/elpa/2021.11.002/intelmpi2019 /opt/Modules/compiler/intel/2019.update5 /opt/Modules/mpi/intelmpi/2019.update5 /opt/Modules/lib/mkl/2019.update5; export I_MPI_FABRICS=shm ;  EXE_mpi      mpiexec.hydra -np 12 
+ EXE_pw       [private-path]
+
+#-------------------------------------------------------------------------------- 
+#2. Electronic calculatation
+ element     Se  # element name 
+ Ecut        100  # cutoff energy (in Ry)
+ Rcut        10  # cutoff radius (in a.u.)
+ Pseudo_dir  [private-path]
+ Pseudo_name Se_ONCV_PBE-1.0.upf
+ sigma       0.01 # energy range for gauss smearing (in Ry)
+
+#--------------------------------------------------------------------------------
+#3. Reference structure related parameters for PW calculation
+#For the built-in structure types (including 'dimer', 'trimer' and 'tetramer'):
+#STRU Name   #STRU Type  #nbands #MaxL   #nspin  #Bond Length list 
+ STRU1       dimer       14      2       1      2.0 2.2 2.5 3.0 4.0
+ STRU2       trimer      17      2       1      2.1 2.3 2.7
+
+#-------------------------------------------------------------------------------- 
+#4. SIAB calculatation
+ max_steps    9000
+#Orbital configure and reference target for each level
+#LevelIndex  #Ref STRU name  #Ref Bands  #InputOrb    #OrbitalConf 
+ Level1      STRU1           10          none        1s1p      
+ Level2      STRU1           auto        fix         2s2p1d    
+ Level3      STRU2           auto        fix         3s3p2d    
+
+#--------------------------------------------------------------------------------
+#5. Save Orbitals
+#Index    #LevelNum   #OrbitalType 
+ Save1    Level1      SZ
+ Save2    Level2      DZP
+ Save3    Level3      TZDP

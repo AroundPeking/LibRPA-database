@@ -1,0 +1,21 @@
+{
+  "added_channels": [
+    "g"
+  ],
+  "f_peak_r": null,
+  "f_primitives": [],
+  "g_peak_r": 1.8625,
+  "g_primitives": [
+    {
+      "alpha": 0.5765506058285662,
+      "coefficient": 1.0
+    }
+  ],
+  "input": "[private-path]",
+  "mode": "single",
+  "output": "[private-path]",
+  "reference_l": 3,
+  "reference_n": 1,
+  "reference_peak_r": 1.49,
+  "window_start_fraction": 0.85
+}

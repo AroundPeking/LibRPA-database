@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "lif-paper-jy",
+  "dimension": "3d",
+  "material": "LiF",
+  "formula": "LiF",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Li",
+      "set_id": "Li-SG15-5e465f36f024",
+      "asset_aliases": {
+        "pp": "Li_ONCV_PBE-1.0.upf",
+        "nao": "Li_gga_10au_100Ry_6s2p.orb",
+        "abf": "ORBITAL_10U.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "F",
+      "set_id": "F-SG15-09954925fd5e",
+      "asset_aliases": {
+        "pp": "F_ONCV_PBE-1.0.upf",
+        "nao": "F_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "ORBITAL_8U.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [],
+      "identity_note": "Full commit resolved from the unique local Git object matching the producer-logged prefix; the producer printed only the shortened ID, and executable SHA/source dirtiness were not retained."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 13.9999903,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 13.9999903,
+    "exx_gap_ev": 21.8042093,
+    "dft_gap_ev": 9.1870439,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/INPUT",
+        "sha256": "011a40f6ec27cedbde1cd1de2390e944f13a65049bf57b0ce4cc19439d766e9d",
+        "size_bytes": 587,
+        "original_sha256": "011a40f6ec27cedbde1cd1de2390e944f13a65049bf57b0ce4cc19439d766e9d",
+        "label": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/INPUT_nscf",
+        "sha256": "011a40f6ec27cedbde1cd1de2390e944f13a65049bf57b0ce4cc19439d766e9d",
+        "size_bytes": 587,
+        "original_sha256": "011a40f6ec27cedbde1cd1de2390e944f13a65049bf57b0ce4cc19439d766e9d",
+        "label": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/INPUT_scf",
+        "sha256": "54b2a3367c1d0581ceed4ea68c1edc1b9bfbd9f5dd5251602433b4c368b614bc",
+        "size_bytes": 693,
+        "original_sha256": "54b2a3367c1d0581ceed4ea68c1edc1b9bfbd9f5dd5251602433b4c368b614bc",
+        "label": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/KPT",
+        "sha256": "f2b4c1464df421ba18fc96bc5a8843327fcac59bcb4587fab5199ff20123a23d",
+        "size_bytes": 263,
+        "original_sha256": "f2b4c1464df421ba18fc96bc5a8843327fcac59bcb4587fab5199ff20123a23d",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/KPT_nscf",
+        "sha256": "f2b4c1464df421ba18fc96bc5a8843327fcac59bcb4587fab5199ff20123a23d",
+        "size_bytes": 263,
+        "original_sha256": "f2b4c1464df421ba18fc96bc5a8843327fcac59bcb4587fab5199ff20123a23d",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/STRU",
+        "sha256": "b77c91e65398c48dc9538441736dcafac207aefbb669c8d1783ecbed0fbab5fc",
+        "size_bytes": 390,
+        "original_sha256": "b77c91e65398c48dc9538441736dcafac207aefbb669c8d1783ecbed0fbab5fc",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/inputs/librpa.in",
+        "sha256": "760f410407b51c1732bfb9522cd4d31f40c242b3ba1c0390552ebc9c4ecb2e5c",
+        "size_bytes": 222,
+        "original_sha256": "760f410407b51c1732bfb9522cd4d31f40c242b3ba1c0390552ebc9c4ecb2e5c",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/results/EXX_band_spin_1.dat",
+        "sha256": "5d8a81dd07deaad1deedfa122c7ffcc303e2264128c986cafef69c0909b040f3",
+        "size_bytes": 129591,
+        "original_sha256": "5d8a81dd07deaad1deedfa122c7ffcc303e2264128c986cafef69c0909b040f3",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/results/GW_band_spin_1.dat",
+        "sha256": "3c1a8cc8e489b5f66fd5ef1de84bf9c49fb792f391e48c54edde52a0b4ab74d4",
+        "size_bytes": 129591,
+        "original_sha256": "3c1a8cc8e489b5f66fd5ef1de84bf9c49fb792f391e48c54edde52a0b4ab74d4",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/results/KS_band_spin_1.dat",
+        "sha256": "746c1547bd2f1d423dd7c2977995bb4e34d8e5e3d684f30619938720db6c28b4",
+        "size_bytes": 129591,
+        "original_sha256": "746c1547bd2f1d423dd7c2977995bb4e34d8e5e3d684f30619938720db6c28b4",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/results/band_kpath_info",
+        "sha256": "baebc9b0959ff2a28899109f72e0a02244448cbb7198201b8590b1ffa5d1a8a2",
+        "size_bytes": 6680,
+        "original_sha256": "baebc9b0959ff2a28899109f72e0a02244448cbb7198201b8590b1ffa5d1a8a2",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/logs/abacus.out",
+        "sha256": "c40948db9b98e455240355ac328857f79eef582c8650a553d1a7b677b0ad6a96",
+        "size_bytes": 99964,
+        "original_sha256": "c40948db9b98e455240355ac328857f79eef582c8650a553d1a7b677b0ad6a96",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out",
+        "sha256": "3d585699b32f6d941f2eb6f521e7dcf4cc48018e1918bb22ee8e68f701e028c6",
+        "size_bytes": 3218803,
+        "original_sha256": "f0372bb5aacc82eee2d5d07e00f9ea4361b7aaf0a9c55a6b589450085ceda5e2",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/LiF__src_jy"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": true,
+    "paper_gap_ev": 13.828,
+    "paper_difference_abs_ev": 0.172,
+    "commit_resolution": "unique local Git object matching logged prefix"
+  }
+}

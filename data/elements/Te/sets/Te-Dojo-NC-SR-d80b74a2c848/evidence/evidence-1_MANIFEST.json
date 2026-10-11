@@ -1,0 +1,99 @@
+{
+  "artifacts": {
+    "README.md": "f19813a733a8c622d4688329f381b6b5b983236a39cb3fc098c5715b5d08133d",
+    "library_logic.py": "62abf8d3982092d3b67fd95eb2ee94fe873f65b6e5fea02c88276fc6a2ef24fd",
+    "producer.py": "e5267aa5a071b3f8d72ed5d19aa930c03bd48c6322cf0dc68f2a9ca49177bbbf",
+    "producer.sbatch": "6cc7930dfbce3ee8573fef5822ca6730d00ff9fced4226a3185bc5eabc021c80",
+    "test_library_logic.py": "21bb9811dd8c186137c80405a1e6346c57b3eb212a1f3b4d415e24f2bc0e0281"
+  },
+  "baseline_job": "3268740",
+  "basis_dimension": 164,
+  "created_utc": "2026-09-08T13:30:57.524075+00:00",
+  "definition_caveat": "Both PP and NAO changed; not a basis-only causal test",
+  "electrons": 60,
+  "environment": {
+    "I_MPI_FABRICS": "shm:ofi",
+    "I_MPI_HYDRA_BOOTSTRAP": "slurm",
+    "I_MPI_PIN": "0",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "40",
+    "OMP_MAX_ACTIVE_LEVELS": "1",
+    "OMP_NUM_THREADS": "40",
+    "OMP_PLACES": "cores",
+    "OMP_PROC_BIND": "close"
+  },
+  "ge_abfs_gate_sha256": "f34800d12b27b39f1cc58f9212042a5329f08b0e04af8d1e3bdaa285a45a08a9",
+  "gw_authorized": false,
+  "input_difference": {
+    "exx_cs_inv_thr": [
+      "1e-5",
+      "OMITTED_DEFAULT_MINUS1_POTRF"
+    ],
+    "nbands": [
+      "212",
+      "164"
+    ]
+  },
+  "inputs": {
+    "assets/Ge/PP.upf": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72",
+    "assets/Ge/auxiliary.abfs": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d",
+    "assets/Ge/physical.orb": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d",
+    "assets/Te/PP.upf": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+    "assets/Te/auxiliary.abfs": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+    "assets/Te/physical.orb": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+    "scf/INPUT": "d95cec27c2551a1038f41c8c31a436dc429d404229a5ab5aaab6137ff5578dea",
+    "scf/KPT": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+    "scf/STRU": "9af90608c68e26e81e8f018bcc25026accc8968ff71ef70a93b878f53fdb8d46"
+  },
+  "label": "GeTe_library_TZDP10_noinv_20260908",
+  "library_selection_sha256": "b4b19150f5158de4afcd25c011846bc8c612f25285acf33140042702079ee3dc",
+  "mpi": {
+    "path": "[private-path]",
+    "sha256": "f9b09c6d24ce83d52221fbc1cc59dbdf9f350ccf50b264e89980c4530c6369d4"
+  },
+  "occupied_bands": 30,
+  "profile_inspected": "abacus-librpa-2026-09-06-v6",
+  "profile_match": false,
+  "python": {
+    "path": "[private-path]",
+    "sha256": "9917f7253aed80cb435c0050f9f78d829f57a8dd6765ca4b2ae3be043f94fd7b"
+  },
+  "raw_auxiliary": 1508,
+  "resources": {
+    "memory_M_per_node": 190000,
+    "mpi_per_node": 1,
+    "mpi_ranks": 4,
+    "nodes": 4,
+    "omp_per_rank": 40,
+    "partition": "p1",
+    "qos": "normal",
+    "requeue": false,
+    "walltime": "08:00:00"
+  },
+  "root": "[private-path]",
+  "schema": 1,
+  "scope": "LIBRARY_PP_NAO_REPLACEMENT_EXX_DIAGNOSTIC_NO_GW",
+  "software": {
+    "abacus": {
+      "binary": "[private-path]",
+      "binary_sha256": "f747d0bc02c05f22bfb5f4e1bb6e85b4a5616bac2b82f4c94f2c543223d65a7d",
+      "receipt": "[private-path]",
+      "receipt_sha256": "26941a23e3004ac41759c1efc59decc6331c2409eafe24fbbb8ecf565ae089a6",
+      "revision": "fee8bbff0b7e0962d6ac350b2ca4bd2c18eda7a5",
+      "source": "[private-path]",
+      "tree": "20bf34a7be51af7bd7722c71d0c12c54e898f415"
+    },
+    "librpa": {
+      "binary": "[private-path]",
+      "binary_sha256": "acdc7f94d3636bf495298107e74ef0f72c04b9931c864b63aee6f707f903d4eb",
+      "receipt": "[private-path]",
+      "receipt_sha256": "bcf078b8351f5a13a5ef1ecdc430cb8ca83abc7b2d43cfccb505cf05f9139167",
+      "replay": "[private-path]",
+      "replay_sha256": "28dfeaec1037d0f2e7b87b5610c8fbbb39fcab01a8d85a6bcd4234659c722713",
+      "revision": "b16fdf5e466cd02788dcbb8c9ed8c14451be88ee",
+      "source": "[private-path]",
+      "tree": "5f0dbf3d3a2f48553bb74e1a861045e1f7e45ffd"
+    }
+  },
+  "version_verdict": "USER_AUTHORIZED_FIXED_BASELINE_FEATURE_BRANCH_EXCEPTION"
+}

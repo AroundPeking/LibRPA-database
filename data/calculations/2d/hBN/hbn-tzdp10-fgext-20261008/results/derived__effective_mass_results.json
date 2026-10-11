@@ -1,0 +1,239 @@
+{
+  "effective_masses": {
+    "GW": {
+      "electron": {
+        "directions": [
+          {
+            "cubic_ev_angstrom3": -0.9204408237410089,
+            "direction": "Gamma-M",
+            "fit_indices_zero_based": [
+              1,
+              2,
+              3
+            ],
+            "mass_m0": 0.8663243675324009,
+            "q_inverse_angstrom": [
+              0.04829081447904543,
+              0.0965813392137835,
+              0.1448721536928289
+            ],
+            "quadratic_ev_angstrom2": 4.397870196133396
+          },
+          {
+            "cubic_ev_angstrom3": -1.4255652531406156,
+            "direction": "Gamma-K",
+            "fit_indices_zero_based": [
+              89,
+              88,
+              87
+            ],
+            "mass_m0": 0.8601572481707761,
+            "q_inverse_angstrom": [
+              0.05576126219377245,
+              0.1115225243875449,
+              0.16728378658131737
+            ],
+            "quadratic_ev_angstrom2": 4.4294018614122335
+          }
+        ],
+        "edge_path_index_zero_based": 0,
+        "mean_directional_mass_m0": 0.8632408078515885,
+        "raw_band_one_based": 5
+      },
+      "hole": {
+        "directions": [
+          {
+            "cubic_ev_angstrom3": -8.026825027949096,
+            "direction": "M-K",
+            "fit_indices_zero_based": [
+              59,
+              58,
+              57
+            ],
+            "mass_m0": 0.5643872676594718,
+            "q_inverse_angstrom": [
+              0.02788063109726259,
+              0.05576126219377247,
+              0.0836418932907842
+            ],
+            "quadratic_ev_angstrom2": 6.75065213989492
+          },
+          {
+            "cubic_ev_angstrom3": 3.4941085230673603,
+            "direction": "K-Gamma",
+            "fit_indices_zero_based": [
+              61,
+              62,
+              63
+            ],
+            "mass_m0": 0.5462512807483296,
+            "q_inverse_angstrom": [
+              0.0557612621937722,
+              0.11152252438754484,
+              0.16728378658131726
+            ],
+            "quadratic_ev_angstrom2": 6.9747792827788455
+          }
+        ],
+        "edge_path_index_zero_based": 60,
+        "mean_directional_mass_m0": 0.5553192742039007,
+        "raw_band_one_based": 4
+      }
+    },
+    "PBE": {
+      "electron": {
+        "directions": [
+          {
+            "cubic_ev_angstrom3": -9.64177935370431,
+            "direction": "M-K",
+            "fit_indices_zero_based": [
+              59,
+              58,
+              57
+            ],
+            "mass_m0": 0.9050048687817023,
+            "q_inverse_angstrom": [
+              0.02788063109726259,
+              0.05576126219377247,
+              0.0836418932907842
+            ],
+            "quadratic_ev_angstrom2": 4.209902341502068
+          },
+          {
+            "cubic_ev_angstrom3": 6.737484528569007,
+            "direction": "K-Gamma",
+            "fit_indices_zero_based": [
+              61,
+              62,
+              63
+            ],
+            "mass_m0": 0.8669429856277754,
+            "q_inverse_angstrom": [
+              0.0557612621937722,
+              0.11152252438754484,
+              0.16728378658131726
+            ],
+            "quadratic_ev_angstrom2": 4.394732040418962
+          }
+        ],
+        "edge_path_index_zero_based": 60,
+        "mean_directional_mass_m0": 0.8859739272047389,
+        "raw_band_one_based": 5
+      },
+      "hole": {
+        "directions": [
+          {
+            "cubic_ev_angstrom3": -7.147427964094173,
+            "direction": "M-K",
+            "fit_indices_zero_based": [
+              59,
+              58,
+              57
+            ],
+            "mass_m0": 0.6336755041582683,
+            "q_inverse_angstrom": [
+              0.02788063109726259,
+              0.05576126219377247,
+              0.0836418932907842
+            ],
+            "quadratic_ev_angstrom2": 6.012512857374505
+          },
+          {
+            "cubic_ev_angstrom3": 3.0938249172670846,
+            "direction": "K-Gamma",
+            "fit_indices_zero_based": [
+              61,
+              62,
+              63
+            ],
+            "mass_m0": 0.6131662728429748,
+            "q_inverse_angstrom": [
+              0.0557612621937722,
+              0.11152252438754484,
+              0.16728378658131726
+            ],
+            "quadratic_ev_angstrom2": 6.213619836736447
+          }
+        ],
+        "edge_path_index_zero_based": 60,
+        "mean_directional_mass_m0": 0.6234208885006216,
+        "raw_band_one_based": 4
+      }
+    }
+  },
+  "frontier_summary": {
+    "GW": {
+      "ec_k_minus_ec_gamma_ev": 0.4779499999999999,
+      "gamma_direct_gap_ev": 8.83292,
+      "k_direct_gap_ev": 7.419779999999999,
+      "raw5_cbm_energy_ev": 2.22052,
+      "raw5_cbm_path_index_zero_based": 0,
+      "raw5_frontier_gap_ev": 6.9418299999999995,
+      "vbm_energy_ev": -4.72131
+    },
+    "PBE": {
+      "ec_k_minus_ec_gamma_ev": -0.2602199999999999,
+      "gamma_direct_gap_ev": 6.4091000000000005,
+      "k_direct_gap_ev": 4.68813,
+      "raw5_cbm_energy_ev": 1.17354,
+      "raw5_cbm_path_index_zero_based": 60,
+      "raw5_frontier_gap_ev": 4.68813,
+      "vbm_energy_ev": -3.51459
+    }
+  },
+  "lattice_angstrom": [
+    [
+      1.252,
+      -2.168527611076234,
+      0.0
+    ],
+    [
+      1.252,
+      2.168527611076234,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      15.0
+    ]
+  ],
+  "material": "h-BN",
+  "method": {
+    "hbar_squared_over_2m0_ev_angstrom2": 3.80998211615486,
+    "model": "E(k)-E(k0) = a q^2 + b q^3",
+    "points_per_direction": 3,
+    "q_units": "angstrom^-1"
+  },
+  "path": {
+    "empty_frontier_raw_band_one_based": 5,
+    "labels_zero_based": {
+      "Gamma_end": 90,
+      "Gamma_start": 0,
+      "K": 60,
+      "M": 30
+    },
+    "occupied_raw_bands_one_based": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "points": 91
+  },
+  "sources": {
+    "GW": {
+      "noccupied": 4,
+      "npoints": 91,
+      "path": "GW_band_spin_1.dat",
+      "sha256": "cdef24b7181b13b3d186c88d318e1f6c0776ed1b3dd3e8158641049ef0f2ccb9"
+    },
+    "PBE": {
+      "noccupied": 4,
+      "npoints": 91,
+      "path": "KS_band_spin_1.dat",
+      "sha256": "77163cfe7f3fb04fa326109de98a0098026c4fd0b2f30e5d7eced8c8301c4642"
+    }
+  },
+  "status": "diagnostic_only"
+}

@@ -1,0 +1,3113 @@
+                                                                                     
+                              ABACUS v3.9.0.7
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: 1dd0199 (Tue Sep 23 13:40:42 2025 +0800)
+
+ Thu Dec 18 18:42:24 2025
+ MAKE THE DIR         : OUT.ABACUS/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: The lattice vector is left-handed; a right-handed vector is prefered.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ RUNNING WITH DEVICE  : CPU / Montage Jintide(R) C6226R
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 1 for Li: [He] 2s1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 45 * 45 * 45
+ UNIFORM GRID DIM(BIG): 15 * 15 * 15
+ DONE(0.548453   SEC) : SETUP UNITCELL
+ DONE(0.562759   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       512             4           128         34          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Li      6s2p-10au       12          1           
+ F       3s3p2d-8au      22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.607468   SEC) : INIT PLANEWAVE
+ DONE(0.88486    SEC) : LOCAL POTENTIAL
+ -------------------------------------------
+ SELF-CONSISTENT : 
+ -------------------------------------------
+ START CHARGE      : atomic
+ DONE(1.05419    SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -8.46615974e+02   0.00000000e+00   1.0019e-01   2.17
+ GE2     -8.47195162e+02  -5.79187879e-01   7.2117e-02   1.89
+ GE3     -8.47392782e+02  -1.97620406e-01   1.3407e-02   1.86
+ GE4     -8.47392897e+02  -1.14481229e-04   2.9028e-03   1.84
+ GE5     -8.47393104e+02  -2.07539764e-04   1.5166e-04   1.87
+ GE6     -8.47393104e+02  -2.99237987e-07   9.5973e-06   1.91
+ GE7     -8.47393104e+02  -3.28615276e-09   3.4324e-07   1.85
+ GE8     -8.47393104e+02  -2.03016027e-12   9.2251e-08   1.89
+Use rpa_ccp_rmesh_times=6 to calculate cut Coulomb
+Vq inverse threshold: 0.0047095
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: 0.00899561
+No. of singularity: 1
+Vq inverse threshold: 0.0070506
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00899561
+No. of singularity: 1
+Vq inverse threshold: 0.00686194
+Vq inverse threshold: 0.00725766
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: Vq inverse threshold: 0.00638641
+0.00625173
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: No. of singularity: 0No. of singularity: No. of singularity: 0Vq inverse threshold: 
+Vq inverse threshold: 
+00.00638641No. of singularity: No. of singularity: 00
+
+Vq inverse threshold: 0.00830594
+0.00638641
+0.00725766No. of singularity: No. of singularity: 0No. of singularity: 00
+
+
+
+
+No. of singularity: 0
+No. of singularity: No. of singularity: 
+0
+0
+Vq inverse threshold: Vq inverse threshold: 0.00625173
+Vq inverse threshold: 0.00625173
+0.00625173
+Vq inverse threshold: Vq inverse threshold: 0.00653179
+Vq inverse threshold: No. of singularity: 0.0065317900.00625173
+
+
+Vq inverse threshold: Vq inverse threshold: 0.008995610.00899561
+
+Vq inverse threshold: 0.00653179
+Vq inverse threshold: 0.0077345
+Vq inverse threshold: 0.00725766
+Vq inverse threshold: 0.00638641
+Vq inverse threshold: 0.00748506
+Vq inverse threshold: 0.00748506
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0No. of singularity: 1
+No. of singularity: No. of singularity: 0
+
+1No. of singularity: 0
+
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00800753
+No. of singularity: 0
+Vq inverse threshold: 0.00800753
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00686194
+0.00686194
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+Vq inverse threshold: 0.00638641
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00800753
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0Vq inverse threshold: 0.00686194
+
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00638641
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00863289
+Vq inverse threshold: No. of singularity: 0
+0.00899561
+Vq inverse threshold: 0.00668967
+No. of singularity: 1
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.006531790.00625173Vq inverse threshold: 0.00625173
+
+
+0.00686194
+No. of singularity: Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: No. of singularity: 0.00830594
+00No. of singularity: Vq inverse threshold: 0.00625173
+No. of singularity: 
+
+0.007257660
+0
+
+No. of singularity: No. of singularity: 0No. of singularity: 
+00
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+
+0.00830594
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00725766
+0.00686194
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.0077345
+0.00686194
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00638641
+0.0077345
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00668967
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+No. of singularity: 0
+0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+Vq inverse threshold: No. of singularity: 0
+0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.0070506
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+0.00830594
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: Vq inverse threshold: 0.00653179
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: 0.00773450.00863289
+
+Vq inverse threshold: No. of singularity: 0.006251730No. of singularity: 
+0
+
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00800753
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+No. of singularity: 0
+0
+Vq inverse threshold: 0.00899561
+No. of singularity: 1
+Vq inverse threshold: 0.00725766
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00638641
+No. of singularity: 0
+Vq inverse threshold: 0.00638641Vq inverse threshold: Vq inverse threshold: 0.00748506
+
+No. of singularity: 0
+0.00830594
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+Vq inverse threshold: No. of singularity: 0
+0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00653179
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00899561
+No. of singularity: 1
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00863289
+0.0070506No. of singularity: 0
+
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00625173
+0.00686194
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00625173
+0.00625173No. of singularity: 0
+
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+Vq inverse threshold: 0.00668967
+Vq inverse threshold: 0.00800753
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00638641
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+Vq inverse threshold: No. of singularity: 0
+0.00668967
+Vq inverse threshold: No. of singularity: 0
+0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00748506
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00830594
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+Vq inverse threshold: No. of singularity: 0
+0.00638641
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.0077345
+No. of singularity: 0
+Vq inverse threshold: 0.00638641
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00686194Vq inverse threshold: 0.0077345
+
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+No. of singularity: 0
+Vq inverse threshold: 0.00725766
+No. of singularity: 0
+Vq inverse threshold: 0.00625173
+Vq inverse threshold: Vq inverse threshold: 0.00686194
+Vq inverse threshold: No. of singularity: 00.00638641
+Vq inverse threshold: 0.00668967
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 0
+0.00800753
+0.00725766
+Vq inverse threshold: No. of singularity: 0No. of singularity: 
+0
+0.00625173
+
+No. of singularity: 0
+Vq inverse threshold: 0.00686194
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.00530837
+0.00572185
+0.00530837Vq inverse threshold: 
+0.00604275
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: Vq inverse threshold: No. of singularity: 0.006481340
+
+Vq inverse threshold: 0.00572185No. of singularity: 
+Vq inverse threshold: 00.00648134
+0.00530837
+
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: 0.0054867
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.0054867
+0.00572185
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 00.00648134
+
+No. of singularity: 0Vq inverse threshold: 0.00648134
+
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+No. of singularity: Vq inverse threshold: 0.00530837
+0
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00675516
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 0
+0.00572185
+Vq inverse threshold: 0.00572185
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.0054867
+0.00604275
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00675516
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00706973Vq inverse threshold: Vq inverse threshold: 0.00572185
+0.00572185
+
+Vq inverse threshold: No. of singularity: No. of singularity: 1No. of singularity: 0
+0
+0.00648134
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00706973
+No. of singularity: 1
+Vq inverse threshold: 0.00675516
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00604275
+Vq inverse threshold: No. of singularity: 00.0054867
+
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 0
+0.00539197
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.0054867
+0.0054867
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+Vq inverse threshold: Vq inverse threshold: 0.00706973
+0.00648134
+No. of singularity: 0
+No. of singularity: 1
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: No. of singularity: 0
+0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: No. of singularity: 0
+No. of singularity: 0
+0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00706973
+Vq inverse threshold: No. of singularity: 1
+0.00706973
+Vq inverse threshold: 0.0054867
+No. of singularity: 1
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00675516
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00572185
+Vq inverse threshold: 0.00604275
+0.00572185
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00586959
+0.0054867
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00706973
+No. of singularity: 1
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+Vq inverse threshold: Vq inverse threshold: 0.00539197
+No. of singularity: 0
+0.0054867
+Vq inverse threshold: No. of singularity: 0
+0.00572185
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+Vq inverse threshold: No. of singularity: 0
+0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00675516
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00675516
+Vq inverse threshold: No. of singularity: Vq inverse threshold: 0
+0.00586959
+0.00530837
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+Vq inverse threshold: Vq inverse threshold: 0.0054867
+0.00675516
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00539197
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.00604275
+0.00586959
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.00530837
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00604275
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+Vq inverse threshold: 0.00586959
+No. of singularity: 0
+Vq inverse threshold: 0.00572185
+No. of singularity: 0
+Vq inverse threshold: 0.00648134
+No. of singularity: 0
+Vq inverse threshold: 0.0054867
+No. of singularity: 0
+rpa_pca_threshold: 1e-08
+rpa_ccp_rmesh_times: 6
+rpa_lcao_exx(Ha): -6.038637228769166
+etxc(Ha): -6.353860799573976
+etot(Ha): -31.141111043369889
+Etot_without_rpa(Ha): -30.825887472565078
+Vq inverse threshold: 0.006873113390188
+No. of singularity: 36
+Vq inverse threshold: 0.010076832548998
+No. of singularity: 78
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.010680983366108
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 79
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 79
+No. of singularity: 79
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: Vq inverse threshold: 78
+0.009177089445624
+No. of singularity: 78
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.010680983366108
+No. of singularity: 78
+No. of singularity: 79
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 78
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 85
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.012456075916584
+No. of singularity: 108
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 82
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 79
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+No. of singularity: 79
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 85
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 78
+No. of singularity: 85
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 85
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 82
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 85
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.011042920258695
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 82
+No. of singularity: 78
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.013059247500714
+No. of singularity: 154
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.013059247500714
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 154
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.010680983366108
+No. of singularity: 79
+Vq inverse threshold: 0.009374976672818
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.010076832548998
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009374976672818
+No. of singularity: 78
+Vq inverse threshold: 0.010680983366108
+No. of singularity: 79
+Vq inverse threshold: 0.011923491473963
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.010076832548998
+No. of singularity: 92
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 78
+No. of singularity: 92
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.011454669195154
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+No. of singularity: 85
+Vq inverse threshold: 0.012456075916584
+No. of singularity: 108
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.011923491473963
+No. of singularity: 92
+Vq inverse threshold: 0.011042920258695
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 82
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+No. of singularity: 78
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009177089445624
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.012456075916584
+No. of singularity: 108
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.011454669195154
+No. of singularity: 85
+Vq inverse threshold: 0.011042920258695
+No. of singularity: 82
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.009588497190857
+No. of singularity: 78
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+Vq inverse threshold: 0.008992264331771
+No. of singularity: 79
+No. of singularity: 78
+Vq inverse threshold: 0.010361348597674
+No. of singularity: 79
+Vq inverse threshold: 0.009821012527192
+No. of singularity: 78
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007848804432316
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 124
+No. of singularity: 137
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.009938087778893
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 161
+No. of singularity: 124
+Vq inverse threshold: 0.008511216248970
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008766439868868
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 128
+No. of singularity: 137
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 228
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 161
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007978694317509
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.008766439868868
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 128
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 228
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 228
+Vq inverse threshold: 0.008766439868868
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+No. of singularity: 128
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 228
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007848804432316
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 124
+No. of singularity: 228
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 161
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 161
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007848804432316
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+No. of singularity: 124
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.007848804432316
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 124
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 128
+No. of singularity: 124
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 161
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.010497453074237
+No. of singularity: 228
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 137
+No. of singularity: 161
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.009938087778893
+No. of singularity: 161
+Vq inverse threshold: 0.008511216248970
+No. of singularity: 126
+Vq inverse threshold: 0.007848804432316
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.009467688415841
+No. of singularity: 137
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.008511216248970
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+No. of singularity: 126
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008766439868868
+No. of singularity: 128
+Vq inverse threshold: 0.008302053367195
+No. of singularity: 126
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007733165029105
+No. of singularity: 124
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Vq inverse threshold: 0.007978694317509
+No. of singularity: 126
+Overlap inverse threshold: 0.000486523396254
+No. of singularity: 27
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000161588069089
+No. of singularity: 20
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000161588069089
+No. of singularity: 20
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000132598379880
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000161588069089
+No. of singularity: 20
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000132598379880
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000132598379880
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000161588069089
+No. of singularity: 20
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000211254828427
+No. of singularity: 22
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000265713557626
+No. of singularity: 23
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000118001465659
+No. of singularity: 17
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000109356711433
+No. of singularity: 16
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000348113183542
+No. of singularity: 23
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000174499215111
+No. of singularity: 21
+Overlap inverse threshold: 0.000151167450433
+No. of singularity: 20
+Overlap inverse threshold: 0.000233825084435
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000381604862615
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000121655173806
+No. of singularity: 18
+Overlap inverse threshold: 0.000150554554325
+No. of singularity: 20
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000147245801145
+No. of singularity: 19
+Overlap inverse threshold: 0.000131003433626
+No. of singularity: 19
+Overlap inverse threshold: 0.000191170346327
+No. of singularity: 21
+Overlap inverse threshold: 0.000265557844487
+No. of singularity: 22
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000144399718352
+No. of singularity: 19
+Overlap inverse threshold: 0.000216749603110
+No. of singularity: 21
+Overlap inverse threshold: 0.000315675867960
+No. of singularity: 22
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000450658208279
+No. of singularity: 26
+Overlap inverse threshold: 0.000389251986355
+No. of singularity: 25
+Overlap inverse threshold: 0.000286424394462
+No. of singularity: 22
+Overlap inverse threshold: 0.000179018071986
+No. of singularity: 22
+Overlap inverse threshold: 0.000211742409128
+No. of singularity: 21
+Overlap inverse threshold: 0.000323745167906
+No. of singularity: 22
+Overlap inverse threshold: 0.000415297992859
+No. of singularity: 25
+Overlap inverse threshold: 0.000459995144753
+No. of singularity: 26
+Use exx_ccp_rmesh_times=3.000000000000000 to calculate full Coulomb
+Vq inverse threshold: 0.004709501319176
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.007203512746412
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.008995644648059
+No. of singularity: 1
+Vq inverse threshold: Vq inverse threshold: 0.006646810385949
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: Vq inverse threshold: 0.006646810385949
+0.006646810385949
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+Vq inverse threshold: No. of singularity: 0.007371064736420
+Vq inverse threshold: 0.007371064736420
+Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.007563880502932
+0.006646810385949No. of singularity: 0.0075638805029320
+
+No. of singularity: Vq inverse threshold: Vq inverse threshold: 0.007058479545691No. of singularity: 
+0
+
+0.006646810385949
+Vq inverse threshold: No. of singularity: No. of singularity: 0
+No. of singularity: 0.00831734717034400
+00
+
+No. of singularity: 
+
+0
+No. of singularity: 0
+0.006729791148335
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.008995644648059
+No. of singularity: 1
+Vq inverse threshold: 0.006729791148335
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.007371064736420
+0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+No. of singularity: 0
+0
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.008034761606956
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+Vq inverse threshold: No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.008635491210507
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+Vq inverse threshold: No. of singularity: 0
+0.008317347170344
+Vq inverse threshold: 0.008995644648059
+No. of singularity: 0
+No. of singularity: 1
+Vq inverse threshold: 0.008034761606956
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+Vq inverse threshold: No. of singularity: 0
+0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.006729791148335
+0.007058479545691
+No. of singularity: 0
+0.006646810385949
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.007058479545691
+0.007371064736420Vq inverse threshold: 0.006729791148335
+0.006646810385949
+
+No. of singularity: 
+0
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 0
+0.006824394785475
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.008034761606956
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: 0.008995644648059
+No. of singularity: 1
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.008034761606956
+0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+Vq inverse threshold: No. of singularity: 0
+0.006729791148335
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.006646810385949
+Vq inverse threshold: 0.008317347170344No. of singularity: 
+0.008995644648059No. of singularity: 0.007784382576276Vq inverse threshold: 0
+00.006933060561657
+
+Vq inverse threshold: 
+Vq inverse threshold: 0.007371064736420No. of singularity: No. of singularity: 0
+0
+0.006824394785475
+
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 1
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+No. of singularity: 0
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.008995644648059
+0.008995644648059
+No. of singularity: 1
+No. of singularity: 1Vq inverse threshold: 
+0.007058479545691
+Vq inverse threshold: No. of singularity: 0
+0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+Vq inverse threshold: No. of singularity: 0
+0.007203512746412
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+Vq inverse threshold: No. of singularity: 0
+Vq inverse threshold: 0.007784382576276
+0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: No. of singularity: 0
+0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.008317347170344
+0.007371064736420
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.007203512746412
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.008995644648059
+No. of singularity: 1
+Vq inverse threshold: 0.008635491210507
+Vq inverse threshold: 0.008317347170344
+Vq inverse threshold: 0.008635491210507
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.006729791148335
+0.006646810385949
+No. of singularity: 0No. of singularity: 0
+
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+No. of singularity: 0
+Vq inverse threshold: 0.006824394785475
+Vq inverse threshold: No. of singularity: 0
+0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.006824394785475
+0.006824394785475No. of singularity: 0
+
+No. of singularity: 0
+Vq inverse threshold: 0.007563880502932
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.008034761606956
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+Vq inverse threshold: 0.006646810385949
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+Vq inverse threshold: No. of singularity: 0
+Vq inverse threshold: 0.007371064736420
+No. of singularity: 0
+Vq inverse threshold: 0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.007058479545691
+No. of singularity: 0
+0.007784382576276
+No. of singularity: 0
+Vq inverse threshold: 0.008034761606956
+No. of singularity: 0
+Vq inverse threshold: 0.008317347170344
+No. of singularity: 0
+Vq inverse threshold: 0.006933060561657
+No. of singularity: 0
+Vq inverse threshold: 0.006729791148335
+No. of singularity: 0
+Vq inverse threshold: 0.007563880502932
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+Vq inverse threshold: No. of singularity: 0Vq inverse threshold: 0.005749621374844
+
+Vq inverse threshold: 0.006481487991211
+Vq inverse threshold: 0.006481487991211Vq inverse threshold: 0.005884738112059
+Vq inverse threshold: Vq inverse threshold: No. of singularity: 0.0055496740700960.0058847381120590
+
+0.005476066439638
+
+
+Vq inverse threshold: 0.005749621374844
+Vq inverse threshold: 0.005414884477901
+Vq inverse threshold: 0.005414884477901
+No. of singularity: Vq inverse threshold: 0
+0.005549674070096
+No. of singularity: 0No. of singularity: 0
+No. of singularity: 0
+
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: Vq inverse threshold: 0.005414884477901
+No. of singularity: 0.005414884477901
+No. of singularity: 000.005414884477901
+
+No. of singularity: 
+0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+Vq inverse threshold: No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: Vq inverse threshold: 0.005749621374844
+0.005749621374844
+Vq inverse threshold: No. of singularity: 0
+0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+Vq inverse threshold: 0.006755157341646
+Vq inverse threshold: No. of singularity: 0
+No. of singularity: 0
+0.005414884477901
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.005749621374844
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: No. of singularity: 0
+0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+Vq inverse threshold: No. of singularity: 0
+0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.007069731193568
+No. of singularity: 1
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.005476066439638
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.006755157341646
+No. of singularity: 0
+Vq inverse threshold: 0.006481487991211
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.006049242631448
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005414884477901
+No. of singularity: 0
+Vq inverse threshold: 0.005549674070096
+Vq inverse threshold: 0.005549674070096
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+Vq inverse threshold: 0.006481487991211
+No. of singularity: 0
+No. of singularity: 0
+Vq inverse threshold: 0.005749621374844
+No. of singularity: 0
+Vq inverse threshold: 0.005884738112059
+No. of singularity: 0
+
+TIME STATISTICS
+-------------------------------------------------------------------
+   CLASS_NAME          NAME        TIME/s   CALLS    AVG/s  PER/%  
+-------------------------------------------------------------------
+                 total             8895.85 34492    0.26    100.00 
+ Driver          atomic_world      8895.85 1        8895.85 100.00 
+ Ions            opt_ions          8740.65 1        8740.65 98.26  
+ ESolver_KS      runner            8740.65 1        8740.65 98.26  
+ ESolver_KS_LCAO after_scf         8725.15 1        8725.15 98.08  
+ ModuleIO        ctrl_output_lcao  8725.12 1        8725.12 98.08  
+ Center2_Orb     cal_ST_Phi12_R    3701.47 563918   0.01    41.61  
+ RPA_LRI         cal_postSCF_exx   918.09  1        918.09  10.32  
+ Matrix_Orbs21   init_radial_table 623.67  6        103.94  7.01   
+ Exx_LRI         init              2452.52 3        817.51  27.57  
+ LRI_CV          set_orbitals      3699.18 7        528.45  41.58  
+ Matrix_Orbs11   init_radial_table 3201.84 9        355.76  35.99  
+ Ewald_Vq        init              840.07  3        280.02  9.44   
+ Exx_LRI         cal_exx_ions_rpa  338.83  2        169.42  3.81   
+ Exx_LRI         cal_exx_elec      205.21  1        205.21  2.31   
+ RPA_LRI         cal_large_Cs      5636.04 1        5636.04 63.36  
+ RPA_LRI         out_abfs_overlap  1559.00 1        1559.00 17.53  
+ ESolver_KS_LCAO after_all_runners 154.16  1        154.16  1.73   
+ ModuleIO        write_istate_info 152.08  1        152.08  1.71   
+-------------------------------------------------------------------
+
+
+ START  Time  : Thu Dec 18 18:42:24 2025
+ FINISH Time  : Thu Dec 18 21:10:40 2025
+ TOTAL  Time  : 8896
+ SEE INFORMATION IN : OUT.ABACUS/

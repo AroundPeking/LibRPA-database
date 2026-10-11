@@ -1,0 +1,85 @@
+Info: Local MPI proc number: 1,OpenMP thread number: 1,Total thread number: 1,Local thread limit: 48
+                                                                                     
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: 9fb19ed4cd7487c6cec1b18326d694691209f40f (Sun Aug 30 09:30:25 2026 +0800)
+
+ Thu Oct  8 02:23:52 2026
+ MAKE THE DIR         : OUT.ABACUS/
+ RUNNING WITH DEVICE  : CPU / Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz (x2)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 40 * 40 * 225
+ UNIFORM GRID DIM(BIG): 8 * 8 * 75
+ DONE(0.649257   SEC) : SETUP UNITCELL
+ DONE(0.650437   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       91              1           1           44          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ B       3s3p2d-10au     22          1           
+ N       3s3p2d-10au     22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.828609   SEC) : INIT PLANEWAVE
+ START CHARGE      : file
+ DONE(1.54676    SEC) : CHARGE
+ DONE(1.60517    SEC) : POTENTIALS
+
+ ================================================================
+ NONSELF-CONSISTENT: 
+ ================================================================
+ DONE(1.88346    SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -3.49191542e+02   0.00000000e+00   0.0000e+00   5.82
+
+TIME STATISTICS
+--------------------------------------------------------------------------
+   CLASS_NAME               NAME            TIME/s  CALLS   AVG/s  PER/%  
+--------------------------------------------------------------------------
+                 total                      13.50  13       1.04   100.00 
+ Driver          atomic_world               13.50  1        13.50  100.00 
+ ESolver_KS_LCAO before_all_runners         1.49   1        1.49   11.07  
+ ModuleIO        read_rhog                  0.29   1        0.29   2.11   
+ PW_Basis_Sup    recip2real                 0.27   17       0.02   2.04   
+ Relax_Driver    relax_driver               6.48   1        6.48   48.00  
+ ESolver_KS      runner                     6.48   1        6.48   48.00  
+ ESolver_KS_LCAO before_scf                 0.28   1        0.28   2.06   
+ Potential       init_pot                   0.17   1        0.17   1.25   
+ Potential       cal_veff                   0.46   3        0.15   3.44   
+ PotXC           cal_veff                   0.42   3        0.14   3.11   
+ XC_Functional   v_xc                       0.42   3        0.14   3.09   
+ HSolverLCAO     solve                      5.59   1        5.59   41.38  
+ HamiltLCAO      updateHk                   5.38   91       0.06   39.83  
+ OperatorLCAO    init                       5.17   273      0.02   38.27  
+ Veff            contributeHR               9.81   2        4.90   72.64  
+ Gint            cal_gint_vl                9.81   2        4.90   72.64  
+ Overlap         calculate_SR               0.19   1        0.19   1.44   
+ EKinetic        contributeHR               0.19   1        0.19   1.44   
+ EKinetic        calculate_HR               0.19   1        0.19   1.44   
+ HSolverLCAO     hamiltSolvePsiK            0.19   91       0.00   1.39   
+ DiagoElpa       elpa_solve                 0.14   91       0.00   1.04   
+ ESolver_KS_LCAO after_scf                  0.38   1        0.38   2.84   
+ ModuleIO        ctrl_scf_lcao              0.25   1        0.25   1.86   
+ ModuleIO        write_wfc_nao              0.25   1        0.25   1.86   
+ ModuleIO        wfc_nao_write2file_complex 0.25   91       0.00   1.85   
+ ESolver_KS_LCAO after_all_runners          5.40   1        5.40   40.01  
+ ModuleIO        save_mat                   0.33   91       0.00   2.43   
+--------------------------------------------------------------------------
+
+
+ START  Time  : Thu Oct  8 02:23:52 2026
+ FINISH Time  : Thu Oct  8 02:24:06 2026
+ TOTAL  Time  : 14
+ SEE INFORMATION IN : OUT.ABACUS/

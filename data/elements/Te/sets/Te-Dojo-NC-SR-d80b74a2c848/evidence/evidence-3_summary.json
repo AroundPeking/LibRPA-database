@@ -1,0 +1,274 @@
+{
+  "audit_sha256": "6b59a7a16a6213f6db8f46ebd91340f34ab256ec496a7d3de2034c6980ed2b59",
+  "auditor_sha256": "816cd39a2da895aa60d748b380a7bfb9d223c599d5aa0e25aec3eff980780091",
+  "bands_sha256": "e166994f130c8dcdf49cc05acf4b32c849fa2420f271d5f64083f3de695ce94e",
+  "branch_steps": {
+    "EXX": {
+      "band_1based": 29,
+      "max_neighbor_step_ev": 0.87018,
+      "note": "Raw-index steps, not wavefunction tracking or an automatic smoothness verdict.",
+      "path_pair_1based": [
+        162,
+        163
+      ],
+      "raw_bands_1based": [
+        21,
+        34
+      ]
+    },
+    "GW": {
+      "band_1based": 32,
+      "max_neighbor_step_ev": 0.3335699999999999,
+      "note": "Raw-index steps, not wavefunction tracking or an automatic smoothness verdict.",
+      "path_pair_1based": [
+        188,
+        189
+      ],
+      "raw_bands_1based": [
+        21,
+        34
+      ]
+    },
+    "KS": {
+      "band_1based": 33,
+      "max_neighbor_step_ev": 0.12481000000000009,
+      "note": "Raw-index steps, not wavefunction tracking or an automatic smoothness verdict.",
+      "path_pair_1based": [
+        124,
+        125
+      ],
+      "raw_bands_1based": [
+        21,
+        34
+      ]
+    }
+  },
+  "correlation_on_shell_gw_minus_exx_ev": {
+    "all": {
+      "maxabs": 48.84328000000001,
+      "nonfinite": 0,
+      "total": 32964
+    },
+    "frontier": {
+      "maxabs": 3.38975,
+      "nonfinite": 0,
+      "total": 402
+    },
+    "low32": {
+      "maxabs": 6.76966,
+      "nonfinite": 0,
+      "total": 6432
+    }
+  },
+  "exx_preflight_max_difference_ev": 0.0,
+  "job": "3298475",
+  "ks_source_max_error_ev": 4.99953796584407e-06,
+  "limitations": [
+    "No same-chain full-q symmetry control or GW convergence/reference comparison.",
+    "All raw state indices retained. Finite output alone is not physical accuracy."
+  ],
+  "manifest_sha256": "c079d36f5dd7c1ef00be916d0701b4a6f1de8dd810b1424302946c766084341a",
+  "methods": {
+    "EXX": {
+      "all_manifold_gap_ev": 3.9057700000000004,
+      "all_state_scale": {
+        "maxabs": 187.02754,
+        "nonfinite": 0,
+        "total": 32964
+      },
+      "fixed_frontier": {
+        "cbm": [
+          160,
+          31,
+          3.07513
+        ],
+        "gap_ev": 3.9057700000000004,
+        "vbm": [
+          161,
+          30,
+          -0.83064
+        ]
+      },
+      "high_occupied_intrusions": {
+        "count": 0,
+        "kpoints": 0
+      },
+      "nonfinite_count": 0,
+      "occupied_envelope": {
+        "band_1based": 30,
+        "energy_ev": -0.83064,
+        "k_1based": 161
+      }
+    },
+    "GW": {
+      "all_manifold_gap_ev": 1.3807,
+      "all_state_scale": {
+        "maxabs": 185.67517,
+        "nonfinite": 0,
+        "total": 32964
+      },
+      "fixed_frontier": {
+        "cbm": [
+          161,
+          31,
+          0.81276
+        ],
+        "gap_ev": 1.3807,
+        "vbm": [
+          162,
+          30,
+          -0.56794
+        ]
+      },
+      "high_occupied_intrusions": {
+        "count": 0,
+        "kpoints": 0
+      },
+      "nonfinite_count": 0,
+      "occupied_envelope": {
+        "band_1based": 30,
+        "energy_ev": -0.56794,
+        "k_1based": 162
+      }
+    },
+    "KS": {
+      "all_manifold_gap_ev": 0.86874,
+      "all_state_scale": {
+        "maxabs": 155.58559,
+        "nonfinite": 0,
+        "total": 32964
+      },
+      "fixed_frontier": {
+        "cbm": [
+          42,
+          31,
+          0.70083
+        ],
+        "gap_ev": 0.86874,
+        "vbm": [
+          163,
+          30,
+          -0.16791
+        ]
+      },
+      "high_occupied_intrusions": {
+        "count": 0,
+        "kpoints": 0
+      },
+      "nonfinite_count": 0,
+      "occupied_envelope": {
+        "band_1based": 30,
+        "energy_ev": -0.16791,
+        "k_1based": 163
+      }
+    }
+  },
+  "scheduler": "3298475|COMPLETED|0:0|02:04:34|2026-09-09T10:04:01|2026-09-09T12:08:35",
+  "scientific_acceptance": "NOT_EVALUATED",
+  "self_energy": {
+    "self_energy_omega.dat": {
+      "all": {
+        "maxabs": 0.7807440702039897,
+        "nonfinite": 0,
+        "total": 128576
+      },
+      "frequencies": [
+        0.006514794376191466,
+        0.020553863786795742,
+        0.037824523733127724,
+        0.061193087749465074,
+        0.09473734575622632,
+        0.14458197487277313,
+        0.2202180814203091,
+        0.3366551208454659,
+        0.5180058397054513,
+        0.8036010257129999,
+        1.2588112108729164,
+        1.995594019044988,
+        3.217361084945204,
+        5.344474474390676,
+        9.520152953146567,
+        21.25791476229908
+      ],
+      "frontier": {
+        "maxabs": 0.10481299027186287,
+        "nonfinite": 0,
+        "total": 1568
+      },
+      "high": {
+        "maxabs": 0.7807440702039897,
+        "nonfinite": 0,
+        "total": 104272
+      },
+      "low32": {
+        "maxabs": 0.10794323291486876,
+        "nonfinite": 0,
+        "total": 25088
+      },
+      "occupied": {
+        "maxabs": 0.10794323291486876,
+        "nonfinite": 0,
+        "total": 23520
+      },
+      "shape": [
+        49,
+        164,
+        16
+      ],
+      "units": "Ha"
+    },
+    "self_energy_omega_band_00000.dat": {
+      "all": {
+        "maxabs": 0.7620350540389744,
+        "nonfinite": 0,
+        "total": 527424
+      },
+      "frequencies": [
+        0.006514794376191466,
+        0.020553863786795742,
+        0.037824523733127724,
+        0.061193087749465074,
+        0.09473734575622632,
+        0.14458197487277313,
+        0.2202180814203091,
+        0.3366551208454659,
+        0.5180058397054513,
+        0.8036010257129999,
+        1.2588112108729164,
+        1.995594019044988,
+        3.217361084945204,
+        5.344474474390676,
+        9.520152953146567,
+        21.25791476229908
+      ],
+      "frontier": {
+        "maxabs": 0.10481289588483966,
+        "nonfinite": 0,
+        "total": 6432
+      },
+      "high": {
+        "maxabs": 0.7620350540389744,
+        "nonfinite": 0,
+        "total": 427728
+      },
+      "low32": {
+        "maxabs": 0.10794323283239235,
+        "nonfinite": 0,
+        "total": 102912
+      },
+      "occupied": {
+        "maxabs": 0.10794323283239235,
+        "nonfinite": 0,
+        "total": 96480
+      },
+      "shape": [
+        201,
+        164,
+        16
+      ],
+      "units": "Ha"
+    }
+  },
+  "strict2d_all_finite": true,
+  "version_verdict": "USER_AUTHORIZED_MASTER_STRICT2D_FEATURE_EXCEPTION_FIXED_PRODUCER_REUSE"
+}

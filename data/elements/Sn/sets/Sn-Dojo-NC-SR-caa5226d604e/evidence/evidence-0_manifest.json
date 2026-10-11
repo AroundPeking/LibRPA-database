@@ -1,0 +1,115 @@
+{
+  "element": "Sn",
+  "family": "Dojo-NC-SR",
+  "files": [
+    {
+      "asset": "assets/906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c/payload",
+      "path": "pp.upf",
+      "pp_header": {
+        "author": "anonymous",
+        "comment": "",
+        "core_correction": "T",
+        "date": "171031",
+        "element": "Sn",
+        "functional": "PBE",
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "has_gipaw": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "is_coulomb": "F",
+        "is_paw": "F",
+        "is_ultrasoft": "F",
+        "l_local": "-1",
+        "l_max": "2",
+        "mesh_size": "  1628",
+        "number_of_proj": "6",
+        "number_of_wfc": "3",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "rho_cutoff": "   1.62700000000E+01",
+        "total_psenergy": "  -1.35164994126E+02",
+        "z_valence": "   14.00"
+      },
+      "role": "pp",
+      "sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+      "size_bytes": 280050,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c"
+      }
+    },
+    {
+      "asset": "assets/fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da/payload",
+      "dimensions": {
+        "basis_dimension": 41,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "P": 3,
+          "S": 3
+        },
+        "dr": 0.01,
+        "element": "Sn",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 3,
+        "mesh": 1001,
+        "radial_channels": 11,
+        "radius_cutoff": 10.0
+      },
+      "path": "physical.orb",
+      "role": "nao",
+      "sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+      "size_bytes": 251731,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da"
+      }
+    },
+    {
+      "asset": "assets/bd8743ffcde6779b6022ed0bfc324f54795c478d2b73f31871356b8a347965a1/payload",
+      "path": "evidence/0_SIAB_INPUT",
+      "role": "evidence",
+      "sha256": "bd8743ffcde6779b6022ed0bfc324f54795c478d2b73f31871356b8a347965a1",
+      "size_bytes": 1722,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "bd8743ffcde6779b6022ed0bfc324f54795c478d2b73f31871356b8a347965a1"
+      }
+    },
+    {
+      "asset": "assets/6f9504b59c6e17e95b738ee32f7941e2a048671e4178960bee35d17c51a537b0/payload",
+      "path": "evidence/1_INPUT",
+      "role": "evidence",
+      "sha256": "6f9504b59c6e17e95b738ee32f7941e2a048671e4178960bee35d17c51a537b0",
+      "size_bytes": 1126,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "6f9504b59c6e17e95b738ee32f7941e2a048671e4178960bee35d17c51a537b0"
+      }
+    },
+    {
+      "asset": "assets/0c8f98c4d04a6d91d37c6372503cccf578e9b909afd6f74b235721d08dacbb18/payload",
+      "path": "evidence/2_ORBITAL_RESULTS.txt",
+      "role": "evidence",
+      "sha256": "0c8f98c4d04a6d91d37c6372503cccf578e9b909afd6f74b235721d08dacbb18",
+      "size_bytes": 7670,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "0c8f98c4d04a6d91d37c6372503cccf578e9b909afd6f74b235721d08dacbb18"
+      }
+    }
+  ],
+  "id": "Dojo-NC-SR_Sn_repository_TZDP10",
+  "import_validation_scope": "Historical inventory; file integrity and syntax only, not physical acceptance.",
+  "notes": "Existing TZDP and SIAB recipe reused. Current PP byte-identical to nc-sr-05 stringent: False. Original generation-time PP hash is not available from the SIAB filename alone. Do not substitute another PP into this pair. No matched ABFS attached.",
+  "physical_acceptance_inferred": false,
+  "schema_version": 1,
+  "selected_for_new_campaign": false,
+  "source_case": "[private-path]",
+  "validation_scope": "repository_paired_candidate; periodic_PBE_head_pending"
+}

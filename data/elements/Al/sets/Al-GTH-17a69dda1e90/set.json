@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "Al-GTH-17a69dda1e90",
+  "element": "Al",
+  "family": "GTH",
+  "validation_scope": "Used by alsb-paper-gw_gth_modspencer; see case-specific gates.",
+  "notes": "",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "alsb-paper-gw_gth_modspencer"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Al/pseudopotentials/54892e8cbd5bfd9d5f02a9a9ebfde4e42bda94968c62a19c588eb28754b8d255.upf",
+      "sha256": "54892e8cbd5bfd9d5f02a9a9ebfde4e42bda94968c62a19c588eb28754b8d255",
+      "size_bytes": 75842,
+      "original_sha256": "54892e8cbd5bfd9d5f02a9a9ebfde4e42bda94968c62a19c588eb28754b8d255",
+      "label": "Al-GTH-PBE-q3-cp2k-default-grid.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Al/orbitals/8d7e5a192b52a13b21df4cc2999fad022fb1e0de4b6d080c857b65b6085c4785.orb",
+      "sha256": "8d7e5a192b52a13b21df4cc2999fad022fb1e0de4b6d080c857b65b6085c4785",
+      "size_bytes": 187546,
+      "original_sha256": "8d7e5a192b52a13b21df4cc2999fad022fb1e0de4b6d080c857b65b6085c4785",
+      "label": "Al_gga_10au_110Ry_3s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2,
+          "F": 0,
+          "G": 0
+        },
+        "basis_dimension": 22
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Al/auxiliary/236943ad17f403d680b5675abc651ca106a6c8d70b6621efb18ad66b35d10289.abfs",
+      "sha256": "236943ad17f403d680b5675abc651ca106a6c8d70b6621efb18ad66b35d10289",
+      "size_bytes": 1880198,
+      "original_sha256": "236943ad17f403d680b5675abc651ca106a6c8d70b6621efb18ad66b35d10289",
+      "label": "Al_gth_3s3p2d2f2g_1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 12,
+          "P": 12,
+          "D": 12,
+          "F": 10,
+          "G": 10,
+          "H": 8,
+          "I": 6
+        },
+        "basis_dimension": 434
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

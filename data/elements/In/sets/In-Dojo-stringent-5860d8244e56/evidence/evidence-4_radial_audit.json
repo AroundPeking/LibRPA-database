@@ -1,0 +1,26 @@
+{
+  "parser": "[private-path]",
+  "parser_sha256": "df16352101dd1bfaf410120d3c4b0fd1d3bea768ee70e900fc6a79be3c16b8b3",
+  "results": [
+    {
+      "key": "Dojo-stringent_In",
+      "job": "3349707_0",
+      "orbital_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+      "basis_dimension": 41,
+      "radial_norm_minmax": [
+        0.999999999999999,
+        1.0000000000000002
+      ],
+      "max_norm_error": 9.992007221626409e-16,
+      "atomic_same_l_gram_lambda_min": 0.9999999999999987,
+      "max_abs_endpoint": 0.0,
+      "max_abs_penultimate": 1.74707603443022e-06,
+      "max_abs_endpoint_slope": 0.000174707603443022,
+      "max_penultimate_to_peak_ratio": 1.5008529575309105e-06,
+      "last_printed_Level3_spillage": 0.00033314344755882246,
+      "last_printed_optimizer_step": 500,
+      "scope": "radial/atomic checks only; periodic overlap and PW/NAO PBE/head pending",
+      "status": "radial_sanity_passed_not_PBE_acceptance"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "job": "3267153_3",
+  "abfs_sha256": "488149efb917ea5098d5f1f68c400875df490431286a0a00206a7927cd35dd9b",
+  "dimensions": {
+    "element": "Sn",
+    "lmax": 8,
+    "counts": {
+      "S": 14,
+      "P": 12,
+      "D": 12,
+      "F": 9,
+      "G": 8,
+      "H": 6,
+      "I": 5,
+      "J": 2,
+      "K": 1
+    },
+    "radial_channels": 69,
+    "basis_dimension": 423,
+    "mesh": 1001,
+    "dr": 0.01,
+    "radius_cutoff": 10.0,
+    "energy_cutoff_ry": 100.0
+  },
+  "same_l_gram_lambda_min": 0.9999999999999968,
+  "same_l_gram_lambda_max": 1.0000000000000322,
+  "max_norm_error": 3.019806626980426e-14,
+  "status": "RADIAL_SANITY_PASSED",
+  "scope": "Atomic auxiliary export only; periodic Coulomb/shrink/EXX/GW not yet validated."
+}

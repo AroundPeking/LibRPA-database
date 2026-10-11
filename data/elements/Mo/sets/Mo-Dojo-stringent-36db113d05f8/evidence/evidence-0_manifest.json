@@ -1,0 +1,127 @@
+{
+  "element": "Mo",
+  "family": "Dojo-stringent",
+  "files": [
+    {
+      "asset": "assets/7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448/payload",
+      "path": "pp.upf",
+      "pp_header": {
+        "author": "anonymous",
+        "comment": "",
+        "core_correction": "T",
+        "date": "171031",
+        "element": "Mo",
+        "functional": "PBE",
+        "generated": "Generated using ONCVPSP code by D. R. Hamann",
+        "has_gipaw": "F",
+        "has_so": "F",
+        "has_wfc": "F",
+        "is_coulomb": "F",
+        "is_paw": "F",
+        "is_ultrasoft": "F",
+        "l_local": "-1",
+        "l_max": "2",
+        "mesh_size": "  1640",
+        "number_of_proj": "6",
+        "number_of_wfc": "4",
+        "pseudo_type": "NC",
+        "relativistic": "scalar",
+        "rho_cutoff": "   1.63900000000E+01",
+        "total_psenergy": "  -1.36137425061E+02",
+        "z_valence": "   14.00"
+      },
+      "role": "pp",
+      "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+      "size_bytes": 302634,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448"
+      }
+    },
+    {
+      "asset": "assets/a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e/payload",
+      "dimensions": {
+        "basis_dimension": 44,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "P": 3,
+          "S": 6
+        },
+        "dr": 0.01,
+        "element": "Mo",
+        "energy_cutoff_ry": 100.0,
+        "lmax": 3,
+        "mesh": 1001,
+        "radial_channels": 14,
+        "radius_cutoff": 10.0
+      },
+      "path": "physical.orb",
+      "role": "nao",
+      "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+      "size_bytes": 321277,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e"
+      }
+    },
+    {
+      "asset": "assets/8dc9c1a064ec9ca401abec0ae25f34f976ff2834209d43b825674599aa6fe869/payload",
+      "path": "evidence/0_SIAB_INPUT",
+      "role": "evidence",
+      "sha256": "8dc9c1a064ec9ca401abec0ae25f34f976ff2834209d43b825674599aa6fe869",
+      "size_bytes": 1722,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "8dc9c1a064ec9ca401abec0ae25f34f976ff2834209d43b825674599aa6fe869"
+      }
+    },
+    {
+      "asset": "assets/8f09dd8952aa3e2ba9b8f01f0dc95fdb7672100443f4c97f252aa69565b0d665/payload",
+      "path": "evidence/1_INPUT",
+      "role": "evidence",
+      "sha256": "8f09dd8952aa3e2ba9b8f01f0dc95fdb7672100443f4c97f252aa69565b0d665",
+      "size_bytes": 1126,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "8f09dd8952aa3e2ba9b8f01f0dc95fdb7672100443f4c97f252aa69565b0d665"
+      }
+    },
+    {
+      "asset": "assets/d398a188c5db27ca8c61686f9ff225c830cc3d86d3150e282f70ff49e1ef2836/payload",
+      "path": "evidence/2_ORBITAL_RESULTS.txt",
+      "role": "evidence",
+      "sha256": "d398a188c5db27ca8c61686f9ff225c830cc3d86d3150e282f70ff49e1ef2836",
+      "size_bytes": 9731,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "d398a188c5db27ca8c61686f9ff225c830cc3d86d3150e282f70ff49e1ef2836"
+      }
+    },
+    {
+      "asset": "assets/7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448/payload",
+      "path": "evidence/3_Mo.upf",
+      "role": "evidence",
+      "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+      "size_bytes": 302634,
+      "source": {
+        "path": "[private-path]",
+        "resolved_path": "[private-path]",
+        "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448"
+      }
+    }
+  ],
+  "id": "Dojo-NC-SR_Mo_repository_TZDP10",
+  "import_validation_scope": "Historical inventory; file integrity and syntax only, not physical acceptance.",
+  "notes": "Existing TZDP and SIAB recipe reused. Current PP byte-identical to nc-sr-05 stringent: True. Original generation-time PP hash is not available from the SIAB filename alone. Do not substitute another PP into this pair. No matched ABFS attached.",
+  "physical_acceptance_inferred": false,
+  "schema_version": 1,
+  "selected_for_new_campaign": false,
+  "source_case": "[private-path]",
+  "validation_scope": "repository_paired_candidate; periodic_PBE_head_pending"
+}

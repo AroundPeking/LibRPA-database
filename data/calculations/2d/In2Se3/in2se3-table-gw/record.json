@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "in2se3-table-gw",
+  "dimension": "2d",
+  "material": "In2Se3",
+  "formula": "In2Se3",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "In", "set_id": "In-Dojo-NC-SR-42d20f9dfceb", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "Se", "set_id": "Se-Dojo-NC-SR-7c3a95ba989c", "scope": "contextual matched PBE candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.50302,
+    "unit": "eV",
+    "notes": "low-energy path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/KS_bands.dat",
+        "sha256": "a196db168c768f689688e4b952939945707683b16556c42dde07c39a178eb7fc",
+        "size_bytes": 2912400,
+        "original_sha256": "a196db168c768f689688e4b952939945707683b16556c42dde07c39a178eb7fc",
+        "label": "in2se3_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/EXX_bands.dat",
+        "sha256": "9e834d6dab432a34e0b9e0e08b08454712644ae101c0b2ec9a9df4c32e1876b4",
+        "size_bytes": 2912400,
+        "original_sha256": "9e834d6dab432a34e0b9e0e08b08454712644ae101c0b2ec9a9df4c32e1876b4",
+        "label": "in2se3_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/GW_bands.dat",
+        "sha256": "827161bd606e5b8b725db87e100087b71c53fdd746fbf3358e961f09dc4f6b91",
+        "size_bytes": 2912400,
+        "original_sha256": "827161bd606e5b8b725db87e100087b71c53fdd746fbf3358e961f09dc4f6b91",
+        "label": "in2se3_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/band_window_and_provenance.json",
+        "sha256": "ee842867495416d56d31ce8a3b57279ab852bbdf1b82cd0e3b44b4d549eeaa29",
+        "size_bytes": 185890,
+        "original_sha256": "7678030242953166b238e48ef084bd6313aeec2322a00658c588ca5f7939fdaa",
+        "label": "in2se3.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_ks.png",
+        "sha256": "bc0c87580d52845481d06c00e42599a21f51c02678d0ffaf771e09931bf623e8",
+        "size_bytes": 272979,
+        "original_sha256": "bc0c87580d52845481d06c00e42599a21f51c02678d0ffaf771e09931bf623e8",
+        "label": "in2se3_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_ks.pdf",
+        "sha256": "b209bd8a78b692342f1f99e6e6eb932578bc6ee38973a499ef9a7e2a489b3d2e",
+        "size_bytes": 55359,
+        "original_sha256": "b209bd8a78b692342f1f99e6e6eb932578bc6ee38973a499ef9a7e2a489b3d2e",
+        "label": "in2se3_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_exx.png",
+        "sha256": "be5f3111a4e1feb6ebdabe39c9c8ece3c4e7eb9ba67c263d28716df5b909cbf3",
+        "size_bytes": 245608,
+        "original_sha256": "be5f3111a4e1feb6ebdabe39c9c8ece3c4e7eb9ba67c263d28716df5b909cbf3",
+        "label": "in2se3_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_exx.pdf",
+        "sha256": "a1ae344b2a808d16161b2b2548b118d2a68b57cc844a4582be209dcad0d1d064",
+        "size_bytes": 56423,
+        "original_sha256": "a1ae344b2a808d16161b2b2548b118d2a68b57cc844a4582be209dcad0d1d064",
+        "label": "in2se3_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_gw.png",
+        "sha256": "a72c13ac9e84867da758fed89c47fe20d45624de396d3c4ca955032e5a8a3d81",
+        "size_bytes": 319156,
+        "original_sha256": "a72c13ac9e84867da758fed89c47fe20d45624de396d3c4ca955032e5a8a3d81",
+        "label": "in2se3_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/figures/in2se3_gw.pdf",
+        "sha256": "19c451eef86dcbea5afb40cf3a01647ddff5f490b18933ef32d944c111b32df1",
+        "size_bytes": 57688,
+        "original_sha256": "19c451eef86dcbea5afb40cf3a01647ddff5f490b18933ef32d944c111b32df1",
+        "label": "in2se3_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "7678030242953166b238e48ef084bd6313aeec2322a00658c588ca5f7939fdaa"
+  },
+  "scientific_scope": {
+    "original_status": "low-energy path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

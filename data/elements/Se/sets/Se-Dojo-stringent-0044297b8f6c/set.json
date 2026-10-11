@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "Se-Dojo-stringent-0044297b8f6c",
+  "element": "Se",
+  "family": "Dojo-stringent",
+  "validation_scope": "generation_and_radial_sanity_only; material_PBE_head_pending",
+  "notes": "Missing q24 matched pair generated once. Actual 6s6p3d2f dimension53; rcut10bohr; training150Ry. Do not substitute the older q16 Se pair. No material selection or matched ABFS inferred.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "ead2f4a83074ff17904501be67f6a318f67db71da6a3e30816cc17444becc33c"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Se/pseudopotentials/86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1.upf",
+      "sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+      "size_bytes": 254411,
+      "original_sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Se/orbitals/97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20.orb",
+      "sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+      "size_bytes": 391300,
+      "original_sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 53
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Se/sets/Se-Dojo-stringent-0044297b8f6c/evidence/evidence-0_GENERATION_COMPLETE.json",
+      "sha256": "024a1a36914dbd9913816b226e58599785a8e15ca0060eb1f2077af8765816b3",
+      "size_bytes": 1731,
+      "original_sha256": "03b1707279f53c3cffdef69304b31dad94a53f7fe0d6ac4c588efc61dde189b0",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Se/sets/Se-Dojo-stringent-0044297b8f6c/evidence/evidence-1_SIAB_INPUT",
+      "sha256": "99a05e1bb0f20716f3116d8ec5fc28be9a426da31aaf85e02507d87bb1d9fbb8",
+      "size_bytes": 396,
+      "original_sha256": "dd619d223204590a078798f9ae79d9d328af676715137f175d08509b0212a793",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Se/sets/Se-Dojo-stringent-0044297b8f6c/evidence/evidence-2_Level3.ORBITAL_RESULTS.txt",
+      "sha256": "9b1e4cfd47063bc48e0237f939a5258278ac645348480981473159346cf448c4",
+      "size_bytes": 14291,
+      "original_sha256": "9b1e4cfd47063bc48e0237f939a5258278ac645348480981473159346cf448c4",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Se/sets/Se-Dojo-stringent-0044297b8f6c/evidence/evidence-3_siab.time",
+      "sha256": "b17b675c2ede76fb456135442d16dcd10c3c0bf66361a44efccef66ba262d7a6",
+      "size_bytes": 771,
+      "original_sha256": "d9ae3bacf50d0c467110a9285a70679260c2697c4d5ff4bcf0471cd558a21aa5",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Se/sets/Se-Dojo-stringent-0044297b8f6c/evidence/evidence-4_radial_audit.json",
+      "sha256": "6716fc04bfdf45ac420ae6eefc31855cb6c229fc841e8cc51cb282d7af4e64ca",
+      "size_bytes": 785,
+      "original_sha256": "6ac6d0754ee16fbfd3313f226146161a0f1b6f82cf2199a4fed2096abfff281b",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

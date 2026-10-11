@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "gan-paper-pca1e-6",
+  "dimension": "3d",
+  "material": "GaN",
+  "formula": "GaN",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Ga",
+      "set_id": "Ga-ONCV-or-other-recorded-PP-4e73ca717d96",
+      "asset_aliases": {
+        "pp": "Ga.upf",
+        "nao": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
+        "abf": "Ga_str_6s6p4d2f1g_1e-5.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "N",
+      "set_id": "N-ONCV-or-other-recorded-PP-cfc055943421",
+      "asset_aliases": {
+        "pp": "N.upf",
+        "nao": "N_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "N_8au_3s3p2d1f1g_1e-5.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "23986c1c3b8ffd54a923f8de007f87a91c5fdc57",
+      "abbreviated_commit": "23986c1",
+      "evidence": [],
+      "identity_note": "Full commit resolved from the unique local Git object matching the producer-logged prefix; the producer printed only the shortened ID, and executable SHA/source dirtiness were not retained."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 2.8570221,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 2.8570221,
+    "exx_gap_ev": 8.8650277,
+    "dft_gap_ev": 1.6618743,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/INPUT",
+        "sha256": "40e18e34e677e3552decc591f58e018d1aa3640ef7c4d0bd8e3ef31623fac4fb",
+        "size_bytes": 587,
+        "original_sha256": "40e18e34e677e3552decc591f58e018d1aa3640ef7c4d0bd8e3ef31623fac4fb",
+        "label": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/INPUT_nscf",
+        "sha256": "40e18e34e677e3552decc591f58e018d1aa3640ef7c4d0bd8e3ef31623fac4fb",
+        "size_bytes": 587,
+        "original_sha256": "40e18e34e677e3552decc591f58e018d1aa3640ef7c4d0bd8e3ef31623fac4fb",
+        "label": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/INPUT_scf",
+        "sha256": "89c87c76e3384714ab2ffa772a584c7fce7a875b576ce139057bed7947fdac91",
+        "size_bytes": 730,
+        "original_sha256": "89c87c76e3384714ab2ffa772a584c7fce7a875b576ce139057bed7947fdac91",
+        "label": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/KPT",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/KPT_nscf",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/STRU",
+        "sha256": "0d6552d8a07b3843753058955ab51bbd6fd963bbca82edce1e18e5f319347e73",
+        "size_bytes": 402,
+        "original_sha256": "0d6552d8a07b3843753058955ab51bbd6fd963bbca82edce1e18e5f319347e73",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/librpa.in",
+        "sha256": "23651cc878db8885f16dad7bff23805f678276a968ad52d14b074e99dc23c3ea",
+        "size_bytes": 490,
+        "original_sha256": "23651cc878db8885f16dad7bff23805f678276a968ad52d14b074e99dc23c3ea",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/EXX_band_spin_1.dat",
+        "sha256": "f867c7af01a1763ab8fcf447a7885927b03f838e48414cacf07cb75e0a86bdc5",
+        "size_bytes": 296571,
+        "original_sha256": "f867c7af01a1763ab8fcf447a7885927b03f838e48414cacf07cb75e0a86bdc5",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/GW_band_spin_1.dat",
+        "sha256": "282f4723cf010911a9df42d6b59fae44c9d431289599174d52c8875d18adbca9",
+        "size_bytes": 296571,
+        "original_sha256": "282f4723cf010911a9df42d6b59fae44c9d431289599174d52c8875d18adbca9",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/KS_band_spin_1.dat",
+        "sha256": "235ee6878fe6014bef8838649cc245f24434e821fb189db371aa714e48000bcb",
+        "size_bytes": 296571,
+        "original_sha256": "235ee6878fe6014bef8838649cc245f24434e821fb189db371aa714e48000bcb",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/band_kpath_info",
+        "sha256": "14cbf58bcf7701816ff10b8b3a7abd7d876c5cfeb7cf54fb24dfc2d4f4cd726c",
+        "size_bytes": 6680,
+        "original_sha256": "14cbf58bcf7701816ff10b8b3a7abd7d876c5cfeb7cf54fb24dfc2d4f4cd726c",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/logs/abacus.out",
+        "sha256": "7754ca032b78e1993ba03b5a39a5fe107561fc375c83563d51ff9d71dbbbaf90",
+        "size_bytes": 26447,
+        "original_sha256": "7754ca032b78e1993ba03b5a39a5fe107561fc375c83563d51ff9d71dbbbaf90",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out",
+        "sha256": "5e92347c928ed6987a8351a4687167b8d6d7fc38e3585dac340d040655346d57",
+        "size_bytes": 6162595,
+        "original_sha256": "ee71797e590bfa956a3394c1248d1103787f0aeb5a85400a49de6d0cc8de5616",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/GaN__src_pca1e-6"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": true,
+    "paper_gap_ev": 2.896,
+    "paper_difference_abs_ev": 0.039,
+    "commit_resolution": "unique local Git object matching logged prefix"
+  }
+}

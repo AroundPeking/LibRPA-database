@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "gete-table-gw",
+  "dimension": "2d",
+  "material": "GeTe",
+  "formula": "GeTe",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Ge", "set_id": "Ge-Dojo-NC-SR-d7e00de0eca1", "scope": "contextual historical producer pair; exact calculation binding pending"},
+    {"element": "Te", "set_id": "Te-Dojo-NC-SR-d80b74a2c848", "scope": "contextual historical producer pair; exact calculation binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.3807,
+    "unit": "eV",
+    "notes": "provisional path diagnostic. EXX archive has 46 occupied states, while the GTH KS/GW bundle has 30; curves are retained for provenance but are not a matched three-method benchmark.",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/results/KS_bands.dat",
+        "sha256": "0887ed140c8c3d2e80ef9bb64db23e95c5ccc2ed4249f585926ac5c51b9095dc",
+        "size_bytes": 904593,
+        "original_sha256": "0887ed140c8c3d2e80ef9bb64db23e95c5ccc2ed4249f585926ac5c51b9095dc",
+        "label": "gete_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/results/EXX_bands.dat",
+        "sha256": "fff21ed0e0db433fedcd1b55db218e7a09f079fb89c4a2dabdf4188c78bf3cbf",
+        "size_bytes": 1288611,
+        "original_sha256": "fff21ed0e0db433fedcd1b55db218e7a09f079fb89c4a2dabdf4188c78bf3cbf",
+        "label": "gete_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/results/GW_bands.dat",
+        "sha256": "55890365811cc1a424c46bc5da5106941ee2c82494037d703128523169fceeb6",
+        "size_bytes": 999171,
+        "original_sha256": "55890365811cc1a424c46bc5da5106941ee2c82494037d703128523169fceeb6",
+        "label": "gete_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/results/band_window_and_provenance.json",
+        "sha256": "0fdc969049f00d0bfefca0c67d0bbaac3916839edca0e9e0d33e4830ef614896",
+        "size_bytes": 94674,
+        "original_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769",
+        "label": "gete.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_ks.png",
+        "sha256": "1884dc2e20230502d3598fd77bdb812c7c413167152854f18ea0b52cabe13f61",
+        "size_bytes": 295320,
+        "original_sha256": "1884dc2e20230502d3598fd77bdb812c7c413167152854f18ea0b52cabe13f61",
+        "label": "gete_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_ks.pdf",
+        "sha256": "96615de781656f15a2caf6ed2941a1c065e2c7bc3a6937ff6d96e9091f972446",
+        "size_bytes": 59122,
+        "original_sha256": "96615de781656f15a2caf6ed2941a1c065e2c7bc3a6937ff6d96e9091f972446",
+        "label": "gete_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_exx.png",
+        "sha256": "7d646116f74921ec8928a2ef4cc76fe401eb4c0b8af6116118a1aaf6f98b7c55",
+        "size_bytes": 387201,
+        "original_sha256": "7d646116f74921ec8928a2ef4cc76fe401eb4c0b8af6116118a1aaf6f98b7c55",
+        "label": "gete_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_exx.pdf",
+        "sha256": "1c96807a6387b3f6f52f9478b31420596f80a4a2970c1cefbbc2597d60fbfa0d",
+        "size_bytes": 60011,
+        "original_sha256": "1c96807a6387b3f6f52f9478b31420596f80a4a2970c1cefbbc2597d60fbfa0d",
+        "label": "gete_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_gw.png",
+        "sha256": "9e0e11c9d1169067250747997a2f2830080c822ca8764bf320292fda1235deca",
+        "size_bytes": 338193,
+        "original_sha256": "9e0e11c9d1169067250747997a2f2830080c822ca8764bf320292fda1235deca",
+        "label": "gete_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/figures/gete_gw.pdf",
+        "sha256": "604992e937fb2913e3a947674431fa425538fd944b87d6d3f97573c9b303e2ac",
+        "size_bytes": 61467,
+        "original_sha256": "604992e937fb2913e3a947674431fa425538fd944b87d6d3f97573c9b303e2ac",
+        "label": "gete_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769"
+  },
+  "scientific_scope": {
+    "original_status": "provisional path diagnostic",
+    "occupation_counts_match": false,
+    "warning": "EXX archive has 46 occupied states, while the GTH KS/GW bundle has 30; curves are retained for provenance but are not a matched three-method benchmark.",
+    "methods_are_separate_producers": true
+  }
+}

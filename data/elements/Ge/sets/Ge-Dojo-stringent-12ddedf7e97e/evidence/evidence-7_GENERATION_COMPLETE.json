@@ -1,0 +1,30 @@
+{
+  "array_id": "3267153",
+  "task_id": 0,
+  "task": {
+    "index": 0,
+    "element": "Ge",
+    "family": "Dojo-stringent",
+    "pp_sha256": "cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33",
+    "physical_sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+    "for_aux_sha256": "8b66dcbeab4e6aeaae605027a223ec8054c74517ac19f30f6f96bd9d6861040c",
+    "source_set": "Dojo_stringent_Ge_TZDP10_generated_20260906",
+    "material": "GeTe",
+    "pca_threshold": 0.0001
+  },
+  "abfs_sha256": "a8f0b316f98c5b5f8aee0b2180f1dde17559eb703229ad3a5e57ffac026910d9",
+  "basis_dimension": 426,
+  "counts": {
+    "S": "14",
+    "P": "12",
+    "D": "12",
+    "F": "10",
+    "G": "9",
+    "H": "6",
+    "I": "4",
+    "J": "2",
+    "K": "1"
+  },
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "status": "generation_completed_pending_independent_radial_and_material_gates"
+}

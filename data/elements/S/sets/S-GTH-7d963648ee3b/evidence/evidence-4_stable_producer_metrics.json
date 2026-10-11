@@ -1,0 +1,32 @@
+{
+  "energies": {
+    "Etot_without_rpa_Ha": -174.5859980359345,
+    "etot_Ha": -177.1091007499408,
+    "etxc_Ha": -24.682070649591,
+    "rpa_lcao_exx_Ha": -22.158967935584684
+  },
+  "exchange_gate": true,
+  "exchange_max_Ha": 0.0,
+  "exchange_min_Ha": -100.0,
+  "pair_max_limit": 2.0,
+  "purpose": "material-pair RI and exchange gate for downstream GW producer",
+  "regular_Cs_max_abs": {
+    "Mo-Mo": 0.4425109985460742,
+    "Mo-S": 0.03967579128496567,
+    "Mo-W": 0.004476451602534931,
+    "S-S": 0.05426255257472395,
+    "S-W": 0.03614455083146386,
+    "W-W": 0.2802973598059587
+  },
+  "regular_pair_gate": true,
+  "shrink_Cs_max_abs": {
+    "Mo-Mo": 0.4402116044271408,
+    "Mo-S": 0.03951111258454326,
+    "Mo-W": 0.004815861698764204,
+    "S-S": 0.054915915815569656,
+    "S-W": 0.03721217471022735,
+    "W-W": 0.2802925377707075
+  },
+  "shrink_pair_gate": true,
+  "stable_producer_gate": true
+}

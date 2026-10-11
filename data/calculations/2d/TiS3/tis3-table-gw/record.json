@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "tis3-table-gw",
+  "dimension": "2d",
+  "material": "TiS3",
+  "formula": "TiS3",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Ti", "set_id": "Ti-Dojo-NC-SR-ca1f36a7957f", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "S", "set_id": "S-Dojo-NC-SR-87f36c0d139f", "scope": "contextual atomic-generation candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.24805,
+    "unit": "eV",
+    "notes": "low-energy path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/results/KS_bands.dat",
+        "sha256": "d1ec84b7e0d5393a037ff1f595d0c1d7d5bab2d1d4e4ef6389ab4175c4ab0769",
+        "size_bytes": 804771,
+        "original_sha256": "d1ec84b7e0d5393a037ff1f595d0c1d7d5bab2d1d4e4ef6389ab4175c4ab0769",
+        "label": "tis3_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/results/EXX_bands.dat",
+        "sha256": "3d0fc5ee3415569d1bd82826ba0c828fb5a7359c572b92445003a66a52e3a88b",
+        "size_bytes": 804771,
+        "original_sha256": "3d0fc5ee3415569d1bd82826ba0c828fb5a7359c572b92445003a66a52e3a88b",
+        "label": "tis3_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/results/GW_bands.dat",
+        "sha256": "5352108610ccf6d01aac622fa804b931b0850b49b354e062c3b06b72023ae189",
+        "size_bytes": 804771,
+        "original_sha256": "5352108610ccf6d01aac622fa804b931b0850b49b354e062c3b06b72023ae189",
+        "label": "tis3_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/results/band_window_and_provenance.json",
+        "sha256": "4055b6748abc17804420f277daa0f9bf2397d491d36ad6e0a1d706f34ca3cb6f",
+        "size_bytes": 39303,
+        "original_sha256": "140d59495139e2b6b971bc1b6439d1643bd68272893547ee298249cc9708b9af",
+        "label": "tis3.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_ks.png",
+        "sha256": "361b9fd7fc82f6b74e8a02c1fb91ffb7fc4fcb2d0aa3bf05666e89c332c1298f",
+        "size_bytes": 214723,
+        "original_sha256": "361b9fd7fc82f6b74e8a02c1fb91ffb7fc4fcb2d0aa3bf05666e89c332c1298f",
+        "label": "tis3_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_ks.pdf",
+        "sha256": "bc134e97cab9b36501d581338332b04959ce561b37401f88995fbddb723e0d76",
+        "size_bytes": 49904,
+        "original_sha256": "bc134e97cab9b36501d581338332b04959ce561b37401f88995fbddb723e0d76",
+        "label": "tis3_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_exx.png",
+        "sha256": "43be8c4ee00dc99812928303c339180635eeb0e9bedb5fb030f5fe10a9d22b36",
+        "size_bytes": 198595,
+        "original_sha256": "43be8c4ee00dc99812928303c339180635eeb0e9bedb5fb030f5fe10a9d22b36",
+        "label": "tis3_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_exx.pdf",
+        "sha256": "d1201f167fa29e12563036d0556637a048c99546d4ee44cb61ed8aadd53df9cf",
+        "size_bytes": 49887,
+        "original_sha256": "d1201f167fa29e12563036d0556637a048c99546d4ee44cb61ed8aadd53df9cf",
+        "label": "tis3_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_gw.png",
+        "sha256": "249ae0f6c775e16a50a703d1f2b9096ba6a38248835c95894110b09397714713",
+        "size_bytes": 255605,
+        "original_sha256": "249ae0f6c775e16a50a703d1f2b9096ba6a38248835c95894110b09397714713",
+        "label": "tis3_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/TiS3/tis3-table-gw/figures/tis3_gw.pdf",
+        "sha256": "a622e7fe9284bfe84520d55f2582d5172ffdbde0bb5f8d1057571f270b4f950b",
+        "size_bytes": 52426,
+        "original_sha256": "a622e7fe9284bfe84520d55f2582d5172ffdbde0bb5f8d1057571f270b4f950b",
+        "label": "tis3_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "140d59495139e2b6b971bc1b6439d1643bd68272893547ee298249cc9708b9af"
+  },
+  "scientific_scope": {
+    "original_status": "low-energy path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

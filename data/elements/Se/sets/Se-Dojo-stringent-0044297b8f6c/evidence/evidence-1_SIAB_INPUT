@@ -1,0 +1,16 @@
+# Missing scalar q24 Se candidate only; not a material acceptance.
+EXE_mpi mpiexec.hydra -np 20
+EXE_pw [private-path]
+element Se
+Ecut 150
+Rcut 10
+Pseudo_dir [private-path]
+Pseudo_name PP.upf
+sigma 0.01
+STRU1 dimer 32 3 1 2.0 2.2 2.5 3.0 4.0
+STRU2 trimer 44 3 1 2.1 2.3 2.7
+max_steps 9000
+Level1 STRU1 28 none 2s2p1d
+Level2 STRU1 auto fix 4s4p2d1f
+Level3 STRU2 auto fix 6s6p3d2f
+Save1 Level3 TZDP

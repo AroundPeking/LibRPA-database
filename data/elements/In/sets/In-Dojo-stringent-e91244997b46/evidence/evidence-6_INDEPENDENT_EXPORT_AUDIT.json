@@ -1,0 +1,30 @@
+{
+  "abfs_counts": {
+    "0": 10,
+    "1": 9,
+    "2": 10,
+    "3": 7,
+    "4": 8,
+    "5": 5,
+    "6": 4,
+    "7": 2,
+    "8": 1
+  },
+  "abfs_dimension": 362,
+  "abfs_sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+  "element": "In",
+  "finite": true,
+  "for_aux_dimension": 50,
+  "for_aux_sha256": "376391b0fdebe3956777b46cbf3f43938e2ab3375bc6505c5f91ca8f36978896",
+  "g_endpoint": 0.0,
+  "g_significant_nodes": 0,
+  "max_existing_channel_change": 0.0,
+  "max_norm_error": 2.5757174171303632e-14,
+  "physical_dimension": 41,
+  "physical_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+  "same_l_gram_lambda_max": 1.0000000000000298,
+  "same_l_gram_lambda_min": 0.9999999999999964,
+  "schema_version": 1,
+  "scope": "atomic auxiliary export only; material Coulomb, shrink, EXX and GW pending",
+  "status": "RADIAL_SANITY_PASSED"
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "id": "gate-table-gw",
+  "dimension": "2d",
+  "material": "GaTe",
+  "formula": "GaTe",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Ga", "set_id": "Ga-Dojo-NC-SR-ba0b3befe97a", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
+    {"element": "Te", "set_id": "Te-Dojo-NC-SR-6a1ccd56018e", "scope": "contextual repository paired candidate; exact GW binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 2.66233,
+    "unit": "eV",
+    "notes": "low-energy path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/KS_bands.dat",
+        "sha256": "002567a4e8301b3f723c5ccba8d58c8a960fc4e0f9be03b991081a26387ac8eb",
+        "size_bytes": 601491,
+        "original_sha256": "002567a4e8301b3f723c5ccba8d58c8a960fc4e0f9be03b991081a26387ac8eb",
+        "label": "gate_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/EXX_bands.dat",
+        "sha256": "00151f326485bed7f5b1e5141693fa131326dcbea27843315d78aab5966adfa7",
+        "size_bytes": 601491,
+        "original_sha256": "00151f326485bed7f5b1e5141693fa131326dcbea27843315d78aab5966adfa7",
+        "label": "gate_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/GW_bands.dat",
+        "sha256": "4f36fbb1d5a81bf3ec9dc01d9978554be8fbdc912445ec8fa83237e0172ed907",
+        "size_bytes": 601491,
+        "original_sha256": "4f36fbb1d5a81bf3ec9dc01d9978554be8fbdc912445ec8fa83237e0172ed907",
+        "label": "gate_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/band_window_and_provenance.json",
+        "sha256": "e2463c526db9537a008f744b72481849da75ebe1e2e02ad2be42ea2f730584e2",
+        "size_bytes": 54714,
+        "original_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac",
+        "label": "gate.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_ks.png",
+        "sha256": "74032fea8e8a54d8fa8c844ef6018f9883902c228830961533c46b79222c87dd",
+        "size_bytes": 275560,
+        "original_sha256": "74032fea8e8a54d8fa8c844ef6018f9883902c228830961533c46b79222c87dd",
+        "label": "gate_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_ks.pdf",
+        "sha256": "3ad8c742bb93346d242a73f24a099c725be7ddcdd4f66e1125f04f441a3ee9da",
+        "size_bytes": 52727,
+        "original_sha256": "3ad8c742bb93346d242a73f24a099c725be7ddcdd4f66e1125f04f441a3ee9da",
+        "label": "gate_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_exx.png",
+        "sha256": "799e04ab0d793da52af0e903749e6fc88eadd1c25ef967a0b872e419dbd3d5c8",
+        "size_bytes": 239601,
+        "original_sha256": "799e04ab0d793da52af0e903749e6fc88eadd1c25ef967a0b872e419dbd3d5c8",
+        "label": "gate_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_exx.pdf",
+        "sha256": "dd45ecff5ecfe1b81435cabc5cebc430cf66b6f764c5d7d5998732af474e6050",
+        "size_bytes": 52974,
+        "original_sha256": "dd45ecff5ecfe1b81435cabc5cebc430cf66b6f764c5d7d5998732af474e6050",
+        "label": "gate_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_gw.png",
+        "sha256": "5b69c4f36b6ace143b6517dcab51fe1641f79d96e26ebb4730d8371847f347b4",
+        "size_bytes": 297722,
+        "original_sha256": "5b69c4f36b6ace143b6517dcab51fe1641f79d96e26ebb4730d8371847f347b4",
+        "label": "gate_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/figures/gate_gw.pdf",
+        "sha256": "3aa856a5cbb43965180f0af1a08ecd8f419b74ef767e7e170e9d3f757523fea7",
+        "size_bytes": 54644,
+        "original_sha256": "3aa856a5cbb43965180f0af1a08ecd8f419b74ef767e7e170e9d3f757523fea7",
+        "label": "gate_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac"
+  },
+  "scientific_scope": {
+    "original_status": "low-energy path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

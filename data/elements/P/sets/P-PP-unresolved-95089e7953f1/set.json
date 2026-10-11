@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "P-PP-unresolved-95089e7953f1",
+  "element": "P",
+  "family": "PP-unresolved",
+  "validation_scope": "Used by alp-paper-k8_shrink_wing; see case-specific gates.",
+  "notes": "Missing original payload roles: pp,nao",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "alp-paper-k8_shrink_wing"
+  },
+  "files": [
+    {
+      "role": "abf",
+      "path": "data/elements/P/auxiliary/dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f.abfs",
+      "sha256": "dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f",
+      "size_bytes": 1298013,
+      "original_sha256": "dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f",
+      "label": "P_3s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 12,
+          "P": 12,
+          "D": 12,
+          "F": 9,
+          "G": 9,
+          "H": 6,
+          "I": 4
+        },
+        "basis_dimension": 370
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

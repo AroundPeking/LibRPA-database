@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "[private-path]", line 108, in <module>
+    main()
+  File "[private-path]", line 78, in main
+    raise RuntimeError("atomic SCF did not converge")
+RuntimeError: atomic SCF did not converge

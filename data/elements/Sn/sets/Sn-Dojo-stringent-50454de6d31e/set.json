@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "id": "Sn-Dojo-stringent-50454de6d31e",
+  "element": "Sn",
+  "family": "Dojo-stringent",
+  "validation_scope": "Atomic auxiliary export only; periodic Coulomb/shrink/EXX/GW not yet validated.",
+  "notes": "User-selected PP/physical NAO unchanged. Smooth auxiliary-only g; PCA1e-4; no physical acceptance inferred.",
+  "source": {
+    "collection": "2D reusable basis library",
+    "original_manifest_sha256": "cf484d5e24e56d5425dfe119f4b36fe2dd37115a601dc796718ce0843e741ee0"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Sn/pseudopotentials/f5b95427de88c3cba4a5a135c48ae33daf4a04a6cdded9b0c8762d01026cd6cc.upf",
+      "sha256": "f5b95427de88c3cba4a5a135c48ae33daf4a04a6cdded9b0c8762d01026cd6cc",
+      "size_bytes": 332836,
+      "original_sha256": "f5b95427de88c3cba4a5a135c48ae33daf4a04a6cdded9b0c8762d01026cd6cc",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Sn/orbitals/469f8a3161086e70168273b6f80857e8027343a756886ff31fed2ee43e350271.orb",
+      "sha256": "469f8a3161086e70168273b6f80857e8027343a756886ff31fed2ee43e350271",
+      "size_bytes": 388969,
+      "original_sha256": "469f8a3161086e70168273b6f80857e8027343a756886ff31fed2ee43e350271",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 53
+      }
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Sn/auxiliary/488149efb917ea5098d5f1f68c400875df490431286a0a00206a7927cd35dd9b.abfs",
+      "sha256": "488149efb917ea5098d5f1f68c400875df490431286a0a00206a7927cd35dd9b",
+      "size_bytes": 1733325,
+      "original_sha256": "488149efb917ea5098d5f1f68c400875df490431286a0a00206a7927cd35dd9b",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 14,
+          "P": 12,
+          "D": 12,
+          "F": 9,
+          "G": 8,
+          "H": 6,
+          "I": 5
+        },
+        "basis_dimension": 376
+      }
+    },
+    {
+      "role": "for_aux",
+      "path": "data/elements/Sn/for_aux/7382710e4b2f7adb1d9bda5024215c015f461b6bcade6fc9a5460b6e9d65853f.orb",
+      "sha256": "7382710e4b2f7adb1d9bda5024215c015f461b6bcade6fc9a5460b6e9d65853f",
+      "size_bytes": 429142,
+      "original_sha256": "7382710e4b2f7adb1d9bda5024215c015f461b6bcade6fc9a5460b6e9d65853f",
+      "label": "payload",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 4.0,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 62
+      }
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-0_INPUT",
+      "sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "size_bytes": 720,
+      "original_sha256": "dae864daae1a79b27d1f0414da44e6e80fa888aa9a741ed56af276ea1a0666b9",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-1_STRU",
+      "sha256": "0f28b6297a31f27f6575f3c0600bf71ea6e4e6a81ac1e23fe7174aecb4bae5b6",
+      "size_bytes": 176,
+      "original_sha256": "0f28b6297a31f27f6575f3c0600bf71ea6e4e6a81ac1e23fe7174aecb4bae5b6",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-2_KPT",
+      "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "size_bytes": 29,
+      "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-3_gaussian_recipe.json",
+      "sha256": "6d38c94b02649fff523b7275d02e7f37879e2c6a4a29807ce9a26267308687bd",
+      "size_bytes": 379,
+      "original_sha256": "c06a0c702e9b431d053337caf79aebc795757e1ab852319b4006c50a517df89f",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-4_RADIAL_INPUT_GATE.json",
+      "sha256": "3202326a14b0bfa87a41bd9d9437fe3eccff957e36058b14fca6e96ed78578ae",
+      "size_bytes": 595,
+      "original_sha256": "3202326a14b0bfa87a41bd9d9437fe3eccff957e36058b14fca6e96ed78578ae",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-5_abacus.out",
+      "sha256": "4963dcbf96994f953f6c6ca8ae14807cd1a6ffaff9ec1f0e65074ce1fd583519",
+      "size_bytes": 2926,
+      "original_sha256": "c664fff8a50130686dbdaa277d628863f2645889cddc63774fec49dd2f273f06",
+      "label": "payload",
+      "transformation": "private paths and host identifiers redacted; scientific values retained"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-6_running_scf.log",
+      "sha256": "c760a7cacca0180a7e7b325de0d8c601a9b805aec92cdbf1039860599dcb2185",
+      "size_bytes": 21644,
+      "original_sha256": "c760a7cacca0180a7e7b325de0d8c601a9b805aec92cdbf1039860599dcb2185",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-7_GENERATION_COMPLETE.json",
+      "sha256": "85795322ab619f3a87146dd772818a2aeb928b9047bbccde9206f4451b9849a9",
+      "size_bytes": 940,
+      "original_sha256": "85795322ab619f3a87146dd772818a2aeb928b9047bbccde9206f4451b9849a9",
+      "label": "payload",
+      "transformation": "none"
+    },
+    {
+      "role": "generation_evidence",
+      "path": "data/elements/Sn/sets/Sn-Dojo-stringent-50454de6d31e/evidence/evidence-8_INDEPENDENT_EXPORT_AUDIT.json",
+      "sha256": "1db7481f0c01d620f75da411ca5ddd70d672e9feffe940440738629d289dd2e8",
+      "size_bytes": 735,
+      "original_sha256": "1db7481f0c01d620f75da411ca5ddd70d672e9feffe940440738629d289dd2e8",
+      "label": "payload",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

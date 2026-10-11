@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "As-PP-unresolved-9a604f9794ef",
+  "element": "As",
+  "family": "PP-unresolved",
+  "validation_scope": "Used by alas-paper-paper; see case-specific gates.",
+  "notes": "Missing original payload roles: pp,nao",
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "case_id": "alas-paper-paper"
+  },
+  "files": [
+    {
+      "role": "abf",
+      "path": "data/elements/As/auxiliary/2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb.abfs",
+      "sha256": "2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb",
+      "size_bytes": 1359406,
+      "original_sha256": "2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb",
+      "label": "As_3s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 14,
+          "P": 12,
+          "D": 12,
+          "F": 10,
+          "G": 9,
+          "H": 6,
+          "I": 4
+        },
+        "basis_dimension": 379
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
+  },
+  "used_by": []
+}

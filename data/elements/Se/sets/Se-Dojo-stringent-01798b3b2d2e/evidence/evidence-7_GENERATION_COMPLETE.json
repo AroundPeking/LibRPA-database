@@ -1,0 +1,30 @@
+{
+  "array_id": "3267153",
+  "task_id": 2,
+  "task": {
+    "index": 2,
+    "element": "Se",
+    "family": "Dojo-stringent",
+    "pp_sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+    "physical_sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+    "for_aux_sha256": "6b17239383eecac6df50e714f3f7e125bc66744bcdadc5b8acc347223f7466f3",
+    "source_set": "Dojo-stringent_Se_generation_3256459",
+    "material": "SnSe",
+    "pca_threshold": 0.0001
+  },
+  "abfs_sha256": "3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d",
+  "basis_dimension": 383,
+  "counts": {
+    "S": "14",
+    "P": "12",
+    "D": "12",
+    "F": "8",
+    "G": "7",
+    "H": "5",
+    "I": "4",
+    "J": "2",
+    "K": "1"
+  },
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "status": "generation_completed_pending_independent_radial_and_material_gates"
+}

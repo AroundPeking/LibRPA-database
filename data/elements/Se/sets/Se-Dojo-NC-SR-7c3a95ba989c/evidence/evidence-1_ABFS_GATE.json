@@ -1,0 +1,72 @@
+{
+  "material": "SnSe",
+  "job_id": "3299782",
+  "elements": {
+    "Se": {
+      "pp_sha256": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+      "physical_sha256": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+      "for_aux_sha256": "f1c3bdfdbf8abe6f018b39074da1bf2818ae1fcd7477e64776171cf28c2fca37",
+      "pca_threshold": 0.0001,
+      "source_abfs": "[private-path]",
+      "abfs_sha256": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+      "naux": 418,
+      "counts": {
+        "0": 11,
+        "1": 10,
+        "2": 11,
+        "3": 9,
+        "4": 9,
+        "5": 6,
+        "6": 5,
+        "7": 2,
+        "8": 1
+      },
+      "same_l_gram_min": 0.9999999999999973,
+      "max_norm_error": 2.708944180085382e-14,
+      "max_endpoint": 0.0,
+      "generation_receipt_sha256": "10f6dc73eae8cc72515ecee3b642550c82e852aecc0e6389ced501cee1fbc97a"
+    },
+    "Sn": {
+      "pp_sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+      "physical_sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+      "for_aux_sha256": "aadcdaaf1c646cfad6341cb4d4572fe43d8a746e30404676bdb062b1ff7b88af",
+      "pca_threshold": 0.0001,
+      "source_abfs": "[private-path]",
+      "abfs_sha256": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+      "naux": 393,
+      "counts": {
+        "0": 10,
+        "1": 9,
+        "2": 10,
+        "3": 8,
+        "4": 8,
+        "5": 6,
+        "6": 5,
+        "7": 2,
+        "8": 1
+      },
+      "same_l_gram_min": 0.9999999999999973,
+      "max_norm_error": 2.9753977059954195e-14,
+      "max_endpoint": 0.0,
+      "generation_receipt_sha256": "2783ed632310dfd7c5a663d548cecf8a8e3c197ec450d9b3cd6d4cc39bfab9a7"
+    }
+  },
+  "raw_cell_naux": 1622,
+  "status": "ATOMIC_EXPORT_AND_BINDING_PASS_PRODUCER_PENDING",
+  "reviewed_by_main": true,
+  "scheduler": "3299782_0|COMPLETED|0:0|00:02:50\n3299782_0.batch|COMPLETED|0:0|00:02:50\n3299782_0.extern|COMPLETED|0:0|00:02:50\n3299782_1|COMPLETED|0:0|00:02:49\n3299782_1.batch|COMPLETED|0:0|00:02:49\n3299782_1.extern|COMPLETED|0:0|00:02:49\n",
+  "scientific_acceptance": "NOT_EVALUATED",
+  "gw_authorized": false,
+  "input_hashes": {
+    "ABFS_RADIAL_AUDIT.json": "764982e8ba33b00db549b826d374a883564c62555ca2057bc799844ed4586c77",
+    "assets/Se/auxiliary.abfs": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+    "assets/Se/PP.upf": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+    "assets/Se/physical.orb": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+    "aux_generation/inputs/Se/for_aux.orb": "f1c3bdfdbf8abe6f018b39074da1bf2818ae1fcd7477e64776171cf28c2fca37",
+    "assets/Sn/auxiliary.abfs": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+    "assets/Sn/PP.upf": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+    "assets/Sn/physical.orb": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+    "aux_generation/inputs/Sn/for_aux.orb": "aadcdaaf1c646cfad6341cb4d4572fe43d8a746e30404676bdb062b1ff7b88af"
+  },
+  "caveat": "Atomic radial checks do not validate crystal overlap, local RI fitting, EXX, or GW."
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "id": "mos2_ws2-table-gw",
+  "dimension": "2d",
+  "material": "MoS2-WS2",
+  "formula": "MoS2-WS2",
+  "status": "gw_diagnostic",
+  "species": [],
+  "basis_candidates": [
+    {"element": "Mo", "set_id": "Mo-GTH-5d48871deb09", "scope": "contextual producer-used candidate; exact material binding pending"},
+    {"element": "S", "set_id": "S-GTH-7d963648ee3b", "scope": "contextual producer-used candidate; exact material binding pending"},
+    {"element": "W", "set_id": "W-GTH-759520698480", "scope": "contextual producer-used candidate; exact material binding pending"}
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full producer commit not recorded in the imported evidence"
+    }
+  },
+  "summary": {
+    "observable": "Archived GW path gap",
+    "value": 1.8658,
+    "unit": "eV",
+    "notes": "application path diagnostic",
+    "gates": []
+  },
+  "files": {
+    "inputs": [],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/KS_bands.dat",
+        "sha256": "9100db56336edd0e242b8fa55d6e57e73679a77d1d0985683a777745806ea4fc",
+        "size_bytes": 659571,
+        "original_sha256": "9100db56336edd0e242b8fa55d6e57e73679a77d1d0985683a777745806ea4fc",
+        "label": "mos2_ws2_KS.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/EXX_bands.dat",
+        "sha256": "7d157e651e445a0d10c82399acdcb9a6cd94d6b2fce0c9d980f0fe3591905a5e",
+        "size_bytes": 659571,
+        "original_sha256": "7d157e651e445a0d10c82399acdcb9a6cd94d6b2fce0c9d980f0fe3591905a5e",
+        "label": "mos2_ws2_EXX.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/GW_bands.dat",
+        "sha256": "2769036e48e374f07803c2565b6d62f74a7cd47e6c0999e3671d425af1829577",
+        "size_bytes": 659571,
+        "original_sha256": "2769036e48e374f07803c2565b6d62f74a7cd47e6c0999e3671d425af1829577",
+        "label": "mos2_ws2_GW.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/band_window_and_provenance.json",
+        "sha256": "becd9062f32b28c27e26a0813b71b475f9f0cfd94a37e7be828d99615ba714f5",
+        "size_bytes": 64960,
+        "original_sha256": "c0915caf88ebf20d269afd1c7c003d71fd508ba914bb9a31bc1402c3c6d73dea",
+        "label": "mos2_ws2.json",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "logs": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_ks.png",
+        "sha256": "fc88e1958e24f6427fca6c7e4815458e1df595803b0e7aa1ad0791ded7c54d49",
+        "size_bytes": 326511,
+        "original_sha256": "fc88e1958e24f6427fca6c7e4815458e1df595803b0e7aa1ad0791ded7c54d49",
+        "label": "mos2_ws2_ks.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_ks.pdf",
+        "sha256": "9a3f4ae389fbc934da4a9a459fa2755ee33084be711a443fd133f61e130698ef",
+        "size_bytes": 52862,
+        "original_sha256": "9a3f4ae389fbc934da4a9a459fa2755ee33084be711a443fd133f61e130698ef",
+        "label": "mos2_ws2_ks.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_exx.png",
+        "sha256": "3c5495c48d28edb7ff43a089a400a2d8787cda709033b1e64076471fa12c4542",
+        "size_bytes": 292591,
+        "original_sha256": "3c5495c48d28edb7ff43a089a400a2d8787cda709033b1e64076471fa12c4542",
+        "label": "mos2_ws2_exx.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_exx.pdf",
+        "sha256": "d484bdb9c6dc714308965c19a8cf790e5d377e5b54b7d1102402f489ab5054e0",
+        "size_bytes": 53760,
+        "original_sha256": "d484bdb9c6dc714308965c19a8cf790e5d377e5b54b7d1102402f489ab5054e0",
+        "label": "mos2_ws2_exx.pdf",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_gw.png",
+        "sha256": "2fc2e6a9d5baf926bd883bc8b25dfada885af63b8b3b6f3b292276d82849ec29",
+        "size_bytes": 331649,
+        "original_sha256": "2fc2e6a9d5baf926bd883bc8b25dfada885af63b8b3b6f3b292276d82849ec29",
+        "label": "mos2_ws2_gw.png",
+        "transformation": "none"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/figures/mos2_ws2_gw.pdf",
+        "sha256": "568adfdd26cecb0964096f811b1f9cb8b22534c2080f3708b1d701e392b04267",
+        "size_bytes": 54581,
+        "original_sha256": "568adfdd26cecb0964096f811b1f9cb8b22534c2080f3708b1d701e392b04267",
+        "label": "mos2_ws2_gw.pdf",
+        "transformation": "none"
+      }
+    ]
+  },
+  "recommendation": null,
+  "missing": [
+    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "source": {
+    "collection": "2D manuscript band catalog",
+    "original_sidecar_sha256": "c0915caf88ebf20d269afd1c7c003d71fd508ba914bb9a31bc1402c3c6d73dea"
+  },
+  "scientific_scope": {
+    "original_status": "application path diagnostic",
+    "occupation_counts_match": true,
+    "warning": null,
+    "methods_are_separate_producers": false
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "array_id": "3293613",
+  "task_id": 0,
+  "task": {
+    "index": 0,
+    "element": "Ge",
+    "family": "Dojo-NC-SR",
+    "pca_threshold": 0.0001,
+    "pp_sha256": "111d01f680802ef14c03b72987e32a91e9ff8b4741bce2a17613b4e0845afd72",
+    "physical_sha256": "5b847bfd7f52338dd5ad398fca816d0a02ef0af052fc1f5527c5374283334e3d",
+    "for_aux_sha256": "beab93244a56908dfcddc899d62b1d18e558a02361275f596ea2351f6547924d",
+    "source_commit": "3b634f1618f5c56baa97084a41ae17e801d46ab9",
+    "source_set": "Dojo-NC-SR_Ge_repository_TZDP10"
+  },
+  "abfs_sha256": "6f0c8fd63a14ac9c2800f128dba654f3db37df73f5617070f5fbc3b7e18d005d",
+  "basis_dimension": 415,
+  "counts": {
+    "S": "10",
+    "P": "9",
+    "D": "10",
+    "F": "8",
+    "G": "9",
+    "H": "6",
+    "I": "6",
+    "J": "2",
+    "K": "1"
+  },
+  "abacus_sha256": "7ddaa8c33ae2439e16bc4cf850996fea7d9f2920083d54092a9329c729337af9",
+  "status": "generation_completed_pending_independent_radial_and_material_gates"
+}

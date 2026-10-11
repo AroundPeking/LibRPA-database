@@ -1,0 +1,216 @@
+\clearpage
+\section{GeTe and SnSe: PBE-Based Selection}
+\label{sec:gete-snse-pbe-selection}
+
+Monolayer GeTe and SnSe extend the present 2D GW work to a new pair of
+applications.  This subsection preserves the initial 6 September
+pseudopotential (PP) and numerical atomic orbital (NAO) screening, before
+the subsequent EXX failure and library-basis control described below.
+Figure~\ref{fig:gete-snse-pbe-six-panel}
+preserves that six-panel PBE comparison against FHI-aims all-electron
+(AE) bands, without spin--orbit coupling (SOC).
+
+\paragraph{Comparison and observed gaps.}
+Each material uses the same geometry and plotting path across methods, with
+each spectrum independently aligned to its path valence-band maximum (VBM).
+The PP self-consistent meshes are \(12\times12\times1\); the AE meshes are
+\(24\times24\times1\) for GeTe and \(20\times20\times1\) for SnSe.
+Thus this is not an identical-mesh comparison.  The AE numerical controls
+passed their recorded PBE checks, but remain provisional references, not
+finally converged AE benchmarks.  Define the path gap as
+\(E_g=\min_{\bk\in\mathrm{path}}E_c(\bk)
+-\max_{\bk\in\mathrm{path}}E_v(\bk)\), using the lowest empty and highest
+occupied bands, and \(\Delta E_g=E_g^{\rm NAO}-E_g^{\rm AE}\).
+
+\begin{table}[!ht]
+  \centering
+  \caption{No-SOC PBE path gaps.  These are not global Brillouin-zone
+  extrema or absolute band offsets.  Extra printed digits identify the
+  frozen data, not a convergence uncertainty.}
+  \label{tab:gete-snse-pbe-gaps}
+  \small
+  \begin{tabular}{llrrr}
+    \toprule
+    Material & PP/NAO & AE (eV) & NAO (eV) & \(\Delta E_g\) (meV) \\
+    \midrule
+    GeTe & GTH            & 0.868309 & 1.030718 & +162.409 \\
+    GeTe & SG15 v1.0      & 0.868309 & 0.871440 &   +3.131 \\
+    GeTe & Dojo stringent & 0.868309 & 0.873450 &   +5.141 \\
+    SnSe & GTH            & 0.966363 & 0.903439 &  -62.924 \\
+    SnSe & SG15 v1.0      & 0.966363 & 0.955169 &  -11.194 \\
+    SnSe & Dojo stringent & 0.966363 & 0.960081 &   -6.282 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+
+\paragraph{Initial selection (6 September 2026; historical).}
+Dojo stringent with the matched TZDP basis was initially selected for both
+materials, and GeTe/GTH was rejected for this application.
+The small Dojo path-gap differences and the visible near-edge band agreement
+motivate this practical PBE-based choice.  The selected orbital sets have
+\(6s6p3d2f\) channels and 10-bohr cutoff radii for each element, with 212
+NAOs per four-atom cell.  This is a user-directed selection, not a claim of
+uniform empty-band accuracy or complete PP/basis validation.  In particular,
+the SnSe/SG15 v1.0 panel contains extra low-lying empty branches despite a
+close gap; their PP-versus-basis origin is unresolved, and no general
+rejection of the SG15 family is inferred.
+
+\paragraph{Waived screening and retained GW requirements.}
+Further alternative-PP screening, same-PP plane-wave (own-PW) checks, and
+PP/AE head-response selection tests are stopped by user direction:
+\textbf{waived, not passed}.  No own-PW or head-selection test is supplied
+by this comparison.  This waiver neither establishes that an AE response
+calculation is impossible nor disables the production correction:
+\textbf{the strict-2D GW \mbox{head/wing} treatment remains enabled}.
+Its inputs and numerical validity, the matched auxiliary basis, and GW
+convergence still require validation.  This initial PBE comparison alone
+does not establish the validity of either material's GW spectrum.
+
+\clearpage
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/gete_snse_pbe_selection_20260906/selected_footer_v2/ae_nao_pbe.pdf}
+  \caption[GeTe/SnSe six-panel no-SOC PBE comparison]{No-SOC PBE bands of
+  GeTe (top) and SnSe (bottom), comparing GTH, SG15 v1.0, and Dojo stringent
+  (left to right).  FHI-aims AE/ABACUS NAO curves are dashed/solid;
+  occupied/empty states are red/cyan, with independent path-VBM alignment
+  and native band order.  Dojo stringent TZDP was the initial selection on
+  this PBE evidence; the later library-basis control is described separately.
+  AE references remain provisional;
+  no GW result is shown.}
+  \label{fig:gete-snse-pbe-six-panel}
+\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{GeTe: Library-Basis GW Result}
+\label{sec:gete-library-gw}
+
+The initial large-basis route gave abnormal EXX bands even when its final
+auxiliary Coulomb matrices were positive.  A positive Coulomb metric alone
+does not validate the local RI fit or its contraction with the density
+matrix.  The following control instead uses the vetted Dojo-NC-SR library
+PP/NAO pair.  Because the PP, physical NAOs and auxiliary basis all changed
+relative to the initial screening route, the improvement cannot be
+attributed exclusively to an orbital-generation parameter or inverse cutoff.
+
+\paragraph{Calculation and scope.}
+The system is a four-atom, puckered orthorhombic GeTe monolayer, without SOC,
+at the literature geometry used in the PBE comparison.  The SCF/GW mesh is
+\(12\times12\times1\), the cell height is 20~\AA, and the plotted path is
+\(\Gamma\)--X--S--Y--\(\Gamma\), with 50 intervals per segment.
+The physical TZDP basis has \(3s3p3d2f\) radial multiplicities, a 10-bohr
+cutoff and 164 orbitals per cell.  One additional \(g\) function per atom
+is used only to generate the auxiliary basis, not to change the physical
+one-electron Hilbert space.  Auxiliary generation uses PCA \(10^{-4}\);
+the 1508 raw auxiliary functions are compressed to 1050 active functions.
+No positive Cs inverse-eigenvalue threshold is applied.
+Full strict-2D Coulomb matrices use the direct mixed-Fourier construction
+(110~Ry, 64 out-of-plane quadrature points, Gamma order 8), with shrink and
+symmetry enabled.  The GW calculation uses 16 minimax frequencies,
+12-parameter Pad\'{e} continuation and analytic Gamma head/wing treatment.
+These are the tested operating parameters, not a completed GeTe convergence
+study.
+
+\begin{table}[!ht]
+  \centering
+  \caption{GeTe no-SOC path gaps for the library-basis control.  Values are
+  computed from the raw occupied and empty manifolds, before display
+  reordering.  Edge coordinates are fractional reciprocal coordinates
+  \((k_x,k_y)\) in the present crystal axes, with \(k_z=0\).
+  EXX is the diagonal EXX@PBE spectrum, not a self-consistent
+  Hartree--Fock calculation.}
+  \label{tab:gete-library-gw-gaps}
+  \begin{tabular}{lccr}
+    \toprule
+    Method & VBM & CBM & Path gap (eV) \\
+    \midrule
+    PBE & (0, 0.38) & (0.41, 0) & 0.86874 \\
+    EXX@PBE & --- & --- & 3.90577 \\
+    \(G_0W_0\)@PBE & (0, 0.39) & (0, 0.40) & 1.38070 \\
+    \(G_0W_0\) minus PBE & --- & --- & +0.51196 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\FloatBarrier
+
+\paragraph{Numerical checks and interpretation.}
+All 49 direct full-Coulomb matrices are finite, Hermitian and positive
+within the recorded numerical checks; their global minimum eigenvalue is
+\(2.51\times10^{-5}\)~Ha.  The full \(201\times164\) GW table is finite,
+with no high-empty-state intrusion into the occupied manifold.  The
+imaginary-axis self-energy is finite, and the fixed PBE frontier indices
+30/31 reproduce the occupied/empty envelope gap.  Thus this calculation
+does not reproduce the catastrophic EXX failure of the original route.
+It gives a positive GW opening of 0.512~eV and a near-direct path gap: its
+sampled VBM and CBM lie at adjacent points along Y--\(\Gamma\), not exactly
+the same k point.  This does not establish an exactly direct or global
+Brillouin-zone gap.  A GeTe-specific mesh/basis/frequency convergence study
+and a same-chain full-q symmetry control remain absent.
+
+\paragraph{Comparison with published work.}
+The present geometry comes from the puckered, not hexagonal, monolayer of
+Sinambela \emph{et al.}, whose GGA/HSE gaps are 0.90/1.30~eV;
+the HSE value is not a GW benchmark~\cite{sinambela2021gete}.
+Wang \emph{et al.} report a 0.87~eV PBE indirect gap for the same
+orthorhombic phase and explicitly compare GW with and without SOC in
+their supplementary Fig.~S1~\cite{wang2021tellurides}.
+These results support the present PBE scale.  For the fundamental
+quasiparticle gap, Xu \emph{et al.} report \(G_0W_0\)@PBE
+\textbf{1.21~eV} in Table~I~\cite{xu2017monochalcogenides}, versus the
+present \textbf{1.38070~eV}, a difference of \textbf{+0.17070~eV}.
+Their phase and starting functional match, but the relaxed structure,
+integration mesh and basis differ, and their methods section does not
+explicitly settle SOC or the strict-2D Coulomb boundary.  Their
+direction-resolved direct transitions and BSE optical gaps must not be
+substituted for the fundamental QP gap.
+
+There is also a \textbf{valley-order difference}: after accounting for
+the exchanged crystal-axis labels, the published GW VBM and CBM lie on
+perpendicular directions, whereas the present GW extrema both lie along
+Y--\(\Gamma\).  This difference is already present in the raw energies
+and is not caused or cured by display sorting.  Defining
+\(\Delta_c=\min_{Y\Gamma}E_c-\min_{\Gamma X}E_c\), the raw data give
+\(+48.08\)~meV at PBE and \(-32.84\)~meV at GW.  The GW valley ordering
+therefore reverses: relative to each method's VBM, the
+\(\Gamma\)--X/Y--\(\Gamma\) conduction minima are
+0.86874/0.91682~eV at PBE and 1.41354/1.38070~eV at GW.
+The relative valley separation changes by \(-80.92\)~meV, including the
+small shifts of the sampled minima; it is not a rigid gap opening.
+The competing GW \(\Gamma\)--X minimum is at (0.42, 0), only
+32.84~meV above the Y--\(\Gamma\) CBM at (0, 0.40).
+The ordering thus rests on a small energy difference whose convergence is not yet
+established.  The present comparison supports the energy scale and a
+positive GW gap opening, but does \emph{not} establish quantitative
+agreement or a validated valley order.  The competing conduction valleys
+and their numerical stability are the next physics question, rather than
+further cosmetic changes to the plot.
+The two cited theoretical studies are not a proof of universal agreement:
+the older values quoted again by Wang \emph{et al.} are not an additional
+independent calculation.  An error in the present calculation remains
+possible, but the unmatched numerical and structural definitions do not
+identify its cause.  We retain this result and its disagreement as
+provisional evidence, not as a validated application benchmark.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/gete_gw_20260909/GeTe_PBE_GW_reordered.pdf}
+  \caption[GeTe library-basis PBE/GW bands]{GeTe PBE (cyan dashed) and
+  \(G_0W_0\)@PBE (vermilion solid) bands, each aligned to its own occupied
+  path VBM.  Cyan hollow circles locate the PBE VBM/CBM and vermilion
+  hollow diamonds locate the GW VBM/CBM at their actual sampled k points;
+  leaders move only the labels.  The two VBM markers nearly overlap.
+  At each original k point, the occupied and empty energies
+  are ranked separately within the fixed displayed raw-band windows
+  (PBE 25--37; GW 25--36, with occupied bands ending at 30).
+  No energies are changed, no interpolation or smoothing is applied, and
+  the gaps in Table~\ref{tab:gete-library-gw-gaps} are invariant.  This is
+  an energy-ranked dispersion display, not wavefunction-character tracking;
+  degeneracies and genuine slope changes are not removed.  Raw spectra,
+  the previous raw-index plot and per-k raw-index mappings are retained.
+  The result passes numerical sanity checks but is not yet a converged
+  quantitative benchmark.}
+  \label{fig:gete-library-gw}
+\end{figure}
+\FloatBarrier

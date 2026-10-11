@@ -1,0 +1,13 @@
+method,carrier,raw_band_one_based,edge_path_index_zero_based,direction,mass_m0,mean_directional_mass_m0,quadratic_ev_angstrom2,cubic_ev_angstrom3
+PBE,electron,5,60,M-K,0.9050048688,,4.2099023415,-9.6417793537
+PBE,electron,5,60,K-Gamma,0.8669429856,,4.3947320404,6.7374845286
+PBE,electron,5,60,mean,,0.8859739272,,
+PBE,hole,4,60,M-K,0.6336755042,,6.0125128574,-7.1474279641
+PBE,hole,4,60,K-Gamma,0.6131662728,,6.2136198367,3.0938249173
+PBE,hole,4,60,mean,,0.6234208885,,
+GW,electron,5,0,Gamma-M,0.8663243675,,4.3978701961,-0.9204408237
+GW,electron,5,90,Gamma-K,0.8601572482,,4.4294018614,-1.4255652531
+GW,electron,5,0,mean,,0.8632408079,,
+GW,hole,4,60,M-K,0.5643872677,,6.7506521399,-8.0268250279
+GW,hole,4,60,K-Gamma,0.5462512807,,6.9747792828,3.4941085231
+GW,hole,4,60,mean,,0.5553192742,,

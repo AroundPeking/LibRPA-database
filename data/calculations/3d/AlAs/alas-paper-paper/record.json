@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "id": "alas-paper-paper",
+  "dimension": "3d",
+  "material": "AlAs",
+  "formula": "AlAs",
+  "status": "gw_diagnostic",
+  "species": [
+    {
+      "element": "Al",
+      "set_id": "Al-PP-unresolved-b58dd8eabafc",
+      "asset_aliases": {
+        "pp": "Al_ONCV_PBE-1.0.upf",
+        "nao": "Al_gga_8au_100Ry_6s6p2d.orb",
+        "abf": "Al_6s6p2d1f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [
+        "pp",
+        "nao"
+      ],
+      "linkage": "partial archive; no substitution made"
+    },
+    {
+      "element": "As",
+      "set_id": "As-PP-unresolved-9a604f9794ef",
+      "asset_aliases": {
+        "pp": "As_ONCV_PBE-1.0.upf",
+        "nao": "As_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "As_3s3p2d1f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [
+        "pp",
+        "nao"
+      ],
+      "linkage": "partial archive; no substitution made"
+    }
+  ],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [],
+      "identity_note": "Full commit resolved from the unique local Git object matching the producer-logged prefix; the producer printed only the shortened ID, and executable SHA/source dirtiness were not retained."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [],
+      "missing_reason": "full LibRPA commit not recorded in the imported evidence",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 2.0082507,
+    "unit": "eV",
+    "notes": "Historical reference-bounded result. It records a completed archived run and its selected GW gap; it is not a universal PP/NAO recommendation.",
+    "gates": [],
+    "gw_gap_ev": 2.0082507,
+    "exx_gap_ev": 6.5370239,
+    "dft_gap_ev": 1.4270794,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific 3D paper geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT",
+        "sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455",
+        "size_bytes": 611,
+        "original_sha256": "fb2771a4fbd2974bafdc8349e9c218ec61a04a2b32656d34f73a6b69cacf0bee",
+        "label": "INPUT",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_nscf",
+        "sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455",
+        "size_bytes": 611,
+        "original_sha256": "fb2771a4fbd2974bafdc8349e9c218ec61a04a2b32656d34f73a6b69cacf0bee",
+        "label": "INPUT_nscf",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_scf",
+        "sha256": "bd5be1526eda18d2fd989f2dba91e423c85f83fdf01c09e4192d728c86dd1f06",
+        "size_bytes": 695,
+        "original_sha256": "3cabbf141a9cb27d2b1e30c395dddeb1d5dd0bfcada03e11f91ec89d512b1ce5",
+        "label": "INPUT_scf",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/STRU",
+        "sha256": "9b9c6a75d1bb35dc0b34a07efa57ea0d6c0ca670022b932c436f3bdda02e65bb",
+        "size_bytes": 429,
+        "original_sha256": "9b9c6a75d1bb35dc0b34a07efa57ea0d6c0ca670022b932c436f3bdda02e65bb",
+        "label": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/librpa.in",
+        "sha256": "3c0d9455fc41eba2c1d56e499ef9f7d6c79534b3aaffe8d7c15709072d5ff386",
+        "size_bytes": 202,
+        "original_sha256": "3c0d9455fc41eba2c1d56e499ef9f7d6c79534b3aaffe8d7c15709072d5ff386",
+        "label": "librpa.in",
+        "transformation": "none"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+        "sha256": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158",
+        "size_bytes": 209451,
+        "original_sha256": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158",
+        "label": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat",
+        "sha256": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437",
+        "size_bytes": 209451,
+        "original_sha256": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437",
+        "label": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+        "sha256": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2",
+        "size_bytes": 209451,
+        "original_sha256": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2",
+        "label": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+        "sha256": "688b57a0e1623b5d504e9ff7ff2c80f31f649ddff6461f8cf02b29d50c5be2cf",
+        "size_bytes": 6680,
+        "original_sha256": "688b57a0e1623b5d504e9ff7ff2c80f31f649ddff6461f8cf02b29d50c5be2cf",
+        "label": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/abacus.out",
+        "sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc",
+        "size_bytes": 39381,
+        "original_sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc",
+        "label": "abacus.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+        "sha256": "155d3136b4037439e2df49259ace4cacaaaf088cb8d46df0d0d71c11b93e425e",
+        "size_bytes": 4948264,
+        "original_sha256": "ab63a828bfea9e97d002f03adfb58214e71c9fd937fbd0d20eb0ab2dc0a41812",
+        "label": "librpa.out",
+        "transformation": "private paths and host identifiers redacted; scientific values retained"
+      }
+    ],
+    "figures": []
+  },
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
+    "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+  ],
+  "source": {
+    "collection": "Published PP/NAO GW benchmark",
+    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
+    "archive_directory": "TABLE/Table_04_GW_comparison/AlAs__src_paper"
+  },
+  "audit": {
+    "case_role": "paper_table_04_reference",
+    "process_status": "completed_marker_present",
+    "code_identity_status": "historical_identity_incomplete",
+    "complete_runtime_handoff_included": false,
+    "exact_asset_case": false,
+    "paper_gap_ev": 2.054,
+    "paper_difference_abs_ev": 0.046,
+    "commit_resolution": "unique local Git object matching logged prefix",
+    "asset_limitation": "The archived case has no exact PP/NAO payload in the imported source; unresolved aliases are retained for audit only."
+  }
+}

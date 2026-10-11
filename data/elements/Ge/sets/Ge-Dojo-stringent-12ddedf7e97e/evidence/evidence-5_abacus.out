@@ -1,0 +1,56 @@
+                                                                                     
+                              ABACUS v3.3.2
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Sun Sep  6 23:11:41 2026
+ MAKE THE DIR         : OUT.ABACUS/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 4 for Ge: [Ar] 3d10 4s2 4p2
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 225 * 225 * 225
+ UNIFORM GRID DIM(BIG): 75 * 75 * 75
+ DONE(1.75186    SEC) : SETUP UNITCELL
+ DONE(1.75289    SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  NBASE       
+ 1       1               1           62          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Ge      6s6p3d2f1g-10au 62          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ -------------------------------------------
+ SELF-CONSISTENT : 
+ -------------------------------------------
+ START CHARGE      : atomic
+ DONE(6.63189    SEC) : INIT SCF
+ ITER   ETOT(eV)       EDIFF(eV)      DRHO       TIME(s)    
+ GE1    -7.605004e+03  0.000000e+00   1.623e-03  2.334e+00  
+ GE2    -7.605004e+03  6.213176e-05   1.324e-03  2.177e+00  
+ GE3    -7.605004e+03  -8.316043e-05  5.546e-04  2.309e+00  
+ GE4    -7.605004e+03  -3.029134e-06  7.320e-05  2.179e+00  
+ GE5    -7.605004e+03  -2.546478e-08  9.317e-04  2.261e+00  
+ GE6    -7.605004e+03  -2.628257e-07  1.446e-05  2.349e+00  
+ GE7    -7.605004e+03  -3.710746e-09  4.301e-05  2.411e+00  
+ GE8    -7.605004e+03  5.668517e-08   4.634e-06  2.276e+00  
+ GE9    -7.605004e+03  -4.083522e-10  5.703e-06  2.193e+00  
+ GE10   -7.605004e+03  4.006183e-10   1.136e-07  2.133e+00  
+124092
+center2_orb21_sAB size: 25
+[private-path] line 73
