@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="740" viewBox="0 0 1080 740">
+<rect width="100%" height="100%" fill="white"/>
+<text x="105" y="42" font-family="Times New Roman, DejaVu Serif, serif" font-size="29" font-weight="bold">BP | GW</text>
+<defs><clipPath id="frontier-clip"><rect x="105" y="88" width="940" height="548"/></clipPath></defs>
+<text x="105" y="68" font-family="Times New Roman, DejaVu Serif, serif" font-size="17" fill="#555555">Frozen occupation-separated energy-rank display</text>
+<line x1="105" y1="599.607" x2="1045" y2="599.607" stroke="#dddddd" stroke-width="1"/>
+<text x="92" y="606.607" text-anchor="end" font-family="Times New Roman, DejaVu Serif, serif" font-size="21">-2</text>
+<line x1="105" y1="599.607" x2="113" y2="599.607" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="599.607" x2="1037" y2="599.607" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="526.821" x2="109" y2="526.821" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="526.821" x2="1041" y2="526.821" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="454.035" x2="1045" y2="454.035" stroke="#dddddd" stroke-width="1"/>
+<text x="92" y="461.035" text-anchor="end" font-family="Times New Roman, DejaVu Serif, serif" font-size="21">0</text>
+<line x1="105" y1="454.035" x2="113" y2="454.035" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="454.035" x2="1037" y2="454.035" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="381.249" x2="109" y2="381.249" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="381.249" x2="1041" y2="381.249" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="308.463" x2="1045" y2="308.463" stroke="#dddddd" stroke-width="1"/>
+<text x="92" y="315.463" text-anchor="end" font-family="Times New Roman, DejaVu Serif, serif" font-size="21">2</text>
+<line x1="105" y1="308.463" x2="113" y2="308.463" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="308.463" x2="1037" y2="308.463" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="235.677" x2="109" y2="235.677" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="235.677" x2="1041" y2="235.677" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="162.891" x2="1045" y2="162.891" stroke="#dddddd" stroke-width="1"/>
+<text x="92" y="169.891" text-anchor="end" font-family="Times New Roman, DejaVu Serif, serif" font-size="21">4</text>
+<line x1="105" y1="162.891" x2="113" y2="162.891" stroke="black" stroke-width="1.8"/>
+<line x1="1045" y1="162.891" x2="1037" y2="162.891" stroke="black" stroke-width="1.8"/>
+<line x1="105.000" y1="88" x2="105.000" y2="636" stroke="#aaaaaa" stroke-width="1.4"/>
+<text x="105.000" y="665" text-anchor="middle" font-family="Times New Roman, DejaVu Serif, serif" font-size="24">Γ</text>
+<line x1="105.000" y1="88" x2="105.000" y2="96" stroke="black" stroke-width="1.8"/>
+<line x1="105.000" y1="636" x2="105.000" y2="628" stroke="black" stroke-width="1.8"/>
+<line x1="1045.000" y1="88" x2="1045.000" y2="636" stroke="#aaaaaa" stroke-width="1.4"/>
+<text x="1045.000" y="665" text-anchor="middle" font-family="Times New Roman, DejaVu Serif, serif" font-size="24">X</text>
+<line x1="1045.000" y1="88" x2="1045.000" y2="96" stroke="black" stroke-width="1.8"/>
+<line x1="1045.000" y1="636" x2="1045.000" y2="628" stroke="black" stroke-width="1.8"/>
+<line x1="105" y1="454.035" x2="1045" y2="454.035" stroke="#888888" stroke-width="1.2"/>
+<path id="GW-rank-1" d="M105.000,454.110 L152.000,459.054 L199.000,472.949 L246.000,493.141 L293.000,516.971 L340.000,547.489 L387.000,581.844 L434.000,618.893 L481.000,657.925 L528.000,698.378 L575.000,739.804 L622.000,781.817 L669.000,824.087 L716.000,866.339 L763.000,908.290 L810.000,949.502 L857.000,989.074 L904.000,1025.499 L951.000,1059.977 L998.000,1088.719 L1045.000,1100.733" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-2" d="M105.000,454.068 L152.000,459.043 L199.000,472.916 L246.000,493.058 L293.000,516.854 L340.000,542.463 L387.000,568.319 L434.000,593.715 L481.000,618.115 L528.000,641.161 L575.000,662.608 L622.000,682.299 L669.000,700.127 L716.000,716.010 L763.000,729.876 L810.000,741.698 L857.000,751.434 L904.000,759.023 L951.000,764.442 L998.000,767.683 L1045.000,768.784" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-3" d="M105.000,454.035 L152.000,458.424 L199.000,470.965 L246.000,490.828 L293.000,516.766 L340.000,542.334 L387.000,568.198 L434.000,593.616 L481.000,618.045 L528.000,641.122 L575.000,662.596 L622.000,682.297 L669.000,700.116 L716.000,715.987 L763.000,729.865 L810.000,741.667 L857.000,751.337 L904.000,758.862 L951.000,764.236 L998.000,767.467 L1045.000,768.522" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-4" d="M105.000,137.278 L152.000,139.425 L199.000,146.007 L246.000,156.143 L293.000,168.938 L340.000,183.529 L387.000,199.149 L434.000,215.131 L481.000,230.886 L528.000,245.915 L575.000,259.816 L622.000,272.280 L669.000,283.071 L716.000,291.994 L763.000,298.890 L810.000,303.629 L857.000,306.122 L904.000,306.358 L951.000,304.523 L998.000,301.416 L1045.000,299.560" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-5" d="M105.000,137.198 L152.000,131.035 L199.000,113.482 L246.000,87.218 L293.000,54.964 L340.000,18.799 L387.000,-19.884 L434.000,-60.120 L481.000,-64.008 L528.000,-27.626 L575.000,12.966 L622.000,53.917 L669.000,92.991 L716.000,129.022 L763.000,161.574 L810.000,190.440 L857.000,215.513 L904.000,236.701 L951.000,253.786 L998.000,266.002 L1045.000,270.888" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-6" d="M105.000,137.162 L152.000,130.976 L199.000,113.426 L246.000,87.194 L293.000,54.941 L340.000,18.728 L387.000,-19.985 L434.000,-60.219 L481.000,-101.242 L528.000,-142.654 L575.000,-183.953 L622.000,-224.892 L669.000,-265.217 L716.000,-304.536 L763.000,-342.289 L810.000,-377.853 L857.000,-410.548 L904.000,-439.482 L951.000,-463.198 L998.000,-479.590 L1045.000,-484.930" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<path id="GW-rank-7" d="M105.000,-147.014 L152.000,-150.285 L199.000,-159.328 L246.000,-171.018 L293.000,-179.650 L340.000,-176.753 L387.000,-155.963 L434.000,-120.074 L481.000,-101.280 L528.000,-142.784 L575.000,-184.397 L622.000,-225.751 L669.000,-266.482 L716.000,-306.237 L763.000,-344.625 L810.000,-381.122 L857.000,-414.972 L904.000,-445.001 L951.000,-469.344 L998.000,-485.435 L1045.000,-491.348" fill="none" stroke="#E64B35" stroke-width="2.5" clip-path="url(#frontier-clip)"/>
+<circle id="GW-VBM-1" cx="105.000" cy="454.035" r="7" fill="none" stroke="#E64B35" stroke-width="2.5"/>
+<rect id="GW-CBM-1" x="897.500" y="299.858" width="13" height="13" fill="none" stroke="#E64B35" stroke-width="2.5"/>
+<rect x="105" y="88" width="940" height="548" fill="none" stroke="black" stroke-width="2.5"/>
+<text x="575.0" y="700" text-anchor="middle" font-family="Times New Roman, DejaVu Serif, serif" font-size="24">native k-point index</text>
+<text x="31" y="362.0" text-anchor="middle" transform="rotate(-90 31 362.0)" font-family="Times New Roman, DejaVu Serif, serif" font-size="25">E − E<tspan baseline-shift="sub" font-size="18">VBM</tspan> (eV)</text>
+<rect x="855" y="101" width="177" height="72" fill="white" stroke="black" stroke-width="1.7"/>
+<line x1="867" y1="122" x2="929" y2="122" stroke="#E64B35" stroke-width="2.5"/>
+<text x="943" y="129" font-family="Times New Roman, DejaVu Serif, serif" font-size="23">GW</text>
+<circle cx="872" cy="152" r="5" fill="none" stroke="#E64B35" stroke-width="2"/>
+<text x="884" y="158" font-family="Times New Roman, DejaVu Serif, serif" font-size="16">VBM</text>
+<rect x="946" y="147" width="10" height="10" fill="none" stroke="#E64B35" stroke-width="2"/>
+<text x="963" y="158" font-family="Times New Roman, DejaVu Serif, serif" font-size="16">CBM</text>
+</svg>

@@ -5,7 +5,28 @@
   "material": "MoS2",
   "formula": "MoS2",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "Mo",
+      "asset_aliases": {
+        "pp": "Mo.upf",
+        "nao": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+        "abf": "Mo_4s2p2d1f1g_1e-6.abfs"
+      },
+      "set_id": "Mo-archived-f96ef4503563",
+      "source_receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
+    },
+    {
+      "element": "S",
+      "asset_aliases": {
+        "pp": "S.upf",
+        "nao": "S_gga_10au_110Ry_2s2p1d.orb",
+        "abf": "S_2s2p1d1f1g_1e-6.abfs"
+      },
+      "set_id": "S-archived-2db59f5656b9",
+      "source_receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "Mo",
@@ -42,7 +63,88 @@
     "gates": []
   },
   "files": {
-    "inputs": [],
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT",
+        "sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
+        "size_bytes": 625,
+        "original_sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
+        "label": "INPUT",
+        "original_name": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT",
+        "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "size_bytes": 165,
+        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "label": "KPT",
+        "original_name": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/STRU",
+        "sha256": "07b4b7c9b932329eb586ad132ba9cc5e38741b631a60dcafa4886fa7a6a33e5d",
+        "size_bytes": 485,
+        "original_sha256": "07b4b7c9b932329eb586ad132ba9cc5e38741b631a60dcafa4886fa7a6a33e5d",
+        "label": "STRU",
+        "original_name": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/librpa.in",
+        "sha256": "c5ccdc6c455d928eba289aa7c68bc498e0bada87a4bd08368d4ccd7a4d9017b2",
+        "size_bytes": 232,
+        "original_sha256": "c5ccdc6c455d928eba289aa7c68bc498e0bada87a4bd08368d4ccd7a4d9017b2",
+        "label": "librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_scf",
+        "sha256": "68ba051f4c25a3c13be179b4f65b831c757c9ba486ffdcf59edcb179a592643a",
+        "size_bytes": 700,
+        "original_sha256": "68ba051f4c25a3c13be179b4f65b831c757c9ba486ffdcf59edcb179a592643a",
+        "label": "INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_scf",
+        "sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
+        "size_bytes": 31,
+        "original_sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
+        "label": "KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_nscf",
+        "sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
+        "size_bytes": 625,
+        "original_sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
+        "label": "INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_nscf",
+        "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "size_bytes": 165,
+        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "label": "KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none"
+      }
+    ],
     "results": [
       {
         "role": "results",
@@ -79,6 +181,26 @@
         "original_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4",
         "label": "mos2.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/band_kpath_info",
+        "sha256": "37d2a210dd6c7cf74b03aca2e50dc397fa8d395aaf861927d9e6c5b24808ea54",
+        "size_bytes": 6680,
+        "original_sha256": "37d2a210dd6c7cf74b03aca2e50dc397fa8d395aaf861927d9e6c5b24808ea54",
+        "label": "band_kpath_info",
+        "original_name": "band_kpath_info",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json",
+        "sha256": "4070647dda56086da29d8f468dcc3b124b526d4032e71827110f54e0edb5847e",
+        "size_bytes": 7872,
+        "original_sha256": "4070647dda56086da29d8f468dcc3b124b526d4032e71827110f54e0edb5847e",
+        "label": "raw_input_receipt.json",
+        "original_name": "raw_input_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -90,7 +212,12 @@
         "size_bytes": 283386,
         "original_sha256": "0dbdd73a00cc289c5909aca517ff8a0cd809ba7113a354c5d5c0259d417bb98f",
         "label": "mos2_ks.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -99,7 +226,12 @@
         "size_bytes": 47226,
         "original_sha256": "d1dc703423d99883fe3002e96762ef119301ca01b7e6bf0edac821a638cb6d51",
         "label": "mos2_ks.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -108,7 +240,12 @@
         "size_bytes": 245700,
         "original_sha256": "877594e88a73f7149e663f6bcb6725eb25c4288fc1d6123f0bd41796367a1bda",
         "label": "mos2_exx.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX"
       },
       {
         "role": "figures",
@@ -117,7 +254,12 @@
         "size_bytes": 48287,
         "original_sha256": "f387df06b7a19fc12de382237a777b8137858969a0f49fef8585316f918dab46",
         "label": "mos2_exx.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX"
       },
       {
         "role": "figures",
@@ -126,7 +268,12 @@
         "size_bytes": 300810,
         "original_sha256": "e478a8fe492654d01b2ccab220ed4de7cc1339dfcf084629a242b8df292798f1",
         "label": "mos2_gw.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       },
       {
         "role": "figures",
@@ -135,18 +282,23 @@
         "size_bytes": 49104,
         "original_sha256": "d76f675e0d183c338e68bd973fb8ed1ecec76a46480667a2e46234122e1611ce",
         "label": "mos2_gw.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       }
     ]
   },
   "recommendation": null,
   "missing": [
-    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
     "Full per-case ABACUS/LibRPA commits pending source-case audit"
   ],
   "source": {
     "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4"
+    "original_sidecar_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4",
+    "raw_input_receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
   },
   "scientific_scope": {
     "original_status": "accepted",
@@ -167,6 +319,41 @@
         "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat"
       ],
       "source_summary_key": "value"
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "PBE",
+      "value": 1.65401,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
+      "evidence": [
+        "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
+        "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json",
+        "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
+      ],
+      "source_sidecar_key": "methods.KS.path_gap_ev"
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "EXX",
+      "value": 6.37694,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
+      "evidence": [
+        "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
+        "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json",
+        "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
+      ],
+      "source_sidecar_key": "methods.EXX.path_gap_ev"
     }
-  ]
+  ],
+  "publication": {
+    "status": "database_only"
+  }
 }

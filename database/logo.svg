@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <title>ABACUS + LibRPA brand mark</title>
+  <rect x="1" y="1" width="46" height="46" rx="12" fill="#141d27" stroke="#415769"/>
+  <g id="lattice" stroke="#8ce0c6" stroke-width="1.8" stroke-linejoin="round">
+    <path d="m24 8 14 9-14 9-14-9Z"/>
+    <path d="M24 8v18" opacity=".45"/>
+  </g>
+  <g fill="#c8f3ef">
+    <circle cx="24" cy="8" r="2"/>
+    <circle cx="10" cy="17" r="2"/>
+    <circle cx="38" cy="17" r="2"/>
+  </g>
+  <path id="conduction-band" d="M10 29c5-5 9-5 14-1s9 4 14-1" stroke="#c8f3ef" stroke-width="2.4" stroke-linecap="round"/>
+  <path id="valence-band" d="M10 35c5 5 9 5 14 1s9-4 14 1" stroke="#8ce0c6" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

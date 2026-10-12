@@ -195,6 +195,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/BN/bn-paper-sg15/figures/ks_frontier.svg",
+        "sha256": "f693a1a30d02c19202264e5eb5712909a958af1f1081970e405f61eac46ba8da",
+        "size_bytes": 22823,
+        "original_sha256": "f693a1a30d02c19202264e5eb5712909a958af1f1081970e405f61eac46ba8da",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BN/bn-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/BN/bn-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BN/bn-paper-sg15/figures/exx_frontier.svg",
+        "sha256": "8a6dd12a9f0a7593447908bdef4777bad73cc8a74ea344bad8da25bdb634f1d5",
+        "size_bytes": 22487,
+        "original_sha256": "8a6dd12a9f0a7593447908bdef4777bad73cc8a74ea344bad8da25bdb634f1d5",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BN/bn-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/BN/bn-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BN/bn-paper-sg15/figures/gw_frontier.svg",
+        "sha256": "fbe6597f620719a60d87109c8379229c9e85bd9a68b2d44f7bc5bcd6926d462e",
+        "size_bytes": 22616,
+        "original_sha256": "fbe6597f620719a60d87109c8379229c9e85bd9a68b2d44f7bc5bcd6926d462e",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BN/bn-paper-sg15/results/GW_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/BN/bn-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BN/bn-paper-sg15/figures/band_frontier_metadata.json",
+        "sha256": "1b319918ec3738129937a7cf3aaa9cea746b316c07a9e04e902af0012887362e",
+        "size_bytes": 820591,
+        "original_sha256": "1b319918ec3738129937a7cf3aaa9cea746b316c07a9e04e902af0012887362e",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BN/bn-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/BN/bn-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out",
+          "data/calculations/3d/BN/bn-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-paper-sg15/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/BN/bn-paper-sg15/figures/band_comparison.svg",
         "sha256": "c020bc7a3a586789ba75aa38659967c39bab3ff8c42ea06cda7c2be7693de3bd",
         "size_bytes": 30754,
@@ -205,7 +271,8 @@
           "data/calculations/3d/BN/bn-paper-sg15/results/KS_band_spin_1.dat",
           "data/calculations/3d/BN/bn-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/BN/bn-paper-sg15/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -219,7 +286,8 @@
           "data/calculations/3d/BN/bn-paper-sg15/results/KS_band_spin_1.dat",
           "data/calculations/3d/BN/bn-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/BN/bn-paper-sg15/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -229,7 +297,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/BN__src_sg15"
   },

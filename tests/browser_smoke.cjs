@@ -11,7 +11,9 @@ async function main() {
   const archive = new URL("../", base);
   const output = process.env.SCREENSHOT_DIR;
   if (output) assert.ok(fs.statSync(output).isDirectory(), "SCREENSHOT_DIR must exist");
-  const browser = await chromium.launch({ headless: true });
+  const launchOptions = { headless: true };
+  if (process.env.CHROMIUM_EXECUTABLE_PATH) launchOptions.executablePath = process.env.CHROMIUM_EXECUTABLE_PATH;
+  const browser = await chromium.launch(launchOptions);
   const errors = [];
   let checks = 0;
   const check = (value, description) => { assert.ok(value, description); checks += 1; };
@@ -35,6 +37,14 @@ async function main() {
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
     check((await page.locator("#result-count").innerText()).includes(`${calculations.length} of ${calculations.length}`), "inventory count");
+    const logo = page.locator(".brand-mark");
+    await logo.evaluate(img => img.decode());
+    check(await logo.evaluate(img => img.complete && img.naturalWidth === 48), "external SVG brand mark loads");
+    check(await logo.getAttribute("aria-hidden") === "true" && await logo.getAttribute("alt") === "", "brand mark is decorative");
+    const logoUrl = await logo.evaluate(img => img.src);
+    check(await page.locator("link[rel='icon']").evaluate(link => link.href) === logoUrl, "header and favicon share logo.svg");
+    check(logoUrl === new URL("logo.svg", base).href, "brand mark resolves at deployed catalog subpath");
+    check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "desktop search is visible in first viewport");
     await screenshot("materials-desktop.png");
     await page.getByRole("button", { name: "Next page", exact: true }).click();
     check((await page.locator(".pagination").innerText()).includes("Page 2"), "pagination");
@@ -45,9 +55,10 @@ async function main() {
     await page.getByRole("link", { name: "Si", exact: true }).click();
     await page.waitForSelector("#record-inputs");
     check(await page.locator("#record-inputs .file-row").count() === 8, "Si has eight actual archived inputs");
-    await page.locator("#record-bands img").scrollIntoViewIfNeeded();
-    await page.locator("#record-bands img").evaluate(img => img.decode());
-    check(await page.locator("#record-bands img").evaluate(img => img.complete && img.naturalWidth > 0), "real band figure loads");
+    const firstBandFigure = page.locator("#record-bands > .section-body > .figure-grid img").first();
+    await firstBandFigure.scrollIntoViewIfNeeded();
+    await firstBandFigure.evaluate(img => img.decode());
+    check(await firstBandFigure.evaluate(img => img.complete && img.naturalWidth > 0), "real band figure loads");
     await screenshot("silicon-bands.png");
     await page.getByRole("button", { name: "View inputs (8)", exact: true }).click();
     await page.locator("#record-inputs .file-row").first().getByRole("button", { name: "View", exact: true }).click();
@@ -71,9 +82,130 @@ async function main() {
     check(await page.getByRole("tab", { name: "Optical", exact: true }).getAttribute("aria-selected") === "true", "keyboard property navigation");
     await page.locator(".breadcrumb a").click();
     check(await page.locator("#search").inputValue() === "Si", "back link preserves search");
-    await go("#/material/mos2-table-gw");
-    check((await page.locator("#record-inputs").innerText()).includes("Inputs not archived"), "missing inputs explicit");
-    check(await page.locator("#record-inputs a[download]").count() === 0, "no synthetic missing-input download");
+    const previewAndDownload = async (row, file, expectedName, description) => {
+      const fetched = await context.request.get(new URL(file.path, archive).href);
+      check(fetched.ok(), `${description}：文件可读取`);
+      const bytes = await fetched.body();
+      check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `${description}：归档哈希一致`);
+      await row.getByRole("button", { name: "View", exact: true }).click();
+      const prefix = bytes.subarray(0, 128).toString("utf8");
+      await page.waitForFunction(expected => document.querySelector("#file-preview pre").textContent.startsWith(expected), prefix);
+      check(await page.locator("#file-preview .preview-path").textContent() === file.path, `${description}：预览对应真实路径`);
+      await page.keyboard.press("Escape");
+      const pendingDownload = page.waitForEvent("download");
+      await row.getByRole("link", { name: /Download/ }).click();
+      const downloaded = await pendingDownload;
+      check(downloaded.suggestedFilename() === expectedName, `${description}：下载保留计算文件名`);
+      const saved = await downloaded.path();
+      check(saved && createHash("sha256").update(fs.readFileSync(saved)).digest("hex") === file.sha256, `${description}：原生下载字节一致`);
+    };
+    for (const id of ["mos2-table-gw", "wse2-table-gw"]) {
+      const record = calculations.find(item => item.id === id);
+      check(Boolean(record), `${id}：真实记录存在`);
+      check(record.files.inputs.length === 8, `${id}：八份控制文件已进入catalog`);
+      await go(`#/material/${encodeURIComponent(id)}`);
+      check(await page.locator("[data-nav='materials']").getAttribute("aria-current") === "page", `${id}：直接详情路由标记Materials`);
+      const rows = page.locator("#record-inputs .file-row");
+      check(await rows.count() === 8, `${id}：八份控制文件显示`);
+      for (const [index, file] of record.files.inputs.entries()) {
+        await previewAndDownload(rows.nth(index), file, path.basename(file.path), `${id} / ${path.basename(file.path)}`);
+      }
+      await page.locator(".section-nav [data-section='record-basis']").click();
+      check(record.species.length === 2 && record.species.every(species => species.set_id), `${id}：两物种均有exact binding`);
+      check(await page.locator("#record-basis .binding-card .file-row").count() === 6, `${id}：六份exact基组角色文件显示`);
+      for (const [index, species] of record.species.entries()) {
+        const set = data.basis_sets.find(item => item.id === species.set_id);
+        check(Boolean(set), `${id} / ${species.element}：exact set存在`);
+        const payloads = set.files.filter(file => ["pp", "nao", "abf", "for_aux"].includes(file.role));
+        check(payloads.length === 3 && ["pp", "nao", "abf"].every(role => payloads.filter(file => file.role === role).length === 1), `${id} / ${species.element}：PP、NAO、ABF各一份`);
+        const binding = page.locator("#record-basis .binding-card").nth(index);
+        for (const [fileIndex, file] of payloads.entries()) {
+          const expectedName = species.asset_aliases[file.role];
+          check(Boolean(expectedName), `${id} / ${species.element} / ${file.role}：计算原名存在`);
+          check(await binding.locator(".file-info > strong").nth(fileIndex).textContent() === expectedName, `${id} / ${species.element} / ${file.role}：exact原名显示`);
+          await previewAndDownload(binding.locator(".file-row").nth(fileIndex), file, expectedName, `${id} / ${species.element} / ${file.role}`);
+        }
+      }
+    }
+    for (const material of ["GeTe", "SnSe"]) {
+      const record = calculations.find(item => item.dimension === "2d" && item.material === material);
+      check(Boolean(record), `${material}：真实二维诊断记录存在`);
+      check(Array.isArray(record.method_diagnostics), `${material}：方法诊断使用列表合同`);
+      const diagnostic = record.method_diagnostics.find(item => item.method === "EXX");
+      check(diagnostic && diagnostic.full_raw_path_gap_ev < 0 && diagnostic.frozen_window_path_gap_ev < 0, `${material}：全raw与冻结窗异常分别保留`);
+      check(!record.properties.some(item => /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(item.key) && item.method === "EXX" && item.status !== "failed"), `${material}：EXX异常不伪造普通gap`);
+      await go(`#/material/${encodeURIComponent(record.id)}`);
+      const overview = await page.locator("#record-overview").innerText();
+      check(overview.includes("Method diagnostics · not an accepted gap") && overview.includes(String(diagnostic.full_raw_path_gap_ev)) && overview.includes(String(diagnostic.frozen_window_path_gap_ev)), `${material}：两种负路径诊断真实可见`);
+      check((await page.locator(".result-strip > div").nth(1).innerText()).includes("Not reported"), `${material}：结果条EXX不显示正gap`);
+      await screenshot(`${material.toLowerCase()}-exx-diagnostic.png`);
+    }
+    const withoutInputs = calculations.find(record => !(record.files?.inputs || []).length);
+    check(Boolean(withoutInputs), "真实缺输入记录存在，不再使用MoS2作为缺失样例");
+    await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
+    check((await page.locator("#record-inputs").innerText()).includes("Inputs not archived"), "缺失输入说明明确");
+    check(await page.locator("#record-inputs a[download]").count() === 0, "缺输入记录没有合成下载");
+    const incomplete = calculations.find(record => record.archive_completeness?.status === "incomplete");
+    check(Boolean(incomplete), "真实incomplete catalog样例存在");
+    await go(`#/material/${encodeURIComponent(incomplete.id)}`);
+    const completeness = page.locator("#record-overview .archive-completeness");
+    check(await completeness.evaluate(details => !details.open), "Overview完整性默认折叠");
+    check((await completeness.locator("summary").innerText()).includes("Upload incomplete · CI blocked"), "incomplete上传明确阻断CI");
+    await completeness.locator("summary").click();
+    const completenessText = await completeness.innerText();
+    for (const issue of incomplete.archive_completeness.issues) check(completenessText.includes(issue), "完整性issue原文保留");
+    for (const missing of incomplete.missing || []) check(completenessText.includes(missing), "缺失证据归入Overview");
+    for (const gate of incomplete.summary?.gates || []) check(completenessText.includes(typeof gate === "object" ? JSON.stringify(gate) : String(gate)), "validation gate归入Overview");
+    check(await page.locator("#record-evidence > summary h2").textContent() === "Commit号", "软件身份分区保持Commit号");
+    await page.locator(".section-nav [data-section='record-evidence']").click();
+    check(await page.locator("#record-evidence .archive-completeness").count() === 0, "Commit号不重复完整性问题分区");
+    const softwareEntries = page.locator("#record-evidence .software-entry");
+    check(await softwareEntries.count() === 2, "两软件身份均保留");
+    for (const [index, name] of ["abacus", "librpa"].entries()) {
+      const commit = incomplete.software?.[name]?.commit;
+      const text = await softwareEntries.nth(index).innerText();
+      if (commit) check(text.includes(commit), `${name}：原始commit保持`);
+      if (!/^(?:[0-9a-f]{40}|[0-9a-f]{64})$/i.test(commit || "")) check(text.includes("Full commit not recorded"), `${name}：未知完整commit不伪造`);
+    }
+    const alp = calculations.find(record => record.material === "AlP" && record.dimension === "3d");
+    check(Boolean(alp), "AlP真实样例存在");
+    const alpGaps = alp.properties.filter(property => property.key === "band_gap");
+    for (const [method, value] of [["PBE", 1.60680], ["EXX", 7.39451]]) {
+      const property = alpGaps.find(item => item.method === method);
+      check(property && Math.abs(property.value - value) < 1e-8, `AlP ${method}：catalog精确gap保留`);
+    }
+    await go(`#/material/${encodeURIComponent(alp.id)}`);
+    check((await page.locator(".result-strip > div").nth(0).innerText()).includes("1.607"), "AlP PBE gap在结果条显示");
+    check((await page.locator(".result-strip > div").nth(1).innerText()).includes("7.395"), "AlP EXX gap在结果条显示");
+    await page.locator(".section-nav [data-section='record-properties']").click();
+    for (const [method, value] of [["PBE", 1.60680], ["EXX", 7.39451]]) {
+      const row = page.locator("#property-panel tbody tr").filter({ has: page.getByRole("cell", { name: method, exact: true }) });
+      check(Math.abs(Number(await row.locator(".property-value").innerText()) - value) < 1e-8, `AlP ${method}：属性表保留原始数值精度`);
+    }
+    const primaryFiles = alp.files.figures.filter(file => file.display_priority === "primary" && /\.(svg|png|jpe?g|webp)$/i.test(file.path));
+    const originals = alp.files.figures.filter(file => file.display_priority !== "primary" && /\.(svg|png|jpe?g|webp)$/i.test(file.path));
+    check(primaryFiles.length > 0 && originals.length > 0, "AlP主图与原图样例均存在");
+    await page.locator(".section-nav [data-section='record-bands']").click();
+    const primaryImages = page.locator("#record-bands > .section-body > .figure-grid img");
+    for (let index = 0; index < await primaryImages.count(); index += 1) {
+      await primaryImages.nth(index).scrollIntoViewIfNeeded();
+      await primaryImages.nth(index).evaluate(img => img.decode());
+      check(await primaryImages.nth(index).evaluate(img => img.complete && img.naturalWidth > 0), `AlP方法主图${index + 1}：真实SVG加载`);
+    }
+    await screenshot("alp-primary-bands.png");
+    const imageSources = await primaryImages.evaluateAll(images => images.map(img => img.src));
+    check(imageSources.length === primaryFiles.length && primaryFiles.every(file => imageSources.includes(new URL(file.path, archive).href)), "主网格仅显示primary新图");
+    const originalPanel = page.locator("#record-bands .original-figures");
+    check(await originalPanel.evaluate(details => !details.open), "原始图默认折叠");
+    check(await originalPanel.locator("img").count() === originals.length, "原始图全部保留在折叠面板");
+    await originalPanel.locator("summary").click();
+    const originalImage = originalPanel.locator("img").first();
+    await originalImage.scrollIntoViewIfNeeded();
+    await originalImage.evaluate(img => img.decode());
+    check(await originalImage.isVisible() && await originalImage.evaluate(img => img.naturalWidth > 0), "原图可展开且真实图像加载");
+    const bandDownloadUrls = await page.locator("#record-bands a[download]").evaluateAll(links => links.map(link => link.href));
+    check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
+    check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("not automatically the global fundamental gap"), "路径gap不等同global fundamental gap脚注保留");
     await go("#/material/hbn-tzdp10-fgext-20261008");
     check((await page.locator(".result-primary").innerText()).includes("Restricted result"), "frontier path result is not an ordinary GW gap");
     check((await page.locator("#record-overview").innerText()).includes("6.94183"), "original restricted numerical result retained");
@@ -86,16 +218,86 @@ async function main() {
     check((await page.locator("#basis-assets").innerText()).includes("original filename not recorded"), "unknown original filename is disclosed");
     check(await page.locator("#basis-assets .file-info > strong").allTextContents().then(names => names.every(name => name !== "payload")), "no payload placeholders displayed");
     await screenshot("basis-files.png");
+    check(await page.locator("[data-nav='basis']").getAttribute("aria-current") === "page", "直接basis详情路由标记Basis library");
     for (const file of inputs) {
       const fetched = await context.request.get(new URL(file.path, archive).href);
       check(fetched.ok(), `input is downloadable: ${file.path}`);
       check(createHash("sha256").update(await fetched.body()).digest("hex") === file.sha256, `input content hash: ${file.path}`);
     }
+    const frontierRecords = calculations.filter(record => record.files.figures.some(file => /\/band_frontier_metadata\.json$/.test(file.path)));
+    check(frontierRecords.length > 0, "真实frontier方法sidecar存在");
+    let primaryMethodsVerified = 0;
+    for (const record of frontierRecords) {
+      const metadataFile = record.files.figures.find(file => /\/band_frontier_metadata\.json$/.test(file.path));
+      const metadataUrl = new URL(metadataFile.path, archive);
+      const fetched = await context.request.get(metadataUrl.href);
+      check(fetched.ok(), `${record.id}：frontier sidecar可读取`);
+      const metadataBytes = await fetched.body();
+      check(createHash("sha256").update(metadataBytes).digest("hex") === metadataFile.sha256, `${record.id}：sidecar哈希一致`);
+      const metadata = JSON.parse(metadataBytes.toString("utf8"));
+      check(metadata.calculation_id === record.id, `${record.id}：sidecar属于同一计算`);
+      check(metadata.comparison_mode === "single method, own occupied sampled-path VBM reference", `${record.id}：各方法使用自己的VBM reference`);
+      const figureUrls = record.files.figures.map(file => new URL(file.path, archive).href);
+      for (const [method, analysis] of Object.entries(metadata.methods)) {
+        check(analysis.raw_selected_occupied_bands.length === 3 && analysis.raw_selected_empty_bands.length === 4, `${record.id} / ${method}：固定三占据四空带窗口`);
+        check(analysis.mapping_one_based.length > 0, `${record.id} / ${method}：raw-band映射保留`);
+        const svgUrl = new URL(`${method.toLowerCase()}_frontier.svg`, metadataUrl).href;
+        if (analysis.figure_status === "rejected") {
+          check(!figureUrls.includes(svgUrl), `${record.id} / ${method}：拒绝方法不展示新图`);
+          check(["GaAs", "GaP"].includes(record.material) && method === "GW", `${record.id} / ${method}：拒绝方法对应实际GW admission窗口`);
+          check(analysis.original_frontier_admission_audit.sampled_path_gap_ev <= 0 && analysis.figure_rejection_reason.includes("nonpositive"), `${record.id} / ${method}：非正admission gap拒绝原因明确`);
+          continue;
+        }
+        primaryMethodsVerified += 1;
+        const primary = record.files.figures.find(file => new URL(file.path, archive).href === svgUrl);
+        check(primary?.display_priority === "primary", `${record.id} / ${method}：有效新图有primary引用`);
+        const gap = analysis.selected_window_path_gap_ev;
+        check(Number.isFinite(gap) && gap > 0, `${record.id} / ${method}：near-gap窗口有正的selected gap`);
+        const expectedLimits = [-Math.max(2.5, 0.5 * gap), gap + Math.max(3, 0.5 * gap)];
+        check(Array.isArray(analysis.y_limits_ev) && analysis.y_limits_ev.length === 2 && expectedLimits.every((value, index) => Math.abs(analysis.y_limits_ev[index] - value) < 1e-8), `${record.id} / ${method}：独立near-gap y viewport`);
+        check(analysis.viewport.selected_raw_window_frozen_before_sorting === true, `${record.id} / ${method}：展示窗口在排序前冻结`);
+        if (record.material === "AlP" && method === "EXX") {
+          check(Math.abs(analysis.y_limits_ev[0] + 3.697255) < 1e-8 && Math.abs(analysis.y_limits_ev[1] - 11.091765) < 1e-8, "AlP EXX独立近gap y范围准确");
+          check(metadata.methods.KS.y_limits_ev[1] !== analysis.y_limits_ev[1], "AlP EXX不复用PBE y范围");
+        }
+      }
+    }
+    check(primaryMethodsVerified === 49, "49个有效新图的方法viewport已逐项验证");
+    const cao = calculations.find(record => record.material === "CaO" && record.dimension === "3d");
+    check(Boolean(cao), "CaO真实样例存在");
+    const caoGwFigure = cao.files.figures.find(file => file.display_priority === "primary" && /\/gw_frontier\.svg$/.test(file.path));
+    check(Boolean(caoGwFigure), "CaO GW固定低空带窗口新图保留");
+    await go(`#/material/${encodeURIComponent(cao.id)}`);
+    const caoImage = page.locator("#record-bands > .section-body > .figure-grid img[src$='/gw_frontier.svg']");
+    await caoImage.scrollIntoViewIfNeeded();
+    await caoImage.evaluate(img => img.decode());
+    check(await caoImage.evaluate(img => img.naturalWidth > 0), "CaO GW真实新图加载");
+    await screenshot("cao-gw-bands.png");
     await page.setViewportSize({ width: 390, height: 844 });
     await go("");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile document has no horizontal overflow");
     check(await page.locator(".table-wrap").evaluate(el => el.scrollWidth > el.clientWidth), "mobile table remains independently scrollable");
+    check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "移动搜索首屏可见");
+    check(await page.evaluate(() => getComputedStyle(document.body).fontSize === "16px"), "移动正文保持16px");
+    check(await page.locator(".catalog-table tbody td.numeric").first().evaluate(cell => getComputedStyle(cell).fontSize === "14px"), "移动表格数值保持14px");
+    check(await page.locator(".brand-mark").evaluate(img => img.getBoundingClientRect().width === 32 && img.complete && img.naturalWidth === 48), "移动32px logo正确加载");
+    const filterToggle = page.locator("#filter-toggle");
+    check(await filterToggle.isVisible() && await filterToggle.getAttribute("aria-expanded") === "false", "移动filter-toggle默认折叠");
+    check(await page.locator("#element-filter").isHidden(), "折叠筛选不占首屏");
+    await filterToggle.click();
+    check(await filterToggle.getAttribute("aria-expanded") === "true" && await page.locator("#element-filter").isVisible(), "移动筛选可展开且aria同步");
+    check(await filterToggle.evaluate(button => button.getBoundingClientRect().height >= 44), "移动筛选触控目标至少44px");
+    await page.locator("input[name='dimension'][value='2d']").check();
+    check(await page.locator(".material-row .dimension-tag").allTextContents().then(values => values.length > 0 && values.every(value => value === "2D")), "移动展开筛选实际过滤二维数据");
+    await page.locator("#reset-filters").click();
+    await filterToggle.click();
+    check(await filterToggle.getAttribute("aria-expanded") === "false" && await page.locator("#element-filter").isHidden(), "移动筛选可再次折叠");
     await screenshot("materials-mobile.png");
+    await go("#/basis");
+    check(await filterToggle.getAttribute("aria-expanded") === "false", "移动basis筛选初始折叠");
+    await filterToggle.click();
+    check(await page.locator("#status-filter-control").isVisible() && await page.locator(".dimension-filter").isHidden(), "移动basis展开显示publication不显示dimension");
+    await filterToggle.click();
     await go("#/material/si-paper-all_kpath");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile detail has no horizontal overflow");
     await screenshot("silicon-mobile.png");
@@ -104,6 +306,7 @@ async function main() {
     await go("#/material/%E0%A4%A");
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "malformed URL handled");
     const failure = await context.newPage();
+    failure.on("pageerror", error => errors.push(error.message));
     await failure.route("**/data.json", route => route.fulfill({ status: 503, body: "Unavailable" }));
     await failure.goto(base.href, { waitUntil: "domcontentloaded" });
     await failure.waitForSelector("#load-error:not([hidden])");

@@ -193,6 +193,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/ks_frontier.svg",
+        "sha256": "b0749621eced7d1dda40167c91b8d5653bb9235695a5ddb3bfa14293d9368467",
+        "size_bytes": 19742,
+        "original_sha256": "b0749621eced7d1dda40167c91b8d5653bb9235695a5ddb3bfa14293d9368467",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/inputs/KPT_nscf",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/band_kpath_info",
+          "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/exx_frontier.svg",
+        "sha256": "0f350c7ffb5bcb7ba027d920f3ec623dbde55c11dbd2420ee64cee09fc9bea37",
+        "size_bytes": 20482,
+        "original_sha256": "0f350c7ffb5bcb7ba027d920f3ec623dbde55c11dbd2420ee64cee09fc9bea37",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/inputs/KPT_nscf",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/band_kpath_info",
+          "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/gw_frontier.svg",
+        "sha256": "c46e0fb93017aa57eee593bf51a28ec8bc184c9fd5e5df32fce7f6ff297c3b04",
+        "size_bytes": 19692,
+        "original_sha256": "c46e0fb93017aa57eee593bf51a28ec8bc184c9fd5e5df32fce7f6ff297c3b04",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/inputs/KPT_nscf",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/band_kpath_info",
+          "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/band_frontier_metadata.json",
+        "sha256": "dfbe405572c347ae8df710240d72c67ca39289add2014ada20e9be07b0830ad7",
+        "size_bytes": 545036,
+        "original_sha256": "dfbe405572c347ae8df710240d72c67ca39289add2014ada20e9be07b0830ad7",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/inputs/KPT_nscf",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/band_kpath_info",
+          "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/band_comparison.svg",
         "sha256": "3df225b3c6328abdc53a3544bff46178664cec889d3def847e9c952f31cae010",
         "size_bytes": 59003,
@@ -203,7 +269,8 @@
           "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
           "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
           "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -217,7 +284,8 @@
           "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
           "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
           "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -227,7 +295,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/CaO__src_24freq"
   },
@@ -254,6 +323,34 @@
         "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat"
       ],
       "source_summary_key": "gw_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "PBE",
+      "value": 3.5548100000000007,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/CaO/cao-paper-24freq/results/KS_band_spin_1.dat",
+        "data/calculations/3d/CaO/cao-paper-24freq/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 14.26462,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/CaO/cao-paper-24freq/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/CaO/cao-paper-24freq/figures/band_frontier_metadata.json"
+      ]
     }
   ]
 }

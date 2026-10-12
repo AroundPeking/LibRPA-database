@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "W-archived-903311a3907b",
+  "element": "W",
+  "family": "historical_raw",
+  "role_hashes_sha256": "903311a3907b2a5d432740065c980be587442cccb6957727f9140d2d2e04e159",
+  "validation_scope": "exact archived producer input binding only; scientific acceptance not evaluated",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "2D manuscript independently verified raw input",
+    "receipt": "data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json",
+    "license": "unknown",
+    "redistribution": "unknown"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/W/pseudopotentials/68e492ecba57697e6235fc2b1d2cac1bcffe37db5ac52654abda63037e923fb9.upf",
+      "sha256": "68e492ecba57697e6235fc2b1d2cac1bcffe37db5ac52654abda63037e923fb9",
+      "size_bytes": 386167,
+      "original_sha256": "68e492ecba57697e6235fc2b1d2cac1bcffe37db5ac52654abda63037e923fb9",
+      "label": "W.upf",
+      "original_name": "W.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/W/orbitals/5b949687d86badf93794042a211d098d64dfdced3b308ff9662fa0dca7fc6110.orb",
+      "sha256": "5b949687d86badf93794042a211d098d64dfdced3b308ff9662fa0dca7fc6110",
+      "size_bytes": 319429,
+      "original_sha256": "5b949687d86badf93794042a211d098d64dfdced3b308ff9662fa0dca7fc6110",
+      "label": "W_gga_10au_100Ry_6s3p3d2f.orb",
+      "original_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/W/auxiliary/bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52.abfs",
+      "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "size_bytes": 2664329,
+      "original_sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "label": "W_6s3p3d2f1g_1e-6.abfs",
+      "original_name": "W_6s3p3d2f1g_1e-6.abfs",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "unknown; not inferred from production usage"
+  },
+  "used_by": [
+    "wse2-table-gw"
+  ]
+}

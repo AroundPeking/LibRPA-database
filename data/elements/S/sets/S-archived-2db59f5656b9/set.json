@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "S-archived-2db59f5656b9",
+  "element": "S",
+  "family": "historical_raw",
+  "role_hashes_sha256": "2db59f5656b90387fa0355a144c98cdbdd7e7fc71d33d5b32ede126926d4b99c",
+  "validation_scope": "exact archived producer input binding only; scientific acceptance not evaluated",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "2D manuscript independently verified raw input",
+    "receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json",
+    "license": "unknown",
+    "redistribution": "unknown"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/S/pseudopotentials/47dc390784fa31acb520275f817fbe0bb42219399f641ecbcfb97ca9a1f947fa.upf",
+      "sha256": "47dc390784fa31acb520275f817fbe0bb42219399f641ecbcfb97ca9a1f947fa",
+      "size_bytes": 223559,
+      "original_sha256": "47dc390784fa31acb520275f817fbe0bb42219399f641ecbcfb97ca9a1f947fa",
+      "label": "S.upf",
+      "original_name": "S.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/S/orbitals/e34b7e0d3e8c7e7c1eefca6af4fb8a3f95c9ca60d5161b308e3cf3abebc1a0e6.orb",
+      "sha256": "e34b7e0d3e8c7e7c1eefca6af4fb8a3f95c9ca60d5161b308e3cf3abebc1a0e6",
+      "size_bytes": 117405,
+      "original_sha256": "e34b7e0d3e8c7e7c1eefca6af4fb8a3f95c9ca60d5161b308e3cf3abebc1a0e6",
+      "label": "S_gga_10au_110Ry_2s2p1d.orb",
+      "original_name": "S_gga_10au_110Ry_2s2p1d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/S/auxiliary/072f87e16c6b389947ed0ddaaca1ad1b600fcb46c3e4550ba08d645402c771d4.abfs",
+      "sha256": "072f87e16c6b389947ed0ddaaca1ad1b600fcb46c3e4550ba08d645402c771d4",
+      "size_bytes": 1127809,
+      "original_sha256": "072f87e16c6b389947ed0ddaaca1ad1b600fcb46c3e4550ba08d645402c771d4",
+      "label": "S_2s2p1d1f1g_1e-6.abfs",
+      "original_name": "S_2s2p1d1f1g_1e-6.abfs",
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "unknown; not inferred from production usage"
+  },
+  "used_by": [
+    "mos2-table-gw"
+  ]
+}

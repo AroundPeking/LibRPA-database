@@ -1,190 +1,289 @@
 #!/usr/bin/env python3
-"""Generate material-detail SVG band figures from archived ABACUS band tables.
-
-The input tables are kept unchanged.  The generated SVG and its JSON sidecar
-are derived artifacts, so every record stores the source result paths and
-hashes alongside the figure hash.
-"""
+"""从实际归档表生成单方法前沿图；默认只审计，--write 显式写入。"""
 
 from __future__ import annotations
 
 import argparse
-import html
 import hashlib
 import importlib.util
 import json
+import math
 import re
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
-PLOT_SCRIPT = ROOT / "scripts/plot_bands.py"
-SPEC = importlib.util.spec_from_file_location("plot_bands", PLOT_SCRIPT)
-if SPEC is None or SPEC.loader is None:  # pragma: no cover - import guard
+SPEC = importlib.util.spec_from_file_location("plot_bands", ROOT / "scripts/plot_bands.py")
+if SPEC is None or SPEC.loader is None:
     raise RuntimeError("cannot load plot_bands.py")
 plot_bands = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(plot_bands)
-
-
-METHODS = (
-    ("KS", "KS_band_spin_1.dat", "#496ca8"),
-    ("EXX", "EXX_band_spin_1.dat", "#c4773c"),
-    ("GW", "GW_band_spin_1.dat", "#16818a"),
-)
+METHODS = ("KS", "EXX", "GW")
 
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _kpoint_labels(kpt: Path, count: int) -> list[dict]:
-    """Extract high-symmetry labels and their row positions from a KPT file."""
-    labels: list[dict] = []
-    pending = 0
-    for raw in kpt.read_text(encoding="utf-8").splitlines():
-        line = raw.strip()
-        if not line or line.startswith("#"):
-            continue
-        if line.lower() in {"line", "k_points"} or line.isdigit():
-            continue
-        match = re.search(r"#\s*(\S+)\s*$", line)
+def _kpt_nodes(path: Path) -> list[dict]:
+    lines = [line.strip() for line in path.read_text(encoding="utf-8").splitlines()
+             if line.strip() and not line.lstrip().startswith("#")]
+    if len(lines) < 4 or lines[0].upper() != "K_POINTS" or lines[2].lower() != "line":
+        raise ValueError("only explicit fractional Line KPT paths are supported")
+    count = int(lines[1])
+    nodes = []
+    for line in lines[3:]:
         fields = line.split("#", 1)[0].split()
-        if len(fields) < 4:
+        if len(fields) != 4:
+            raise ValueError("KPT line nodes require kx ky kz integer segment count")
+        coordinates = [float(value) for value in fields[:3]]
+        segment = float(fields[3])
+        if not all(math.isfinite(value) for value in coordinates) or segment != int(segment) or segment < 1:
+            raise ValueError("invalid KPT coordinate or segment sampling count")
+        label = line.split("#", 1)[1].strip() if "#" in line else f"k{len(nodes)}"
+        label = "Γ" if label.upper() in {"G", "GAMMA", "\\GAMMA"} else label
+        nodes.append({"fractional_kpoint": coordinates, "segment_points": int(segment), "label": label})
+    if len(nodes) != count or nodes[-1]["segment_points"] != 1:
+        raise ValueError("KPT node count or final endpoint count mismatch")
+    return nodes
+
+
+def audit_kpath(table: object, kpt: Path, info: Path | None = None) -> dict:
+    """核验完整原生采样坐标而非将端点均匀摊开。"""
+    nodes = _kpt_nodes(kpt)
+    expected, ticks = [], []
+    for number, node in enumerate(nodes):
+        ticks.append({"x": None, "label": node["label"], "row_index": len(expected) + 1,
+                      "fractional_kpoint": node["fractional_kpoint"]})
+        if number == len(nodes) - 1:
+            expected.append(node["fractional_kpoint"])
+            break
+        destination = nodes[number + 1]["fractional_kpoint"]
+        count = node["segment_points"]
+        for index in range(count):
+            expected.append([a + (b - a) * index / count for a, b in zip(node["fractional_kpoint"], destination)])
+    if table.fractional_kpoints is None or len(expected) != len(table.x):
+        raise ValueError("KPT sampling count does not match native table")
+    error = max(abs(a - b) for row, source in zip(expected, table.fractional_kpoints) for a, b in zip(row, source))
+    if error > 5.1e-7:
+        raise ValueError(f"native table fractional path differs from KPT (max error {error:g})")
+    for tick in ticks:
+        tick["x"] = table.x[tick["row_index"] - 1]
+    result = {"status": "verified", "ticks": ticks, "kpt_sha256": sha256(kpt),
+              "coordinate_tolerance": 5.1e-7, "max_kpt_coordinate_error": error,
+              "x_axis": "native k-point index", "reciprocal_metric_available": False,
+              "note": "Native sampling retained; no reciprocal-distance or inverse-angstrom claim."}
+    if info is not None and info.is_file():
+        lines = [line.split() for line in info.read_text().splitlines() if line.strip()]
+        header = [int(value) for value in lines[0]]
+        coordinates = [[float(value) for value in row] for row in lines[1:]]
+        if len(header) != 4 or header[3] != len(table.x) or header[2] != 1 or len(coordinates) != len(table.x) or any(len(row) != 3 for row in coordinates):
+            raise ValueError("band_kpath_info header or coordinate count mismatch (spin2 unsupported)")
+        info_error = max(abs(a - b) for row, source in zip(coordinates, table.fractional_kpoints) for a, b in zip(row, source))
+        if info_error > 5.1e-7:
+            raise ValueError("band_kpath_info disagrees with native table coordinates")
+        result.update({"band_kpath_info_sha256": sha256(info), "band_kpath_info_header": header,
+                       "max_info_coordinate_error": info_error})
+    return result
+
+
+def find_audited_kpath(table: object, inputs: dict, root: Path, info: Path | None) -> tuple[dict, dict]:
+    """只用同record实际归档的Line路径，逐候选核验全部采样。"""
+    candidates = sorted((entry for name, entry in inputs.items() if name.startswith("KPT")),
+                        key=lambda entry: (Path(entry["path"]).name != "KPT_nscf",
+                                           Path(entry["path"]).name != "KPT", entry["path"]))
+    attempts = []
+    for entry in candidates:
+        try:
+            path = root / entry["path"]
+            if not path.is_file() or sha256(path) != entry["sha256"]:
+                raise ValueError("missing or hash-mismatched archived KPT")
+            audit = audit_kpath(table, path, info)
+            audit.update({"source_path": entry["path"], "rejected_candidates": attempts})
+            return entry, audit
+        except (ValueError, OSError) as exc:
+            attempts.append({"path": entry["path"], "reason": str(exc)})
+    raise ValueError("no archived Line KPT passed full audit: " + "; ".join(item["reason"] for item in attempts))
+
+
+def _tail_diagnostics(table: object, export_count: int) -> dict:
+    width = len(table.energies[0])
+    tail = [row[export_count:] for row in table.energies]
+    finite = [value for row in tail for value in row if math.isfinite(value)]
+    result = {"rejected_raw_band_indices": list(range(export_count + 1, width + 1)),
+              "finite_minimum_ev": min(finite) if finite else None,
+              "finite_maximum_ev": max(finite) if finite else None,
+              "nonfinite_state_count": sum(not math.isfinite(value) for row in tail for value in row),
+              "zero_state_count": sum(value == 0 for row in tail for value in row)}
+    if width > export_count:
+        matches = [k + 1 for k in range(len(tail) - 1)
+                   if tail[k] == table.energies[k + 1][:width - export_count]]
+        result.update({"next_k_head_exact_match_rows": matches,
+                       "next_k_head_compared_row_count": len(tail) - 1,
+                       "note": "Tail is rejected by explicit export dimensions, never repaired by sorting; pattern is a separate full-table diagnostic."})
+    return result
+
+
+def _file_entry(path: Path, root: Path, label: str, sources: list[str]) -> dict:
+    digest = sha256(path)
+    return {"role": "figures", "path": path.relative_to(root).as_posix(), "sha256": digest,
+            "size_bytes": path.stat().st_size, "original_sha256": digest, "label": label,
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": sources, "display_priority": "primary"}
+
+
+def _write_json(path: Path, value: dict) -> None:
+    content = json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n"
+    if not path.exists() or path.read_text(encoding="utf-8") != content:
+        path.write_text(content, encoding="utf-8")
+
+
+def _known_pathology(record: dict, method: str) -> bool:
+    properties = record.get("properties", [])
+    aliases = {"KS": {"PBE", "DFT", "KS"}, "EXX": {"EXX"}, "GW": {"GW", "G0W0"}}[method]
+    if any(p.get("method") in aliases and p.get("status") == "failed" for p in properties):
+        return True
+    texts = [str(record.get("summary", {}).get("notes", "")), str(record.get("audit", {}))]
+    return any(re.search(r"patholog|nonfinite|numerical artifact|unphysical", text, re.I) and method.lower() in text.lower() for text in texts)
+
+
+def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
+                    allow_weighted_occupations: bool = False) -> dict:
+    root = root.resolve()
+    record_path = record_path.resolve()
+    record = json.loads(record_path.read_text(encoding="utf-8"))
+    report = {"calculation_id": record["id"], "generated_methods": [], "added_properties": [], "rejected": {}}
+    if record.get("dimension") != "3d":
+        return report
+    results = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("results", [])}
+    inputs = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("inputs", [])}
+    logs = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("logs", [])}
+    log_entry = logs.get("librpa.out")
+    occupied_count = None
+    if log_entry and (root / log_entry["path"]).is_file():
+        if sha256(root / log_entry["path"]) != log_entry["sha256"]:
+            raise ValueError("producer log archive hash mismatch")
+        values = set(int(value) for value in re.findall(r"Bands of occupation:\s*(\d+)", (root / log_entry["path"]).read_text(errors="replace")))
+        if len(values) == 1:
+            occupied_count = next(iter(values))
+    if any((record_path.parent / "results").glob("*_band_spin_[2-9]*.dat")):
+        report["rejected"]["all"] = "spin2 table present; this single-spin generator refuses rather than silently omitting spin2"
+        return report
+    metadata = {"schema_version": 2, "calculation_id": record["id"], "energy_unit": "eV",
+                "comparison_mode": "single method, own occupied sampled-path VBM reference",
+                "note": "Sampled path only, not a global Brillouin-zone gap or numerical acceptance. Original comparison artifacts and raw sources unchanged.",
+                "source_sha256": {}, "methods": {}, "rejected": report["rejected"]}
+    generated = []
+    all_sources = []
+    for method in METHODS:
+        filename = f"{method}_band_spin_1.dat"
+        entry = results.get(filename)
+        if not entry:
+            report["rejected"][method] = "raw archived band table absent"
+            continue
+        source = root / entry["path"]
+        if not source.is_file() or sha256(source) != entry["sha256"]:
+            report["rejected"][method] = "raw archived band table absent or SHA-256 mismatch"
             continue
         try:
-            segment_points = int(float(fields[3]))
-        except ValueError:
-            continue
-        label = match.group(1) if match else ""
-        if not labels:
-            labels.append({"x": 0.0, "label": label or "k0"})
-        elif label:
-            labels.append({"x": float(min(pending, count - 1)), "label": label})
-        pending += segment_points
-    if labels:
-        labels[-1]["x"] = float(count - 1)
-    return labels
-
-
-def _plot_bundle(output: Path, title: str, tables: dict[str, object], ticks: list[dict], gap: float | None) -> dict:
-    upper = max(8.0, min(20.0, (gap or 0.0) + 3.0))
-    lower = -6.0
-    width, height = 1200, 500
-    left, top, panel_width, panel_height, gap_width = 68, 72, 350, 350, 25
-    x_max = max(1.0, len(next(iter(tables.values())).x) - 1)
-    y_map = lambda value: top + (upper - value) / (upper - lower) * panel_height
-    x_map = lambda value, origin: origin + value / x_max * panel_width
-    parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
-        '<rect width="100%" height="100%" fill="#ffffff"/>',
-        f'<text x="{left}" y="34" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1c3441">{html.escape(title)}</text>',
-        '<text x="1120" y="34" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64747c">ABACUS band tables</text>',
-        '<defs>',
-    ]
-    for index in range(3):
-        origin = left + index * (panel_width + gap_width)
-        parts.append(f'<clipPath id="panel-{index}"><rect x="{origin}" y="{top}" width="{panel_width}" height="{panel_height}"/></clipPath>')
-    parts.append('</defs>')
-    for index, (method, _filename, color) in enumerate(METHODS):
-        origin = left + index * (panel_width + gap_width)
-        right = origin + panel_width
-        bottom = top + panel_height
-        parts.append(f'<text x="{origin}" y="58" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="{color}">{method}</text>')
-        for value in (lower, 0, upper):
-            y = y_map(value)
-            stroke = "#b9c5ca" if value == 0 else "#edf1f2"
-            dash = ' stroke-dasharray="4 4"' if value == 0 else ""
-            parts.append(f'<line x1="{origin}" y1="{y:.2f}" x2="{right}" y2="{y:.2f}" stroke="{stroke}" stroke-width="1"{dash}/>')
-        for tick in ticks:
-            x = x_map(float(tick["x"]), origin)
-            parts.append(f'<line x1="{x:.2f}" y1="{top}" x2="{x:.2f}" y2="{bottom}" stroke="#dfe7e9" stroke-width="1"/>')
-            parts.append(f'<text x="{x:.2f}" y="{bottom + 24}" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#556770">{html.escape(str(tick["label"]))}</text>')
-        table = tables[method]
-        columns = zip(*table.energies)
-        for energies in columns:
-            if not any(lower - 2.0 <= value <= upper + 2.0 for value in energies):
+            table = plot_bands.parse_abacus_band_table(source)
+            info_entry = results.get("band_kpath_info")
+            info = root / info_entry["path"] if info_entry else None
+            if info_entry and (not info.is_file() or sha256(info) != info_entry["sha256"]):
+                raise ValueError("band_kpath_info archive hash mismatch")
+            kpt_entry, path_audit = find_audited_kpath(table, inputs, root, info)
+            header = path_audit.get("band_kpath_info_header")
+            export_count = header[1] if header else len(table.energies[0])
+            if header and (not 0 < header[1] <= header[0] or len(table.energies[0]) not in {header[0], header[1]}):
+                raise ValueError("raw table width disagrees with declared nbasis/nbands dimensions")
+            path_audit["header_schema"] = ["nbasis", "nbands", "nspins", "nkpts"]
+            path_audit["schema_evidence"] = "consumer read_data.cpp:2078–2089 and dataset_format.md; preprocess write_kpath_info emits nbasis, nbands, nspins, nkpts; schema evidence is not historical producer commit identification"
+            sources = [entry["path"], kpt_entry["path"]] + ([info_entry["path"]] if info_entry else [])
+            if log_entry:
+                sources.append(log_entry["path"])
+            contract = None
+            exported_occupations = [row[:export_count] for row in table.occupations]
+            if occupied_count is not None and all(math.isfinite(value) and abs(value) <= 1e-8
+                                                  for row in exported_occupations for value in row):
+                contract = {"kind": "logged_raw_boundary", "occupied_band_count": occupied_count,
+                            "evidence": [log_entry["path"]],
+                            "definition": "explicit same-log unique Bands of occupation fixes the prefix raw occupied/empty boundary; all-zero export occupations are retained, not guessed as physical empty states"}
+            if allow_weighted_occupations and occupied_count is not None and header and contract is None:
+                nonzero = [value for row in exported_occupations for value in row if abs(value) > 1e-8]
+                if nonzero and all(abs(value * len(table.x) - 2) <= len(table.x) * 5.1e-6 for value in nonzero):
+                    contract = {"kind": "uniform_k_weighted", "kpoint_count": len(table.x),
+                                "occupied_band_count": occupied_count,
+                                "evidence": [log_entry["path"], info_entry["path"]],
+                                "definition": "explicit archive contract: full occupied value is 2/nk rounded to five decimals; independently logged occupied-band count agrees"}
+            analysis = plot_bands.analyze_frontier(table, occupied_count=occupied_count,
+                                                   occupation_contract=contract,
+                                                   diagnostic_evidence=[log_entry["path"]] if occupied_count and log_entry else None,
+                                                   known_pathological=(_known_pathology(record, method) or
+                                                                       (method == "GW" and export_count < len(table.energies[0]))),
+                                                   declared_export_band_count=export_count)
+            analysis["rejected_tail_audit"] = _tail_diagnostics(table, export_count)
+            analysis["kpath_audit"] = path_audit
+            analysis["source_result_path"] = entry["path"]
+            analysis["source_result_sha256"] = sha256(source)
+            metadata["methods"][method] = analysis
+            for path in sources:
+                metadata["source_sha256"][path] = sha256(root / path)
+            all_sources.extend(path for path in sources if path not in all_sources)
+            if analysis["status"] != "reported":
+                report["rejected"][method] = "; ".join(analysis["diagnostic_reasons"])
+            output = record_path.parent / "figures" / f"{method.lower()}_frontier.svg"
+            if analysis["figure_status"] == "rejected":
+                analysis["unreferenced_previous_svg"] = output.relative_to(root).as_posix()
                 continue
-            points = " ".join(f"{('M' if idx == 0 else 'L')}{x_map(table.x[idx], origin):.2f},{y_map(value):.2f}" for idx, value in enumerate(energies))
-            parts.append(f'<path d="{points}" fill="none" stroke="{color}" stroke-width="1.05" opacity="0.82" clip-path="url(#panel-{index})"/>')
-        parts.append(f'<line x1="{origin}" y1="{top}" x2="{origin}" y2="{bottom}" stroke="#8b9aa0" stroke-width="1"/>')
-        parts.append(f'<line x1="{origin}" y1="{bottom}" x2="{right}" y2="{bottom}" stroke="#8b9aa0" stroke-width="1"/>')
-        parts.append(f'<text x="{origin + panel_width / 2:.2f}" y="{bottom + 46}" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64747c">k-path</text>')
-        if index == 0:
-            for value in (lower, 0, upper):
-                parts.append(f'<text x="{origin - 10}" y="{y_map(value) + 4:.2f}" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64747c">{value:g}</text>')
-            parts.append(f'<text x="{origin - 48}" y="{top + panel_height / 2:.2f}" transform="rotate(-90 {origin - 48},{top + panel_height / 2:.2f})" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4e616a">Energy (eV)</text>')
-    parts.append('</svg>')
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text("\n".join(parts) + "\n", encoding="utf-8")
-    return {"y_limits": [lower, upper], "ticks": ticks}
-
-
-def _file_entry(path: Path, label: str, transformation: str, source_paths: list[str] | None = None) -> dict:
-    digest = sha256(path)
-    entry = {
-        "role": "figures",
-        "path": path.relative_to(ROOT).as_posix(),
-        "sha256": digest,
-        "size_bytes": path.stat().st_size,
-        "original_sha256": digest,
-        "label": label,
-        "transformation": transformation,
-    }
-    if source_paths:
-        entry["source_paths"] = source_paths
-    return entry
-
-
-def generate_record(record_path: Path) -> bool:
-    record = json.loads(record_path.read_text(encoding="utf-8"))
-    if record.get("dimension") != "3d":
-        return False
-    result_dir = ROOT.joinpath(*record["files"]["results"][0]["path"].split("/")[:-1])
-    tables = {}
-    source_paths = []
-    for method, filename, _color in METHODS:
-        path = result_dir / filename
-        if not path.is_file():
-            return False
-        tables[method] = plot_bands.parse_abacus_band_table(path)
-        source_paths.append(path.relative_to(ROOT).as_posix())
-    ticks = _kpoint_labels(result_dir.parent / "inputs" / "KPT", len(tables["KS"].x))
-    gap = record.get("summary", {}).get("gw_gap_ev")
-    output = result_dir.parent / "figures" / "band_comparison.svg"
-    metadata = _plot_bundle(output, f'{record.get("material", record["id"])} · KS / EXX / GW', tables, ticks, gap)
-    sidecar = output.with_suffix(".json")
-    sidecar.write_text(
-        json.dumps(
-            {
-                "schema_version": 1,
-                "calculation_id": record["id"],
-                "source_result_paths": source_paths,
-                "source_sha256": {path: sha256(ROOT / path) for path in source_paths},
-                "plot": metadata,
-                "note": "Derived from archived ABACUS band tables; source tables are unchanged.",
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    record["files"]["figures"] = [
-        _file_entry(output, "KS / EXX / GW band comparison", "generated from archived ABACUS band tables", source_paths),
-        _file_entry(sidecar, "Band figure provenance", "generated alongside the band comparison figure", source_paths),
-    ]
-    record_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return True
+            report["generated_methods"].append(method)
+            if write:
+                output.parent.mkdir(parents=True, exist_ok=True)
+                svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], record.get("material", record["id"]), method)
+                if not output.exists() or output.read_text(encoding="utf-8") != svg:
+                    output.write_text(svg, encoding="utf-8")
+                generated.append(_file_entry(output, root, f"{method} occupation-separated frontier" + (" (diagnostic)" if analysis["status"] == "diagnostic" else ""), sources))
+        except (ValueError, OSError) as exc:
+            report["rejected"][method] = str(exc)
+    sidecar = record_path.parent / "figures/band_frontier_metadata.json"
+    for method, property_method in (("KS", "PBE"), ("EXX", "EXX")):
+        analysis = metadata["methods"].get(method)
+        aliases = {"PBE", "DFT", "KS"} if method == "KS" else {"EXX"}
+        if not analysis or analysis["gap_status"] != "reported" or any(item.get("key") == "band_gap" and item.get("method") in aliases for item in record.get("properties", [])):
+            continue
+        item = {"key": "band_gap", "category": "electronic", "label": "Sampled path band gap",
+                "method": property_method, "value": analysis["sampled_path_gap_ev"], "unit": "eV", "status": "reported",
+                "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+                "evidence": [analysis["source_result_path"], sidecar.relative_to(root).as_posix()]}
+        report["added_properties"].append({"method": property_method, "value_ev": item["value"]})
+        if write:
+            record.setdefault("properties", []).append(item)
+    if write and (metadata["methods"] or metadata["rejected"]):
+        sidecar.parent.mkdir(parents=True, exist_ok=True)
+        _write_json(sidecar, metadata)
+        generated.append(_file_entry(sidecar, root, "Frontier display mappings, raw audit and provenance", all_sources))
+        new_paths = {entry["path"] for entry in generated}
+        rejected_svg_paths = {analysis["unreferenced_previous_svg"] for analysis in metadata["methods"].values()
+                              if analysis["figure_status"] == "rejected"}
+        retained = [entry for entry in record["files"].get("figures", [])
+                    if entry["path"] not in new_paths | rejected_svg_paths]
+        for entry in retained:
+            if Path(entry["path"]).name in {"band_comparison.svg", "band_comparison.json"}:
+                entry["display_priority"] = "secondary"
+        record["files"]["figures"] = generated + retained
+        _write_json(record_path, record)
+    return report
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--audit", action="store_true", help="只读审计，不写文件（默认）")
+    mode.add_argument("--write", action="store_true", help="显式写入新SVG/sidecar并补齐可报告的缺失属性")
+    parser.add_argument("--allow-weighted-occupations", action="store_true", help="explicit evidence-backed 2/nk archive contract; never infer all-zero occupations")
     args = parser.parse_args()
-    count = 0
-    for record_path in sorted(args.root.glob("data/calculations/3d/*/*/record.json")):
-        count += int(generate_record(record_path))
-    print(f"generated band figures for {count} 3D records")
+    reports = [generate_record(path, args.root, args.write, args.allow_weighted_occupations)
+               for path in sorted(args.root.glob("data/calculations/3d/*/*/record.json"))]
+    print(json.dumps({"write": args.write, "records": reports}, ensure_ascii=False, indent=2))
     return 0
 
 

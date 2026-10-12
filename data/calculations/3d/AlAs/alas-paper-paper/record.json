@@ -201,6 +201,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/figures/ks_frontier.svg",
+        "sha256": "58149c3f501467678c9063e380bdefa4fc3f89aa83c23be96a6e240aecb7eb0c",
+        "size_bytes": 22011,
+        "original_sha256": "58149c3f501467678c9063e380bdefa4fc3f89aa83c23be96a6e240aecb7eb0c",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+          "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+          "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/figures/exx_frontier.svg",
+        "sha256": "a0c7227dec893b021fefc12fed46ececbb01083fa56c6bc7c52e8c7da9a1b88e",
+        "size_bytes": 22572,
+        "original_sha256": "a0c7227dec893b021fefc12fed46ececbb01083fa56c6bc7c52e8c7da9a1b88e",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+          "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/figures/gw_frontier.svg",
+        "sha256": "143540741be357df3881fbd8020cc3482221509ddb94b91b39aac2cb4b71c952",
+        "size_bytes": 21834,
+        "original_sha256": "143540741be357df3881fbd8020cc3482221509ddb94b91b39aac2cb4b71c952",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat",
+          "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+          "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlAs/alas-paper-paper/figures/band_frontier_metadata.json",
+        "sha256": "33b829bc7ceb432d5038c44bb7c13b7b5ba8853882f99f05f122816f8b695634",
+        "size_bytes": 841530,
+        "original_sha256": "33b829bc7ceb432d5038c44bb7c13b7b5ba8853882f99f05f122816f8b695634",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+          "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+          "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/AlAs/alas-paper-paper/figures/band_comparison.svg",
         "sha256": "e9feb1ee5888b580a5052003515829e92ccde37e065ec96a13f8339d03ec5518",
         "size_bytes": 35997,
@@ -211,7 +277,8 @@
           "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
           "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -225,7 +292,8 @@
           "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
           "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -236,7 +304,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/AlAs__src_paper"
   },

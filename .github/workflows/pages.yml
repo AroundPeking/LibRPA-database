@@ -28,6 +28,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: 严格检查完整上传证据；不完整记录阻止Pages发布
+        run: python scripts/library.py --check-completeness --completeness-report "${{ runner.temp }}/archive-completeness.json"
+      - name: 保留全部记录的完整性报告（失败仍阻止发布）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-archive-completeness
+          path: ${{ runner.temp }}/archive-completeness.json
+          if-no-files-found: error
       - run: python scripts/library.py --check-catalog
       - run: python scripts/build_indexes.py --check
       - run: python scripts/public_scan.py .

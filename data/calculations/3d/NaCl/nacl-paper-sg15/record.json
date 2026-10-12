@@ -200,6 +200,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/ks_frontier.svg",
+        "sha256": "090264c9a8ae73b603292cb346798954dd251213308fb0754f0206ff0dbae6a8",
+        "size_bytes": 23017,
+        "original_sha256": "090264c9a8ae73b603292cb346798954dd251213308fb0754f0206ff0dbae6a8",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/exx_frontier.svg",
+        "sha256": "599bceb1f39b3db0beb1c2d0e5915d9d94159e663d32250195f00e8e93b3b81f",
+        "size_bytes": 22917,
+        "original_sha256": "599bceb1f39b3db0beb1c2d0e5915d9d94159e663d32250195f00e8e93b3b81f",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg",
+        "sha256": "240941be52761cbcf0f13d197b89f034b957bef4ada2a88dc616e58b6ff8da17",
+        "size_bytes": 21015,
+        "original_sha256": "240941be52761cbcf0f13d197b89f034b957bef4ada2a88dc616e58b6ff8da17",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json",
+        "sha256": "ec9c74e2ec99a095b90d9039daf75d85d6248798db0dda7424119df4ee661a01",
+        "size_bytes": 646229,
+        "original_sha256": "ec9c74e2ec99a095b90d9039daf75d85d6248798db0dda7424119df4ee661a01",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.svg",
         "sha256": "7ba7cbcc1cc986d74548ec24d98a0ea691cc7401da6c16cb501ab5bc5f80de6b",
         "size_bytes": 43524,
@@ -210,7 +276,8 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -224,7 +291,8 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -235,7 +303,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15"
   },
@@ -263,6 +332,34 @@
         "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
       ],
       "source_summary_key": "gw_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "PBE",
+      "value": 5.0877099999999995,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+        "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 13.36155,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json"
+      ]
     }
   ]
 }

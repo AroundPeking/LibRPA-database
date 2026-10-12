@@ -195,6 +195,56 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/ks_frontier.svg",
+        "sha256": "5d3ad8b8d1e5f701fafefbed9e98f2f8dbf4d0a02bc5969c677c8301b5f2c87d",
+        "size_bytes": 34366,
+        "original_sha256": "5d3ad8b8d1e5f701fafefbed9e98f2f8dbf4d0a02bc5969c677c8301b5f2c87d",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/inputs/KPT_nscf",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/band_kpath_info",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/exx_frontier.svg",
+        "sha256": "8072d7431a57ccb045b34e402e0dab77710fbb8b8136f8f58dc214c06e81b383",
+        "size_bytes": 35368,
+        "original_sha256": "8072d7431a57ccb045b34e402e0dab77710fbb8b8136f8f58dc214c06e81b383",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/inputs/KPT_nscf",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/band_kpath_info",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/band_frontier_metadata.json",
+        "sha256": "891851b65bbcc5e643e6bd816d2e5aaee64aa094b21e315651d6529f242b5a16",
+        "size_bytes": 1379091,
+        "original_sha256": "891851b65bbcc5e643e6bd816d2e5aaee64aa094b21e315651d6529f242b5a16",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/inputs/KPT_nscf",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/band_kpath_info",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/band_comparison.svg",
         "sha256": "5f6555322e3ef68d498a6b76fd0b3044116841dd0270eadc72e2e2a76e98ec5d",
         "size_bytes": 134366,
@@ -205,7 +255,8 @@
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/KS_band_spin_1.dat",
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -219,7 +270,8 @@
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/KS_band_spin_1.dat",
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -229,7 +281,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/GaP__src_gw_shrink_chi"
   },

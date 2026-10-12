@@ -51,7 +51,17 @@
         "size_bytes": 1898568,
         "original_sha256": "06ff7ea9321c174c972eac8256c618e5c999c47d7d0c8b03fdbb5e0e5d03b558",
         "label": "snse_KS.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "source_identity": {
+          "source_format": "archived_dat_converted_from_npz",
+          "production_source_basename": "pbe_bands.npz",
+          "production_source_sha256": "4b030b26c25f06c8abb9b1facf5a3259cf9b3fa0ab053e8860136201c3c9630a",
+          "archived_table_sha256": "06ff7ea9321c174c972eac8256c618e5c999c47d7d0c8b03fdbb5e0e5d03b558",
+          "conversion_independently_verified": false,
+          "evidence": [
+            "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+          ]
+        }
       },
       {
         "role": "results",
@@ -90,7 +100,12 @@
         "size_bytes": 347531,
         "original_sha256": "b6706ef748ee8088cc202cccae6617a5e60a56437505e40eda982ccec2f99f56",
         "label": "snse_ks.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -99,7 +114,12 @@
         "size_bytes": 72147,
         "original_sha256": "1520ccbcf359eced46c2517dff3dbb7e2ee9c0cc3eef5fbfcdb092cb72efd946",
         "label": "snse_ks.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -108,7 +128,14 @@
         "size_bytes": 349104,
         "original_sha256": "1af4ba80411db7f871546b94b2ae9499ae8c6a3cc65be3c1bef80bd701c80dcc",
         "label": "snse_exx.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX",
+        "scientific_status": "archived_diagnostic",
+        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result"
       },
       {
         "role": "figures",
@@ -117,7 +144,14 @@
         "size_bytes": 72854,
         "original_sha256": "15f8aef7168a1a699f6eb3d86977e6721297feb2ee6b3ad861397257942d51f4",
         "label": "snse_exx.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX",
+        "scientific_status": "archived_diagnostic",
+        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result"
       },
       {
         "role": "figures",
@@ -126,7 +160,12 @@
         "size_bytes": 383283,
         "original_sha256": "3e5e1b877b732d4d5751a1f8918dbb272003e9df752c253f6a11a47def13601e",
         "label": "snse_gw.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       },
       {
         "role": "figures",
@@ -135,7 +174,12 @@
         "size_bytes": 71160,
         "original_sha256": "d3cb7ffbb9605a7b2739bdb0804eefe10bf4e0283faa28c6bc711c6138e9183f",
         "label": "snse_gw.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       }
     ]
   },
@@ -167,6 +211,42 @@
         "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat"
       ],
       "source_summary_key": "value"
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "PBE",
+      "value": 0.903439116,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Sampled path CBM minus VBM of the hash-verified archived DAT converted from NPZ; original NPZ identity retained but conversion not independently verified; not a full-Brillouin-zone fundamental gap",
+      "evidence": [
+        "data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
+        "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+      ],
+      "source_sidecar_key": "methods.KS.path_gap_ev"
+    }
+  ],
+  "method_diagnostics": [
+    {
+      "method": "EXX",
+      "status": "rejected",
+      "kind": "archived_raw_band_anomaly",
+      "occupied_states": 46,
+      "raw_band_count": 212,
+      "npoints": 400,
+      "nonfinite_entries": 0,
+      "full_raw_path_gap_ev": -1898024.7638299998,
+      "selected_window_path_gap_ev": -1108.0986,
+      "sidecar_path_gap_ev": -553.74944,
+      "sidecar_selected_window_matches": false,
+      "frozen_window_path_gap_ev": -1108.0986,
+      "evidence": [
+        "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat",
+        "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
+      ],
+      "message": "Full raw and frozen-window anomalies retained separately; not an accepted gap. A smaller window is not a numerical repair; archive completeness remains blocked. Archived sidecar path value differs from the independently recomputed frozen window; both are retained as diagnostics."
     }
   ]
 }

@@ -1,0 +1,32 @@
+ATOMIC_SPECIES
+Mo 1.000 Mo.upf
+S  1.000 S.upf
+
+NUMERICAL_ORBITAL
+Mo_gga_10au_100Ry_4s2p2d1f.orb
+S_gga_10au_110Ry_2s2p1d.orb
+
+ABFS_ORBITAL
+Mo_4s2p2d1f1g_1e-6.abfs
+S_2s2p1d1f1g_1e-6.abfs
+
+LATTICE_CONSTANT
+1.8897162
+
+LATTICE_VECTORS
+3.184     0.000     0.000
+-1.592     2.757     0.000
+0.000     0.000    30.000
+
+ATOMIC_POSITIONS
+Cartesian
+Mo
+0.0
+1
+0.000000      0.000000      9.063556 0 0 0 
+
+S
+0.0
+2
+1.592033      0.919161     10.627113 0 0 0
+1.592033      0.919161      7.500000 0 0 0

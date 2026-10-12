@@ -88,11 +88,11 @@ function renderHome() {
   const basis = state.mode === "basis";
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
-  $("#page-title").textContent = basis ? "Explore the basis library." : "Explore materials.";
-  $("#intro-copy").innerHTML = basis ? "Pseudopotentials, physical orbitals, and auxiliary basis functions.<br>Every file connected to its recorded provenance." : "Electronic structure, calculation inputs, and the basis behind each result.<br>Browse the evidence, not just the numbers.";
+  $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, original inputs, and exact basis files — linked to each calculation and its source commits.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation. Gaps are in eV; a dash means not reported. Open a record to inspect its definition and evidence.";
+  $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation. Gaps are in eV and may describe the archived k-path, not the global fundamental gap. A dash means not reported; open a record for its definition and evidence.";
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
@@ -134,6 +134,7 @@ function route() {
     const back = $(".breadcrumb a");
     if (back && (match[1] === "material" ? state.mode === "materials" : state.mode === "basis")) back.href = state.returnHash;
     document.title = `${record?.material || record?.id || "Record not found"} · ABACUS + LibRPA`;
+    document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === (match[1] === "material" ? "materials" : "basis") ? "page" : "false"));
     window.scrollTo(0, 0);
     return;
   }
@@ -163,6 +164,13 @@ async function start() {
     for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["status-filter", "status"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
     document.querySelectorAll("input[name=dimension]").forEach(input => input.addEventListener("change", event => { state.dimension = event.target.value; updateFilter(); }));
     for (const id of ["reset-filters", "empty-reset"]) $(`#${id}`).addEventListener("click", resetFilters);
+    $("#filter-toggle").addEventListener("click", event => {
+      const button = event.currentTarget;
+      const expanded = button.getAttribute("aria-expanded") !== "true";
+      button.setAttribute("aria-expanded", String(expanded));
+      button.innerHTML = `${expanded ? "Hide" : "Show"} filters <span aria-hidden="true">${expanded ? "−" : "+"}</span>`;
+      $(".filter-panel").classList.toggle("filters-expanded", expanded);
+    });
     $("#search-examples").addEventListener("click", event => { const button = event.target.closest("[data-query]"); if (button) { state.query = button.dataset.query; $("#search").value = state.query; updateFilter(); } });
     $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
     document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });

@@ -43,8 +43,11 @@ class PlotBandTests(unittest.TestCase):
                 encoding="utf-8",
             )
             table = self.plot.parse_abacus_band_table(source)
-            self.assertEqual(table.x, [0.0, 1.0])
+            self.assertEqual(table.x, [1.0, 2.0])
             self.assertEqual(table.energies, [[-1.5, 2.5], [-1.0, 3.0]])
+            self.assertEqual(table.occupations, [[2.0, 0.0], [2.0, 0.0]])
+            self.assertEqual(table.native_kpoint_indices, [1, 2])
+            self.assertEqual(table.fractional_kpoints, [[0.0, 0.0, 0.0], [0.5, 0.0, 0.0]])
 
     def test_abacus_parser_rejects_incomplete_pairs(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -64,6 +67,179 @@ class PlotBandTests(unittest.TestCase):
             self.assertEqual(sidecar["calculation_id"], "case-1")
             self.assertEqual(sidecar["input_sha256"], expected)
             self.assertEqual(json.loads(output.with_suffix(".json").read_text())["table_sha256"], expected)
+
+    def make_table(self, rows=None, occupations=None):
+        rows = rows or [[-4, -2, 1, 3], [-3, -1, 2, 4]]
+        return self.plot.BandTable([1.0, 3.0], rows,
+                                   occupations or [[2, 2, 0, 0], [2, 2, 0, 0]],
+                                   [1, 3], [[0, 0, 0], [0.5, 0, 0]])
+
+    def test_full_raw_edges_ties_and_native_positions(self):
+        table = self.make_table([[-4, -1, 1, 3], [-3, -1, 2, 4]])
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["sampled_path_gap_ev"], 2)
+        self.assertEqual(len(result["vbm_endpoints"]), 2)
+        self.assertEqual(result["vbm_endpoints"][1]["native_kpoint_index"], 3)
+        self.assertEqual(result["cbm_endpoints"][0]["raw_band_index"], 3)
+        self.assertEqual(result["cbm_endpoints"][0]["aligned_energy_ev"], 2)
+        self.assertTrue(result["reference"]["not_fermi"])
+
+    def test_fixed_raw_window_sort_mapping_no_mutation(self):
+        table = self.make_table([[-1, -4, 8, 2], [-2, -3, 3, 9]])
+        original = [row[:] for row in table.energies]
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["mapping_one_based"], [[2, 1, 4, 3], [2, 1, 3, 4]])
+        self.assertEqual(table.energies, original)
+        for row, mapping, values in zip(table.energies, result["mapping_one_based"], result["display_energies_ev"]):
+            self.assertEqual(values, [row[b - 1] - result["reference"]["energy_ev"] for b in mapping])
+            self.assertEqual(sorted(row), sorted(row[b - 1] for b in mapping))
+
+    def test_fractional_variable_nonprefix_and_missing_occupation_refused(self):
+        cases = [None, [[0.5, 0.5, 0, 0]] * 2,
+                 [[2, 2, 0, 0], [2, 0, 0, 0]],
+                 [[2, 0, 2, 0]] * 2, [[0, 0, 0, 0]] * 2,
+                 [[float("nan"), 2, 0, 0]] * 2, [[1, 2, 0, 0]] * 2]
+        for occupations in cases:
+            with self.subTest(occupations=occupations):
+                table = self.make_table()
+                table.occupations = occupations
+                with self.assertRaises(ValueError):
+                    self.plot.analyze_frontier(table)
+
+    def test_explicit_weighted_contract_does_not_guess_fractional_occupation(self):
+        table = self.make_table(occupations=[[1, 1, 0, 0]] * 2)
+        contract = {"kind": "uniform_k_weighted", "kpoint_count": 2,
+                    "occupied_band_count": 2, "evidence": ["producer.log"]}
+        result = self.plot.analyze_frontier(table, occupation_contract=contract)
+        self.assertEqual(result["occupation_audit"]["full_occupation"], 2)
+        with self.assertRaises(ValueError):
+            self.plot.analyze_frontier(table, occupation_contract={**contract, "evidence": []})
+        with self.assertRaises(ValueError):
+            self.plot.analyze_frontier(table, occupation_contract={**contract, "occupied_band_count": 1})
+
+    def test_unselected_intrusion_never_changes_frozen_window_or_full_gap(self):
+        rows = [[-4, -2, 1, 3, 0.5], [-3, -1, 2, 4, 30]]
+        table = self.make_table(rows, [[2, 2, 0, 0, 0]] * 2)
+        result = self.plot.analyze_frontier(table, empty_window=2)
+        self.assertEqual(result["status"], "diagnostic")
+        self.assertEqual(result["gap_status"], "reported")
+        self.assertEqual(result["sampled_path_gap_ev"], 1.5)
+        self.assertEqual(result["raw_selected_empty_bands"], [3, 4])
+        self.assertTrue(all(5 not in row for row in result["mapping_one_based"]))
+        self.assertEqual(result["unselected_intrusions"][0]["raw_band_index"], 5)
+
+    def test_bad_high_state_forces_low_energy_diagnostic_not_ordinary_gap(self):
+        table = self.make_table([[-4, -2, 1, 3, -800], [-3, -1, 2, 4, 30]], [[2, 2, 0, 0, 0]] * 2)
+        result = self.plot.analyze_frontier(table, empty_window=2)
+        self.assertEqual(result["gap_status"], "rejected")
+        self.assertIsNone(result["sampled_path_gap_ev"])
+        self.assertEqual(result["cbm_endpoints"][0]["raw_band_index"], 3)
+        self.assertEqual(result["raw_audit"]["cbm_ev"], -800)
+
+    def test_nonfinite_full_spectrum_and_selected_rejection(self):
+        table = self.make_table([[-4, -2, 1, 3, float("nan")], [-3, -1, 2, 4, 30]], [[2, 2, 0, 0, 0]] * 2)
+        result = self.plot.analyze_frontier(table, empty_window=2)
+        self.assertEqual(result["gap_status"], "rejected")
+        self.assertEqual(result["raw_audit"]["nonfinite_states"][0]["raw_band_index"], 5)
+        with self.assertRaisesRegex(ValueError, "nonfinite selected"):
+            self.plot.analyze_frontier(table, empty_window=3)
+
+    def test_known_pathology_cannot_be_promoted(self):
+        result = self.plot.analyze_frontier(self.make_table(), known_pathological=True)
+        self.assertEqual(result["gap_status"], "rejected")
+        self.assertEqual(result["status"], "diagnostic")
+
+    def test_external_boundary_can_only_produce_explicit_diagnostic(self):
+        table = self.make_table(occupations=[[0, 0, 0, 0]] * 2)
+        with self.assertRaises(ValueError):
+            self.plot.analyze_frontier(table, occupied_count=2)
+        result = self.plot.analyze_frontier(table, occupied_count=2, diagnostic_evidence=["producer.log"])
+        self.assertEqual(result["occupation_audit"]["kind"], "external_boundary_diagnostic_only")
+        self.assertEqual(result["gap_status"], "rejected")
+
+    def test_large_exx_gap_uses_own_near_gap_viewport_and_declares_cut(self):
+        table = self.make_table([[-4, -2, 35, 49], [-3, -1, 37, 55]])
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["y_limits_ev"], [-18, 54])
+        self.assertTrue(result["viewport"]["cut_states"])
+        self.assertEqual(result["display_energies_ev"][-1][-1], 56)
+        svg = self.plot.render_frontier_svg(table, result, [{"x": 1, "label": "Γ"}], "EXX test", "EXX")
+        self.assertIn('stroke-dasharray="11 4 2 4"', svg)
+        self.assertIn('id="EXX-VBM-1"', svg)
+        self.assertIn('id="EXX-CBM-1"', svg)
+        self.assertIn('fill="none"', svg)
+        self.assertIn('native k-point index', svg)
+        self.assertIn('Γ', svg)
+
+    def test_nearby_unselected_intrusion_is_reported_without_rejecting_full_gap(self):
+        table = self.make_table([[-4, -2, 1, 3, 4], [-3, -1, 2, 4, 5]], [[2, 2, 0, 0, 0]] * 2)
+        result = self.plot.analyze_frontier(table, empty_window=2)
+        self.assertTrue(result["unselected_intrusions"])
+        self.assertEqual(result["status"], "reported")
+        self.assertEqual(result["sampled_path_gap_ev"], 2)
+
+    def test_logged_zero_export_boundary_requires_evidence_and_preserves_raw(self):
+        table = self.make_table(occupations=[[0, 0, 0, 0]] * 2)
+        contract = {"kind": "logged_raw_boundary", "occupied_band_count": 2, "evidence": ["same.log"]}
+        result = self.plot.analyze_frontier(table, occupation_contract=contract)
+        self.assertEqual(result["sampled_path_gap_ev"], 2)
+        self.assertEqual(result["raw_occupations"], table.occupations)
+        with self.assertRaises(ValueError):
+            self.plot.analyze_frontier(table, occupation_contract={**contract, "evidence": []})
+        table.occupations[0][0] = 0.5
+        with self.assertRaisesRegex(ValueError, "all-zero"):
+            self.plot.analyze_frontier(table, occupation_contract=contract)
+
+    def test_declared_export_is_audited_separately_from_rejected_nonfinite_tail(self):
+        table = self.make_table([[-4, -2, 1, 3, float("nan"), -800], [-3, -1, 2, 4, 0, -700]],
+                                [[0] * 6] * 2)
+        contract = {"kind": "logged_raw_boundary", "occupied_band_count": 2, "evidence": ["same.log"]}
+        result = self.plot.analyze_frontier(table, occupation_contract=contract, declared_export_band_count=4)
+        self.assertEqual(result["raw_audit"]["raw_band_count"], 6)
+        self.assertEqual(result["declared_export_audit"]["raw_band_count"], 4)
+        self.assertEqual(result["rejected_raw_tail_bands"], [5, 6])
+        self.assertEqual(result["gap_status"], "reported")
+        self.assertEqual(result["sampled_path_gap_ev"], 2)
+        self.assertEqual(result["status"], "diagnostic")
+        self.assertTrue(all(max(row) <= 4 for row in result["mapping_one_based"]))
+        self.assertEqual(result["raw_audit"]["nonfinite_states"][0]["source_column_one_based"], 14)
+        json.dumps(result, allow_nan=False)
+        with self.assertRaises(ValueError):
+            self.plot.analyze_frontier(table, occupation_contract=contract, declared_export_band_count=7)
+
+    def test_nonfinite_occupation_is_null_with_original_raw_location_metadata(self):
+        table = self.make_table(occupations=[[float("nan"), 2, 0, 0], [2, 2, 0, 0]])
+        result = self.plot.analyze_frontier(table, occupied_count=2, diagnostic_evidence=["same.log"])
+        self.assertIsNone(result["raw_occupations"][0][0])
+        self.assertEqual(result["nonfinite_raw_occupations"][0]["source_column_one_based"], 5)
+        self.assertEqual(result["nonfinite_raw_occupations"][0]["raw_value"], "nan")
+        self.assertEqual(result["gap_status"], "rejected")
+        self.assertIn("null", json.dumps(result, allow_nan=False))
+
+    def test_default_three_four_window_preserves_deep_states_but_clips_viewport(self):
+        rows = [[-100, -80, -60, -20, -1, -2, -3, 6, 7, 8, 9, 100]] * 2
+        table = self.make_table(rows, [[2] * 7 + [0] * 5] * 2)
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["raw_selected_occupied_bands"], [5, 6, 7])
+        self.assertEqual(result["raw_selected_empty_bands"], [8, 9, 10, 11])
+        self.assertEqual(result["y_limits_ev"], [-3.5, 10.5])
+        self.assertEqual(result["raw_audit"]["band_ranges"][0]["minimum_ev"], -100)
+        self.assertEqual(len(result["mapping_one_based"][0]), 7)
+
+    def test_nonpositive_selected_gap_refuses_render_without_repair(self):
+        table = self.make_table([[-4, -1, -2, 4], [-3, -2, 1, 5]])
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["figure_status"], "rejected")
+        self.assertIsNone(result["y_limits_ev"])
+        self.assertEqual(result["selected_window_path_gap_ev"], -1)
+        with self.assertRaisesRegex(ValueError, "nonpositive frozen"):
+            self.plot.render_frontier_svg(table, result, [], "bad", "GW")
+
+    def test_generic_interface_has_no_automatic_occupation_inference(self):
+        table = self.plot.BandTable([0, 1], [[-1, 2], [-2, 3]])
+        self.assertIsNone(table.occupations)
+        with self.assertRaisesRegex(ValueError, "missing occupations"):
+            self.plot.analyze_frontier(table)
 
 
 if __name__ == "__main__":

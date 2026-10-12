@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "case_id": "wse2-table-gw",
+  "verification": "independent raw byte equality plus raw/source/record three-spectrum SHA-256 equality",
+  "source_collection": "prb2025 archived raw runs",
+  "source_run_relative": "WSe2/gw",
+  "source_input_case_relative": "wse2/input_cases/paper_table_gw",
+  "source_provenance": {
+    "path": "wse2/provenance/table_band_source.json",
+    "sha256": "b9c3c70b2de5af54e51d11d394796f7f8aef0969d1884859bb8148481d5baa1f"
+  },
+  "record_sidecar": {
+    "path": "data/calculations/2d/WSe2/wse2-table-gw/results/band_window_and_provenance.json",
+    "sha256": "74fa5a2cd5c0ddc14aaad2f19ff1a0a2c4bf8cab53aa39bb0619410b42642cf0"
+  },
+  "input_file_count": 15,
+  "files": [
+    {
+      "source_name": "INPUT",
+      "sha256": "8f7807bdf69918804090611111b7c2e1017b027cfb0cbc508e54b6eb59b04961",
+      "size_bytes": 626,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/INPUT"
+    },
+    {
+      "source_name": "INPUT_nscf",
+      "sha256": "8f7807bdf69918804090611111b7c2e1017b027cfb0cbc508e54b6eb59b04961",
+      "size_bytes": 626,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/INPUT_nscf"
+    },
+    {
+      "source_name": "INPUT_scf",
+      "sha256": "71c6add88df231c81c23ea1f7b8f6c97c2eff56b36a778d8af5e375c4ad62bb3",
+      "size_bytes": 675,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/INPUT_scf"
+    },
+    {
+      "source_name": "KPT",
+      "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+      "size_bytes": 165,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/KPT"
+    },
+    {
+      "source_name": "KPT_nscf",
+      "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+      "size_bytes": 165,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/KPT_nscf"
+    },
+    {
+      "source_name": "KPT_scf",
+      "sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
+      "size_bytes": 31,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/KPT_scf"
+    },
+    {
+      "source_name": "STRU",
+      "sha256": "9e6b57e8d1c30534ffc35de0d81eee17d561beb80a093d96b098de96e65ab510",
+      "size_bytes": 487,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/STRU"
+    },
+    {
+      "source_name": "Se.upf",
+      "sha256": "e18e8a18f12ddd61382b6051c5d6938b55159cdcb688ed3762502ed8549672e1",
+      "size_bytes": 286567,
+      "byte_equal_to_independent_raw": true,
+      "role": "pp",
+      "repository_path": "data/elements/Se/pseudopotentials/e18e8a18f12ddd61382b6051c5d6938b55159cdcb688ed3762502ed8549672e1.upf",
+      "set_id": "Se-archived-2a24b0da3f66"
+    },
+    {
+      "source_name": "Se_3s3p3d2f1g_1e-6.abfs",
+      "sha256": "5a1efb1c203f16ca3ac408513d96f9e660b9b38be3da09a2e7c0019dba95d33b",
+      "size_bytes": 2005843,
+      "byte_equal_to_independent_raw": true,
+      "role": "abf",
+      "repository_path": "data/elements/Se/auxiliary/5a1efb1c203f16ca3ac408513d96f9e660b9b38be3da09a2e7c0019dba95d33b.abfs",
+      "set_id": "Se-archived-2a24b0da3f66"
+    },
+    {
+      "source_name": "Se_gga_10au_100Ry_3s3p3d2f.orb",
+      "sha256": "27b5fe96537fee5d1f3aa16470ed13d950ca27bb473dbd833a26cbe3e982eabc",
+      "size_bytes": 251073,
+      "byte_equal_to_independent_raw": true,
+      "role": "nao",
+      "repository_path": "data/elements/Se/orbitals/27b5fe96537fee5d1f3aa16470ed13d950ca27bb473dbd833a26cbe3e982eabc.orb",
+      "set_id": "Se-archived-2a24b0da3f66"
+    },
+    {
+      "source_name": "W.upf",
+      "sha256": "68e492ecba57697e6235fc2b1d2cac1bcffe37db5ac52654abda63037e923fb9",
+      "size_bytes": 386167,
+      "byte_equal_to_independent_raw": true,
+      "role": "pp",
+      "repository_path": "data/elements/W/pseudopotentials/68e492ecba57697e6235fc2b1d2cac1bcffe37db5ac52654abda63037e923fb9.upf",
+      "set_id": "W-archived-903311a3907b"
+    },
+    {
+      "source_name": "W_6s3p3d2f1g_1e-6.abfs",
+      "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "size_bytes": 2664329,
+      "byte_equal_to_independent_raw": true,
+      "role": "abf",
+      "repository_path": "data/elements/W/auxiliary/bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52.abfs",
+      "set_id": "W-archived-903311a3907b"
+    },
+    {
+      "source_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+      "sha256": "5b949687d86badf93794042a211d098d64dfdced3b308ff9662fa0dca7fc6110",
+      "size_bytes": 319429,
+      "byte_equal_to_independent_raw": true,
+      "role": "nao",
+      "repository_path": "data/elements/W/orbitals/5b949687d86badf93794042a211d098d64dfdced3b308ff9662fa0dca7fc6110.orb",
+      "set_id": "W-archived-903311a3907b"
+    },
+    {
+      "source_name": "band_kpath_info",
+      "sha256": "174f2b5ddb64604cfa15f6fde47084cbc9fa160fd52ca9d4b587149ecdd0531e",
+      "size_bytes": 6680,
+      "byte_equal_to_independent_raw": true,
+      "role": "results",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/results/band_kpath_info"
+    },
+    {
+      "source_name": "librpa.in",
+      "sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+      "size_bytes": 196,
+      "byte_equal_to_independent_raw": true,
+      "role": "inputs",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/inputs/librpa.in"
+    }
+  ],
+  "spectra": {
+    "KS": {
+      "source_name": "KS_band_spin_1.dat",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/results/KS_bands.dat",
+      "sha256": "751b276945bec6a16d92db1c39959afa3f6511c92da3df5056f6558daf6a0db8",
+      "size_bytes": 463551,
+      "npoints": 121,
+      "raw_band_count": 126,
+      "occupied_states": 23,
+      "nonfinite_entries": 0,
+      "sampled_path_gap_ev": 1.55533
+    },
+    "EXX": {
+      "source_name": "EXX_band_spin_1.dat",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/results/EXX_bands.dat",
+      "sha256": "db18c64563cefe51454e9e97286625719f90e4788f9a50320a8e5faa270adb54",
+      "size_bytes": 463551,
+      "npoints": 121,
+      "raw_band_count": 126,
+      "occupied_states": 23,
+      "nonfinite_entries": 0,
+      "sampled_path_gap_ev": 7.573830000000001
+    },
+    "GW": {
+      "source_name": "GW_band_spin_1.dat",
+      "repository_path": "data/calculations/2d/WSe2/wse2-table-gw/results/GW_bands.dat",
+      "sha256": "7864ce7bd21de0ccd58400de0f1398d44507866807846c5e1e5947f603125e62",
+      "size_bytes": 463551,
+      "npoints": 121,
+      "raw_band_count": 126,
+      "occupied_states": 23,
+      "nonfinite_entries": 0,
+      "sampled_path_gap_ev": 2.55202
+    }
+  },
+  "basis_set_ids": [
+    "W-archived-903311a3907b",
+    "Se-archived-2a24b0da3f66"
+  ],
+  "software_log_audit": [
+    {
+      "source_name": "LibRPA.815151.out",
+      "sha256": "2b40e25216a5a20d0080443b0d4dad33eb333bb97bc8b67659f0217229c035e4",
+      "recorded_commit_tokens": [],
+      "full_commit_present": false
+    },
+    {
+      "source_name": "abacus.815151.out",
+      "sha256": "73aef5bd86f2fca6ab9a0f6f0de3cfd56e14151b3ede7804d835c93ff9ecd13e",
+      "recorded_commit_tokens": [
+        "1dd0199"
+      ],
+      "full_commit_present": false
+    }
+  ],
+  "scope": "input provenance only; unknown software full commits, generation provenance and redistribution remain unresolved"
+}

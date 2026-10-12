@@ -90,7 +90,12 @@
         "size_bytes": 380970,
         "original_sha256": "467957bb7c5de3e0b44a8dc7e3b575d09b9a0b10d3054ca196a67c3f8bd3538b",
         "label": "mote2_ks.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -99,7 +104,12 @@
         "size_bytes": 64661,
         "original_sha256": "7991ade201eb2762e3cd8ef839cba15c9270a9dfeddcdd82e80089d3469b917e",
         "label": "mote2_ks.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "KS"
       },
       {
         "role": "figures",
@@ -108,7 +118,12 @@
         "size_bytes": 348122,
         "original_sha256": "ff949330eab470bece57ccf1a28a245b219253a718c41ea5c87309b93d4b3bf9",
         "label": "mote2_exx.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX"
       },
       {
         "role": "figures",
@@ -117,7 +132,12 @@
         "size_bytes": 64442,
         "original_sha256": "ff8fb4b6c301ec4fd5f42217f0a75bbe0f819ceb4f4bb733c361eddb2e713c6c",
         "label": "mote2_exx.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "EXX"
       },
       {
         "role": "figures",
@@ -126,7 +146,12 @@
         "size_bytes": 392120,
         "original_sha256": "462c3ed5534c2be01a7acb51532aa55611516a83c14f360934ebce9c82189e7a",
         "label": "mote2_gw.png",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       },
       {
         "role": "figures",
@@ -135,7 +160,12 @@
         "size_bytes": 66132,
         "original_sha256": "f834132fff9bbc012bd393b318d7b373b45b7c08cf56be63c956e8bf967af9e4",
         "label": "mote2_gw.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "source_paths": [
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "method": "GW"
       }
     ]
   },
@@ -167,6 +197,36 @@
         "data/calculations/2d/MoTe2/mote2-table-gw/results/GW_bands.dat"
       ],
       "source_summary_key": "value"
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "PBE",
+      "value": 1.07507,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
+      "evidence": [
+        "data/calculations/2d/MoTe2/mote2-table-gw/results/KS_bands.dat",
+        "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+      ],
+      "source_sidecar_key": "methods.KS.path_gap_ev"
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "EXX",
+      "value": 5.1986799999999995,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
+      "evidence": [
+        "data/calculations/2d/MoTe2/mote2-table-gw/results/EXX_bands.dat",
+        "data/calculations/2d/MoTe2/mote2-table-gw/results/band_window_and_provenance.json"
+      ],
+      "source_sidecar_key": "methods.EXX.path_gap_ev"
     }
   ]
 }

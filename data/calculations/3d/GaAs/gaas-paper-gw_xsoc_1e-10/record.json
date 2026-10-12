@@ -195,6 +195,56 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/ks_frontier.svg",
+        "sha256": "41cb681f2667ef2f4bf142e82b6a1fc57ce6f5daff2e3b0be523149666306fd4",
+        "size_bytes": 33050,
+        "original_sha256": "41cb681f2667ef2f4bf142e82b6a1fc57ce6f5daff2e3b0be523149666306fd4",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/exx_frontier.svg",
+        "sha256": "bc4a2c48f0b48240e24ac572381af891ac5c752c8cc9274e38e8e9258fa924e6",
+        "size_bytes": 34069,
+        "original_sha256": "bc4a2c48f0b48240e24ac572381af891ac5c752c8cc9274e38e8e9258fa924e6",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json",
+        "sha256": "0408ec963a660da5be2104d47c8b776298b4928bb6b63f54f7ebbe4fae282dc6",
+        "size_bytes": 1379887,
+        "original_sha256": "0408ec963a660da5be2104d47c8b776298b4928bb6b63f54f7ebbe4fae282dc6",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.svg",
         "sha256": "d264e04e026c35a6673fcd01d3cbe3f1bda34ca049070e9593b42ecf56f688d3",
         "size_bytes": 145155,
@@ -205,7 +255,8 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -219,7 +270,8 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -273,7 +325,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/GaAs__src_gw_xsoc_1e-10"
   },

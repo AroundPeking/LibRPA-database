@@ -199,6 +199,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/ks_frontier.svg",
+        "sha256": "45a401d8eea10a966d64d99c725fe1a77ec2fab1f29cff0698fc80c9772a851a",
+        "size_bytes": 8190,
+        "original_sha256": "45a401d8eea10a966d64d99c725fe1a77ec2fab1f29cff0698fc80c9772a851a",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/inputs/KPT_nscf",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/band_kpath_info",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/exx_frontier.svg",
+        "sha256": "7dfc89921ba8b084c204ac072a03227949ce67928584a407fd70bd79e545f80b",
+        "size_bytes": 8794,
+        "original_sha256": "7dfc89921ba8b084c204ac072a03227949ce67928584a407fd70bd79e545f80b",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/inputs/KPT_nscf",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/band_kpath_info",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/gw_frontier.svg",
+        "sha256": "7f1557c748953b2fe7c69625c3c8fef917b4885ab8ba8bde74d0b4bdf3162fa5",
+        "size_bytes": 8007,
+        "original_sha256": "7f1557c748953b2fe7c69625c3c8fef917b4885ab8ba8bde74d0b4bdf3162fa5",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/GW_band_spin_1.dat",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/inputs/KPT_nscf",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/band_kpath_info",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/band_frontier_metadata.json",
+        "sha256": "d8efaef0c0adecbfcca290b5809861203478baf964f0da0f76f49669ca9dd868",
+        "size_bytes": 175390,
+        "original_sha256": "d8efaef0c0adecbfcca290b5809861203478baf964f0da0f76f49669ca9dd868",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/inputs/KPT_nscf",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/band_kpath_info",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/band_comparison.svg",
         "sha256": "a36e6cc482f42cb89423b2153bcb17a78a337ea32a3e087dcdb186f259e5df5c",
         "size_bytes": 9309,
@@ -209,7 +275,8 @@
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -223,7 +290,8 @@
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
           "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -234,7 +302,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/BAs__src_k8_shrink_wing"
   },
@@ -262,6 +331,34 @@
         "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
       ],
       "source_summary_key": "gw_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "PBE",
+      "value": 1.1859100000000016,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+        "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 6.4922699999999995,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/band_frontier_metadata.json"
+      ]
     }
   ]
 }

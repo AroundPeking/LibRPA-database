@@ -36,7 +36,7 @@ export function bandGap(record, method = "GW") {
   // A selected raw-state separation must not enter an ordinary GW gap column or sort.
   if (method === "GW" && restrictedGap(record)) return null;
   const patterns = { DFT: /^(PBE|DFT|KS)$/i, EXX: /^EXX$/i, GW: /^(G0W0|GW|GW path)$/i };
-  const matches = (record.properties || []).filter(p => p.category === "electronic" && p.key === "band_gap" && patterns[method]?.test(p.method));
+  const matches = (record.properties || []).filter(p => p.category === "electronic" && /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(p.key || "") && patterns[method]?.test(p.method));
   // Do not silently replace an unvalidated or ambiguous contributed value with a legacy value.
   if (matches.length) {
     return matches.length === 1 && matches[0].unit === "eV" && matches[0].status !== "failed" && typeof matches[0].value === "number" && Number.isFinite(matches[0].value) ? matches[0].value : null;

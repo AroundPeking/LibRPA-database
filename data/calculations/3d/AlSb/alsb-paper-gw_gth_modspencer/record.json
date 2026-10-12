@@ -195,6 +195,72 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/ks_frontier.svg",
+        "sha256": "3bfb4e115396d90797feccee2cabcefc2bb2031123fa370ebcefaf0e49005947",
+        "size_bytes": 22101,
+        "original_sha256": "3bfb4e115396d90797feccee2cabcefc2bb2031123fa370ebcefaf0e49005947",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_nscf",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/band_kpath_info",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/exx_frontier.svg",
+        "sha256": "19ecfd43221aee093ff11025968d2406c943704654c4c0c1f0d7b469f4887dd8",
+        "size_bytes": 23193,
+        "original_sha256": "19ecfd43221aee093ff11025968d2406c943704654c4c0c1f0d7b469f4887dd8",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_nscf",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/band_kpath_info",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/gw_frontier.svg",
+        "sha256": "98b00fb8064395a60c2b502c6acd52bc0cb5331be63b41bc53a8ca2e76b5d5e6",
+        "size_bytes": 21909,
+        "original_sha256": "98b00fb8064395a60c2b502c6acd52bc0cb5331be63b41bc53a8ca2e76b5d5e6",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_nscf",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/band_kpath_info",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/band_frontier_metadata.json",
+        "sha256": "a7ae2de01bc756537a5c20f3a71acf3fe9b24847dc33654edab82475c0a185b1",
+        "size_bytes": 760565,
+        "original_sha256": "a7ae2de01bc756537a5c20f3a71acf3fe9b24847dc33654edab82475c0a185b1",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/KPT_nscf",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/band_kpath_info",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/band_comparison.svg",
         "sha256": "3c780b7d4ddfe300c1eb4ccbb2e7e34c92b8afb3908ef4fe9117e0da790bd0ea",
         "size_bytes": 47159,
@@ -205,7 +271,8 @@
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       },
       {
         "role": "figures",
@@ -219,7 +286,8 @@
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/KS_band_spin_1.dat",
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/GW_band_spin_1.dat"
-        ]
+        ],
+        "display_priority": "secondary"
       }
     ]
   },
@@ -229,7 +297,8 @@
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
-    "repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
+    "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
     "archive_directory": "TABLE/Table_04_GW_comparison/AlSb__src_gw_gth_modspencer"
   },
