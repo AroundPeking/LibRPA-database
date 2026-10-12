@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "case_id": "mote2-table-gw",
+  "scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import.",
+  "reviewed_recovery_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25",
+  "record_before_sha256": "d39fb31f9c3086167865403f194deee64a3c2babee79ea250d07a308337bd749",
+  "spectra": [
+    {
+      "method": "KS",
+      "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/KS_bands.dat",
+      "sha256": "5166d7204208d5e3f6368c15a6219be34014906e5b852d1ac2380890b758ae16",
+      "size_bytes": 578481
+    },
+    {
+      "method": "EXX",
+      "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/EXX_bands.dat",
+      "sha256": "91801b1c3618d2db293ae5ebaa836e40b66f8f85e9c1ab11a74cc76a04907cbb",
+      "size_bytes": 578481
+    },
+    {
+      "method": "GW",
+      "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/GW_bands.dat",
+      "sha256": "0763658d49ea58acb0dd22b61eb8eeff639ca5e83178d72299d5fcfe4c8079af",
+      "size_bytes": 578481
+    }
+  ],
+  "stages": [
+    {
+      "id": "a9314a2d7fbb",
+      "label": "NSCF",
+      "source_directory_sha256": "a9314a2d7fbbfacf8657b03b9176fafa8e0cc1cbc1ee769271ede993204b8289",
+      "controls": [
+        {
+          "name": "KPT",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/KPT",
+          "sha256": "72513e3b1504563bf85b46ffc9cb5f595789ed439e2ed6059f1b6ef3b72f0889",
+          "original_sha256": "72513e3b1504563bf85b46ffc9cb5f595789ed439e2ed6059f1b6ef3b72f0889",
+          "original_size_bytes": 5412,
+          "source_path_sha256": "74270097ce6bb880da4a34d569b0e58e6317f128ac62b5b842fe6ee41ae6ef65",
+          "transformation": "none"
+        },
+        {
+          "name": "band_kpath_info",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/band_kpath_info",
+          "sha256": "250290f5697142ed1ddf7f4b2567038c00587977de6bbaca64284eed18d5c8d6",
+          "original_sha256": "250290f5697142ed1ddf7f4b2567038c00587977de6bbaca64284eed18d5c8d6",
+          "original_size_bytes": 8330,
+          "source_path_sha256": "66ceac7b897ac941b0e97f5b8e4e1f6d34806b6523b74da3897f1f2477656c9e",
+          "transformation": "none"
+        },
+        {
+          "name": "STRU",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU",
+          "sha256": "36e3a2d44e1467b1e85a2ce1ad82f00ffd95b7006d46e7d344a46868157ed91b",
+          "original_sha256": "36e3a2d44e1467b1e85a2ce1ad82f00ffd95b7006d46e7d344a46868157ed91b",
+          "original_size_bytes": 503,
+          "source_path_sha256": "dafbb534af8e13044368976dde7c7b202b8f8005c76d9bc2704bce6cb34870a6",
+          "transformation": "none"
+        },
+        {
+          "name": "INPUT",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/INPUT",
+          "sha256": "e3568e7cf9df93ecf5110fc8774cd25e09d569c2cdf6f142ad78495919230b93",
+          "original_sha256": "e3568e7cf9df93ecf5110fc8774cd25e09d569c2cdf6f142ad78495919230b93",
+          "original_size_bytes": 1168,
+          "source_path_sha256": "e971fb4547f9a04b66764225aed1f5ee7edc7d806087a7dd9d0505ac2d7892fb",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "6ca72a37b565",
+      "label": "EXX",
+      "source_directory_sha256": "6ca72a37b56533ba008bb2df09aebf911e8ddeb8c8c538583ad258fe6a8ba330",
+      "controls": [
+        {
+          "name": "librpa.in",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/6ca72a37b565/librpa.in",
+          "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+          "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+          "original_size_bytes": 839,
+          "source_path_sha256": "f638dcef58def46b223abbb72f010720980bb463aa62b21a83ba1fc151c67e18",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "d5ca5cb3a75f",
+      "label": "GW",
+      "source_directory_sha256": "d5ca5cb3a75f0f2ed95780989d33539e8765137a72315fc8dd0445de5aef6420",
+      "controls": [
+        {
+          "name": "librpa.in",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/d5ca5cb3a75f/librpa.in",
+          "sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+          "original_sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+          "original_size_bytes": 1494,
+          "source_path_sha256": "dd35350c91bde1ee3f7816e0434df6006a7a11736c5d55cfa217595e5b3bcefd",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "b03cf07e253c",
+      "label": "SCF",
+      "source_directory_sha256": "b03cf07e253c688ffae5a84a4a052f0bf8ab715ca7c14647040938f8ba12015c",
+      "controls": [
+        {
+          "name": "KPT",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/KPT",
+          "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+          "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+          "original_size_bytes": 31,
+          "source_path_sha256": "f4765d05668b7541619f7c535ce93a5c3df88539c8f0221f7c9c1bfeba5f5da0",
+          "transformation": "none"
+        },
+        {
+          "name": "STRU",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/STRU",
+          "sha256": "72a616e95a0f3567f8f1920b542238ccbd474675180ccc0bc2274818be02d828",
+          "original_sha256": "72a616e95a0f3567f8f1920b542238ccbd474675180ccc0bc2274818be02d828",
+          "original_size_bytes": 561,
+          "source_path_sha256": "5d769df8b3badec235cb1a08dda32d4aac159d6fff7516854a6b19f67ed3c0ee",
+          "transformation": "none"
+        },
+        {
+          "name": "INPUT",
+          "repository_path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/INPUT",
+          "sha256": "e92e89fd96ce0c4f723c2df8e3f80bc98cd5c15118d7a5d8fd79ad2f6abebf0d",
+          "original_sha256": "e92e89fd96ce0c4f723c2df8e3f80bc98cd5c15118d7a5d8fd79ad2f6abebf0d",
+          "original_size_bytes": 1938,
+          "source_path_sha256": "f4fc9346bd3bd2b114f9fbfbd7119a66ca9835771423ed1cd57d5971997a6ec2",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    }
+  ],
+  "control_count": 9,
+  "full_runtime_handoff_verified": false,
+  "runtime_asset_seal_verified": false,
+  "scientific_acceptance_reassessed": false,
+  "automatic_import_candidate_promoted": false,
+  "restrictions": [
+    "仅恢复原controls/元素资产和紧凑receipt，不是完整运行镜像。",
+    "原STRU只作ABACUS生产/NSCF结构，不能替代reader stru_out或其对称性行。",
+    "材料Coulomb/Cs/shrink/PyATB/波函数payload未完整下载及重hash，不能跨材料移植。",
+    "原软件声明与运行日志tokens分层；未验证当前可执行文件或源码树，历史运行不自动匹配v6。",
+    "输入归档不升级现record状态/summary或科学接受。",
+    "原GW manifest fix_commit=9539f4310712c9980fb2516d504807b1cd0240b7，而原EXX/GW stdout Git hash=b6a432b996df62b30b6ebe87367fbc9a6c2eb7aa；差异保留，不用声明覆盖日志。已恢复exx原librpa.in/manifest/start/exit，但软件声明与日志token差异仍未闭合。"
+  ],
+  "additional_restrictions": [
+    "MoSe2/WS2 historical controls lack a full immutable control seal and ABF binding.",
+    "Original full logs and additional remote EXX spectra were not re-read by this importer.",
+    "MoS2/WS2 heterostructure retains 405 dangling reader links; manifests do not prove payload survival."
+  ]
+}

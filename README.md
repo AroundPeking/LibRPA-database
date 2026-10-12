@@ -44,8 +44,11 @@ repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
 Open a calculation and choose **View inputs** or **Input files**. Every archived
 input has a read-only text preview and a download link; nested calculation
 stages retain their archive names to avoid overwriting same-named files. The
-current archive has input files for **20 of 33 calculations** (173 files).
-The other 13 records explicitly say **Inputs not archived**; result files and
+current archive has input files for **29 of 33 calculations** (262 files).
+Nine records include **89 partial stage controls**, with stage-input receipts
+and explicit incomplete-run warnings; these attachments do not certify a full
+production chain, exact basis linkage, or a self-contained rerun bundle.
+The other four records explicitly say **Inputs not archived**; result files and
 candidate basis sets do not establish that the missing inputs exist.
 
 The **Pseudopotentials & basis** section links exact species bindings to their

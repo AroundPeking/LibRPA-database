@@ -1,0 +1,20 @@
+INPUT_PARAMETERS
+pseudo_dir                      ./assets
+orbital_dir                     ./assets
+latname                         user_defined_lattice
+calculation                     nscf
+init_chg                        file
+ntype                           3
+nbands                          180
+ecutwfc                         110
+smearing_method                 gaussian
+smearing_sigma                  1e-4
+basis_type                      lcao
+ks_solver                       genelpa
+dft_functional                  pbe
+nspin                           1
+symmetry                        -1
+out_eband_terms                 1
+out_mat_xc                      1
+out_wfc_lcao                    1
+out_band                        1

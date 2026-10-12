@@ -42,7 +42,151 @@
     "gates": []
   },
   "files": {
-    "inputs": [],
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/715ad5c848a6/librpa.in",
+        "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "size_bytes": 839,
+        "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "label": "EXX / librpa.in (partial stage 715ad5c848a6)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 839,
+        "stage_id": "715ad5c848a6",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/28616464de81/librpa.in",
+        "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "size_bytes": 839,
+        "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "label": "EXX / librpa.in (partial stage 28616464de81)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 839,
+        "stage_id": "28616464de81",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/c001420676d0/librpa.in",
+        "sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+        "size_bytes": 1504,
+        "original_sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+        "label": "GW / librpa.in (partial stage c001420676d0)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 1504,
+        "stage_id": "c001420676d0",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/a40b6a58161e/librpa.in",
+        "sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+        "size_bytes": 1504,
+        "original_sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+        "label": "GW / librpa.in (partial stage a40b6a58161e)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 1504,
+        "stage_id": "a40b6a58161e",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/KPT",
+        "sha256": "ee2d95762aa855c362f3cbb73888a3a835903723454ba596deae859807113355",
+        "size_bytes": 231,
+        "original_sha256": "ee2d95762aa855c362f3cbb73888a3a835903723454ba596deae859807113355",
+        "label": "NSCF / KPT (partial stage 8ce60b5932f4)",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 231,
+        "stage_id": "8ce60b5932f4",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/band_kpath_info",
+        "sha256": "72a6ab7abf8bd07323f1118d7712c51066ce30964a1f1f27d10bb811ad17375e",
+        "size_bytes": 6680,
+        "original_sha256": "72a6ab7abf8bd07323f1118d7712c51066ce30964a1f1f27d10bb811ad17375e",
+        "label": "NSCF / band_kpath_info (partial stage 8ce60b5932f4)",
+        "original_name": "band_kpath_info",
+        "transformation": "none",
+        "original_size_bytes": 6680,
+        "stage_id": "8ce60b5932f4",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/STRU",
+        "sha256": "826637101afb3db49e775c898a00730265bbaa99e0bcc1cd1ba0dee27b755044",
+        "size_bytes": 746,
+        "original_sha256": "826637101afb3db49e775c898a00730265bbaa99e0bcc1cd1ba0dee27b755044",
+        "label": "NSCF / STRU (partial stage 8ce60b5932f4)",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 746,
+        "stage_id": "8ce60b5932f4",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/INPUT",
+        "sha256": "5cada8979d6da25472b13b24eedc72e57b263f0df06015a4bbfc8f003df2f8aa",
+        "size_bytes": 1832,
+        "original_sha256": "5cada8979d6da25472b13b24eedc72e57b263f0df06015a4bbfc8f003df2f8aa",
+        "label": "NSCF / INPUT (partial stage 8ce60b5932f4)",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 1832,
+        "stage_id": "8ce60b5932f4",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/KPT",
+        "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+        "size_bytes": 31,
+        "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+        "label": "SCF / KPT (partial stage ad2279acd111)",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 31,
+        "stage_id": "ad2279acd111",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/STRU",
+        "sha256": "826637101afb3db49e775c898a00730265bbaa99e0bcc1cd1ba0dee27b755044",
+        "size_bytes": 746,
+        "original_sha256": "826637101afb3db49e775c898a00730265bbaa99e0bcc1cd1ba0dee27b755044",
+        "label": "SCF / STRU (partial stage ad2279acd111)",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 746,
+        "stage_id": "ad2279acd111",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/INPUT",
+        "sha256": "8c9cf687f6475e086e683e856852d3137d734449b9f11b11f02d001658bcd180",
+        "size_bytes": 1935,
+        "original_sha256": "8c9cf687f6475e086e683e856852d3137d734449b9f11b11f02d001658bcd180",
+        "label": "SCF / INPUT (partial stage ad2279acd111)",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 1935,
+        "stage_id": "ad2279acd111",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      }
+    ],
     "results": [
       {
         "role": "results",
@@ -86,6 +230,16 @@
         "sha256": "5fbb63cfd04525e007f1be06a6079f11d096afc885b3a37a17052559c4431a70",
         "size_bytes": 2642,
         "label": "Paper-reported Table I values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json",
+        "sha256": "297fbb71a055bb7878005bcb6f933a06aa9569006d9b19e73389207a8f9532bc",
+        "size_bytes": 9433,
+        "original_sha256": "297fbb71a055bb7878005bcb6f933a06aa9569006d9b19e73389207a8f9532bc",
+        "label": "stage_input_receipt.json",
+        "original_name": "stage_input_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -183,7 +337,8 @@
   ],
   "source": {
     "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac"
+    "original_sidecar_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac",
+    "stage_input_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json"
   },
   "scientific_scope": {
     "original_status": "low-energy path diagnostic",

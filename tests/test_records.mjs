@@ -5,6 +5,18 @@ import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { readFileSync } from "node:fs";
 
+test("partial stage controls stay explicitly incomplete and retain redaction provenance", () => {
+  const path = "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json";
+  const record = { id: "mote2-table-gw", material: "MoTe2", dimension: "2d", status: "gw_diagnostic", summary: {}, source: { stage_input_receipt: path }, files: { inputs: [{ path: "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/stage/librpa.in", sha256: "a".repeat(64), original_sha256: "b".repeat(64), transformation: "private server path redacted; not a rerun bundle" }] }, archive_completeness: { status: "incomplete", issues: ["software missing"] } };
+  const html = renderMaterial(record, []);
+  assert.match(html, /Partial stage inputs · not a complete rerun bundle/);
+  assert.match(html, /View stage-input receipt/);
+  assert.match(html, /Upload incomplete · CI blocked/);
+  assert.match(html, /Original SHA-256/);
+  assert.match(html, new RegExp("b".repeat(64)));
+  assert.doesNotMatch(html, /Upload complete · archive checks passed/);
+});
+
 test("properties drive gaps; arbitrary summary values never become GW gaps", () => {
   assert.equal(bandGap({ summary: { value: -4, unit: "Ha", observable: "RPA energy" } }), null);
   assert.equal(bandGap({ summary: { value: 1.3, unit: "eV", observable: "G0W0 gap" } }), 1.3);

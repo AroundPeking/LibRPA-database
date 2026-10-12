@@ -140,6 +140,42 @@ async function main() {
       check((await page.locator(".result-strip > div").nth(1).innerText()).includes("Not reported"), `${material}：结果条EXX不显示正gap`);
       await screenshot(`${material.toLowerCase()}-exx-diagnostic.png`);
     }
+    const partialRecords = calculations.filter(record => record.source?.stage_input_receipt);
+    check(partialRecords.length === 9, "nine recovered cases remain explicitly partial");
+    let partialInputsVerified = 0;
+    for (const record of partialRecords) {
+      check(record.archive_completeness?.status === "incomplete", `${record.id}: controls do not promote upload completeness`);
+      check(record.species.length === 0, `${record.id}: unverified basis bindings are not synthesized`);
+      await go(`#/material/${encodeURIComponent(record.id)}`);
+      await page.locator(".section-nav [data-section='record-inputs']").click();
+      const panel = page.locator("#record-inputs");
+      check((await panel.innerText()).includes("Partial stage inputs · not a complete rerun bundle"), `${record.id}: partial warning visible`);
+      const receiptLink = panel.getByRole("link", { name: "View stage-input receipt ↗", exact: true });
+      check(await receiptLink.getAttribute("href") === `../${record.source.stage_input_receipt}`, `${record.id}: receipt link targets this case`);
+      const receiptResponse = await context.request.get(new URL(record.source.stage_input_receipt, archive).href);
+      check(receiptResponse.ok(), `${record.id}: actual receipt downloadable`);
+      const receiptBytes = await receiptResponse.body();
+      const receiptItem = record.files.results.find(file => file.path === record.source.stage_input_receipt);
+      check(createHash("sha256").update(receiptBytes).digest("hex") === receiptItem.sha256, `${record.id}: receipt SHA verified`);
+      const receipt = JSON.parse(receiptBytes.toString("utf8"));
+      check(receipt.case_id === record.id && receipt.full_runtime_handoff_verified === false && receipt.runtime_asset_seal_verified === false && receipt.scientific_acceptance_reassessed === false && receipt.automatic_import_candidate_promoted === false, `${record.id}: receipt preserves evidence boundaries`);
+      const rows = panel.locator(".file-row");
+      check(await rows.count() === record.files.inputs.length && receipt.control_count === record.files.inputs.length, `${record.id}: receipt/catalog/UI input counts agree`);
+      for (const [index, file] of record.files.inputs.entries()) {
+        const row = rows.nth(index);
+        await previewAndDownload(row, file, path.basename(file.path), `${record.id} / ${file.stage_id} / ${path.basename(file.path)}`);
+        if (file.transformation !== "none") {
+          await row.locator(".file-integrity summary").click();
+          const integrity = await row.locator(".file-integrity").innerText();
+          check(integrity.includes("Original SHA-256") && integrity.includes(file.original_sha256) && integrity.includes(file.transformation), `${record.id}: original SHA and explicit redaction visible`);
+          check(file.original_sha256 !== file.sha256, `${record.id}: redacted bytes have distinct SHA`);
+          await row.locator(".file-integrity").scrollIntoViewIfNeeded();
+          await screenshot("partial-redacted-input.png");
+        }
+        partialInputsVerified += 1;
+      }
+    }
+    check(partialInputsVerified === 89, "89 partial controls previewed and natively downloaded byte-for-byte");
     const withoutInputs = calculations.find(record => !(record.files?.inputs || []).length);
     check(Boolean(withoutInputs), "真实缺输入记录存在，不再使用MoS2作为缺失样例");
     await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
@@ -328,6 +364,11 @@ async function main() {
     await go("#/material/si-paper-all_kpath");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile detail has no horizontal overflow");
     await screenshot("silicon-mobile.png");
+    await go("#/material/mos2_ws2-table-gw");
+    await page.locator(".section-nav [data-section='record-inputs']").click();
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile partial input detail has no horizontal overflow");
+    check((await page.locator("#record-inputs").innerText()).includes("Partial stage inputs · not a complete rerun bundle"), "mobile partial warning visible");
+    await screenshot("partial-inputs-mobile.png");
     await go("#/material/not-a-record");
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "unknown ID handled");
     await go("#/material/%E0%A4%A");

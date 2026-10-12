@@ -42,7 +42,125 @@
     "gates": []
   },
   "files": {
-    "inputs": [],
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/KPT",
+        "sha256": "72513e3b1504563bf85b46ffc9cb5f595789ed439e2ed6059f1b6ef3b72f0889",
+        "size_bytes": 5412,
+        "original_sha256": "72513e3b1504563bf85b46ffc9cb5f595789ed439e2ed6059f1b6ef3b72f0889",
+        "label": "NSCF / KPT (partial stage a9314a2d7fbb)",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 5412,
+        "stage_id": "a9314a2d7fbb",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/band_kpath_info",
+        "sha256": "250290f5697142ed1ddf7f4b2567038c00587977de6bbaca64284eed18d5c8d6",
+        "size_bytes": 8330,
+        "original_sha256": "250290f5697142ed1ddf7f4b2567038c00587977de6bbaca64284eed18d5c8d6",
+        "label": "NSCF / band_kpath_info (partial stage a9314a2d7fbb)",
+        "original_name": "band_kpath_info",
+        "transformation": "none",
+        "original_size_bytes": 8330,
+        "stage_id": "a9314a2d7fbb",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU",
+        "sha256": "36e3a2d44e1467b1e85a2ce1ad82f00ffd95b7006d46e7d344a46868157ed91b",
+        "size_bytes": 503,
+        "original_sha256": "36e3a2d44e1467b1e85a2ce1ad82f00ffd95b7006d46e7d344a46868157ed91b",
+        "label": "NSCF / STRU (partial stage a9314a2d7fbb)",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 503,
+        "stage_id": "a9314a2d7fbb",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/INPUT",
+        "sha256": "e3568e7cf9df93ecf5110fc8774cd25e09d569c2cdf6f142ad78495919230b93",
+        "size_bytes": 1168,
+        "original_sha256": "e3568e7cf9df93ecf5110fc8774cd25e09d569c2cdf6f142ad78495919230b93",
+        "label": "NSCF / INPUT (partial stage a9314a2d7fbb)",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 1168,
+        "stage_id": "a9314a2d7fbb",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/6ca72a37b565/librpa.in",
+        "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "size_bytes": 839,
+        "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+        "label": "EXX / librpa.in (partial stage 6ca72a37b565)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 839,
+        "stage_id": "6ca72a37b565",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/d5ca5cb3a75f/librpa.in",
+        "sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+        "size_bytes": 1494,
+        "original_sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+        "label": "GW / librpa.in (partial stage d5ca5cb3a75f)",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 1494,
+        "stage_id": "d5ca5cb3a75f",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/KPT",
+        "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+        "size_bytes": 31,
+        "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+        "label": "SCF / KPT (partial stage b03cf07e253c)",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 31,
+        "stage_id": "b03cf07e253c",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/STRU",
+        "sha256": "72a616e95a0f3567f8f1920b542238ccbd474675180ccc0bc2274818be02d828",
+        "size_bytes": 561,
+        "original_sha256": "72a616e95a0f3567f8f1920b542238ccbd474675180ccc0bc2274818be02d828",
+        "label": "SCF / STRU (partial stage b03cf07e253c)",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 561,
+        "stage_id": "b03cf07e253c",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/INPUT",
+        "sha256": "e92e89fd96ce0c4f723c2df8e3f80bc98cd5c15118d7a5d8fd79ad2f6abebf0d",
+        "size_bytes": 1938,
+        "original_sha256": "e92e89fd96ce0c4f723c2df8e3f80bc98cd5c15118d7a5d8fd79ad2f6abebf0d",
+        "label": "SCF / INPUT (partial stage b03cf07e253c)",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 1938,
+        "stage_id": "b03cf07e253c",
+        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+      }
+    ],
     "results": [
       {
         "role": "results",
@@ -86,6 +204,16 @@
         "sha256": "7313db5abeeb18a11532211daf9350f8f255f4f8056b7b0f57b0903f395ff0c8",
         "size_bytes": 2413,
         "label": "Paper-reported Table I values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json",
+        "sha256": "18856acea9acdf2dd07b1c8e253bd4808c495193af9bc2529987d67d3317b63f",
+        "size_bytes": 8220,
+        "original_sha256": "18856acea9acdf2dd07b1c8e253bd4808c495193af9bc2529987d67d3317b63f",
+        "label": "stage_input_receipt.json",
+        "original_name": "stage_input_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -183,7 +311,8 @@
   ],
   "source": {
     "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165"
+    "original_sidecar_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165",
+    "stage_input_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json"
   },
   "scientific_scope": {
     "original_status": "near-gap path diagnostic",

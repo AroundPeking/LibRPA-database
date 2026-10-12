@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "case_id": "cuinp2se6-table-gw",
+  "scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import.",
+  "reviewed_recovery_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25",
+  "record_before_sha256": "ae7fb1d040b145b45f125a7c7ee929dcaa5af88518b711e8030c29bb31da0156",
+  "spectra": [
+    {
+      "method": "KS",
+      "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/KS_bands.dat",
+      "sha256": "641d43ce6bb05a40cbce3633f1630ec50204b86b5797ddccd0eedbca5833c4f6",
+      "size_bytes": 1367421
+    },
+    {
+      "method": "EXX",
+      "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/EXX_bands.dat",
+      "sha256": "ba233dbec79b5a682cadaf167c0930dd9d8a11f6db0fad53237941c83f60d329",
+      "size_bytes": 1367421
+    },
+    {
+      "method": "GW",
+      "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/GW_bands.dat",
+      "sha256": "c847452dc1bf684fdceba3f2c0bb66dc2c16757d9085986fc356cf1fc48eb2f5",
+      "size_bytes": 1367421
+    }
+  ],
+  "stages": [
+    {
+      "id": "b67557d8edee",
+      "label": "EXX",
+      "source_directory_sha256": "b67557d8edee8a5585c09ddf4c87425b4131a94626a22ca202a33d78cef1fcb1",
+      "controls": [
+        {
+          "name": "librpa.in",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/b67557d8edee/librpa.in",
+          "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+          "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+          "original_size_bytes": 839,
+          "source_path_sha256": "598d6a2a1a272ec9da32abbb28c75b172a3c1a52a0dc128bf4101a60653d3948",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "359e4f55757d",
+      "label": "GW",
+      "source_directory_sha256": "359e4f55757dadd15fc1d7c8bf1c5e77b931797622280bc468bfb7a2843804f7",
+      "controls": [
+        {
+          "name": "librpa.in",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/359e4f55757d/librpa.in",
+          "sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+          "original_sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+          "original_size_bytes": 1504,
+          "source_path_sha256": "22d021fcc09d79cdc449639142f4bca3ac7dffd675d82d8c69736070f029fa27",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "e92fd23422c1",
+      "label": "GW",
+      "source_directory_sha256": "e92fd23422c1fe9de5181f81e948cf65d07664dcc65fa7bb17e9a098a8caea0e",
+      "controls": [
+        {
+          "name": "librpa.in",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/e92fd23422c1/librpa.in",
+          "sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+          "original_sha256": "64b3b5c1543c00223ee93f5d6b619c7fc5798d4183d33ee02dbc5f20503e8d6d",
+          "original_size_bytes": 1504,
+          "source_path_sha256": "c6309d337e571f120c0617a48d9a00e1cf9123c250596de6d47362667116a420",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "0bfc422bd721",
+      "label": "NSCF",
+      "source_directory_sha256": "0bfc422bd7214acf9289d5682d93da21126409a9cba8bd80f70896b5c2501bc5",
+      "controls": [
+        {
+          "name": "KPT",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/KPT",
+          "sha256": "ee2d95762aa855c362f3cbb73888a3a835903723454ba596deae859807113355",
+          "original_sha256": "ee2d95762aa855c362f3cbb73888a3a835903723454ba596deae859807113355",
+          "original_size_bytes": 231,
+          "source_path_sha256": "06ef21af00281051f5f9973d2094a14531f7c7b21a42153db094177fa61b8682",
+          "transformation": "none"
+        },
+        {
+          "name": "band_kpath_info",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/band_kpath_info",
+          "sha256": "f98964b89d8927603dc095dbcfd664411b20be306071a794f8b649a90acb3230",
+          "original_sha256": "f98964b89d8927603dc095dbcfd664411b20be306071a794f8b649a90acb3230",
+          "original_size_bytes": 6680,
+          "source_path_sha256": "fbc62e8b713a52e28c2f7cbe3688d94e46900d95165c518e4cd711b83bb6567c",
+          "transformation": "none"
+        },
+        {
+          "name": "STRU",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/STRU",
+          "sha256": "4dbec3a1bac3e40970e68c8cf79b6dbeb006d8acedbfab1029be564e53ba3246",
+          "original_sha256": "4dbec3a1bac3e40970e68c8cf79b6dbeb006d8acedbfab1029be564e53ba3246",
+          "original_size_bytes": 1316,
+          "source_path_sha256": "d1506b2335b16286a6c7b1f983155d54186970fd1809f600aec542026ac21317",
+          "transformation": "none"
+        },
+        {
+          "name": "INPUT",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/INPUT",
+          "sha256": "7e02f22a86f1f4ab0e3693122ef37176e8451210dc31e8f6b1176685bf2d8c65",
+          "original_sha256": "7e02f22a86f1f4ab0e3693122ef37176e8451210dc31e8f6b1176685bf2d8c65",
+          "original_size_bytes": 1832,
+          "source_path_sha256": "f956b109008c5cdf2b6b30acd50a930791d3139dea932879c50234276fb0a21f",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    },
+    {
+      "id": "734ea01ae029",
+      "label": "SCF",
+      "source_directory_sha256": "734ea01ae02936c92ed7b91c09cba5989ee5ddfb1103828b629a67c2780219c4",
+      "controls": [
+        {
+          "name": "KPT",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/KPT",
+          "sha256": "82811c399f1f50931bd4122662df9d0760e738a853c62e3d480a56de7a5ec78c",
+          "original_sha256": "82811c399f1f50931bd4122662df9d0760e738a853c62e3d480a56de7a5ec78c",
+          "original_size_bytes": 29,
+          "source_path_sha256": "a770e8fc7db529de924ae52a50a11d778857d1ce7aed9b61417cd2417bd1ce81",
+          "transformation": "none"
+        },
+        {
+          "name": "STRU",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/STRU",
+          "sha256": "4dbec3a1bac3e40970e68c8cf79b6dbeb006d8acedbfab1029be564e53ba3246",
+          "original_sha256": "4dbec3a1bac3e40970e68c8cf79b6dbeb006d8acedbfab1029be564e53ba3246",
+          "original_size_bytes": 1316,
+          "source_path_sha256": "cc26471c68a7e0dba6a2004dad9b3a9ecf8d4237c654332a10650931e87df097",
+          "transformation": "none"
+        },
+        {
+          "name": "INPUT",
+          "repository_path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/INPUT",
+          "sha256": "59eb727bc42ea2327a2e53419ffec92a900b74d533e7b10677e90c1919bf59fc",
+          "original_sha256": "59eb727bc42ea2327a2e53419ffec92a900b74d533e7b10677e90c1919bf59fc",
+          "original_size_bytes": 1935,
+          "source_path_sha256": "0fd71b28361dc06e1d96cb0f90de7f7363a525ae41c3dee27fe17ab2eac66ad3",
+          "transformation": "none"
+        }
+      ],
+      "complete_stage_execution_verified": false
+    }
+  ],
+  "control_count": 10,
+  "full_runtime_handoff_verified": false,
+  "runtime_asset_seal_verified": false,
+  "scientific_acceptance_reassessed": false,
+  "automatic_import_candidate_promoted": false,
+  "restrictions": [
+    "仅恢复原controls/元素资产和紧凑receipt，不是完整运行镜像。",
+    "原STRU只作ABACUS生产/NSCF结构，不能替代reader stru_out或其对称性行。",
+    "材料Coulomb/Cs/shrink/PyATB/波函数payload未完整下载及重hash，不能跨材料移植。",
+    "原软件声明与运行日志tokens分层；未验证当前可执行文件或源码树，历史运行不自动匹配v6。",
+    "输入归档不升级现record状态/summary或科学接受。"
+  ],
+  "additional_restrictions": [
+    "MoSe2/WS2 historical controls lack a full immutable control seal and ABF binding.",
+    "Original full logs and additional remote EXX spectra were not re-read by this importer.",
+    "MoS2/WS2 heterostructure retains 405 dangling reader links; manifests do not prove payload survival."
+  ]
+}
