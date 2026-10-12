@@ -264,7 +264,12 @@ async function main() {
     await go("#/material/hbn-tzdp10-fgext-20261008");
     check(!/[\u3400-\u9fff]/.test(await page.locator("#detail-view").innerText()), "新hBN完整详情为英文且保留原始论文证据");
     const hbnHeadline = await page.locator(".result-primary").innerText();
-    check(hbnHeadline.includes("GW · paper-reported") && hbnHeadline.includes("6.94183 eV"), "replacement hBN displays the cited paper headline");
+    check(hbnHeadline.includes("GW band gap") && hbnHeadline.includes("6.94183 eV") && !hbnHeadline.includes("paper-reported"), "replacement hBN shows one database headline value without a repeated paper label");
+    const reference = page.locator("#record-overview .reference-source");
+    check(await reference.evaluate(details => !details.open), "reference evidence is collapsed by default");
+    check(await reference.locator("table").count() === 0, "no repeated paper/archive value comparison table");
+    await reference.locator("summary").click();
+    check(await reference.locator("a").first().isVisible(), "source extract remains accessible after expansion");
     check(hbnHeadline.includes("Restricted path · not an accepted fundamental gap"), "paper headline keeps the restricted scope beside its number");
     check(!hbnHeadline.includes("Restricted result") && !hbnHeadline.includes("6.68084"), "replacement hBN does not hide its paper value or borrow the old value");
     check((await page.locator(".result-strip > div").nth(0).innerText()).includes("4.68813"), "replacement hBN shows its own cited KS value");

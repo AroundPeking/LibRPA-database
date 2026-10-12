@@ -235,6 +235,11 @@ main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0;
 .candidate-list { list-style: none; padding: 0; margin-bottom: 0; }
 .candidate-list li { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .candidate-list li span { display: block; font-size: 12px; margin-top: 4px; }
+.reference-source { border: 1px solid var(--line); border-radius: 5px; margin-top: 22px; background: var(--bg); }
+.reference-source > summary { min-height: 44px; padding: 12px 16px; font-size: 14px; color: var(--ink); }
+.reference-source > summary span { color: var(--muted); margin-left: 12px; font-size: 13px; }
+.reference-body { padding: 0 16px 16px; color: var(--muted); font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+.reference-body code { display: block; }
 .archive-completeness, .original-figures { border: 1px solid var(--line); border-radius: 5px; margin-top: 22px; background: var(--bg); }
 .archive-completeness > summary, .original-figures > summary { min-height: 44px; padding: 12px 16px; font-size: 14px; color: var(--ink); }
 .completeness-label { color: var(--muted); font-size: 13px; }

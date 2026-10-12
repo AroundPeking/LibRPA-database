@@ -212,10 +212,13 @@ Paper primary values remain separate from archived-run values. `paper_values`
 records the paper title, PDF SHA-256, page, table, primary-author column, and
 reported precision, citing the same-record
 `results/paper_reported_values.json`. The excerpt must agree with display
-metadata and pass file-hash checks. Lists and details preferentially display
-explicitly paper-reported PBE/GW values; the Overview also shows original
-archive/path values. Original `properties`, `summary`, spectra, and scientific
-statuses remain unchanged. Do not fabricate paper EXX values when the main
+metadata and pass file-hash checks. Lists and detail headlines keep the
+established database PBE/GW values and show one primary value per method,
+without a repeated paper/archive comparison table. Overview retains a
+collapsed reference and source-evidence panel. Original `properties`,
+`summary`, spectra, and scientific statuses remain unchanged; original
+archive/path values remain accessible in the evidence-linked properties
+and downloadable result files. Do not fabricate paper EXX values when the main
 table has no EXX column; existing EXX values retain their archive attribution.
 A finite paper value cannot replace the same-method original-spectrum evidence
 required by strict upload checks or remove completeness blockers. The old hBN

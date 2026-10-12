@@ -26,6 +26,27 @@ test("all real material and basis pages render English without rewriting archive
   assert.equal(JSON.stringify(catalog), before);
 });
 
+test("all database headlines retain their values while references omit repeated numeric tables", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const before = JSON.stringify(catalog);
+  for (const record of catalog.calculations) {
+    const html = renderMaterial(record, catalog.basis_sets);
+    const headline = html.slice(html.indexOf('class="result-strip"'), html.indexOf('class="detail-layout"'));
+    assert.doesNotMatch(headline, /paper-reported/, record.id);
+    for (const method of ["DFT", "EXX", "GW"]) {
+      const value = bandGap(record, method);
+      if (value !== null) assert.ok(headline.includes(value.toFixed(paperGap(record, method)?.precision ?? 3)), `${record.id} ${method}`);
+    }
+    if (paperGap(record, "DFT") || paperGap(record, "GW")) {
+      const reference = html.slice(html.indexOf('<details class="reference-source">'), html.indexOf('</details>', html.indexOf('<details class="reference-source">')));
+      assert.match(reference, /^<details class="reference-source"><summary>/, record.id);
+      assert.doesNotMatch(reference, /<table|Archived \/ path value|Paper-reported values/, record.id);
+      assert.match(reference, /Download source extract/, record.id);
+    }
+  }
+  assert.equal(JSON.stringify(catalog), before);
+});
+
 test("properties drive gaps; arbitrary summary values never become GW gaps", () => {
   assert.equal(bandGap({ summary: { value: -4, unit: "Ha", observable: "RPA energy" } }), null);
   assert.equal(bandGap({ summary: { value: 1.3, unit: "eV", observable: "G0W0 gap" } }), 1.3);
@@ -59,13 +80,17 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(archivedBandGap(record, "DFT"), 0.60168);
   assert.equal(bandGap(record, "EXX"), null);
   const html = renderMaterial(record, []);
-  assert.match(html, /Paper-reported values/);
+  assert.match(html, /Reference &amp; source evidence/);
   assert.match(html, /1\.80171/);
-  assert.match(html, /0\.60168/);
+  const overview = html.slice(html.indexOf('id="record-overview"'), html.indexOf('id="record-structure"'));
+  assert.doesNotMatch(overview, /0\.60168|Paper-reported values|Archived \/ path value|<table/);
+  assert.doesNotMatch(html, /· paper-reported/);
+  assert.equal((html.match(/1\.80171/g) || []).length, 1);
+  assert.match(html, /<details class="reference-source"><summary>/);
   assert.match(html, /Paper &lt;test&gt;/);
   assert.match(html, /PDF p\. 12 · Table I/);
-  assert.match(html, /Download paper-value extract/);
-  assert.match(html, /Reported scope/);
+  assert.match(html, /Download source extract/);
+  assert.match(html, /Source scope/);
   assert.match(html, /Restricted &lt;scope&gt;; not a certification/);
   assert.doesNotMatch(html, /Restricted <scope>/);
   record.status = "path_diagnostic";
@@ -89,13 +114,14 @@ test("new hBN shows the cited 6.94183 headline without accepting the restricted 
   assert.equal(archivedBandGap(record), null);
   const html = renderMaterial(record, []);
   const headline = html.slice(html.indexOf('class="result-strip"'), html.indexOf('class="detail-layout"'));
-  assert.match(headline, /GW · paper-reported/);
+  assert.match(headline, /GW band gap/);
+  assert.doesNotMatch(headline, /paper-reported/);
   assert.match(headline, /6\.94183/);
   assert.match(headline, /Restricted path · not an accepted fundamental gap/);
   assert.doesNotMatch(headline, /Restricted result|6\.68084/);
   assert.match(html, /GW raw-band-5 frontier path gap/);
   assert.match(html, /PBE valley-order gate FAILED/);
-  assert.match(html, /numerical sorting uses that reported value/);
+  assert.match(html, /numerical sorting uses that value/);
   const old = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-table-gw/record.json", import.meta.url)));
   assert.equal(old.paper_values, undefined);
   assert.equal(bandGap(old), 6.68084);
@@ -206,7 +232,8 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.match(index, /id="filter-toggle"[^>]*aria-expanded="false"/);
   assert.match(app, /Materials, with evidence\./);
   assert.match(app, /archived k-path is not the global fundamental gap/);
-  assert.match(app, /PBE\/GW values prefer the paper's own columns/);
+  assert.match(app, /database values are in eV/);
+  assert.doesNotMatch(app, /Paper-reported · Table|Original path values and differences are retained/);
 });
 
 test("header and favicon share a small editable SVG brand mark", () => {
