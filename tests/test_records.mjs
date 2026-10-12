@@ -236,6 +236,15 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.doesNotMatch(app, /Paper-reported · Table|Original path values and differences are retained/);
 });
 
+test("database branding is front-end neutral and supports ABACUS and FHI-aims workflows", () => {
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  assert.match(index, /<span>LibRPA<small>MATERIALS DATABASE<\/small><\/span>/);
+  assert.match(index, /ABACUS and FHI-aims workflows/);
+  assert.doesNotMatch(index, /ABACUS <b>\+<\/b> LibRPA|Materials database · ABACUS/);
+  assert.doesNotMatch(app, / · ABACUS \+ LibRPA/);
+});
+
 test("header and favicon share a small editable SVG brand mark", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const logo = readFileSync(new URL("../database/logo.svg", import.meta.url), "utf8");

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "P-producer-cc6dfb48f33f2e83f544",
+  "element": "P",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+    "receipts": [
+      "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/P/pseudopotentials/efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0.upf",
+      "sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+      "size_bytes": 90020,
+      "original_sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+      "label": "P_ONCV_PBE-1.0.upf",
+      "original_name": "P_ONCV_PBE-1.0.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "P_ONCV_PBE-1.0.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/P/orbitals/c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35.orb",
+      "sha256": "c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35",
+      "size_bytes": 182638,
+      "original_sha256": "c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35",
+      "label": "P_gga_10au_100Ry_3s3p2d.orb",
+      "original_name": "P_gga_10au_100Ry_3s3p2d.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "P_gga_10au_100Ry_3s3p2d.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/P/auxiliary/d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b.abfs",
+      "sha256": "d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b",
+      "size_bytes": 2043447,
+      "original_sha256": "d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b",
+      "label": "P_3s3p2d2f1g_pca1e-6.abfs",
+      "original_name": "P_3s3p2d2f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "P_3s3p2d2f1g_pca1e-6.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical production association verified; generation history not reassessed"
+  },
+  "used_by": [
+    "phosphorene-table-gw"
+  ]
+}

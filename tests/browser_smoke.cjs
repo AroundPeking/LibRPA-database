@@ -194,10 +194,13 @@ async function main() {
     }
     check(partialInputsVerified === 89, "89 partial controls previewed and natively downloaded byte-for-byte");
     const withoutInputs = calculations.find(record => !(record.files?.inputs || []).length);
-    check(Boolean(withoutInputs), "真实缺输入记录存在，不再使用MoS2作为缺失样例");
-    await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
-    check((await page.locator("#record-inputs").innerText()).includes("Inputs not archived"), "缺失输入说明明确");
-    check(await page.locator("#record-inputs a[download]").count() === 0, "缺输入记录没有合成下载");
+    if (withoutInputs) {
+      await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
+      check((await page.locator("#record-inputs").innerText()).includes("Inputs not archived"), "缺失输入说明明确");
+      check(await page.locator("#record-inputs a[download]").count() === 0, "缺输入记录没有合成下载");
+    } else {
+      check(calculations.every(record => (record.files?.inputs || []).length > 0), "全部公开记录均有归档输入，不再强制保留缺失样例");
+    }
     const incomplete = calculations.find(record => record.archive_completeness?.status === "incomplete");
     check(Boolean(incomplete), "真实incomplete catalog样例存在");
     await go(`#/material/${encodeURIComponent(incomplete.id)}`);

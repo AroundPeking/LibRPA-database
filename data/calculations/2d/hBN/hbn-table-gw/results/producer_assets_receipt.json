@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "case_id": "hbn-table-gw",
+  "imported_at": "2026-10-12",
+  "record_before_sha256": "29e18a2d5919110b3dddeac665267037f5421c7bc42e49e06bcf7ea7ed9230e9",
+  "source_note": "compute_backup_review_20260514 gw/2d/mono-hBN/gw_14au/6_3_ccp production directory",
+  "inputs": [
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT",
+      "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+      "size_bytes": 625,
+      "stage": "gw",
+      "original_name": "INPUT"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_scf",
+      "sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
+      "size_bytes": 704,
+      "stage": "gw",
+      "original_name": "INPUT_scf"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_nscf",
+      "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+      "size_bytes": 625,
+      "stage": "gw",
+      "original_name": "INPUT_nscf"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT",
+      "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+      "size_bytes": 175,
+      "stage": "gw",
+      "original_name": "KPT"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_scf",
+      "sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
+      "size_bytes": 31,
+      "stage": "gw",
+      "original_name": "KPT_scf"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_nscf",
+      "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+      "size_bytes": 175,
+      "stage": "gw",
+      "original_name": "KPT_nscf"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/STRU",
+      "sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
+      "size_bytes": 555,
+      "stage": "gw",
+      "original_name": "STRU"
+    },
+    {
+      "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/librpa.in",
+      "sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+      "size_bytes": 217,
+      "stage": "gw",
+      "original_name": "librpa.in"
+    }
+  ],
+  "structures": [
+    {
+      "archived_stru_path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/STRU",
+      "sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1"
+    }
+  ],
+  "references": [
+    {
+      "element": "B",
+      "set_id": "B-producer-38083441768ddce230e6",
+      "declared_names": {
+        "pp": "B.PD04.PBE.UPF",
+        "nao": "B_gga_14au_150Ry_3s3p2d.orb",
+        "abf": "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [
+        "pp"
+      ],
+      "payload_sha256": {
+        "nao": "fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80",
+        "abf": "d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6"
+      }
+    },
+    {
+      "element": "N",
+      "set_id": "N-producer-855afdf5a7f51fae53f3",
+      "declared_names": {
+        "pp": "N_ONCV_PBE-1.0.upf",
+        "nao": "N_gga_14au_150Ry_3s3p2d.orb",
+        "abf": "N_14au_3s3p2d2f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [],
+      "payload_sha256": {
+        "pp": "b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475",
+        "nao": "ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067",
+        "abf": "4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4"
+      }
+    }
+  ],
+  "remaining_gaps": [
+    "B production PP (B.PD04.PBE.UPF) payload was not preserved in available backups; N and the B NAO/ABF are bound, the B PP stays an explicit missing role",
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "notes": "Inputs and PP/NAO/ABF payloads are byte-preserved originals from the user-located production evidence. This receipt closes input and basis-binding evidence only; software identities, full runtime handoff and scientific acceptance are unchanged."
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "Te-producer-4955a4a8e12c1ad36d71",
+  "element": "Te",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+    "receipts": [
+      "data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Te/pseudopotentials/97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339.upf",
+      "sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+      "size_bytes": 285515,
+      "original_sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+      "label": "../assets/Te/Te.upf",
+      "original_name": "../assets/Te/Te.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Te/Te.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Te/orbitals/ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc.orb",
+      "sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+      "size_bytes": 388048,
+      "original_sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+      "label": "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb",
+      "original_name": "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Te/auxiliary/c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f.abfs",
+      "sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+      "size_bytes": 1824914,
+      "original_sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+      "label": "../assets/Te/Te_stringent_plusg_pca1e-4.abfs",
+      "original_name": "../assets/Te/Te_stringent_plusg_pca1e-4.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Te/Te_stringent_plusg_pca1e-4.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical production association verified; generation history not reassessed"
+  },
+  "used_by": [
+    "gete-table-gw"
+  ]
+}

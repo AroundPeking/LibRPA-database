@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "Sn-producer-4cec7777ab06579a944d",
+  "element": "Sn",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+    "receipts": [
+      "data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Sn/pseudopotentials/906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c.upf",
+      "sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+      "size_bytes": 280050,
+      "original_sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+      "label": "../assets/Sn/PP.upf",
+      "original_name": "../assets/Sn/PP.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Sn/PP.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Sn/orbitals/fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da.orb",
+      "sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+      "size_bytes": 251731,
+      "original_sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+      "label": "../assets/Sn/physical.orb",
+      "original_name": "../assets/Sn/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Sn/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Sn/auxiliary/2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4.abfs",
+      "sha256": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+      "size_bytes": 1471454,
+      "original_sha256": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+      "label": "../assets/Sn/auxiliary.abfs",
+      "original_name": "../assets/Sn/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Sn/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical production association verified; generation history not reassessed"
+  },
+  "used_by": [
+    "snse-table-gw"
+  ]
+}

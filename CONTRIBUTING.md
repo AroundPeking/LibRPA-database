@@ -1,6 +1,6 @@
-# Contributing to the ABACUS + LibRPA GW database
+# Contributing to the LibRPA materials database
 
-Use the companion [basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill) for the generation and validation method. This repository is the data layer: it receives immutable element-set and calculation records.
+This repository is the data layer for LibRPA calculations produced with supported electronic-structure front ends, including ABACUS and FHI-aims. For the ABACUS/NAO subset, use the companion [basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill) for generation and validation guidance. Each contribution must retain its code-specific basis representation, immutable calculation records, and exact provenance.
 
 ## Before adding files
 

@@ -1,0 +1,22 @@
+INPUT_PARAMETERS
+suffix                   ABACUS
+calculation              nscf
+basis_type               lcao
+ks_solver                genelpa
+ntype                    2
+nspin                    1
+noncolin                 0
+lspinorb                 0
+dft_functional           pbe
+symmetry                 -1
+ecutwfc                  150
+ecutrho                  600
+nbands                   212
+smearing_method          gaussian
+smearing_sigma           7.3498618005485649e-06
+scf_thr                  1e-9
+scf_nmax                 200
+out_band                 1 12
+init_chg                 file
+read_file_dir            ../scf/OUT.ABACUS/
+out_chg                  0

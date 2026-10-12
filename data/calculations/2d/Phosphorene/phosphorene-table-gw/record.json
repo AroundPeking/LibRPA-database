@@ -5,7 +5,19 @@
   "material": "Phosphorene",
   "formula": "Phosphorene",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "P",
+      "set_id": "P-producer-cc6dfb48f33f2e83f544",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "P_ONCV_PBE-1.0.upf",
+        "nao": "P_gga_10au_100Ry_3s3p2d.orb",
+        "abf": "P_3s3p2d2f1g_pca1e-6.abfs"
+      },
+      "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+    }
+  ],
   "basis_candidates": [
     {
       "element": "P",
@@ -37,7 +49,112 @@
     "gates": []
   },
   "files": {
-    "inputs": [],
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT",
+        "sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+        "size_bytes": 625,
+        "original_sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+        "label": "gw / INPUT",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 625,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_scf",
+        "sha256": "ace43571b62f68db6c5727b127d81c34b4d8cf22c725402ed1a3470115e1afa3",
+        "size_bytes": 645,
+        "original_sha256": "ace43571b62f68db6c5727b127d81c34b4d8cf22c725402ed1a3470115e1afa3",
+        "label": "gw / INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "none",
+        "original_size_bytes": 645,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_nscf",
+        "sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+        "size_bytes": 625,
+        "original_sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+        "label": "gw / INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "none",
+        "original_size_bytes": 625,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT",
+        "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "size_bytes": 175,
+        "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "label": "gw / KPT",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 175,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_scf",
+        "sha256": "85e1e0f1268b74007220353002d738cf4b4ff39576a4e3b012d063ab5b026392",
+        "size_bytes": 31,
+        "original_sha256": "85e1e0f1268b74007220353002d738cf4b4ff39576a4e3b012d063ab5b026392",
+        "label": "gw / KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none",
+        "original_size_bytes": 31,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_nscf",
+        "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "size_bytes": 175,
+        "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "label": "gw / KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none",
+        "original_size_bytes": 175,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/STRU",
+        "sha256": "cf568555bb191f8d39a1d4227f8c5a3b1f5a0fea3ae4d574731df7fdf1d67d97",
+        "size_bytes": 492,
+        "original_sha256": "cf568555bb191f8d39a1d4227f8c5a3b1f5a0fea3ae4d574731df7fdf1d67d97",
+        "label": "gw / STRU",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 492,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/librpa.in",
+        "sha256": "29b86622943cb4175a5199c9432763f1b7bed6c79bae29b09fa011a66be1c0f0",
+        "size_bytes": 196,
+        "original_sha256": "29b86622943cb4175a5199c9432763f1b7bed6c79bae29b09fa011a66be1c0f0",
+        "label": "gw / librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 196,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      }
+    ],
     "results": [
       {
         "role": "results",
@@ -81,6 +198,16 @@
         "sha256": "e19a5326d9ac63e9634ff15118d9fa51113bbc64b467bdb856f202d3949ec5b4",
         "size_bytes": 2133,
         "label": "Paper-reported Table I values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json",
+        "sha256": "3fc0a0d934e2ed02ccda70f2a747252f51cbdb86d6849381529f55e40706bc4e",
+        "size_bytes": 3659,
+        "original_sha256": "3fc0a0d934e2ed02ccda70f2a747252f51cbdb86d6849381529f55e40706bc4e",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -173,12 +300,12 @@
   },
   "recommendation": null,
   "missing": [
-    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
     "Full per-case ABACUS/LibRPA commits pending source-case audit"
   ],
   "source": {
     "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0"
+    "original_sidecar_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0",
+    "producer_assets_receipt": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "accepted",

@@ -6,19 +6,11 @@
     "total": 33,
     "complete": 1,
     "incomplete": 32,
-    "issue_count": 87,
+    "issue_count": 60,
     "missing_categories": {
       "basis_binding": {
-        "cases": 6,
-        "issues": 21
-      },
-      "inputs": {
-        "cases": 4,
-        "issues": 16
-      },
-      "properties": {
-        "cases": 2,
-        "issues": 2
+        "cases": 3,
+        "issues": 12
       },
       "software": {
         "cases": 32,
@@ -68,35 +60,13 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "input INPUT: missing readable declared production input in this calculation",
-        "input KPT: missing readable declared production input in this calculation",
-        "input STRU: missing readable declared production input in this calculation",
-        "input librpa.in: missing readable declared production input in this calculation",
-        "species: missing exact binding for formula element Ge",
-        "species: missing exact binding for formula element Te",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
         "software.abacus.commit: full immutable commit is required",
-        "software.librpa.commit: full immutable commit is required",
-        "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+        "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "inputs": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation"
-        ],
-        "basis_binding": [
-          "species: missing exact binding for formula element Ge",
-          "species: missing exact binding for formula element Te",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
-        ],
         "software": [
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
-        ],
-        "properties": [
-          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
         ]
       }
     },
@@ -221,26 +191,10 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "input INPUT: missing readable declared production input in this calculation",
-        "input KPT: missing readable declared production input in this calculation",
-        "input STRU: missing readable declared production input in this calculation",
-        "input librpa.in: missing readable declared production input in this calculation",
-        "species: missing exact binding for formula element P",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
         "software.abacus.commit: full immutable commit is required",
         "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "inputs": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation"
-        ],
-        "basis_binding": [
-          "species: missing exact binding for formula element P",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
-        ],
         "software": [
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
@@ -254,35 +208,13 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "input INPUT: missing readable declared production input in this calculation",
-        "input KPT: missing readable declared production input in this calculation",
-        "input STRU: missing readable declared production input in this calculation",
-        "input librpa.in: missing readable declared production input in this calculation",
-        "species: missing exact binding for formula element Se",
-        "species: missing exact binding for formula element Sn",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
         "software.abacus.commit: full immutable commit is required",
-        "software.librpa.commit: full immutable commit is required",
-        "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+        "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "inputs": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation"
-        ],
-        "basis_binding": [
-          "species: missing exact binding for formula element Se",
-          "species: missing exact binding for formula element Sn",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
-        ],
         "software": [
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
-        ],
-        "properties": [
-          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
         ]
       }
     },
@@ -356,27 +288,15 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "input INPUT: missing readable declared production input in this calculation",
-        "input KPT: missing readable declared production input in this calculation",
-        "input STRU: missing readable declared production input in this calculation",
-        "input librpa.in: missing readable declared production input in this calculation",
-        "species: missing exact binding for formula element B",
-        "species: missing exact binding for formula element N",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "species B: missing_roles is not empty: ['pp']",
+        "species B: expected one unambiguous pp payload, found 0",
         "software.abacus.commit: full immutable commit is required",
         "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "inputs": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation"
-        ],
         "basis_binding": [
-          "species: missing exact binding for formula element B",
-          "species: missing exact binding for formula element N",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
+          "species B: missing_roles is not empty: ['pp']",
+          "species B: expected one unambiguous pp payload, found 0"
         ],
         "software": [
           "software.abacus.commit: full immutable commit is required",

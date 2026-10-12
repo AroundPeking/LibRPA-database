@@ -1,4 +1,4 @@
-# ABACUS + LibRPA GW database
+# LibRPA materials database
 
 ## [Open web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)
 
@@ -8,7 +8,7 @@ Click the link above to search materials, view calculation details, and preview 
 download archived inputs and basis files. No installation, GitHub sign-in, or
 local server is needed. The files below are the source repository, not the live UI.
 
-This repository is the data companion to the [ABACUS + LibRPA GW basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill). It stores the hash-addressed PP, physical NAO, optional `for_aux` orbital, ABF, inputs, logs, figures, and KS/EXX/GW results collected for ABACUS + LibRPA workflows.
+This repository is an open data archive for LibRPA materials calculations. It can host results produced through both ABACUS + LibRPA and FHI-aims + LibRPA workflows, while retaining each calculation's code-specific inputs, basis data, provenance, and validation scope. The existing [ABACUS + LibRPA GW basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill) remains a companion for the ABACUS/NAO subset; it does not define the scope of the database.
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 

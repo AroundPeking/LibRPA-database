@@ -5,7 +5,32 @@
   "material": "hBN",
   "formula": "hBN",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "B",
+      "set_id": "B-producer-38083441768ddce230e6",
+      "missing_roles": [
+        "pp"
+      ],
+      "asset_aliases": {
+        "pp": "B.PD04.PBE.UPF",
+        "nao": "B_gga_14au_150Ry_3s3p2d.orb",
+        "abf": "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+      },
+      "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+    },
+    {
+      "element": "N",
+      "set_id": "N-producer-855afdf5a7f51fae53f3",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "N_ONCV_PBE-1.0.upf",
+        "nao": "N_gga_14au_150Ry_3s3p2d.orb",
+        "abf": "N_14au_3s3p2d2f1g_pca1e-6.abfs"
+      },
+      "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+    }
+  ],
   "basis_candidates": [
     {
       "element": "B",
@@ -52,7 +77,112 @@
     "gates": []
   },
   "files": {
-    "inputs": [],
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT",
+        "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+        "size_bytes": 625,
+        "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+        "label": "gw / INPUT",
+        "original_name": "INPUT",
+        "transformation": "none",
+        "original_size_bytes": 625,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_scf",
+        "sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
+        "size_bytes": 704,
+        "original_sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
+        "label": "gw / INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "none",
+        "original_size_bytes": 704,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_nscf",
+        "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+        "size_bytes": 625,
+        "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+        "label": "gw / INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "none",
+        "original_size_bytes": 625,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT",
+        "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "size_bytes": 175,
+        "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "label": "gw / KPT",
+        "original_name": "KPT",
+        "transformation": "none",
+        "original_size_bytes": 175,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_scf",
+        "sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
+        "size_bytes": 31,
+        "original_sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
+        "label": "gw / KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none",
+        "original_size_bytes": 31,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_nscf",
+        "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "size_bytes": 175,
+        "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+        "label": "gw / KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none",
+        "original_size_bytes": 175,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/STRU",
+        "sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
+        "size_bytes": 555,
+        "original_sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
+        "label": "gw / STRU",
+        "original_name": "STRU",
+        "transformation": "none",
+        "original_size_bytes": 555,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/librpa.in",
+        "sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+        "size_bytes": 217,
+        "original_sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+        "label": "gw / librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none",
+        "original_size_bytes": 217,
+        "stage_id": "gw",
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+      }
+    ],
     "results": [
       {
         "role": "results",
@@ -89,6 +219,16 @@
         "original_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
         "label": "hbn.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json",
+        "sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
+        "size_bytes": 4169,
+        "original_sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -181,12 +321,13 @@
   },
   "recommendation": null,
   "missing": [
-    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+    "B production PP (B.PD04.PBE.UPF) payload was not preserved in available backups; N and the B NAO/ABF are bound, the B PP stays an explicit missing role",
     "Full per-case ABACUS/LibRPA commits pending source-case audit"
   ],
   "source": {
     "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf"
+    "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
+    "producer_assets_receipt": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "near-frontier diagnostic",

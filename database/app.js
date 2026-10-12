@@ -110,7 +110,7 @@ function renderHome() {
   $("#catalog").setAttribute("aria-busy", "false");
   const headings = basis ? ["Element / family", "Assets", "Publication", "Recorded scope", "Linked", ""] : ["Material", "Dim.", "Methods", "DFT gap", "EXX gap", "GW gap", "Inputs", ""];
   $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and electronic band gaps in eV"}</caption><thead><tr>${headings.map((heading, i) => `<th scope="col" class="${!basis && i >= 3 && i <= 5 ? "numeric" : ""}">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
-  document.title = `${basis ? "Basis library" : "Materials"} · ABACUS + LibRPA`;
+  document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
 }
 
@@ -140,7 +140,7 @@ function route() {
     $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/">Return to materials</a></div>';
     const back = $(".breadcrumb a");
     if (back && (match[1] === "material" ? state.mode === "materials" : state.mode === "basis")) back.href = state.returnHash;
-    document.title = `${record?.material || record?.id || "Record not found"} · ABACUS + LibRPA`;
+    document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;
     document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === (match[1] === "material" ? "materials" : "basis") ? "page" : "false"));
     window.scrollTo(0, 0);
     if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();

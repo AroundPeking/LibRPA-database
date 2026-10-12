@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "case_id": "snse-table-gw",
+  "imported_at": "2026-10-12",
+  "record_before_sha256": "9884ea4fbf16ca19950b1d7a709892303d769244c23117f39a864b97f0ccde67",
+  "source_note": "production_20260909 SnSe library TZDP plus-G producer directory",
+  "inputs": [
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/INPUT",
+      "sha256": "a8dadca3b371812510118bfc3b330f26fdc30743940da6f24863b94ce280c0ee",
+      "size_bytes": 1896,
+      "stage": "scf",
+      "original_name": "INPUT"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/KPT",
+      "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+      "size_bytes": 31,
+      "stage": "scf",
+      "original_name": "KPT"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU",
+      "sha256": "d653453620830a4ce9e46285f7a9f6426bf6395df5ba10919fd4f5ff642d2124",
+      "size_bytes": 737,
+      "stage": "scf",
+      "original_name": "STRU"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/INPUT",
+      "sha256": "2ee66a99ffed9427f1afb8e50843f5316abd4497bee935f0c469f9eddba6862d",
+      "size_bytes": 1124,
+      "stage": "band",
+      "original_name": "INPUT"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/KPT",
+      "sha256": "ad072b869ff724daef578760f252594106768a03525e33ed257fa59617c5c7f5",
+      "size_bytes": 28820,
+      "stage": "band",
+      "original_name": "KPT"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/STRU",
+      "sha256": "d439adc4f29bc873d2b527a1b536b38f5f158634264ee27cdef688dca328d2ec",
+      "size_bytes": 667,
+      "stage": "band",
+      "original_name": "STRU"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/gw/librpa.in",
+      "sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+      "size_bytes": 1494,
+      "stage": "gw",
+      "original_name": "librpa.in"
+    },
+    {
+      "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/exx/librpa.in",
+      "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+      "size_bytes": 839,
+      "stage": "exx",
+      "original_name": "librpa.in"
+    }
+  ],
+  "structures": [
+    {
+      "archived_stru_path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU",
+      "sha256": "d653453620830a4ce9e46285f7a9f6426bf6395df5ba10919fd4f5ff642d2124"
+    },
+    {
+      "archived_stru_path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/STRU",
+      "sha256": "d439adc4f29bc873d2b527a1b536b38f5f158634264ee27cdef688dca328d2ec"
+    }
+  ],
+  "references": [
+    {
+      "element": "Se",
+      "set_id": "Se-producer-da3b5500bb6569f20f01",
+      "declared_names": {
+        "pp": "../assets/Se/PP.upf",
+        "nao": "../assets/Se/physical.orb",
+        "abf": "../assets/Se/auxiliary.abfs"
+      },
+      "missing_roles": [],
+      "payload_sha256": {
+        "pp": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+        "nao": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+        "abf": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa"
+      }
+    },
+    {
+      "element": "Sn",
+      "set_id": "Sn-producer-4cec7777ab06579a944d",
+      "declared_names": {
+        "pp": "../assets/Sn/PP.upf",
+        "nao": "../assets/Sn/physical.orb",
+        "abf": "../assets/Sn/auxiliary.abfs"
+      },
+      "missing_roles": [],
+      "payload_sha256": {
+        "pp": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+        "nao": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+        "abf": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4"
+      }
+    }
+  ],
+  "remaining_gaps": [
+    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+  ],
+  "notes": "Inputs and PP/NAO/ABF payloads are byte-preserved originals from the user-located production evidence. This receipt closes input and basis-binding evidence only; software identities, full runtime handoff and scientific acceptance are unchanged."
+}

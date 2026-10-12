@@ -762,6 +762,68 @@
     },
     {
       "schema_version": 1,
+      "id": "B-producer-38083441768ddce230e6",
+      "element": "B",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "nao",
+          "path": "data/elements/B/orbitals/fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80.orb",
+          "sha256": "fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80",
+          "size_bytes": 261885,
+          "original_sha256": "fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80",
+          "label": "B_gga_14au_150Ry_3s3p2d.orb",
+          "original_name": "B_gga_14au_150Ry_3s3p2d.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "B_gga_14au_150Ry_3s3p2d.orb"
+          ],
+          "display_name": "B_gga_14au_150Ry_3s3p2d.orb",
+          "download_name": "B_gga_14au_150Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "B_gga_14au_150Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/B/auxiliary/d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6.abfs",
+          "sha256": "d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6",
+          "size_bytes": 3277170,
+          "original_sha256": "d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6",
+          "label": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "original_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+          ],
+          "display_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "download_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "hbn-table-gw"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "C-SG15-29dd9def3bd2",
       "element": "C",
       "family": "SG15",
@@ -3127,6 +3189,81 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "Ge-producer-dcdf905c08c4860733f3",
+      "element": "Ge",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Ge/pseudopotentials/cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33.upf",
+          "sha256": "cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33",
+          "size_bytes": 319730,
+          "original_sha256": "cf90d82d554bc73d3a56632af35d60c528e10d7bbde6040ee055f692b564fe33",
+          "label": "../assets/Ge/Ge.upf",
+          "original_name": "../assets/Ge/Ge.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ge/Ge.upf"
+          ],
+          "display_name": "Ge_Recovered-producer-bound-assets_pp_cf90d82d554b.upf",
+          "download_name": "Ge_Recovered-producer-bound-assets_pp_cf90d82d554b.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Ge/orbitals/ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01.orb",
+          "sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+          "size_bytes": 391002,
+          "original_sha256": "ebe513b2dd0e639f1d9962e6dde91387175758df16d0021dda935c6d14dbff01",
+          "label": "../assets/Ge/Ge_gga_10au_150Ry_6s6p3d2f.orb",
+          "original_name": "../assets/Ge/Ge_gga_10au_150Ry_6s6p3d2f.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ge/Ge_gga_10au_150Ry_6s6p3d2f.orb"
+          ],
+          "display_name": "Ge_Recovered-producer-bound-assets_nao_ebe513b2dd0e.orb",
+          "download_name": "Ge_Recovered-producer-bound-assets_nao_ebe513b2dd0e.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Ge/auxiliary/a8f0b316f98c5b5f8aee0b2180f1dde17559eb703229ad3a5e57ffac026910d9.abfs",
+          "sha256": "a8f0b316f98c5b5f8aee0b2180f1dde17559eb703229ad3a5e57ffac026910d9",
+          "size_bytes": 1745042,
+          "original_sha256": "a8f0b316f98c5b5f8aee0b2180f1dde17559eb703229ad3a5e57ffac026910d9",
+          "label": "../assets/Ge/Ge_stringent_plusg_pca1e-4.abfs",
+          "original_name": "../assets/Ge/Ge_stringent_plusg_pca1e-4.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ge/Ge_stringent_plusg_pca1e-4.abfs"
+          ],
+          "display_name": "Ge_Recovered-producer-bound-assets_abf_a8f0b316f98c.abfs",
+          "download_name": "Ge_Recovered-producer-bound-assets_abf_a8f0b316f98c.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "gete-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -5690,6 +5827,87 @@
     },
     {
       "schema_version": 1,
+      "id": "N-producer-855afdf5a7f51fae53f3",
+      "element": "N",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/N/pseudopotentials/b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475.upf",
+          "sha256": "b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475",
+          "size_bytes": 89696,
+          "original_sha256": "b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475",
+          "label": "N_ONCV_PBE-1.0.upf",
+          "original_name": "N_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "N_ONCV_PBE-1.0.upf"
+          ],
+          "display_name": "N_ONCV_PBE-1.0.upf",
+          "download_name": "N_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "N_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/N/orbitals/ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067.orb",
+          "sha256": "ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067",
+          "size_bytes": 261885,
+          "original_sha256": "ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067",
+          "label": "N_gga_14au_150Ry_3s3p2d.orb",
+          "original_name": "N_gga_14au_150Ry_3s3p2d.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "N_gga_14au_150Ry_3s3p2d.orb"
+          ],
+          "display_name": "N_gga_14au_150Ry_3s3p2d.orb",
+          "download_name": "N_gga_14au_150Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "N_gga_14au_150Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/N/auxiliary/4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4.abfs",
+          "sha256": "4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4",
+          "size_bytes": 2644198,
+          "original_sha256": "4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4",
+          "label": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
+          "original_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "N_14au_3s3p2d2f1g_pca1e-6.abfs"
+          ],
+          "display_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
+          "download_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "N_14au_3s3p2d2f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "hbn-table-gw"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "Na-Dojo-NC-SR-91881471a0a9",
       "element": "Na",
       "family": "Dojo-NC-SR",
@@ -6575,6 +6793,87 @@
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
       }
+    },
+    {
+      "schema_version": 1,
+      "id": "P-producer-cc6dfb48f33f2e83f544",
+      "element": "P",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/P/pseudopotentials/efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0.upf",
+          "sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+          "size_bytes": 90020,
+          "original_sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+          "label": "P_ONCV_PBE-1.0.upf",
+          "original_name": "P_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "P_ONCV_PBE-1.0.upf"
+          ],
+          "display_name": "P_ONCV_PBE-1.0.upf",
+          "download_name": "P_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "P_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/P/orbitals/c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35.orb",
+          "sha256": "c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35",
+          "size_bytes": 182638,
+          "original_sha256": "c0f7dc1634ebea83058fca7e5e4e9bcb355a571cfde6860121c96976be68df35",
+          "label": "P_gga_10au_100Ry_3s3p2d.orb",
+          "original_name": "P_gga_10au_100Ry_3s3p2d.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "P_gga_10au_100Ry_3s3p2d.orb"
+          ],
+          "display_name": "P_gga_10au_100Ry_3s3p2d.orb",
+          "download_name": "P_gga_10au_100Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "P_gga_10au_100Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/P/auxiliary/d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b.abfs",
+          "sha256": "d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b",
+          "size_bytes": 2043447,
+          "original_sha256": "d9ec2af657089ba5f21e14695c11467e3566f038a7d0fb008183b644447b278b",
+          "label": "P_3s3p2d2f1g_pca1e-6.abfs",
+          "original_name": "P_3s3p2d2f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "P_3s3p2d2f1g_pca1e-6.abfs"
+          ],
+          "display_name": "P_3s3p2d2f1g_pca1e-6.abfs",
+          "download_name": "P_3s3p2d2f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "P_3s3p2d2f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "phosphorene-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -9168,6 +9467,81 @@
     },
     {
       "schema_version": 1,
+      "id": "Se-producer-da3b5500bb6569f20f01",
+      "element": "Se",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Se/pseudopotentials/1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c.upf",
+          "sha256": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+          "size_bytes": 209555,
+          "original_sha256": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+          "label": "../assets/Se/PP.upf",
+          "original_name": "../assets/Se/PP.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/PP.upf"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_pp_1f5d0f8b9902.upf",
+          "download_name": "Se_Recovered-producer-bound-assets_pp_1f5d0f8b9902.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Se/orbitals/71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8.orb",
+          "sha256": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+          "size_bytes": 252890,
+          "original_sha256": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+          "label": "../assets/Se/physical.orb",
+          "original_name": "../assets/Se/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/physical.orb"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
+          "download_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Se/auxiliary/909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa.abfs",
+          "sha256": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+          "size_bytes": 1594218,
+          "original_sha256": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+          "label": "../assets/Se/auxiliary.abfs",
+          "original_name": "../assets/Se/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/auxiliary.abfs"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
+          "download_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "snse-table-gw"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "Si-SG15-e11ce28df010",
       "element": "Si",
       "family": "SG15",
@@ -10361,6 +10735,81 @@
     },
     {
       "schema_version": 1,
+      "id": "Sn-producer-4cec7777ab06579a944d",
+      "element": "Sn",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Sn/pseudopotentials/906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c.upf",
+          "sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+          "size_bytes": 280050,
+          "original_sha256": "906d1ea74f62e3b3454e9aaccc70d6a295c1fc73bf6fa90a9627c34b1a40c29c",
+          "label": "../assets/Sn/PP.upf",
+          "original_name": "../assets/Sn/PP.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Sn/PP.upf"
+          ],
+          "display_name": "Sn_Recovered-producer-bound-assets_pp_906d1ea74f62.upf",
+          "download_name": "Sn_Recovered-producer-bound-assets_pp_906d1ea74f62.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Sn/orbitals/fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da.orb",
+          "sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+          "size_bytes": 251731,
+          "original_sha256": "fbc28c0832e38a1f4d5848b253e7ec413e2698d47ab187381a8ad85b725df5da",
+          "label": "../assets/Sn/physical.orb",
+          "original_name": "../assets/Sn/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Sn/physical.orb"
+          ],
+          "display_name": "Sn_Recovered-producer-bound-assets_nao_fbc28c0832e3.orb",
+          "download_name": "Sn_Recovered-producer-bound-assets_nao_fbc28c0832e3.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Sn/auxiliary/2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4.abfs",
+          "sha256": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+          "size_bytes": 1471454,
+          "original_sha256": "2e2118b38c0f7a9e1a590f425f16c2d0ad3dcc33e93e3e6e5577610b1879d2f4",
+          "label": "../assets/Sn/auxiliary.abfs",
+          "original_name": "../assets/Sn/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Sn/auxiliary.abfs"
+          ],
+          "display_name": "Sn_Recovered-producer-bound-assets_abf_2e2118b38c0f.abfs",
+          "download_name": "Sn_Recovered-producer-bound-assets_abf_2e2118b38c0f.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "snse-table-gw"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "Te-Dojo-NC-SR-6a1ccd56018e",
       "element": "Te",
       "family": "Dojo-NC-SR",
@@ -11535,6 +11984,81 @@
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
       }
+    },
+    {
+      "schema_version": 1,
+      "id": "Te-producer-4955a4a8e12c1ad36d71",
+      "element": "Te",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
+        "receipts": [
+          "data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json"
+        ]
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Te/pseudopotentials/97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339.upf",
+          "sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+          "size_bytes": 285515,
+          "original_sha256": "97066022fde7303a0beef6dd0a3c37e3c22b7e132c668daadf6f0c4d34fcf339",
+          "label": "../assets/Te/Te.upf",
+          "original_name": "../assets/Te/Te.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/Te.upf"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_pp_97066022fde7.upf",
+          "download_name": "Te_Recovered-producer-bound-assets_pp_97066022fde7.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Te/orbitals/ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc.orb",
+          "sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+          "size_bytes": 388048,
+          "original_sha256": "ff9cffd0684c7ad4c94ee13d6ddd00879348f929c6008e54063ad1eaa66218dc",
+          "label": "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb",
+          "original_name": "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_nao_ff9cffd0684c.orb",
+          "download_name": "Te_Recovered-producer-bound-assets_nao_ff9cffd0684c.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Te/auxiliary/c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f.abfs",
+          "sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+          "size_bytes": 1824914,
+          "original_sha256": "c4a4940ba5793287d75318bac7b1941523826ff7200d28a6e25c3340db846c9f",
+          "label": "../assets/Te/Te_stringent_plusg_pca1e-4.abfs",
+          "original_name": "../assets/Te/Te_stringent_plusg_pca1e-4.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/Te_stringent_plusg_pca1e-4.abfs"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_abf_c4a4940ba579.abfs",
+          "download_name": "Te_Recovered-producer-bound-assets_abf_c4a4940ba579.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical production association verified; generation history not reassessed"
+      },
+      "used_by": [
+        "gete-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -13588,7 +14112,30 @@
       "material": "GeTe",
       "formula": "GeTe",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Ge",
+          "set_id": "Ge-producer-dcdf905c08c4860733f3",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Ge/Ge.upf",
+            "nao": "../assets/Ge/Ge_gga_10au_150Ry_6s6p3d2f.orb",
+            "abf": "../assets/Ge/Ge_stringent_plusg_pca1e-4.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        },
+        {
+          "element": "Te",
+          "set_id": "Te-producer-4955a4a8e12c1ad36d71",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Te/Te.upf",
+            "nao": "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb",
+            "abf": "../assets/Te/Te_stringent_plusg_pca1e-4.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Ge",
@@ -13625,7 +14172,99 @@
         "gates": []
       },
       "files": {
-        "inputs": [],
+        "inputs": [
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/scf/INPUT",
+            "sha256": "b3f86030a594bd7641e27b3cb29dc067605cc474740bb27809b76320c1fcced5",
+            "size_bytes": 1940,
+            "original_sha256": "b3f86030a594bd7641e27b3cb29dc067605cc474740bb27809b76320c1fcced5",
+            "label": "scf / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 1940,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/scf/KPT",
+            "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+            "size_bytes": 31,
+            "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+            "label": "scf / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 31,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/scf/STRU",
+            "sha256": "3e991aebcac710b3366fcb3764526fdcfdc5de3cfd949b003c2c12de58923874",
+            "size_bytes": 662,
+            "original_sha256": "3e991aebcac710b3366fcb3764526fdcfdc5de3cfd949b003c2c12de58923874",
+            "label": "scf / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 662,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/band/INPUT",
+            "sha256": "326338edd65d0b0893e7b7bfe54dd29f2b5da759f81e77d560baf6cd9ebb3234",
+            "size_bytes": 666,
+            "original_sha256": "326338edd65d0b0893e7b7bfe54dd29f2b5da759f81e77d560baf6cd9ebb3234",
+            "label": "band / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 666,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/band/KPT",
+            "sha256": "059d1747bcac309293c3e8d56bd3021d898982a87ae0df07558edf394df51436",
+            "size_bytes": 14492,
+            "original_sha256": "059d1747bcac309293c3e8d56bd3021d898982a87ae0df07558edf394df51436",
+            "label": "band / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 14492,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/band/STRU",
+            "sha256": "a702967a39f07abd189af2cc3aa69c815d766f6f107ce2f8cc7238fe8f878778",
+            "size_bytes": 558,
+            "original_sha256": "a702967a39f07abd189af2cc3aa69c815d766f6f107ce2f8cc7238fe8f878778",
+            "label": "band / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 558,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/gw/librpa.in",
+            "sha256": "d01770e9b25b6158373e8739284d60efad14ca9c539c34466768d43f73db0fc4",
+            "size_bytes": 1074,
+            "original_sha256": "d01770e9b25b6158373e8739284d60efad14ca9c539c34466768d43f73db0fc4",
+            "label": "gw / librpa.in",
+            "original_name": "librpa.in",
+            "transformation": "none",
+            "original_size_bytes": 1074,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          }
+        ],
         "results": [
           {
             "role": "results",
@@ -13679,6 +14318,16 @@
             "sha256": "31ab49e09f4e8d18a1874fb661a085d44dac2eecf7576fd81aa66a606e002695",
             "size_bytes": 2401,
             "label": "Paper-reported Table I values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json",
+            "sha256": "e0203e739ca35a704e76973b7879d44dfc3289ab1e7b058c837be8af37b843a6",
+            "size_bytes": 4073,
+            "original_sha256": "e0203e739ca35a704e76973b7879d44dfc3289ab1e7b058c837be8af37b843a6",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -13775,12 +14424,12 @@
       },
       "recommendation": null,
       "missing": [
-        "Exact production STRU/PP/NAO/ABF link pending source-case audit",
         "Full per-case ABACUS/LibRPA commits pending source-case audit"
       ],
       "source": {
         "collection": "2D manuscript band catalog",
-        "original_sidecar_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769"
+        "original_sidecar_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769",
+        "producer_assets_receipt": "data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "provisional path diagnostic",
@@ -13816,6 +14465,20 @@
             "data/calculations/2d/GeTe/gete-table-gw/results/band_window_and_provenance.json"
           ],
           "source_sidecar_key": "methods.KS.path_gap_ev"
+        },
+        {
+          "key": "restricted_raw_band_frontier_path_gap",
+          "category": "electronic",
+          "label": "Restricted EXX raw-band frontier path gap",
+          "method": "EXX",
+          "value": -1002817.14856,
+          "unit": "eV",
+          "status": "provisional",
+          "definition": "Restricted raw-band frontier path gap: full raw path CBM − VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
+          "scope": "Sampled Γ–X–S–Y–Γ path; provisional pathological diagnostic, not an accepted gap.",
+          "evidence": [
+            "data/calculations/2d/GeTe/gete-table-gw/results/EXX_bands.dat"
+          ]
         }
       ],
       "method_diagnostics": [
@@ -13869,16 +14532,8 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation",
-          "species: missing exact binding for formula element Ge",
-          "species: missing exact binding for formula element Te",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
           "software.abacus.commit: full immutable commit is required",
-          "software.librpa.commit: full immutable commit is required",
-          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+          "software.librpa.commit: full immutable commit is required"
         ]
       }
     },
@@ -16508,7 +17163,19 @@
       "material": "Phosphorene",
       "formula": "Phosphorene",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "P",
+          "set_id": "P-producer-cc6dfb48f33f2e83f544",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "P_ONCV_PBE-1.0.upf",
+            "nao": "P_gga_10au_100Ry_3s3p2d.orb",
+            "abf": "P_3s3p2d2f1g_pca1e-6.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        }
+      ],
       "basis_candidates": [
         {
           "element": "P",
@@ -16540,7 +17207,112 @@
         "gates": []
       },
       "files": {
-        "inputs": [],
+        "inputs": [
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT",
+            "sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+            "size_bytes": 625,
+            "original_sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+            "label": "gw / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 625,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_scf",
+            "sha256": "ace43571b62f68db6c5727b127d81c34b4d8cf22c725402ed1a3470115e1afa3",
+            "size_bytes": 645,
+            "original_sha256": "ace43571b62f68db6c5727b127d81c34b4d8cf22c725402ed1a3470115e1afa3",
+            "label": "gw / INPUT_scf",
+            "original_name": "INPUT_scf",
+            "transformation": "none",
+            "original_size_bytes": 645,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_nscf",
+            "sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+            "size_bytes": 625,
+            "original_sha256": "64fdc72ec4cccd1228ce573eb917d72337c04b671f8f7be3be72c59ff4d18c6a",
+            "label": "gw / INPUT_nscf",
+            "original_name": "INPUT_nscf",
+            "transformation": "none",
+            "original_size_bytes": 625,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT",
+            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "size_bytes": 175,
+            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "label": "gw / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 175,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_scf",
+            "sha256": "85e1e0f1268b74007220353002d738cf4b4ff39576a4e3b012d063ab5b026392",
+            "size_bytes": 31,
+            "original_sha256": "85e1e0f1268b74007220353002d738cf4b4ff39576a4e3b012d063ab5b026392",
+            "label": "gw / KPT_scf",
+            "original_name": "KPT_scf",
+            "transformation": "none",
+            "original_size_bytes": 31,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_nscf",
+            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "size_bytes": 175,
+            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "label": "gw / KPT_nscf",
+            "original_name": "KPT_nscf",
+            "transformation": "none",
+            "original_size_bytes": 175,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/STRU",
+            "sha256": "cf568555bb191f8d39a1d4227f8c5a3b1f5a0fea3ae4d574731df7fdf1d67d97",
+            "size_bytes": 492,
+            "original_sha256": "cf568555bb191f8d39a1d4227f8c5a3b1f5a0fea3ae4d574731df7fdf1d67d97",
+            "label": "gw / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 492,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/librpa.in",
+            "sha256": "29b86622943cb4175a5199c9432763f1b7bed6c79bae29b09fa011a66be1c0f0",
+            "size_bytes": 196,
+            "original_sha256": "29b86622943cb4175a5199c9432763f1b7bed6c79bae29b09fa011a66be1c0f0",
+            "label": "gw / librpa.in",
+            "original_name": "librpa.in",
+            "transformation": "none",
+            "original_size_bytes": 196,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          }
+        ],
         "results": [
           {
             "role": "results",
@@ -16584,6 +17356,16 @@
             "sha256": "e19a5326d9ac63e9634ff15118d9fa51113bbc64b467bdb856f202d3949ec5b4",
             "size_bytes": 2133,
             "label": "Paper-reported Table I values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json",
+            "sha256": "3fc0a0d934e2ed02ccda70f2a747252f51cbdb86d6849381529f55e40706bc4e",
+            "size_bytes": 3659,
+            "original_sha256": "3fc0a0d934e2ed02ccda70f2a747252f51cbdb86d6849381529f55e40706bc4e",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -16676,12 +17458,12 @@
       },
       "recommendation": null,
       "missing": [
-        "Exact production STRU/PP/NAO/ABF link pending source-case audit",
         "Full per-case ABACUS/LibRPA commits pending source-case audit"
       ],
       "source": {
         "collection": "2D manuscript band catalog",
-        "original_sidecar_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0"
+        "original_sidecar_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0",
+        "producer_assets_receipt": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "accepted",
@@ -16764,12 +17546,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation",
-          "species: missing exact binding for formula element P",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -16782,7 +17558,30 @@
       "material": "SnSe",
       "formula": "SnSe",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Se",
+          "set_id": "Se-producer-da3b5500bb6569f20f01",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Se/PP.upf",
+            "nao": "../assets/Se/physical.orb",
+            "abf": "../assets/Se/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        },
+        {
+          "element": "Sn",
+          "set_id": "Sn-producer-4cec7777ab06579a944d",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Sn/PP.upf",
+            "nao": "../assets/Sn/physical.orb",
+            "abf": "../assets/Sn/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Sn",
@@ -16819,7 +17618,112 @@
         "gates": []
       },
       "files": {
-        "inputs": [],
+        "inputs": [
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/INPUT",
+            "sha256": "a8dadca3b371812510118bfc3b330f26fdc30743940da6f24863b94ce280c0ee",
+            "size_bytes": 1896,
+            "original_sha256": "a8dadca3b371812510118bfc3b330f26fdc30743940da6f24863b94ce280c0ee",
+            "label": "scf / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 1896,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/KPT",
+            "sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+            "size_bytes": 31,
+            "original_sha256": "05a733a9c1d13b4fe7c347c8db5c6d5b72ed5dbf37a24302e53d451562c01c1b",
+            "label": "scf / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 31,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU",
+            "sha256": "d653453620830a4ce9e46285f7a9f6426bf6395df5ba10919fd4f5ff642d2124",
+            "size_bytes": 737,
+            "original_sha256": "d653453620830a4ce9e46285f7a9f6426bf6395df5ba10919fd4f5ff642d2124",
+            "label": "scf / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 737,
+            "stage_id": "scf",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/INPUT",
+            "sha256": "2ee66a99ffed9427f1afb8e50843f5316abd4497bee935f0c469f9eddba6862d",
+            "size_bytes": 1124,
+            "original_sha256": "2ee66a99ffed9427f1afb8e50843f5316abd4497bee935f0c469f9eddba6862d",
+            "label": "band / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 1124,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/KPT",
+            "sha256": "ad072b869ff724daef578760f252594106768a03525e33ed257fa59617c5c7f5",
+            "size_bytes": 28820,
+            "original_sha256": "ad072b869ff724daef578760f252594106768a03525e33ed257fa59617c5c7f5",
+            "label": "band / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 28820,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/STRU",
+            "sha256": "d439adc4f29bc873d2b527a1b536b38f5f158634264ee27cdef688dca328d2ec",
+            "size_bytes": 667,
+            "original_sha256": "d439adc4f29bc873d2b527a1b536b38f5f158634264ee27cdef688dca328d2ec",
+            "label": "band / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 667,
+            "stage_id": "band",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/gw/librpa.in",
+            "sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+            "size_bytes": 1494,
+            "original_sha256": "13fe4d46bc0ed5224d17e6dfa52b78ea847f52a5c9b84f50f755000edd27114d",
+            "label": "gw / librpa.in",
+            "original_name": "librpa.in",
+            "transformation": "none",
+            "original_size_bytes": 1494,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/exx/librpa.in",
+            "sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+            "size_bytes": 839,
+            "original_sha256": "d437369529693c3397dbb23e38f1d784a561426f4ebcbf984303286961178edb",
+            "label": "exx / librpa.in",
+            "original_name": "librpa.in",
+            "transformation": "none",
+            "original_size_bytes": 839,
+            "stage_id": "exx",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          }
+        ],
         "results": [
           {
             "role": "results",
@@ -16873,6 +17777,16 @@
             "sha256": "33ee8ad526aff517fa36c9af2505a4c2427a888c6938b6dd5fac7d8af3e8da04",
             "size_bytes": 2375,
             "label": "Paper-reported Table I values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json",
+            "sha256": "dcc248245a5c30a163ce91643704b0824da75934add5475a263a7e5aaf905ef9",
+            "size_bytes": 4266,
+            "original_sha256": "dcc248245a5c30a163ce91643704b0824da75934add5475a263a7e5aaf905ef9",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -16969,12 +17883,12 @@
       },
       "recommendation": null,
       "missing": [
-        "Exact production STRU/PP/NAO/ABF link pending source-case audit",
         "Full per-case ABACUS/LibRPA commits pending source-case audit"
       ],
       "source": {
         "collection": "2D manuscript band catalog",
-        "original_sidecar_sha256": "15dd84f1b78d6e16d6d15a0f80dbd9b4fc468ece06d0028b64b944514dfec320"
+        "original_sidecar_sha256": "15dd84f1b78d6e16d6d15a0f80dbd9b4fc468ece06d0028b64b944514dfec320",
+        "producer_assets_receipt": "data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "provisional path diagnostic",
@@ -17010,6 +17924,20 @@
             "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
           ],
           "source_sidecar_key": "methods.KS.path_gap_ev"
+        },
+        {
+          "key": "restricted_raw_band_frontier_path_gap",
+          "category": "electronic",
+          "label": "Restricted EXX raw-band frontier path gap",
+          "method": "EXX",
+          "value": -1898024.7638299998,
+          "unit": "eV",
+          "status": "provisional",
+          "definition": "Restricted raw-band frontier path gap: full raw path CBM − VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
+          "scope": "Sampled path; provisional pathological diagnostic, not an accepted gap.",
+          "evidence": [
+            "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat"
+          ]
         }
       ],
       "method_diagnostics": [
@@ -17063,16 +17991,8 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation",
-          "species: missing exact binding for formula element Se",
-          "species: missing exact binding for formula element Sn",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
           "software.abacus.commit: full immutable commit is required",
-          "software.librpa.commit: full immutable commit is required",
-          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+          "software.librpa.commit: full immutable commit is required"
         ]
       }
     },
@@ -18339,7 +19259,32 @@
       "material": "hBN",
       "formula": "hBN",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "B",
+          "set_id": "B-producer-38083441768ddce230e6",
+          "missing_roles": [
+            "pp"
+          ],
+          "asset_aliases": {
+            "pp": "B.PD04.PBE.UPF",
+            "nao": "B_gga_14au_150Ry_3s3p2d.orb",
+            "abf": "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        },
+        {
+          "element": "N",
+          "set_id": "N-producer-855afdf5a7f51fae53f3",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "N_ONCV_PBE-1.0.upf",
+            "nao": "N_gga_14au_150Ry_3s3p2d.orb",
+            "abf": "N_14au_3s3p2d2f1g_pca1e-6.abfs"
+          },
+          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
+        }
+      ],
       "basis_candidates": [
         {
           "element": "B",
@@ -18386,7 +19331,112 @@
         "gates": []
       },
       "files": {
-        "inputs": [],
+        "inputs": [
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT",
+            "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+            "size_bytes": 625,
+            "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+            "label": "gw / INPUT",
+            "original_name": "INPUT",
+            "transformation": "none",
+            "original_size_bytes": 625,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_scf",
+            "sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
+            "size_bytes": 704,
+            "original_sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
+            "label": "gw / INPUT_scf",
+            "original_name": "INPUT_scf",
+            "transformation": "none",
+            "original_size_bytes": 704,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_nscf",
+            "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+            "size_bytes": 625,
+            "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
+            "label": "gw / INPUT_nscf",
+            "original_name": "INPUT_nscf",
+            "transformation": "none",
+            "original_size_bytes": 625,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT",
+            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "size_bytes": 175,
+            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "label": "gw / KPT",
+            "original_name": "KPT",
+            "transformation": "none",
+            "original_size_bytes": 175,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_scf",
+            "sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
+            "size_bytes": 31,
+            "original_sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
+            "label": "gw / KPT_scf",
+            "original_name": "KPT_scf",
+            "transformation": "none",
+            "original_size_bytes": 31,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_nscf",
+            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "size_bytes": 175,
+            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
+            "label": "gw / KPT_nscf",
+            "original_name": "KPT_nscf",
+            "transformation": "none",
+            "original_size_bytes": 175,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/STRU",
+            "sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
+            "size_bytes": 555,
+            "original_sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
+            "label": "gw / STRU",
+            "original_name": "STRU",
+            "transformation": "none",
+            "original_size_bytes": 555,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/librpa.in",
+            "sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+            "size_bytes": 217,
+            "original_sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+            "label": "gw / librpa.in",
+            "original_name": "librpa.in",
+            "transformation": "none",
+            "original_size_bytes": 217,
+            "stage_id": "gw",
+            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+          }
+        ],
         "results": [
           {
             "role": "results",
@@ -18423,6 +19473,16 @@
             "original_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
             "label": "hbn.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json",
+            "sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
+            "size_bytes": 4169,
+            "original_sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -18515,12 +19575,13 @@
       },
       "recommendation": null,
       "missing": [
-        "Exact production STRU/PP/NAO/ABF link pending source-case audit",
+        "B production PP (B.PD04.PBE.UPF) payload was not preserved in available backups; N and the B NAO/ABF are bound, the B PP stays an explicit missing role",
         "Full per-case ABACUS/LibRPA commits pending source-case audit"
       ],
       "source": {
         "collection": "2D manuscript band catalog",
-        "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf"
+        "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
+        "producer_assets_receipt": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "near-frontier diagnostic",
@@ -18576,13 +19637,8 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "input INPUT: missing readable declared production input in this calculation",
-          "input KPT: missing readable declared production input in this calculation",
-          "input STRU: missing readable declared production input in this calculation",
-          "input librpa.in: missing readable declared production input in this calculation",
-          "species: missing exact binding for formula element B",
-          "species: missing exact binding for formula element N",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+          "species B: missing_roles is not empty: ['pp']",
+          "species B: expected one unambiguous pp payload, found 0",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
