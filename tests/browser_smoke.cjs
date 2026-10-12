@@ -9,6 +9,7 @@ const path = require("node:path");
 async function main() {
   const base = new URL(process.env.CATALOG_URL || "http://127.0.0.1:8765/database/");
   const archive = new URL("../", base);
+  const { parseRadial, radialSvg } = await import("../database/radial.mjs");
   const output = process.env.SCREENSHOT_DIR;
   if (output) assert.ok(fs.statSync(output).isDirectory(), "SCREENSHOT_DIR must exist");
   const launchOptions = { headless: true };
@@ -36,7 +37,7 @@ async function main() {
     await page.waitForSelector(".material-row");
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
-    check((await page.locator("#result-count").innerText()).includes(`${calculations.length} of ${calculations.length}`), "inventory count");
+    check((await page.locator("#result-count").innerText()).includes(`${calculations.filter(record => record.id !== "hbn-table-gw").length} of ${calculations.length}`), "inventory count");
     const logo = page.locator(".brand-mark");
     await logo.evaluate(img => img.decode());
     check(await logo.evaluate(img => img.complete && img.naturalWidth === 48), "external SVG brand mark loads");
@@ -145,7 +146,7 @@ async function main() {
     let partialInputsVerified = 0;
     for (const record of partialRecords) {
       check(record.archive_completeness?.status === "incomplete", `${record.id}: controls do not promote upload completeness`);
-      check(record.species.length === 0, `${record.id}: unverified basis bindings are not synthesized`);
+      check(record.species.length === 0 || Boolean(record.source?.producer_assets_receipt), `${record.id}: any recovered basis binding requires producer asset evidence`);
       await go(`#/material/${encodeURIComponent(record.id)}`);
       await page.locator(".section-nav [data-section='record-inputs']").click();
       const panel = page.locator("#record-inputs");
@@ -282,6 +283,111 @@ async function main() {
     check(await page.locator("#basis-assets .file-info > strong").allTextContents().then(names => names.every(name => name !== "payload")), "no payload placeholders displayed");
     await screenshot("basis-files.png");
     check(await page.locator("[data-nav='basis']").getAttribute("aria-current") === "page", "直接basis详情路由标记Basis library");
+    const radialSet = data.basis_sets.find(set => set.element === "Al" && set.files.some(file => file.role === "nao" && file.sha256 === "8d7e5a192b52a13b21df4cc2999fad022fb1e0de4b6d080c857b65b6085c4785"));
+    check(Boolean(radialSet), "Al：真实多 l 物理 NAO 样例存在");
+    let radialFilesVerified = 0;
+    let radialChannelsVerified = 0;
+    const verifyRadialFile = async (set, role, automaticallyLoaded = false) => {
+      const file = set.files.find(item => item.role === role);
+      check(Boolean(file), `${set.element} / ${role}：真实径向文件存在`);
+      const fetched = await context.request.get(new URL(file.path, archive).href);
+      check(fetched.ok(), `${set.element} / ${role}：原文件可读取`);
+      const bytes = await fetched.body();
+      check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `${set.element} / ${role}：原文件 SHA-256 一致`);
+      const radial = parseRadial(bytes.toString("utf8"), { allowHeaderMismatch: true });
+      const filePanel = page.locator(`#basis-radial .radial-file[data-radial-path=${JSON.stringify(file.path)}]`);
+      if (!automaticallyLoaded) {
+        check(await filePanel.evaluate(details => !details.open), `${set.element} / ${role}：辅助文件不冒充自动加载的物理 NAO`);
+        check(await filePanel.locator(".radial-card").count() === 0, `${set.element} / ${role}：加载前没有合成图`);
+        await filePanel.locator(":scope > summary").click();
+        await filePanel.locator("[data-radial-load]").click();
+      }
+      await filePanel.locator(".radial-status").filter({ hasText: "SHA-256 verified" }).waitFor({ timeout: 60000 });
+      check(await filePanel.evaluate(details => details.open), `${set.element} / ${role}：径向文件面板展开`);
+      const status = await filePanel.locator(".radial-status").innerText();
+      check(status.includes(`header element ${radial.element}`) && status.includes(`mesh ${radial.mesh}`) && status.includes(`dr ${radial.dr} bohr`), `${set.element} / ${role}：原头元素与原网格披露`);
+      const source = filePanel.locator(".file-integrity");
+      await source.locator("summary").click();
+      check((await source.innerText()).includes(file.path) && (await source.innerText()).includes(file.sha256), `${set.element} / ${role}：原路径及完整 SHA 可见`);
+      const groups = [...new Set(radial.channels.map(channel => channel.l))];
+      const cards = filePanel.locator(".radial-card");
+      check(await cards.count() === groups.length, `${set.element} / ${role}：每个有原通道的 l 独立一张卡片`);
+      check(await cards.locator("svg").count() === groups.length, `${set.element} / ${role}：每个 l 恰好一幅 SVG，没有叠加不同 l`);
+      for (const l of groups) {
+        const channels = radial.channels.filter(channel => channel.l === l);
+        const card = filePanel.locator(`.radial-card[data-radial-l='${l}']`);
+        const expectedNs = channels.map(channel => channel.n);
+        check((await card.locator("h3").innerText()).includes(`l=${l}`), `${set.element} / ${role} / l=${l}：卡片角动量准确`);
+        const shown = await card.locator("path[data-channel]").evaluateAll(paths => paths.map(path => ({ n: Number(path.dataset.channel), title: path.querySelector("title").textContent, samples: (path.getAttribute("d").match(/[ML]/g) || []).length })));
+        check(JSON.stringify(shown.map(item => item.n)) === JSON.stringify(expectedNs), `${set.element} / ${role} / l=${l}：全部原 N 保留且不重编号`);
+        check(shown.every(item => item.samples === radial.mesh && item.title === `l=${l}, original N=${item.n}`), `${set.element} / ${role} / l=${l}：保留每个原样本且没有其他 l 曲线`);
+        const toggles = card.locator("input[data-radial-n]");
+        check(await toggles.count() === channels.length && await toggles.evaluateAll(inputs => inputs.every(input => input.checked)), `${set.element} / ${role} / l=${l}：同 l 每个 N 独立开关且默认全部显示`);
+        check(await card.locator(".radial-metrics tbody tr").count() === channels.length, `${set.element} / ${role} / l=${l}：逐原 N 端点诊断，无验收阈值`);
+      }
+      radialFilesVerified += 1;
+      radialChannelsVerified += radial.channels.length;
+      return { file, radial, filePanel };
+    };
+    await go(`#/basis/${encodeURIComponent(radialSet.id)}`);
+    const physical = await verifyRadialFile(radialSet, "nao", true);
+    check(physical.radial.channels.length === 8 && new Set(physical.radial.channels.map(channel => channel.l)).size === 3, "Al：八个原径向函数分成三幅 l 图，NAO 无需点击自动加载");
+    check(!(await physical.filePanel.locator(".radial-status").innerText()).includes("WARNING"), "Al：正常原轨道没有伪造异常");
+    const firstRadial = physical.filePanel.locator(".radial-card[data-radial-l='0']");
+    const otherRadial = physical.filePanel.locator(".radial-card[data-radial-l='1']");
+    const otherSvg = await otherRadial.locator("svg").evaluate(svg => svg.outerHTML);
+    const originalPaths = await firstRadial.locator("path[data-channel]").evaluateAll(paths => paths.map(path => path.getAttribute("d")));
+    const expectedPaths = svg => [...svg.matchAll(/<path data-channel="\d+" d="([^"]+)"/g)].map(match => match[1]);
+    check(JSON.stringify(originalPaths) === JSON.stringify(expectedPaths(radialSvg(physical.radial, 0))), "Al l=0：显示真实原 R(r)，没有平滑、重归一化或减少网格点");
+    await firstRadial.locator("input[data-radial-n='1']").uncheck();
+    check(await firstRadial.locator("path[data-channel='1']").count() === 0 && await firstRadial.locator("path[data-channel]").count() === 2, "Al l=0：关闭 N=1 只隐藏指定原函数");
+    check(await otherRadial.locator("svg").evaluate(svg => svg.outerHTML) === otherSvg, "Al：N 开关不改变其他 l 图");
+    await firstRadial.locator("input[data-radial-n='1']").check();
+    check(JSON.stringify(await firstRadial.locator("path[data-channel]").evaluateAll(paths => paths.map(path => path.getAttribute("d")))) === JSON.stringify(originalPaths), "Al l=0：重新开启 N 恢复完全相同原样本路径");
+    await firstRadial.getByRole("combobox", { name: "Plot mode for l=0", exact: true }).selectOption("derivative");
+    check((await firstRadial.locator("svg").getAttribute("aria-label")).includes("finite difference"), "Al l=0：导数标明有限差分而非 producer 原存导数");
+    await firstRadial.locator("input[data-radial-tail]").check();
+    const derivativeTail = await firstRadial.locator("path[data-channel]").evaluateAll(paths => paths.map(path => path.getAttribute("d")));
+    check(JSON.stringify(derivativeTail) === JSON.stringify(expectedPaths(radialSvg(physical.radial, 0, { mode: "derivative", tail: true }))), "Al l=0：导数尾部严格来自原网格的有限差分和最后 20% 范围");
+    check((await firstRadial.locator("svg").textContent()).includes("last 20% of original grid"), "Al l=0：尾部缩放范围明确披露");
+    check(await otherRadial.locator("svg").evaluate(svg => svg.outerHTML) === otherSvg, "Al：导数及尾部模式不改变其他 l 图");
+    const radialSvgMarkup = await firstRadial.locator("svg").evaluate(svg => svg.outerHTML);
+    const radialDownloadPromise = page.waitForEvent("download");
+    await firstRadial.getByRole("button", { name: "Download this SVG", exact: true }).click();
+    const radialDownload = await radialDownloadPromise;
+    check(radialDownload.suggestedFilename() === `radial-${physical.file.sha256.slice(0, 12)}-l0.svg`, "Al：SVG 原生下载名含原 SHA 和独立 l");
+    const radialDownloadPath = await radialDownload.path();
+    check(radialDownloadPath && fs.readFileSync(radialDownloadPath, "utf8") === radialSvgMarkup, "Al：原生 SVG 下载与当前选择、导数及尾部图完全一致");
+    await firstRadial.getByRole("combobox", { name: "Plot mode for l=0", exact: true }).selectOption("raw");
+    await firstRadial.locator("input[data-radial-tail]").uncheck();
+    await screenshot("radial-al-desktop.png");
+    for (const [element, headerElement] of [["F", "O"], ["Li", "Ne"]]) {
+      const set = data.basis_sets.find(item => item.element === element && item.files.some(file => file.role === "abf"));
+      check(Boolean(set), `${element}：真实异常 ABF 样例存在`);
+      await go(`#/basis/${encodeURIComponent(set.id)}`);
+      await verifyRadialFile(set, "nao", true);
+      const auxiliary = await verifyRadialFile(set, "abf");
+      check(auxiliary.radial.element === headerElement && auxiliary.radial.header_mismatch && auxiliary.radial.channels.length === 800, `${element} ABF：原头 ${headerElement} 和 800 通道异常原样保留`);
+      const warning = auxiliary.filePanel.locator(".radial-status");
+      const warningText = await warning.innerText();
+      check(await warning.evaluate(status => status.classList.contains("name-warning")) && warningText.includes("WARNING: header element differs from catalog") && warningText.includes("WARNING: declared angular counts"), `${element} ABF：元素及通道数双异常明确 warning`);
+      check(warningText.includes(JSON.stringify(auxiliary.radial.counts)) && warningText.includes(JSON.stringify(auxiliary.radial.actual_counts)) && warningText.includes("Diagnostic plots use all original blocks; no header repair or validity claim"), `${element} ABF：声明和实际 counts 分别披露，仅诊断、不修复、不声称有效`);
+      check(await auxiliary.filePanel.locator("path[data-channel='99']").count() === 8, `${element} ABF：每个 l 的原 N=99 均保留，不按错误原头截断`);
+      check(await auxiliary.filePanel.locator("svg").evaluateAll((svgs, originalElement) => svgs.every(svg => svg.getAttribute("aria-label").startsWith(`${originalElement} l=`)), auxiliary.radial.element), `${element} ABF：图像标签沿用原头元素，不冒充 catalog 元素`);
+      await screenshot(`radial-${element.toLowerCase()}-abf-diagnostic.png`);
+    }
+    const shaFailure = await context.newPage();
+    shaFailure.on("pageerror", error => errors.push(error.message));
+    const invalidCatalog = structuredClone(data);
+    invalidCatalog.basis_sets.find(set => set.id === radialSet.id).files.find(file => file.path === physical.file.path).sha256 = "0".repeat(64);
+    await shaFailure.route("**/data.json", route => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(invalidCatalog) }));
+    await shaFailure.goto(base.href + `#/basis/${encodeURIComponent(radialSet.id)}`, { waitUntil: "domcontentloaded" });
+    const rejectedRadial = shaFailure.locator(".radial-file[open]").filter({ has: shaFailure.locator("[data-radial-load]") });
+    await rejectedRadial.locator(".radial-status").filter({ hasText: "Original radial SHA-256 mismatch" }).waitFor();
+    check((await rejectedRadial.locator(".radial-status").innerText()).includes("No replacement or corrected samples were generated"), "错误 SHA：明确拒绝绘图且不生成替代样本");
+    check(await rejectedRadial.locator(".radial-card, svg, [data-radial-download]").count() === 0, "错误 SHA：没有任何可下载或可误读的曲线");
+    check(await rejectedRadial.locator("[data-radial-load]").isEnabled(), "错误 SHA：失败后按钮恢复可重试");
+    await shaFailure.close();
     for (const file of inputs) {
       const fetched = await context.request.get(new URL(file.path, archive).href);
       check(fetched.ok(), `input is downloadable: ${file.path}`);
@@ -361,6 +467,27 @@ async function main() {
     await filterToggle.click();
     check(await page.locator("#status-filter-control").isVisible() && await page.locator(".dimension-filter").isHidden(), "移动basis展开显示publication不显示dimension");
     await filterToggle.click();
+    await go(`#/basis/${encodeURIComponent(radialSet.id)}`);
+    const mobilePhysical = await verifyRadialFile(radialSet, "nao", true);
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "移动 NAO：多 l 径向详情没有页面横向溢出");
+    check(await mobilePhysical.filePanel.locator(".radial-chart").evaluateAll(charts => charts.every(chart => chart.getBoundingClientRect().right <= innerWidth && chart.scrollWidth >= chart.clientWidth)), "移动 NAO：每个 l 图的滚动容器在视口内，保留可独立横向查看的原图");
+    const mobileRadial = mobilePhysical.filePanel.locator(".radial-card[data-radial-l='0']");
+    await mobileRadial.getByRole("combobox", { name: "Plot mode for l=0", exact: true }).selectOption("derivative");
+    await mobileRadial.locator("input[data-radial-tail]").check();
+    await mobileRadial.locator(".radial-metrics summary").click();
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "移动 NAO：导数、尾部与端点表展开后仍无页面横向溢出");
+    await mobileRadial.scrollIntoViewIfNeeded();
+    await screenshot("radial-al-mobile.png");
+    for (const element of ["F", "Li"]) {
+      const set = data.basis_sets.find(item => item.element === element && item.files.some(file => file.role === "abf"));
+      await go(`#/basis/${encodeURIComponent(set.id)}`);
+      const auxiliary = await verifyRadialFile(set, "abf");
+      check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `移动 ${element} ABF：800 原通道及完整 SHA 没有页面横向溢出`);
+      const first = auxiliary.filePanel.locator(".radial-card").first();
+      await first.locator(".radial-metrics summary").click();
+      check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `移动 ${element} ABF：原 N 诊断表展开后无页面横向溢出`);
+      check((await auxiliary.filePanel.locator(".radial-status").innerText()).includes("no header repair or validity claim"), `移动 ${element} ABF：异常诊断边界仍明确显示`);
+    }
     await go("#/material/si-paper-all_kpath");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile detail has no horizontal overflow");
     await screenshot("silicon-mobile.png");
@@ -380,7 +507,7 @@ async function main() {
     await failure.waitForSelector("#load-error:not([hidden])");
     check((await failure.locator("#load-error").innerText()).includes("503"), "catalog network errors shown honestly");
     check(errors.length === 0, `browser errors: ${errors.join("; ")}`);
-    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputs.length, browser_errors: errors }, null, 2));
+    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputs.length, radial_files_verified: radialFilesVerified, radial_channels_verified: radialChannelsVerified, browser_errors: errors }, null, 2));
   } finally {
     await browser.close();
   }

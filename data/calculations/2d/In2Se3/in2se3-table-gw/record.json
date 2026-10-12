@@ -5,7 +5,30 @@
   "material": "In2Se3",
   "formula": "In2Se3",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "In",
+      "set_id": "In-producer-be4aeecb20718e6a297b",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../../producer/assets/In/pp.upf",
+        "nao": "../../producer/assets/In/physical.orb",
+        "abf": "../assets/In/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "Se",
+      "set_id": "Se-producer-2bee458929b6f726dc39",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../../producer/assets/Se/pp.upf",
+        "nao": "../../producer/assets/Se/physical.orb",
+        "abf": "../assets/Se/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "In",
@@ -240,6 +263,16 @@
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json",
+        "sha256": "3a502360a060f67964cc59fc68418d8120e9c0e44fca3e1c737a93699e7ec2e3",
+        "size_bytes": 8686,
+        "original_sha256": "3a502360a060f67964cc59fc68418d8120e9c0e44fca3e1c737a93699e7ec2e3",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -338,7 +371,8 @@
   "source": {
     "collection": "2D manuscript band catalog",
     "original_sidecar_sha256": "7678030242953166b238e48ef084bd6313aeec2322a00658c588ca5f7939fdaa",
-    "stage_input_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json"
+    "stage_input_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json",
+    "producer_assets_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "low-energy path diagnostic",

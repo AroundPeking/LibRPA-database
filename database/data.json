@@ -1377,6 +1377,76 @@
     },
     {
       "schema_version": 1,
+      "id": "Cu-producer-175ba275f4bf9025866e",
+      "element": "Cu",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Cu/pseudopotentials/0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919.upf",
+          "sha256": "0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919",
+          "size_bytes": 279780,
+          "original_sha256": "0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919",
+          "label": "../assets/Cu/pp.upf",
+          "original_name": "../assets/Cu/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Cu/pp.upf"
+          ],
+          "display_name": "Cu_Recovered-producer-bound-assets_pp_0b53f2257151.upf",
+          "download_name": "Cu_Recovered-producer-bound-assets_pp_0b53f2257151.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Cu/orbitals/bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578.orb",
+          "sha256": "bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578",
+          "size_bytes": 322832,
+          "original_sha256": "bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578",
+          "label": "../assets/Cu/physical.orb",
+          "original_name": "../assets/Cu/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Cu/physical.orb"
+          ],
+          "display_name": "Cu_Recovered-producer-bound-assets_nao_bcdb17217b5e.orb",
+          "download_name": "Cu_Recovered-producer-bound-assets_nao_bcdb17217b5e.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Cu/auxiliary/1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b.abfs",
+          "sha256": "1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b",
+          "size_bytes": 1417596,
+          "original_sha256": "1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b",
+          "label": "../assets/Cu/auxiliary.abfs",
+          "original_name": "../assets/Cu/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Cu/auxiliary.abfs"
+          ],
+          "display_name": "Cu_Recovered-producer-bound-assets_abf_1c561fdc83f1.abfs",
+          "download_name": "Cu_Recovered-producer-bound-assets_abf_1c561fdc83f1.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "F-SG15-09954925fd5e",
       "element": "F",
       "family": "SG15",
@@ -1854,6 +1924,76 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "Ga-producer-a8299a579fc785a0b761",
+      "element": "Ga",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Ga/pseudopotentials/e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723.upf",
+          "sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+          "size_bytes": 314895,
+          "original_sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+          "label": "../assets/Ga/pp.upf",
+          "original_name": "../assets/Ga/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ga/pp.upf"
+          ],
+          "display_name": "Ga_Recovered-producer-bound-assets_pp_e890f0d10ab5.upf",
+          "download_name": "Ga_Recovered-producer-bound-assets_pp_e890f0d10ab5.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Ga/orbitals/91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61.orb",
+          "sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+          "size_bytes": 250448,
+          "original_sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+          "label": "../assets/Ga/physical.orb",
+          "original_name": "../assets/Ga/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ga/physical.orb"
+          ],
+          "display_name": "Ga_Recovered-producer-bound-assets_nao_91cbd05a0580.orb",
+          "download_name": "Ga_Recovered-producer-bound-assets_nao_91cbd05a0580.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Ga/auxiliary/be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc.abfs",
+          "sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+          "size_bytes": 1369494,
+          "original_sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+          "label": "../assets/Ga/auxiliary.abfs",
+          "original_name": "../assets/Ga/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ga/auxiliary.abfs"
+          ],
+          "display_name": "Ga_Recovered-producer-bound-assets_abf_be91e23e2170.abfs",
+          "download_name": "Ga_Recovered-producer-bound-assets_abf_be91e23e2170.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     },
     {
       "schema_version": 1,
@@ -3502,6 +3642,220 @@
     },
     {
       "schema_version": 1,
+      "id": "In-producer-30797a82c39e68265b35",
+      "element": "In",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/In/pseudopotentials/de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6.upf",
+          "sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "size_bytes": 329156,
+          "original_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "label": "../assets/In/pp.upf",
+          "original_name": "../assets/In/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/In/pp.upf"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "download_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/In/orbitals/1e03723e53061421c4371dbe5c96240db00767f3f0f1b1304a16bd06b29c2460.orb",
+          "sha256": "1e03723e53061421c4371dbe5c96240db00767f3f0f1b1304a16bd06b29c2460",
+          "size_bytes": 251071,
+          "original_sha256": "1e03723e53061421c4371dbe5c96240db00767f3f0f1b1304a16bd06b29c2460",
+          "label": "../assets/In/physical.orb",
+          "original_name": "../assets/In/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/In/physical.orb"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_nao_1e03723e5306.orb",
+          "download_name": "In_Recovered-producer-bound-assets_nao_1e03723e5306.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/In/auxiliary/6e1db5b44e379ac50e5c0104e98fc7463d4be2d3fd38a3242c0d218fc0bde0c6.abfs",
+          "sha256": "6e1db5b44e379ac50e5c0104e98fc7463d4be2d3fd38a3242c0d218fc0bde0c6",
+          "size_bytes": 1444243,
+          "original_sha256": "6e1db5b44e379ac50e5c0104e98fc7463d4be2d3fd38a3242c0d218fc0bde0c6",
+          "label": "../assets/In/auxiliary.abfs",
+          "original_name": "../assets/In/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/In/auxiliary.abfs"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_abf_6e1db5b44e37.abfs",
+          "download_name": "In_Recovered-producer-bound-assets_abf_6e1db5b44e37.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "In-producer-be4aeecb20718e6a297b",
+      "element": "In",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/In/pseudopotentials/de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6.upf",
+          "sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "size_bytes": 329156,
+          "original_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "label": "../../producer/assets/In/pp.upf",
+          "original_name": "../assets/In/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/In/pp.upf",
+            "../assets/In/pp.upf"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "download_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/In/orbitals/31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f.orb",
+          "sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+          "size_bytes": 251896,
+          "original_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+          "label": "../../producer/assets/In/physical.orb",
+          "original_name": "../assets/In/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/In/physical.orb",
+            "../assets/In/physical.orb"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
+          "download_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/In/auxiliary/9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c.abfs",
+          "sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+          "size_bytes": 1397137,
+          "original_sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+          "label": "../assets/In/auxiliary.abfs",
+          "original_name": "../assets/In/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/In/auxiliary.abfs"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
+          "download_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "In-producer-ce679d10d184bcf47886",
+      "element": "In",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/In/pseudopotentials/de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6.upf",
+          "sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "size_bytes": 329156,
+          "original_sha256": "de14d1ba51dba2ff7db0ef8c933749ad0520b4318996e1f3880710c54aa41fc6",
+          "label": "../../producer/assets/In/pp.upf",
+          "original_name": "../assets/In/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/In/pp.upf",
+            "../assets/In/pp.upf"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "download_name": "In_Recovered-producer-bound-assets_pp_de14d1ba51db.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/In/orbitals/31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f.orb",
+          "sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+          "size_bytes": 251896,
+          "original_sha256": "31069bf2c90db184d770a7ee5d0a7af3ba832304a57412e59992c63c8c6ca01f",
+          "label": "../../producer/assets/In/physical.orb",
+          "original_name": "../assets/In/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/In/physical.orb",
+            "../assets/In/physical.orb"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
+          "download_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/In/auxiliary/9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c.abfs",
+          "sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+          "size_bytes": 1397137,
+          "original_sha256": "9f0c2109bcac9526f68681167d1fbb8e6b9c6b300d659a77534578627dbe4f1c",
+          "label": "../assets/In/auxiliary.abfs",
+          "original_name": "../assets/In/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/In/auxiliary.abfs"
+          ],
+          "display_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
+          "download_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "Li-SG15-5e465f36f024",
       "element": "Li",
       "family": "SG15",
@@ -4244,10 +4598,12 @@
           "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
           "label": "payload",
           "transformation": "none",
-          "display_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "download_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -4364,10 +4720,12 @@
           "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
           "label": "payload",
           "transformation": "none",
-          "display_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "download_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -4387,10 +4745,12 @@
             },
             "basis_dimension": 27
           },
-          "display_name": "Mo_GTH_nao_845429725640.orb",
-          "download_name": "Mo_GTH_nao_845429725640.orb",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "download_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo_gga_10au_100Ry_4s2p2d1f.orb"
+          ]
         },
         {
           "role": "abf",
@@ -4560,10 +4920,12 @@
           "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
           "label": "payload",
           "transformation": "none",
-          "display_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "download_name": "Mo_GTH_pp_f8d99b6265c6.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -4921,6 +5283,152 @@
       "used_by": [
         "mos2-table-gw"
       ]
+    },
+    {
+      "schema_version": 1,
+      "id": "Mo-producer-dbad35284206dfde5407",
+      "element": "Mo",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Mo/pseudopotentials/f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a.upf",
+          "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+          "size_bytes": 118292,
+          "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+          "label": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "original_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+          ],
+          "display_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Mo/orbitals/84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161.orb",
+          "sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+          "size_bytes": 207297,
+          "original_sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+          "label": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "original_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "Mo_gga_10au_100Ry_4s2p2d1f.orb"
+          ],
+          "display_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "download_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "Mo_gga_10au_100Ry_4s2p2d1f.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Mo/auxiliary/3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6.abfs",
+          "sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+          "size_bytes": 1004049,
+          "original_sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+          "label": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+          "original_name": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
+          ],
+          "display_name": "Mo_Recovered-producer-bound-assets_abf_3f9f08c7e3ef.abfs",
+          "download_name": "Mo_Recovered-producer-bound-assets_abf_3f9f08c7e3ef.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "Mo-producer-e35dc97023358b55e3fd",
+      "element": "Mo",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Mo/pseudopotentials/7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448.upf",
+          "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+          "size_bytes": 302634,
+          "original_sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+          "label": "../../assets/Mo/pp.upf",
+          "original_name": "../assets/Mo/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../assets/Mo/pp.upf",
+            "../assets/Mo/pp.upf"
+          ],
+          "display_name": "Mo_Recovered-producer-bound-assets_pp_7a392dee2cc7.upf",
+          "download_name": "Mo_Recovered-producer-bound-assets_pp_7a392dee2cc7.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Mo/orbitals/a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e.orb",
+          "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+          "size_bytes": 321277,
+          "original_sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+          "label": "../../assets/Mo/physical.orb",
+          "original_name": "../assets/Mo/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../assets/Mo/physical.orb",
+            "../assets/Mo/physical.orb"
+          ],
+          "display_name": "Mo_Recovered-producer-bound-assets_nao_a259e30e8d20.orb",
+          "download_name": "Mo_Recovered-producer-bound-assets_nao_a259e30e8d20.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Mo/auxiliary/6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044.abfs",
+          "sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+          "size_bytes": 1549547,
+          "original_sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+          "label": "../assets/Mo/auxiliary.abfs",
+          "original_name": "../assets/Mo/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Mo/auxiliary.abfs"
+          ],
+          "display_name": "Mo_Recovered-producer-bound-assets_abf_6f0882fc4b22.abfs",
+          "download_name": "Mo_Recovered-producer-bound-assets_abf_6f0882fc4b22.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     },
     {
       "schema_version": 1,
@@ -6000,6 +6508,76 @@
     },
     {
       "schema_version": 1,
+      "id": "P-producer-a78b12ec5bc708e4dc50",
+      "element": "P",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/P/pseudopotentials/3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151.upf",
+          "sha256": "3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151",
+          "size_bytes": 195263,
+          "original_sha256": "3b46321966e4e991647ab91662fbe9971276908440488075fbd1c07248355151",
+          "label": "../assets/P/pp.upf",
+          "original_name": "../assets/P/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/P/pp.upf"
+          ],
+          "display_name": "P_Recovered-producer-bound-assets_pp_3b46321966e4.upf",
+          "download_name": "P_Recovered-producer-bound-assets_pp_3b46321966e4.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/P/orbitals/fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4.orb",
+          "sha256": "fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4",
+          "size_bytes": 183407,
+          "original_sha256": "fd4f098119f4cb6c682d911825699ea4bf04035a46562e9310807d932e41cca4",
+          "label": "../assets/P/physical.orb",
+          "original_name": "../assets/P/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/P/physical.orb"
+          ],
+          "display_name": "P_Recovered-producer-bound-assets_nao_fd4f098119f4.orb",
+          "download_name": "P_Recovered-producer-bound-assets_nao_fd4f098119f4.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/P/auxiliary/4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e.abfs",
+          "sha256": "4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e",
+          "size_bytes": 1181782,
+          "original_sha256": "4a331a41ddda4732a2a8a245f30bb34b0fefb3a28cebdbd47b987994e064861e",
+          "label": "../assets/P/auxiliary.abfs",
+          "original_name": "../assets/P/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/P/auxiliary.abfs"
+          ],
+          "display_name": "P_Recovered-producer-bound-assets_abf_4a331a41ddda.abfs",
+          "download_name": "P_Recovered-producer-bound-assets_abf_4a331a41ddda.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "S-Dojo-NC-SR-87f36c0d139f",
       "element": "S",
       "family": "Dojo-NC-SR",
@@ -6349,10 +6927,12 @@
           "original_sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
           "label": "payload",
           "transformation": "none",
-          "display_name": "S_GTH_pp_22ac946e6401.upf",
-          "download_name": "S_GTH_pp_22ac946e6401.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "download_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "S-GTH-PBE-q6-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -6372,10 +6952,12 @@
             },
             "basis_dimension": 25
           },
-          "display_name": "S_GTH_nao_ea1f551bc657.orb",
-          "download_name": "S_GTH_nao_ea1f551bc657.orb",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "download_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "S_gga_10au_100Ry_2s2p2d1f.orb"
+          ]
         },
         {
           "role": "abf",
@@ -6545,10 +7127,12 @@
           "original_sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
           "label": "payload",
           "transformation": "none",
-          "display_name": "S_GTH_pp_22ac946e6401.upf",
-          "download_name": "S_GTH_pp_22ac946e6401.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "download_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "S-GTH-PBE-q6-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -6665,10 +7249,12 @@
           "original_sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
           "label": "payload",
           "transformation": "none",
-          "display_name": "S_GTH_pp_22ac946e6401.upf",
-          "download_name": "S_GTH_pp_22ac946e6401.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "download_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "S-GTH-PBE-q6-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -7109,6 +7695,150 @@
       "used_by": [
         "mos2-table-gw"
       ]
+    },
+    {
+      "schema_version": 1,
+      "id": "S-producer-00c084a9b599e991b102",
+      "element": "S",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/S/pseudopotentials/7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7.upf",
+          "sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+          "size_bytes": 174131,
+          "original_sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+          "label": "../assets/S/pp.upf",
+          "original_name": "../assets/S/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/S/pp.upf"
+          ],
+          "display_name": "S_Recovered-producer-bound-assets_pp_7dcddbca51ad.upf",
+          "download_name": "S_Recovered-producer-bound-assets_pp_7dcddbca51ad.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/S/orbitals/b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b.orb",
+          "sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+          "size_bytes": 184113,
+          "original_sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+          "label": "../assets/S/physical.orb",
+          "original_name": "../assets/S/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/S/physical.orb"
+          ],
+          "display_name": "S_Recovered-producer-bound-assets_nao_b720ce20436a.orb",
+          "download_name": "S_Recovered-producer-bound-assets_nao_b720ce20436a.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/S/auxiliary/33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f.abfs",
+          "sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+          "size_bytes": 1188401,
+          "original_sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+          "label": "../assets/S/auxiliary.abfs",
+          "original_name": "../assets/S/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/S/auxiliary.abfs"
+          ],
+          "display_name": "S_Recovered-producer-bound-assets_abf_33c8ad22f5e3.abfs",
+          "download_name": "S_Recovered-producer-bound-assets_abf_33c8ad22f5e3.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "S-producer-f0bb18bb4c7d704bb369",
+      "element": "S",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/S/pseudopotentials/22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815.upf",
+          "sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
+          "size_bytes": 75841,
+          "original_sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
+          "label": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "original_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "S-GTH-PBE-q6-cp2k-default-grid.upf"
+          ],
+          "display_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "download_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "S-GTH-PBE-q6-cp2k-default-grid.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/S/orbitals/ea1f551bc6571657953e49fc477a7482f9b94c8eafa86cce1596f5359afb352b.orb",
+          "sha256": "ea1f551bc6571657953e49fc477a7482f9b94c8eafa86cce1596f5359afb352b",
+          "size_bytes": 161358,
+          "original_sha256": "ea1f551bc6571657953e49fc477a7482f9b94c8eafa86cce1596f5359afb352b",
+          "label": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "original_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "S_gga_10au_100Ry_2s2p2d1f.orb"
+          ],
+          "display_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "download_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "S_gga_10au_100Ry_2s2p2d1f.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/S/auxiliary/5db18b7495ee618582722c165a861f08c0e3abddd48c55d47d9c2ac0950b5a9a.abfs",
+          "sha256": "5db18b7495ee618582722c165a861f08c0e3abddd48c55d47d9c2ac0950b5a9a",
+          "size_bytes": 1092222,
+          "original_sha256": "5db18b7495ee618582722c165a861f08c0e3abddd48c55d47d9c2ac0950b5a9a",
+          "label": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs",
+          "original_name": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs"
+          ],
+          "display_name": "S_Recovered-producer-bound-assets_abf_5db18b7495ee.abfs",
+          "download_name": "S_Recovered-producer-bound-assets_abf_5db18b7495ee.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     },
     {
       "schema_version": 1,
@@ -8221,6 +8951,220 @@
       "used_by": [
         "wse2-table-gw"
       ]
+    },
+    {
+      "schema_version": 1,
+      "id": "Se-producer-1e9b35f947cef86434d6",
+      "element": "Se",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Se/pseudopotentials/86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1.upf",
+          "sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+          "size_bytes": 254411,
+          "original_sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+          "label": "../../producer/assets/Se/pp.upf",
+          "original_name": "../assets/Se/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/Se/pp.upf",
+            "../assets/Se/pp.upf"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_pp_86715772e38f.upf",
+          "download_name": "Se_Recovered-producer-bound-assets_pp_86715772e38f.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Se/orbitals/97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20.orb",
+          "sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+          "size_bytes": 391300,
+          "original_sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+          "label": "../../producer/assets/Se/physical.orb",
+          "original_name": "../assets/Se/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/Se/physical.orb",
+            "../assets/Se/physical.orb"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
+          "download_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Se/auxiliary/3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d.abfs",
+          "sha256": "3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d",
+          "size_bytes": 1625001,
+          "original_sha256": "3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d",
+          "label": "../assets/Se/auxiliary.abfs",
+          "original_name": "../assets/Se/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/auxiliary.abfs"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
+          "download_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "Se-producer-2bee458929b6f726dc39",
+      "element": "Se",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Se/pseudopotentials/86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1.upf",
+          "sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+          "size_bytes": 254411,
+          "original_sha256": "86715772e38f12f536158e5b30e41531260782c48906f21a22498a6799060fd1",
+          "label": "../../producer/assets/Se/pp.upf",
+          "original_name": "../assets/Se/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/Se/pp.upf",
+            "../assets/Se/pp.upf"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_pp_86715772e38f.upf",
+          "download_name": "Se_Recovered-producer-bound-assets_pp_86715772e38f.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Se/orbitals/97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20.orb",
+          "sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+          "size_bytes": 391300,
+          "original_sha256": "97bc2f98978625041b5e30f72666042551d52a3e89849bc06cce54fc1b6c1d20",
+          "label": "../../producer/assets/Se/physical.orb",
+          "original_name": "../assets/Se/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../producer/assets/Se/physical.orb",
+            "../assets/Se/physical.orb"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
+          "download_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Se/auxiliary/3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d.abfs",
+          "sha256": "3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d",
+          "size_bytes": 1625001,
+          "original_sha256": "3045e43687ba45402c5cf13bf616a1b5d6ca3e026c60e8322c3b7d54494cfe6d",
+          "label": "../assets/Se/auxiliary.abfs",
+          "original_name": "../assets/Se/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/auxiliary.abfs"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
+          "download_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "Se-producer-b4a24ceb4139fbf7b600",
+      "element": "Se",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Se/pseudopotentials/1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c.upf",
+          "sha256": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+          "size_bytes": 209555,
+          "original_sha256": "1f5d0f8b99028dee90766aab811ce5d8bb2c2b2ad38ec60436d1c2888ef5109c",
+          "label": "../assets/Se/pp.upf",
+          "original_name": "../assets/Se/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/pp.upf"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_pp_1f5d0f8b9902.upf",
+          "download_name": "Se_Recovered-producer-bound-assets_pp_1f5d0f8b9902.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Se/orbitals/71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8.orb",
+          "sha256": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+          "size_bytes": 252890,
+          "original_sha256": "71b39321e69fa4d961931873d1aa8d51756a2c1e9389962ad62e9f27c5b528d8",
+          "label": "../assets/Se/physical.orb",
+          "original_name": "../assets/Se/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/physical.orb"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
+          "download_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Se/auxiliary/909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa.abfs",
+          "sha256": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+          "size_bytes": 1594218,
+          "original_sha256": "909fa1b62f28fc6cf177e0e460b720b759cbeeaf36ffd288e80f3e66802227fa",
+          "label": "../assets/Se/auxiliary.abfs",
+          "original_name": "../assets/Se/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Se/auxiliary.abfs"
+          ],
+          "display_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
+          "download_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     },
     {
       "schema_version": 1,
@@ -10522,6 +11466,148 @@
     },
     {
       "schema_version": 1,
+      "id": "Te-producer-0faf76f566580802fc41",
+      "element": "Te",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Te/pseudopotentials/25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5.upf",
+          "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "size_bytes": 225387,
+          "original_sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "label": "../../assets/Te/pp.upf",
+          "original_name": "../assets/Te/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../../assets/Te/pp.upf",
+            "../assets/Te/pp.upf"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_pp_25619aa442ec.upf",
+          "download_name": "Te_Recovered-producer-bound-assets_pp_25619aa442ec.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Te/orbitals/1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d.orb",
+          "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "size_bytes": 251663,
+          "original_sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "label": "../../assets/Te/physical.orb",
+          "original_name": "../assets/Te/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../../assets/Te/physical.orb",
+            "../assets/Te/physical.orb"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
+          "download_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Te/auxiliary/76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5.abfs",
+          "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+          "size_bytes": 1366910,
+          "original_sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+          "label": "../assets/Te/auxiliary.abfs",
+          "original_name": "../assets/Te/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/auxiliary.abfs"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
+          "download_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "Te-producer-c03b683549acd98ed6a5",
+      "element": "Te",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Te/pseudopotentials/25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5.upf",
+          "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "size_bytes": 225387,
+          "original_sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "label": "../assets/Te/pp.upf",
+          "original_name": "../assets/Te/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/pp.upf"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_pp_25619aa442ec.upf",
+          "download_name": "Te_Recovered-producer-bound-assets_pp_25619aa442ec.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Te/orbitals/1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d.orb",
+          "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "size_bytes": 251663,
+          "original_sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "label": "../assets/Te/physical.orb",
+          "original_name": "../assets/Te/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/physical.orb"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
+          "download_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Te/auxiliary/76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5.abfs",
+          "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+          "size_bytes": 1366910,
+          "original_sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+          "label": "../assets/Te/auxiliary.abfs",
+          "original_name": "../assets/Te/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Te/auxiliary.abfs"
+          ],
+          "display_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
+          "download_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
+    },
+    {
+      "schema_version": 1,
       "id": "Ti-Dojo-NC-SR-ca1f36a7957f",
       "element": "Ti",
       "family": "Dojo-NC-SR",
@@ -10650,6 +11736,76 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "Ti-producer-aca7f2a7c3303ab3ab87",
+      "element": "Ti",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Ti/pseudopotentials/c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506.upf",
+          "sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+          "size_bytes": 295203,
+          "original_sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+          "label": "../assets/Ti/pp.upf",
+          "original_name": "../assets/Ti/pp.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ti/pp.upf"
+          ],
+          "display_name": "Ti_Recovered-producer-bound-assets_pp_c33e68554a68.upf",
+          "download_name": "Ti_Recovered-producer-bound-assets_pp_c33e68554a68.upf",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Ti/orbitals/9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b.orb",
+          "sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+          "size_bytes": 321158,
+          "original_sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+          "label": "../assets/Ti/physical.orb",
+          "original_name": "../assets/Ti/physical.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ti/physical.orb"
+          ],
+          "display_name": "Ti_Recovered-producer-bound-assets_nao_9c756a056d24.orb",
+          "download_name": "Ti_Recovered-producer-bound-assets_nao_9c756a056d24.orb",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Ti/auxiliary/8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5.abfs",
+          "sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+          "size_bytes": 1497820,
+          "original_sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+          "label": "../assets/Ti/auxiliary.abfs",
+          "original_name": "../assets/Ti/auxiliary.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "../assets/Ti/auxiliary.abfs"
+          ],
+          "display_name": "Ti_Recovered-producer-bound-assets_abf_8fc9ce28a64a.abfs",
+          "download_name": "Ti_Recovered-producer-bound-assets_abf_8fc9ce28a64a.abfs",
+          "name_source": "descriptive_alias",
+          "original_names": []
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     },
     {
       "schema_version": 1,
@@ -10885,10 +12041,12 @@
           "original_sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
           "label": "payload",
           "transformation": "none",
-          "display_name": "W_GTH_pp_d55564c7fbac.upf",
-          "download_name": "W_GTH_pp_d55564c7fbac.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "W-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -10992,10 +12150,12 @@
           "original_sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
           "label": "payload",
           "transformation": "none",
-          "display_name": "W_GTH_pp_d55564c7fbac.upf",
-          "download_name": "W_GTH_pp_d55564c7fbac.upf",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "W-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
         },
         {
           "role": "nao",
@@ -11016,10 +12176,12 @@
             },
             "basis_dimension": 53
           },
-          "display_name": "W_GTH_nao_ffea5e804a88.orb",
-          "download_name": "W_GTH_nao_ffea5e804a88.orb",
-          "name_source": "descriptive_alias",
-          "original_names": []
+          "display_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "download_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "W_gga_10au_100Ry_6s3p3d2f.orb"
+          ]
         },
         {
           "role": "abf",
@@ -11397,6 +12559,82 @@
       "used_by": [
         "wse2-table-gw"
       ]
+    },
+    {
+      "schema_version": 1,
+      "id": "W-producer-47c306ca61924b1a7b19",
+      "element": "W",
+      "family": "Recovered producer-bound assets",
+      "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Reviewed historical producer assets",
+        "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/W/pseudopotentials/d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1.upf",
+          "sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+          "size_bytes": 127004,
+          "original_sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+          "label": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "original_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "transformation": "none",
+          "source_declarations": [
+            "W-GTH-PBE-q14-cp2k-default-grid.upf"
+          ],
+          "display_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "download_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "W-GTH-PBE-q14-cp2k-default-grid.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/W/orbitals/ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825.orb",
+          "sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+          "size_bytes": 342838,
+          "original_sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+          "label": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "original_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "transformation": "none",
+          "source_declarations": [
+            "W_gga_10au_100Ry_6s3p3d2f.orb"
+          ],
+          "display_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "download_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "W_gga_10au_100Ry_6s3p3d2f.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/W/auxiliary/bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52.abfs",
+          "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+          "size_bytes": 2664329,
+          "original_sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+          "label": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+          "original_name": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+          "transformation": "none",
+          "source_declarations": [
+            "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
+          ],
+          "display_name": "W_6s3p3d2f1g_1e-6.abfs",
+          "download_name": "W_6s3p3d2f1g_1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "W_6s3p3d2f1g_1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "status": "historical producer association verified; generation history not reassessed"
+      }
     }
   ],
   "calculations": [
@@ -11407,7 +12645,52 @@
       "material": "CuInP2Se6",
       "formula": "CuInP2Se6",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Cu",
+          "set_id": "Cu-producer-175ba275f4bf9025866e",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Cu/pp.upf",
+            "nao": "../assets/Cu/physical.orb",
+            "abf": "../assets/Cu/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "In",
+          "set_id": "In-producer-30797a82c39e68265b35",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/In/pp.upf",
+            "nao": "../assets/In/physical.orb",
+            "abf": "../assets/In/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "P",
+          "set_id": "P-producer-a78b12ec5bc708e4dc50",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/P/pp.upf",
+            "nao": "../assets/P/physical.orb",
+            "abf": "../assets/P/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "Se",
+          "set_id": "Se-producer-b4a24ceb4139fbf7b600",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Se/pp.upf",
+            "nao": "../assets/Se/physical.orb",
+            "abf": "../assets/Se/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Cu",
@@ -11639,6 +12922,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json",
+            "sha256": "22ab7f65a108a3018f6869321b35df63f1c3c2f07f784936416041caed38bcaa",
+            "size_bytes": 18464,
+            "original_sha256": "22ab7f65a108a3018f6869321b35df63f1c3c2f07f784936416041caed38bcaa",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -11737,7 +13030,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "009f7284c2653a2f60fa8c3c7936552e644e03812841fde87eb066254aaf0ee4",
-        "stage_input_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "low-energy path diagnostic",
@@ -11820,13 +13114,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element Cu",
-          "species: missing exact binding for formula element In",
-          "species: missing exact binding for formula element P",
-          "species: missing exact binding for formula element Se",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -11839,7 +13126,30 @@
       "material": "GaTe",
       "formula": "GaTe",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Ga",
+          "set_id": "Ga-producer-a8299a579fc785a0b761",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Ga/pp.upf",
+            "nao": "../assets/Ga/physical.orb",
+            "abf": "../assets/Ga/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "Te",
+          "set_id": "Te-producer-c03b683549acd98ed6a5",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Te/pp.upf",
+            "nao": "../assets/Te/physical.orb",
+            "abf": "../assets/Te/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Ga",
@@ -12074,6 +13384,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json",
+            "sha256": "8db5e0c3c9ec8626ae0d156bef17124da9e471be91b43df1c95e5a25f3cc254a",
+            "size_bytes": 10108,
+            "original_sha256": "8db5e0c3c9ec8626ae0d156bef17124da9e471be91b43df1c95e5a25f3cc254a",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -12172,7 +13492,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac",
-        "stage_input_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "low-energy path diagnostic",
@@ -12255,11 +13576,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element Ga",
-          "species: missing exact binding for formula element Te",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -12573,7 +13889,30 @@
       "material": "In2Se3",
       "formula": "In2Se3",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "In",
+          "set_id": "In-producer-be4aeecb20718e6a297b",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../producer/assets/In/pp.upf",
+            "nao": "../../producer/assets/In/physical.orb",
+            "abf": "../assets/In/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "Se",
+          "set_id": "Se-producer-2bee458929b6f726dc39",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../producer/assets/Se/pp.upf",
+            "nao": "../../producer/assets/Se/physical.orb",
+            "abf": "../assets/Se/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "In",
@@ -12808,6 +14147,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json",
+            "sha256": "3a502360a060f67964cc59fc68418d8120e9c0e44fca3e1c737a93699e7ec2e3",
+            "size_bytes": 8686,
+            "original_sha256": "3a502360a060f67964cc59fc68418d8120e9c0e44fca3e1c737a93699e7ec2e3",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -12906,7 +14255,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "7678030242953166b238e48ef084bd6313aeec2322a00658c588ca5f7939fdaa",
-        "stage_input_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "low-energy path diagnostic",
@@ -12989,11 +14339,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element In",
-          "species: missing exact binding for formula element Se",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/68910c682785/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/01726aa6cdca/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -13006,7 +14351,30 @@
       "material": "InSe",
       "formula": "InSe",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "In",
+          "set_id": "In-producer-ce679d10d184bcf47886",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../producer/assets/In/pp.upf",
+            "nao": "../../producer/assets/In/physical.orb",
+            "abf": "../assets/In/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "Se",
+          "set_id": "Se-producer-1e9b35f947cef86434d6",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../producer/assets/Se/pp.upf",
+            "nao": "../../producer/assets/Se/physical.orb",
+            "abf": "../assets/Se/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "In",
@@ -13241,6 +14609,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/InSe/inse-table-gw/results/producer_assets_receipt.json",
+            "sha256": "b67b271970c1dacce3460bf82940d7c6c93a0138af04f1cd0a49db6010840fee",
+            "size_bytes": 8676,
+            "original_sha256": "b67b271970c1dacce3460bf82940d7c6c93a0138af04f1cd0a49db6010840fee",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -13339,7 +14717,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "1f0becefc9dc0748e9b0e3cfd524d1b83a912d2b8eac6b60cac8d2b882bb5e2f",
-        "stage_input_receipt": "data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/InSe/inse-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "low-energy path diagnostic",
@@ -13422,11 +14801,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element In",
-          "species: missing exact binding for formula element Se",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/InSe/inse-table-gw/inputs/recovered/dee5bce09bf6/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/InSe/inse-table-gw/inputs/recovered/3dba2707b2c2/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -13839,7 +15213,41 @@
       "material": "MoS2-WS2",
       "formula": "MoS2-WS2",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Mo",
+          "set_id": "Mo-producer-dbad35284206dfde5407",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+            "nao": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+            "abf": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "W",
+          "set_id": "W-producer-47c306ca61924b1a7b19",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+            "nao": "W_gga_10au_100Ry_6s3p3d2f.orb",
+            "abf": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "S",
+          "set_id": "S-producer-f0bb18bb4c7d704bb369",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+            "nao": "S_gga_10au_100Ry_2s2p2d1f.orb",
+            "abf": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Mo",
@@ -14040,6 +15448,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json",
+            "sha256": "ba6e5e1c5840b520e33e2259be345aa18a47ec565dc8a03089deea9a8d8bc936",
+            "size_bytes": 13094,
+            "original_sha256": "ba6e5e1c5840b520e33e2259be345aa18a47ec565dc8a03089deea9a8d8bc936",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -14138,7 +15556,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "c0915caf88ebf20d269afd1c7c003d71fd508ba914bb9a31bc1402c3c6d73dea",
-        "stage_input_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "application path diagnostic",
@@ -14221,12 +15640,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element Mo",
-          "species: missing exact binding for formula element S",
-          "species: missing exact binding for formula element W",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -14659,7 +16072,30 @@
       "material": "MoTe2",
       "formula": "MoTe2",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Mo",
+          "set_id": "Mo-producer-e35dc97023358b55e3fd",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../assets/Mo/pp.upf",
+            "nao": "../../assets/Mo/physical.orb",
+            "abf": "../assets/Mo/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "Te",
+          "set_id": "Te-producer-0faf76f566580802fc41",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../../assets/Te/pp.upf",
+            "nao": "../../assets/Te/physical.orb",
+            "abf": "../assets/Te/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Mo",
@@ -14868,6 +16304,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json",
+            "sha256": "b18b3e53e771006ba79a73baa35c53e9ec788cc47f380ab4ddaac5ea2db99363",
+            "size_bytes": 8827,
+            "original_sha256": "b18b3e53e771006ba79a73baa35c53e9ec788cc47f380ab4ddaac5ea2db99363",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -14966,7 +16412,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165",
-        "stage_input_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "near-gap path diagnostic",
@@ -15049,11 +16496,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element Mo",
-          "species: missing exact binding for formula element Te",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
@@ -15641,7 +17083,30 @@
       "material": "TiS3",
       "formula": "TiS3",
       "status": "gw_diagnostic",
-      "species": [],
+      "species": [
+        {
+          "element": "Ti",
+          "set_id": "Ti-producer-aca7f2a7c3303ab3ab87",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/Ti/pp.upf",
+            "nao": "../assets/Ti/physical.orb",
+            "abf": "../assets/Ti/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        },
+        {
+          "element": "S",
+          "set_id": "S-producer-00c084a9b599e991b102",
+          "missing_roles": [],
+          "asset_aliases": {
+            "pp": "../assets/S/pp.upf",
+            "nao": "../assets/S/physical.orb",
+            "abf": "../assets/S/auxiliary.abfs"
+          },
+          "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+        }
+      ],
       "basis_candidates": [
         {
           "element": "Ti",
@@ -15863,6 +17328,16 @@
             "label": "stage_input_receipt.json",
             "original_name": "stage_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/TiS3/tis3-table-gw/results/producer_assets_receipt.json",
+            "sha256": "88335a951100039428177fb618ba599c231600caa82500328cc68624f9de0b9e",
+            "size_bytes": 10089,
+            "original_sha256": "88335a951100039428177fb618ba599c231600caa82500328cc68624f9de0b9e",
+            "label": "producer_assets_receipt.json",
+            "original_name": "producer_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [],
@@ -15961,7 +17436,8 @@
       "source": {
         "collection": "2D manuscript band catalog",
         "original_sidecar_sha256": "140d59495139e2b6b971bc1b6439d1643bd68272893547ee298249cc9708b9af",
-        "stage_input_receipt": "data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json"
+        "stage_input_receipt": "data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json",
+        "producer_assets_receipt": "data/calculations/2d/TiS3/tis3-table-gw/results/producer_assets_receipt.json"
       },
       "scientific_scope": {
         "original_status": "low-energy path diagnostic",
@@ -16044,11 +17520,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species: missing exact binding for formula element S",
-          "species: missing exact binding for formula element Ti",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/STRU: ATOMIC_SPECIES elements do not match exact species",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]

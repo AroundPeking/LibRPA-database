@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "Mo-producer-e35dc97023358b55e3fd",
+  "element": "Mo",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mo/pseudopotentials/7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448.upf",
+      "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+      "size_bytes": 302634,
+      "original_sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+      "label": "../../assets/Mo/pp.upf",
+      "original_name": "../assets/Mo/pp.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../../assets/Mo/pp.upf",
+        "../assets/Mo/pp.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mo/orbitals/a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e.orb",
+      "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+      "size_bytes": 321277,
+      "original_sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+      "label": "../../assets/Mo/physical.orb",
+      "original_name": "../assets/Mo/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../../assets/Mo/physical.orb",
+        "../assets/Mo/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Mo/auxiliary/6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044.abfs",
+      "sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+      "size_bytes": 1549547,
+      "original_sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+      "label": "../assets/Mo/auxiliary.abfs",
+      "original_name": "../assets/Mo/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Mo/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

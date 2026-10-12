@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "Mo-producer-dbad35284206dfde5407",
+  "element": "Mo",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mo/pseudopotentials/f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a.upf",
+      "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "size_bytes": 118292,
+      "original_sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+      "label": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+      "original_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mo/orbitals/84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161.orb",
+      "sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+      "size_bytes": 207297,
+      "original_sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+      "label": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+      "original_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "Mo_gga_10au_100Ry_4s2p2d1f.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Mo/auxiliary/3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6.abfs",
+      "sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+      "size_bytes": 1004049,
+      "original_sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+      "label": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+      "original_name": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

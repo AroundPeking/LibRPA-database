@@ -1,10 +1,11 @@
 import { matchesSearch } from "./search.mjs";
 import { esc, bandGap, paperGap, restrictedGap, filesOf, recordElements, methodNames } from "./records.mjs";
 import { installPreview } from "./files.mjs";
+import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/", history: false };
 const pageSize = 20;
 const publication = set => set.publication?.status || "database_only";
 const statusNames = { database_only: "Archive only", legacy_incomplete: "Incomplete evidence", review: "Under review", publishable: "Publishable", superseded: "Superseded" };
@@ -40,7 +41,7 @@ function matchesQuery(item, isBasis = false) {
 
 function filtered() {
   if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element) && (state.status === "all" || state.status === publication(set))).sort((a, b) => (state.sort === "status" ? publication(a).localeCompare(publication(b)) : 0) || a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
-  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "gap" ? (bandGap(b) ?? -Infinity) - (bandGap(a) ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
+  return state.calculations.filter(record => (state.history || record.id !== "hbn-table-gw") && matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "gap" ? (bandGap(b) ?? -Infinity) - (bandGap(a) ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
 function materialRow(record) {
@@ -85,7 +86,7 @@ function syncFilters() {
 
 function listHash() {
   const params = new URLSearchParams();
-  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
+  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1], ["history", state.history, false]]) if (value !== fallback) params.set(key, value);
   return `#/${state.mode === "basis" ? "basis" : ""}${params.size ? `?${params}` : ""}`;
 }
 
@@ -98,6 +99,7 @@ function renderHome() {
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
   $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation. PBE/GW values prefer the paper's own columns when recorded; EXX remains archive-derived. Restricted paper values are labelled and sorted by their reported numbers, without scientific acceptance. Original path values and differences are retained in Overview. The archived k-path is not the global fundamental gap. A dash means not reported.";
+  if (!basis) $("#catalog-footnote").innerHTML += ` <a href="${state.history ? "#/" : "#/?history=true"}">${state.history ? "Hide superseded hBN" : "Show superseded hBN archive"}</a>. Default browsing uses only the replacement hBN; historical files remain archived and are not exempt from CI.`;
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
@@ -120,7 +122,7 @@ function updateFilter() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", dimension: "all", element: "all", inputs: "all", status: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
+  Object.assign(state, { query: "", dimension: "all", element: "all", inputs: "all", status: "all", history: false, sort: state.mode === "basis" ? "element" : "material", page: 1 });
   syncFilters();
   updateFilter();
 }
@@ -141,11 +143,12 @@ function route() {
     document.title = `${record?.material || record?.id || "Record not found"} · ABACUS + LibRPA`;
     document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === (match[1] === "material" ? "materials" : "basis") ? "page" : "false"));
     window.scrollTo(0, 0);
+    if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();
     return;
   }
   state.mode = hash.split("?")[0] === "#/basis" ? "basis" : "materials";
   const params = new URLSearchParams(hash.split("?")[1] || "");
-  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
+  Object.assign(state, { history: params.get("history") === "true", query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
   renderHome();
@@ -153,6 +156,7 @@ function route() {
 
 async function start() {
   installPreview($("#file-preview"));
+  installRadial($("#detail-view"));
   installDetailActions($("#detail-view"), () => state.currentRecord);
   try {
     const response = await fetch("data.json", { cache: "no-cache" });

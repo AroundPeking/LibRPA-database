@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "case_id": "mote2-table-gw",
+  "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25",
+  "record_before_sha256": "24be5c669ff02561d86f6b95818c90e2a47465f8b3b291e9ebc0b12ea3aae5d5",
+  "structures": [
+    {
+      "sha256": "72a616e95a0f3567f8f1920b542238ccbd474675180ccc0bc2274818be02d828",
+      "archived_stru_paths": [
+        "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/STRU"
+      ],
+      "references": [
+        {
+          "element": "Mo",
+          "role": "pp",
+          "declared_name": "../assets/Mo/pp.upf",
+          "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+          "source_path_sha256": "8ba1af53a1a776ca41a6061a928f5e4ca771eefdc1357d2eb485490030c2e8bd",
+          "resolved_source_path_sha256": "8ba1af53a1a776ca41a6061a928f5e4ca771eefdc1357d2eb485490030c2e8bd",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Mo/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Te",
+          "role": "pp",
+          "declared_name": "../assets/Te/pp.upf",
+          "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "source_path_sha256": "59a0f4779dcb8ef149f9d761ed06720aa426af5af54b68595b212bddfc4ce9a1",
+          "resolved_source_path_sha256": "59a0f4779dcb8ef149f9d761ed06720aa426af5af54b68595b212bddfc4ce9a1",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Te/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Mo",
+          "role": "nao",
+          "declared_name": "../assets/Mo/physical.orb",
+          "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+          "source_path_sha256": "77a2da4c2f2868c0d34dd4b68aeaad8e8e7b68be0df3549b01e45d3779e6ba66",
+          "resolved_source_path_sha256": "77a2da4c2f2868c0d34dd4b68aeaad8e8e7b68be0df3549b01e45d3779e6ba66",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Mo/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "Te",
+          "role": "nao",
+          "declared_name": "../assets/Te/physical.orb",
+          "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "source_path_sha256": "1f7d3a2acefddfb54856075925c25e1304427938912171ef18551a8330e45b25",
+          "resolved_source_path_sha256": "1f7d3a2acefddfb54856075925c25e1304427938912171ef18551a8330e45b25",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Te/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "Mo",
+          "role": "abf",
+          "declared_name": "../assets/Mo/auxiliary.abfs",
+          "sha256": "6f0882fc4b224992633a34f0b33142d789b7ac37b361676d5d6f735b61637044",
+          "source_path_sha256": "08a00eb1d1698fa0350893856b21573468a0640295e261cfd83c6740518efdd1",
+          "resolved_source_path_sha256": "08a00eb1d1698fa0350893856b21573468a0640295e261cfd83c6740518efdd1",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Mo/auxiliary.abfs"
+            }
+          ]
+        },
+        {
+          "element": "Te",
+          "role": "abf",
+          "declared_name": "../assets/Te/auxiliary.abfs",
+          "sha256": "76104079ff2cc00437b445b4db7438a7378307abd3c9c600f59385dbff8457a5",
+          "source_path_sha256": "10fbb2985283af7817dabab1e84aa0a76bf70c2d00881ab2d6a0fae8168363bd",
+          "resolved_source_path_sha256": "10fbb2985283af7817dabab1e84aa0a76bf70c2d00881ab2d6a0fae8168363bd",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Te/auxiliary.abfs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sha256": "36e3a2d44e1467b1e85a2ce1ad82f00ffd95b7006d46e7d344a46868157ed91b",
+      "archived_stru_paths": [
+        "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU"
+      ],
+      "references": [
+        {
+          "element": "Mo",
+          "role": "pp",
+          "declared_name": "../../assets/Mo/pp.upf",
+          "sha256": "7a392dee2cc7088d02184ddefa73b709f11e266fdde348a08eeaf8ea2870e448",
+          "source_path_sha256": "8ba1af53a1a776ca41a6061a928f5e4ca771eefdc1357d2eb485490030c2e8bd",
+          "resolved_source_path_sha256": "8ba1af53a1a776ca41a6061a928f5e4ca771eefdc1357d2eb485490030c2e8bd",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Mo/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Te",
+          "role": "pp",
+          "declared_name": "../../assets/Te/pp.upf",
+          "sha256": "25619aa442ecbc91d34143cc07c0f54a7235492a992ef744a7357f690d09c7a5",
+          "source_path_sha256": "59a0f4779dcb8ef149f9d761ed06720aa426af5af54b68595b212bddfc4ce9a1",
+          "resolved_source_path_sha256": "59a0f4779dcb8ef149f9d761ed06720aa426af5af54b68595b212bddfc4ce9a1",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Te/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Mo",
+          "role": "nao",
+          "declared_name": "../../assets/Mo/physical.orb",
+          "sha256": "a259e30e8d201b110ea5429b9a75c4aae4388c6204197b219bd35256dec4e76e",
+          "source_path_sha256": "77a2da4c2f2868c0d34dd4b68aeaad8e8e7b68be0df3549b01e45d3779e6ba66",
+          "resolved_source_path_sha256": "77a2da4c2f2868c0d34dd4b68aeaad8e8e7b68be0df3549b01e45d3779e6ba66",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Mo/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "Te",
+          "role": "nao",
+          "declared_name": "../../assets/Te/physical.orb",
+          "sha256": "1811dd6bdb4917a358bae25b9ccbb7d52798a5ccbc4156bf55805556901c8d9d",
+          "source_path_sha256": "1f7d3a2acefddfb54856075925c25e1304427938912171ef18551a8330e45b25",
+          "resolved_source_path_sha256": "1f7d3a2acefddfb54856075925c25e1304427938912171ef18551a8330e45b25",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "3bf84ea4b0afd7f607557b5fbe2b9eadfabba3219b889961f26a271f2d353164",
+              "member": "assets/Te/physical.orb"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sets": [
+    "Mo-producer-e35dc97023358b55e3fd",
+    "Te-producer-0faf76f566580802fc41"
+  ],
+  "runtime_asset_seal_verified": false,
+  "full_runtime_handoff_verified": false,
+  "scientific_acceptance_reassessed": false,
+  "scope": "Exact copied asset bytes, original STRU role/name/element order and original producer manifest members verified. Source directory linkage is not complete runtime proof.",
+  "restrictions": [
+    "仅恢复原controls/元素资产和紧凑receipt，不是完整运行镜像。",
+    "原STRU只作ABACUS生产/NSCF结构，不能替代reader stru_out或其对称性行。",
+    "材料Coulomb/Cs/shrink/PyATB/波函数payload未完整下载及重hash，不能跨材料移植。",
+    "原软件声明与运行日志tokens分层；未验证当前可执行文件或源码树，历史运行不自动匹配v6。",
+    "输入归档不升级现record状态/summary或科学接受。",
+    "原GW manifest fix_commit=9539f4310712c9980fb2516d504807b1cd0240b7，而原EXX/GW stdout Git hash=b6a432b996df62b30b6ebe87367fbc9a6c2eb7aa；差异保留，不用声明覆盖日志。已恢复exx原librpa.in/manifest/start/exit，但软件声明与日志token差异仍未闭合。"
+  ]
+}

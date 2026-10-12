@@ -12,7 +12,7 @@ This repository is the data companion to the [ABACUS + LibRPA GW basis skill](ht
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
-The current snapshot contains 96 immutable basis-set records covering 27 elements and 33 calculation records (16 two-dimensional and 17 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
+The current snapshot contains 113 immutable basis-set records covering 27 elements and 33 calculation records (16 two-dimensional and 17 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
 
 The generated [`data/log-index.json`](data/log-index.json) gives every retained
 log exactly one calculation owner. [`data/release-index.json`](data/release-index.json)
@@ -48,6 +48,10 @@ current archive has input files for **29 of 33 calculations** (262 files).
 Nine records include **89 partial stage controls**, with stage-input receipts
 and explicit incomplete-run warnings; these attachments do not certify a full
 production chain, exact basis linkage, or a self-contained rerun bundle.
+Seven of those calculations now have a separate producer-assets receipt binding
+17 species and 51 PP/NAO/ABF roles to original STRU declarations and payload
+hashes. This separate recovery is not a complete immutable runtime seal; the
+original stage-input receipt retains its narrower, unchanged scope.
 The other four records explicitly say **Inputs not archived**; result files and
 candidate basis sets do not establish that the missing inputs exist.
 
@@ -55,6 +59,21 @@ The **Pseudopotentials & basis** section links exact species bindings to their
 PP, physical NAO, optional `for_aux`, and ABF files. The Basis library also has
 its own detail pages, including generation-only and unbound records. Candidate
 links are labelled separately from exact production bindings.
+
+Each Basis detail page also plots the original **NAO, ABF, and optional for_aux
+radial functions**, with **one chart per angular momentum l** and individually
+selectable original N indices. Switch between R(r) and finite-difference dR/dr,
+or magnify the final 20% of the original grid to inspect the cutoff tail.
+Source SHA-256 is checked before rendering; the curves are not smoothed,
+interpolated, reordered, or renormalized. SVG downloads preserve this display.
+Header/count mismatches are visibly marked as diagnostics, not repaired files
+or accepted bases. Radial appearance alone does not validate periodic overlap,
+RI conditioning, or EXX/GW accuracy.
+
+The superseded `hbn-table-gw` record is hidden from ordinary material browsing.
+The new hBN record is the default; an explicit history link retains the old
+record and its separate evidence. Hiding it does not exempt it from strict
+archive-completeness checks.
 
 Hash-addressed storage is intentional and unchanged. The generated catalog
 adds `display_name`, `download_name`, `name_source`, and `original_names`:

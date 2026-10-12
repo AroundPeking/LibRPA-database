@@ -5,7 +5,52 @@
   "material": "CuInP2Se6",
   "formula": "CuInP2Se6",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "Cu",
+      "set_id": "Cu-producer-175ba275f4bf9025866e",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/Cu/pp.upf",
+        "nao": "../assets/Cu/physical.orb",
+        "abf": "../assets/Cu/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "In",
+      "set_id": "In-producer-30797a82c39e68265b35",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/In/pp.upf",
+        "nao": "../assets/In/physical.orb",
+        "abf": "../assets/In/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "P",
+      "set_id": "P-producer-a78b12ec5bc708e4dc50",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/P/pp.upf",
+        "nao": "../assets/P/physical.orb",
+        "abf": "../assets/P/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "Se",
+      "set_id": "Se-producer-b4a24ceb4139fbf7b600",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/Se/pp.upf",
+        "nao": "../assets/Se/physical.orb",
+        "abf": "../assets/Se/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "Cu",
@@ -237,6 +282,16 @@
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json",
+        "sha256": "22ab7f65a108a3018f6869321b35df63f1c3c2f07f784936416041caed38bcaa",
+        "size_bytes": 18464,
+        "original_sha256": "22ab7f65a108a3018f6869321b35df63f1c3c2f07f784936416041caed38bcaa",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -335,7 +390,8 @@
   "source": {
     "collection": "2D manuscript band catalog",
     "original_sidecar_sha256": "009f7284c2653a2f60fa8c3c7936552e644e03812841fde87eb066254aaf0ee4",
-    "stage_input_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json"
+    "stage_input_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json",
+    "producer_assets_receipt": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "low-energy path diagnostic",

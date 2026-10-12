@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "W-producer-47c306ca61924b1a7b19",
+  "element": "W",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/W/pseudopotentials/d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1.upf",
+      "sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+      "size_bytes": 127004,
+      "original_sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+      "label": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+      "original_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "W-GTH-PBE-q14-cp2k-default-grid.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/W/orbitals/ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825.orb",
+      "sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+      "size_bytes": 342838,
+      "original_sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+      "label": "W_gga_10au_100Ry_6s3p3d2f.orb",
+      "original_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "W_gga_10au_100Ry_6s3p3d2f.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/W/auxiliary/bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52.abfs",
+      "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "size_bytes": 2664329,
+      "original_sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+      "label": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+      "original_name": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

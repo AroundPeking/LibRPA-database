@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "case_id": "tis3-table-gw",
+  "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25",
+  "record_before_sha256": "8e139ea75bbe446bd61e90bebc175bcafe39f15a6a95e0bf3de1368eb1e32e3c",
+  "structures": [
+    {
+      "sha256": "c965fdb4cb749975198535a7d907e58b6f07ca423f6876247672f37d94e5b02f",
+      "archived_stru_paths": [
+        "data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/STRU",
+        "data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/STRU"
+      ],
+      "references": [
+        {
+          "element": "Ti",
+          "role": "pp",
+          "declared_name": "../assets/Ti/pp.upf",
+          "sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+          "source_path_sha256": "c955a1f0d96fb6ad051ecd651a2974b462894c4ada7dd6c1a3e184e57f256c9a",
+          "resolved_source_path_sha256": "c955a1f0d96fb6ad051ecd651a2974b462894c4ada7dd6c1a3e184e57f256c9a",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "pp",
+          "declared_name": "../assets/S/pp.upf",
+          "sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+          "source_path_sha256": "b3dc9c4ca9b4ecdf022b47f5cf24f69128784762bf317ce78fdfbc05cae7f901",
+          "resolved_source_path_sha256": "b3dc9c4ca9b4ecdf022b47f5cf24f69128784762bf317ce78fdfbc05cae7f901",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Ti",
+          "role": "nao",
+          "declared_name": "../assets/Ti/physical.orb",
+          "sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+          "source_path_sha256": "ec9a310b610a53b87be1666558e44be1b949709670ae59ae1b2add5ce785bb89",
+          "resolved_source_path_sha256": "ec9a310b610a53b87be1666558e44be1b949709670ae59ae1b2add5ce785bb89",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "nao",
+          "declared_name": "../assets/S/physical.orb",
+          "sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+          "source_path_sha256": "66fba6c3270da5947fa191905c6ca20e3da86765865691f43368bb9b766e8831",
+          "resolved_source_path_sha256": "66fba6c3270da5947fa191905c6ca20e3da86765865691f43368bb9b766e8831",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "Ti",
+          "role": "abf",
+          "declared_name": "../assets/Ti/auxiliary.abfs",
+          "sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+          "source_path_sha256": "630d5cc15c12c3b2fcdb58c36c0e893b33f12a6da04d89efcd531698f91ca415",
+          "resolved_source_path_sha256": "630d5cc15c12c3b2fcdb58c36c0e893b33f12a6da04d89efcd531698f91ca415",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/auxiliary.abfs"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "abf",
+          "declared_name": "../assets/S/auxiliary.abfs",
+          "sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+          "source_path_sha256": "32a75075d9b3928e403f0bfe4b293f007c151cc3c69ac5f308c6593092d01c88",
+          "resolved_source_path_sha256": "32a75075d9b3928e403f0bfe4b293f007c151cc3c69ac5f308c6593092d01c88",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/auxiliary.abfs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sha256": "c965fdb4cb749975198535a7d907e58b6f07ca423f6876247672f37d94e5b02f",
+      "archived_stru_paths": [
+        "data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/STRU",
+        "data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/STRU"
+      ],
+      "references": [
+        {
+          "element": "Ti",
+          "role": "pp",
+          "declared_name": "../assets/Ti/pp.upf",
+          "sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+          "source_path_sha256": "cb3cfd79e9c4ac68ebfddd3af7859ff6a725100c5f8bfcdeaeef078f26b82f46",
+          "resolved_source_path_sha256": "c955a1f0d96fb6ad051ecd651a2974b462894c4ada7dd6c1a3e184e57f256c9a",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "pp",
+          "declared_name": "../assets/S/pp.upf",
+          "sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+          "source_path_sha256": "dbc0d7b8953d91f0e57f9dc71b5c1308d7fd28c68f59bf12240b5f3ebe36e2a2",
+          "resolved_source_path_sha256": "b3dc9c4ca9b4ecdf022b47f5cf24f69128784762bf317ce78fdfbc05cae7f901",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/pp.upf"
+            }
+          ]
+        },
+        {
+          "element": "Ti",
+          "role": "nao",
+          "declared_name": "../assets/Ti/physical.orb",
+          "sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+          "source_path_sha256": "3ac50fa982ae0edf8388901c9d4d9c6277fc31407f088fd26b62be2b8e69c2ad",
+          "resolved_source_path_sha256": "ec9a310b610a53b87be1666558e44be1b949709670ae59ae1b2add5ce785bb89",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "nao",
+          "declared_name": "../assets/S/physical.orb",
+          "sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+          "source_path_sha256": "2a80be6f6a21ee0daf1d1d1f896c50e0f42bf8fd58406f6b9837edcacc7088b2",
+          "resolved_source_path_sha256": "66fba6c3270da5947fa191905c6ca20e3da86765865691f43368bb9b766e8831",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/physical.orb"
+            }
+          ]
+        },
+        {
+          "element": "Ti",
+          "role": "abf",
+          "declared_name": "../assets/Ti/auxiliary.abfs",
+          "sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+          "source_path_sha256": "df8bc7a1a13ed0a69d9928142bdc10c6c2fe6da79485398e8617862f643cc1a1",
+          "resolved_source_path_sha256": "630d5cc15c12c3b2fcdb58c36c0e893b33f12a6da04d89efcd531698f91ca415",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/Ti/auxiliary.abfs"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "abf",
+          "declared_name": "../assets/S/auxiliary.abfs",
+          "sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+          "source_path_sha256": "6596a50f9795a9f87931985de362a0498a5631939b31bee894d6e8f63cd9e94b",
+          "resolved_source_path_sha256": "32a75075d9b3928e403f0bfe4b293f007c151cc3c69ac5f308c6593092d01c88",
+          "resolved_path_differs": true,
+          "producer_seals": [
+            {
+              "manifest_sha256": "476a276e4a564abfdd6375c3a8390edad419e188d53fd7539c54c12eb9641ff8",
+              "member": "../assets/S/auxiliary.abfs"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sets": [
+    "Ti-producer-aca7f2a7c3303ab3ab87",
+    "S-producer-00c084a9b599e991b102"
+  ],
+  "runtime_asset_seal_verified": false,
+  "full_runtime_handoff_verified": false,
+  "scientific_acceptance_reassessed": false,
+  "scope": "Exact copied asset bytes, original STRU role/name/element order and original producer manifest members verified. Source directory linkage is not complete runtime proof.",
+  "restrictions": [
+    "仅恢复原controls/元素资产和紧凑receipt，不是完整运行镜像。",
+    "原STRU只作ABACUS生产/NSCF结构，不能替代reader stru_out或其对称性行。",
+    "材料Coulomb/Cs/shrink/PyATB/波函数payload未完整下载及重hash，不能跨材料移植。",
+    "原软件声明与运行日志tokens分层；未验证当前可执行文件或源码树，历史运行不自动匹配v6。",
+    "输入归档不升级现record状态/summary或科学接受。"
+  ]
+}

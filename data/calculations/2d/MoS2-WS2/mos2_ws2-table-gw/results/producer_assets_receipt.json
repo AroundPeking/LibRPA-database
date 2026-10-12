@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "case_id": "mos2_ws2-table-gw",
+  "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25",
+  "record_before_sha256": "552f0667748e3c23238d9bdd02eba10e8171ca4d248ae730b450b218f3596481",
+  "structures": [
+    {
+      "sha256": "3fcc6837c97860b97bc456a91475153ba5075edb368e1f72d82d9c0e8ce0e679",
+      "archived_stru_paths": [
+        "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU",
+        "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/STRU"
+      ],
+      "references": [
+        {
+          "element": "Mo",
+          "role": "pp",
+          "declared_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+          "source_path_sha256": "4e4da0ebbac7a79728830229d4caf3a120d1c638e94f525c56ef9a15879636ed",
+          "resolved_source_path_sha256": "4e4da0ebbac7a79728830229d4caf3a120d1c638e94f525c56ef9a15879636ed",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/Mo-GTH-PBE-q14-cp2k-default-grid.upf"
+            }
+          ]
+        },
+        {
+          "element": "W",
+          "role": "pp",
+          "declared_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+          "source_path_sha256": "2d0b564e2b7239a713fd8fd24c54d5f4ebdbf44e22b190be1f8da8c645412453",
+          "resolved_source_path_sha256": "2d0b564e2b7239a713fd8fd24c54d5f4ebdbf44e22b190be1f8da8c645412453",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/W-GTH-PBE-q14-cp2k-default-grid.upf"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "pp",
+          "declared_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
+          "source_path_sha256": "d29af2b0270b9b79342d85096490f876bdb7dabadb43fc996b77fbae14f432ad",
+          "resolved_source_path_sha256": "d29af2b0270b9b79342d85096490f876bdb7dabadb43fc996b77fbae14f432ad",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/S-GTH-PBE-q6-cp2k-default-grid.upf"
+            }
+          ]
+        },
+        {
+          "element": "Mo",
+          "role": "nao",
+          "declared_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+          "source_path_sha256": "b40024c5410cf7cee19be2f5dd7e9150540f2086ed99c5660a1bbdbe1a6b7215",
+          "resolved_source_path_sha256": "b40024c5410cf7cee19be2f5dd7e9150540f2086ed99c5660a1bbdbe1a6b7215",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/Mo_gga_10au_100Ry_4s2p2d1f.orb"
+            }
+          ]
+        },
+        {
+          "element": "W",
+          "role": "nao",
+          "declared_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+          "source_path_sha256": "6bfc2a8dcffbe953f6102c94c7a0ef2ad2b1a79675026f267fb3370f20d9b789",
+          "resolved_source_path_sha256": "6bfc2a8dcffbe953f6102c94c7a0ef2ad2b1a79675026f267fb3370f20d9b789",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/W_gga_10au_100Ry_6s3p3d2f.orb"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "nao",
+          "declared_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "sha256": "ea1f551bc6571657953e49fc477a7482f9b94c8eafa86cce1596f5359afb352b",
+          "source_path_sha256": "c163bf4f3c1f78723598abf70c0199d9a9c89b45cb34d8b8fb42f77ff68632bc",
+          "resolved_source_path_sha256": "c163bf4f3c1f78723598abf70c0199d9a9c89b45cb34d8b8fb42f77ff68632bc",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/S_gga_10au_100Ry_2s2p2d1f.orb"
+            }
+          ]
+        },
+        {
+          "element": "Mo",
+          "role": "abf",
+          "declared_name": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+          "sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+          "source_path_sha256": "5e027602ae00a68a348711470cd1bb9de38cc7631e282b700e407d4d3e6e990a",
+          "resolved_source_path_sha256": "5e027602ae00a68a348711470cd1bb9de38cc7631e282b700e407d4d3e6e990a",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
+            }
+          ]
+        },
+        {
+          "element": "W",
+          "role": "abf",
+          "declared_name": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+          "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+          "source_path_sha256": "5170335d5ee88c9cf98ec1e0884bfe81587e949f7b240f00e18368e5505a6b40",
+          "resolved_source_path_sha256": "5170335d5ee88c9cf98ec1e0884bfe81587e949f7b240f00e18368e5505a6b40",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
+            }
+          ]
+        },
+        {
+          "element": "S",
+          "role": "abf",
+          "declared_name": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs",
+          "sha256": "5db18b7495ee618582722c165a861f08c0e3abddd48c55d47d9c2ac0950b5a9a",
+          "source_path_sha256": "eb9489399858ca5a80978ba77804d28ab05efb00a17b042468ae8bca998b98f9",
+          "resolved_source_path_sha256": "eb9489399858ca5a80978ba77804d28ab05efb00a17b042468ae8bca998b98f9",
+          "resolved_path_differs": false,
+          "producer_seals": [
+            {
+              "manifest_sha256": "d11d1bd231c11006d0c2804e4275aa4b8397c44d9dce7613a77be16f694ee3c7",
+              "member": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sha256": "3fcc6837c97860b97bc456a91475153ba5075edb368e1f72d82d9c0e8ce0e679",
+      "archived_stru_paths": [
+        "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU",
+        "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/STRU"
+      ],
+      "references": [
+        {
+          "element": "Mo",
+          "role": "pp",
+          "declared_name": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+          "sha256": "f8d99b6265c66b570a1da1bdf23f0f3c9ef7328819b250c5795c87208d24ba9a",
+          "source_path_sha256": "b05dcb82a7375f4c7fb92616e26e7683ac315f25aaa9cc031476777d141010d5",
+          "resolved_source_path_sha256": "b05dcb82a7375f4c7fb92616e26e7683ac315f25aaa9cc031476777d141010d5",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "W",
+          "role": "pp",
+          "declared_name": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+          "sha256": "d55564c7fbacdc7f787e8dcbc009596c462ffb66648623b006f6741fe16a29d1",
+          "source_path_sha256": "08a4733dd1bb68a8d787f10266e87ccae34287a518bd2b875b592d05a8f3554e",
+          "resolved_source_path_sha256": "08a4733dd1bb68a8d787f10266e87ccae34287a518bd2b875b592d05a8f3554e",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "S",
+          "role": "pp",
+          "declared_name": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+          "sha256": "22ac946e64017b53d570c23378d6c367804c5da015cf83c8bce4648490ca1815",
+          "source_path_sha256": "7da89af9da90144fb17b1006044709906753efa360644f04a7513174cc122b87",
+          "resolved_source_path_sha256": "7da89af9da90144fb17b1006044709906753efa360644f04a7513174cc122b87",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "Mo",
+          "role": "nao",
+          "declared_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+          "sha256": "84542972564084dd3257ab17c0a8ba6c9d04e72829a0dabae705ffa7fbee2161",
+          "source_path_sha256": "40524cc5428db7e033165231300ac1eb52205009f40c308e2811ab8b6a37b235",
+          "resolved_source_path_sha256": "40524cc5428db7e033165231300ac1eb52205009f40c308e2811ab8b6a37b235",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "W",
+          "role": "nao",
+          "declared_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
+          "sha256": "ffea5e804a889fe75dc95b1d1431b1f25a3ebddffb81ed9f63d4c921c1050825",
+          "source_path_sha256": "70d4510ea180670bf724ad27e7c493feaed414125afe6b2383ea92308b3c041d",
+          "resolved_source_path_sha256": "70d4510ea180670bf724ad27e7c493feaed414125afe6b2383ea92308b3c041d",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "S",
+          "role": "nao",
+          "declared_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
+          "sha256": "ea1f551bc6571657953e49fc477a7482f9b94c8eafa86cce1596f5359afb352b",
+          "source_path_sha256": "dd4b1a2d3d47aa5138d2ceee31e7a79a7a5a446a3c5c592988b2d9a46e9d61c5",
+          "resolved_source_path_sha256": "dd4b1a2d3d47aa5138d2ceee31e7a79a7a5a446a3c5c592988b2d9a46e9d61c5",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "Mo",
+          "role": "abf",
+          "declared_name": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs",
+          "sha256": "3f9f08c7e3efa7971c817e58db697f6bb687cab4aa936e81fcd272e1ab43b7c6",
+          "source_path_sha256": "c82d63a8523a4d56a08aa1def933b2a6663d9d3a2e1dc5843dce551ef959b308",
+          "resolved_source_path_sha256": "c82d63a8523a4d56a08aa1def933b2a6663d9d3a2e1dc5843dce551ef959b308",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "W",
+          "role": "abf",
+          "declared_name": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs",
+          "sha256": "bfa1a46ace6624387fcb5a225199f965b85e3688970902d86a2ceffd8c983f52",
+          "source_path_sha256": "618c676e346b3f584982ba2ac17eaf6eae406d0c32f926745297c1e994a9fa9f",
+          "resolved_source_path_sha256": "618c676e346b3f584982ba2ac17eaf6eae406d0c32f926745297c1e994a9fa9f",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        },
+        {
+          "element": "S",
+          "role": "abf",
+          "declared_name": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs",
+          "sha256": "5db18b7495ee618582722c165a861f08c0e3abddd48c55d47d9c2ac0950b5a9a",
+          "source_path_sha256": "59b7d9cb9d9e4c203eeef87c08352fca0b5c2202ffde2c5f75f7d024357d4b01",
+          "resolved_source_path_sha256": "59b7d9cb9d9e4c203eeef87c08352fca0b5c2202ffde2c5f75f7d024357d4b01",
+          "resolved_path_differs": false,
+          "producer_seals": []
+        }
+      ]
+    }
+  ],
+  "sets": [
+    "Mo-producer-dbad35284206dfde5407",
+    "W-producer-47c306ca61924b1a7b19",
+    "S-producer-f0bb18bb4c7d704bb369"
+  ],
+  "runtime_asset_seal_verified": false,
+  "full_runtime_handoff_verified": false,
+  "scientific_acceptance_reassessed": false,
+  "scope": "Exact copied asset bytes, original STRU role/name/element order and original producer manifest members verified. Source directory linkage is not complete runtime proof.",
+  "restrictions": [
+    "仅恢复原controls/元素资产和紧凑receipt，不是完整运行镜像。",
+    "原STRU只作ABACUS生产/NSCF结构，不能替代reader stru_out或其对称性行。",
+    "材料Coulomb/Cs/shrink/PyATB/波函数payload未完整下载及重hash，不能跨材料移植。",
+    "原软件声明与运行日志tokens分层；未验证当前可执行文件或源码树，历史运行不自动匹配v6。",
+    "输入归档不升级现record状态/summary或科学接受。",
+    "当前input_librpa保留405个悬空链接；manifest真实存在不代表当前handoff完整。"
+  ]
+}

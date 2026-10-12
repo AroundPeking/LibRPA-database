@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "S-producer-00c084a9b599e991b102",
+  "element": "S",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/S/pseudopotentials/7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7.upf",
+      "sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+      "size_bytes": 174131,
+      "original_sha256": "7dcddbca51ad05414445cc784264d39f139300f47897ae96740f49d6ba96daa7",
+      "label": "../assets/S/pp.upf",
+      "original_name": "../assets/S/pp.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/S/pp.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/S/orbitals/b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b.orb",
+      "sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+      "size_bytes": 184113,
+      "original_sha256": "b720ce20436a541aa820d8cef7e1c9ef99b8f69d78f2bcd3168312078c120f5b",
+      "label": "../assets/S/physical.orb",
+      "original_name": "../assets/S/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/S/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/S/auxiliary/33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f.abfs",
+      "sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+      "size_bytes": 1188401,
+      "original_sha256": "33c8ad22f5e3586beb8e866917598bea1dbba15b5646f4bf9b05f55b1e07628f",
+      "label": "../assets/S/auxiliary.abfs",
+      "original_name": "../assets/S/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/S/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

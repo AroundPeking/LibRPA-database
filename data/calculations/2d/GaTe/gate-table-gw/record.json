@@ -5,7 +5,30 @@
   "material": "GaTe",
   "formula": "GaTe",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "Ga",
+      "set_id": "Ga-producer-a8299a579fc785a0b761",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/Ga/pp.upf",
+        "nao": "../assets/Ga/physical.orb",
+        "abf": "../assets/Ga/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "Te",
+      "set_id": "Te-producer-c03b683549acd98ed6a5",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../assets/Te/pp.upf",
+        "nao": "../assets/Te/physical.orb",
+        "abf": "../assets/Te/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "Ga",
@@ -240,6 +263,16 @@
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json",
+        "sha256": "8db5e0c3c9ec8626ae0d156bef17124da9e471be91b43df1c95e5a25f3cc254a",
+        "size_bytes": 10108,
+        "original_sha256": "8db5e0c3c9ec8626ae0d156bef17124da9e471be91b43df1c95e5a25f3cc254a",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -338,7 +371,8 @@
   "source": {
     "collection": "2D manuscript band catalog",
     "original_sidecar_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac",
-    "stage_input_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json"
+    "stage_input_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json",
+    "producer_assets_receipt": "data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "low-energy path diagnostic",

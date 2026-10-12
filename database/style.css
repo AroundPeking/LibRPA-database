@@ -377,4 +377,23 @@ dialog pre { max-height: 55vh; overflow: auto; margin: 16px 24px; padding: 18px;
   dialog pre { margin: 14px 16px; padding: 12px; font-size: 12px; }
   .preview-footer { padding: 0 16px 16px; }
 }
+.radial-file { border: 1px solid var(--line); border-radius: 7px; margin: 18px 0; }
+.radial-file > summary { padding: 16px; color: var(--heading); overflow-wrap: anywhere; }
+.radial-content { padding: 0 16px 16px; min-width: 0; }
+.radial-status { margin: 10px 0; color: var(--muted); font-size: 14px; }
+.radial-card { margin: 24px 0; border-top: 1px solid var(--line); padding-top: 18px; min-width: 0; }
+.radial-card h3 { font-size: 18px; }
+.radial-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; font-size: 14px; }
+.radial-controls label { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.radial-controls select { background: var(--raised); color: var(--ink); border: 1px solid var(--line); min-height: 44px; border-radius: 5px; max-width: 100%; }
+.radial-channels { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.radial-channels label { display: flex; align-items: center; gap: 5px; color: var(--channel); border: 1px solid var(--line); padding: 7px 9px; border-radius: 5px; min-height: 44px; font-size: 13px; }
+.radial-channels input { accent-color: var(--channel); }
+.radial-chart { width: 100%; overflow: auto; }
+.radial-chart svg { display: block; width: 100%; min-width: 450px; }
+.radial-metrics { color: var(--muted); font-size: 14px; }
+.radial-metrics summary { min-height: 44px; padding: 10px 0; }
+.radial-metrics table { width: 100%; border-collapse: collapse; }
+.radial-metrics td, .radial-metrics th { padding: 9px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 540px) { .radial-content { padding: 0 10px 12px; } .radial-controls { gap: 8px; } .radial-controls label { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

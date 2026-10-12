@@ -5,7 +5,30 @@
   "material": "MoTe2",
   "formula": "MoTe2",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "Mo",
+      "set_id": "Mo-producer-e35dc97023358b55e3fd",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../../assets/Mo/pp.upf",
+        "nao": "../../assets/Mo/physical.orb",
+        "abf": "../assets/Mo/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "Te",
+      "set_id": "Te-producer-0faf76f566580802fc41",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "../../assets/Te/pp.upf",
+        "nao": "../../assets/Te/physical.orb",
+        "abf": "../assets/Te/auxiliary.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "Mo",
@@ -214,6 +237,16 @@
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json",
+        "sha256": "b18b3e53e771006ba79a73baa35c53e9ec788cc47f380ab4ddaac5ea2db99363",
+        "size_bytes": 8827,
+        "original_sha256": "b18b3e53e771006ba79a73baa35c53e9ec788cc47f380ab4ddaac5ea2db99363",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -312,7 +345,8 @@
   "source": {
     "collection": "2D manuscript band catalog",
     "original_sidecar_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165",
-    "stage_input_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json"
+    "stage_input_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json",
+    "producer_assets_receipt": "data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "near-gap path diagnostic",

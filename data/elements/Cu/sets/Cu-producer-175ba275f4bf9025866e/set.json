@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "Cu-producer-175ba275f4bf9025866e",
+  "element": "Cu",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Cu/pseudopotentials/0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919.upf",
+      "sha256": "0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919",
+      "size_bytes": 279780,
+      "original_sha256": "0b53f2257151069b2e092336ff39463cd0bb38394bf22ab995a6e432bdbf9919",
+      "label": "../assets/Cu/pp.upf",
+      "original_name": "../assets/Cu/pp.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Cu/pp.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Cu/orbitals/bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578.orb",
+      "sha256": "bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578",
+      "size_bytes": 322832,
+      "original_sha256": "bcdb17217b5e4249e19437e3db458c27f76c6ab70136b6a5d7690119e4a3e578",
+      "label": "../assets/Cu/physical.orb",
+      "original_name": "../assets/Cu/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Cu/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Cu/auxiliary/1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b.abfs",
+      "sha256": "1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b",
+      "size_bytes": 1417596,
+      "original_sha256": "1c561fdc83f10f112df527d6cae8e5128499531bb87128ba0fe1aa08efce567b",
+      "label": "../assets/Cu/auxiliary.abfs",
+      "original_name": "../assets/Cu/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Cu/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

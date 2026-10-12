@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "Ga-producer-a8299a579fc785a0b761",
+  "element": "Ga",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Ga/pseudopotentials/e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723.upf",
+      "sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+      "size_bytes": 314895,
+      "original_sha256": "e890f0d10ab5554c3c6440f8a617507740e625ca5a28f266d6fec4260a9d0723",
+      "label": "../assets/Ga/pp.upf",
+      "original_name": "../assets/Ga/pp.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ga/pp.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Ga/orbitals/91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61.orb",
+      "sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+      "size_bytes": 250448,
+      "original_sha256": "91cbd05a0580511ddd48416336c7c0ce69107c885f0e3c2431c9224e6358af61",
+      "label": "../assets/Ga/physical.orb",
+      "original_name": "../assets/Ga/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ga/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Ga/auxiliary/be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc.abfs",
+      "sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+      "size_bytes": 1369494,
+      "original_sha256": "be91e23e21702df3a2df0f3d24135f0a09e8e8210bf21275ceecd2a7396b6ebc",
+      "label": "../assets/Ga/auxiliary.abfs",
+      "original_name": "../assets/Ga/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ga/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}

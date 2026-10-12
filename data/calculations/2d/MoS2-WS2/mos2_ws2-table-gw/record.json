@@ -5,7 +5,41 @@
   "material": "MoS2-WS2",
   "formula": "MoS2-WS2",
   "status": "gw_diagnostic",
-  "species": [],
+  "species": [
+    {
+      "element": "Mo",
+      "set_id": "Mo-producer-dbad35284206dfde5407",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
+        "nao": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
+        "abf": "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "W",
+      "set_id": "W-producer-47c306ca61924b1a7b19",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "W-GTH-PBE-q14-cp2k-default-grid.upf",
+        "nao": "W_gga_10au_100Ry_6s3p3d2f.orb",
+        "abf": "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    },
+    {
+      "element": "S",
+      "set_id": "S-producer-f0bb18bb4c7d704bb369",
+      "missing_roles": [],
+      "asset_aliases": {
+        "pp": "S-GTH-PBE-q6-cp2k-default-grid.upf",
+        "nao": "S_gga_10au_100Ry_2s2p2d1f.orb",
+        "abf": "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs"
+      },
+      "binding_scope": "Original production STRU plus producer-manifest payload hashes; not full immutable runtime seal"
+    }
+  ],
   "basis_candidates": [
     {
       "element": "Mo",
@@ -206,6 +240,16 @@
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json",
+        "sha256": "ba6e5e1c5840b520e33e2259be345aa18a47ec565dc8a03089deea9a8d8bc936",
+        "size_bytes": 13094,
+        "original_sha256": "ba6e5e1c5840b520e33e2259be345aa18a47ec565dc8a03089deea9a8d8bc936",
+        "label": "producer_assets_receipt.json",
+        "original_name": "producer_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [],
@@ -304,7 +348,8 @@
   "source": {
     "collection": "2D manuscript band catalog",
     "original_sidecar_sha256": "c0915caf88ebf20d269afd1c7c003d71fd508ba914bb9a31bc1402c3c6d73dea",
-    "stage_input_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json"
+    "stage_input_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json",
+    "producer_assets_receipt": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json"
   },
   "scientific_scope": {
     "original_status": "application path diagnostic",

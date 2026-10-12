@@ -1,4 +1,33 @@
-# Reference band plotting
+# Reference band and radial-orbital plotting
+
+## 原始径向轨道：每个角动量一张图
+
+Basis 页面和 `scripts/plot_radial.mjs` 共用 `database/radial.mjs` 的解析器
+与 SVG 绘图函数。支持 ABACUS 的 `Element`、`Lmax`、角动量计数、
+`Mesh`、`dr` 和 `Type L N` 原始块格式；N 保留原文件的零基索引。
+NAO、ABF 和 for_aux 分别展示，不把辅助生成轨道当作物理 NAO。
+
+```bash
+node scripts/plot_radial.mjs /path/to/physical.orb /new/output/directory
+node scripts/plot_radial.mjs /path/to/auxiliary.abfs /new/tail/directory --tail --derivative
+```
+
+每个有数据的 l 输出一张 SVG，并输出同 SHA/模式命名的 JSON，包含原文件
+SHA-256、声明/实际角动量计数、原网格、逐 N 端点与导数指标。
+目标文件使用排他创建，已有同名结果会拒绝覆盖。CLI 默认严格拒绝
+头部计数与实际块不一致的文件；明确的 `--diagnostic-header` 才允许
+原样显示，并在图和审计中标记异常。网页同样醒目警告，并保留所有原块。
+
+- R(r) 折线使用每个原始样点；不平滑、插值、重排或重新归一化。
+- dR/dr 内点用二阶中心差分，边界用二阶单边差分；它是数值诊断，
+  不是原生成器提供的解析导数。尾部选项显示原网格最后 20%。
+- 同 l 的每个原 N 可独立开关，显示通道决定 y 轴范围；自然节点或
+  振荡不自动判为缺陷。端点指标不附加任意“通过”阈值。
+- 原文件 SHA 验证后才绘图，异常头部不更改原字节或科学接受状态。
+- 径向光滑性不能代替 periodic physical overlap、local RI conditioning、
+  Coulomb/EXX/GW 精度或收敛验收。
+
+## Reference band plotting
 
 `scripts/plot_bands.py` defines the database plotting input: one data row per
 k-path point, with the first column as the cumulative path coordinate and every

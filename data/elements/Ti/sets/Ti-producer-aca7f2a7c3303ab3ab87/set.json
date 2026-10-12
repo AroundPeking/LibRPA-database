@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "Ti-producer-aca7f2a7c3303ab3ab87",
+  "element": "Ti",
+  "family": "Recovered producer-bound assets",
+  "validation_scope": "Original STRU and producer-manifest hash association; scientific acceptance and full runtime handoff not reassessed.",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Reviewed historical producer assets",
+    "reviewed_spec_sha256": "cbb5b200659835c08856b081cd0c1dc366c3e4cb33b929f46ae16d919b041d25"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Ti/pseudopotentials/c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506.upf",
+      "sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+      "size_bytes": 295203,
+      "original_sha256": "c33e68554a687043cdd03f175f0c482b4ba30c41b93cb5f75ee46da96fcc4506",
+      "label": "../assets/Ti/pp.upf",
+      "original_name": "../assets/Ti/pp.upf",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ti/pp.upf"
+      ]
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Ti/orbitals/9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b.orb",
+      "sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+      "size_bytes": 321158,
+      "original_sha256": "9c756a056d24ef27460283525f678b2e050cfe5e81dd8635baf9e8799ae85c0b",
+      "label": "../assets/Ti/physical.orb",
+      "original_name": "../assets/Ti/physical.orb",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ti/physical.orb"
+      ]
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Ti/auxiliary/8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5.abfs",
+      "sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+      "size_bytes": 1497820,
+      "original_sha256": "8fc9ce28a64a4d61b7910cdc77e1bb0d8a12fba7266b2c91fe4a3a427c5783f5",
+      "label": "../assets/Ti/auxiliary.abfs",
+      "original_name": "../assets/Ti/auxiliary.abfs",
+      "transformation": "none",
+      "source_declarations": [
+        "../assets/Ti/auxiliary.abfs"
+      ]
+    }
+  ],
+  "generation_provenance": {
+    "status": "historical producer association verified; generation history not reassessed"
+  }
+}
