@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GW数据库完整缺证清单</title><style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 80px}h1{font-size:30px;line-height:1.3;margin:0 0 16px}h2{font-size:22px;margin:0}h2 span{font-size:14px;color:#a9c0df}.summary,.case,.notes{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}.summary{border-color:#cfa85e}.counts{font-size:22px;color:#ffd68b}.muted,.case-id{color:#bed0e5}.case-id{overflow-wrap:anywhere;margin:6px 0}input{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}input:focus{outline:2px solid #78bafa;outline-offset:2px}label{display:block;margin-bottom:8px}code,pre{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}li{margin:8px 0}ol{padding-left:36px}details{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}summary{cursor:pointer;color:#98ccff}pre{color:#d4e1f0}[hidden]{display:none!important}.toolbar{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}footer{color:#a7bdd8;margin-top:30px}@media(max-width:600px){main{padding:24px 14px}.case,.summary,.notes{padding:16px}h1{font-size:25px}}
+</style></head><body><main>
+<h1>GW数据库完整缺证清单</h1><p class="muted">逐材料、逐case保留全部原始 strict issue；可搜索并展开实际取证入口。公开网站不代表严格数据验收通过。</p><p><a href="index.html#/" style="color:#98ccff">返回数据库</a> · <a href="archive-completeness.json" style="color:#98ccff">下载完整JSON报告</a></p>
+<section class="summary"><div class="counts">87条原始issue · 32/33条记录不完整</div><p>strict：blocked；1条完整。附项、重绘图与runtime seal缺口不计入上述数量。</p></section>
+<section class="notes"><ul><li>缺证指公共归档未闭合，不等于私人原目录中的文件一定不存在；已归档文件不要重复寻找。</li><li>已在私人原来源定位到七组 ABACUS、五组 LibRPA 潜在身份入口，尚未全部审完；这些入口不自动关闭任何 fullcommit issue。</li><li>先检查已有 stage controls、日志和 receipt，再补同一次历史运行证据；禁止用当前 HEAD 或其他材料/新算例替代。</li><li>strict 上传完整性、完整 runtime seal、数值/科学接受是不同层次；本清单不改变科学状态。</li></ul></section>
+<div class="toolbar"><label for="search">搜索材料 / case id / 维度</label><input id="search" type="search" placeholder="例如 GeTe、MoSe2、hbn-table-gw、3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">显示全部33条记录</p></div>
+<article class="case" data-search="cuinp2se6 · 2d · cuinp2se6-table-gw"><h2>CuInP2Se6 <span>2d</span></h2><p class="case-id">cuinp2se6-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="1"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== CuInP2Se6 | 2d | cuinp2se6-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/record.json
+原始 strict issues（完整原文）
+  [001] software.abacus.commit: full immutable commit is required
+  [002] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [0bfc422bd721]；SCF [734ea01ae029]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [b67557d8edee]；GW [359e4f55757d]；GW [e92fd23422c1]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  EXX [b67557d8edee]
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/b67557d8edee/librpa.in
+  GW [359e4f55757d]
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/359e4f55757d/librpa.in
+  GW [e92fd23422c1]
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/e92fd23422c1/librpa.in
+  NSCF [0bfc422bd721]
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/KPT
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/band_kpath_info
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/STRU
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/INPUT
+  SCF [734ea01ae029]
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/KPT
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/STRU
+    data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/734ea01ae029/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="gate · 2d · gate-table-gw"><h2>GaTe <span>2d</span></h2><p class="case-id">gate-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="3"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== GaTe | 2d | gate-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/GaTe/gate-table-gw/record.json
+原始 strict issues（完整原文）
+  [003] software.abacus.commit: full immutable commit is required
+  [004] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [8ce60b5932f4]；SCF [ad2279acd111]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [715ad5c848a6]；EXX [28616464de81]；GW [c001420676d0]；GW [a40b6a58161e]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  EXX [715ad5c848a6]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/715ad5c848a6/librpa.in
+  EXX [28616464de81]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/28616464de81/librpa.in
+  GW [c001420676d0]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/c001420676d0/librpa.in
+  GW [a40b6a58161e]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/a40b6a58161e/librpa.in
+  NSCF [8ce60b5932f4]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/KPT
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/band_kpath_info
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/STRU
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/INPUT
+  SCF [ad2279acd111]
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/KPT
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/STRU
+    data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/ad2279acd111/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="gete · 2d · gete-table-gw"><h2>GeTe <span>2d</span></h2><p class="case-id">gete-table-gw</p><p>gw_diagnostic · incomplete · 10条原始issue</p><ol start="5"><li><code>input INPUT: missing readable declared production input in this calculation</code></li><li><code>input KPT: missing readable declared production input in this calculation</code></li><li><code>input STRU: missing readable declared production input in this calculation</code></li><li><code>input librpa.in: missing readable declared production input in this calculation</code></li><li><code>species: missing exact binding for formula element Ge</code></li><li><code>species: missing exact binding for formula element Te</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li><li><code>properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== GeTe | 2d | gete-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/GeTe/gete-table-gw/record.json
+原始 strict issues（完整原文）
+  [005] input INPUT: missing readable declared production input in this calculation
+  [006] input KPT: missing readable declared production input in this calculation
+  [007] input STRU: missing readable declared production input in this calculation
+  [008] input librpa.in: missing readable declared production input in this calculation
+  [009] species: missing exact binding for formula element Ge
+  [010] species: missing exact binding for formula element Te
+  [011] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [012] software.abacus.commit: full immutable commit is required
+  [013] software.librpa.commit: full immutable commit is required
+  [014] properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence
+需找原输入：INPUT, KPT, STRU, librpa.in
+逐元素 exact role：Ge =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)；Te =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+没有已审定的生产 STRU 绑定；先找原结构与原角色文件，不能凭候选基组填入。
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest：公共记录未声明，先找历史来源。
+寻找该 case 原始生产 INPUT、KPT、STRU、librpa.in，按 SCF/DF/NSCF/EXX/GW stage 保留；不要合成替代文件。
+现有 EXX 异常不是遗失普通 gap：需要同源正确完整谱和诊断/占据/导出范围证据，或明确记录保留失败诊断的科学决定；不得编造正常 gap 或拿论文值替代。
+</pre></details></article><article class="case" data-search="in2se3 · 2d · in2se3-table-gw"><h2>In2Se3 <span>2d</span></h2><p class="case-id">in2se3-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="15"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== In2Se3 | 2d | in2se3-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/In2Se3/in2se3-table-gw/record.json
+原始 strict issues（完整原文）
+  [015] software.abacus.commit: full immutable commit is required
+  [016] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：Path export [766af52fa2f7]；NSCF [68910c682785]；SCF [01726aa6cdca]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [80f2cc344165]；EXX [58cd2c3d44d1]；GW [6f5250011d1b]；GW [5c7a139cef02]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  Path export [766af52fa2f7]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/766af52fa2f7/band_kpath_info
+  NSCF [68910c682785]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/68910c682785/KPT
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/68910c682785/STRU
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/68910c682785/INPUT
+  EXX [80f2cc344165]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/80f2cc344165/librpa.in
+  EXX [58cd2c3d44d1]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/58cd2c3d44d1/librpa.in
+  GW [6f5250011d1b]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/6f5250011d1b/librpa.in
+  GW [5c7a139cef02]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/5c7a139cef02/librpa.in
+  SCF [01726aa6cdca]
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/01726aa6cdca/KPT
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/01726aa6cdca/STRU
+    data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/01726aa6cdca/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="inse · 2d · inse-table-gw"><h2>InSe <span>2d</span></h2><p class="case-id">inse-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="17"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== InSe | 2d | inse-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/InSe/inse-table-gw/record.json
+原始 strict issues（完整原文）
+  [017] software.abacus.commit: full immutable commit is required
+  [018] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [dee5bce09bf6]；Path export [39e4a99a3c6a]；SCF [3dba2707b2c2]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [4d4731ff210e]；EXX [4f6a969fd680]；GW [c52f53b50ee0]；GW [faa54372a663]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  NSCF [dee5bce09bf6]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/dee5bce09bf6/KPT
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/dee5bce09bf6/STRU
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/dee5bce09bf6/INPUT
+  Path export [39e4a99a3c6a]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/39e4a99a3c6a/band_kpath_info
+  EXX [4d4731ff210e]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/4d4731ff210e/librpa.in
+  EXX [4f6a969fd680]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/4f6a969fd680/librpa.in
+  GW [c52f53b50ee0]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/c52f53b50ee0/librpa.in
+  GW [faa54372a663]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/faa54372a663/librpa.in
+  SCF [3dba2707b2c2]
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/3dba2707b2c2/KPT
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/3dba2707b2c2/STRU
+    data/calculations/2d/InSe/inse-table-gw/inputs/recovered/3dba2707b2c2/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/InSe/inse-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-table-gw"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="19"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== MoS2 | 2d | mos2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/MoS2/mos2-table-gw/record.json
+原始 strict issues（完整原文）
+  [019] software.abacus.commit: full immutable commit is required
+  [020] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json
+</pre></details></article><article class="case" data-search="mos2-ws2 · 2d · mos2_ws2-table-gw"><h2>MoS2-WS2 <span>2d</span></h2><p class="case-id">mos2_ws2-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="21"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== MoS2-WS2 | 2d | mos2_ws2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/record.json
+原始 strict issues（完整原文）
+  [021] software.abacus.commit: full immutable commit is required
+  [022] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [23fb18a26bee]；SCF [2574059c9692]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：GW [a4a9a270b43e]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  NSCF [23fb18a26bee]
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/KPT
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/band_kpath_info
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/INPUT
+  GW [a4a9a270b43e]
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/a4a9a270b43e/librpa.in
+  SCF [2574059c9692]
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/KPT
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/STRU
+    data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/2574059c9692/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="mose2 · 2d · mose2-table-gw"><h2>MoSe2 <span>2d</span></h2><p class="case-id">mose2-table-gw</p><p>gw_diagnostic · incomplete · 7条原始issue</p><ol start="23"><li><code>species: missing exact binding for formula element Mo</code></li><li><code>species: missing exact binding for formula element Se</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species</code></li><li><code>STRU: at least one production STRU must declare exact abf payloads</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== MoSe2 | 2d | mose2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/MoSe2/mose2-table-gw/record.json
+原始 strict issues（完整原文）
+  [023] species: missing exact binding for formula element Mo
+  [024] species: missing exact binding for formula element Se
+  [025] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [026] STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species
+  [027] STRU: at least one production STRU must declare exact abf payloads
+  [028] software.abacus.commit: full immutable commit is required
+  [029] software.librpa.commit: full immutable commit is required
+逐元素 exact role：Mo =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)；Se =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+已有 partial STRU 能证明下列 PP/NAO 原名，但没有 ABFS_ORBITAL；找原 DF/EXX/GW stage 的 ABF 声明、payload 与运行证据，不得猜 ABF。
+已有 partial STRU：data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU
+  Mo: PP=Mo.upf；NAO=Mo_gga_10au_100Ry_6s3p3d2f.orb；ABF=未声明（不可猜）
+  Se: PP=Se-GTH-SOC-PBE-q6-cp2k-default-grid-1.upf；NAO=Se_gga_10au_110Ry_3s3p2d.orb；ABF=未声明（不可猜）
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：GW [34d26c328820]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  GW [34d26c328820]
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_nscf
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_scf
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT_nscf
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT_scf
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/band_kpath_info
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/geometry.in
+    data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/librpa.in
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json
+</pre></details></article><article class="case" data-search="mote2 · 2d · mote2-table-gw"><h2>MoTe2 <span>2d</span></h2><p class="case-id">mote2-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="30"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== MoTe2 | 2d | mote2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/MoTe2/mote2-table-gw/record.json
+原始 strict issues（完整原文）
+  [030] software.abacus.commit: full immutable commit is required
+  [031] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [a9314a2d7fbb]；SCF [b03cf07e253c]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [6ca72a37b565]；GW [d5ca5cb3a75f]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  NSCF [a9314a2d7fbb]
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/KPT
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/band_kpath_info
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/INPUT
+  EXX [6ca72a37b565]
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/6ca72a37b565/librpa.in
+  GW [d5ca5cb3a75f]
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/d5ca5cb3a75f/librpa.in
+  SCF [b03cf07e253c]
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/KPT
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/STRU
+    data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/b03cf07e253c/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="phosphorene · 2d · phosphorene-table-gw"><h2>Phosphorene <span>2d</span></h2><p class="case-id">phosphorene-table-gw</p><p>gw_diagnostic · incomplete · 8条原始issue</p><ol start="32"><li><code>input INPUT: missing readable declared production input in this calculation</code></li><li><code>input KPT: missing readable declared production input in this calculation</code></li><li><code>input STRU: missing readable declared production input in this calculation</code></li><li><code>input librpa.in: missing readable declared production input in this calculation</code></li><li><code>species: missing exact binding for formula element P</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== Phosphorene | 2d | phosphorene-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/Phosphorene/phosphorene-table-gw/record.json
+原始 strict issues（完整原文）
+  [032] input INPUT: missing readable declared production input in this calculation
+  [033] input KPT: missing readable declared production input in this calculation
+  [034] input STRU: missing readable declared production input in this calculation
+  [035] input librpa.in: missing readable declared production input in this calculation
+  [036] species: missing exact binding for formula element P
+  [037] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [038] software.abacus.commit: full immutable commit is required
+  [039] software.librpa.commit: full immutable commit is required
+需找原输入：INPUT, KPT, STRU, librpa.in
+逐元素 exact role：P =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+没有已审定的生产 STRU 绑定；先找原结构与原角色文件，不能凭候选基组填入。
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest：公共记录未声明，先找历史来源。
+寻找该 case 原始生产 INPUT、KPT、STRU、librpa.in，按 SCF/DF/NSCF/EXX/GW stage 保留；不要合成替代文件。
+</pre></details></article><article class="case" data-search="snse · 2d · snse-table-gw"><h2>SnSe <span>2d</span></h2><p class="case-id">snse-table-gw</p><p>gw_diagnostic · incomplete · 10条原始issue</p><ol start="40"><li><code>input INPUT: missing readable declared production input in this calculation</code></li><li><code>input KPT: missing readable declared production input in this calculation</code></li><li><code>input STRU: missing readable declared production input in this calculation</code></li><li><code>input librpa.in: missing readable declared production input in this calculation</code></li><li><code>species: missing exact binding for formula element Se</code></li><li><code>species: missing exact binding for formula element Sn</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li><li><code>properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== SnSe | 2d | snse-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/SnSe/snse-table-gw/record.json
+原始 strict issues（完整原文）
+  [040] input INPUT: missing readable declared production input in this calculation
+  [041] input KPT: missing readable declared production input in this calculation
+  [042] input STRU: missing readable declared production input in this calculation
+  [043] input librpa.in: missing readable declared production input in this calculation
+  [044] species: missing exact binding for formula element Se
+  [045] species: missing exact binding for formula element Sn
+  [046] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [047] software.abacus.commit: full immutable commit is required
+  [048] software.librpa.commit: full immutable commit is required
+  [049] properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence
+需找原输入：INPUT, KPT, STRU, librpa.in
+逐元素 exact role：Se =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)；Sn =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+没有已审定的生产 STRU 绑定；先找原结构与原角色文件，不能凭候选基组填入。
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest：公共记录未声明，先找历史来源。
+寻找该 case 原始生产 INPUT、KPT、STRU、librpa.in，按 SCF/DF/NSCF/EXX/GW stage 保留；不要合成替代文件。
+现有 EXX 异常不是遗失普通 gap：需要同源正确完整谱和诊断/占据/导出范围证据，或明确记录保留失败诊断的科学决定；不得编造正常 gap 或拿论文值替代。
+</pre></details></article><article class="case" data-search="tis3 · 2d · tis3-table-gw"><h2>TiS3 <span>2d</span></h2><p class="case-id">tis3-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="50"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== TiS3 | 2d | tis3-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/TiS3/tis3-table-gw/record.json
+原始 strict issues（完整原文）
+  [050] software.abacus.commit: full immutable commit is required
+  [051] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：NSCF [20f55412a54c]；SCF [222dbd31dfe0]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX [fec24c2d8d45]；GW [5c43c5a84bed]；GW [9e5b8ec9f903]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  EXX [fec24c2d8d45]
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/fec24c2d8d45/librpa.in
+  GW [5c43c5a84bed]
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/5c43c5a84bed/librpa.in
+  GW [9e5b8ec9f903]
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/9e5b8ec9f903/librpa.in
+  NSCF [20f55412a54c]
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/KPT
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/band_kpath_info
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/STRU
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/INPUT
+  SCF [222dbd31dfe0]
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/KPT
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/STRU
+    data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/222dbd31dfe0/INPUT
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json
+  data/calculations/2d/TiS3/tis3-table-gw/results/producer_assets_receipt.json
+</pre></details></article><article class="case" data-search="ws2 · 2d · ws2-table-gw"><h2>WS2 <span>2d</span></h2><p class="case-id">ws2-table-gw</p><p>gw_diagnostic · incomplete · 7条原始issue</p><ol start="52"><li><code>species: missing exact binding for formula element S</code></li><li><code>species: missing exact binding for formula element W</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species</code></li><li><code>STRU: at least one production STRU must declare exact abf payloads</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== WS2 | 2d | ws2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/WS2/ws2-table-gw/record.json
+原始 strict issues（完整原文）
+  [052] species: missing exact binding for formula element S
+  [053] species: missing exact binding for formula element W
+  [054] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [055] STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species
+  [056] STRU: at least one production STRU must declare exact abf payloads
+  [057] software.abacus.commit: full immutable commit is required
+  [058] software.librpa.commit: full immutable commit is required
+逐元素 exact role：S =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)；W =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+已有 partial STRU 能证明下列 PP/NAO 原名，但没有 ABFS_ORBITAL；找原 DF/EXX/GW stage 的 ABF 声明、payload 与运行证据，不得猜 ABF。
+已有 partial STRU：data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU
+  W: PP=W-GTH-SOC-PBE-q14.upf；NAO=W_gga_10au_110Ry_6s3p3d2f.orb；ABF=未声明（不可猜）
+  S: PP=S-GTH-SOC-PBE-q6.upf；NAO=S_gga_10au_110Ry_3s3p2d.orb；ABF=未声明（不可猜）
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：GW [9345cb0081be]
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有stage controls（先检查，勿重复寻找）
+  GW [9345cb0081be]
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/INPUT
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/INPUT_nscf
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/INPUT_scf
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/KPT
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/KPT_nscf
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/KPT_scf
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/band_kpath_info
+    data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/librpa.in
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/WS2/ws2-table-gw/results/stage_input_receipt.json
+</pre></details></article><article class="case" data-search="wse2 · 2d · wse2-table-gw"><h2>WSe2 <span>2d</span></h2><p class="case-id">wse2-table-gw</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="59"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== WSe2 | 2d | wse2-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/WSe2/wse2-table-gw/record.json
+原始 strict issues（完整原文）
+  [059] software.abacus.commit: full immutable commit is required
+  [060] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest（先核对）
+  data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json
+</pre></details></article><article class="case" data-search="hbn · 2d · hbn-table-gw"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-table-gw</p><p>gw_diagnostic · incomplete · 9条原始issue</p><ol start="61"><li><code>input INPUT: missing readable declared production input in this calculation</code></li><li><code>input KPT: missing readable declared production input in this calculation</code></li><li><code>input STRU: missing readable declared production input in this calculation</code></li><li><code>input librpa.in: missing readable declared production input in this calculation</code></li><li><code>species: missing exact binding for formula element B</code></li><li><code>species: missing exact binding for formula element N</code></li><li><code>species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings</code></li><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== hBN | 2d | hbn-table-gw ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/2d/hBN/hbn-table-gw/record.json
+原始 strict issues（完整原文）
+  [061] input INPUT: missing readable declared production input in this calculation
+  [062] input KPT: missing readable declared production input in this calculation
+  [063] input STRU: missing readable declared production input in this calculation
+  [064] input librpa.in: missing readable declared production input in this calculation
+  [065] species: missing exact binding for formula element B
+  [066] species: missing exact binding for formula element N
+  [067] species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings
+  [068] software.abacus.commit: full immutable commit is required
+  [069] software.librpa.commit: full immutable commit is required
+需找原输入：INPUT, KPT, STRU, librpa.in
+逐元素 exact role：B =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)；N =&gt; PP(.upf) / physical NAO(.orb) / ABF(.abfs)
+每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。
+原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。
+候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。
+没有已审定的生产 STRU 绑定；先找原结构与原角色文件，不能凭候选基组填入。
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志：公共记录未声明，先找历史来源。
+已有receipt/manifest：公共记录未声明，先找历史来源。
+寻找该 case 原始生产 INPUT、KPT、STRU、librpa.in，按 SCF/DF/NSCF/EXX/GW stage 保留；不要合成替代文件。
+这是旧 hBN 表格算例；hbn-tzdp10-fgext-20261008 的新输入/基组/软件身份不得挪来关闭旧算例缺口。
+</pre></details></article><article class="case" data-search="hbn · 2d · hbn-tzdp10-fgext-20261008"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-tzdp10-fgext-20261008</p><p>path_diagnostic · complete · 0条原始issue</p><ol start="70"></ol><p>当前 strict 无缺项；不自动表示科学接受。</p><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== hBN | 2d | hbn-tzdp10-fgext-20261008 ===
+科学状态：path_diagnostic；归档：complete
+记录：data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json
+原始 strict issues（完整原文）
+  无。
+已有日志（先核对）
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__warning.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__direct_spectrum_validation.recovered.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_para_nprocs_1_myid_0.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__slurm-3601934.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__warning.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__abacus_pbe_path.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__OUT.ABACUS__running_scf.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__Out__running.log
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pyatb_k12_20261008__pyatb_velocity_gen.out
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out
+已有receipt/manifest（先核对）
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_INPUT_MANIFEST.sha256
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__GW_INPUT_MANIFEST.sha256
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PRODUCER_RECOVERY_RECEIPT.sha256
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PYATB_RECEIPT.txt
+  data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json
+当前 strict 无缺项；这不自动表示完整运行镜像或科学接受。
+</pre></details></article><article class="case" data-search="alas · 3d · alas-paper-paper"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-paper-paper</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="70"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== AlAs | 3d | alas-paper-paper ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/AlAs/alas-paper-paper/record.json
+原始 strict issues（完整原文）
+  [070] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/AlAs/alas-paper-paper/logs/abacus.out
+  data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out
+已有receipt/manifest（先核对）
+  data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json
+</pre></details></article><article class="case" data-search="alp · 3d · alp-paper-k8_shrink_wing"><h2>AlP <span>3d</span></h2><p class="case-id">alp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="71"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== AlP | 3d | alp-paper-k8_shrink_wing ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/AlP/alp-paper-k8_shrink_wing/record.json
+原始 strict issues（完整原文）
+  [071] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/abacus.out
+  data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out
+已有receipt/manifest（先核对）
+  data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json
+</pre></details></article><article class="case" data-search="alsb · 3d · alsb-paper-gw_gth_modspencer"><h2>AlSb <span>3d</span></h2><p class="case-id">alsb-paper-gw_gth_modspencer</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="72"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== AlSb | 3d | alsb-paper-gw_gth_modspencer ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/record.json
+原始 strict issues（完整原文）
+  [072] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/abacus.out
+  data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="bas · 3d · bas-paper-k8_shrink_wing"><h2>BAs <span>3d</span></h2><p class="case-id">bas-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="73"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== BAs | 3d | bas-paper-k8_shrink_wing ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/BAs/bas-paper-k8_shrink_wing/record.json
+原始 strict issues（完整原文）
+  [073] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/abacus.out
+  data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out
+已有receipt/manifest（先核对）
+  data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json
+</pre></details></article><article class="case" data-search="bn · 3d · bn-paper-sg15"><h2>BN <span>3d</span></h2><p class="case-id">bn-paper-sg15</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="74"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== BN | 3d | bn-paper-sg15 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/BN/bn-paper-sg15/record.json
+原始 strict issues（完整原文）
+  [074] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/BN/bn-paper-sg15/logs/abacus.out
+  data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="bp · 3d · bp-paper-k8_shrink_wing"><h2>BP <span>3d</span></h2><p class="case-id">bp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="75"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== BP | 3d | bp-paper-k8_shrink_wing ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/BP/bp-paper-k8_shrink_wing/record.json
+原始 strict issues（完整原文）
+  [075] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/abacus.out
+  data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out
+已有receipt/manifest（先核对）
+  data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json
+</pre></details></article><article class="case" data-search="c · 3d · c-paper-sg15_cs1e-5"><h2>C <span>3d</span></h2><p class="case-id">c-paper-sg15_cs1e-5</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="76"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== C | 3d | c-paper-sg15_cs1e-5 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/C/c-paper-sg15_cs1e-5/record.json
+原始 strict issues（完整原文）
+  [076] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/abacus.out
+  data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="cao · 3d · cao-paper-24freq"><h2>CaO <span>3d</span></h2><p class="case-id">cao-paper-24freq</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="77"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== CaO | 3d | cao-paper-24freq ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/CaO/cao-paper-24freq/record.json
+原始 strict issues（完整原文）
+  [077] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/CaO/cao-paper-24freq/logs/abacus.out
+  data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="cds · 3d · cds-paper-debug"><h2>CdS <span>3d</span></h2><p class="case-id">cds-paper-debug</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="78"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== CdS | 3d | cds-paper-debug ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/CdS/cds-paper-debug/record.json
+原始 strict issues（完整原文）
+  [078] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/CdS/cds-paper-debug/logs/abacus.out
+  data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-paper-gw_xsoc_1e-10"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-paper-gw_xsoc_1e-10</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="79"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== GaAs | 3d | gaas-paper-gw_xsoc_1e-10 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/record.json
+原始 strict issues（完整原文）
+  [079] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out
+  data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="gan · 3d · gan-paper-pca1e-6"><h2>GaN <span>3d</span></h2><p class="case-id">gan-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="80"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== GaN | 3d | gan-paper-pca1e-6 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/GaN/gan-paper-pca1e-6/record.json
+原始 strict issues（完整原文）
+  [080] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/GaN/gan-paper-pca1e-6/logs/abacus.out
+  data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="gap · 3d · gap-paper-gw_shrink_chi"><h2>GaP <span>3d</span></h2><p class="case-id">gap-paper-gw_shrink_chi</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="81"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== GaP | 3d | gap-paper-gw_shrink_chi ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/GaP/gap-paper-gw_shrink_chi/record.json
+原始 strict issues（完整原文）
+  [081] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/abacus.out
+  data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="lif · 3d · lif-paper-jy"><h2>LiF <span>3d</span></h2><p class="case-id">lif-paper-jy</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="82"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== LiF | 3d | lif-paper-jy ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/LiF/lif-paper-jy/record.json
+原始 strict issues（完整原文）
+  [082] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/LiF/lif-paper-jy/logs/abacus.out
+  data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-paper-fix_gap"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-paper-fix_gap</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="83"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== MgO | 3d | mgo-paper-fix_gap ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/MgO/mgo-paper-fix_gap/record.json
+原始 strict issues（完整原文）
+  [083] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/MgO/mgo-paper-fix_gap/logs/abacus.out
+  data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-paper-sg15"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-paper-sg15</p><p>gw_diagnostic · incomplete · 2条原始issue</p><ol start="84"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== NaCl | 3d | nacl-paper-sg15 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/NaCl/nacl-paper-sg15/record.json
+原始 strict issues（完整原文）
+  [084] software.abacus.commit: full immutable commit is required
+  [085] software.librpa.commit: full immutable commit is required
+需闭合 ABACUS fullcommit：software.abacus.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：SCF/DF/NSCF (ABACUS)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out
+  data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out
+已有receipt/manifest（先核对）
+  data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json
+</pre></details></article><article class="case" data-search="si · 3d · si-paper-all_kpath"><h2>Si <span>3d</span></h2><p class="case-id">si-paper-all_kpath</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="86"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== Si | 3d | si-paper-all_kpath ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/Si/si-paper-all_kpath/record.json
+原始 strict issues（完整原文）
+  [086] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/Si/si-paper-all_kpath/logs/abacus.out
+  data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article><article class="case" data-search="sic · 3d · sic-paper-pca1e-6"><h2>SiC <span>3d</span></h2><p class="case-id">sic-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1条原始issue</p><ol start="87"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>找什么、已有证据与逐stage身份清单</summary><pre>=== SiC | 3d | sic-paper-pca1e-6 ===
+科学状态：gw_diagnostic；归档：incomplete
+记录：data/calculations/3d/SiC/sic-paper-pca1e-6/record.json
+原始 strict issues（完整原文）
+  [087] software.librpa.commit: full immutable commit is required
+需闭合 LibRPA fullcommit：software.librpa.commit
+公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。
+stage 核对入口：EXX/GW (LibRPA)
+  - 对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token
+  - 同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令
+  - source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态
+  - 当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256
+  - 运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定
+已有日志（先核对）
+  data/calculations/3d/SiC/sic-paper-pca1e-6/logs/abacus.out
+  data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out
+已有receipt/manifest：公共记录未声明，先找历史来源。
+</pre></details></article>
+<section class="notes"><h2>附项：不计入strict数量</h2><pre>
+reproducible_figures | 全库：3D 已有 frontier 图及同源绘图数据可重绘，无需寻找遗失普通图片；重绘不提升数值/科学接受。
+  alas-paper-paper | AlAs | data/calculations/3d/AlAs/alas-paper-paper/figures/ks_frontier.svg
+  alas-paper-paper | AlAs | data/calculations/3d/AlAs/alas-paper-paper/figures/exx_frontier.svg
+  alas-paper-paper | AlAs | data/calculations/3d/AlAs/alas-paper-paper/figures/gw_frontier.svg
+  alp-paper-k8_shrink_wing | AlP | data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/ks_frontier.svg
+  alp-paper-k8_shrink_wing | AlP | data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/exx_frontier.svg
+  alp-paper-k8_shrink_wing | AlP | data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/gw_frontier.svg
+  alsb-paper-gw_gth_modspencer | AlSb | data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/ks_frontier.svg
+  alsb-paper-gw_gth_modspencer | AlSb | data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/exx_frontier.svg
+  alsb-paper-gw_gth_modspencer | AlSb | data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/gw_frontier.svg
+  bas-paper-k8_shrink_wing | BAs | data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/ks_frontier.svg
+  bas-paper-k8_shrink_wing | BAs | data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/exx_frontier.svg
+  bas-paper-k8_shrink_wing | BAs | data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/gw_frontier.svg
+  bn-paper-sg15 | BN | data/calculations/3d/BN/bn-paper-sg15/figures/ks_frontier.svg
+  bn-paper-sg15 | BN | data/calculations/3d/BN/bn-paper-sg15/figures/exx_frontier.svg
+  bn-paper-sg15 | BN | data/calculations/3d/BN/bn-paper-sg15/figures/gw_frontier.svg
+  bp-paper-k8_shrink_wing | BP | data/calculations/3d/BP/bp-paper-k8_shrink_wing/figures/ks_frontier.svg
+  bp-paper-k8_shrink_wing | BP | data/calculations/3d/BP/bp-paper-k8_shrink_wing/figures/exx_frontier.svg
+  bp-paper-k8_shrink_wing | BP | data/calculations/3d/BP/bp-paper-k8_shrink_wing/figures/gw_frontier.svg
+  c-paper-sg15_cs1e-5 | C | data/calculations/3d/C/c-paper-sg15_cs1e-5/figures/ks_frontier.svg
+  c-paper-sg15_cs1e-5 | C | data/calculations/3d/C/c-paper-sg15_cs1e-5/figures/exx_frontier.svg
+  c-paper-sg15_cs1e-5 | C | data/calculations/3d/C/c-paper-sg15_cs1e-5/figures/gw_frontier.svg
+  cao-paper-24freq | CaO | data/calculations/3d/CaO/cao-paper-24freq/figures/ks_frontier.svg
+  cao-paper-24freq | CaO | data/calculations/3d/CaO/cao-paper-24freq/figures/exx_frontier.svg
+  cao-paper-24freq | CaO | data/calculations/3d/CaO/cao-paper-24freq/figures/gw_frontier.svg
+  cds-paper-debug | CdS | data/calculations/3d/CdS/cds-paper-debug/figures/ks_frontier.svg
+  cds-paper-debug | CdS | data/calculations/3d/CdS/cds-paper-debug/figures/exx_frontier.svg
+  cds-paper-debug | CdS | data/calculations/3d/CdS/cds-paper-debug/figures/gw_frontier.svg
+  gaas-paper-gw_xsoc_1e-10 | GaAs | data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/ks_frontier.svg
+  gaas-paper-gw_xsoc_1e-10 | GaAs | data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/exx_frontier.svg
+  gan-paper-pca1e-6 | GaN | data/calculations/3d/GaN/gan-paper-pca1e-6/figures/ks_frontier.svg
+  gan-paper-pca1e-6 | GaN | data/calculations/3d/GaN/gan-paper-pca1e-6/figures/exx_frontier.svg
+  gan-paper-pca1e-6 | GaN | data/calculations/3d/GaN/gan-paper-pca1e-6/figures/gw_frontier.svg
+  gap-paper-gw_shrink_chi | GaP | data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/ks_frontier.svg
+  gap-paper-gw_shrink_chi | GaP | data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/exx_frontier.svg
+  lif-paper-jy | LiF | data/calculations/3d/LiF/lif-paper-jy/figures/ks_frontier.svg
+  lif-paper-jy | LiF | data/calculations/3d/LiF/lif-paper-jy/figures/exx_frontier.svg
+  lif-paper-jy | LiF | data/calculations/3d/LiF/lif-paper-jy/figures/gw_frontier.svg
+  mgo-paper-fix_gap | MgO | data/calculations/3d/MgO/mgo-paper-fix_gap/figures/ks_frontier.svg
+  mgo-paper-fix_gap | MgO | data/calculations/3d/MgO/mgo-paper-fix_gap/figures/exx_frontier.svg
+  mgo-paper-fix_gap | MgO | data/calculations/3d/MgO/mgo-paper-fix_gap/figures/gw_frontier.svg
+  nacl-paper-sg15 | NaCl | data/calculations/3d/NaCl/nacl-paper-sg15/figures/ks_frontier.svg
+  nacl-paper-sg15 | NaCl | data/calculations/3d/NaCl/nacl-paper-sg15/figures/exx_frontier.svg
+  nacl-paper-sg15 | NaCl | data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg
+  si-paper-all_kpath | Si | data/calculations/3d/Si/si-paper-all_kpath/figures/ks_frontier.svg
+  si-paper-all_kpath | Si | data/calculations/3d/Si/si-paper-all_kpath/figures/exx_frontier.svg
+  si-paper-all_kpath | Si | data/calculations/3d/Si/si-paper-all_kpath/figures/gw_frontier.svg
+  sic-paper-pca1e-6 | SiC | data/calculations/3d/SiC/sic-paper-pca1e-6/figures/ks_frontier.svg
+  sic-paper-pca1e-6 | SiC | data/calculations/3d/SiC/sic-paper-pca1e-6/figures/exx_frontier.svg
+  sic-paper-pca1e-6 | SiC | data/calculations/3d/SiC/sic-paper-pca1e-6/figures/gw_frontier.svg
+rejected_gw_figures | 全库：GaAs/GaP 新 GW frontier figure 因近隙窗口科学/数值拒绝，不是遗失普通图；不得为了补图绘制成正常结果。
+  gaas-paper-gw_xsoc_1e-10 | GaAs | data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json
+    declared export spectrum has no finite positive occupation-separated gap
+    frozen window does not contain the declared-export frontier
+    nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window
+  gap-paper-gw_shrink_chi | GaP | data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/band_frontier_metadata.json
+    declared export spectrum has no finite positive occupation-separated gap
+    frozen window does not contain the declared-export frontier
+    nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window
+full_runtime_seal | cuinp2se6-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json
+full_runtime_seal | gate-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json
+full_runtime_seal | in2se3-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json
+full_runtime_seal | inse-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json
+full_runtime_seal | mos2_ws2-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
+dangling_reader_links | mos2_ws2-table-gw：原恢复审计报告 input_librpa 有405个悬空reader链接；manifest存在不证明payload存活。找原目标payload/完整备份，不把405加进87；本导出未重新扫描私人目录。
+  公共证据：data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
+full_runtime_seal | mose2-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json
+full_runtime_seal | mote2-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json
+full_runtime_seal | tis3-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json
+full_runtime_seal | ws2-table-gw：已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。
+  公共证据：data/calculations/2d/WS2/ws2-table-gw/results/stage_input_receipt.json
+</pre></section>
+<footer>由 scripts/export_missing_evidence.py 读取 load_records / validate / completeness_report 生成。原始issue不删减、不豁免、不提升科学状态；所有文件引用仅使用仓库相对路径。</footer>
+</main><script>
+const search=document.getElementById('search');const cards=[...document.querySelectorAll('.case')];
+search.addEventListener('input',()=>{const query=search.value.trim().toLowerCase();let shown=0;for(const card of cards){card.hidden=!card.dataset.search.includes(query);if(!card.hidden)shown++;}document.getElementById('result-count').textContent=`显示 ${shown} / ${cards.length} 条记录`;});
+</script></body></html>

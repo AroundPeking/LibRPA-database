@@ -47,6 +47,10 @@ code { font-size: max(12px, .86em); overflow-wrap: anywhere; }
 .main-nav a:hover { color: var(--heading); }
 .main-nav .external-nav { height: auto; min-height: 44px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 5px; font-size: 13px; }
 main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0; }
+.archive-status { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; border: 1px solid #675b3b; border-radius: 6px; padding: 10px 14px; margin-bottom: 20px; background: #25251d; font-size: 13px; }
+.archive-status strong { color: var(--warning); }
+.archive-status span { color: var(--muted); flex: 1 1 360px; }
+.archive-status a { min-height: 32px; display: inline-flex; align-items: center; }
 .intro { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 24px; }
 .intro-text { max-width: 770px; }
 .kicker { margin: 0 0 10px; color: var(--accent); font-size: 12px; letter-spacing: .13em; font-weight: 650; }

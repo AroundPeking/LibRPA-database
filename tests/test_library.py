@@ -683,11 +683,20 @@ class CompletenessTests(unittest.TestCase):
         self.assertIn("species", str(caught.exception))
         self.assertIn("librpa.in", str(caught.exception))
 
-    def test_workflows_require_strict_completeness_without_waivers(self):
-        for name in ("validate.yml", "pages.yml"):
-            text = (ROOT / ".github/workflows" / name).read_text()
-            self.assertIn("--check-completeness", text)
+    def test_strict_validation_and_public_preview_are_separate(self):
+        validation = (ROOT / ".github/workflows/validate.yml").read_text()
+        pages = (ROOT / ".github/workflows/pages.yml").read_text()
+        self.assertIn("--check-completeness", validation)
+        self.assertNotIn("--check-completeness", pages)
+        self.assertIn("export_missing_evidence.py --check --report-output", pages)
+        self.assertIn("--check-catalog", pages)
+        self.assertIn("build_indexes.py --check", pages)
+        self.assertIn("public_scan.py", pages)
+        self.assertIn("unittest discover", pages)
+        self.assertIn("node --test", pages)
+        for text in (validation, pages):
             self.assertNotIn("continue-on-error", text)
+            self.assertNotIn("|| true", text)
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ Confirm that the PP, NAO, and ABF may be redistributed. Keep the source URL, rel
 
 ## Add a calculation
 
-在 `data/calculations/2d/<material>/<case-id>/` 或 `data/calculations/3d/<material>/<case-id>/` 中归档同一次计算的可移植 `inputs`、`results`、`logs` 和 `figures`。`species` 只绑定有生产关联证据的精确 set ID。历史证据仍可由基础 schema/hash 校验器读取；确实缺失关联时保留空 `species` 和 `missing` 说明，**但这不是完整上传，也不能通过 CI 或 Pages 发布门槛**。不得通过补一个候选集、描述性别名、missing 注释或历史白名单让不完整记录显示为完整。
+在 `data/calculations/2d/<material>/<case-id>/` 或 `data/calculations/3d/<material>/<case-id>/` 中归档同一次计算的可移植 `inputs`、`results`、`logs` 和 `figures`。`species` 只绑定有生产关联证据的精确 set ID。历史证据仍可由基础 schema/hash 校验器读取；确实缺失关联时保留空 `species` 和 `missing` 说明，**但这不是完整上传，也不能通过严格 Validate CI**。用户于 2026-10-12 明确允许 Pages 先公开可浏览档案与全部缺项，网页发布不代表完整上传或科学接受；schema/hash、catalog、索引、公开扫描和软件测试仍须通过。不得通过补一个候选集、描述性别名、missing 注释或历史白名单让不完整记录显示为完整。
 
 `basis_candidates` 仅表示未证明生产绑定的后续候选。`gw_validated` 只用于指定 observable 和物理门槛真正通过的记录；`gw_diagnostic`、`path_diagnostic`、`failed` 和 `legacy_incomplete` 保留原始科学/归档状态，但所有记录必须遵守相同的完整上传要求。档案完整不等于科学验证通过，科学诊断也不能豁免档案缺证。
 
@@ -89,7 +89,7 @@ python3 -m unittest discover -s tests -v
 git diff --check
 ```
 
-这些检查不会编译或运行 ABACUS/LibRPA。`--check-completeness` 会一次输出全部不完整 case ID 和缺证项并非零退出；CI 与 Pages build 均显式执行该门槛，不使用 `continue-on-error`、diff-only 或历史豁免。旧库有真实缺失时门槛就应失败，不能为绿灯放宽规则。基础 `validate()` 和 catalog 生成保留历史 schema/hash 可读能力；catalog 的 `archive_completeness.status/issues` 诚实展示完整与缺失，不能取代严格检查。`--completeness-report <path>` 输出全部 case（包括完整记录）、原科学状态、缺证项、分类和总统计；CI 即使失败也保存此 JSON artifact，但不豁免严格步骤的失败。归档完整性与全谱 finite/物理接受单独审计，报告不得将一个已归档的异常数值表冒称科学合格。
+这些检查不会编译或运行 ABACUS/LibRPA。`--check-completeness` 会一次输出全部不完整 case ID 和缺证项并非零退出；**Validate database** 始终显式执行该门槛，不使用 `continue-on-error`、diff-only 或历史豁免。旧库有真实缺失时严格验收就应失败，不能为绿灯放宽规则。用户于 2026-10-12 确认将网页更新与严格验收分开：**Publish database** 使用 `scripts/export_missing_evidence.py --check --report-output ...` 校验并公开真实完整报告（schema/hash 错误或报告过期仍失败），在其他检查通过后允许公开不完整档案；首页、每条记录和 `database/missing-evidence.html` 明示未通过严格验收。Pages success 不等于 Validate success，不豁免任何记录或提升科学状态。基础 `validate()` 和 catalog 生成保留历史 schema/hash 可读能力；catalog 的 `archive_completeness.status/issues` 诚实展示完整与缺失，不能取代严格检查。`--completeness-report <path>` 输出全部 case（包括完整记录）、原科学状态、缺证项、分类和总统计；CI 即使失败也保存此 JSON artifact，但不豁免严格步骤的失败。归档完整性与全谱 finite/物理接受单独审计，报告不得将一个已归档的异常数值表冒称科学合格。
 
 能带图参考 [`references/plotting.md`](references/plotting.md)、`scripts/plot_bands.py` 和 `scripts/generate_band_figures.py`。通用脚本支持表格解析、能带绘制和 provenance；原生归档生成器先审计原谱、按占据冻结近隙 raw 集，再对每个方法独立设置 VBM 对齐和能量视窗。运行 `python3 scripts/plot_bands.py --help` 或 `python3 scripts/generate_band_figures.py --help` 查看命令。保留原始表的带顺序、占据证据与输入/图源 hash。对于 band-path table，记录的是 sampled/path gap；只有覆盖充分全 k 空间并完成对应物理验证后才称 global/fundamental gap。归档完整性、过程结束、数值可靠性和科学接受四者必须区分。
 

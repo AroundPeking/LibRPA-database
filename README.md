@@ -92,6 +92,13 @@ remain visible for every file; aliases do not invent original filenames.
    The workflow checks Pages configuration, validates the data and indexes,
    runs Python/JavaScript tests, and builds a restricted `_site` artifact.
    It does not publish design drafts, private Git state, tests, or caches.
+   As explicitly approved on 2026-10-12, Pages publishes the browsable archive
+   separately from strict data acceptance: it checks that the complete missing-
+   evidence report is current and publicly visible, while schema/hash validation,
+   catalog/index checks, public scanning, and software tests remain blocking.
+   **Validate database** still runs `--check-completeness` without waivers and
+   fails when evidence is missing. A successful Pages deployment does not mean
+   that strict validation or scientific acceptance passed.
 3. Check the deployment job's returned URL and `build-info.json`. The latter
    records the deployed source commit and `source_dirty` state; a local build
    with uncommitted changes is not represented as an exact commit build. A
@@ -110,7 +117,10 @@ source files. Choose a new output path for another build; it never deletes
 an existing directory automatically.
 
 For archived 3D ABACUS band tables, the checked-in SVG figures can be rebuilt
-with `python3 scripts/generate_band_figures.py`. The script preserves the raw
+with `python3 scripts/generate_band_figures.py --write --allow-weighted-occupations`
+(`--audit` is read-only). All 17 3D records have been rechecked: 49 valid or
+explicitly diagnostic single-method SVGs; GaAs/GaP GW near-gap figures remain
+rejected because their frozen raw windows are pathological. The script preserves the raw
 tables and records source paths and SHA-256 hashes in each figure sidecar.
 
 The generation protocol, validation ladder, and ABACUS-to-LibRPA handoff are documented in the companion skill, especially [`references/database.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/references/database.md), [`SKILL.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/SKILL.md), and [`CONTRIBUTING.md`](CONTRIBUTING.md).

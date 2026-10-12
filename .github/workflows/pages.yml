@@ -28,9 +28,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: 严格检查完整上传证据；不完整记录阻止Pages发布
-        run: python scripts/library.py --check-completeness --completeness-report "${{ runner.temp }}/archive-completeness.json"
-      - name: 保留全部记录的完整性报告（失败仍阻止发布）
+      - name: 校验并公开全部缺证报告（网页发布不代表严格验收通过）
+        run: python scripts/export_missing_evidence.py --check --report-output "${{ runner.temp }}/archive-completeness.json"
+      - name: 保留全部记录的真实完整性报告
         if: always()
         uses: actions/upload-artifact@v4
         with:

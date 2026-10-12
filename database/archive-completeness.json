@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "status": "blocked",
+  "integrity_issues": [],
+  "stats": {
+    "total": 33,
+    "complete": 1,
+    "incomplete": 32,
+    "issue_count": 87,
+    "missing_categories": {
+      "basis_binding": {
+        "cases": 6,
+        "issues": 21
+      },
+      "inputs": {
+        "cases": 4,
+        "issues": 16
+      },
+      "properties": {
+        "cases": 2,
+        "issues": 2
+      },
+      "software": {
+        "cases": 32,
+        "issues": 48
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "cuinp2se6-table-gw",
+      "material": "CuInP2Se6",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "gate-table-gw",
+      "material": "GaTe",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "gete-table-gw",
+      "material": "GeTe",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "input INPUT: missing readable declared production input in this calculation",
+        "input KPT: missing readable declared production input in this calculation",
+        "input STRU: missing readable declared production input in this calculation",
+        "input librpa.in: missing readable declared production input in this calculation",
+        "species: missing exact binding for formula element Ge",
+        "species: missing exact binding for formula element Te",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required",
+        "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+      ],
+      "missing_categories": {
+        "inputs": [
+          "input INPUT: missing readable declared production input in this calculation",
+          "input KPT: missing readable declared production input in this calculation",
+          "input STRU: missing readable declared production input in this calculation",
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "basis_binding": [
+          "species: missing exact binding for formula element Ge",
+          "species: missing exact binding for formula element Te",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ],
+        "properties": [
+          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+        ]
+      }
+    },
+    {
+      "id": "in2se3-table-gw",
+      "material": "In2Se3",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "inse-table-gw",
+      "material": "InSe",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "mos2-table-gw",
+      "material": "MoS2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "mos2_ws2-table-gw",
+      "material": "MoS2-WS2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "mose2-table-gw",
+      "material": "MoSe2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "species: missing exact binding for formula element Mo",
+        "species: missing exact binding for formula element Se",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species",
+        "STRU: at least one production STRU must declare exact abf payloads",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "basis_binding": [
+          "species: missing exact binding for formula element Mo",
+          "species: missing exact binding for formula element Se",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+          "STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species",
+          "STRU: at least one production STRU must declare exact abf payloads"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "mote2-table-gw",
+      "material": "MoTe2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "phosphorene-table-gw",
+      "material": "Phosphorene",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "input INPUT: missing readable declared production input in this calculation",
+        "input KPT: missing readable declared production input in this calculation",
+        "input STRU: missing readable declared production input in this calculation",
+        "input librpa.in: missing readable declared production input in this calculation",
+        "species: missing exact binding for formula element P",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "inputs": [
+          "input INPUT: missing readable declared production input in this calculation",
+          "input KPT: missing readable declared production input in this calculation",
+          "input STRU: missing readable declared production input in this calculation",
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "basis_binding": [
+          "species: missing exact binding for formula element P",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "snse-table-gw",
+      "material": "SnSe",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "input INPUT: missing readable declared production input in this calculation",
+        "input KPT: missing readable declared production input in this calculation",
+        "input STRU: missing readable declared production input in this calculation",
+        "input librpa.in: missing readable declared production input in this calculation",
+        "species: missing exact binding for formula element Se",
+        "species: missing exact binding for formula element Sn",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required",
+        "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+      ],
+      "missing_categories": {
+        "inputs": [
+          "input INPUT: missing readable declared production input in this calculation",
+          "input KPT: missing readable declared production input in this calculation",
+          "input STRU: missing readable declared production input in this calculation",
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "basis_binding": [
+          "species: missing exact binding for formula element Se",
+          "species: missing exact binding for formula element Sn",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ],
+        "properties": [
+          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
+        ]
+      }
+    },
+    {
+      "id": "tis3-table-gw",
+      "material": "TiS3",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "ws2-table-gw",
+      "material": "WS2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "species: missing exact binding for formula element S",
+        "species: missing exact binding for formula element W",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species",
+        "STRU: at least one production STRU must declare exact abf payloads",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "basis_binding": [
+          "species: missing exact binding for formula element S",
+          "species: missing exact binding for formula element W",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+          "STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species",
+          "STRU: at least one production STRU must declare exact abf payloads"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "wse2-table-gw",
+      "material": "WSe2",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "hbn-table-gw",
+      "material": "hBN",
+      "dimension": "2d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "input INPUT: missing readable declared production input in this calculation",
+        "input KPT: missing readable declared production input in this calculation",
+        "input STRU: missing readable declared production input in this calculation",
+        "input librpa.in: missing readable declared production input in this calculation",
+        "species: missing exact binding for formula element B",
+        "species: missing exact binding for formula element N",
+        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "inputs": [
+          "input INPUT: missing readable declared production input in this calculation",
+          "input KPT: missing readable declared production input in this calculation",
+          "input STRU: missing readable declared production input in this calculation",
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "basis_binding": [
+          "species: missing exact binding for formula element B",
+          "species: missing exact binding for formula element N",
+          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings"
+        ],
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "hbn-tzdp10-fgext-20261008",
+      "material": "hBN",
+      "dimension": "2d",
+      "scientific_status": "path_diagnostic",
+      "status": "complete",
+      "issues": [],
+      "missing_categories": {}
+    },
+    {
+      "id": "alas-paper-paper",
+      "material": "AlAs",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "alp-paper-k8_shrink_wing",
+      "material": "AlP",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "alsb-paper-gw_gth_modspencer",
+      "material": "AlSb",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "bas-paper-k8_shrink_wing",
+      "material": "BAs",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "bn-paper-sg15",
+      "material": "BN",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "bp-paper-k8_shrink_wing",
+      "material": "BP",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "c-paper-sg15_cs1e-5",
+      "material": "C",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "cao-paper-24freq",
+      "material": "CaO",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "cds-paper-debug",
+      "material": "CdS",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "gaas-paper-gw_xsoc_1e-10",
+      "material": "GaAs",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "gan-paper-pca1e-6",
+      "material": "GaN",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "gap-paper-gw_shrink_chi",
+      "material": "GaP",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "lif-paper-jy",
+      "material": "LiF",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "mgo-paper-fix_gap",
+      "material": "MgO",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "nacl-paper-sg15",
+      "material": "NaCl",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "si-paper-all_kpath",
+      "material": "Si",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "sic-paper-pca1e-6",
+      "material": "SiC",
+      "dimension": "3d",
+      "scientific_status": "gw_diagnostic",
+      "status": "incomplete",
+      "issues": [
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    }
+  ]
+}
