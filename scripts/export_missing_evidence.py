@@ -13,17 +13,17 @@ from pathlib import Path, PurePosixPath
 import library
 
 SOFTWARE_REQUIREMENTS = [
-    "对应历史 stage 的完整不可变源码 commit；不是当前 HEAD、分支名或短 token",
-    "同 stage 原始运行日志中的版本/commit token、启动时间及实际启动命令",
-    "source_commit.txt 或等价源码身份 receipt，记录当时源码树及 clean/dirty 状态",
-    "当时 build manifest/CMakeCache/构建 receipt，并绑定实际运行可执行文件 SHA-256",
-    "运行启动/作业 receipt 将 executable hash、输入 manifest 和该谱输出 hash 绑定",
+    "The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.",
+    "The version/commit token, launch time, and actual launch command from the original log of that stage.",
+    "source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.",
+    "The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.",
+    "A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.",
 ]
 SCOPE_NOTES = [
-    "缺证指公共归档未闭合，不等于私人原目录中的文件一定不存在；已归档文件不要重复寻找。",
-    "已在私人原来源定位到七组 ABACUS、五组 LibRPA 潜在身份入口，尚未全部审完；这些入口不自动关闭任何 fullcommit issue。",
-    "先检查已有 stage controls、日志和 receipt，再补同一次历史运行证据；禁止用当前 HEAD 或其他材料/新算例替代。",
-    "strict 上传完整性、完整 runtime seal、数值/科学接受是不同层次；本清单不改变科学状态。",
+    "Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.",
+    "Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.",
+    "Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.",
+    "Strict upload completeness, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.",
 ]
 PATH_KEYS = {"path", "paths", "record_path", "repository_path", "evidence", "source_paths", "metadata_path", "receipt_path", "existing_identity_evidence"}
 
@@ -32,13 +32,13 @@ def assert_public(value: object, key: str = "") -> None:
     """拒绝私有绝对路径，而不是静默删去导致 issue 数量变化。"""
     if isinstance(value, str):
         if library.PRIVATE_PATH.search(value) or re.match(r"^[A-Za-z]:[\\/]", value):
-            raise ValueError("导出包含私有路径，拒绝写入公共交付")
+            raise ValueError("Export contains a private path; refusing to write public deliverables")
         if re.search(r"(?:^|[\s\"'=])/(?!/)[^\s]", value) or re.search(r"(?:^|\s)(?:file|ssh)://", value):
-            raise ValueError("导出包含绝对路径或私有来源，拒绝写入公共交付")
+            raise ValueError("Export contains an absolute path or private source; refusing to write public deliverables")
         if key in PATH_KEYS or key.endswith("_path") or key.endswith("_paths"):
             path = PurePosixPath(value)
             if not value or path.is_absolute() or ".." in path.parts or "\\" in value or "://" in value:
-                raise ValueError("导出文件引用必须是仓库相对路径")
+                raise ValueError("Export file references must be repository-relative paths")
     elif isinstance(value, dict):
         for name, nested in value.items():
             assert_public(nested, name)
@@ -48,7 +48,13 @@ def assert_public(value: object, key: str = "") -> None:
 
 
 def _file_view(item: dict) -> dict:
-    return {key: item[key] for key in ("path", "sha256", "label", "stage_id") if key in item}
+    view = {key: item[key] for key in ("path", "sha256", "label", "stage_id") if key in item}
+    if re.search(r"[\u3400-\u9fff\uf900-\ufaff]", view.get("label", "")):
+        prefix, separator, _ = view["label"].partition(" / ")
+        filename = PurePosixPath(item["path"]).name
+        view["label"] = (f"{prefix} / {filename}" if separator and not re.search(r"[\u3400-\u9fff\uf900-\ufaff]", prefix)
+                         else filename)
+    return view
 
 
 def _stages(case: dict) -> list[dict]:
@@ -58,7 +64,7 @@ def _stages(case: dict) -> list[dict]:
         if not stage_id:
             continue
         stage = stages.setdefault(stage_id, {
-            "id": stage_id, "label": item.get("label", "").split(" / ", 1)[0],
+            "id": stage_id, "label": _file_view(item).get("label", "").split(" / ", 1)[0],
             "controls": [], "execution_identity_verified_by_this_export": False,
         })
         stage["controls"].append(_file_view(item))
@@ -88,13 +94,13 @@ def _binding_request(root: Path, case: dict) -> dict:
         "elements": [{"element": element, "required_roles": ["pp", "nao", "abf"]} for element in required],
         "production_stru_declarations": declarations,
         "requirements": [
-            "每个元素找回同一次生产实际使用的 PP(.upf)、physical NAO(.orb)、ABF(.abfs) 原始文件和 SHA-256。",
-            "原 STRU 的 ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL 顺序与名称必须绑定到这些精确 payload hash。",
-            "候选集、相同文件名、for_aux orbital、其他材料或新算例资产都不能替代 exact role 绑定。",
+            "Recover the original PP (.upf), physical NAO (.orb), and ABF (.abfs) files and SHA-256 for each element, as actually used in the same production run.",
+            "Bind the order and names in the original STRU ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL declarations to those exact payload hashes.",
+            "Candidate sets, matching filenames, for_aux orbitals, another material, or assets from a new case cannot replace exact role binding.",
         ],
-        "note": ("已有 partial STRU 能证明下列 PP/NAO 原名，但没有 ABFS_ORBITAL；找原 DF/EXX/GW stage 的 ABF 声明、payload 与运行证据，不得猜 ABF。"
+        "note": ("Existing partial STRU files establish the original PP/NAO names below, but lack ABFS_ORBITAL. Recover the ABF declarations, payloads, and run evidence from the original DF/EXX/GW stage; do not guess the ABF."
                  if declarations and not any(item["has_abfs_orbital"] for item in declarations)
-                 else "没有已审定的生产 STRU 绑定；先找原结构与原角色文件，不能凭候选基组填入。"),
+                 else "No audited production STRU binding is available. Recover the original structure and role files first; do not fill them from candidate basis sets."),
     }
 
 
@@ -125,18 +131,18 @@ def _case_collection(root: Path, case: dict, issues: list[str]) -> dict:
                                 if (stage["label"] in {"EXX", "GW", "LibRPA"}) == (name == "librpa")]
                                or (["SCF/DF/NSCF (ABACUS)"] if name == "abacus" else ["EXX/GW (LibRPA)"])),
             "requirements": SOFTWARE_REQUIREMENTS,
-            "note": "公共历史身份未闭合；先审已有/已定位证据，不代表这些文件必定不存在。",
+            "note": "The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.",
         })
     if any(issue.startswith(("species", "STRU")) for issue in issues):
         result["basis_binding_request"] = _binding_request(root, case)
     if result["missing_inputs"]:
-        result["notes"].append("寻找该 case 原始生产 INPUT、KPT、STRU、librpa.in，按 SCF/DF/NSCF/EXX/GW stage 保留；不要合成替代文件。")
+        result["notes"].append("Recover this case's original production INPUT, KPT, STRU, and librpa.in files, preserving the SCF/DF/NSCF/EXX/GW stages. Do not synthesize replacements.")
     if case["id"] == "hbn-table-gw":
-        result["notes"].append("这是旧 hBN 表格算例；hbn-tzdp10-fgext-20261008 的新输入/基组/软件身份不得挪来关闭旧算例缺口。")
+        result["notes"].append("This is the historical hBN table case. New inputs, basis sets, or software identity from hbn-tzdp10-fgext-20261008 must not be borrowed to close its gaps.")
     if any(issue.startswith("properties: EXX") for issue in issues):
-        result["notes"].append("现有 EXX 异常不是遗失普通 gap：需要同源正确完整谱和诊断/占据/导出范围证据，或明确记录保留失败诊断的科学决定；不得编造正常 gap 或拿论文值替代。")
+        result["notes"].append("The existing EXX anomaly is not a missing ordinary gap. Recover a correct, complete spectrum from the same source with diagnostic, occupation, and export-range evidence, or explicitly record the scientific decision to retain the failed diagnostic. Do not invent a normal gap or substitute a paper value.")
     if not issues:
-        result["notes"].append("当前 strict 无缺项；这不自动表示完整运行镜像或科学接受。")
+        result["notes"].append("No current strict issues; this does not automatically establish a full runtime mirror or scientific acceptance.")
     return result
 
 
@@ -162,11 +168,11 @@ def _supplementary(root: Path, cases: list[dict]) -> list[dict]:
     if redraw:
         extras.append({"kind": "reproducible_figures", "counted_in_strict_issues": False,
                        "count": len(redraw), "entries": redraw,
-                       "note": "3D 已有 frontier 图及同源绘图数据可重绘，无需寻找遗失普通图片；重绘不提升数值/科学接受。"})
+                       "note": "Existing 3D frontier figures and same-source plotting data can be redrawn; no search for missing ordinary images is needed. Redrawing does not promote numerical/scientific acceptance."})
     if rejected:
         extras.append({"kind": "rejected_gw_figures", "counted_in_strict_issues": False,
                        "entries": rejected,
-                       "note": "GaAs/GaP 新 GW frontier figure 因近隙窗口科学/数值拒绝，不是遗失普通图；不得为了补图绘制成正常结果。"})
+                       "note": "The new GaAs/GaP GW frontier figures are scientifically/numerically rejected because of the near-gap window, not missing ordinary plots. Do not redraw them as normal results to fill a figure gap."})
     for case in cases:
         for item in case.get("files", {}).get("results", []):
             if PurePosixPath(item["path"]).name != "stage_input_receipt.json":
@@ -176,13 +182,13 @@ def _supplementary(root: Path, cases: list[dict]) -> list[dict]:
                 extras.append({"kind": "full_runtime_seal", "case_id": case["id"],
                                "material": case["material"], "counted_in_strict_issues": False,
                                "receipt_path": item["path"],
-                               "note": "已恢复 controls/角色绑定不等于完整 runtime seal；需各 stage 输入、reader payload、生存/重hash证据及同一次运行身份链。"})
+                               "note": "Recovered controls/role bindings do not establish a full runtime seal. Recover each stage's inputs, reader payloads, payload-survival/rehash evidence, and the identity chain from the same run."})
             text = json.dumps(receipt, ensure_ascii=False)
             if case["id"] == "mos2_ws2-table-gw" and re.search(r"405.*(?:悬空|dangling)|405 dangling", text):
                 extras.append({"kind": "dangling_reader_links", "case_id": case["id"],
                                "material": case["material"], "counted_in_strict_issues": False,
                                "reported_link_count": 405, "receipt_path": item["path"],
-                               "note": "原恢复审计报告 input_librpa 有405个悬空reader链接；manifest存在不证明payload存活。找原目标payload/完整备份，不把405加进87；本导出未重新扫描私人目录。"})
+                               "note": "The original recovery audit reported 405 dangling reader links in input_librpa. A manifest does not prove payload survival. Recover the original target payloads/full backup; do not add 405 to the 87 strict issues. This export did not rescan the private directory."})
     return extras
 
 
@@ -206,57 +212,57 @@ def build_export(root: Path) -> tuple[dict, dict]:
 def render_text(export: dict) -> str:
     assert_public(export)
     stats = export["stats"]
-    lines = ["ABACUS + LibRPA 公共归档：完整缺证清单", "",
-             f"strict 状态：{export['status']}；{stats['total']}条记录，{stats['incomplete']}条不完整，{stats['complete']}条完整，原始issue总数{stats['issue_count']}。",
-             "所有原始issue逐case保留；附加取证说明和runtime缺口不计入该总数。", ""]
+    lines = ["ABACUS + LibRPA public archive: complete missing-evidence checklist", "",
+             f"Strict status: {export['status']}; {stats['total']} records, {stats['incomplete']} incomplete, {stats['complete']} complete, {stats['issue_count']} original issues in total.",
+             "All original issues are preserved case by case. Supplementary evidence requests and runtime gaps are excluded from this total.", ""]
     lines += export["export_scope"]["notes"]
     for category, value in stats["missing_categories"].items():
-        lines.append(f"分类 {category}：{value['cases']}个case / {value['issues']}条issue")
+        lines.append(f"Category {category}: {value['cases']} cases / {value['issues']} issues")
     number = 0
     for case in export["cases"]:
         collection = case["collection"]
         lines += ["", f"=== {case['material']} | {case['dimension']} | {case['id']} ===",
-                  f"科学状态：{case['scientific_status']}；归档：{case['status']}",
-                  f"记录：{collection['record_path']}", "原始 strict issues（完整原文）"]
+                  f"Scientific status: {case['scientific_status']}; archive: {case['status']}",
+                  f"Record: {collection['record_path']}", "Original strict issues (full, unmodified text)"]
         if not case["issues"]:
-            lines.append("  无。")
+            lines.append("  None.")
         for issue in case["issues"]:
             number += 1
             lines.append(f"  [{number:03d}] {issue}")
         if collection["missing_inputs"]:
-            lines.append("需找原输入：" + ", ".join(collection["missing_inputs"]))
+            lines.append("Original inputs to recover: " + ", ".join(collection["missing_inputs"]))
         binding = collection.get("basis_binding_request")
         if binding:
-            lines.append("逐元素 exact role：" + "；".join(f"{item['element']} => PP(.upf) / physical NAO(.orb) / ABF(.abfs)" for item in binding["elements"]))
+            lines.append("Exact roles by element: " + "; ".join(f"{item['element']} => PP(.upf) / physical NAO(.orb) / ABF(.abfs)" for item in binding["elements"]))
             lines.extend(binding["requirements"] + [binding["note"]])
             for stru in binding["production_stru_declarations"]:
-                lines.append("已有 partial STRU：" + stru["path"])
+                lines.append("Existing partial STRU: " + stru["path"])
                 for element in stru["elements"]:
                     names = element["original_names"]
-                    lines.append(f"  {element['element']}: PP={names['pp'] or '未声明'}；NAO={names['nao'] or '未声明'}；ABF={names['abf'] or '未声明（不可猜）'}")
+                    lines.append(f"  {element['element']}: PP={names['pp'] or 'not declared'}; NAO={names['nao'] or 'not declared'}; ABF={names['abf'] or 'not declared (do not guess)'}")
         for request in collection["software_requests"]:
-            lines += [f"需闭合 {request['software']} fullcommit：{request['field']}", request["note"],
-                      "stage 核对入口：" + "；".join(request["stages_to_bind"])]
+            lines += [f"{request['software']} fullcommit to close: {request['field']}", request["note"],
+                      "Stages to cross-check: " + "; ".join(request["stages_to_bind"])]
             lines += ["  - " + requirement for requirement in request["requirements"]]
         if collection["existing_stage_controls"]:
-            lines.append("已有stage controls（先检查，勿重复寻找）")
+            lines.append("Existing stage controls (inspect first; do not search again)")
             for stage in collection["existing_stage_controls"]:
                 lines.append(f"  {stage['label']} [{stage['id']}]")
                 lines += ["    " + item["path"] for item in stage["controls"]]
-        for group, label in (("existing_logs", "已有日志"), ("existing_receipts", "已有receipt/manifest")):
-            lines.append(label + ("（先核对）" if collection[group] else "：公共记录未声明，先找历史来源。"))
+        for group, label in (("existing_logs", "Existing logs"), ("existing_receipts", "Existing receipts/manifests")):
+            lines.append(label + (" (cross-check first)" if collection[group] else ": not declared in the public record; inspect historical sources first."))
             lines += ["  " + item["path"] for item in collection[group]]
         lines += collection["notes"]
-    lines += ["", "=== 附项：不计入 strict issue 总数 ==="]
+    lines += ["", "=== Supplementary items: excluded from the strict issue total ==="]
     for item in export["supplementary_not_counted_in_strict"]:
-        lines.append(f"{item['kind']} | {item.get('case_id', '全库')}：{item['note']}")
+        lines.append(f"{item['kind']} | {item.get('case_id', 'whole archive')}: {item['note']}")
         if "receipt_path" in item:
-            lines.append("  公共证据：" + item["receipt_path"])
+            lines.append("  Public evidence: " + item["receipt_path"])
         for entry in item.get("entries", []):
             lines.append(f"  {entry['case_id']} | {entry['material']} | {entry.get('path', entry.get('metadata_path', ''))}")
             lines += ["    " + reason for reason in entry.get("reasons", [])]
     if number != stats["issue_count"]:
-        raise ValueError("报告统计与逐条issue数量不一致")
+        raise ValueError("Report statistics and itemized issue count do not match")
     return "\n".join(lines) + "\n"
 
 
@@ -277,27 +283,27 @@ def render_html(export: dict) -> str:
         cards.append(f'<article class="case" data-search="{escape(heading.lower(), quote=True)}">'
                      f'<h2>{escape(case["material"])} <span>{escape(case["dimension"])}</span></h2>'
                      f'<p class="case-id">{escape(case["id"])}</p><p>{escape(case["scientific_status"])} · '
-                     f'{escape(case["status"])} · {len(case["issues"])}条原始issue</p>'
+                     f'{escape(case["status"])} · {len(case["issues"])} original issues</p>'
                      f'<ol start="{start}">{raw}</ol>'
-                     f'{"<p>当前 strict 无缺项；不自动表示科学接受。</p>" if not raw else ""}'
-                     f'<details><summary>找什么、已有证据与逐stage身份清单</summary><pre>{escape(detail)}</pre></details></article>')
-    supplemental = text.split("=== 附项：不计入 strict issue 总数 ===", 1)[1]
+                     f'{"<p>No current strict issues; scientific acceptance is not automatic.</p>" if not raw else ""}'
+                     f'<details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>{escape(detail)}</pre></details></article>')
+    supplemental = text.split("=== Supplementary items: excluded from the strict issue total ===", 1)[1]
     notes = "".join(f"<li>{escape(note)}</li>" for note in export["export_scope"]["notes"])
     return f'''<!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GW数据库完整缺证清单</title><style>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GW database: complete missing-evidence checklist</title><style>
 :root{{color-scheme:dark}}*{{box-sizing:border-box}}body{{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}}main{{max-width:1120px;margin:auto;padding:40px 24px 80px}}h1{{font-size:30px;line-height:1.3;margin:0 0 16px}}h2{{font-size:22px;margin:0}}h2 span{{font-size:14px;color:#a9c0df}}.summary,.case,.notes{{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}}.summary{{border-color:#cfa85e}}.counts{{font-size:22px;color:#ffd68b}}.muted,.case-id{{color:#bed0e5}}.case-id{{overflow-wrap:anywhere;margin:6px 0}}input{{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}}input:focus{{outline:2px solid #78bafa;outline-offset:2px}}label{{display:block;margin-bottom:8px}}code,pre{{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}}li{{margin:8px 0}}ol{{padding-left:36px}}details{{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}}summary{{cursor:pointer;color:#98ccff}}pre{{color:#d4e1f0}}[hidden]{{display:none!important}}.toolbar{{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}}footer{{color:#a7bdd8;margin-top:30px}}@media(max-width:600px){{main{{padding:24px 14px}}.case,.summary,.notes{{padding:16px}}h1{{font-size:25px}}}}
 </style></head><body><main>
-<h1>GW数据库完整缺证清单</h1><p class="muted">逐材料、逐case保留全部原始 strict issue；可搜索并展开实际取证入口。公开网站不代表严格数据验收通过。</p><p><a href="index.html#/" style="color:#98ccff">返回数据库</a> · <a href="archive-completeness.json" style="color:#98ccff">下载完整JSON报告</a></p>
-<section class="summary"><div class="counts">{stats['issue_count']}条原始issue · {stats['incomplete']}/{stats['total']}条记录不完整</div><p>strict：{escape(export['status'])}；{stats['complete']}条完整。附项、重绘图与runtime seal缺口不计入上述数量。</p></section>
+<h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original strict issues are preserved by material and case. Search and expand the actual evidence-recovery entry points. A public website does not imply strict data acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
+<section class="summary"><div class="counts">{stats['issue_count']} original issues · {stats['incomplete']}/{stats['total']} records incomplete</div><p>Strict: {escape(export['status'])}; {stats['complete']} complete. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
 <section class="notes"><ul>{notes}</ul></section>
-<div class="toolbar"><label for="search">搜索材料 / case id / 维度</label><input id="search" type="search" placeholder="例如 GeTe、MoSe2、hbn-table-gw、3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">显示全部{stats['total']}条记录</p></div>
+<div class="toolbar"><label for="search">Search material / case ID / dimension</label><input id="search" type="search" placeholder="For example: GeTe, MoSe2, hbn-table-gw, 3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">Showing all {stats['total']} records</p></div>
 {''.join(cards)}
-<section class="notes"><h2>附项：不计入strict数量</h2><pre>{escape(supplemental)}</pre></section>
-<footer>由 scripts/export_missing_evidence.py 读取 load_records / validate / completeness_report 生成。原始issue不删减、不豁免、不提升科学状态；所有文件引用仅使用仓库相对路径。</footer>
+<section class="notes"><h2>Supplementary items: excluded from strict counts</h2><pre>{escape(supplemental)}</pre></section>
+<footer>Generated by scripts/export_missing_evidence.py using load_records / validate / completeness_report. No original issues are removed or waived, and scientific status is not promoted. All file references are repository-relative.</footer>
 </main><script>
 const search=document.getElementById('search');const cards=[...document.querySelectorAll('.case')];
-search.addEventListener('input',()=>{{const query=search.value.trim().toLowerCase();let shown=0;for(const card of cards){{card.hidden=!card.dataset.search.includes(query);if(!card.hidden)shown++;}}document.getElementById('result-count').textContent=`显示 ${{shown}} / ${{cards.length}} 条记录`;}});
+search.addEventListener('input',()=>{{const query=search.value.trim().toLowerCase();let shown=0;for(const card of cards){{card.hidden=!card.dataset.search.includes(query);if(!card.hidden)shown++;}}document.getElementById('result-count').textContent=`Showing ${{shown}} / ${{cards.length}} records`;}});
 </script></body></html>\n'''
 
 
@@ -306,18 +312,18 @@ def checked_target(path: Path) -> Path:
     if any(parent.is_symlink() for parent in (path, *path.parents)):
         raise ValueError("export target contains a symlink")
     if not path.parent.is_dir():
-        raise ValueError("目标父目录必须先存在；未写入任何交付文件")
+        raise ValueError("The target parent directory must already exist; no deliverables were written")
     return path
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="完整缺证导出；不改变strict门槛，默认不写文件")
+    parser = argparse.ArgumentParser(description="Complete missing-evidence export; strict gate unchanged; read-only by default")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--write", action="store_true", help="显式写database报告与可选outputs交付")
-    mode.add_argument("--check", action="store_true", help="验证公开JSON/HTML与当前完整报告逐字节一致")
-    parser.add_argument("--output-dir", type=Path, help="明确交付目录；必须已存在且配合--write")
-    parser.add_argument("--report-output", type=Path, help="显式写原始完整报告；成功不代表strict通过")
+    mode.add_argument("--write", action="store_true", help="Explicitly write database reports and optional output deliverables")
+    mode.add_argument("--check", action="store_true", help="Verify public JSON/HTML matches the current full report byte for byte")
+    parser.add_argument("--output-dir", type=Path, help="Explicit output directory; must exist and requires --write")
+    parser.add_argument("--report-output", type=Path, help="Explicitly write the original full report; success does not mean strict acceptance")
     args = parser.parse_args()
     if args.output_dir and not args.write:
         parser.error("--output-dir requires --write")
@@ -353,7 +359,7 @@ def main() -> int:
         if not args.write and not args.check and not args.report_output:
             print(txt, end="")
         else:
-            print(f"缺证报告已{'写入' if args.write else '校验'}：{report['stats']['issue_count']}条原始issue；strict状态仍为{report['status']}。")
+            print(f"Missing-evidence report {'written' if args.write or args.report_output else 'checked'}: {report['stats']['issue_count']} original issues; strict status remains {report['status']}.")
             print("This command validates schema/hash and report freshness, not strict completeness or scientific acceptance.")
         return 0
     except (ValueError, OSError, KeyError, TypeError) as error:

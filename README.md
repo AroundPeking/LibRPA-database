@@ -1,6 +1,6 @@
 # ABACUS + LibRPA GW database
 
-## [打开网页版 / Open web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)
+## [Open web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)
 
 **[Browse materials](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)** · **[Browse basis files](https://aroundpeking.github.io/abacus-librpa-gw-database/database/#/basis)**
 
@@ -122,6 +122,18 @@ with `python3 scripts/generate_band_figures.py --write --allow-weighted-occupati
 explicitly diagnostic single-method SVGs; GaAs/GaP GW near-gap figures remain
 rejected because their frozen raw windows are pathological. The script preserves the raw
 tables and records source paths and SHA-256 hashes in each figure sidecar.
+The shared renderer now expands only the viewport to show the full finite
+extent of already frozen bands: 3 occupied + 4 empty for 3D, the original
+4 + 4 for new hBN, and the exact original-sidecar selections and mappings
+for the other 15 2D records. Each method retains its original VBM or documented
+reference energy. Padding is `max(0.5, 0.05 * (selected_max - selected_min))`
+eV, previous limits never shrink, and sidecars retain
+`previous_near_gap_limits_ev`. No extra bands are selected. Source hashes,
+raw energies, mappings, the original 5/6-window admission audit, path-gap
+values, and scientific statuses remain unchanged. GeTe/SnSe EXX stay labelled
+as pathological diagnostics; original NPZ sources and existing transformed
+DAT assets remain separate. See [`references/plotting.md`](references/plotting.md)
+for the complete display and evidence contract.
 
 The generation protocol, validation ladder, and ABACUS-to-LibRPA handoff are documented in the companion skill, especially [`references/database.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/references/database.md), [`SKILL.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/SKILL.md), and [`CONTRIBUTING.md`](CONTRIBUTING.md).
 

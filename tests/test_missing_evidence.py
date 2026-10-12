@@ -24,7 +24,7 @@ class MissingEvidenceTests(unittest.TestCase):
         (self.root / "database").mkdir()
         self.case = {
             "id": "si-history", "dimension": "3d", "material": "Si", "formula": "Si",
-            "status": "gw_diagnostic", "species": [], "missing": ["历史绑定待审核"],
+            "status": "gw_diagnostic", "species": [], "missing": ["Historical binding pending audit"],
             "software": {"abacus": {"commit": None}, "librpa": {"commit": None}},
             "files": {}, "properties": [],
         }
@@ -94,7 +94,7 @@ class MissingEvidenceTests(unittest.TestCase):
         self.assertFalse(binding["production_stru_declarations"][0]["has_abfs_orbital"])
         self.assertEqual(binding["production_stru_declarations"][0]["elements"][0]["original_names"],
                          {"pp": "Mo.upf", "nao": "Mo.orb", "abf": None})
-        self.assertIn("不得猜", binding["note"])
+        self.assertIn("do not guess the ABF", binding["note"])
         requests = {item["software"]: item for item in collection["software_requests"]}
         self.assertEqual(requests["ABACUS"]["stages_to_bind"], ["NSCF [control-stage]"])
         self.assertEqual(requests["LibRPA"]["stages_to_bind"], ["EXX/GW (LibRPA)"])
@@ -126,8 +126,45 @@ class MissingEvidenceTests(unittest.TestCase):
         self._save(case)
         _, export = EXPORT.build_export(self.root)
         collection = next(item["collection"] for item in export["cases"] if item["id"] == case["id"])
-        self.assertTrue(any("不得挪来" in note for note in collection["notes"]))
+        self.assertTrue(any("must not be borrowed" in note for note in collection["notes"]))
         self.assertEqual(collection["missing_inputs"], ["INPUT", "KPT", "STRU", "librpa.in"])
+
+    def test_generated_html_text_and_json_are_english_without_cjk(self):
+        report, export = EXPORT.build_export(self.root)
+        output = EXPORT.render_html(export)
+        self.assertIn('<html lang="en">', output)
+        self.assertIn("Search material / case ID / dimension", output)
+        self.assertIn("Showing all 2 records", output)
+        self.assertIn("Supplementary items: excluded from strict counts", output)
+        for content in (output, EXPORT.render_text(export), json.dumps(export, ensure_ascii=False),
+                        json.dumps(report, ensure_ascii=False)):
+            with self.subTest(content=content[:80]):
+                self.assertNotRegex(content, r"[\u3400-\u9fff\uf900-\ufaff]")
+
+    def test_chinese_display_labels_use_proven_filenames_without_changing_evidence(self):
+        import hashlib
+        case = copy.deepcopy(self.case)
+        prefix = "data/calculations/3d/Si/si-history/inputs/"
+        payload = b"INPUT_PARAMETERS\nbasis_type lcao\n"
+        path = self.root / (prefix + "INPUT")
+        path.parent.mkdir(parents=True)
+        path.write_bytes(payload)
+        item = {"path": prefix + "INPUT", "sha256": hashlib.sha256(payload).hexdigest(),
+                "stage_id": "historical-scf", "label": "SCF / 原始输入"}
+        case["files"] = {"inputs": [item]}
+        self._save(case)
+        record_path = self.root / prefix.rsplit("inputs/", 1)[0] / "record.json"
+        before = record_path.read_bytes()
+        _, export = EXPORT.build_export(self.root)
+        record = next(value for value in export["cases"] if value["id"] == case["id"])
+        stage = record["collection"]["existing_stage_controls"][0]
+        self.assertEqual(stage["label"], "SCF")
+        self.assertEqual(stage["controls"][0], {**item, "label": "SCF / INPUT"})
+        self.assertEqual(EXPORT._file_view({**item, "label": "原始输入"})["label"], "INPUT")
+        self.assertNotRegex(EXPORT.render_html(export), r"[\u3400-\u9fff\uf900-\ufaff]")
+        self.assertNotRegex(json.dumps(export, ensure_ascii=False), r"[\u3400-\u9fff\uf900-\ufaff]")
+        self.assertEqual(path.read_bytes(), payload)
+        self.assertEqual(record_path.read_bytes(), before)
 
     def test_html_escapes_issue_material_and_attribute_without_inline_data(self):
         _, export = EXPORT.build_export(self.root)
@@ -171,7 +208,7 @@ class MissingEvidenceTests(unittest.TestCase):
     def test_render_rejects_tampered_issue_count(self):
         _, export = EXPORT.build_export(self.root)
         export["stats"]["issue_count"] += 1
-        with self.assertRaisesRegex(ValueError, "数量不一致"):
+        with self.assertRaisesRegex(ValueError, "itemized issue count do not match"):
             EXPORT.render_text(export)
 
     def test_default_cli_and_output_directory_are_read_only_until_write(self):
@@ -179,7 +216,7 @@ class MissingEvidenceTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(ROOT / "scripts/export_missing_evidence.py"),
                                  "--root", str(self.root)], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("原始issue总数", result.stdout)
+        self.assertIn("original issues in total", result.stdout)
         rejected = subprocess.run([sys.executable, str(ROOT / "scripts/export_missing_evidence.py"),
                                    "--root", str(self.root), "--output-dir", "outputs"],
                                   capture_output=True, text=True)
@@ -197,6 +234,24 @@ class MissingEvidenceTests(unittest.TestCase):
         self.assertEqual(raw["stats"], enriched["stats"])
         self.assertEqual(raw["status"], "blocked")
         self.assertNotIn(str(self.root), (output / "missing-evidence.json").read_text())
+
+    def test_report_output_only_writes_requested_raw_report_and_rejects_public_target(self):
+        command = [sys.executable, str(ROOT / "scripts/export_missing_evidence.py"), "--root", str(self.root)]
+        output = self.root.resolve() / "requested-report.json"
+        result = subprocess.run(command + ["--report-output", str(output)], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        expected, _ = EXPORT.build_export(self.root)
+        self.assertEqual(json.loads(output.read_text()), expected)
+        self.assertIn("report written", result.stdout)
+        self.assertNotRegex(result.stdout, r"[\u3400-\u9fff\uf900-\ufaff]")
+        self.assertEqual(list((self.root / "database").iterdir()), [])
+        for filename in ("archive-completeness.json", "missing-evidence.html"):
+            with self.subTest(filename=filename):
+                rejected = subprocess.run(command + ["--report-output", str(self.root / "database" / filename)],
+                                          capture_output=True, text=True)
+                self.assertNotEqual(rejected.returncode, 0)
+                self.assertIn("report-output must not replace a public check target", rejected.stdout)
+                self.assertEqual(list((self.root / "database").iterdir()), [])
 
     def test_check_detects_stale_reports_and_symlink_target_is_rejected(self):
         command = [sys.executable, str(ROOT / "scripts/export_missing_evidence.py"), "--root", str(self.root)]

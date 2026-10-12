@@ -408,7 +408,14 @@ def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = Fals
         for relative, content in writes.items():
             destination = root / relative
             if destination.exists() and relative != record_relative and destination.read_bytes() != content:
-                raise ValueError("hBN derived artifact conflict; refusing overwrite")
+                # Viewport-only revisions may replace the exact currently
+                # registered derived file; arbitrary conflicting bytes still fail.
+                previous = declared.get(relative)
+                before = destination.read_bytes()
+                if (previous is None or previous.get("role") != "figures"
+                        or hashlib.sha256(before).hexdigest() != previous["sha256"]
+                        or len(before) != previous["size_bytes"]):
+                    raise ValueError("hBN derived artifact conflict; refusing overwrite")
         for relative, content in writes.items():
             destination = root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)

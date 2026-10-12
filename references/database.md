@@ -170,6 +170,26 @@ python3 -m http.server 8765 --bind 127.0.0.1
 Then open `http://127.0.0.1:8765/database/`. Opening `database/index.html`
 directly using a `file://` URL will not reliably load the catalog JSON.
 
+As explicitly approved on 2026-10-12, the Pages browsable preview is independent
+of strict **Validate database** acceptance. Publishing still requires passing
+schema/hash, catalog/index, public-scan, software-test, and current complete
+missing-evidence-report checks. The homepage, each record, and
+`database/missing-evidence.html` disclose unresolved evidence. Strict
+`--check-completeness` remains blocking, without historical waivers; a
+successful Pages deployment does not establish complete-upload or scientific
+acceptance, and does not make a basis set eligible for the release index.
+
+Band displays preserve the original frozen selections and mappings: 3 occupied
+and 4 empty bands for 3D, the original 4/4 for the new hBN record, and the exact
+original-sidecar indices for the other 15 2D records. Each method retains its
+own original VBM or documented reference energy. Only the viewport expands to
+include the full finite selected extent, with
+`max(0.5, 0.05 * (selected_max - selected_min))` eV padding; previous limits
+never shrink and are retained as `previous_near_gap_limits_ev`. No additional
+bands are selected, and source hashes, path observables, pathological
+rejections, and scientific statuses remain unchanged. See
+[`plotting.md`](plotting.md) for the full rendering and evidence contract.
+
 ## How to generate a new set
 
 1. Freeze the PP family, XC, valence/semicore configuration, relativistic mode,

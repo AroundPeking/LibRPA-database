@@ -236,7 +236,7 @@ class BandFigureTests(unittest.TestCase):
             self.assertTrue(all(max(row) == 12 for row in analysis["mapping_one_based"]))
             self.assertEqual(analysis["figure_status"], "renderable")
 
-    def test_actual_near_gap_viewport_and_rejected_gw_svg_references(self):
+    def test_actual_full_selected_band_viewport_and_rejected_gw_svg_references(self):
         declared = 0
         for path in ROOT.glob("data/calculations/3d/*/*/record.json"):
             metadata_path = path.parent / "figures/band_frontier_metadata.json"
@@ -259,11 +259,14 @@ class BandFigureTests(unittest.TestCase):
                 declared += 1
                 self.assertIn(svg, references)
                 gap = analysis["selected_window_path_gap_ev"]
-                self.assertEqual(analysis["y_limits_ev"], [-max(2.5, 0.5 * gap), gap + max(3, 0.5 * gap)])
+                values = [v for row in analysis["display_energies_ev"] for v in row]
+                previous = [-max(2.5, 0.5 * gap), gap + max(3, 0.5 * gap)]
+                limits, _ = generator.plot_bands.selected_band_viewport(analysis["display_energies_ev"], previous)
+                self.assertEqual(analysis["y_limits_ev"], limits)
+                self.assertLess(limits[0], min(values))
+                self.assertGreater(limits[1], max(values))
+                self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
-                if record["material"] == "AlP" and method == "EXX":
-                    self.assertAlmostEqual(analysis["y_limits_ev"][0], -3.697255)
-                    self.assertAlmostEqual(analysis["y_limits_ev"][1], 11.091765)
         if declared:
             self.assertEqual(declared, 49)
 
@@ -410,6 +413,27 @@ class BandFigureTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "2/nk"):
                     generator.generate_hbn_record(path, root, write=True)
                 self.assertEqual(before, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+
+    def test_registered_hbn_viewport_revision_preserves_selected_mapping_and_science(self):
+        import copy
+        import shutil
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / relative, root / relative)
+            path = root / relative / "record.json"
+            before = json.loads(path.read_text())
+            previous = json.loads((path.parent / "figures/hbn_frontier_audit.json").read_text())
+            generator.generate_hbn_record(path, root, write=True)
+            after = json.loads(path.read_text())
+            current = json.loads((path.parent / "figures/hbn_frontier_audit.json").read_text())
+            for field in ("status", "summary", "paper_values", "species", "properties", "software"):
+                self.assertEqual(after[field], before[field])
+            for method in generator.METHODS:
+                for field in ("mapping_one_based", "raw_selected_occupied_bands", "raw_selected_empty_bands",
+                              "reference", "selected_window_path_gap_ev", "vbm_endpoints", "cbm_endpoints"):
+                    self.assertEqual(current["methods"][method][field], previous["methods"][method][field])
+                self.assertEqual(current["methods"][method]["viewport"]["cut_states"], [])
 
     def test_replacement_hbn_derived_conflict_rejects_before_any_write(self):
         import shutil

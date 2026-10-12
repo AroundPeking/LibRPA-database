@@ -216,9 +216,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/ks_frontier.svg",
-        "sha256": "090264c9a8ae73b603292cb346798954dd251213308fb0754f0206ff0dbae6a8",
-        "size_bytes": 23017,
-        "original_sha256": "090264c9a8ae73b603292cb346798954dd251213308fb0754f0206ff0dbae6a8",
+        "sha256": "3c2824e40d57063f27b8b7da05ec48e4dc48cb490fc87a871281e3e9dfc226b7",
+        "size_bytes": 22005,
+        "original_sha256": "3c2824e40d57063f27b8b7da05ec48e4dc48cb490fc87a871281e3e9dfc226b7",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -232,9 +232,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/exx_frontier.svg",
-        "sha256": "599bceb1f39b3db0beb1c2d0e5915d9d94159e663d32250195f00e8e93b3b81f",
-        "size_bytes": 22917,
-        "original_sha256": "599bceb1f39b3db0beb1c2d0e5915d9d94159e663d32250195f00e8e93b3b81f",
+        "sha256": "d17f4cb163a51ddfdfd34092a8fb536770397ea117fed206956aab8225130d4d",
+        "size_bytes": 21503,
+        "original_sha256": "d17f4cb163a51ddfdfd34092a8fb536770397ea117fed206956aab8225130d4d",
         "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -248,9 +248,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg",
-        "sha256": "240941be52761cbcf0f13d197b89f034b957bef4ada2a88dc616e58b6ff8da17",
-        "size_bytes": 21015,
-        "original_sha256": "240941be52761cbcf0f13d197b89f034b957bef4ada2a88dc616e58b6ff8da17",
+        "sha256": "98f52b078e2ff0b87c1e3ff766fd0a0c806de78e029f3c079c916694109256fb",
+        "size_bytes": 21862,
+        "original_sha256": "98f52b078e2ff0b87c1e3ff766fd0a0c806de78e029f3c079c916694109256fb",
         "label": "GW occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -264,9 +264,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json",
-        "sha256": "ec9c74e2ec99a095b90d9039daf75d85d6248798db0dda7424119df4ee661a01",
-        "size_bytes": 646229,
-        "original_sha256": "ec9c74e2ec99a095b90d9039daf75d85d6248798db0dda7424119df4ee661a01",
+        "sha256": "31f4bb8ffa974b307644ea90a14e13a3bea5ae320fdfc8d2f2518b03b53e9c53",
+        "size_bytes": 483953,
+        "original_sha256": "31f4bb8ffa974b307644ea90a14e13a3bea5ae320fdfc8d2f2518b03b53e9c53",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

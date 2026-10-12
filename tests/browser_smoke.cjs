@@ -39,7 +39,7 @@ async function main() {
     const missingCount = incompleteRecords.reduce((sum, record) => sum + (record.archive_completeness.issues || []).length, 0);
     check(await page.locator("#archive-status").isVisible(), "公开网站展示档案验收状态");
     check((await page.locator("#archive-status").innerText()).includes(`${missingCount} evidence issues`), "缺项数量来自真实catalog而非成功发布状态");
-    check((await page.locator("#archive-status").innerText()).includes("严格数据验收未通过"), "公开预览不冒充严格验收通过");
+    check((await page.locator("#archive-status").innerText()).includes("strict archive validation incomplete"), "公开预览不冒充严格验收通过");
     const missingResponse = await context.request.get(new URL("archive-completeness.json", base).href);
     check(missingResponse.ok(), "全部完整性JSON公开可下载");
     const missingReport = await missingResponse.json();
@@ -47,7 +47,10 @@ async function main() {
     const missingPage = await context.newPage();
     await missingPage.goto(new URL("missing-evidence.html", base).href);
     check((await missingPage.locator("body").innerText()).includes(String(missingCount)), "全部缺项页面可读");
+    check(!/[\u3400-\u9fff]/.test(await missingPage.locator("body").innerText()), "公开缺项页面全部英文");
+    check(await missingPage.locator("html").getAttribute("lang") === "en", "英文缺项页面语言声明");
     await missingPage.close();
+    check(!/[\u3400-\u9fff]/.test(await page.locator("body").innerText()), "首页全部英文");
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
     check((await page.locator("#result-count").innerText()).includes(`${calculations.filter(record => record.id !== "hbn-table-gw").length} of ${calculations.length}`), "inventory count");
@@ -206,7 +209,7 @@ async function main() {
     for (const issue of incomplete.archive_completeness.issues) check(completenessText.includes(issue), "完整性issue原文保留");
     for (const missing of incomplete.missing || []) check(completenessText.includes(missing), "缺失证据归入Overview");
     for (const gate of incomplete.summary?.gates || []) check(completenessText.includes(typeof gate === "object" ? JSON.stringify(gate) : String(gate)), "validation gate归入Overview");
-    check(await page.locator("#record-evidence > summary h2").textContent() === "Commit号", "软件身份分区保持Commit号");
+    check(await page.locator("#record-evidence > summary h2").textContent() === "Source commits", "软件身份分区保持Commit号");
     await page.locator(".section-nav [data-section='record-evidence']").click();
     check(await page.locator("#record-evidence .archive-completeness").count() === 0, "Commit号不重复完整性问题分区");
     const softwareEntries = page.locator("#record-evidence .software-entry");
@@ -259,6 +262,7 @@ async function main() {
     const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
     check(hbn?.status === "path_diagnostic", "replacement hBN keeps its restricted scientific status");
     await go("#/material/hbn-tzdp10-fgext-20261008");
+    check(!/[\u3400-\u9fff]/.test(await page.locator("#detail-view").innerText()), "新hBN完整详情为英文且保留原始论文证据");
     const hbnHeadline = await page.locator(".result-primary").innerText();
     check(hbnHeadline.includes("GW · paper-reported") && hbnHeadline.includes("6.94183 eV"), "replacement hBN displays the cited paper headline");
     check(hbnHeadline.includes("Restricted path · not an accepted fundamental gap"), "paper headline keeps the restricted scope beside its number");
@@ -442,16 +446,27 @@ async function main() {
         check(figureText.includes(`${method}-rank-`) && figureText.includes(`${method}-VBM-`) && figureText.includes(`${method}-CBM-`), `${record.id} / ${method}：原窗口绘图和空心边缘标记`);
         const gap = analysis.selected_window_path_gap_ev;
         check(Number.isFinite(gap) && gap > 0, `${record.id} / ${method}：near-gap窗口有正的selected gap`);
-        const expectedLimits = [-Math.max(2.5, 0.5 * gap), gap + Math.max(3, 0.5 * gap)];
-        check(Array.isArray(analysis.y_limits_ev) && analysis.y_limits_ev.length === 2 && expectedLimits.every((value, index) => Math.abs(analysis.y_limits_ev[index] - value) < 1e-8), `${record.id} / ${method}：独立near-gap y viewport`);
+        const selectedValues = analysis.display_energies_ev.flat();
+        const minimum = Math.min(...selectedValues), maximum = Math.max(...selectedValues);
+        const padding = Math.max(0.5, 0.05 * (maximum - minimum));
+        const expectedLimits = [Math.min(-Math.max(2.5, 0.5 * gap), minimum - padding), Math.max(gap + Math.max(3, 0.5 * gap), maximum + padding)];
+        check(Array.isArray(analysis.y_limits_ev) && analysis.y_limits_ev.length === 2 && expectedLimits.every((value, index) => Math.abs(analysis.y_limits_ev[index] - value) < 1e-8), `${record.id} / ${method}：现有已选能带全貌的独立y范围`);
+        check(analysis.viewport.cut_states.length === 0 && analysis.y_limits_ev[0] < minimum && analysis.y_limits_ev[1] > maximum, `${record.id} / ${method}：占据和非占据已选态完整展示，没有额外能带`);
         check(analysis.viewport.selected_raw_window_frozen_before_sorting === true, `${record.id} / ${method}：展示窗口在排序前冻结`);
         if (record.material === "AlP" && method === "EXX") {
-          check(Math.abs(analysis.y_limits_ev[0] + 3.697255) < 1e-8 && Math.abs(analysis.y_limits_ev[1] - 11.091765) < 1e-8, "AlP EXX独立近gap y范围准确");
+          check(analysis.y_limits_ev[0] <= -3.697255 && analysis.y_limits_ev[1] >= 11.091765, "AlP EXX保留旧近隙范围且完整显示原已选曲线");
           check(metadata.methods.KS.y_limits_ev[1] !== analysis.y_limits_ev[1], "AlP EXX不复用PBE y范围");
         }
       }
     }
     check(primaryMethodsVerified === 49, "49个有效新图的方法viewport已逐项验证");
+    const alas = calculations.find(record => record.id === "alas-paper-paper");
+    await go("#/material/alas-paper-paper");
+    check(!/[\u3400-\u9fff]/.test(await page.locator("#detail-view").innerText()), "AlAs详情全部英文");
+    const alasImage = page.locator("#record-bands > .section-body > .figure-grid img[src$='/ks_frontier.svg']");
+    await alasImage.scrollIntoViewIfNeeded();
+    await alasImage.evaluate(image => image.decode());
+    await screenshot("alas-full-selected-bands.png");
     const cao = calculations.find(record => record.material === "CaO" && record.dimension === "3d");
     check(Boolean(cao), "CaO真实样例存在");
     const caoGwFigure = cao.files.figures.find(file => file.display_priority === "primary" && /\/gw_frontier\.svg$/.test(file.path));

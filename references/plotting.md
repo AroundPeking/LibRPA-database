@@ -1,31 +1,42 @@
 # Reference band and radial-orbital plotting
 
-## 原始径向轨道：每个角动量一张图
+## Original radial orbitals: one chart per angular momentum
 
-Basis 页面和 `scripts/plot_radial.mjs` 共用 `database/radial.mjs` 的解析器
-与 SVG 绘图函数。支持 ABACUS 的 `Element`、`Lmax`、角动量计数、
-`Mesh`、`dr` 和 `Type L N` 原始块格式；N 保留原文件的零基索引。
-NAO、ABF 和 for_aux 分别展示，不把辅助生成轨道当作物理 NAO。
+The Basis page and `scripts/plot_radial.mjs` share the parser and SVG renderer
+in `database/radial.mjs`. They support the original ABACUS block format:
+`Element`, `Lmax`, angular-momentum counts, `Mesh`, `dr`, and `Type L N`.
+N retains its original zero-based index. NAO, ABF, and for_aux are displayed
+separately; auxiliary-generation orbitals are not treated as physical NAOs.
 
 ```bash
 node scripts/plot_radial.mjs /path/to/physical.orb /new/output/directory
 node scripts/plot_radial.mjs /path/to/auxiliary.abfs /new/tail/directory --tail --derivative
 ```
 
-每个有数据的 l 输出一张 SVG，并输出同 SHA/模式命名的 JSON，包含原文件
-SHA-256、声明/实际角动量计数、原网格、逐 N 端点与导数指标。
-目标文件使用排他创建，已有同名结果会拒绝覆盖。CLI 默认严格拒绝
-头部计数与实际块不一致的文件；明确的 `--diagnostic-header` 才允许
-原样显示，并在图和审计中标记异常。网页同样醒目警告，并保留所有原块。
+Each l with data produces one SVG and a JSON audit named using the same SHA
+and mode. The audit includes the source SHA-256, declared and actual
+angular-momentum counts, original grid, and endpoint and derivative metrics
+for every N. Output files are created exclusively; existing files with the
+same names are never overwritten. By default, the CLI rejects files whose
+header counts disagree with the actual blocks. Only an explicit
+`--diagnostic-header` permits an unchanged diagnostic display, with the
+anomaly marked in both the figure and audit. The website likewise displays a
+prominent warning and retains all original blocks.
 
-- R(r) 折线使用每个原始样点；不平滑、插值、重排或重新归一化。
-- dR/dr 内点用二阶中心差分，边界用二阶单边差分；它是数值诊断，
-  不是原生成器提供的解析导数。尾部选项显示原网格最后 20%。
-- 同 l 的每个原 N 可独立开关，显示通道决定 y 轴范围；自然节点或
-  振荡不自动判为缺陷。端点指标不附加任意“通过”阈值。
-- 原文件 SHA 验证后才绘图，异常头部不更改原字节或科学接受状态。
-- 径向光滑性不能代替 periodic physical overlap、local RI conditioning、
-  Coulomb/EXX/GW 精度或收敛验收。
+- R(r) polylines use every original sample, without smoothing, interpolation,
+  reordering, or renormalization.
+- dR/dr uses second-order central differences in the interior and second-order
+  one-sided differences at the boundaries. It is a numerical diagnostic, not
+  an analytic derivative supplied by the original generator. The tail option
+  displays the final 20% of the original grid.
+- Each original N within the same l can be toggled independently. Visible
+  channels determine the y-axis range. Natural nodes or oscillations are not
+  automatically classified as defects, and endpoint metrics have no arbitrary
+  pass threshold.
+- Rendering follows source SHA verification. An anomalous header does not
+  change the original bytes or scientific acceptance status.
+- Radial smoothness does not replace periodic physical-overlap tests, local RI
+  conditioning, Coulomb/EXX/GW accuracy checks, or convergence acceptance.
 
 ## Reference band plotting
 
@@ -60,11 +71,12 @@ python3 scripts/plot_bands.py bands.dat \
   --labels kpath.json
 ```
 
-## 原生 ABACUS 前沿图与科学边界
+## Native ABACUS frontier figures and scientific boundaries
 
-通用表格接口保持原始列序，不推断占据。归档生成使用
-`index kx ky kz occupation_1 energy_1 ...` 表格，完整保留原生 k 序号、
-分数坐标、占据与源文件 SHA-256。
+The generic table interface preserves the original column order and does not
+infer occupations. Archive generation uses tables in the form
+`index kx ky kz occupation_1 energy_1 ...`, retaining the native k indices,
+fractional coordinates, occupations, and source SHA-256 values in full.
 
 ```bash
 python3 -B scripts/generate_band_figures.py --audit --allow-weighted-occupations
@@ -72,100 +84,170 @@ python3 -B scripts/generate_band_figures.py --write --allow-weighted-occupations
 python3 -B -m unittest discover -s tests -p 'test*band*.py'
 ```
 
-默认及 `--audit` 只读；只有 `--write` 写入。普通生成仅限 3D，不修改 2D。
-新 hBN 论文替换记录使用独立入口，不能套用到其他二维记录：
+The default mode and `--audit` are read-only; only `--write` writes files.
+Ordinary generation is restricted to 3D and does not modify 2D records.
+The replacement hBN paper record has a separate entry point, which must not
+be applied to other two-dimensional records:
 
 ```bash
 python3 -B scripts/generate_band_figures.py --replacement-hbn
 python3 -B scripts/generate_band_figures.py --replacement-hbn --write
 ```
 
-该入口要求同记录 PBE receipt、SCF/NSCF 各自完整且一致的源码提交、
-91 点/44 带/4 占据带及单自旋 `2/nk` 占据，逐点核对原 KPT。
-显示前固定 raw occupied 1–4、empty 5–8，三方法分别对齐和选能窗，
-全部 44 带、非有限位置与侵入仍保存于 `hbn_frontier_audit.json`。
-KS/EXX 路径值为 4.68813/11.01971 eV；论文 GW 主值 6.94183 eV
-仍是受限路径诊断，非完整谱基本带隙。原始输入、谱和日志不改。
-运行日志未打印 LibRPA commit 的事实，与后续 hash-bound
-`librpa_build_identity_receipt.json` 恢复出的源码身份分别保留；
-恢复身份不证明源码树干净、当前版本兼容或科学验收通过。
+This entry point requires a same-record PBE receipt, full and consistent
+source commits for SCF and NSCF, 91 points/44 bands/4 occupied bands, and
+single-spin `2/nk` occupations. It checks the original KPT point by point.
+Raw occupied bands 1–4 and empty bands 5–8 are frozen before display. Each of
+the three methods uses its own alignment and viewport; the complete finite
+extent of those same frozen bands is shown without selecting additional
+bands. All 44 bands, non-finite locations, and intrusions remain in
+`hbn_frontier_audit.json`. The KS/EXX path values are 4.68813/11.01971 eV.
+The paper GW primary value of 6.94183 eV remains a restricted-path diagnostic,
+not a full-spectrum fundamental gap. Original inputs, spectra, and logs are
+unchanged.
 
-新 `ks_frontier.svg`、`exx_frontier.svg`、`gw_frontier.svg` 和
-`band_frontier_metadata.json` 登记为 primary；原 `band_comparison.svg/json`
-改为 secondary，但原文件及全部原始谱的字节不变。重复生成必须字节幂等。
+The fact that the runtime log did not print the LibRPA commit is retained
+separately from the source identity subsequently recovered through the
+hash-bound `librpa_build_identity_receipt.json`. Recovering that identity does
+not establish a clean source tree, compatibility with the current version,
+or scientific acceptance.
 
-### 占据、导出维度和路径
+The new `ks_frontier.svg`, `exx_frontier.svg`, `gw_frontier.svg`, and
+`band_frontier_metadata.json` are registered as primary. The original
+`band_comparison.svg/json` become secondary, but their bytes and all original
+spectral bytes remain unchanged. Repeated generation must be byte-idempotent.
 
-- 物理整数占据必须是固定的占据前缀及空态后缀。
-  `--allow-weighted-occupations` 仅接受有同记录日志占据数证据、完整路径核验、
-  显式五位小数 `2/nk` 的均匀加权合同；不把任意分数占据当整数。
-- 有限全零导出占据不意味着全空态。同一归档 `librpa.out` 中唯一一致的
-  `Bands of occupation` 可作为显式 raw occupied/empty boundary 合同；
-  不凭材料化学式、排序、GW gap 或视觉形状猜边界。原零值和日志哈希保留。
-  无唯一边界则拒绝；非有限占据只能有显式低能诊断，不能报告普通 gap。
-- `band_kpath_info` 首行语义是 **nbasis, nbands, nspins, nkpts**，
-  不是把 nbasis 当作已导出的态数。此 schema 由独立阅读的 LibRPA
-  `driver/read_data.cpp:2078–2089`、`docs/develop/dataset_format.md`
-  的 `band_kpath_info` 节，以及预处理器
-  `preprocess_abacus_for_librpa_band.py:103–157` 的输出次序交叉核验。
-  这些新源仅作格式证据，**不代表历史 AlP 的 producer commit 已查明**。
-- 同记录实际归档的 `KPT_nscf`、`KPT`、其他 `KPT*` 是候选。
-  只有 Line 路径逐点分数坐标、全部采样数及 `band_kpath_info` 核验通过后使用。
-  失败候选及实际采用路径保存；绝不将端点均摊到横轴。
-  当前 x 为原生 k-point index，无倒空间度量，不能称 Å⁻¹ 或累积倒空间距离。
+### Occupations, exported dimensions, and paths
 
-### 先冻结，再排序，再画图
+- Physical integer occupations must form a fixed occupied prefix and empty
+  suffix. `--allow-weighted-occupations` accepts only a uniform weighted
+  contract with same-record logged occupation-count evidence, complete path
+  verification, and explicit five-decimal `2/nk` values. Arbitrary fractional
+  occupations are not treated as integers.
+- Finite, all-zero exported occupations do not mean that every state is empty.
+  A unique, consistent `Bands of occupation` entry in the same archived
+  `librpa.out` may establish an explicit raw occupied/empty boundary. The
+  boundary is never guessed from a chemical formula, sorting, GW gap, or visual
+  shape. Original zeros and log hashes are retained. An ambiguous boundary is
+  rejected. Non-finite occupations permit only an explicitly restricted
+  low-energy diagnostic, not an ordinary gap report.
+- The first line of `band_kpath_info` means **nbasis, nbands, nspins, nkpts**;
+  nbasis is not the number of exported states. This schema was cross-checked
+  against independently read LibRPA `driver/read_data.cpp:2078–2089`, the
+  `band_kpath_info` section of `docs/develop/dataset_format.md`, and the output
+  order in `preprocess_abacus_for_librpa_band.py:103–157`. These newer sources
+  establish the format only; **they do not identify the historical AlP
+  producer commit**.
+- The actual same-record archived `KPT_nscf`, `KPT`, and other `KPT*` files are
+  candidates. A Line path is used only after verifying fractional coordinates
+  point by point, every sampling count, and `band_kpath_info`. Failed
+  candidates and the selected path are retained; endpoints are never spaced
+  uniformly across the horizontal axis. The current x coordinate is the
+  native k-point index, with no reciprocal-space metric. It must not be called
+  Å⁻¹ or cumulative reciprocal-space distance.
 
-完整未排序谱先审计，包括所有非有限位置、每条 raw band 范围、负 gap、
-未选态侵入、声明导出窗与拒绝尾带。显示 raw 集先冻结为边界前最近 3 条
-occupied 和后最近 4 条 empty（不足则取实际已有条数），随后逐 k 分别在
-两个 manifold 内能量排序并连接等能量秩；不跨占据、不扩窗、不平滑，
-不等价于波函数性格跟踪。完整一基 raw mapping 验证能量重构和多重集不变。
-普通邻近带触及 ylim 仅报告 intrusion，不因此拒绝可信导出窗的 gap；
-病态高空态掉到低能区则不能排序导入冻结窗以隐藏问题。
+### Freeze first, sort second, then render
 
-每个方法独立按自己的 occupied sampled-path VBM 对齐。
-近隙视窗按本方法 frozen selected-window gap 设置：
-`lower=-max(2.5,0.5*selectedgap)`，
-`upper=selectedgap+max(3,0.5*selectedgap)`，不按全部深层能带扩窗。
-视窗裁切只影响绘制，sidecar 显式记录被裁切的 raw k/band/能量位置，
-完整冻结窗 energies/mapping、全表审计与路径 gap 不改变。
-原 5/6 冻结窗的 admission audit 必须保留，不因减少显示带数而解除病态拒绝。
-GaAs/GaP 的 GW 原冻结窗本身 gap<=0，即使新 3/4 显示窗排除了侵入态也不修复该问题，
-拒绝新图并移除 record 的新 SVG 引用；
-旧文件不删除，sidecar 保留完整谱/映射与拒绝理由，原 GW summary 不变。
-当前有效声明 49 个新单法 SVG、17 个审计 sidecar；2 个无引用旧派生 SVG 不算交付图。
-白底、黑轴、衬线大字；KS 青色虚线、EXX 黑色 dash-dot、GW 朱红实线。
-VBM/CBM 空心标记来自未排序 raw 极值，其 raw band/k 序号和并列点留在 sidecar。
-纵轴是 E − E_VBM，**不是 Fermi level**。
+The full unsorted spectrum is audited first, including every non-finite
+location, each raw band's range, negative gaps, unselected-state intrusions,
+the declared export window, and rejected tail bands. Selection is frozen
+before sorting or rendering:
 
-### 可补的属性不等于全谱数值验收
+- For 3D records, retain the nearest 3 occupied and 4 empty raw bands on either
+  side of the occupation boundary, or the available number if fewer exist.
+- For the new hBN record, retain its original 4 occupied and 4 empty raw bands.
+- For the other 15 2D records, retain the exact frozen raw indices and mappings
+  from each original sidecar. Do not replace these selections with a common
+  3/4 rule or choose new bands from the expanded viewport.
 
-只补不存在的 KS/PBE 和 EXX `band_gap` 属性，定义固定为
-**declared finite export window path gap**：在全部声明有效且有限的 nbands
-及实际采样路径上 raw CBM(empty) − VBM(occupied)。
-它不是 global BZ gap、收敛验证、PP/NAO 推荐或历史源身份认证。
-已有 failed/validated/reported 属性均不覆写，GW 属性、summary 和记录状态不升级。
+For the 3D and replacement-hBN generation protocols, energies are sorted
+independently within the occupied and empty manifolds at each k, connecting
+equal energy ranks. Sorting never crosses the occupation boundary or expands
+the frozen selection. Curves are not smoothed, and equal-rank connection is
+not wavefunction-character tracking. The complete one-based raw mapping
+verifies energy reconstruction and preservation of the energy multiset.
+The existing mappings for the other 2D records remain unchanged. Ordinary
+neighboring-band intrusion is reported without rejecting a gap from a
+credible export window. Pathological high empty states that fall into the
+low-energy region must not be sorted into the frozen window to hide a defect.
 
-AlP 的 `56 44 1 121` 只声明有效 raw 1–44；原始 45–56 全部保留但拒绝。
-完整尾审计须披露 KS 前 120 行尾 12 条逐行等于下一 k 的首 12 条，
-EXX 尾有 6 个 NaN 和低于 −874 eV 的异常值，GW 尾 121×12 个零。
-图必须公开 tail rejection，KS/EXX 的有限声明窗路径值仍可报告。
-CaO/NaCl 及其他全谱负 gap 的 GW 图仅为固定低能窗诊断；
-不得用全空态最小值扩窗、不得替换原 GW summary 或提高验收状态。
-非有限原始占据 JSON 编码为 null，另存 raw 原值、k/band/源列位置；
-严格 `allow_nan=False`，原始源文件字节不变。
+Each method retains its own original occupied sampled-path VBM or documented
+reference energy. The shared renderer changes **only the viewport**, showing
+the full finite extent of all already selected bands, not additional bands or
+the full unselected spectrum. For aligned selected finite energies, compute
+`selected_min` and `selected_max` across all selected bands and k points, with
+`padding = max(0.5, 0.05 * (selected_max - selected_min))` eV. Expand the old
+limits using:
 
-五条独立 raw extrema 核验的 KS/EXX 路径值（eV）为
-AlP 1.60680/7.39451（nocc=8）、BAs 1.18591/6.49227（4）、
-BP 1.28967/7.13040（4）、CaO 3.55481/14.26462（8）、
-NaCl 5.08771/13.36155（8）；以上不是全局 BZ 带隙。
+```text
+lower = min(old_lower, selected_min - padding)
+upper = max(old_upper, selected_max + padding)
+```
 
-## 二维原表与既有图的证据恢复
+The old viewport must not shrink. This supersedes the former near-gap
+clipping formula:
+`lower=-max(2.5,0.5*selectedgap)` and
+`upper=selectedgap+max(3,0.5*selectedgap)`.
+The previous limits are retained in the sidecar as
+`previous_near_gap_limits_ev`. Existing clipping evidence remains historical
+provenance; the expanded viewport does not alter frozen energies, raw indices,
+mappings, source hashes, the full-table audit, or path-gap definitions.
+Non-finite selected samples remain disclosed rather than repaired.
 
-`scripts/migrate_properties.py --recover-table-evidence` 只恢复原表中已有的
-PBE/EXX 采样路径性质及既有 PNG/PDF 的 `source_paths`，不运行物理计算，
-不重新生成基组或能带图。默认只预审；所有来源通过后才可显式写入：
+The original 5/6-window admission audit must remain intact. Reducing the
+number of displayed bands or expanding the viewport cannot remove a
+pathological rejection. The original GaAs/GaP GW admission windows have
+gap<=0; excluding the intruding states from the newer 3/4 display selection
+does not repair this. Their new figures remain rejected, with the new SVG
+references removed from the records. Old files are not deleted; sidecars
+retain the full spectra, mappings, and rejection reasons, and original GW
+summaries remain unchanged. The current valid declarations comprise 49 new
+single-method SVGs and 17 audit sidecars; two unreferenced old derived SVGs
+are not counted as delivered figures.
+
+Figures use a white background, black axes, and large serif labels: cyan
+dashed KS, black dash-dot EXX, and vermilion solid GW. Hollow VBM/CBM markers
+come from unsorted raw extrema; their raw band/k indices and tied points are
+retained in the sidecar. For VBM-aligned figures, the vertical axis is
+E − E_VBM, **not the Fermi level**.
+
+### Recoverable properties are not full-spectrum numerical acceptance
+
+Only missing KS/PBE and EXX `band_gap` properties are added. Their fixed
+definition is **declared finite export window path gap**: raw CBM(empty) −
+VBM(occupied) across all declared valid, finite nbands on the actual sampled
+path. This is not a global BZ gap, convergence validation, PP/NAO
+recommendation, or historical source-identity certification. Existing
+failed/validated/reported properties are never overwritten; GW properties,
+summaries, and record statuses are not upgraded.
+
+AlP's `56 44 1 121` declares only raw bands 1–44 as valid. Original bands
+45–56 are retained in full but rejected. The complete tail audit must disclose
+that, in the first 120 KS rows, the final 12 entries equal the next k point's
+first 12 entries; the EXX tail contains 6 NaNs and anomalous values below
+−874 eV; and the GW tail contains 121×12 zeros. Figures must disclose tail
+rejection. Finite declared-window KS/EXX path values remain reportable.
+GW figures for CaO/NaCl and other negative-full-spectrum-gap cases are only
+fixed low-energy-window diagnostics. Do not expand the selected state set
+using the minimum of all empty states, replace the original GW summary, or
+raise acceptance status. The viewport may expand to display the existing
+frozen selection in full; this does not expand the scientific selection.
+Non-finite raw occupations are encoded as JSON null, with their original raw
+values and k/band/source-column locations stored separately. JSON uses strict
+`allow_nan=False`; original source bytes remain unchanged.
+
+Five independently checked raw-extrema KS/EXX path values (eV) are
+AlP 1.60680/7.39451 (nocc=8), BAs 1.18591/6.49227 (4),
+BP 1.28967/7.13040 (4), CaO 3.55481/14.26462 (8), and
+NaCl 5.08771/13.36155 (8). None is a global BZ gap.
+
+## Evidence recovery from original 2D tables and existing figures
+
+`scripts/migrate_properties.py --recover-table-evidence` recovers only
+PBE/EXX sampled-path properties already present in the original tables and
+`source_paths` for existing PNG/PDF figures. It does not run physical
+calculations or regenerate basis sets or band figures. The default is audit
+only; writing requires all sources to pass and an explicit option:
 
 ```bash
 python3 -B scripts/migrate_properties.py --recover-table-evidence \
@@ -174,31 +256,63 @@ python3 -B scripts/migrate_properties.py --recover-table-evidence \
   --source-root /path/to/paper_materials --write
 ```
 
-原 `table_band_source.json` 的 SHA 必须与 record 中保留的原侧录 SHA 一致；
-归档表、当前侧录、原表来源的 hash、维度、原生 k 序号/分数坐标、固定
-occupied/empty 边界和冻结窗路径值分别验证。普通原 DAT 要求原字节一致。
-GeTe/SnSe 的 KS 原来源是 NPZ，归档表是已有转换 DAT，二者不是同一字节资产；
-此时仅按原侧录 `archive_path` 和 DAT 的完整 SHA 验证归档身份，分别保留
-原 NPZ 的实际 SHA 与转换表 SHA，不冒称 NPZ→DAT 已独立重做或验证。
-这类性质明确限定为归档转换表的 sampled path gap。
+The original `table_band_source.json` SHA must match the original sidecar SHA
+retained in the record. The archived table, current sidecar, and original
+table source are checked separately for hashes, dimensions, native k indices
+and fractional coordinates, fixed occupied/empty boundaries, and frozen-window
+path values. Ordinary source DAT files must match byte for byte.
 
-已有人工 gap 不覆盖、不因方法别名再新增歧义重复项；由恢复器登记的路径值
-若与已验证原表冲突则拒绝写入。全原表异常不能用较小冻结窗“修复”：
-GeTe/SnSe EXX 的全 raw 与冻结窗负值分别写入 `method_diagnostics` 列表，
-不生成普通正 gap，原诊断图仍可下载并明确标记。进一步独立重算发现两条 EXX
-原侧录的路径值与冻结 raw 窗也不同：GeTe 原侧录 −70.88803 eV、重算冻结窗
-−153.68881 eV；SnSe 原侧录 −553.74944 eV、重算冻结窗 −1108.09860 eV。
-原侧录数值不覆盖，诊断同时保留重算全 raw、重算冻结窗与原侧录三个值及冲突标记；
-不以其中任何一个异常值冒充接受的带隙。原图与指定来源逐字节核验后
-才补关联，原图/谱、软件身份、summary、科学状态和集合发布状态均不改。
+For GeTe/SnSe KS, the original source is NPZ and the archived table is an
+existing transformed DAT; they are not the same byte asset. Archive identity
+is checked using the original sidecar's `archive_path` and the DAT's full
+SHA. The actual original NPZ SHA and transformed-table SHA are retained
+separately, without claiming that NPZ→DAT was independently repeated or
+validated. These properties are explicitly limited to sampled-path gaps of
+the archived transformed tables.
 
-## 论文报告值与归档路径值
+Existing manually recorded gaps are not overwritten, and method aliases do
+not create ambiguous duplicates. A recovered path value that conflicts with
+the verified original table is rejected on write. Anomalies in the full
+original table cannot be repaired through a smaller frozen selection or a
+larger viewport. GeTe/SnSe EXX full-raw and frozen-window negative values are
+stored separately in the `method_diagnostics` list. No ordinary positive gap
+is fabricated; the original diagnostic figures remain downloadable and
+explicitly labelled.
 
-论文明确报告值使用独立 `paper_values` 层，不重写原谱或路径性质。3D 采用 Table IV 的 ABACUS PBE / ABACUS+LibRPA G0W0@PBE 列（PDF 第16页）；2D 采用 Table I 的本工作 PBE / G0W0 列（PDF 第12页），保留诊断范围和新旧 hBN 基组区别。论文主表均未提供 EXX 列，归档 EXX 不能标为论文主值。
+Further independent recomputation found that both EXX original-sidecar path
+values also differ from their frozen raw windows: GeTe's original sidecar is
+−70.88803 eV and the recomputed frozen window is −153.68881 eV; SnSe's original
+sidecar is −553.74944 eV and the recomputed frozen window is −1108.09860 eV.
+Original sidecar values are not overwritten. Diagnostics retain the
+recomputed full-raw, recomputed frozen-window, and original-sidecar values,
+together with a conflict flag. None of these anomalous values is presented
+as an accepted gap. Associations are added only after byte-for-byte checks
+of the original figures against their specified sources. Original figures
+and spectra, software identities, summaries, scientific statuses, and set
+release statuses remain unchanged.
+
+## Paper-reported values and archived path values
+
+Values explicitly reported in the papers use a separate `paper_values`
+layer; original spectra and path properties are not rewritten. For 3D, use
+the ABACUS PBE / ABACUS+LibRPA G0W0@PBE columns in Table IV (PDF page 16).
+For 2D, use this work's PBE / G0W0 columns in Table I (PDF page 12), retaining
+diagnostic scope and the distinction between the old and new hBN bases.
+Neither paper's main table supplies an EXX column. Archived EXX values must
+not be labelled as paper primary values.
 
 ```bash
 python3 -B scripts/migrate_properties.py --import-paper-values /path/to/paper-values-audit.json
 python3 -B scripts/migrate_properties.py --import-paper-values /path/to/paper-values-audit.json --write
 ```
 
-导入器校验两 PDF 的实际 SHA、32 行唯一映射、有限值和报告精度，全部预审后才新增同记录摘录；默认只读，重复写入幂等，已有不同摘录或人工 metadata 冲突时拒绝覆盖。该主值层不作为原生产谱或精确输入绑定证明。原 near-gap 图仍取自归档谱；图与论文数值有差异时在 Overview 分列披露，不修改原图来伪装一致。
+The importer verifies the actual SHA of both PDFs, unique mappings for all
+32 rows, finite values, and reported precision. Same-record excerpts are
+added only after the complete audit. The default is read-only, repeated
+writes are idempotent, and conflicting existing excerpts or manually recorded
+metadata are never overwritten. This primary-value layer does not prove
+original production spectra or exact input binding. Band figures still use
+the archived spectra and their original frozen selections. Their expanded
+viewports show those selections in full without changing the data. When
+figure-derived and paper values differ, the Overview displays them in
+separate columns; figures are not modified to simulate agreement.

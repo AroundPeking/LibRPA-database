@@ -169,7 +169,7 @@ async function start() {
     const issues = incomplete.reduce((sum, record) => sum + (record.archive_completeness.issues || []).length, 0);
     const archiveStatus = $("#archive-status");
     archiveStatus.hidden = false;
-    archiveStatus.innerHTML = incomplete.length ? `<strong>公开预览 · 严格数据验收未通过</strong><span>${incomplete.length} / ${data.calculations.length} records incomplete · ${issues} evidence issues. Website publication is not scientific acceptance.</span><a href="missing-evidence.html">查看全部缺项 / All missing evidence →</a>` : '<strong>Archive completeness checks passed</strong><span>File completeness is not scientific acceptance.</span><a href="missing-evidence.html">View evidence report →</a>';
+    archiveStatus.innerHTML = incomplete.length ? `<strong>Public preview · strict archive validation incomplete</strong><span>${incomplete.length} / ${data.calculations.length} records incomplete · ${issues} evidence issues. Website publication is not scientific acceptance.</span><a href="missing-evidence.html">View all missing evidence →</a>` : '<strong>Archive completeness checks passed</strong><span>File completeness is not scientific acceptance.</span><a href="missing-evidence.html">View evidence report →</a>';
     buildIndexes();
     stats();
     $("#element-filter").innerHTML = '<option value="all">All elements</option>' + elements.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");

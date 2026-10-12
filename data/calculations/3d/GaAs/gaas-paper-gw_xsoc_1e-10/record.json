@@ -203,9 +203,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/ks_frontier.svg",
-        "sha256": "41cb681f2667ef2f4bf142e82b6a1fc57ce6f5daff2e3b0be523149666306fd4",
-        "size_bytes": 33050,
-        "original_sha256": "41cb681f2667ef2f4bf142e82b6a1fc57ce6f5daff2e3b0be523149666306fd4",
+        "sha256": "e34fed35686f0aca3849dcfcd9b38200de24ff365d9796aa9d0bcf5ff7d92524",
+        "size_bytes": 33290,
+        "original_sha256": "e34fed35686f0aca3849dcfcd9b38200de24ff365d9796aa9d0bcf5ff7d92524",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -219,9 +219,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/exx_frontier.svg",
-        "sha256": "bc4a2c48f0b48240e24ac572381af891ac5c752c8cc9274e38e8e9258fa924e6",
-        "size_bytes": 34069,
-        "original_sha256": "bc4a2c48f0b48240e24ac572381af891ac5c752c8cc9274e38e8e9258fa924e6",
+        "sha256": "7448921dbeb2bc736df41445eb776cc08efb055703668a03a5bb104c7dacef7d",
+        "size_bytes": 32569,
+        "original_sha256": "7448921dbeb2bc736df41445eb776cc08efb055703668a03a5bb104c7dacef7d",
         "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -235,9 +235,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json",
-        "sha256": "0408ec963a660da5be2104d47c8b776298b4928bb6b63f54f7ebbe4fae282dc6",
-        "size_bytes": 1379887,
-        "original_sha256": "0408ec963a660da5be2104d47c8b776298b4928bb6b63f54f7ebbe4fae282dc6",
+        "sha256": "51e7866c7bd4ed7aac45c0a7a5c94327034ad6cd93276ddae89629a1231a83b6",
+        "size_bytes": 1024907,
+        "original_sha256": "51e7866c7bd4ed7aac45c0a7a5c94327034ad6cd93276ddae89629a1231a83b6",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

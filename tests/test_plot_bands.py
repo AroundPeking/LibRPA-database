@@ -157,11 +157,12 @@ class PlotBandTests(unittest.TestCase):
         self.assertEqual(result["occupation_audit"]["kind"], "external_boundary_diagnostic_only")
         self.assertEqual(result["gap_status"], "rejected")
 
-    def test_large_exx_gap_uses_own_near_gap_viewport_and_declares_cut(self):
+    def test_large_exx_gap_shows_complete_existing_selection_with_margin(self):
         table = self.make_table([[-4, -2, 35, 49], [-3, -1, 37, 55]])
         result = self.plot.analyze_frontier(table)
-        self.assertEqual(result["y_limits_ev"], [-18, 54])
-        self.assertTrue(result["viewport"]["cut_states"])
+        self.assertEqual(result["y_limits_ev"], [-18, 58.95])
+        self.assertEqual(result["viewport"]["cut_states"], [])
+        self.assertEqual(result["viewport"]["previous_near_gap_limits_ev"], [-18, 54])
         self.assertEqual(result["display_energies_ev"][-1][-1], 56)
         svg = self.plot.render_frontier_svg(table, result, [{"x": 1, "label": "Γ"}], "EXX test", "EXX")
         self.assertIn('stroke-dasharray="11 4 2 4"', svg)
@@ -216,15 +217,34 @@ class PlotBandTests(unittest.TestCase):
         self.assertEqual(result["gap_status"], "rejected")
         self.assertIn("null", json.dumps(result, allow_nan=False))
 
-    def test_default_three_four_window_preserves_deep_states_but_clips_viewport(self):
+    def test_default_three_four_window_preserves_selection_without_clipping(self):
         rows = [[-100, -80, -60, -20, -1, -2, -3, 6, 7, 8, 9, 100]] * 2
         table = self.make_table(rows, [[2] * 7 + [0] * 5] * 2)
         result = self.plot.analyze_frontier(table)
         self.assertEqual(result["raw_selected_occupied_bands"], [5, 6, 7])
         self.assertEqual(result["raw_selected_empty_bands"], [8, 9, 10, 11])
-        self.assertEqual(result["y_limits_ev"], [-3.5, 10.5])
+        self.assertEqual(result["y_limits_ev"], [-3.5, 10.6])
+        self.assertEqual(result["viewport"]["cut_states"], [])
         self.assertEqual(result["raw_audit"]["band_ranges"][0]["minimum_ev"], -100)
         self.assertEqual(len(result["mapping_one_based"][0]), 7)
+
+    def test_deep_selected_occupied_bands_are_fully_visible_without_adding_bands(self):
+        rows = [[-120, -90, -30, -18, -1, 2, 6, 9, 14, 300],
+                [-110, -80, -28, -16, -2, 3, 7, 11, 18, 400]]
+        table = self.make_table(rows, [[2] * 5 + [0] * 5] * 2)
+        original = [row[:] for row in rows]
+        result = self.plot.analyze_frontier(table)
+        self.assertEqual(result["raw_selected_occupied_bands"], [3, 4, 5])
+        self.assertEqual(result["raw_selected_empty_bands"], [6, 7, 8, 9])
+        self.assertEqual(result["mapping_one_based"][0], [3, 4, 5, 6, 7, 8, 9])
+        self.assertEqual(result["viewport"]["cut_states"], [])
+        self.assertLess(result["y_limits_ev"][0], -29)
+        self.assertGreater(result["y_limits_ev"][1], 19)
+        self.assertEqual(len(result["display_energies_ev"][0]), 7)
+        self.assertEqual(table.energies, original)
+        self.assertEqual(result["reference"]["energy_ev"], -1)
+        self.assertEqual(result["selected_window_path_gap_ev"], 3)
+        self.assertEqual(result["sampled_path_gap_ev"], 3)
 
     def test_nonpositive_selected_gap_refuses_render_without_repair(self):
         table = self.make_table([[-4, -1, -2, 4], [-3, -2, 1, 5]])

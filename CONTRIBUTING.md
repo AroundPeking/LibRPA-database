@@ -14,23 +14,91 @@ Confirm that the PP, NAO, and ABF may be redistributed. Keep the source URL, rel
 
 ## Add a calculation
 
-在 `data/calculations/2d/<material>/<case-id>/` 或 `data/calculations/3d/<material>/<case-id>/` 中归档同一次计算的可移植 `inputs`、`results`、`logs` 和 `figures`。`species` 只绑定有生产关联证据的精确 set ID。历史证据仍可由基础 schema/hash 校验器读取；确实缺失关联时保留空 `species` 和 `missing` 说明，**但这不是完整上传，也不能通过严格 Validate CI**。用户于 2026-10-12 明确允许 Pages 先公开可浏览档案与全部缺项，网页发布不代表完整上传或科学接受；schema/hash、catalog、索引、公开扫描和软件测试仍须通过。不得通过补一个候选集、描述性别名、missing 注释或历史白名单让不完整记录显示为完整。
+Archive portable `inputs`, `results`, `logs`, and `figures` from the same
+calculation under `data/calculations/2d/<material>/<case-id>/` or
+`data/calculations/3d/<material>/<case-id>/`. Bind `species` only to exact set
+IDs supported by production-linkage evidence. The basic schema/hash validator
+can still read historical evidence. Where linkage is genuinely missing,
+retain an empty `species` list and a `missing` explanation; **this is not a
+complete upload and cannot pass strict Validate CI**. As explicitly approved
+on 2026-10-12, Pages may first publish the browsable archive and every missing
+evidence item. Website publication does not establish a complete upload or
+scientific acceptance. Schema/hash, catalog, index, public-scan, and software
+test checks remain blocking. A candidate set, descriptive alias, missing note,
+or historical allowlist must not make an incomplete record appear complete.
 
-`basis_candidates` 仅表示未证明生产绑定的后续候选。`gw_validated` 只用于指定 observable 和物理门槛真正通过的记录；`gw_diagnostic`、`path_diagnostic`、`failed` 和 `legacy_incomplete` 保留原始科学/归档状态，但所有记录必须遵守相同的完整上传要求。档案完整不等于科学验证通过，科学诊断也不能豁免档案缺证。
+`basis_candidates` identify follow-up candidates whose production binding is
+unproven. Use `gw_validated` only when the specified observable and physical
+gates actually passed. `gw_diagnostic`, `path_diagnostic`, `failed`, and
+`legacy_incomplete` retain their original scientific/archive statuses, but all
+records remain subject to the same complete-upload requirements. Archive
+completeness is not scientific validation, and a scientific diagnostic does
+not waive missing archive evidence.
 
-当前自动检查核验同 record 目录、已声明文件、完整 SHA、原 STRU 名称与精确角色绑定；“同 record”不自动证明所有阶段来自同一个生产 run。跨阶段谱/输入同 run 的科学来源审计须另有可复核原证据。本轮 MoS2/WSe2 导入器额外对独立原 run 的三谱和 15 份原输入逐字节核验；这不构成其他历史记录已完成同样审计。原 STRU 没有 ABFS 声明时，当前检查仍阻断，尚未实现经过真实案例验证的 receipt/manifest 替代合同；不能补自述布尔标志跳过此项。
+Current automated checks verify same-record directories, declared files,
+full SHAs, original STRU filenames, and exact role bindings. Same-record
+ownership does not automatically establish that every stage came from one
+production run. Cross-stage spectrum/input provenance requires separate,
+reviewable original evidence. The current MoS2/WSe2 importer additionally
+checks three spectra and 15 original inputs byte for byte against independent
+original-run sources; this does not establish that other historical records
+have passed the same audit. When the original STRU lacks an ABFS declaration,
+the current check still blocks acceptance. No receipt/manifest replacement
+contract validated against real cases has been implemented; a self-declared
+Boolean flag cannot bypass this requirement.
 
-### 严格完整上传要求
+### Strict complete-upload requirements
 
-- 同 record、同 case 目录中的真实、可读、已声明并记录 SHA-256 的 `INPUT`、`KPT`、`STRU` 和 `librpa.in`。允许 `scf__INPUT`、`INPUT_scf` 等明确阶段名，不允许用 manifest、`INPUT.info`、`STRU.cif` 或别的计算目录冒充原输入。
-- `species` 覆盖 formula/material 的所有元素，所有 `set_id` 均非 null。每个精确 set 都有一个可辨的 PP、**physical NAO** 和 ABF payload；`for_aux` 不代替 physical NAO，`missing_roles` 必须为空。
-- 对照每份 `STRU` 中出现的 `ATOMIC_SPECIES`、`NUMERICAL_ORBITAL` 和 `ABFS_ORBITAL` 原始文件名，使用 exact species 的 `asset_aliases` 或同角色、同完整 SHA-256 文件的可信 `label`/`original_name` 证明绑定。至少一份生产 `STRU` 必须声明 physical NAO 和 ABF；普通 SCF 阶段可不含 ABF，但不能全部跳过 ABF 关联。可移植相对路径（含 `../assets/`）必须精确对应已证明的 alias 或实际指向绑定的同 hash 资产，不能按 basename 猜测。描述性 catalog 别名、相同元素和碰巧相同的文件名不证明生产关联。
-- 通用辅助基 `ORBITAL_<R>U.abfs` 的内部 `Element` 可是模板元素，但仅在同 run 原始 `STRU` 明确声明该文件名、精确 `asset_aliases` 和 payload SHA-256 绑定均成立时接受。此规则仅用于 ABF，不放宽 PP/physical NAO 的元素匹配，也不改写原文件头。
-- ABACUS、LibRPA 都记录完整不可变 commit。未知 identity 必须如实保留，并阻断完整上传；不能猜测补齐。
-- 至少一个实际 KS/PBE/DFT、EXX 或 GW 能带结果；原始表须可读、非空、各行宽度一致。表中真实保留的 NaN/Inf 属于科学诊断，不应伪称缺文件，也不能因此删除异常态或宣布科学通过。
-- 每个**实际存在**的方法都必须有非 failed、有限数值、单位 eV 的 `band_gap`，或明确受限/路径 gap observable，证据包含本 record 的同方法原始 band 文件且所有 evidence 都在本 record 有效声明。并非默认要求每条记录都有三个方法；failed 性质本身不能代替有限 observable。
-- 至少一张可读的 SVG/PNG/PDF 能带图；空文件、损坏图和非 band 图片不能通过。SVG 必须有可见的曲线 stroke；隐藏、全透明或零线宽路径不能代替实际图。所有格式都声明 `source_paths`，至少包含一份同 record 可读的 band；允许同时包含同 record 的 KPT、log、sidecar，但所有图源须存在、非空且通过 hash。SVG 的能量/k-path 语义与实际曲线路径也须可识别；跨 case 软链不能冒充同一次 run 的归档。
-- 对受限 observable，明确记录 restricted/raw-band frontier **path observable**、原始态索引、定义和证据；不得伪造普通 gap 或将路径/有限态结果改称全局基本带隙。完整性检查不推断或重算 gap，不升级原始科学状态。
+- Real, readable, declared `INPUT`, `KPT`, `STRU`, and `librpa.in` files with
+  SHA-256 values in the same record and case directory. Explicit stage names
+  such as `scf__INPUT` and `INPUT_scf` are permitted. A manifest, `INPUT.info`,
+  `STRU.cif`, or another calculation directory cannot stand in for original
+  inputs.
+- `species` covers every element in the formula/material, and every `set_id`
+  is non-null. Each exact set has an identifiable PP, **physical NAO**, and
+  ABF payload. `for_aux` cannot replace the physical NAO, and `missing_roles`
+  must be empty.
+- Establish bindings for original filenames in every STRU's `ATOMIC_SPECIES`,
+  `NUMERICAL_ORBITAL`, and `ABFS_ORBITAL` using exact-species `asset_aliases`
+  or trustworthy `label`/`original_name` evidence for files with the same role
+  and full SHA-256. At least one production STRU must declare the physical
+  NAO and ABF. An ordinary SCF stage may omit ABF, but not every stage may skip
+  ABF linkage. Portable relative paths, including `../assets/`, must match a
+  proven alias exactly or actually resolve to the bound asset with the same
+  hash; basename guessing is not permitted. Descriptive catalog aliases,
+  matching elements, and coincidentally identical filenames do not prove
+  production linkage.
+- A generic auxiliary basis `ORBITAL_<R>U.abfs` may have a template element in
+  its internal `Element` header only when the same-run original STRU explicitly
+  declares that filename and both the exact `asset_aliases` and payload
+  SHA-256 bindings are proven. This exception applies only to ABF; it does not
+  relax PP/physical-NAO element matching or rewrite original headers.
+- Record full immutable commits for both ABACUS and LibRPA. An unknown identity
+  must remain explicit and block complete-upload acceptance; never guess it.
+- At least one actual KS/PBE/DFT, EXX, or GW band result. Original tables must
+  be readable, non-empty, and have consistent row widths. Genuine retained
+  NaN/Inf entries are scientific diagnostics, not missing files; they must not
+  be deleted or used to claim scientific acceptance.
+- Every method **actually present** requires a non-failed, finite `band_gap`
+  in eV or an explicitly restricted/path-gap observable. Evidence includes
+  that method's original band file in the same record, and every evidence
+  path must be validly declared in the record. Three methods are not required
+  by default for every record. A failed property alone cannot replace a
+  finite observable.
+- At least one readable SVG/PNG/PDF band figure. Empty files, damaged images,
+  and non-band images fail. SVG curves require visible strokes; hidden,
+  fully transparent, or zero-width paths cannot replace an actual figure.
+  Every format declares `source_paths` containing at least one readable band
+  file in the same record. Same-record KPT, logs, and sidecars may also be
+  included, but all figure sources must exist, be non-empty, and pass hash
+  checks. SVG energy/k-path semantics and actual curve paths must be
+  recognizable. Cross-case symlinks cannot impersonate an archive of the
+  same run.
+- For restricted observables, explicitly record the restricted/raw-band
+  frontier **path observable**, original state indices, definition, and
+  evidence. Never fabricate an ordinary gap or relabel a path/finite-state
+  result as a global fundamental gap. Completeness checks do not infer or
+  recompute gaps or upgrade original scientific statuses.
 
 ## Add a calculated property
 
@@ -73,7 +141,7 @@ catalog is generated from calculation records:
 python3 scripts/library.py --write-catalog
 python3 scripts/library.py --check-catalog
 python3 scripts/library.py --check-completeness
-# 可选完整机器可读报告；真实缺证仍返回非零。
+# Optional complete machine-readable report; genuine missing evidence still returns nonzero.
 python3 scripts/library.py --check-completeness --completeness-report /tmp/archive-completeness.json
 ```
 
@@ -89,11 +157,69 @@ python3 -m unittest discover -s tests -v
 git diff --check
 ```
 
-这些检查不会编译或运行 ABACUS/LibRPA。`--check-completeness` 会一次输出全部不完整 case ID 和缺证项并非零退出；**Validate database** 始终显式执行该门槛，不使用 `continue-on-error`、diff-only 或历史豁免。旧库有真实缺失时严格验收就应失败，不能为绿灯放宽规则。用户于 2026-10-12 确认将网页更新与严格验收分开：**Publish database** 使用 `scripts/export_missing_evidence.py --check --report-output ...` 校验并公开真实完整报告（schema/hash 错误或报告过期仍失败），在其他检查通过后允许公开不完整档案；首页、每条记录和 `database/missing-evidence.html` 明示未通过严格验收。Pages success 不等于 Validate success，不豁免任何记录或提升科学状态。基础 `validate()` 和 catalog 生成保留历史 schema/hash 可读能力；catalog 的 `archive_completeness.status/issues` 诚实展示完整与缺失，不能取代严格检查。`--completeness-report <path>` 输出全部 case（包括完整记录）、原科学状态、缺证项、分类和总统计；CI 即使失败也保存此 JSON artifact，但不豁免严格步骤的失败。归档完整性与全谱 finite/物理接受单独审计，报告不得将一个已归档的异常数值表冒称科学合格。
+These checks do not compile or run ABACUS/LibRPA. `--check-completeness`
+reports all incomplete case IDs and missing evidence in one run and exits
+nonzero. **Validate database** always runs this gate explicitly, without
+`continue-on-error`, diff-only checks, or historical waivers. Genuine missing
+evidence in the historical database must fail strict acceptance; rules must
+not be weakened merely to obtain a green check.
 
-能带图参考 [`references/plotting.md`](references/plotting.md)、`scripts/plot_bands.py` 和 `scripts/generate_band_figures.py`。通用脚本支持表格解析、能带绘制和 provenance；原生归档生成器先审计原谱、按占据冻结近隙 raw 集，再对每个方法独立设置 VBM 对齐和能量视窗。运行 `python3 scripts/plot_bands.py --help` 或 `python3 scripts/generate_band_figures.py --help` 查看命令。保留原始表的带顺序、占据证据与输入/图源 hash。对于 band-path table，记录的是 sampled/path gap；只有覆盖充分全 k 空间并完成对应物理验证后才称 global/fundamental gap。归档完整性、过程结束、数值可靠性和科学接受四者必须区分。
+As confirmed on 2026-10-12, website updates are separate from strict
+acceptance. **Publish database** uses
+`scripts/export_missing_evidence.py --check --report-output ...` to validate
+and publish the true complete report. Schema/hash errors and stale reports
+still fail. Once the other checks pass, the workflow may publish incomplete
+archives. The homepage, every record, and `database/missing-evidence.html`
+explicitly disclose that strict acceptance has not passed. Pages success is
+not Validate success, does not waive any record's requirements, and does not
+upgrade scientific status.
 
-论文主值与归档运行值分开：`paper_values` 保存论文标题、PDF SHA-256、页码、表号、主作者列及报告精度，并引用同记录 `results/paper_reported_values.json`。该摘录与显示元数据必须一致且通过文件 hash 检查。列表及详情优先使用论文明确报告的 PBE/GW 值，Overview 同时展示原归档/path 值；原 `properties`、`summary`、谱和科学状态不改。主表未报告 EXX 时不能补造论文 EXX；现有 EXX 仍标归档来源。论文有限值不能替代严格上传要求的同方法原谱证据，也不会解除完整性阻断。旧 hBN 记录不使用新基组表行的数值。
+Basic `validate()` and catalog generation retain historical schema/hash
+readability. The catalog's `archive_completeness.status/issues` honestly
+shows complete and missing evidence, but cannot replace strict checks.
+`--completeness-report <path>` includes every case, including complete records,
+original scientific statuses, missing evidence, classifications, and aggregate
+statistics. CI retains this JSON artifact even after failure, without waiving
+the strict step's failure. Archive completeness and full-spectrum
+finiteness/physical acceptance are audited separately. An archived anomalous
+numerical table must not be presented as scientifically accepted.
+
+For band figures, see [`references/plotting.md`](references/plotting.md),
+`scripts/plot_bands.py`, and `scripts/generate_band_figures.py`. The generic
+script provides table parsing, rendering, and provenance. The native archive
+generator audits original spectra and freezes raw selections according to
+occupation evidence before rendering. The 3D selection remains 3 occupied
+and 4 empty bands; new hBN retains 4/4; the other 15 2D records retain their
+exact original-sidecar frozen indices and mappings, not a common 3/4 rule.
+Each method keeps its own original VBM or documented reference energy. Only
+the viewport expands to show all finite selected energies, using
+`max(0.5, 0.05 * (selected_max - selected_min))` eV padding without shrinking
+the old limits. Sidecars retain `previous_near_gap_limits_ev`; no additional
+bands are selected. The original 5/6-window admission audit and rejected
+GaAs/GaP GW figures remain unchanged. GeTe/SnSe EXX remain explicitly
+pathological diagnostics, not fabricated positive gaps; original NPZ sources
+and existing transformed DAT assets retain separate identities and hashes.
+
+Run `python3 scripts/plot_bands.py --help` or
+`python3 scripts/generate_band_figures.py --help` for command details. Preserve
+original band order, occupation evidence, and input/figure-source hashes.
+Band-path tables report sampled/path gaps. A global/fundamental gap requires
+adequate full-k-space coverage and corresponding physical validation.
+Archive completeness, process completion, numerical reliability, and
+scientific acceptance are four distinct claims.
+
+Paper primary values remain separate from archived-run values. `paper_values`
+records the paper title, PDF SHA-256, page, table, primary-author column, and
+reported precision, citing the same-record
+`results/paper_reported_values.json`. The excerpt must agree with display
+metadata and pass file-hash checks. Lists and details preferentially display
+explicitly paper-reported PBE/GW values; the Overview also shows original
+archive/path values. Original `properties`, `summary`, spectra, and scientific
+statuses remain unchanged. Do not fabricate paper EXX values when the main
+table has no EXX column; existing EXX values retain their archive attribution.
+A finite paper value cannot replace the same-method original-spectrum evidence
+required by strict upload checks or remove completeness blockers. The old hBN
+record does not use values from the new-basis table row.
 
 The generated log index is a bijection: every retained file under a case's
 `logs/` directory must appear exactly once in `data/log-index.json`. A basis

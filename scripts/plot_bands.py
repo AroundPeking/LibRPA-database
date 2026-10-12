@@ -212,6 +212,18 @@ def reorder_display_manifolds(table: BandTable, occupied_bands: list[int], empty
     return rows, mapping
 
 
+def selected_band_viewport(energies: list[list[float]], previous_limits: list[float]) -> tuple[list[float], dict]:
+    """Show every already-selected finite sample without changing band selection."""
+    values = [value for row in energies for value in row]
+    if not values or any(not math.isfinite(value) for value in values):
+        raise ValueError("full selected-band viewport requires finite selected energies")
+    minimum, maximum = min(values), max(values)
+    padding = max(0.5, 0.05 * (maximum - minimum))
+    limits = [min(previous_limits[0], minimum - padding), max(previous_limits[1], maximum + padding)]
+    return limits, {"selected_minimum_ev": minimum, "selected_maximum_ev": maximum,
+                    "padding_ev": padding, "previous_near_gap_limits_ev": previous_limits}
+
+
 def analyze_frontier(table: BandTable, occupied_count: int | None = None,
                      occupation_contract: dict | None = None, occupied_window: int = 3,
                      empty_window: int = 4, known_pathological: bool = False,
@@ -257,7 +269,8 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
                      - max(row[b - 1] for row in table.energies for b in admission_occ))
     figure_rejection = ("nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window"
                         if selected_gap <= 0 or admission_gap <= 0 else None)
-    limits = [-max(2.5, 0.5 * selected_gap), selected_gap + max(3.0, 0.5 * selected_gap)] if not figure_rejection else None
+    near_gap_limits = [-max(2.5, 0.5 * selected_gap), selected_gap + max(3.0, 0.5 * selected_gap)]
+    limits, viewport_range = selected_band_viewport(aligned, near_gap_limits) if not figure_rejection else (None, {})
     viewport_cut = [{"kpoint_index": k + 1, "raw_band_index": band,
                      "aligned_energy_ev": table.energies[k][band - 1] - reference,
                      "side": "below" if table.energies[k][band - 1] - reference < limits[0] else "above"}
@@ -312,10 +325,11 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
             "original_frontier_admission_audit": {"raw_occupied_bands": admission_occ, "raw_empty_bands": admission_empty,
                                                    "sampled_path_gap_ev": admission_gap,
                                                    "note": "Original frozen 5/6-window admission evidence remains binding; reducing displayed bands to 3/4 never repairs or hides known negative-gap pathology."},
-            "viewport": {"kind": "method-own near-gap viewport", "formula": "lower=-max(2.5,0.5*selectedgap); upper=selectedgap+max(3,0.5*selectedgap)",
-                         "selected_raw_window_frozen_before_sorting": True,
-                         "cut_states": viewport_cut,
-                         "note": "Viewport clips only drawing; complete frozen energies, raw mappings, full spectrum audit and path gaps are unchanged; no adaptive expansion or energy repair."},
+            "viewport": {"kind": "method-own full selected-band viewport",
+                         "formula": "padding=max(0.5,0.05*(selected_max-selected_min)); lower=min(previous_lower,selected_min-padding); upper=max(previous_upper,selected_max+padding)",
+                         **viewport_range, "selected_raw_window_frozen_before_sorting": True,
+                         "selected_band_count_unchanged": True, "cut_states": viewport_cut,
+                         "note": "The y range contains every sample of the existing frozen selection with margin. No bands are added, removed or reselected; raw mappings, references, gaps and admission decisions are unchanged."},
             "sampled_path_gap_ev": export_audit["sampled_path_gap_ev"] if gap_eligible else None,
             "gap_definition": "declared finite export window path gap",
             "diagnostic_selected_window_gap_ev": selected_cbm - reference if status == "diagnostic" else None,

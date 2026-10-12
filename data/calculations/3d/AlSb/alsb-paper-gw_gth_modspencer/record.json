@@ -203,9 +203,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/ks_frontier.svg",
-        "sha256": "3bfb4e115396d90797feccee2cabcefc2bb2031123fa370ebcefaf0e49005947",
-        "size_bytes": 22101,
-        "original_sha256": "3bfb4e115396d90797feccee2cabcefc2bb2031123fa370ebcefaf0e49005947",
+        "sha256": "bd290f2793129ff57a8a5c30d11dbc86962ce0545ccc4bd023505b651021d8d1",
+        "size_bytes": 21557,
+        "original_sha256": "bd290f2793129ff57a8a5c30d11dbc86962ce0545ccc4bd023505b651021d8d1",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -219,9 +219,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/exx_frontier.svg",
-        "sha256": "19ecfd43221aee093ff11025968d2406c943704654c4c0c1f0d7b469f4887dd8",
-        "size_bytes": 23193,
-        "original_sha256": "19ecfd43221aee093ff11025968d2406c943704654c4c0c1f0d7b469f4887dd8",
+        "sha256": "3373a7bc02220d1ce651d06889ed864bba9c733d97e3032afa5e66ac477de6ff",
+        "size_bytes": 22717,
+        "original_sha256": "3373a7bc02220d1ce651d06889ed864bba9c733d97e3032afa5e66ac477de6ff",
         "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -235,9 +235,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/gw_frontier.svg",
-        "sha256": "98b00fb8064395a60c2b502c6acd52bc0cb5331be63b41bc53a8ca2e76b5d5e6",
-        "size_bytes": 21909,
-        "original_sha256": "98b00fb8064395a60c2b502c6acd52bc0cb5331be63b41bc53a8ca2e76b5d5e6",
+        "sha256": "23fb33861cbbd85566cf2b1cfd08b4b9fa97a3c1768837e6e4814fac5dcc9b72",
+        "size_bytes": 21920,
+        "original_sha256": "23fb33861cbbd85566cf2b1cfd08b4b9fa97a3c1768837e6e4814fac5dcc9b72",
         "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -251,9 +251,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/figures/band_frontier_metadata.json",
-        "sha256": "a7ae2de01bc756537a5c20f3a71acf3fe9b24847dc33654edab82475c0a185b1",
-        "size_bytes": 760565,
-        "original_sha256": "a7ae2de01bc756537a5c20f3a71acf3fe9b24847dc33654edab82475c0a185b1",
+        "sha256": "cc8c9ddd648dd10e710767084cbda958c59d2ad39dd3720a362e6efe2e91c76c",
+        "size_bytes": 564125,
+        "original_sha256": "cc8c9ddd648dd10e710767084cbda958c59d2ad39dd3720a362e6efe2e91c76c",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

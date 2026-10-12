@@ -4869,8 +4869,8 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/ks_frontier.svg",
-        "sha256": "40b51f93f1d015b598c90a9e51d1f79d750477b85b1b4ab2f58f293cadd3d54b",
-        "size_bytes": 19741,
+        "sha256": "44934c5e07faf64bbd21bd1eb7e153196787bbbd4783bacb45e77898a24513e0",
+        "size_bytes": 18423,
         "label": "hBN KS frozen frontier",
         "transformation": "derived audited method-own frontier; original bytes unchanged",
         "source_paths": [
@@ -4886,8 +4886,8 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/exx_frontier.svg",
-        "sha256": "363d0a9f2cb53ac4afdba448b7fe29fa74ebd05a10aa80243737ddf1117dd601",
-        "size_bytes": 19718,
+        "sha256": "e430fb6041ec250acba5af483e5d14af47239485e83c0bd88146916264288812",
+        "size_bytes": 19707,
         "label": "hBN EXX frozen frontier",
         "transformation": "derived audited method-own frontier; original bytes unchanged",
         "source_paths": [
@@ -4903,8 +4903,8 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/gw_frontier.svg",
-        "sha256": "f8f567e3e9ea2384b9c9aa29b35bdefab1aa5fe6a19ceeb9ae1d5041bb3da8f5",
-        "size_bytes": 20133,
+        "sha256": "c0410b48b08a39641e72e4bf6b2bac76c3834427aece8bc0e9a95ffa1b510bbf",
+        "size_bytes": 19483,
         "label": "hBN GW frozen frontier (diagnostic)",
         "transformation": "derived audited method-own frontier; original bytes unchanged",
         "source_paths": [
@@ -4920,8 +4920,8 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json",
-        "sha256": "269908a4d0e7b872b18a7088efa68ac6514b8188fca2166918452a9283dc86bb",
-        "size_bytes": 636021,
+        "sha256": "0ac25ee44842d752ceb026e9e85a32fd5baac52135dd2e8513f559adacc5989a",
+        "size_bytes": 394149,
         "label": "hBN original spectrum audit and frozen display mappings",
         "source_paths": [
           "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",

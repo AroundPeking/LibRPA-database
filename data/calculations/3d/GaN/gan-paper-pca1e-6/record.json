@@ -203,9 +203,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/ks_frontier.svg",
-        "sha256": "7b2bc6c2d560352427db33a542b29cd9be190c13f0b9f2985b2287f3eee339c6",
-        "size_bytes": 22281,
-        "original_sha256": "7b2bc6c2d560352427db33a542b29cd9be190c13f0b9f2985b2287f3eee339c6",
+        "sha256": "566954ec39a4a277fd91db1a3051c0cbccbd6622dd1339e2cd7e13b2721f0902",
+        "size_bytes": 22004,
+        "original_sha256": "566954ec39a4a277fd91db1a3051c0cbccbd6622dd1339e2cd7e13b2721f0902",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -219,9 +219,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/exx_frontier.svg",
-        "sha256": "a191822cc2937dc2929c8b3c7b44d13caaa030174c4631a3520bb7a98a88b815",
-        "size_bytes": 21666,
-        "original_sha256": "a191822cc2937dc2929c8b3c7b44d13caaa030174c4631a3520bb7a98a88b815",
+        "sha256": "6493f360199b41cc73500a7513b6b2a7448232cdc2594b85e837ba2ebc4b3ccc",
+        "size_bytes": 22099,
+        "original_sha256": "6493f360199b41cc73500a7513b6b2a7448232cdc2594b85e837ba2ebc4b3ccc",
         "label": "EXX occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -235,9 +235,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/gw_frontier.svg",
-        "sha256": "1275ae242076f0b954df60258356dcd952f8207887251025c77ecec3b206ecb1",
-        "size_bytes": 22097,
-        "original_sha256": "1275ae242076f0b954df60258356dcd952f8207887251025c77ecec3b206ecb1",
+        "sha256": "c0591c475ca7d4c8d32144d30a4f3c5092e6f3f9faeee9c1642d1bcf6cd9e213",
+        "size_bytes": 22415,
+        "original_sha256": "c0591c475ca7d4c8d32144d30a4f3c5092e6f3f9faeee9c1642d1bcf6cd9e213",
         "label": "GW occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -251,9 +251,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/band_frontier_metadata.json",
-        "sha256": "4d78b4153eaf5a7b19b1ccc8f054d2fe8afa8db4ebcd0923f89b7ad59ccf9373",
-        "size_bytes": 1084332,
-        "original_sha256": "4d78b4153eaf5a7b19b1ccc8f054d2fe8afa8db4ebcd0923f89b7ad59ccf9373",
+        "sha256": "635f5a824159934ffefecbc4077a11bab232f62dee9e05d5ae2d267155c17818",
+        "size_bytes": 746991,
+        "original_sha256": "635f5a824159934ffefecbc4077a11bab232f62dee9e05d5ae2d267155c17818",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

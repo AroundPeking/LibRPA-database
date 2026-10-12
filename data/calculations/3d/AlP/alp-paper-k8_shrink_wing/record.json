@@ -215,9 +215,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/ks_frontier.svg",
-        "sha256": "cc02443fbafb9114ebf0aa7339444af4eb63300cdbdc60537a3df23cb9396e0f",
-        "size_bytes": 22061,
-        "original_sha256": "cc02443fbafb9114ebf0aa7339444af4eb63300cdbdc60537a3df23cb9396e0f",
+        "sha256": "ba57c43c5fd3502ae344e06e3a5f3a89ad08dd96ea6a4f4f5dedaced55679f9a",
+        "size_bytes": 22042,
+        "original_sha256": "ba57c43c5fd3502ae344e06e3a5f3a89ad08dd96ea6a4f4f5dedaced55679f9a",
         "label": "KS occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -231,9 +231,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/exx_frontier.svg",
-        "sha256": "bbbc2e858b09e341fd3517ede84609ecfd7d12f251b0bfa30a3d34803e16bc6c",
-        "size_bytes": 23103,
-        "original_sha256": "bbbc2e858b09e341fd3517ede84609ecfd7d12f251b0bfa30a3d34803e16bc6c",
+        "sha256": "8718c24ca5b462484cc7764b690fa4c1e69bbae9f98c64d55a9e1d4ca0c5c577",
+        "size_bytes": 21540,
+        "original_sha256": "8718c24ca5b462484cc7764b690fa4c1e69bbae9f98c64d55a9e1d4ca0c5c577",
         "label": "EXX occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -247,9 +247,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/gw_frontier.svg",
-        "sha256": "0c3d6b94dff756f5bace7a075a6b2c6b0ad4429320ad4329c2b3c3588c97796b",
-        "size_bytes": 21876,
-        "original_sha256": "0c3d6b94dff756f5bace7a075a6b2c6b0ad4429320ad4329c2b3c3588c97796b",
+        "sha256": "50ed9c5e1dfb72fa48ee6f6e59655c498e71e8d446f0746c68e977a775e2da0a",
+        "size_bytes": 21858,
+        "original_sha256": "50ed9c5e1dfb72fa48ee6f6e59655c498e71e8d446f0746c68e977a775e2da0a",
         "label": "GW occupation-separated frontier (diagnostic)",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -263,9 +263,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_frontier_metadata.json",
-        "sha256": "91bdc4e57345ce471499908f66a5386d80d287ff20f4976a712aac9f976a72e5",
-        "size_bytes": 822184,
-        "original_sha256": "91bdc4e57345ce471499908f66a5386d80d287ff20f4976a712aac9f976a72e5",
+        "sha256": "04a8ce66fa43fe92aa826f8a01e7aa07d8f5892e9ec00a01652a44914d9cd823",
+        "size_bytes": 554219,
+        "original_sha256": "04a8ce66fa43fe92aa826f8a01e7aa07d8f5892e9ec00a01652a44914d9cd823",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

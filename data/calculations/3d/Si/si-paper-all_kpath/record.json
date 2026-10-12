@@ -192,9 +192,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/ks_frontier.svg",
-        "sha256": "dc505957a8523c2c15f2791a431db24f76d42c79ae44e994714749ae4f7aa8db",
-        "size_bytes": 32855,
-        "original_sha256": "dc505957a8523c2c15f2791a431db24f76d42c79ae44e994714749ae4f7aa8db",
+        "sha256": "04eaa9f8707e2898e8e02c90a4d808933600d28a2f030afffbd2b97d87de9eb0",
+        "size_bytes": 33172,
+        "original_sha256": "04eaa9f8707e2898e8e02c90a4d808933600d28a2f030afffbd2b97d87de9eb0",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -208,9 +208,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/exx_frontier.svg",
-        "sha256": "0d0df638d55184de5cd46db6bc8def3232f0439031881205ceea201ca8ff9c34",
-        "size_bytes": 34448,
-        "original_sha256": "0d0df638d55184de5cd46db6bc8def3232f0439031881205ceea201ca8ff9c34",
+        "sha256": "7c86c141537453c51e38148825515ccecd0f49237d82a00edbab055d8d03be29",
+        "size_bytes": 32672,
+        "original_sha256": "7c86c141537453c51e38148825515ccecd0f49237d82a00edbab055d8d03be29",
         "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -224,9 +224,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/gw_frontier.svg",
-        "sha256": "9dc22d9745b68992ce7122243f61e919dc46a299539c87e04619db275b0a1947",
-        "size_bytes": 33164,
-        "original_sha256": "9dc22d9745b68992ce7122243f61e919dc46a299539c87e04619db275b0a1947",
+        "sha256": "5d0b5b58d3884983b5d42701d924e91bb287a986b517cc28b635cb7745e11770",
+        "size_bytes": 32988,
+        "original_sha256": "5d0b5b58d3884983b5d42701d924e91bb287a986b517cc28b635cb7745e11770",
         "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -240,9 +240,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/Si/si-paper-all_kpath/figures/band_frontier_metadata.json",
-        "sha256": "ef865930ae8438974454a9b559e6cbb054af29fb9f7f6f9ad66a99a699b6aaf8",
-        "size_bytes": 1217101,
-        "original_sha256": "ef865930ae8438974454a9b559e6cbb054af29fb9f7f6f9ad66a99a699b6aaf8",
+        "sha256": "04f2fe238e07bb556e7507ef030ca98c5c256fa3fca069310ac570188b319926",
+        "size_bytes": 744815,
+        "original_sha256": "04f2fe238e07bb556e7507ef030ca98c5c256fa3fca069310ac570188b319926",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

@@ -17,6 +17,15 @@ test("partial stage controls stay explicitly incomplete and retain redaction pro
   assert.doesNotMatch(html, /Upload complete · archive checks passed/);
 });
 
+test("all real material and basis pages render English without rewriting archived paper evidence", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const before = JSON.stringify(catalog);
+  for (const record of catalog.calculations) {
+    assert.doesNotMatch(renderMaterial(record, catalog.basis_sets), /[\u3400-\u9fff]/, record.id);
+  }
+  assert.equal(JSON.stringify(catalog), before);
+});
+
 test("properties drive gaps; arbitrary summary values never become GW gaps", () => {
   assert.equal(bandGap({ summary: { value: -4, unit: "Ha", observable: "RPA energy" } }), null);
   assert.equal(bandGap({ summary: { value: 1.3, unit: "eV", observable: "G0W0 gap" } }), 1.3);
@@ -50,7 +59,7 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(archivedBandGap(record, "DFT"), 0.60168);
   assert.equal(bandGap(record, "EXX"), null);
   const html = renderMaterial(record, []);
-  assert.match(html, /论文主值/);
+  assert.match(html, /Paper-reported values/);
   assert.match(html, /1\.80171/);
   assert.match(html, /0\.60168/);
   assert.match(html, /Paper &lt;test&gt;/);
@@ -102,7 +111,7 @@ test("all figure metadata attachments remain available", () => {
   assert.match(html, /band_comparison\.json/);
 });
 
-test("Commit号 keeps software identity while completeness issues and gates move to Overview", () => {
+test("Source commits keeps software identity while completeness issues and gates move to Overview", () => {
   const record = {
     id: "ui-check", material: "Si", dimension: "3d", summary: { gates: ["SCF evidence pending"] },
     missing: ["Original input unavailable"],
@@ -117,7 +126,7 @@ test("Commit号 keeps software identity while completeness issues and gates move
   assert.match(overview, /Missing &lt;INPUT&gt;/);
   assert.match(overview, /Original input unavailable/);
   assert.match(overview, /SCF evidence pending/);
-  assert.match(commits, /<h2>Commit号<\/h2>/);
+  assert.match(commits, /<h2>Source commits<\/h2>/);
   assert.match(commits, new RegExp("a".repeat(40)));
   assert.match(commits, new RegExp("b".repeat(40)));
   assert.doesNotMatch(commits, /Original input unavailable|SCF evidence pending/);
@@ -164,7 +173,8 @@ test("primary figures occupy the main grid while original figures and metadata r
   assert.match(html, /figure\.json/);
   assert.match(html, /href="\.\.\/references\/plotting\.md"/);
   assert.match(html, /reusable band-figure script/);
-  assert.match(html, /Each method uses its own occupied path VBM and energy window/);
+  assert.match(html, /Each method uses its own occupied path VBM/);
+  assert.match(html, /full extent of the already-selected curves, without adding bands/);
   record.files.figures[0].display_priority = "secondary";
   const fallback = renderMaterial(record, []);
   assert.match(fallback, /primary\.svg/);
