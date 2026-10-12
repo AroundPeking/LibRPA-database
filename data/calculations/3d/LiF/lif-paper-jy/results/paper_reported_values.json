@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "case_id": "lif-paper-jy",
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+      "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+      "pdf_page": 16,
+      "table": "IV",
+      "doi": "10.1103/47j8-8kll"
+    },
+    "evidence": "data/calculations/3d/LiF/lif-paper-jy/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 9.187,
+        "unit": "eV",
+        "precision": 3,
+        "column": "PBE / ABACUS",
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+      },
+      "GW": {
+        "value": 14.0,
+        "unit": "eV",
+        "precision": 3,
+        "column": "G0W0@PBE / ABACUS+LibRPA",
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+      }
+    },
+    "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  },
+  "paper_row": {
+    "material": "LiF",
+    "pbe_abacus_ev": 9.187,
+    "pbe_fhi_aims_ev": 9.174,
+    "gw_abacus_librpa_ev": 14.0,
+    "gw_fhi_aims_ev": 13.828,
+    "exx_ev": null
+  },
+  "scope_note": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。",
+  "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+}

@@ -4722,6 +4722,13 @@
         "original_sha256": "10d95ce9eea7d3874133822e77143f250ce08f8fbcceffc96779bee6c21d821f",
         "label": "orbital_shape_audit.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/paper_reported_values.json",
+        "sha256": "4eb7d442da766ff4853753e6f3426f879eed0a96eed60d3bfb421d757a2a4a5e",
+        "size_bytes": 3726,
+        "label": "Paper-reported Table I values (DFT / GW)"
       }
     ],
     "logs": [
@@ -4950,5 +4957,32 @@
       ],
       "source_summary_key": "value"
     }
-  ]
+  ],
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 4.68813,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
+      },
+      "GW": {
+        "value": 6.94183,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  }
 }

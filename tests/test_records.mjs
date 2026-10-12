@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { readFileSync } from "node:fs";
@@ -24,6 +24,39 @@ test("evidence-backed sampled path properties populate gaps without hiding failu
   assert.equal(bandGap({ properties: [{ ...property, status: "failed" }] }, "DFT"), null);
   assert.equal(bandGap({ properties: [property, { ...property, key: "band_gap" }] }, "DFT"), null);
   assert.equal(bandGap({ properties: [{ ...property, key: "unrelated_value" }] }, "DFT"), null);
+});
+
+test("paper-reported values take priority without rewriting archived gaps or diagnostic scope", () => {
+  const evidence = "data/calculations/2d/WS2/ws2/results/paper_reported_values.json";
+  const record = { id: "ws2", material: "WS2", dimension: "2d", summary: {},
+    files: { results: [{ path: evidence, sha256: "b".repeat(64) }] },
+    properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 0.60168, unit: "eV", status: "reported" }],
+    paper_values: { schema_version: 1, evidence, source: { title: "Paper <test>", document_sha256: "a".repeat(64), pdf_page: 12, table: "I" },
+      values: { DFT: { value: 1.80171, unit: "eV", precision: 5, column: "Eg(PBE)", scope: "Restricted <scope>; not a certification" }, GW: { value: 2.674, unit: "eV", precision: 3, column: "Eg(G0W0)" } }, notes: "EXX is archive-derived." },
+  };
+  assert.equal(bandGap(record, "DFT"), 1.80171);
+  assert.equal(archivedBandGap(record, "DFT"), 0.60168);
+  assert.equal(bandGap(record, "EXX"), null);
+  const html = renderMaterial(record, []);
+  assert.match(html, /论文主值/);
+  assert.match(html, /1\.80171/);
+  assert.match(html, /0\.60168/);
+  assert.match(html, /Paper &lt;test&gt;/);
+  assert.match(html, /PDF p\. 12 · Table I/);
+  assert.match(html, /Download paper-value extract/);
+  assert.match(html, /Reported scope/);
+  assert.match(html, /Restricted &lt;scope&gt;; not a certification/);
+  assert.doesNotMatch(html, /Restricted <scope>/);
+  record.status = "path_diagnostic";
+  assert.equal(bandGap(record), null);
+  assert.equal(paperGap(record).value, 2.674);
+  assert.match(renderMaterial(record, []), /Restricted result/);
+  record.paper_values.values.DFT.value = Infinity;
+  assert.equal(bandGap(record, "DFT"), 0.60168);
+  record.paper_values.values.DFT.value = 1.80171;
+  record.files.results = [];
+  assert.equal(paperGap(record, "DFT"), null);
+  assert.equal(bandGap(record, "DFT"), 0.60168);
 });
 
 test("restricted hBN frontier gap is retained with scope but never used as ordinary GW gap", () => {
@@ -136,7 +169,8 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.match(index, /class="intro-lattice"[^>]*aria-hidden="true"/);
   assert.match(index, /id="filter-toggle"[^>]*aria-expanded="false"/);
   assert.match(app, /Materials, with evidence\./);
-  assert.match(app, /archived k-path, not the global fundamental gap/);
+  assert.match(app, /archived k-path is not the global fundamental gap/);
+  assert.match(app, /PBE\/GW values prefer the paper's own columns/);
 });
 
 test("header and favicon share a small editable SVG brand mark", () => {

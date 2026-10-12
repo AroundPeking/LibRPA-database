@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "case_id": "mose2-table-gw",
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 1.45218,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      },
+      "GW": {
+        "value": 2.088,
+        "unit": "eV",
+        "precision": 3,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  },
+  "paper_row": {
+    "material": "MoSe2",
+    "database_case_id": "mose2-table-gw",
+    "pbe_ev": 1.45218,
+    "pbe_precision": 5,
+    "gw_ev": 2.088,
+    "gw_precision": 3,
+    "exx_ev": null,
+    "path": "K–K",
+    "electron_mass_m0": [
+      0.54
+    ],
+    "hole_mass_m0": [
+      0.57
+    ],
+    "scope_note": "正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。"
+  },
+  "scope_note": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。",
+  "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+}

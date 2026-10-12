@@ -394,13 +394,227 @@ def recover_table_evidence(root: Path, source_root: Path, write: bool = False) -
     return totals
 
 
+def _paper_number(value: object, precision: object) -> None:
+    if (isinstance(value, bool) or not isinstance(value, (int, float))
+            or not math.isfinite(value)):
+        raise ValueError("论文value必须是有限非boolean数值")
+    if type(precision) is not int or precision not in (3, 5):
+        raise ValueError("论文reported precision必须为3或5")
+    if abs(value - round(value, precision)) > 1e-10:
+        raise ValueError("论文value超过声明的reported precision")
+
+
+def _paper_text(value: object) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("论文来源/列名/范围必须为非空文本")
+    if re.search(r"(?:/(?:Users|home|mnt|scratch|tmp|private)/|[A-Za-z]:[\\/]|file://|(?:^|[\s\"'(=])/(?!/)[\w.-]+/)", value):
+        raise ValueError("论文摘录不得包含本机私有路径")
+    return value
+
+
+def _paper_formula(value: object) -> str:
+    aliases = {"h-BN": "hBN", "phosphorene": "Phosphorene", "MoS2/WS2": "MoS2-WS2"}
+    text = _paper_text(value)
+    return aliases.get(text, text)
+
+
+def _atomic_save(path: Path, data: bytes, before: bytes | None) -> None:
+    temporary_path = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=path.parent, suffix=".part", delete=False) as stream:
+            temporary_path = Path(stream.name)
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
+        if before is None:
+            # link的排他创建避免覆盖预审之后突然出现的人工文件。
+            os.link(temporary_path, path)
+        else:
+            if path.read_bytes() != before:
+                raise ValueError("原子替换前record被修改")
+            os.replace(temporary_path, path)
+    finally:
+        if temporary_path is not None and temporary_path.exists():
+            temporary_path.unlink()
+
+
+def import_paper_values(root: Path, audit_path: Path, write: bool = False) -> dict:
+    root = root.resolve()
+    audit_before = audit_path.read_bytes()
+    audit = json.loads(audit_before)
+    if type(audit.get("schema_version")) is not int or audit["schema_version"] != 1:
+        raise ValueError("论文审计schema_version必须为1")
+    tables = (("3d", "paper_3d", "values_3d_table_iv", 17, 16, "IV"),
+              ("2d", "paper_2d", "values_2d_table_i", 15, 12, "I"))
+    sources, source_checks = {}, []
+    for dimension, source_key, rows_key, count, page, table in tables:
+        raw_source = audit["sources"][source_key]
+        document = Path(raw_source["path"])
+        digest = raw_source["sha256"]
+        if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+            raise ValueError("论文PDF sha256无效")
+        if _digest(document.read_bytes()) != digest:
+            raise ValueError(f"{source_key}: 论文PDF实际sha256与审计不匹配")
+        source_checks.append((document, digest))
+        source = {"title": _paper_text(raw_source["title"]), "document_sha256": digest,
+                  "pdf_page": page, "table": table}
+        if dimension == "3d":
+            source["doi"] = _paper_text(raw_source["doi"])
+            if type(raw_source.get("reported_decimal_places")) is not int or raw_source["reported_decimal_places"] != 3:
+                raise ValueError("三维论文reported precision必须为3")
+        sources[dimension] = source
+        rows = audit[rows_key]
+        if not isinstance(rows, list) or len(rows) != count or any(not isinstance(row, dict) for row in rows):
+            raise ValueError(f"{rows_key}: 论文行数必须为{count}")
+        materials = [_paper_formula(row["material"]) for row in rows]
+        if len(set(materials)) != count:
+            raise ValueError(f"{rows_key}: 论文material/formula重复")
+
+    records, by_id, by_formula = [], {}, {}
+    for path in sorted((root / "data/calculations").glob("*/*/*/record.json")):
+        _portable(root, path.relative_to(root).as_posix())
+        before = path.read_bytes()
+        record = json.loads(before)
+        case_id = _paper_text(record["id"])
+        dimension = record.get("dimension")
+        if path.parent.name != case_id or path.parents[2].name != dimension:
+            raise ValueError("record case_id/dimension与目录不匹配")
+        if case_id in by_id:
+            raise ValueError("record case_id映射重复")
+        item = (path, before, record)
+        records.append(item)
+        by_id[case_id] = item
+        by_formula.setdefault((dimension, record.get("formula")), []).append(item)
+
+    plans, evidence_checks, mapped = [], [], set()
+    totals = {"records_verified": 0, "records_changed": 0, "evidence_added": 0,
+              "paper_values_added": 0, "three_d_rows": 17, "two_d_rows": 15}
+    row_keys = {"material", "database_case_id", "pbe_abacus_ev", "pbe_fhi_aims_ev",
+                "gw_abacus_librpa_ev", "gw_fhi_aims_ev", "pbe_ev", "gw_ev", "exx_ev",
+                "pbe_precision", "gw_precision", "path", "electron_mass_m0", "hole_mass_m0",
+                "pbe_electron_mass_m0", "pbe_hole_mass_m0", "pbe_conduction_valley_delta_ev", "scope_note"}
+    for dimension, source_key, rows_key, count, page, table in tables:
+        raw_source = audit["sources"][source_key]
+        for row in audit[rows_key]:
+            formula = _paper_formula(row["material"])
+            if dimension == "3d":
+                candidates = by_formula.get((dimension, formula), [])
+                if len(candidates) != 1:
+                    raise ValueError(f"{formula}: 三维case_id/formula映射不唯一")
+                path, before, record = candidates[0]
+                pbe, gw = row["pbe_abacus_ev"], row["gw_abacus_librpa_ev"]
+                pbe_precision = gw_precision = 3
+                scope = "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+                if "database_case_id" in row and row["database_case_id"] != record["id"]:
+                    raise ValueError("三维论文case_id与formula不匹配")
+            else:
+                case_id = _paper_text(row["database_case_id"])
+                if formula == "hBN" and case_id != "hbn-tzdp10-fgext-20261008":
+                    raise ValueError("h-BN新版主表必须映射hbn-tzdp10-fgext-20261008，禁止旧hbn-table-gw")
+                if case_id not in by_id:
+                    raise ValueError(f"{case_id}: 论文case_id未匹配record")
+                path, before, record = by_id[case_id]
+                pbe, gw = row["pbe_ev"], row["gw_ev"]
+                pbe_precision, gw_precision = row["pbe_precision"], row["gw_precision"]
+                scope = ("论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；"
+                         f"报告路径：{_paper_text(row['path'])}；"
+                         + (_paper_text(row["scope_note"]) + " " if row.get("scope_note") else "")
+                         + "有限主表值不自动升级归档path、完整空态谱或当前record.status。")
+                if formula == "hBN":
+                    scope += " " + _paper_text(raw_source["method_and_basis"]["hbn_main_table"])
+            if record.get("dimension") != dimension or record.get("formula") != formula:
+                raise ValueError("论文case_id/formula/dimension不匹配")
+            if record["id"] in mapped:
+                raise ValueError("论文case_id映射重复")
+            mapped.add(record["id"])
+            _paper_number(pbe, pbe_precision)
+            _paper_number(gw, gw_precision)
+            if row.get("exx_ev") is not None:
+                raise ValueError("主论文表未报告EXX列，禁止填入其他系列值")
+            source = sources[dimension]
+            columns = (_paper_text(raw_source["main_pbe_column"]), _paper_text(raw_source["main_gw_column"]))
+            expected_columns = (("PBE / ABACUS", "G0W0@PBE / ABACUS+LibRPA") if dimension == "3d"
+                                else ("Eg(PBE)", "Eg(G0W0)"))
+            if columns != expected_columns:
+                raise ValueError("论文主列必须为ABACUS/PBE和ABACUS+LibRPA/G0W0，禁止参考列")
+            if dimension == "2d":
+                columns = (columns[0] + " / ABACUS", columns[1] + " / ABACUS+LibRPA")
+            values = {"DFT": {"value": pbe, "unit": "eV", "precision": pbe_precision, "column": columns[0], "scope": scope},
+                      "GW": {"value": gw, "unit": "eV", "precision": gw_precision, "column": columns[1], "scope": scope}}
+            note = (f"论文Table {table}没有EXX主列；EXX仍为historical archive/path归档运行值，"
+                    "保留原始谱、properties及summary，不标为paper benchmark，也不补零。")
+            if record["id"] == "mos2-table-gw":
+                note += " MoS2其他EXX收敛系列的6.25292 eV不是本case的主表值，不替换本case归档EXX。"
+            evidence_relative = (path.parent.relative_to(root) / "results/paper_reported_values.json").as_posix()
+            paper_values = {"schema_version": 1, "source": source, "evidence": evidence_relative,
+                            "values": values, "notes": note}
+            excerpt = {"schema_version": 1, "case_id": record["id"], "paper_values": paper_values,
+                       "paper_row": {key: value for key, value in row.items() if key in row_keys},
+                       "scope_note": scope, "notes": note}
+            evidence_data = (json.dumps(excerpt, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
+            _paper_text(evidence_data.decode("utf-8"))
+            evidence_path = _portable(root, evidence_relative)
+            if evidence_path.is_symlink() or evidence_path.parent.is_symlink():
+                raise ValueError("论文摘录禁止使用符号链接，必须是同record独立文件")
+            if evidence_path.parent.exists() and not evidence_path.parent.is_dir():
+                raise ValueError("论文摘录results父路径不是目录")
+            evidence_before = evidence_path.read_bytes() if evidence_path.exists() else None
+            if evidence_before is not None and evidence_before != evidence_data:
+                raise ValueError(f"{record['id']}: 已有论文摘录内容/hash冲突，拒绝覆盖")
+            evidence_checks.append((evidence_path, evidence_before))
+            updated = copy.deepcopy(record)
+            if "paper_values" in record and json.dumps(record["paper_values"], sort_keys=True, allow_nan=False) != json.dumps(paper_values, sort_keys=True, allow_nan=False):
+                raise ValueError(f"{record['id']}: 已有paper_values人工metadata冲突，拒绝覆盖")
+            updated["paper_values"] = paper_values
+            declaration = {"role": "results", "path": evidence_relative, "sha256": _digest(evidence_data),
+                           "size_bytes": len(evidence_data), "label": f"Paper-reported Table {table} values (DFT / GW)"}
+            result_files = updated["files"]["results"]
+            existing = [item for item in result_files if item.get("path") == evidence_relative]
+            if len(existing) > 1 or (existing and existing[0] != declaration):
+                raise ValueError(f"{record['id']}: 论文摘录files.results声明/hash冲突")
+            if not existing:
+                result_files.append(declaration)
+            totals["records_verified"] += 1
+            totals["paper_values_added"] += "paper_values" not in record
+            totals["evidence_added"] += evidence_before is None
+            totals["records_changed"] += updated != record
+            record_data = ((json.dumps(updated, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
+                           if updated != record else None)
+            plans.append((path, before, record_data, evidence_path, evidence_before, evidence_data))
+
+    if write:
+        # 完整32行及两份PDF全部预审后，重新核对读集，才允许产生第一个写入。
+        if audit_path.read_bytes() != audit_before or any(_digest(path.read_bytes()) != digest for path, digest in source_checks):
+            raise ValueError("预审后论文审计/PDF被修改，拒绝写入")
+        if any(path.read_bytes() != before for path, before, record in records):
+            raise ValueError("预审后record被修改，拒绝写入")
+        if any((path.read_bytes() if path.exists() else None) != before for path, before in evidence_checks):
+            raise ValueError("预审后论文摘录被修改，拒绝写入")
+        for path, before, record_data, evidence_path, evidence_before, evidence_data in plans:
+            if evidence_before is None:
+                evidence_path.parent.mkdir(exist_ok=True)
+                _atomic_save(evidence_path, evidence_data, None)
+            if record_data is not None:
+                _atomic_save(path, record_data, before)
+    return totals
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--write", action="store_true", help="显式写入迁移结果；默认仅预审")
     parser.add_argument("--source-root", type=Path, help="只读paper_materials原始证据目录")
-    parser.add_argument("--recover-table-evidence", action="store_true", help="仅恢复二维原谱路径性质及原图关联，不运行旧summary迁移")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--recover-table-evidence", action="store_true", help="仅恢复二维原谱路径性质及原图关联，不运行旧summary迁移")
+    modes.add_argument("--import-paper-values", type=Path, metavar="AUDIT_PATH", help="校验论文审计与PDF，仅导入独立paper_values和同record摘录，不修改归档性质")
     args = parser.parse_args()
+    if args.import_paper_values is not None:
+        try:
+            stats = import_paper_values(args.root, args.import_paper_values, write=args.write)
+        except (ValueError, KeyError, TypeError, OSError) as error:
+            parser.exit(1, f"论文报告值导入停止，未通过预审: {error}\n")
+        print(json.dumps({"write": args.write, **stats}, ensure_ascii=False))
+        return 0
     if args.recover_table_evidence:
         if args.source_root is None:
             parser.error("--recover-table-evidence要求显式--source-root")

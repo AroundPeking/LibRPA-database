@@ -170,6 +170,13 @@
         "original_sha256": "634329736bcd5e6fef8236a5be4a49369342915de0cc36687b2fc2d644dc6d99",
         "label": "band_kpath_info",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/paper_reported_values.json",
+        "sha256": "7e1f038415301945ab4faaf71d59057deeb4ed728af61c356a894970d42ea787",
+        "size_bytes": 1865,
+        "label": "Paper-reported Table IV values (DFT / GW)"
       }
     ],
     "logs": [
@@ -336,5 +343,33 @@
       ],
       "source_summary_key": "gw_gap_ev"
     }
-  ]
+  ],
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+      "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+      "pdf_page": 16,
+      "table": "IV",
+      "doi": "10.1103/47j8-8kll"
+    },
+    "evidence": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 1.622,
+        "unit": "eV",
+        "precision": 3,
+        "column": "PBE / ABACUS",
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+      },
+      "GW": {
+        "value": 2.245,
+        "unit": "eV",
+        "precision": 3,
+        "column": "G0W0@PBE / ABACUS+LibRPA",
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+      }
+    },
+    "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  }
 }

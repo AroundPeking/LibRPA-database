@@ -93,6 +93,8 @@ git diff --check
 
 能带图参考 [`references/plotting.md`](references/plotting.md)、`scripts/plot_bands.py` 和 `scripts/generate_band_figures.py`。通用脚本支持表格解析、能带绘制和 provenance；原生归档生成器先审计原谱、按占据冻结近隙 raw 集，再对每个方法独立设置 VBM 对齐和能量视窗。运行 `python3 scripts/plot_bands.py --help` 或 `python3 scripts/generate_band_figures.py --help` 查看命令。保留原始表的带顺序、占据证据与输入/图源 hash。对于 band-path table，记录的是 sampled/path gap；只有覆盖充分全 k 空间并完成对应物理验证后才称 global/fundamental gap。归档完整性、过程结束、数值可靠性和科学接受四者必须区分。
 
+论文主值与归档运行值分开：`paper_values` 保存论文标题、PDF SHA-256、页码、表号、主作者列及报告精度，并引用同记录 `results/paper_reported_values.json`。该摘录与显示元数据必须一致且通过文件 hash 检查。列表及详情优先使用论文明确报告的 PBE/GW 值，Overview 同时展示原归档/path 值；原 `properties`、`summary`、谱和科学状态不改。主表未报告 EXX 时不能补造论文 EXX；现有 EXX 仍标归档来源。论文有限值不能替代严格上传要求的同方法原谱证据，也不会解除完整性阻断。旧 hBN 记录不使用新基组表行的数值。
+
 The generated log index is a bijection: every retained file under a case's
 `logs/` directory must appear exactly once in `data/log-index.json`. A basis
 set enters `data/release-index.json` only when both the set and its linked case

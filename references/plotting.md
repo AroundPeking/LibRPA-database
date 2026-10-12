@@ -145,3 +145,14 @@ GeTe/SnSe EXX 的全 raw 与冻结窗负值分别写入 `method_diagnostics` 列
 原侧录数值不覆盖，诊断同时保留重算全 raw、重算冻结窗与原侧录三个值及冲突标记；
 不以其中任何一个异常值冒充接受的带隙。原图与指定来源逐字节核验后
 才补关联，原图/谱、软件身份、summary、科学状态和集合发布状态均不改。
+
+## 论文报告值与归档路径值
+
+论文明确报告值使用独立 `paper_values` 层，不重写原谱或路径性质。3D 采用 Table IV 的 ABACUS PBE / ABACUS+LibRPA G0W0@PBE 列（PDF 第16页）；2D 采用 Table I 的本工作 PBE / G0W0 列（PDF 第12页），保留诊断范围和新旧 hBN 基组区别。论文主表均未提供 EXX 列，归档 EXX 不能标为论文主值。
+
+```bash
+python3 -B scripts/migrate_properties.py --import-paper-values /path/to/paper-values-audit.json
+python3 -B scripts/migrate_properties.py --import-paper-values /path/to/paper-values-audit.json --write
+```
+
+导入器校验两 PDF 的实际 SHA、32 行唯一映射、有限值和报告精度，全部预审后才新增同记录摘录；默认只读，重复写入幂等，已有不同摘录或人工 metadata 冲突时拒绝覆盖。该主值层不作为原生产谱或精确输入绑定证明。原 near-gap 图仍取自归档谱；图与论文数值有差异时在 Overview 分列披露，不修改原图来伪装一致。

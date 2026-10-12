@@ -79,6 +79,13 @@
         "original_sha256": "1f0becefc9dc0748e9b0e3cfd524d1b83a912d2b8eac6b60cac8d2b882bb5e2f",
         "label": "inse.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/InSe/inse-table-gw/results/paper_reported_values.json",
+        "sha256": "3ba734e54121075265174ae092d7eab8dd3a0608da591f39da117346fd3fa0e3",
+        "size_bytes": 2148,
+        "label": "Paper-reported Table I values (DFT / GW)"
       }
     ],
     "logs": [],
@@ -228,5 +235,32 @@
       ],
       "source_sidecar_key": "methods.EXX.path_gap_ev"
     }
-  ]
+  ],
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/InSe/inse-table-gw/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 1.33567,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      },
+      "GW": {
+        "value": 2.43096,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  }
 }

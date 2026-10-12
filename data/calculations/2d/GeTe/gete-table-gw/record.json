@@ -89,6 +89,13 @@
         "original_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769",
         "label": "gete.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/GeTe/gete-table-gw/results/paper_reported_values.json",
+        "sha256": "31ab49e09f4e8d18a1874fb661a085d44dac2eecf7576fd81aa66a606e002695",
+        "size_bytes": 2401,
+        "label": "Paper-reported Table I values (DFT / GW)"
       }
     ],
     "logs": [],
@@ -248,5 +255,32 @@
       ],
       "message": "Full raw and frozen-window anomalies retained separately; not an accepted gap. A smaller window is not a numerical repair; archive completeness remains blocked. Archived sidecar path value differs from the independently recomputed frozen window; both are retained as diagnostics."
     }
-  ]
+  ],
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/GeTe/gete-table-gw/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 0.86874,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–X–S–Y–Γ；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      },
+      "GW": {
+        "value": 1.3807,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–X–S–Y–Γ；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  }
 }

@@ -201,6 +201,13 @@
         "label": "raw_input_receipt.json",
         "original_name": "raw_input_receipt.json",
         "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/WSe2/wse2-table-gw/results/paper_reported_values.json",
+        "sha256": "4b0701eb7dd3682e779ada1506fd43dc55a979a9ed3edba4f27b776a6be7260a",
+        "size_bytes": 2432,
+        "label": "Paper-reported Table I values (DFT / GW)"
       }
     ],
     "logs": [],
@@ -355,5 +362,32 @@
   ],
   "publication": {
     "status": "database_only"
+  },
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/WSe2/wse2-table-gw/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 1.54824,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文只显示near-gap region，其Padé延拓稳定；不是完整谱基准声明。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      },
+      "GW": {
+        "value": 2.299,
+        "unit": "eV",
+        "precision": 3,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文只显示near-gap region，其Padé延拓稳定；不是完整谱基准声明。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
   }
 }

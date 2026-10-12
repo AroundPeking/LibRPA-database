@@ -1,9 +1,14 @@
 """Migrations from legacy gap summaries to evidence-linked properties."""
+import contextlib
+import copy
 import importlib.util
+import io
 import json
 from pathlib import Path
+import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/migrate_properties.py"
@@ -404,6 +409,300 @@ class TableEvidenceRecoveryTests(unittest.TestCase):
             MIGRATOR._native_table(data.replace(b"1 -1 0 1", b"1 -1 1 1"), metrics, self.native)
         with self.assertRaisesRegex(ValueError, "固定正值"):
             MIGRATOR._native_table(data.replace(b"1 -2 1 -1", b"2 -2 1 -1"), metrics, self.native)
+
+
+class PaperValueImportTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.base = Path(self.temporary.name)
+        self.root = self.base / "repo"
+        self.audit_path = self.base / "private-audit.json"
+        self.documents = []
+        sources = {}
+        for dimension in ("3d", "2d"):
+            document = self.base / f"private-paper-{dimension}.pdf"
+            document.write_bytes(f"已核验论文PDF {dimension}".encode())
+            self.documents.append(document)
+            sources[f"paper_{dimension}"] = {
+                "path": str(document), "sha256": MIGRATOR._digest(document.read_bytes()),
+                "title": f"Test {dimension} paper", "text_path": str(self.base / "private-paper.txt"),
+                "main_pbe_column": "PBE / ABACUS" if dimension == "3d" else "Eg(PBE)",
+                "main_gw_column": "G0W0@PBE / ABACUS+LibRPA" if dimension == "3d" else "Eg(G0W0)",
+                "reported_decimal_places": 3, "doi": "10.test/3d-only",
+                "method_and_basis": {"hbn_main_table": "10-au 3s3p2d、1f1g-extended ABF、无empty atoms；PBE valley ordering错误、高态侵入、raw-band-5 path diagnostic，非完整谱基本带隙。"},
+            }
+        rows_3d = [{"material": formula, "pbe_abacus_ev": 1.234, "gw_abacus_librpa_ev": 2.345,
+                    "pbe_fhi_aims_ev": 9.111, "gw_fhi_aims_ev": 9.222, "exx_ev": None,
+                    "source_line": 1096 + index, "private_path": str(self.base / "private-source.pdf")}
+                   for index, formula in enumerate(("AlAs", "AlP", "AlSb", "BAs", "BN", "BP", "C", "Si", "SiC",
+                                                    "GaAs", "GaN", "GaP", "MgO", "NaCl", "CdS", "CaO", "LiF"))]
+        formulas_2d = ("MoS2", "MoSe2", "WS2", "WSe2", "h-BN", "phosphorene", "MoS2/WS2", "GeTe", "SnSe",
+                       "MoTe2", "InSe", "In2Se3", "GaTe", "TiS3", "CuInP2Se6")
+        rows_2d = []
+        self.paths = {}
+        self.originals = {}
+        for index, formula in enumerate(formulas_2d):
+            case_id = ("hbn-tzdp10-fgext-20261008" if formula == "h-BN" else
+                       formula.lower().replace("/", "_") + "-table-gw")
+            rows_2d.append({"material": formula, "database_case_id": case_id, "pbe_ev": 1.23456,
+                            "gw_ev": 2.345 if index in (1, 2, 3) else 2.34567,
+                            "pbe_precision": 5, "gw_precision": 3 if index in (1, 2, 3) else 5,
+                            "exx_ev": None, "path": "K–Γ path", "source_line": index + 930,
+                            "tex_line": index + 1239, "scope_note": "rejected diagnostic" if formula in ("GaTe", "TiS3") else "near-gap path，不是全谱验收",
+                            "footnote_source_lines": str(self.base / "private-footnote"), "local_path": str(self.base / "private-source")})
+        self.audit = {"schema_version": 1, "sources": sources, "values_3d_table_iv": rows_3d,
+                      "values_2d_table_i": rows_2d, "explicit_2d_exx_values": {"exx_gap_ev": 6.25292}}
+        for dimension, rows in (("3d", rows_3d), ("2d", rows_2d)):
+            for row in rows:
+                formula = MIGRATOR._paper_formula(row["material"])
+                case_id = row.get("database_case_id", formula.lower() + "-paper-test")
+                self._add_record(dimension, formula, case_id)
+        self._add_record("2d", "hBN", "hbn-table-gw")
+        self._save_audit()
+        self.original_repo = self._snapshot(self.root)
+        self.original_inputs = self._snapshot(self.base)
+
+    def _add_record(self, dimension, formula, case_id):
+        relative = f"data/calculations/{dimension}/{formula}/{case_id}"
+        path = self.root / relative / "record.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        spectrum = path.parent / "results/EXX_bands.dat"
+        spectrum.parent.mkdir(exist_ok=True)
+        spectrum.write_bytes(b"original archived spectrum\n")
+        record = {"schema_version": 1, "id": case_id, "dimension": dimension, "material": formula, "formula": formula,
+                  "status": "gw_diagnostic", "summary": {"value": 999, "unit": "eV"}, "notes": "人工审阅备注",
+                  "properties": [{"key": "band_gap", "method": "PBE", "value": 777, "evidence": ["manual"]}],
+                  "files": {"results": [{"role": "results", "path": f"{relative}/results/EXX_bands.dat",
+                                         "sha256": MIGRATOR._digest(spectrum.read_bytes()), "size_bytes": spectrum.stat().st_size,
+                                         "label": "EXX_bands.dat", "manual_metadata": "保留"}], "inputs": [], "logs": [], "figures": []}}
+        path.write_text(json.dumps(record), encoding="utf-8")
+        self.paths[case_id] = path
+        self.originals[case_id] = record
+        return path
+
+    @staticmethod
+    def _snapshot(root):
+        return {path.relative_to(root).as_posix(): path.read_bytes() for path in root.rglob("*") if path.is_file()}
+
+    def _save_audit(self):
+        self.audit_path.write_text(json.dumps(self.audit), encoding="utf-8")
+
+    def _assert_blocked(self, pattern):
+        before = self._snapshot(self.root)
+        with self.assertRaisesRegex(ValueError, pattern):
+            MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        self.assertEqual(before, self._snapshot(self.root))
+
+    def test_dryrun_then_second_write_byte_idempotence_no_summary_or_spectrum_mutation(self):
+        stats = MIGRATOR.import_paper_values(self.root, self.audit_path)
+        self.assertEqual(stats["records_verified"], 32)
+        self.assertEqual(stats["records_changed"], 32)
+        self.assertEqual(stats["paper_values_added"], 32)
+        self.assertEqual(stats["evidence_added"], 32)
+        self.assertEqual(self.original_repo, self._snapshot(self.root))
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        first = self._snapshot(self.root)
+        for case_id, path in self.paths.items():
+            original = self.originals[case_id]
+            saved = json.loads(path.read_bytes())
+            if case_id == "hbn-table-gw":
+                self.assertEqual(saved, original)
+                self.assertEqual(path.read_bytes(), self.original_repo[path.relative_to(self.root).as_posix()])
+                continue
+            for key in ("properties", "summary", "status", "material", "formula"):
+                self.assertEqual(saved[key], original[key])
+            self.assertEqual(saved["files"]["results"][:-1], original["files"]["results"])
+            self.assertEqual(saved["notes"], original["notes"])
+            self.assertIn("EXX仍为historical archive/path", saved["paper_values"]["notes"])
+            paper = saved["paper_values"]
+            declaration = saved["files"]["results"][-1]
+            self.assertEqual(declaration["role"], "results")
+            self.assertEqual(paper["evidence"], declaration["path"])
+            evidence = (self.root / declaration["path"]).read_bytes()
+            self.assertEqual(MIGRATOR._digest(evidence), declaration["sha256"])
+            self.assertEqual(len(evidence), declaration["size_bytes"])
+            excerpt = json.loads(evidence)
+            self.assertEqual(excerpt["paper_values"], paper)
+            self.assertEqual(set(paper["values"]), {"DFT", "GW"})
+            if saved["dimension"] == "3d":
+                self.assertEqual(paper["source"]["pdf_page"], 16)
+                self.assertEqual(paper["source"]["table"], "IV")
+                self.assertEqual(paper["values"]["DFT"]["value"], 1.234)
+                self.assertEqual(paper["values"]["GW"]["value"], 2.345)
+                self.assertEqual(paper["values"]["DFT"]["precision"], 3)
+                self.assertIn("doi", paper["source"])
+            else:
+                self.assertEqual(paper["source"]["pdf_page"], 12)
+                self.assertEqual(paper["source"]["table"], "I")
+                self.assertNotIn("doi", paper["source"])
+                self.assertIn("ABACUS", paper["values"]["DFT"]["column"])
+        for relative, before in self.original_repo.items():
+            if not relative.endswith("record.json"):
+                self.assertEqual(first[relative], before)
+        stats = MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        self.assertEqual(stats["records_changed"], 0)
+        self.assertEqual(stats["evidence_added"], 0)
+        self.assertEqual(stats["paper_values_added"], 0)
+        self.assertEqual(first, self._snapshot(self.root))
+        for document in self.documents:
+            self.assertEqual(document.read_bytes(), self.original_inputs[document.relative_to(self.base).as_posix()])
+        self.assertEqual(self.audit_path.read_bytes(), self.original_inputs[self.audit_path.relative_to(self.base).as_posix()])
+
+    def test_private_paths_and_internal_line_numbers_do_not_leak(self):
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        for path in self.root.rglob("paper_reported_values.json"):
+            text = path.read_text(encoding="utf-8")
+            for private in ("/" + "Users/", "/" + "home/", str(self.base), "source_line", "tex_line", "text_path", "local_path", "private_path"):
+                self.assertNotIn(private, text)
+
+    def test_hbn_mapping_and_rejected_scope_retained_without_status_upgrade(self):
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        hbn = json.loads(self.paths["hbn-tzdp10-fgext-20261008"].read_bytes())
+        scope = hbn["paper_values"]["values"]["GW"]["scope"]
+        for marker in ("valley ordering", "raw-band-5", "高态侵入", "path", "10-au", "3s3p2d"):
+            self.assertIn(marker, scope)
+        for case_id in ("gate-table-gw", "tis3-table-gw"):
+            record = json.loads(self.paths[case_id].read_bytes())
+            self.assertIn("rejected diagnostic", record["paper_values"]["values"]["GW"]["scope"])
+            self.assertEqual(record["status"], "gw_diagnostic")
+        mos2 = json.loads(self.paths["mos2-table-gw"].read_bytes())
+        self.assertIn("6.25292 eV不是本case", mos2["paper_values"]["notes"])
+        self.assertNotIn("EXX", mos2["paper_values"]["values"])
+
+    def test_both_pdf_actual_hashes_checked_before_any_write(self):
+        for document in self.documents:
+            with self.subTest(document=document.name):
+                before = document.read_bytes()
+                document.write_bytes(before + b"tampered")
+                self._assert_blocked("PDF实际sha256")
+                document.write_bytes(before)
+
+    def test_late_invalid_value_blocks_entire_plan(self):
+        row = self.audit["values_2d_table_i"][-1]
+        for value in (True, False, float("nan"), float("inf"), float("-inf"), "1.79705", None):
+            with self.subTest(value=value):
+                row["gw_ev"] = value
+                self._save_audit()
+                self._assert_blocked("有限非boolean")
+
+    def test_reported_precision_is_validated(self):
+        row = self.audit["values_2d_table_i"][-1]
+        for precision in (True, 4, "5", None):
+            with self.subTest(precision=precision):
+                row["gw_precision"] = precision
+                self._save_audit()
+                self._assert_blocked("reported precision")
+        row["gw_precision"] = 3
+        self._save_audit()
+        self._assert_blocked("超过声明")
+        row["gw_precision"] = 5
+        self.audit["sources"]["paper_3d"]["reported_decimal_places"] = 5
+        self._save_audit()
+        self._assert_blocked("三维论文reported precision")
+
+    def test_row_counts_and_duplicate_materials_rejected(self):
+        original = copy.deepcopy(self.audit)
+        for table in ("values_3d_table_iv", "values_2d_table_i"):
+            with self.subTest(table=table):
+                self.audit = copy.deepcopy(original)
+                self.audit[table].pop()
+                self._save_audit()
+                self._assert_blocked("论文行数")
+                self.audit = copy.deepcopy(original)
+                self.audit[table][-1] = copy.deepcopy(self.audit[table][0])
+                self._save_audit()
+                self._assert_blocked("重复")
+
+    def test_wrong_formula_or_old_hbn_case_never_falls_back(self):
+        hbn_row = next(row for row in self.audit["values_2d_table_i"] if row["material"] == "h-BN")
+        hbn_row["database_case_id"] = "hbn-table-gw"
+        self._save_audit()
+        self._assert_blocked("h-BN新版主表")
+        hbn_row["database_case_id"] = "hbn-tzdp10-fgext-20261008"
+        self.audit["values_2d_table_i"][-1]["database_case_id"] = "mos2-table-gw"
+        self._save_audit()
+        self._assert_blocked("case_id/formula/dimension")
+
+    def test_duplicate_record_id_and_ambiguous_3d_formula_rejected(self):
+        other_path = self._add_record("2d", "Other", "mos2-table-gw")
+        self._assert_blocked("record case_id映射重复")
+        other_path.unlink()
+        self._add_record("3d", "Si", "second-si-test")
+        self._assert_blocked("三维case_id/formula映射不唯一")
+
+    def test_existing_paper_values_metadata_conflict_is_never_overwritten(self):
+        record = copy.deepcopy(self.originals["cuinp2se6-table-gw"])
+        record["paper_values"] = {"schema_version": 1, "manual_review": "不要覆盖"}
+        self.paths[record["id"]].write_text(json.dumps(record), encoding="utf-8")
+        self._assert_blocked("paper_values人工metadata冲突")
+
+    def test_boolean_existing_schema_metadata_is_a_conflict(self):
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        path = self.paths["cuinp2se6-table-gw"]
+        record = json.loads(path.read_bytes())
+        record["paper_values"]["schema_version"] = True
+        path.write_text(json.dumps(record), encoding="utf-8")
+        self._assert_blocked("paper_values人工metadata冲突")
+
+    def test_late_nonserializable_record_is_prevalidated_before_writes(self):
+        path = self.paths["cuinp2se6-table-gw"]
+        record = json.loads(path.read_bytes())
+        record["summary"]["value"] = float("nan")
+        path.write_text(json.dumps(record), encoding="utf-8")
+        self._assert_blocked("Out of range float")
+
+    def test_existing_excerpt_content_and_declaration_hash_conflicts_rejected(self):
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        path = self.paths["cuinp2se6-table-gw"]
+        record = json.loads(path.read_bytes())
+        declaration = record["files"]["results"][-1]
+        excerpt = self.root / declaration["path"]
+        before = excerpt.read_bytes()
+        excerpt.write_bytes(before + b" ")
+        self._assert_blocked("摘录内容/hash冲突")
+        excerpt.write_bytes(before)
+        declaration["sha256"] = "0" * 64
+        path.write_text(json.dumps(record), encoding="utf-8")
+        self._assert_blocked("files.results声明/hash冲突")
+
+    def test_reference_columns_and_other_series_exx_rejected(self):
+        original = copy.deepcopy(self.audit)
+        self.audit["sources"]["paper_3d"]["main_gw_column"] = "G0W0@PBE / FHI-aims"
+        self._save_audit()
+        self._assert_blocked("禁止参考列")
+        self.audit = original
+        self.audit["values_2d_table_i"][0]["exx_ev"] = 6.25292
+        self._save_audit()
+        self._assert_blocked("禁止填入其他系列")
+
+    def test_private_path_in_allowed_text_is_rejected(self):
+        self.audit["values_2d_table_i"][-1]["scope_note"] = "记录于 /" + "Users/private/source.pdf"
+        self._save_audit()
+        self._assert_blocked("私有路径")
+
+    def test_symlinked_excerpt_is_rejected_without_mutation(self):
+        MIGRATOR.import_paper_values(self.root, self.audit_path, write=True)
+        path = self.paths["cuinp2se6-table-gw"].parent / "results/paper_reported_values.json"
+        outside = self.base / "manual-paper-values.json"
+        outside.write_bytes(path.read_bytes())
+        path.unlink()
+        path.symlink_to(outside)
+        self._assert_blocked("逃逸根目录|符号链接")
+
+    def test_cli_import_is_independent_from_legacy_and_recovery_modes(self):
+        argv = [str(SCRIPT), "--root", str(self.root), "--import-paper-values", str(self.audit_path)]
+        with mock.patch.object(sys, "argv", argv), mock.patch.object(MIGRATOR, "migrate") as legacy, \
+                mock.patch.object(MIGRATOR, "recover_table_evidence") as recover, contextlib.redirect_stdout(io.StringIO()) as output:
+            self.assertEqual(MIGRATOR.main(), 0)
+            legacy.assert_not_called()
+            recover.assert_not_called()
+            self.assertFalse(json.loads(output.getvalue())["write"])
+        self.assertEqual(self.original_repo, self._snapshot(self.root))
+        with mock.patch.object(sys, "argv", argv + ["--recover-table-evidence"]), contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as raised:
+                MIGRATOR.main()
+            self.assertEqual(raised.exception.code, 2)
 
 
 if __name__ == "__main__":

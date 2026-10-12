@@ -79,6 +79,13 @@
         "original_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
         "label": "mose2.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+        "sha256": "4b2b40b03c10f12129fcbd7be953c8fbfe7ea10f79a14440785e1c34baaf749f",
+        "size_bytes": 2481,
+        "label": "Paper-reported Table I values (DFT / GW)"
       }
     ],
     "logs": [],
@@ -228,5 +235,32 @@
       ],
       "source_sidecar_key": "methods.EXX.path_gap_ev"
     }
-  ]
+  ],
+  "paper_values": {
+    "schema_version": 1,
+    "source": {
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I"
+    },
+    "evidence": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+    "values": {
+      "DFT": {
+        "value": 1.45218,
+        "unit": "eV",
+        "precision": 5,
+        "column": "Eg(PBE) / ABACUS",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      },
+      "GW": {
+        "value": 2.088,
+        "unit": "eV",
+        "precision": 3,
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+      }
+    },
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+  }
 }

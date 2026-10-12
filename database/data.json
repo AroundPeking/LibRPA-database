@@ -10955,6 +10955,13 @@
             "original_sha256": "009f7284c2653a2f60fa8c3c7936552e644e03812841fde87eb066254aaf0ee4",
             "label": "cuinp2se6.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/paper_reported_values.json",
+            "sha256": "24c4fb2b1004ce77fe3a05ca55243e8ff353fd02d310bb8cf407831ad8e6c396",
+            "size_bytes": 2438,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -11105,6 +11112,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.9225,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；restored producer structure的低能路径诊断、非全谱benchmark masses。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.79705,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；restored producer structure的低能路径诊断、非全谱benchmark masses。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -11203,6 +11237,13 @@
             "original_sha256": "df445a2b1d49887dc4af7e63873439f5a6d904687391d784c67d4cf80e30c3ac",
             "label": "gate.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/GaTe/gate-table-gw/results/paper_reported_values.json",
+            "sha256": "5fbb63cfd04525e007f1be06a6079f11d096afc885b3a37a17052559c4431a70",
+            "size_bytes": 2642,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -11353,6 +11394,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/GaTe/gate-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.42112,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → M；论文明确rejected diagnostic：完整空态谱含nonfinite/collapsed branches，有限低能gap仅保留追溯。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.66233,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → M；论文明确rejected diagnostic：完整空态谱含nonfinite/collapsed branches，有限低能gap仅保留追溯。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -11459,6 +11527,13 @@
             "original_sha256": "03790f21352f56fb8d3f2eb5e89b750837f7973c0cecda24693b4666e9e19769",
             "label": "gete.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/GeTe/gete-table-gw/results/paper_reported_values.json",
+            "sha256": "31ab49e09f4e8d18a1874fb661a085d44dac2eecf7576fd81aa66a606e002695",
+            "size_bytes": 2401,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -11619,6 +11694,33 @@
           "message": "Full raw and frozen-window anomalies retained separately; not an accepted gap. A smaller window is not a numerical repair; archive completeness remains blocked. Archived sidecar path value differs from the independently recomputed frozen window; both are retained as diagnostics."
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/GeTe/gete-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.86874,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–X–S–Y–Γ；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.3807,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–X–S–Y–Γ；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -11716,6 +11818,13 @@
             "original_sha256": "7678030242953166b238e48ef084bd6313aeec2322a00658c588ca5f7939fdaa",
             "label": "in2se3.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/In2Se3/in2se3-table-gw/results/paper_reported_values.json",
+            "sha256": "97224e4d2462b07824ab1f038e6839a69572e2332d7ed7609b00be72c8699270",
+            "size_bytes": 2156,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -11866,6 +11975,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/In2Se3/in2se3-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.79694,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–M interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.50302,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–M interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -11962,6 +12098,13 @@
             "original_sha256": "1f0becefc9dc0748e9b0e3cfd524d1b83a912d2b8eac6b60cac8d2b882bb5e2f",
             "label": "inse.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/InSe/inse-table-gw/results/paper_reported_values.json",
+            "sha256": "3ba734e54121075265174ae092d7eab8dd3a0608da591f39da117346fd3fa0e3",
+            "size_bytes": 2148,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -12112,6 +12255,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/InSe/inse-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.33567,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.43096,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–Γ interior → Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -12330,6 +12500,13 @@
             "label": "raw_input_receipt.json",
             "original_name": "raw_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-table-gw/results/paper_reported_values.json",
+            "sha256": "43636c75ff9d4dea611d51a6a9aae6a96fed8c3be0e80684e72456b83162691a",
+            "size_bytes": 2257,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -12485,6 +12662,33 @@
       "publication": {
         "status": "database_only"
       },
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/MoS2/mos2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.67364,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.37339,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。 MoS2其他EXX收敛系列的6.25292 eV不是本case的主表值，不替换本case归档EXX。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -12579,6 +12783,13 @@
             "original_sha256": "c0915caf88ebf20d269afd1c7c003d71fd508ba914bb9a31bc1402c3c6d73dea",
             "label": "mos2_ws2.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/paper_reported_values.json",
+            "sha256": "e2e107d3bf3553c54a8f3b90eeac3d457a0e9233423f859c9028fcf3d2bfdb11",
+            "size_bytes": 2574,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -12729,6 +12940,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.28859,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE Γ–K → GW Γ–Q；应用路径诊断，AA′六原子异双层；3D论文Fig.10同一结果按三位小数报告。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.8658,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE Γ–K → GW Γ–Q；应用路径诊断，AA′六原子异双层；3D论文Fig.10同一结果按三位小数报告。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -12826,6 +13064,13 @@
             "original_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
             "label": "mose2.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+            "sha256": "4b2b40b03c10f12129fcbd7be953c8fbfe7ea10f79a14440785e1c34baaf749f",
+            "size_bytes": 2481,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -12976,6 +13221,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.45218,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.088,
+            "unit": "eV",
+            "precision": 3,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -13072,6 +13344,13 @@
             "original_sha256": "93ae64edec8a765fba055848b98262d84116f575b9eccef8da4d6ad9dc438165",
             "label": "mote2.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoTe2/mote2-table-gw/results/paper_reported_values.json",
+            "sha256": "7313db5abeeb18a11532211daf9350f8f255f4f8056b7b0f57b0903f395ff0c8",
+            "size_bytes": 2413,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -13222,6 +13501,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/MoTe2/mote2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.07507,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K → GW K–Q；near-gap路径诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.65241,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K → GW K–Q；near-gap路径诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -13313,6 +13619,13 @@
             "original_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0",
             "label": "phosphorene.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/paper_reported_values.json",
+            "sha256": "e19a5326d9ac63e9634ff15118d9fa51113bbc64b467bdb856f202d3949ec5b4",
+            "size_bytes": 2133,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -13463,6 +13776,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.92758,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.93526,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -13568,6 +13908,13 @@
             "original_sha256": "15dd84f1b78d6e16d6d15a0f80dbd9b4fc468ece06d0028b64b944514dfec320",
             "label": "snse.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/SnSe/snse-table-gw/results/paper_reported_values.json",
+            "sha256": "33ee8ad526aff517fa36c9af2505a4c2427a888c6938b6dd5fac7d8af3e8da04",
+            "size_bytes": 2375,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -13728,6 +14075,33 @@
           "message": "Full raw and frozen-window anomalies retained separately; not an accepted gap. A smaller window is not a numerical repair; archive completeness remains blocked. Archived sidecar path value differs from the independently recomputed frozen window; both are retained as diagnostics."
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/SnSe/snse-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.94862,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.74577,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -13825,6 +14199,13 @@
             "original_sha256": "140d59495139e2b6b971bc1b6439d1643bd68272893547ee298249cc9708b9af",
             "label": "tis3.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/TiS3/tis3-table-gw/results/paper_reported_values.json",
+            "sha256": "84143a5cc12949678fe4cb265bc2a1af383e622d093dcc13d2c830a017eb5ac7",
+            "size_bytes": 2564,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -13975,6 +14356,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/TiS3/tis3-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.29455,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；论文明确rejected diagnostic：完整空态谱含nonfinite/collapsed branches，有限低能gap仅保留追溯。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 1.24805,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；论文明确rejected diagnostic：完整空态谱含nonfinite/collapsed branches，有限低能gap仅保留追溯。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -14071,6 +14479,13 @@
             "original_sha256": "47d1ccab05ada153f9f6c2a17ea8b261ceea27e97182c25713842d9eea1689d8",
             "label": "ws2.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/WS2/ws2-table-gw/results/paper_reported_values.json",
+            "sha256": "1a297d84fea89773460a90d35c2e4de303ed5b980386622efbfa02c9163852c3",
+            "size_bytes": 2058,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -14221,6 +14636,33 @@
           "source_sidecar_key": "methods.EXX.path_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/WS2/ws2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.80171,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.674,
+            "unit": "eV",
+            "precision": 3,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -14439,6 +14881,13 @@
             "label": "raw_input_receipt.json",
             "original_name": "raw_input_receipt.json",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/WSe2/wse2-table-gw/results/paper_reported_values.json",
+            "sha256": "4b0701eb7dd3682e779ada1506fd43dc55a979a9ed3edba4f27b776a6be7260a",
+            "size_bytes": 2432,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [],
@@ -14593,6 +15042,33 @@
       ],
       "publication": {
         "status": "database_only"
+      },
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/WSe2/wse2-table-gw/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.54824,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文只显示near-gap region，其Padé延拓稳定；不是完整谱基准声明。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          },
+          "GW": {
+            "value": 2.299,
+            "unit": "eV",
+            "precision": 3,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文只显示near-gap region，其Padé延拓稳定；不是完整谱基准声明。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
       "archive_completeness": {
         "status": "incomplete",
@@ -19582,6 +20058,13 @@
             "original_sha256": "10d95ce9eea7d3874133822e77143f250ce08f8fbcceffc96779bee6c21d821f",
             "label": "orbital_shape_audit.json",
             "transformation": "private paths and host identifiers redacted; scientific values retained"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/paper_reported_values.json",
+            "sha256": "4eb7d442da766ff4853753e6f3426f879eed0a96eed60d3bfb421d757a2a4a5e",
+            "size_bytes": 3726,
+            "label": "Paper-reported Table I values (DFT / GW)"
           }
         ],
         "logs": [
@@ -19811,6 +20294,33 @@
           "source_summary_key": "value"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
+          "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+          "pdf_page": 12,
+          "table": "I"
+        },
+        "evidence": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 4.68813,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(PBE) / ABACUS",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
+          },
+          "GW": {
+            "value": 6.94183,
+            "unit": "eV",
+            "precision": 5,
+            "column": "Eg(G0W0) / ABACUS+LibRPA",
+            "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
+          }
+        },
+        "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -20000,6 +20510,13 @@
             "original_sha256": "688b57a0e1623b5d504e9ff7ff2c80f31f649ddff6461f8cf02b29d50c5be2cf",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/AlAs/alas-paper-paper/results/paper_reported_values.json",
+            "sha256": "d86d07c411a5c5e85814f7d2502b59d1a1bc3cbbfb38ceda28f735b1a9be2df4",
+            "size_bytes": 1853,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -20185,6 +20702,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/AlAs/alas-paper-paper/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.427,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.008,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -20374,6 +20919,13 @@
             "original_sha256": "76b683dea4ec9ce14f6cabd3da21d91d4caefbea4a222626dd7f854366a36242",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/paper_reported_values.json",
+            "sha256": "c38f28c3110d905661670340aa8b21507179100c5ef92277b174b074aaeab7c8",
+            "size_bytes": 1867,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -20561,6 +21113,34 @@
           ]
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.607,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.374,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -20746,6 +21326,13 @@
             "original_sha256": "dea6fafacb973161faf413851e416b2219b763f3673ef758ebcba4e7b60ca825",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/paper_reported_values.json",
+            "sha256": "0fc66877ea24676def5f583861a691a7ce2b2b73c5c1492c36ab25b344ce7186",
+            "size_bytes": 1878,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -20929,6 +21516,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.191,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 1.576,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -21112,6 +21727,13 @@
             "original_sha256": "23dbeee66267e074e51a63bbced1199931895da9f11c40609d3d297613308624",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/paper_reported_values.json",
+            "sha256": "987b38a4cb98ea59f46eab6f07b42cb42509429e96ad077395958777b99d6453",
+            "size_bytes": 1867,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -21299,6 +21921,34 @@
           ]
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.186,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 1.762,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -21484,6 +22134,13 @@
             "original_sha256": "02296330c78ae9d9eebb7fda90765820306229050ddc2241a3306d770d194bb7",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/BN/bn-paper-sg15/results/paper_reported_values.json",
+            "sha256": "3eaf810c8593f48f010b599adfc46322de4daa5141267187d2c9a43df0743cde",
+            "size_bytes": 1844,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -21667,6 +22324,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/BN/bn-paper-sg15/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 4.584,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 6.324,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -21850,6 +22535,13 @@
             "original_sha256": "23dbeee66267e074e51a63bbced1199931895da9f11c40609d3d297613308624",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/paper_reported_values.json",
+            "sha256": "69189257a5dbc169e96148f537a50ae2edfee9507218d116eada1142880b5ac0",
+            "size_bytes": 1860,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -22037,6 +22729,34 @@
           ]
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.29,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.03,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -22211,6 +22931,13 @@
             "original_sha256": "f46756f3716c12a96773a8f9625f60d538f0e22e58e952c6dc12fc4e26adca08",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/paper_reported_values.json",
+            "sha256": "9e2a2d10403985b3d7387256af67b2c7da56d719c831417a122090c5d2b989d5",
+            "size_bytes": 1854,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -22394,6 +23121,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/C/c-paper-sg15_cs1e-5/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 4.187,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 5.549,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -22571,6 +23326,13 @@
             "original_sha256": "ab0770737d22c35972f264c2b2c98e3c320a1ad876f1ebe5eda6dfe47e999653",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/CaO/cao-paper-24freq/results/paper_reported_values.json",
+            "sha256": "31cc35e20038f660fb62bd8ab2cc433b52840c3ec6e3a46adee7e087acae2fcd",
+            "size_bytes": 1852,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -22756,6 +23518,34 @@
           ]
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/CaO/cao-paper-24freq/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 4.634,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 6.368,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -22935,6 +23725,13 @@
             "original_sha256": "43bd5ef9a9fa76296b46b1ccc1c807e094e67921c55e3d8fb86f98317c828d4e",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/CdS/cds-paper-debug/results/paper_reported_values.json",
+            "sha256": "566e74b03361c9b6fc81079cd554c53a5598fb277899627b7d690a797dde1d55",
+            "size_bytes": 1849,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -23118,6 +23915,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/CdS/cds-paper-debug/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.177,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.076,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -23297,6 +24122,13 @@
             "original_sha256": "23b2378c16b98c181066be5808cc5d5ef9f72d4c47b7093205eb89f59a18bdcc",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/paper_reported_values.json",
+            "sha256": "f0c8862a033e909864995b2141608449f45f0e446c240c29ad0fdf94c47212fb",
+            "size_bytes": 1870,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -23508,6 +24340,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.518,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 1.378,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -23687,6 +24547,13 @@
             "original_sha256": "14cbf58bcf7701816ff10b8b3a7abd7d876c5cfeb7cf54fb24dfc2d4f4cd726c",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/paper_reported_values.json",
+            "sha256": "f91206db596c02c7ad948c2db7953e6bb73df6d6755d683325e450694d785aff",
+            "size_bytes": 1854,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -23870,6 +24737,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/GaN/gan-paper-pca1e-6/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.662,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.857,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -24049,6 +24944,13 @@
             "original_sha256": "634329736bcd5e6fef8236a5be4a49369342915de0cc36687b2fc2d644dc6d99",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/paper_reported_values.json",
+            "sha256": "7e1f038415301945ab4faaf71d59057deeb4ed728af61c356a894970d42ea787",
+            "size_bytes": 1865,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -24216,6 +25118,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.622,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.245,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -24395,6 +25325,13 @@
             "original_sha256": "baebc9b0959ff2a28899109f72e0a02244448cbb7198201b8590b1ffa5d1a8a2",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/LiF/lif-paper-jy/results/paper_reported_values.json",
+            "sha256": "bcf7810499841b01744989ca21e7e4442629be2e47c57dfd919bffb0ef18ed4f",
+            "size_bytes": 1843,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -24578,6 +25515,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/LiF/lif-paper-jy/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 9.187,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 14.0,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -24757,6 +25722,13 @@
             "original_sha256": "315e8b13dbf3bb777d361dff91e16c2afebd3df97b7770838d3caa69dc6a9f88",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/MgO/mgo-paper-fix_gap/results/paper_reported_values.json",
+            "sha256": "3bd5bc4a4e7c453d6b97f28ab564066686e0a9965174facb9ce89b96dd7a5fe5",
+            "size_bytes": 1854,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -24940,6 +25912,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/MgO/mgo-paper-fix_gap/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 4.721,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 7.392,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -25124,6 +26124,13 @@
             "original_sha256": "315e8b13dbf3bb777d361dff91e16c2afebd3df97b7770838d3caa69dc6a9f88",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/paper_reported_values.json",
+            "sha256": "773fe5409082cd9609203c3ccaeabf98207bffebfa8d20729a25fd49708c94f5",
+            "size_bytes": 1852,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -25311,6 +26318,34 @@
           ]
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/NaCl/nacl-paper-sg15/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 5.088,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 7.832,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -25486,6 +26521,13 @@
             "original_sha256": "9f943f02bff65c8fa49efea23fd95b545382f8010a66df04b07e251ba3f8c579",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/Si/si-paper-all_kpath/results/paper_reported_values.json",
+            "sha256": "98c2d71dad400320e84cec0e81392caa81e31d5767264698000db2fe389a3b00",
+            "size_bytes": 1851,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -25669,6 +26711,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/Si/si-paper-all_kpath/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 0.561,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 1.06,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
@@ -25848,6 +26918,13 @@
             "original_sha256": "9f943f02bff65c8fa49efea23fd95b545382f8010a66df04b07e251ba3f8c579",
             "label": "band_kpath_info",
             "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/SiC/sic-paper-pca1e-6/results/paper_reported_values.json",
+            "sha256": "e57eabafc156d3a4f27076ddf08215dc32fb72043089c445e2adea1ac2dd27e7",
+            "size_bytes": 1853,
+            "label": "Paper-reported Table IV values (DFT / GW)"
           }
         ],
         "logs": [
@@ -26031,6 +27108,34 @@
           "source_summary_key": "gw_gap_ev"
         }
       ],
+      "paper_values": {
+        "schema_version": 1,
+        "source": {
+          "title": "G0W0 implementation based on the pseudopotential and numerical-atomic-orbital basis-set framework: Algorithms and benchmarks",
+          "document_sha256": "0ca389189baa0218b1667316f610ac20647fbe0b565e503dfd51116f6e17f408",
+          "pdf_page": 16,
+          "table": "IV",
+          "doi": "10.1103/47j8-8kll"
+        },
+        "evidence": "data/calculations/3d/SiC/sic-paper-pca1e-6/results/paper_reported_values.json",
+        "values": {
+          "DFT": {
+            "value": 1.373,
+            "unit": "eV",
+            "precision": 3,
+            "column": "PBE / ABACUS",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          },
+          "GW": {
+            "value": 2.255,
+            "unit": "eV",
+            "precision": 3,
+            "column": "G0W0@PBE / ABACUS+LibRPA",
+            "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+          }
+        },
+        "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+      },
       "archive_completeness": {
         "status": "incomplete",
         "issues": [

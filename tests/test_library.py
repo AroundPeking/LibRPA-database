@@ -38,6 +38,34 @@ class LibraryTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
+    def test_paper_extract_is_independent_and_hash_bound_without_certifying_upload(self):
+        import copy
+        evidence = "data/calculations/3d/Si/si-control/results/paper_reported_values.json"
+        paper = {"schema_version": 1, "evidence": evidence,
+                 "source": {"title": "Paper", "document_sha256": "a" * 64, "pdf_page": 16, "table": "IV"},
+                 "values": {method: {"value": value, "unit": "eV", "precision": 3,
+                                    "column": "ABACUS" if method == "DFT" else "ABACUS+LibRPA",
+                                    "scope": "Paper-reported, original path evidence separate"}
+                            for method, value in (("DFT", 0.561), ("GW", 1.060))},
+                 "notes": "EXX not reported in the main table"}
+        original = copy.deepcopy(self.case)
+        self.case["paper_values"] = paper
+        data = json.dumps({"case_id": self.case["id"], "paper_values": paper}).encode()
+        item = self._add_file(evidence, data, "results")
+        self.case["files"] = {"results": [item]}
+        self.lib.validate(self.root, [self.set], [self.case])
+        self.assertEqual(self.case["status"], original["status"])
+        issues = self.lib.completeness_issues(self.root, [self.set], self.case)
+        self.assertTrue(any("software" in issue for issue in issues))
+        self.assertTrue(any("band result" in issue for issue in issues))
+        paper["values"]["GW"]["value"] = 2.0
+        with self.assertRaisesRegex(ValueError, "extract and displayed"):
+            self.lib.validate(self.root, [self.set], [self.case])
+        paper["values"]["GW"]["value"] = 1.060
+        paper["evidence"] = "another/case/results/paper_reported_values.json"
+        with self.assertRaisesRegex(ValueError, "same-record"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
     def test_unknown_commits_are_explicitly_allowed(self):
         self.lib.validate(self.root, [self.set], [self.case])
 

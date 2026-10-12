@@ -130,6 +130,45 @@ def _validate_properties(case: dict, label: str, declared_paths: set[str]) -> No
                 _fail(f"{prop_label}.evidence: path must be a file declared by this calculation")
 
 
+def _validate_paper_values(root: Path, case: dict, label: str) -> None:
+    paper = case.get("paper_values")
+    if paper is None:
+        return
+    if not isinstance(paper, dict) or type(paper.get("schema_version")) is not int or paper["schema_version"] != 1:
+        _fail(f"{label}.paper_values: invalid schema")
+    source = paper.get("source", {})
+    if (not isinstance(source, dict) or not isinstance(source.get("title"), str) or not source["title"].strip()
+            or not isinstance(source.get("document_sha256"), str)
+            or not re.fullmatch(r"[0-9a-f]{64}", source["document_sha256"])
+            or type(source.get("pdf_page")) is not int or source["pdf_page"] < 1
+            or not isinstance(source.get("table"), str) or not source["table"].strip()):
+        _fail(f"{label}.paper_values: title, document SHA, PDF page and table are required")
+    evidence = paper.get("evidence")
+    owned = [item for item in case.get("files", {}).get("results", []) if item.get("path") == evidence]
+    if (not isinstance(evidence, str) or len(owned) != 1
+            or not evidence.endswith("/results/paper_reported_values.json")
+            or Path(owned[0]["path"]).parent.parent.name != case.get("id")):
+        _fail(f"{label}.paper_values: a same-record declared extract is required")
+    try:
+        excerpt = json.loads(_payload_bytes(root, owned[0]))
+    except (ValueError, OSError, UnicodeError) as exc:
+        _fail(f"{label}.paper_values: unreadable extract: {exc}")
+    if (not isinstance(excerpt, dict) or excerpt.get("case_id") != case.get("id") or excerpt.get("paper_values") != paper
+            or json.dumps(excerpt.get("paper_values"), sort_keys=True, allow_nan=False)
+            != json.dumps(paper, sort_keys=True, allow_nan=False)):
+        _fail(f"{label}.paper_values: extract and displayed metadata do not match")
+    values = paper.get("values")
+    if not isinstance(values, dict) or set(values) != {"DFT", "GW"}:
+        _fail(f"{label}.paper_values: these main tables report DFT and GW only, not EXX")
+    for method, item in values.items():
+        if (not isinstance(item, dict) or item.get("unit") != "eV"
+                or isinstance(item.get("value"), bool) or not isinstance(item.get("value"), (int, float))
+                or not math.isfinite(item["value"]) or type(item.get("precision")) is not int
+                or not 0 <= item["precision"] <= 8
+                or any(not isinstance(item.get(field), str) or not item[field].strip() for field in ("column", "scope"))):
+            _fail(f"{label}.paper_values.{method}: finite eV value, precision, column and scope are required")
+
+
 def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
     def check_private_paths(value: object, label: str) -> None:
         if isinstance(value, str) and PRIVATE_PATH.search(value):
@@ -239,6 +278,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                     _fail(f"{label}: publishable case contains an intermediate file")
 
         _validate_properties(case, label, declared_paths)
+        _validate_paper_values(root, case, label)
 
         if publication.get("status") == "publishable":
             if case.get("status") != "gw_validated":
