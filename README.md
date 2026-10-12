@@ -1,5 +1,13 @@
 # ABACUS + LibRPA GW database
 
+## [打开网页版 / Open web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)
+
+**[Browse materials](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)** · **[Browse basis files](https://aroundpeking.github.io/abacus-librpa-gw-database/database/#/basis)**
+
+Click the link above to search materials, view calculation details, and preview or
+download archived inputs and basis files. No installation, GitHub sign-in, or
+local server is needed. The files below are the source repository, not the live UI.
+
 This repository is the data companion to the [ABACUS + LibRPA GW basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill). It stores the hash-addressed PP, physical NAO, optional `for_aux` orbital, ABF, inputs, logs, figures, and KS/EXX/GW results collected for ABACUS + LibRPA workflows.
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
@@ -15,9 +23,9 @@ release index.
 
 ## Use
 
-Serve the repository as a static site to open the catalog, or read `database/data.json` directly. A record's `species` entries are exact production bindings only when the source audit proved them. `basis_candidates` are useful follow-up files whose exact production binding remains unproven. Failed and anomalous candidates stay in the database as evidence.
+Open the [live web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/) to browse without installing anything. For development, serve the repository as a static site, or read `database/data.json` directly. A record's `species` entries are exact production bindings only when the source audit proved them. `basis_candidates` are useful follow-up files whose exact production binding remains unproven. Failed and anomalous candidates stay in the database as evidence.
 
-The local catalog has separate Materials and Basis sets views. Search matches
+The catalog has separate Materials and Basis sets views. Search matches
 all query words across names, formulas, elements, basis links, properties,
 methods, commits, and public file names; formula subscripts and punctuation are
 normalized. The dimension filter keeps 2D and 3D records visibly separate. The
