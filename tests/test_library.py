@@ -3,6 +3,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import sys
 import tempfile
 import unittest
 
@@ -14,6 +15,7 @@ class LibraryTests(unittest.TestCase):
     def setUpClass(cls):
         script = ROOT / "scripts/library.py"
         assert script.exists(), "missing library integrity validator"
+        sys.path.insert(0, str(script.parent))
         spec = importlib.util.spec_from_file_location("library", script)
         cls.lib = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(cls.lib)
@@ -44,6 +46,61 @@ class LibraryTests(unittest.TestCase):
         self.case["basis_candidates"][0]["set_id"] = "C-missing"
         with self.assertRaisesRegex(ValueError, "unknown candidate"):
             self.lib.validate(self.root, [self.set], [self.case])
+
+    def _add_property_evidence(self):
+        item = self._add_file("calculations/si/GW_bands.dat", b"gap\n", "results")
+        self.case["files"] = {"results": [item]}
+        return item["path"]
+
+    def _property(self, evidence):
+        return {
+            "key": "band_gap", "category": "electronic", "label": "Band gap",
+            "method": "G0W0", "value": 1.2, "unit": "eV", "status": "reported",
+            "evidence": [evidence],
+        }
+
+    def test_evidence_linked_property_is_accepted(self):
+        evidence = self._add_property_evidence()
+        self.case["properties"] = [self._property(evidence)]
+        self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_property_requires_evidence(self):
+        self._add_property_evidence()
+        self.case["properties"] = [self._property("data/calculations/si/missing.dat")]
+        with self.assertRaisesRegex(ValueError, "evidence"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_property_category_must_be_a_slug(self):
+        evidence = self._add_property_evidence()
+        entry = self._property(evidence)
+        entry["category"] = "Topological properties"
+        self.case["properties"] = [entry]
+        with self.assertRaisesRegex(ValueError, "category"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_property_evidence_must_belong_to_same_calculation(self):
+        self._add_property_evidence()
+        self.case["properties"] = [self._property("elements/Si/pseudopotentials/test.upf")]
+        with self.assertRaisesRegex(ValueError, "declared"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_property_key_category_and_method_must_be_unique(self):
+        evidence = self._add_property_evidence()
+        self.case["properties"] = [self._property(evidence), self._property(evidence)]
+        with self.assertRaisesRegex(ValueError, "duplicate property"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_property_values_accept_json_objects(self):
+        evidence = self._add_property_evidence()
+        entry = self._property(evidence)
+        entry["key"] = "invariant"
+        entry["category"] = "topological"
+        entry["label"] = "Z2 invariant"
+        entry["method"] = "Wilson loop"
+        entry["value"] = {"spin_up": 1, "spin_down": 1}
+        entry["unit"] = "dimensionless"
+        self.case["properties"] = [entry]
+        self.lib.validate(self.root, [self.set], [self.case])
 
     def test_unlinked_historical_case_requires_missing_evidence(self):
         self.case["species"] = []

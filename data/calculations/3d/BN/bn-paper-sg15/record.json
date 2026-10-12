@@ -242,5 +242,46 @@
     "paper_gap_ev": 6.447,
     "paper_difference_abs_ev": 0.123,
     "commit_resolution": "unique local Git object matching logged prefix"
-  }
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 4.5840938,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/BN/bn-paper-sg15/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 13.0756687,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/BN/bn-paper-sg15/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 6.3242668,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/BN/bn-paper-sg15/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ]
 }

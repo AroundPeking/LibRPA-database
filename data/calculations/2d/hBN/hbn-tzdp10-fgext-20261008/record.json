@@ -4922,5 +4922,33 @@
   "missing": [],
   "source": {
     "collection": "hBN f/g extended direct-mixed-Fourier diagnostic"
-  }
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 4.688128,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "pbe_gap_ev"
+    },
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "GW raw-band-5 frontier path gap",
+      "method": "GW path",
+      "value": 6.94183,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

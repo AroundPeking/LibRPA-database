@@ -7,8 +7,16 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "Ge", "set_id": "Ge-Dojo-NC-SR-d7e00de0eca1", "scope": "contextual historical producer pair; exact calculation binding pending"},
-    {"element": "Te", "set_id": "Te-Dojo-NC-SR-d80b74a2c848", "scope": "contextual historical producer pair; exact calculation binding pending"}
+    {
+      "element": "Ge",
+      "set_id": "Ge-Dojo-NC-SR-d7e00de0eca1",
+      "scope": "contextual historical producer pair; exact calculation binding pending"
+    },
+    {
+      "element": "Te",
+      "set_id": "Te-Dojo-NC-SR-d80b74a2c848",
+      "scope": "contextual historical producer pair; exact calculation binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -145,5 +153,20 @@
     "occupation_counts_match": false,
     "warning": "EXX archive has 46 occupied states, while the GTH KS/GW bundle has 30; curves are retained for provenance but are not a matched three-method benchmark.",
     "methods_are_separate_producers": true
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 1.3807,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/GeTe/gete-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

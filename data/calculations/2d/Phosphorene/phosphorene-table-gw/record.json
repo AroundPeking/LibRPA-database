@@ -7,7 +7,11 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "P", "set_id": "P-Dojo-NC-SR-c5d36e93d8c7", "scope": "contextual atomic-generation candidate; exact GW binding pending"}
+    {
+      "element": "P",
+      "set_id": "P-Dojo-NC-SR-c5d36e93d8c7",
+      "scope": "contextual atomic-generation candidate; exact GW binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -144,5 +148,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 1.93526,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

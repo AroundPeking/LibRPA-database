@@ -13,22 +13,36 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
+      - name: 检查Pages配置（须先在Settings → Pages选择GitHub Actions）
+        uses: actions/configure-pages@v5
+        with:
+          enablement: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - run: python scripts/library.py --check-catalog
       - run: python scripts/build_indexes.py --check
       - run: python scripts/public_scan.py .
+      - run: python -m unittest discover -s tests -v
+      - run: node --test tests/*.mjs
+      - run: python scripts/build_site.py --output _site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     steps:
       - id: deployment

@@ -248,5 +248,20 @@
     "paper_difference_abs_ev": 0.064,
     "commit_resolution": "unique local Git object matching logged prefix",
     "asset_limitation": "The archived case has no exact PP/NAO payload in the imported source; unresolved aliases are retained for audit only."
-  }
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 2.3736468,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ]
 }

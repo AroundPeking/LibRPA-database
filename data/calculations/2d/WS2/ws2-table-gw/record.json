@@ -7,8 +7,16 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "W", "set_id": "W-GTH-759520698480", "scope": "contextual producer-used candidate; exact GW binding pending"},
-    {"element": "S", "set_id": "S-GTH-7d963648ee3b", "scope": "contextual producer-used candidate; exact GW binding pending"}
+    {
+      "element": "W",
+      "set_id": "W-GTH-759520698480",
+      "scope": "contextual producer-used candidate; exact GW binding pending"
+    },
+    {
+      "element": "S",
+      "set_id": "S-GTH-7d963648ee3b",
+      "scope": "contextual producer-used candidate; exact GW binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -145,5 +153,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 2.674,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/WS2/ws2-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

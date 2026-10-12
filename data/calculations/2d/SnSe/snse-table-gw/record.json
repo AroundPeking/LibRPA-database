@@ -7,8 +7,16 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "Sn", "set_id": "Sn-Dojo-NC-SR-caa5226d604e", "scope": "contextual matched PBE pair; exact GW binding pending"},
-    {"element": "Se", "set_id": "Se-Dojo-NC-SR-7c3a95ba989c", "scope": "contextual matched PBE pair; exact GW binding pending"}
+    {
+      "element": "Sn",
+      "set_id": "Sn-Dojo-NC-SR-caa5226d604e",
+      "scope": "contextual matched PBE pair; exact GW binding pending"
+    },
+    {
+      "element": "Se",
+      "set_id": "Se-Dojo-NC-SR-7c3a95ba989c",
+      "scope": "contextual matched PBE pair; exact GW binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -145,5 +153,20 @@
     "occupation_counts_match": false,
     "warning": "KS, EXX, and GW are retained from the available archives but have different occupied-state counts; this is a traceability figure, not a matched three-method benchmark.",
     "methods_are_separate_producers": true
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 1.74577,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

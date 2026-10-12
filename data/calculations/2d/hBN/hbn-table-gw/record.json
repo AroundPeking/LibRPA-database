@@ -7,10 +7,26 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "B", "set_id": "B-GTH-e07d6fb55c4a", "scope": "contextual hBN extension candidate; exact older case binding pending"},
-    {"element": "N", "set_id": "N-GTH-f896bb84c70f", "scope": "contextual hBN extension candidate; exact older case binding pending"},
-    {"element": "B", "set_id": "B-SG15-4a1c4e291908", "scope": "contextual alternative PP family; exact older case binding pending"},
-    {"element": "N", "set_id": "N-SG15-da2244926434", "scope": "contextual alternative PP family; exact older case binding pending"}
+    {
+      "element": "B",
+      "set_id": "B-GTH-e07d6fb55c4a",
+      "scope": "contextual hBN extension candidate; exact older case binding pending"
+    },
+    {
+      "element": "N",
+      "set_id": "N-GTH-f896bb84c70f",
+      "scope": "contextual hBN extension candidate; exact older case binding pending"
+    },
+    {
+      "element": "B",
+      "set_id": "B-SG15-4a1c4e291908",
+      "scope": "contextual alternative PP family; exact older case binding pending"
+    },
+    {
+      "element": "N",
+      "set_id": "N-SG15-da2244926434",
+      "scope": "contextual alternative PP family; exact older case binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -147,5 +163,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 6.68084,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

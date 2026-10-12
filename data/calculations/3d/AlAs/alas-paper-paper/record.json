@@ -250,5 +250,46 @@
     "paper_difference_abs_ev": 0.046,
     "commit_resolution": "unique local Git object matching logged prefix",
     "asset_limitation": "The archived case has no exact PP/NAO payload in the imported source; unresolved aliases are retained for audit only."
-  }
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 1.4270794,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 6.5370239,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 2.0082507,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ]
 }

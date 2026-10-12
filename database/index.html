@@ -3,67 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A searchable public catalog of ABACUS and LibRPA material calculations and basis records.">
-  <title>ABACUS + LibRPA materials database</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Explore 2D and 3D ABACUS + LibRPA calculations, electronic bands, archived inputs, and traceable pseudopotential and basis files.">
+  <title>Materials database · ABACUS + LibRPA</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%2310161e'/%3E%3Cpath d='M10 13L20 7L30 13V27L20 33L10 27Z M10 13L30 27 M30 13L10 27' fill='none' stroke='%237cddc4' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=20261012">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#/">ABACUS <span>+</span> LibRPA</a>
+      <a class="brand" href="#/" aria-label="ABACUS + LibRPA database home">
+        <svg width="32" height="36" viewBox="0 0 32 36" fill="none" aria-hidden="true"><path d="M16 2 30 10v16L16 34 2 26V10Z M2 10l28 16 M30 10 2 26 M16 2v32" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span>ABACUS <b>+</b> LibRPA<small>MATERIALS DATABASE</small></span>
+      </a>
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#/">Materials</a>
-        <a href="#/basis">Basis library</a>
-        <a href="https://github.com/AroundPeking/abacus-librpa-gw-database">GitHub</a>
+        <a href="#/" data-nav="materials">Materials</a>
+        <a href="#/basis" data-nav="basis">Basis library</a>
+        <a href="https://github.com/AroundPeking/abacus-librpa-gw-database" class="external-nav">Source code <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
-
-  <main>
+  <main id="main">
     <section id="home-view" aria-labelledby="page-title">
       <div class="intro">
-        <p class="kicker">OPEN CALCULATION CATALOG</p>
-        <h1 id="page-title">Materials calculated with ABACUS + LibRPA</h1>
-        <p class="intro-copy">Browse the 2D and 3D records, then open a material to inspect its bands, numerical results, basis linkage, inputs, and code provenance.</p>
+        <div><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Explore materials.</h1><p id="intro-copy">Electronic structure, calculation inputs, and the basis behind each result.<br>Browse the evidence, not just the numbers.</p></div>
+        <a class="intro-link" href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contribute a calculation <span aria-hidden="true">↗</span></a>
       </div>
-
-      <section class="search-panel" aria-label="Catalog search and filters">
-        <label class="search-box" for="search">
-          <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="search" type="search" placeholder="Search material, formula, element, or record ID">
-        </label>
-        <fieldset class="dimension-filter">
-          <legend>Dimension</legend>
-          <label><input type="radio" name="dimension" value="all" checked>All</label>
-          <label><input type="radio" name="dimension" value="2d">2D</label>
-          <label><input type="radio" name="dimension" value="3d">3D</label>
-        </fieldset>
-        <label class="select-control" for="status-filter"><span id="status-label">Publication</span>
-          <select id="status-filter"><option value="all">All records</option></select>
-        </label>
-        <label class="select-control" for="sort"><span>Sort</span>
-          <select id="sort"><option value="material">Material</option><option value="gap">GW gap</option></select>
-        </label>
-      </section>
-
-      <section class="stats" id="stats" aria-live="polite"></section>
-      <div class="catalog-heading">
-        <div>
-          <p class="kicker" id="catalog-kicker">MATERIALS</p>
-          <h2 id="catalog-title">Calculation records</h2>
+      <div class="stats" id="stats" aria-label="Database inventory"></div>
+      <div class="browser-layout">
+        <aside class="filter-panel" aria-label="Filter records">
+          <div class="filter-heading"><h2>Refine results</h2><button id="reset-filters" type="button" class="text-button">Reset</button></div>
+          <fieldset class="dimension-filter"><legend>DIMENSION</legend>
+            <label><input type="radio" name="dimension" value="all" checked><span>All dimensions</span><b data-dimension-count="all"></b></label>
+            <label><input type="radio" name="dimension" value="2d"><span>2D materials</span><b data-dimension-count="2d"></b></label>
+            <label><input type="radio" name="dimension" value="3d"><span>3D materials</span><b data-dimension-count="3d"></b></label>
+          </fieldset>
+          <label class="select-control" for="element-filter"><span>ELEMENT</span><select id="element-filter"><option value="all">All elements</option></select></label>
+          <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Archived inputs</option><option value="missing">Inputs not archived</option></select></label>
+          <label class="select-control" id="status-filter-control" for="status-filter" hidden><span>PUBLICATION</span><select id="status-filter"><option value="all">All states</option></select></label>
+          <div class="filter-note"><span class="note-marker" aria-hidden="true">i</span><p>Archived does not mean validated. Each record retains its original scope, missing evidence, and code provenance.</p></div>
+          <a class="sidebar-link" href="https://github.com/AroundPeking/abacus-librpa-gw-basis-skill">Basis selection guide <span aria-hidden="true">↗</span></a>
+        </aside>
+        <div class="catalog-content">
+          <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
+          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><span class="search-tip">Material · element · method · file · commit</span></div>
+          <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gap">GW gap ↓</option></select></label></div>
+          <div id="catalog" class="catalog" aria-busy="true"></div>
+          <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
+          <p class="catalog-footnote" id="catalog-footnote">One row per calculation. Gaps are in eV; a dash means not reported. Open a record to inspect its definition and evidence.</p>
+          <div id="load-error" class="notice warning" role="alert" hidden></div>
         </div>
-        <p id="result-count" class="result-count" aria-live="polite">Loading records…</p>
       </div>
-      <div id="catalog" class="catalog" aria-live="polite"></div>
-      <p id="empty" class="empty" hidden>No records match these filters.</p>
-      <footer>
-        <span>Values and labels follow the provenance recorded for each calculation.</span>
-        <a href="../CONTRIBUTING.md">How to contribute</a>
-      </footer>
     </section>
-
     <section id="detail-view" class="detail-view" hidden aria-live="polite"></section>
+    <footer class="site-footer"><span>ABACUS + LibRPA <span aria-hidden="true">/</span> Open calculation archive</span><div><a href="data.json">Catalog JSON</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
   </main>
-  <script src="app.js?v=20261011c" defer></script>
+  <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
+  <noscript><p class="notice">JavaScript is needed for searching. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
+  <script type="module" src="app.js?v=20261012"></script>
 </body>
 </html>

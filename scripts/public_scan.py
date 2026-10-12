@@ -25,10 +25,11 @@ def main() -> int:
             continue
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".pdf", ".sqlite", ".pyc"}:
             continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        for line_number, line in enumerate(text.splitlines(), 1):
-            if FORBIDDEN.search(line):
-                failures.append(f"{path}:{line_number}: {line.strip()}")
+        # Large output logs are scanned incrementally, not duplicated in memory.
+        with path.open(encoding="utf-8", errors="replace") as stream:
+            for line_number, line in enumerate(stream, 1):
+                if FORBIDDEN.search(line):
+                    failures.append(f"{path}:{line_number}: {line.strip()}")
     if failures:
         print("private content found:", file=sys.stderr)
         print("\n".join(failures), file=sys.stderr)

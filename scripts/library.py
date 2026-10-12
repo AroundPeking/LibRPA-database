@@ -8,6 +8,8 @@ import json
 import re
 from pathlib import Path, PurePosixPath
 
+from asset_names import enrich_catalog
+
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
 STATUSES = {
@@ -24,6 +26,8 @@ INTERMEDIATE_PATH = re.compile(
     r"(?:\.tmp|\.part|\.bak|\.wfc|\.cube)$",
     re.IGNORECASE,
 )
+PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
+PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
 
 
 def _fail(message: str) -> None:
@@ -45,7 +49,8 @@ def _file(root: Path, item: dict, label: str) -> None:
     digest = item.get("sha256")
     if not isinstance(digest, str) or not SHA256.fullmatch(digest):
         _fail(f"{label}: expected lowercase SHA-256")
-    actual = hashlib.sha256(full.read_bytes()).hexdigest()
+    with full.open("rb") as stream:
+        actual = hashlib.file_digest(stream, "sha256").hexdigest()
     if digest != actual:
         _fail(f"{label}: SHA-256 mismatch ({digest} != {actual})")
 
@@ -73,6 +78,52 @@ def _require_public_source(item: dict, label: str) -> None:
         _fail(f"{label}: publishable basis requires a license")
     if source.get("redistribution") != "permitted":
         _fail(f"{label}: redistribution must be explicitly permitted")
+
+
+def _json_value(value: object) -> bool:
+    if value is None or isinstance(value, (str, bool, int)):
+        return True
+    if isinstance(value, float):
+        return value == value and abs(value) != float("inf")
+    if isinstance(value, list):
+        return all(_json_value(entry) for entry in value)
+    if isinstance(value, dict):
+        return all(isinstance(key, str) and _json_value(entry) for key, entry in value.items())
+    return False
+
+
+def _validate_properties(case: dict, label: str, declared_paths: set[str]) -> None:
+    properties = case.get("properties", [])
+    if not isinstance(properties, list):
+        _fail(f"{label}.properties: expected a list")
+    seen = set()
+    required_strings = ("key", "category", "label", "method", "unit", "status")
+    for index, item in enumerate(properties):
+        prop_label = f"{label}.properties[{index}]"
+        if not isinstance(item, dict):
+            _fail(f"{prop_label}: expected an object")
+        for field in required_strings:
+            value = item.get(field)
+            if not isinstance(value, str) or not value.strip():
+                _fail(f"{prop_label}.{field}: expected a non-empty string")
+        if not PROPERTY_CATEGORY.fullmatch(item["category"]):
+            _fail(f"{prop_label}.category: expected a lowercase slug")
+        if item["status"] not in PROPERTY_STATUSES:
+            _fail(f"{prop_label}.status: unsupported status {item['status']!r}")
+        if "value" not in item or item["value"] is None or not _json_value(item["value"]):
+            _fail(f"{prop_label}.value: expected a JSON scalar, array, or object")
+        identity = (item["category"], item["key"], item["method"])
+        if identity in seen:
+            _fail(f"{prop_label}: duplicate property category/key/method")
+        seen.add(identity)
+        evidence = item.get("evidence")
+        if not isinstance(evidence, list) or not evidence:
+            _fail(f"{prop_label}.evidence: expected a non-empty list of declared files")
+        for path in evidence:
+            parsed = PurePosixPath(path) if isinstance(path, str) else None
+            if (parsed is None or parsed.is_absolute() or ".." in parsed.parts
+                    or path not in declared_paths):
+                _fail(f"{prop_label}.evidence: path must be a file declared by this calculation")
 
 
 def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
@@ -115,6 +166,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                 _fail(f"{label}: publishable basis requires linked calculations")
         by_id[set_id] = item
 
+    all_case_ids = {case.get("id") for case in cases if isinstance(case.get("id"), str)}
     case_ids = set()
     case_publications = {}
     for index, case in enumerate(cases):
@@ -169,14 +221,20 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             if commit is not None and (not isinstance(commit, str) or not COMMIT.fullmatch(commit)):
                 _fail(f"{label}: software.{name}.commit must be a full commit or null")
         files = case.get("files", {})
+        if not isinstance(files, dict):
+            _fail(f"{label}: files must be an object")
+        declared_paths = set()
         for group in GROUPS:
             values = files.get(group, [])
             if not isinstance(values, list):
                 _fail(f"{label}: files.{group} must be a list")
             for n, file_item in enumerate(values):
                 _file(root, file_item, f"{label}.files.{group}[{n}]")
+                declared_paths.add(file_item["path"])
                 if publication.get("status") == "publishable" and INTERMEDIATE_PATH.search(file_item["path"]):
                     _fail(f"{label}: publishable case contains an intermediate file")
+
+        _validate_properties(case, label, declared_paths)
 
         if publication.get("status") == "publishable":
             if case.get("status") != "gw_validated":
@@ -206,7 +264,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                 _fail(f"{label}: recommendation requires a GW-validated case")
             if not recommendation.get("scope") or not recommendation.get("evidence_case_ids"):
                 _fail(f"{label}: recommendation needs a narrow scope and evidence")
-            if any(ref not in case_ids and ref != case_id for ref in recommendation["evidence_case_ids"]):
+            if any(ref not in all_case_ids for ref in recommendation["evidence_case_ids"]):
                 _fail(f"{label}: recommendation references an unknown case")
 
     for set_id, publication in set_publications.items():
@@ -232,11 +290,11 @@ def load_records(root: Path) -> tuple[list[dict], list[dict]]:
 def build_catalog(root: Path) -> dict:
     sets, cases = load_records(root)
     validate(root, sets, cases)
-    return {
+    return enrich_catalog({
         "schema_version": 1,
         "basis_sets": sets,
         "calculations": cases,
-    }
+    })
 
 
 def sync_catalog(root: Path, catalog: dict, write: bool = False) -> None:

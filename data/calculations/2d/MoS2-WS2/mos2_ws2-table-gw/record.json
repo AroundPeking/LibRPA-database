@@ -7,9 +7,21 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "Mo", "set_id": "Mo-GTH-5d48871deb09", "scope": "contextual producer-used candidate; exact material binding pending"},
-    {"element": "S", "set_id": "S-GTH-7d963648ee3b", "scope": "contextual producer-used candidate; exact material binding pending"},
-    {"element": "W", "set_id": "W-GTH-759520698480", "scope": "contextual producer-used candidate; exact material binding pending"}
+    {
+      "element": "Mo",
+      "set_id": "Mo-GTH-5d48871deb09",
+      "scope": "contextual producer-used candidate; exact material binding pending"
+    },
+    {
+      "element": "S",
+      "set_id": "S-GTH-7d963648ee3b",
+      "scope": "contextual producer-used candidate; exact material binding pending"
+    },
+    {
+      "element": "W",
+      "set_id": "W-GTH-759520698480",
+      "scope": "contextual producer-used candidate; exact material binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -146,5 +158,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 1.8658,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

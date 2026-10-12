@@ -7,8 +7,16 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "In", "set_id": "In-Dojo-NC-SR-42d20f9dfceb", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
-    {"element": "Se", "set_id": "Se-Dojo-NC-SR-7c3a95ba989c", "scope": "contextual matched PBE candidate; exact GW binding pending"}
+    {
+      "element": "In",
+      "set_id": "In-Dojo-NC-SR-42d20f9dfceb",
+      "scope": "contextual atomic-generation candidate; exact GW binding pending"
+    },
+    {
+      "element": "Se",
+      "set_id": "Se-Dojo-NC-SR-7c3a95ba989c",
+      "scope": "contextual matched PBE candidate; exact GW binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -145,5 +153,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 2.43096,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/InSe/inse-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

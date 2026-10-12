@@ -7,8 +7,16 @@
   "status": "gw_diagnostic",
   "species": [],
   "basis_candidates": [
-    {"element": "Ti", "set_id": "Ti-Dojo-NC-SR-ca1f36a7957f", "scope": "contextual atomic-generation candidate; exact GW binding pending"},
-    {"element": "S", "set_id": "S-Dojo-NC-SR-87f36c0d139f", "scope": "contextual atomic-generation candidate; exact GW binding pending"}
+    {
+      "element": "Ti",
+      "set_id": "Ti-Dojo-NC-SR-ca1f36a7957f",
+      "scope": "contextual atomic-generation candidate; exact GW binding pending"
+    },
+    {
+      "element": "S",
+      "set_id": "S-Dojo-NC-SR-87f36c0d139f",
+      "scope": "contextual atomic-generation candidate; exact GW binding pending"
+    }
   ],
   "software": {
     "abacus": {
@@ -145,5 +153,20 @@
     "occupation_counts_match": true,
     "warning": null,
     "methods_are_separate_producers": false
-  }
+  },
+  "properties": [
+    {
+      "key": "summary_value",
+      "category": "electronic",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "value": 1.24805,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/2d/TiS3/tis3-table-gw/results/GW_bands.dat"
+      ],
+      "source_summary_key": "value"
+    }
+  ]
 }

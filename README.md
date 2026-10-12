@@ -17,13 +17,67 @@ release index.
 
 Serve the repository as a static site to open the catalog, or read `database/data.json` directly. A record's `species` entries are exact production bindings only when the source audit proved them. `basis_candidates` are useful follow-up files whose exact production binding remains unproven. Failed and anomalous candidates stay in the database as evidence.
 
-The local catalog has separate Materials and Basis sets views. Search accepts a
-material, formula, element, set ID, or calculation ID; the dimension filter
-keeps 2D and 3D records visibly separate. The material list stays compact and
-opens a dedicated detail page for each record. That page contains the DFT/EXX/GW
-figures, raw band files, RPA fields when recorded, validation gates, input
-files, logs, and ABACUS/LibRPA commits. Figures are deliberately kept off the
-list so the catalog remains usable when more materials are added.
+The local catalog has separate Materials and Basis sets views. Search matches
+all query words across names, formulas, elements, basis links, properties,
+methods, commits, and public file names; formula subscripts and punctuation are
+normalized. The dimension filter keeps 2D and 3D records visibly separate. The
+material list stays compact and opens a detail page for each record. That page
+contains DFT/EXX/GW figures, raw band files, provenance, and a category-based
+properties table. Electronic results are migrated from the recorded summaries;
+Topology, Optical, Magnetic, Structural, and Other remain ready for evidence-
+linked contributions without implying those results already exist.
+
+For a local preview, run `python3 -m http.server 8765 --bind 127.0.0.1` from the
+repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
+`fetch` and cannot reliably load its JSON when opened as a local file.
+
+### Inputs and readable asset names
+
+Open a calculation and choose **View inputs** or **Input files**. Every archived
+input has a read-only text preview and a download link; nested calculation
+stages retain their archive names to avoid overwriting same-named files. The
+current archive has input files for **18 of 33 calculations** (157 files).
+The other 15 records explicitly say **Inputs not archived**; result files and
+candidate basis sets do not establish that the missing inputs exist.
+
+The **Pseudopotentials & basis** section links exact species bindings to their
+PP, physical NAO, optional `for_aux`, and ABF files. The Basis library also has
+its own detail pages, including generation-only and unbound records. Candidate
+links are labelled separately from exact production bindings.
+
+Hash-addressed storage is intentional and unchanged. The generated catalog
+adds `display_name`, `download_name`, `name_source`, and `original_names`:
+recorded labels or exact calculation aliases are preferred. Otherwise a unique
+`element_family_role_short-hash.ext` descriptive alias is displayed with an
+explicit original-name-missing warning. The immutable path and full SHA-256
+remain visible for every file; aliases do not invent original filenames.
+
+### Deploy with GitHub Pages
+
+1. In the repository's **Settings → Pages**, select **GitHub Actions** as the
+   source. This repository-level setting is required once; adding a workflow
+   alone does not enable Pages. A `404` or “Ensure GitHub Pages has been enabled”
+   at the deployment step is not a Python build or data-validation failure.
+2. Push to `main`, or run **Actions → Publish database → Run workflow**.
+   The workflow checks Pages configuration, validates the data and indexes,
+   runs Python/JavaScript tests, and builds a restricted `_site` artifact.
+   It does not publish design drafts, private Git state, tests, or caches.
+3. Check the deployment job's returned URL and `build-info.json`. The latter
+   records the deployed source commit and `source_dirty` state; a local build
+   with uncommitted changes is not represented as an exact commit build. A
+   successful local build is not proof that the site is online. Set the repository's **About → Website** to the
+   confirmed deployment URL, not to a guessed or placeholder address.
+
+To inspect the exact deployable output locally, use a new or empty target:
+
+```bash
+python3 scripts/build_site.py --output _site
+python3 -m http.server 8766 --bind 127.0.0.1 --directory _site
+```
+
+The builder refuses a non-empty output directory or any target containing
+source files. Choose a new output path for another build; it never deletes
+an existing directory automatically.
 
 For archived 3D ABACUS band tables, the checked-in SVG figures can be rebuilt
 with `python3 scripts/generate_band_figures.py`. The script preserves the raw
@@ -33,16 +87,27 @@ The generation protocol, validation ladder, and ABACUS-to-LibRPA handoff are doc
 
 ## Validate
 
-All checks are static and use the Python standard library; they do not compile ABACUS or LibRPA.
+Data checks use the Python standard library; frontend unit tests use Node.js
+22 or newer. These checks do not compile ABACUS or LibRPA.
 
 ```bash
 python3 scripts/library.py --write-catalog
 python3 scripts/build_indexes.py --write
 python3 scripts/public_scan.py .
 python3 -m unittest discover -s tests -v
+node --test tests/*.mjs
 ```
 
-When adding a record, preserve the original and published SHA-256 values, record any redaction, use repository-relative paths, and verify redistribution terms for every third-party payload. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+An optional real-browser regression is available as `node tests/browser_smoke.cjs`
+when Playwright is installed in the caller's environment. It defaults to the
+local preview above; set `CATALOG_URL` to an actual deployed catalog URL to
+repeat the same checks online. It verifies search, property tabs, file
+previews, native downloads, mobile layout, error states, and every archived
+input's HTTP content against its SHA-256. It is not a scientific acceptance test.
+
+When adding a record, preserve the original and published SHA-256 values,
+record any redaction, use repository-relative paths, and verify redistribution
+terms for every third-party payload. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## License
 
