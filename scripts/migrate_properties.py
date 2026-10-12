@@ -592,7 +592,8 @@ def import_paper_values(root: Path, audit_path: Path, write: bool = False) -> di
             raise ValueError("预审后论文摘录被修改，拒绝写入")
         for path, before, record_data, evidence_path, evidence_before, evidence_data in plans:
             if evidence_before is None:
-                evidence_path.parent.mkdir(exist_ok=True)
+                if not evidence_path.parent.is_dir():
+                    evidence_path.parent.mkdir(exist_ok=True)
                 _atomic_save(evidence_path, evidence_data, None)
             if record_data is not None:
                 _atomic_save(path, record_data, before)

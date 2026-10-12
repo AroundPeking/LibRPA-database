@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "Na-backup-38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
+  "element": "Na",
+  "family": "historical_backup",
+  "role_hashes_sha256": "38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
+  "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Historical 3D original-path compute backup",
+    "receipts": [
+      "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
+    ],
+    "license": "unknown",
+    "redistribution": "unknown"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Na/pseudopotentials/036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1.upf",
+      "sha256": "036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1",
+      "size_bytes": 90002,
+      "original_sha256": "036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1",
+      "label": "Na_ONCV_PBE-1.0.upf",
+      "original_name": "Na_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Na/orbitals/b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61.orb",
+      "sha256": "b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61",
+      "size_bytes": 257802,
+      "original_sha256": "b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61",
+      "label": "Na_gga_10au_100Ry_6s3p2d.orb",
+      "original_name": "Na_gga_10au_100Ry_6s3p2d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Na/auxiliary/8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0.abfs",
+      "sha256": "8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0",
+      "size_bytes": 1953140,
+      "original_sha256": "8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0",
+      "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 19,
+          "P": 15,
+          "D": 13,
+          "F": 11,
+          "G": 10,
+          "H": 5,
+          "I": 4
+        },
+        "basis_dimension": 403
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "unknown; not inferred from historical usage"
+  },
+  "used_by": [
+    "nacl-paper-sg15"
+  ]
+}

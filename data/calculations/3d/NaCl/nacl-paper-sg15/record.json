@@ -8,31 +8,29 @@
   "species": [
     {
       "element": "Na",
-      "set_id": "Na-PP-unresolved-ca34912849fe",
+      "set_id": "Na-backup-38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
       "asset_aliases": {
         "pp": "Na_ONCV_PBE-1.0.upf",
         "nao": "Na_gga_10au_100Ry_6s3p2d.orb",
         "abf": "Na_6s3p2d1f1g_pca1e-6.abfs"
       },
-      "missing_roles": [
-        "pp",
-        "nao"
-      ],
-      "linkage": "partial archive; no substitution made"
+      "missing_roles": [],
+      "linkage": "original-path backup association; not a runtime sealed asset manifest",
+      "previous_set_id": "Na-PP-unresolved-ca34912849fe",
+      "source_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
     },
     {
       "element": "Cl",
-      "set_id": "Cl-PP-unresolved-264140e3d907",
+      "set_id": "Cl-backup-69587b42af54b0cddabdcecfaa7cbc041743898252ed6d10e237cb233e21b3f8",
       "asset_aliases": {
         "pp": "Cl_ONCV_PBE-1.0.upf",
         "nao": "Cl_gga_8au_100Ry_3s3p2d.orb",
         "abf": "Cl_8au3s3p2d1f1g_pca1e-6.abfs"
       },
-      "missing_roles": [
-        "pp",
-        "nao"
-      ],
-      "linkage": "partial archive; no substitution made"
+      "missing_roles": [],
+      "linkage": "original-path backup association; not a runtime sealed asset manifest",
+      "previous_set_id": "Cl-PP-unresolved-264140e3d907",
+      "source_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
     }
   ],
   "software": {
@@ -182,6 +180,16 @@
         "sha256": "773fe5409082cd9609203c3ccaeabf98207bffebfa8d20729a25fd49708c94f5",
         "size_bytes": 1852,
         "label": "Paper-reported Table IV values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json",
+        "sha256": "d10b06f7e8761ed00d43824005c3881d22c6ba157c7123dccfb5ded55c1cd19c",
+        "size_bytes": 13256,
+        "original_sha256": "d10b06f7e8761ed00d43824005c3881d22c6ba157c7123dccfb5ded55c1cd19c",
+        "label": "backup_assets_receipt.json",
+        "original_name": "backup_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [
@@ -305,15 +313,15 @@
   },
   "recommendation": null,
   "missing": [
-    "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-    "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
     "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
     "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-    "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15"
+    "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15",
+    "backup_assets_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
   },
   "audit": {
     "case_role": "paper_table_04_reference",

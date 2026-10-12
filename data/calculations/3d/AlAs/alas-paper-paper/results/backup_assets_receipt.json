@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "case_id": "alas-paper-paper",
+  "verification": "original-path backup association with re-read SHA-256/size and STRU/INPUT binding",
+  "report": {
+    "name": "three-d-evidence-followup.json",
+    "sha256": "f24ef4f5cec417d287b9c4c9042b7c14535a5ec1672498effcd9c25233c97abd"
+  },
+  "backup": {
+    "collection": "compute_backup_review_20260514_ks_iopcas_ghj",
+    "historical_source_root_sha256": "29ae1f8459f3e5ae6207c81300cb5d7b8ba357b30cd1334a8b0fd2cdd22466bc",
+    "readme_sha256": "1d2adeb01ecb35f7ad9d177bb3efab855b3a9fdc32d734b5fa2349e6c3bbab60",
+    "manifest_sha256": "e750f310d079279d717bec000bb99c4dfcf5c9085340cf8579401ece3f823675"
+  },
+  "source_run_member": "data/gw/AlAs/paper",
+  "historical_run_directory_sha256": "613e5a5106e5f2ee7f13dcf74861e8a7eda3d4b3ea1a261b3b70884cebdfe9f5",
+  "input_external_root_sha256": {
+    "pseudo_dir": "996f21060b04098ad5891d1a65d143bb1ea7fe99c7d4e85582d8d6d5a60a98ac",
+    "orbital_dir": "8acfd9c6fc79473cb22bd4a2d2dae6b028c1119ede7d7aa9bc38d3f4e9b9a8cf"
+  },
+  "working_directory_evidence": {
+    "source_member": "data/gw/AlAs/paper/slurm-843213.out",
+    "line": 2,
+    "sha256": "2b95e9e5ed5abb06f3c36dbb0413f2665ccf0cffb2a56d3132aec631e3517145"
+  },
+  "original_files": [
+    {
+      "source_member": "data/gw/AlAs/paper/INPUT",
+      "sha256": "fb2771a4fbd2974bafdc8349e9c218ec61a04a2b32656d34f73a6b69cacf0bee",
+      "size_bytes": 668,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT",
+      "repository_sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/KPT",
+      "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+      "size_bytes": 261,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT",
+      "repository_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/STRU",
+      "sha256": "9b9c6a75d1bb35dc0b34a07efa57ea0d6c0ca670022b932c436f3bdda02e65bb",
+      "size_bytes": 429,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/STRU",
+      "repository_sha256": "9b9c6a75d1bb35dc0b34a07efa57ea0d6c0ca670022b932c436f3bdda02e65bb"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/librpa.in",
+      "sha256": "3c0d9455fc41eba2c1d56e499ef9f7d6c79534b3aaffe8d7c15709072d5ff386",
+      "size_bytes": 202,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/librpa.in",
+      "repository_sha256": "3c0d9455fc41eba2c1d56e499ef9f7d6c79534b3aaffe8d7c15709072d5ff386"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/INPUT_scf",
+      "sha256": "3cabbf141a9cb27d2b1e30c395dddeb1d5dd0bfcada03e11f91ec89d512b1ce5",
+      "size_bytes": 752,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_scf",
+      "repository_sha256": "bd5be1526eda18d2fd989f2dba91e423c85f83fdf01c09e4192d728c86dd1f06"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/KPT_scf",
+      "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+      "size_bytes": 29,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_scf",
+      "repository_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/INPUT_nscf",
+      "sha256": "fb2771a4fbd2974bafdc8349e9c218ec61a04a2b32656d34f73a6b69cacf0bee",
+      "size_bytes": 668,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_nscf",
+      "repository_sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/KPT_nscf",
+      "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+      "size_bytes": 261,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+      "repository_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/KS_band_spin_1.dat",
+      "sha256": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2",
+      "size_bytes": 209451,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+      "repository_sha256": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/EXX_band_spin_1.dat",
+      "sha256": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158",
+      "size_bytes": 209451,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+      "repository_sha256": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/GW_band_spin_1.dat",
+      "sha256": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437",
+      "size_bytes": 209451,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat",
+      "repository_sha256": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/abacus.843213.out",
+      "sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc",
+      "size_bytes": 39381,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/logs/abacus.out",
+      "repository_sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc"
+    },
+    {
+      "source_member": "data/gw/AlAs/paper/LibRPA.843213.out",
+      "sha256": "ab63a828bfea9e97d002f03adfb58214e71c9fd937fbd0d20eb0ab2dc0a41812",
+      "size_bytes": 4948476,
+      "repository_path": "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+      "repository_sha256": "155d3136b4037439e2df49259ace4cacaaaf088cb8d46df0d0d71c11b93e425e"
+    }
+  ],
+  "assets": [
+    {
+      "element": "Al",
+      "role": "pp",
+      "original_name": "Al_ONCV_PBE-1.0.upf",
+      "source_member": "data/gw_bas_pp/pp/Al_ONCV_PBE-1.0.upf",
+      "sha256": "cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f",
+      "size_bytes": 90021,
+      "header": {
+        "format": "UPF",
+        "element": "Al",
+        "header_sha256": "d13e34cdb9a793119490950052bf33eed21b32593017ad738c04b0fb97f287ad"
+      },
+      "manifest": {
+        "size_bytes": 90021,
+        "mtime": "2025-06-07 22:21:32.0000000000"
+      },
+      "repository_path": "data/elements/Al/pseudopotentials/cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f.upf"
+    },
+    {
+      "element": "Al",
+      "role": "nao",
+      "original_name": "Al_gga_8au_100Ry_6s6p2d.orb",
+      "source_member": "data/gw_bas_pp/nao/Al_gga_8au_100Ry_6s6p2d.orb",
+      "sha256": "72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c",
+      "size_bytes": 258166,
+      "header": {
+        "format": "ABACUS orbital",
+        "element": "Al",
+        "parameters": {
+          "Energy Cutoff(Ry)": 100.0,
+          "Radius Cutoff(a.u.)": 8.0,
+          "Lmax": 2.0
+        },
+        "orbital_counts": {
+          "S": 6,
+          "P": 6,
+          "D": 2
+        },
+        "header_sha256": "ea4e251645398bfcc8ed6b9bcdef6060fa2cb7ff01d291a9b4019b11b7e1852a"
+      },
+      "manifest": {
+        "size_bytes": 258166,
+        "mtime": "2025-06-07 22:21:32.0000000000"
+      },
+      "repository_path": "data/elements/Al/orbitals/72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c.orb"
+    },
+    {
+      "element": "As",
+      "role": "pp",
+      "original_name": "As_ONCV_PBE-1.0.upf",
+      "source_member": "data/gw_bas_pp/pp/As_ONCV_PBE-1.0.upf",
+      "sha256": "540d806fc77b06f2226e40d4349a69f7c789a298ea49cd3a106d0625a6277fbd",
+      "size_bytes": 115356,
+      "header": {
+        "format": "UPF",
+        "element": "As",
+        "header_sha256": "396b6d23550dbb1f7cdeeadea5a74b987946d22c90d3c9d9437aa967a4238b4b"
+      },
+      "manifest": {
+        "size_bytes": 115356,
+        "mtime": "2025-06-07 22:21:32.0000000000"
+      },
+      "repository_path": "data/elements/As/pseudopotentials/540d806fc77b06f2226e40d4349a69f7c789a298ea49cd3a106d0625a6277fbd.upf"
+    },
+    {
+      "element": "As",
+      "role": "nao",
+      "original_name": "As_gga_8au_100Ry_3s3p2d.orb",
+      "source_member": "data/gw_bas_pp/nao/As_gga_8au_100Ry_3s3p2d.orb",
+      "sha256": "0094b10c3f6ac4863c035790fc155ad80341f8a0cd1c2dd3cf2bf592c81e6743",
+      "size_bytes": 147864,
+      "header": {
+        "format": "ABACUS orbital",
+        "element": "As",
+        "parameters": {
+          "Energy Cutoff(Ry)": 100.0,
+          "Radius Cutoff(a.u.)": 8.0,
+          "Lmax": 2.0
+        },
+        "orbital_counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "header_sha256": "7c55ff028e847cbf6caf13bfc3efce2c5890f022ba0691a745d466e5f4bbb260"
+      },
+      "manifest": {
+        "size_bytes": 147864,
+        "mtime": "2025-06-07 22:21:32.0000000000"
+      },
+      "repository_path": "data/elements/As/orbitals/0094b10c3f6ac4863c035790fc155ad80341f8a0cd1c2dd3cf2bf592c81e6743.orb"
+    }
+  ],
+  "basis_set_ids": [
+    "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
+    "As-backup-83ddbe37a72e052b8dc203a0491b3b6aa5f20ef456e8751a88bd8b13a5502fb7"
+  ],
+  "previous_sets": [
+    {
+      "element": "Al",
+      "set_id": "Al-PP-unresolved-b58dd8eabafc",
+      "sha256": "2c5ee62fa6c20bab1eee385db77d514fe7472afa02b75980d181891bea653ca6"
+    },
+    {
+      "element": "As",
+      "set_id": "As-PP-unresolved-9a604f9794ef",
+      "sha256": "1f015c4dbf9c0b2814adba515ed9ae19e41ad3d9c73522c5bc5584661d9358a7"
+    }
+  ],
+  "repository_files_verified": [
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT",
+      "sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455",
+      "size_bytes": 611
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_nscf",
+      "sha256": "b82bb9411915842165dbe0c6c4056e680dde43242aed6bd9d6822dfb030e6455",
+      "size_bytes": 611
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/INPUT_scf",
+      "sha256": "bd5be1526eda18d2fd989f2dba91e423c85f83fdf01c09e4192d728c86dd1f06",
+      "size_bytes": 695
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT",
+      "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+      "size_bytes": 261
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_nscf",
+      "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+      "size_bytes": 261
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/KPT_scf",
+      "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+      "size_bytes": 29
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/STRU",
+      "sha256": "9b9c6a75d1bb35dc0b34a07efa57ea0d6c0ca670022b932c436f3bdda02e65bb",
+      "size_bytes": 429
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/inputs/librpa.in",
+      "sha256": "3c0d9455fc41eba2c1d56e499ef9f7d6c79534b3aaffe8d7c15709072d5ff386",
+      "size_bytes": 202
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/results/EXX_band_spin_1.dat",
+      "sha256": "e3c838212a8c209b759240d9f7970910defda5b1701442db7a2999e1cd357158",
+      "size_bytes": 209451
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/results/GW_band_spin_1.dat",
+      "sha256": "4f34e3a6c348daf77c2e955fcc8523c2fa51489a30f34b9e645a8698ef718437",
+      "size_bytes": 209451
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/results/KS_band_spin_1.dat",
+      "sha256": "ea62585b54eed747d31917511e83cd2c0336d0992abfbdb7e0d911a06b5b73a2",
+      "size_bytes": 209451
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/results/band_kpath_info",
+      "sha256": "688b57a0e1623b5d504e9ff7ff2c80f31f649ddff6461f8cf02b29d50c5be2cf",
+      "size_bytes": 6680
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/results/paper_reported_values.json",
+      "sha256": "d86d07c411a5c5e85814f7d2502b59d1a1bc3cbbfb38ceda28f735b1a9be2df4",
+      "size_bytes": 1853
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/abacus.out",
+      "sha256": "f0729ef09612323aa8f0986a554149f9912025576cc68308b323004b1e1bbffc",
+      "size_bytes": 39381
+    },
+    {
+      "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+      "sha256": "155d3136b4037439e2df49259ace4cacaaaf088cb8d46df0d0d71c11b93e425e",
+      "size_bytes": 4948264
+    }
+  ],
+  "complete_runtime_handoff_included": false,
+  "runtime_asset_seal_verified": false,
+  "scope": "PP/NAO restored from the original external roots in the named backup; no runtime asset seal was saved. Changes before backup cannot be excluded. Runtime shards were excluded by backup policy. Scientific acceptance, generation and redistribution remain unresolved."
+}

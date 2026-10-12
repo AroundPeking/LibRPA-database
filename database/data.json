@@ -138,6 +138,96 @@
     },
     {
       "schema_version": 1,
+      "id": "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
+      "element": "Al",
+      "family": "historical_backup",
+      "role_hashes_sha256": "b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json",
+          "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Al/pseudopotentials/cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f.upf",
+          "sha256": "cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f",
+          "size_bytes": 90021,
+          "original_sha256": "cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f",
+          "label": "Al_ONCV_PBE-1.0.upf",
+          "original_name": "Al_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "Al_ONCV_PBE-1.0.upf",
+          "download_name": "Al_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Al_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Al/orbitals/72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c.orb",
+          "sha256": "72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c",
+          "size_bytes": 258166,
+          "original_sha256": "72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c",
+          "label": "Al_gga_8au_100Ry_6s6p2d.orb",
+          "original_name": "Al_gga_8au_100Ry_6s6p2d.orb",
+          "transformation": "none",
+          "display_name": "Al_gga_8au_100Ry_6s6p2d.orb",
+          "download_name": "Al_gga_8au_100Ry_6s6p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "Al_gga_8au_100Ry_6s6p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Al/auxiliary/7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44.abfs",
+          "sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+          "size_bytes": 2063259,
+          "original_sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+          "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 23,
+              "P": 21,
+              "D": 20,
+              "F": 16,
+              "G": 11,
+              "H": 8,
+              "I": 4
+            },
+            "basis_dimension": 537
+          },
+          "display_name": "Al_6s6p2d1f1g_pca1e-6.abfs",
+          "download_name": "Al_6s6p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "Al_6s6p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "alas-paper-paper",
+        "alp-paper-k8_shrink_wing"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "As-ONCV-or-other-recorded-PP-1e37448cad59",
       "element": "As",
       "family": "ONCV-or-other-recorded-PP",
@@ -270,6 +360,96 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "As-backup-83ddbe37a72e052b8dc203a0491b3b6aa5f20ef456e8751a88bd8b13a5502fb7",
+      "element": "As",
+      "family": "historical_backup",
+      "role_hashes_sha256": "83ddbe37a72e052b8dc203a0491b3b6aa5f20ef456e8751a88bd8b13a5502fb7",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json",
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/As/pseudopotentials/540d806fc77b06f2226e40d4349a69f7c789a298ea49cd3a106d0625a6277fbd.upf",
+          "sha256": "540d806fc77b06f2226e40d4349a69f7c789a298ea49cd3a106d0625a6277fbd",
+          "size_bytes": 115356,
+          "original_sha256": "540d806fc77b06f2226e40d4349a69f7c789a298ea49cd3a106d0625a6277fbd",
+          "label": "As_ONCV_PBE-1.0.upf",
+          "original_name": "As_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "As_ONCV_PBE-1.0.upf",
+          "download_name": "As_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "As_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/As/orbitals/0094b10c3f6ac4863c035790fc155ad80341f8a0cd1c2dd3cf2bf592c81e6743.orb",
+          "sha256": "0094b10c3f6ac4863c035790fc155ad80341f8a0cd1c2dd3cf2bf592c81e6743",
+          "size_bytes": 147864,
+          "original_sha256": "0094b10c3f6ac4863c035790fc155ad80341f8a0cd1c2dd3cf2bf592c81e6743",
+          "label": "As_gga_8au_100Ry_3s3p2d.orb",
+          "original_name": "As_gga_8au_100Ry_3s3p2d.orb",
+          "transformation": "none",
+          "display_name": "As_gga_8au_100Ry_3s3p2d.orb",
+          "download_name": "As_gga_8au_100Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "As_gga_8au_100Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/As/auxiliary/2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb.abfs",
+          "sha256": "2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb",
+          "size_bytes": 1359406,
+          "original_sha256": "2a17fe0336804a60fb087c3d564efc1e358845a27cf418e61ad7f67e13e88bbb",
+          "label": "As_3s3p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4
+            },
+            "basis_dimension": 379
+          },
+          "display_name": "As_3s3p2d1f1g_pca1e-6.abfs",
+          "download_name": "As_3s3p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "As_3s3p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "alas-paper-paper",
+        "bas-paper-k8_shrink_wing"
+      ]
     },
     {
       "schema_version": 1,
@@ -489,6 +669,96 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "B-backup-993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
+      "element": "B",
+      "family": "historical_backup",
+      "role_hashes_sha256": "993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/B/pseudopotentials/0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f.upf",
+          "sha256": "0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f",
+          "size_bytes": 89982,
+          "original_sha256": "0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f",
+          "label": "B_ONCV_PBE-1.0.upf",
+          "original_name": "B_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "B_ONCV_PBE-1.0.upf",
+          "download_name": "B_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "B_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/B/orbitals/2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58.orb",
+          "sha256": "2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58",
+          "size_bytes": 147596,
+          "original_sha256": "2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58",
+          "label": "B_gga_8au_100Ry_3s3p2d.orb",
+          "original_name": "B_gga_8au_100Ry_3s3p2d.orb",
+          "transformation": "none",
+          "display_name": "B_gga_8au_100Ry_3s3p2d.orb",
+          "download_name": "B_gga_8au_100Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "B_gga_8au_100Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/B/auxiliary/f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912.abfs",
+          "sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+          "size_bytes": 1376619,
+          "original_sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+          "label": "B_3s3p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4
+            },
+            "basis_dimension": 386
+          },
+          "display_name": "B_3s3p2d1f1g_pca1e-6.abfs",
+          "download_name": "B_3s3p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "B_3s3p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "bas-paper-k8_shrink_wing",
+        "bp-paper-k8_shrink_wing"
+      ]
     },
     {
       "schema_version": 1,
@@ -885,6 +1155,94 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "Cl-backup-69587b42af54b0cddabdcecfaa7cbc041743898252ed6d10e237cb233e21b3f8",
+      "element": "Cl",
+      "family": "historical_backup",
+      "role_hashes_sha256": "69587b42af54b0cddabdcecfaa7cbc041743898252ed6d10e237cb233e21b3f8",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Cl/pseudopotentials/69ae244a5546b00c66645d515bd2b59cc31f106693878a42a5d74bd5f855fa19.upf",
+          "sha256": "69ae244a5546b00c66645d515bd2b59cc31f106693878a42a5d74bd5f855fa19",
+          "size_bytes": 90021,
+          "original_sha256": "69ae244a5546b00c66645d515bd2b59cc31f106693878a42a5d74bd5f855fa19",
+          "label": "Cl_ONCV_PBE-1.0.upf",
+          "original_name": "Cl_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "Cl_ONCV_PBE-1.0.upf",
+          "download_name": "Cl_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Cl_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Cl/orbitals/fd8e4902f027c8f48d7b727a2c38aa0f4b0f38f4c83d724073259d2fa64c9c4a.orb",
+          "sha256": "fd8e4902f027c8f48d7b727a2c38aa0f4b0f38f4c83d724073259d2fa64c9c4a",
+          "size_bytes": 147432,
+          "original_sha256": "fd8e4902f027c8f48d7b727a2c38aa0f4b0f38f4c83d724073259d2fa64c9c4a",
+          "label": "Cl_gga_8au_100Ry_3s3p2d.orb",
+          "original_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
+          "transformation": "none",
+          "display_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
+          "download_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "Cl_gga_8au_100Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Cl/auxiliary/439b495bdfc28d86643a7d1f40a94e0b5cfa3af085e310d479ee112506676186.abfs",
+          "sha256": "439b495bdfc28d86643a7d1f40a94e0b5cfa3af085e310d479ee112506676186",
+          "size_bytes": 1263053,
+          "original_sha256": "439b495bdfc28d86643a7d1f40a94e0b5cfa3af085e310d479ee112506676186",
+          "label": "Cl_8au3s3p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 11,
+              "P": 11,
+              "D": 12,
+              "F": 10,
+              "G": 8,
+              "H": 6,
+              "I": 4
+            },
+            "basis_dimension": 364
+          },
+          "display_name": "Cl_8au3s3p2d1f1g_pca1e-6.abfs",
+          "download_name": "Cl_8au3s3p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "Cl_8au3s3p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "nacl-paper-sg15"
+      ]
     },
     {
       "schema_version": 1,
@@ -5027,6 +5385,94 @@
     },
     {
       "schema_version": 1,
+      "id": "Na-backup-38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
+      "element": "Na",
+      "family": "historical_backup",
+      "role_hashes_sha256": "38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/Na/pseudopotentials/036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1.upf",
+          "sha256": "036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1",
+          "size_bytes": 90002,
+          "original_sha256": "036dab3afbc5362a199fdda37b6d5045a198d95489d0a6fc3b198916d40f32c1",
+          "label": "Na_ONCV_PBE-1.0.upf",
+          "original_name": "Na_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "Na_ONCV_PBE-1.0.upf",
+          "download_name": "Na_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "Na_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/Na/orbitals/b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61.orb",
+          "sha256": "b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61",
+          "size_bytes": 257802,
+          "original_sha256": "b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61",
+          "label": "Na_gga_10au_100Ry_6s3p2d.orb",
+          "original_name": "Na_gga_10au_100Ry_6s3p2d.orb",
+          "transformation": "none",
+          "display_name": "Na_gga_10au_100Ry_6s3p2d.orb",
+          "download_name": "Na_gga_10au_100Ry_6s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "Na_gga_10au_100Ry_6s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/Na/auxiliary/8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0.abfs",
+          "sha256": "8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0",
+          "size_bytes": 1953140,
+          "original_sha256": "8bac8bdaf79044c80d64651ea5f61f1f5d9bc969832758491286e082232c24a0",
+          "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 19,
+              "P": 15,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 5,
+              "I": 4
+            },
+            "basis_dimension": 403
+          },
+          "display_name": "Na_6s3p2d1f1g_pca1e-6.abfs",
+          "download_name": "Na_6s3p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "Na_6s3p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "nacl-paper-sg15"
+      ]
+    },
+    {
+      "schema_version": 1,
       "id": "O-SG15-69a1b5d60f18",
       "element": "O",
       "family": "SG15",
@@ -5461,6 +5907,96 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
+    },
+    {
+      "schema_version": 1,
+      "id": "P-backup-10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
+      "element": "P",
+      "family": "historical_backup",
+      "role_hashes_sha256": "10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
+      "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+      "publication": {
+        "status": "database_only"
+      },
+      "source": {
+        "collection": "Historical 3D original-path compute backup",
+        "receipts": [
+          "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+          "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+        ],
+        "license": "unknown",
+        "redistribution": "unknown"
+      },
+      "files": [
+        {
+          "role": "pp",
+          "path": "data/elements/P/pseudopotentials/efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0.upf",
+          "sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+          "size_bytes": 90020,
+          "original_sha256": "efbfb0745e6fbde38efc2b30a921b57a5ac35ad3f350b9075625d05dd86c97e0",
+          "label": "P_ONCV_PBE-1.0.upf",
+          "original_name": "P_ONCV_PBE-1.0.upf",
+          "transformation": "none",
+          "display_name": "P_ONCV_PBE-1.0.upf",
+          "download_name": "P_ONCV_PBE-1.0.upf",
+          "name_source": "recorded",
+          "original_names": [
+            "P_ONCV_PBE-1.0.upf"
+          ]
+        },
+        {
+          "role": "nao",
+          "path": "data/elements/P/orbitals/9408b5bb1fe8c71dbfee880d2dbbb2e057a34927b4081606124aea3b346dd3fe.orb",
+          "sha256": "9408b5bb1fe8c71dbfee880d2dbbb2e057a34927b4081606124aea3b346dd3fe",
+          "size_bytes": 147425,
+          "original_sha256": "9408b5bb1fe8c71dbfee880d2dbbb2e057a34927b4081606124aea3b346dd3fe",
+          "label": "P_gga_8au_100Ry_3s3p2d.orb",
+          "original_name": "P_gga_8au_100Ry_3s3p2d.orb",
+          "transformation": "none",
+          "display_name": "P_gga_8au_100Ry_3s3p2d.orb",
+          "download_name": "P_gga_8au_100Ry_3s3p2d.orb",
+          "name_source": "recorded",
+          "original_names": [
+            "P_gga_8au_100Ry_3s3p2d.orb"
+          ]
+        },
+        {
+          "role": "abf",
+          "path": "data/elements/P/auxiliary/dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f.abfs",
+          "sha256": "dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f",
+          "size_bytes": 1298013,
+          "original_sha256": "dd1d5ecbf9c2ad0d06d5598b95a162a0eeb9232f0799785ee73d9f6189e36a2f",
+          "label": "P_3s3p2d1f1g_pca1e-6.abfs",
+          "transformation": "none",
+          "dimensions": {
+            "lmax": 8.0,
+            "counts": {
+              "S": 12,
+              "P": 12,
+              "D": 12,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 4
+            },
+            "basis_dimension": 370
+          },
+          "display_name": "P_3s3p2d1f1g_pca1e-6.abfs",
+          "download_name": "P_3s3p2d1f1g_pca1e-6.abfs",
+          "name_source": "recorded",
+          "original_names": [
+            "P_3s3p2d1f1g_pca1e-6.abfs"
+          ]
+        }
+      ],
+      "generation_provenance": {
+        "commit": null,
+        "status": "unknown; not inferred from historical usage"
+      },
+      "used_by": [
+        "alp-paper-k8_shrink_wing",
+        "bp-paper-k8_shrink_wing"
+      ]
     },
     {
       "schema_version": 1,
@@ -15368,17 +15904,24 @@
       "software": {
         "abacus": {
           "source_url": "https://github.com/AroundPeking/abacus-develop",
-          "commit": null,
+          "commit": "9fb19ed4cd7487c6cec1b18326d694691209f40f",
           "abbreviated_commit": null,
-          "evidence": [],
-          "missing_reason": "full producer commit not recorded in the imported evidence"
+          "evidence": [
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+          ],
+          "identity_note": "Full source commit printed identically in the archived SCF and same-producer NSCF logs. Executable hash and source-tree dirtiness were not retained; not a current-profile validation."
         },
         "librpa": {
           "source_url": "https://github.com/AESM-Group/LibRPA",
-          "commit": null,
+          "commit": "14ce4859cf574f09d0b11fa1891f0e8ebe694e08",
           "abbreviated_commit": null,
-          "evidence": [],
-          "missing_reason": "full producer commit not recorded in the imported evidence"
+          "evidence": [
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json",
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_INPUT_MANIFEST.sha256"
+          ],
+          "executable_sha256": "a297307f23a0052d20291701ef2d96a2197fc5b1fa3706fa29f5b2b4be36ad8d",
+          "identity_note": "Recovered from the retained build receipt bound to the exact run-manifest executable SHA-256 and source archive PAX commit. The original runtime GITDIR-NOTFOUND remains unchanged. Source-tree dirtiness at build time is unknown; not current-profile or scientific acceptance."
         }
       },
       "summary": {
@@ -20065,6 +20608,14 @@
             "sha256": "4eb7d442da766ff4853753e6f3426f879eed0a96eed60d3bfb421d757a2a4a5e",
             "size_bytes": 3726,
             "label": "Paper-reported Table I values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json",
+            "sha256": "cff580873574451a591f69d550fcac3d902cd8ce36739ea4468e8d786cd61a89",
+            "size_bytes": 3102,
+            "label": "LibRPA original binary-to-source build identity",
+            "transformation": "derived compact receipt; private source paths omitted, original manifest and runtime logs unchanged"
           }
         ],
         "logs": [
@@ -20189,6 +20740,73 @@
         "figures": [
           {
             "role": "figures",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/ks_frontier.svg",
+            "sha256": "40b51f93f1d015b598c90a9e51d1f79d750477b85b1b4ab2f58f293cadd3d54b",
+            "size_bytes": 19741,
+            "label": "hBN KS frozen frontier",
+            "transformation": "derived audited method-own frontier; original bytes unchanged",
+            "source_paths": [
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/KS_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+            ],
+            "display_priority": "primary",
+            "scientific_status": "sampled_path_only"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/exx_frontier.svg",
+            "sha256": "363d0a9f2cb53ac4afdba448b7fe29fa74ebd05a10aa80243737ddf1117dd601",
+            "size_bytes": 19718,
+            "label": "hBN EXX frozen frontier",
+            "transformation": "derived audited method-own frontier; original bytes unchanged",
+            "source_paths": [
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+            ],
+            "display_priority": "primary",
+            "scientific_status": "sampled_path_only"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/gw_frontier.svg",
+            "sha256": "f8f567e3e9ea2384b9c9aa29b35bdefab1aa5fe6a19ceeb9ae1d5041bb3da8f5",
+            "size_bytes": 20133,
+            "label": "hBN GW frozen frontier (diagnostic)",
+            "transformation": "derived audited method-own frontier; original bytes unchanged",
+            "source_paths": [
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+            ],
+            "display_priority": "primary",
+            "scientific_status": "archived_diagnostic"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json",
+            "sha256": "269908a4d0e7b872b18a7088efa68ac6514b8188fca2166918452a9283dc86bb",
+            "size_bytes": 636021,
+            "label": "hBN original spectrum audit and frozen display mappings",
+            "source_paths": [
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/KS_band_spin_1.dat",
+              "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json"
+            ]
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/figures__hbn_tzdp10_cutoff_zoom.pdf",
             "sha256": "63f57ab47fb00198e433497300fc7f845c7377cbb0f0db449999396163f40a8b",
             "size_bytes": 22213,
@@ -20289,9 +20907,25 @@
           "unit": "eV",
           "status": "reported",
           "evidence": [
-            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat"
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json"
           ],
-          "source_summary_key": "value"
+          "source_summary_key": "value",
+          "definition": "Restricted raw-band-5 frontier path gap of the replacement hBN production chain. Higher raw states intrude and one full-spectrum value is nonfinite; not an accepted fundamental gap."
+        },
+        {
+          "key": "sampled_path_gap_ev",
+          "category": "electronic",
+          "label": "Sampled path gap",
+          "method": "EXX",
+          "value": 11.01971,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "Finite occupation-separated gap over all 44 raw bands of the same-record 91-point EXX path; logged four occupied states and receipt-backed 2/nk weights. Not a global BZ gap, an old hBN value, or scientific convergence acceptance.",
+          "evidence": [
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+            "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json"
+          ]
         }
       ],
       "paper_values": {
@@ -20322,14 +20956,8 @@
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
       "archive_completeness": {
-        "status": "incomplete",
-        "issues": [
-          "software.abacus.commit: full immutable commit is required",
-          "software.librpa.commit: full immutable commit is required",
-          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required",
-          "properties: EXX requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence",
-          "properties: GW requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence"
-        ]
+        "status": "complete",
+        "issues": []
       }
     },
     {
@@ -20342,31 +20970,29 @@
       "species": [
         {
           "element": "Al",
-          "set_id": "Al-PP-unresolved-b58dd8eabafc",
+          "set_id": "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
           "asset_aliases": {
             "pp": "Al_ONCV_PBE-1.0.upf",
             "nao": "Al_gga_8au_100Ry_6s6p2d.orb",
             "abf": "Al_6s6p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "Al-PP-unresolved-b58dd8eabafc",
+          "source_receipt": "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json"
         },
         {
           "element": "As",
-          "set_id": "As-PP-unresolved-9a604f9794ef",
+          "set_id": "As-backup-83ddbe37a72e052b8dc203a0491b3b6aa5f20ef456e8751a88bd8b13a5502fb7",
           "asset_aliases": {
             "pp": "As_ONCV_PBE-1.0.upf",
             "nao": "As_gga_8au_100Ry_3s3p2d.orb",
             "abf": "As_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "As-PP-unresolved-9a604f9794ef",
+          "source_receipt": "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json"
         }
       ],
       "software": {
@@ -20517,6 +21143,16 @@
             "sha256": "d86d07c411a5c5e85814f7d2502b59d1a1bc3cbbfb38ceda28f735b1a9be2df4",
             "size_bytes": 1853,
             "label": "Paper-reported Table IV values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json",
+            "sha256": "846596cb00c8bf69dd67e6096a3d8a135f9b5d70e555f97c0d75b4cbebf463f4",
+            "size_bytes": 13205,
+            "original_sha256": "846596cb00c8bf69dd67e6096a3d8a135f9b5d70e555f97c0d75b4cbebf463f4",
+            "label": "backup_assets_receipt.json",
+            "original_name": "backup_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [
@@ -20640,15 +21276,15 @@
       },
       "recommendation": null,
       "missing": [
-        "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-        "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+        "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
       ],
       "source": {
         "collection": "Published PP/NAO GW benchmark",
         "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
         "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
         "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-        "archive_directory": "TABLE/Table_04_GW_comparison/AlAs__src_paper"
+        "archive_directory": "TABLE/Table_04_GW_comparison/AlAs__src_paper",
+        "backup_assets_receipt": "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json"
       },
       "audit": {
         "case_role": "paper_table_04_reference",
@@ -20733,12 +21369,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species Al: missing_roles is not empty: ['pp', 'nao']",
-          "species Al: expected one unambiguous pp payload, found 0",
-          "species Al: expected one unambiguous nao payload, found 0",
-          "species As: missing_roles is not empty: ['pp', 'nao']",
-          "species As: expected one unambiguous pp payload, found 0",
-          "species As: expected one unambiguous nao payload, found 0",
           "software.librpa.commit: full immutable commit is required"
         ]
       }
@@ -20753,31 +21383,29 @@
       "species": [
         {
           "element": "Al",
-          "set_id": "Al-PP-unresolved-b58dd8eabafc",
+          "set_id": "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
           "asset_aliases": {
             "pp": "Al_ONCV_PBE-1.0.upf",
             "nao": "Al_gga_8au_100Ry_6s6p2d.orb",
             "abf": "Al_6s6p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "Al-PP-unresolved-b58dd8eabafc",
+          "source_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         },
         {
           "element": "P",
-          "set_id": "P-PP-unresolved-95089e7953f1",
+          "set_id": "P-backup-10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
           "asset_aliases": {
             "pp": "P_ONCV_PBE-1.0.upf",
             "nao": "P_gga_8au_100Ry_3s3p2d.orb",
             "abf": "P_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "P-PP-unresolved-95089e7953f1",
+          "source_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         }
       ],
       "software": {
@@ -20926,6 +21554,16 @@
             "sha256": "c38f28c3110d905661670340aa8b21507179100c5ef92277b174b074aaeab7c8",
             "size_bytes": 1867,
             "label": "Paper-reported Table IV values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+            "sha256": "cde4704047fef384c4e50752d91f3c735bb624eccf3ca07f97e5afac74f6d6c7",
+            "size_bytes": 13608,
+            "original_sha256": "cde4704047fef384c4e50752d91f3c735bb624eccf3ca07f97e5afac74f6d6c7",
+            "label": "backup_assets_receipt.json",
+            "original_name": "backup_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [
@@ -21049,15 +21687,15 @@
       },
       "recommendation": null,
       "missing": [
-        "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-        "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+        "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
       ],
       "source": {
         "collection": "Published PP/NAO GW benchmark",
         "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
         "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
         "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-        "archive_directory": "TABLE/Table_04_GW_comparison/AlP__src_k8_shrink_wing"
+        "archive_directory": "TABLE/Table_04_GW_comparison/AlP__src_k8_shrink_wing",
+        "backup_assets_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
       },
       "audit": {
         "case_role": "paper_table_04_reference",
@@ -21144,12 +21782,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species Al: missing_roles is not empty: ['pp', 'nao']",
-          "species Al: expected one unambiguous pp payload, found 0",
-          "species Al: expected one unambiguous nao payload, found 0",
-          "species P: missing_roles is not empty: ['pp', 'nao']",
-          "species P: expected one unambiguous pp payload, found 0",
-          "species P: expected one unambiguous nao payload, found 0",
           "software.librpa.commit: full immutable commit is required"
         ]
       }
@@ -21561,31 +22193,29 @@
       "species": [
         {
           "element": "B",
-          "set_id": "B-PP-unresolved-753b50e020c3",
+          "set_id": "B-backup-993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
           "asset_aliases": {
             "pp": "B_ONCV_PBE-1.0.upf",
             "nao": "B_gga_8au_100Ry_3s3p2d.orb",
             "abf": "B_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "B-PP-unresolved-753b50e020c3",
+          "source_receipt": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         },
         {
           "element": "As",
-          "set_id": "As-PP-unresolved-9a604f9794ef",
+          "set_id": "As-backup-83ddbe37a72e052b8dc203a0491b3b6aa5f20ef456e8751a88bd8b13a5502fb7",
           "asset_aliases": {
             "pp": "As_ONCV_PBE-1.0.upf",
             "nao": "As_gga_8au_100Ry_3s3p2d.orb",
             "abf": "As_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "As-PP-unresolved-9a604f9794ef",
+          "source_receipt": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         }
       ],
       "software": {
@@ -21734,6 +22364,16 @@
             "sha256": "987b38a4cb98ea59f46eab6f07b42cb42509429e96ad077395958777b99d6453",
             "size_bytes": 1867,
             "label": "Paper-reported Table IV values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+            "sha256": "273218a2edeed130ed2cdd7635930bea91c800a6386c3a0c0aff7528b9d8567d",
+            "size_bytes": 13600,
+            "original_sha256": "273218a2edeed130ed2cdd7635930bea91c800a6386c3a0c0aff7528b9d8567d",
+            "label": "backup_assets_receipt.json",
+            "original_name": "backup_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [
@@ -21857,15 +22497,15 @@
       },
       "recommendation": null,
       "missing": [
-        "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-        "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+        "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
       ],
       "source": {
         "collection": "Published PP/NAO GW benchmark",
         "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
         "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
         "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-        "archive_directory": "TABLE/Table_04_GW_comparison/BAs__src_k8_shrink_wing"
+        "archive_directory": "TABLE/Table_04_GW_comparison/BAs__src_k8_shrink_wing",
+        "backup_assets_receipt": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json"
       },
       "audit": {
         "case_role": "paper_table_04_reference",
@@ -21952,12 +22592,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species B: missing_roles is not empty: ['pp', 'nao']",
-          "species B: expected one unambiguous pp payload, found 0",
-          "species B: expected one unambiguous nao payload, found 0",
-          "species As: missing_roles is not empty: ['pp', 'nao']",
-          "species As: expected one unambiguous pp payload, found 0",
-          "species As: expected one unambiguous nao payload, found 0",
           "software.librpa.commit: full immutable commit is required"
         ]
       }
@@ -22369,31 +23003,29 @@
       "species": [
         {
           "element": "B",
-          "set_id": "B-PP-unresolved-753b50e020c3",
+          "set_id": "B-backup-993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
           "asset_aliases": {
             "pp": "B_ONCV_PBE-1.0.upf",
             "nao": "B_gga_8au_100Ry_3s3p2d.orb",
             "abf": "B_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "B-PP-unresolved-753b50e020c3",
+          "source_receipt": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         },
         {
           "element": "P",
-          "set_id": "P-PP-unresolved-95089e7953f1",
+          "set_id": "P-backup-10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
           "asset_aliases": {
             "pp": "P_ONCV_PBE-1.0.upf",
             "nao": "P_gga_8au_100Ry_3s3p2d.orb",
             "abf": "P_3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "P-PP-unresolved-95089e7953f1",
+          "source_receipt": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
         }
       ],
       "software": {
@@ -22542,6 +23174,16 @@
             "sha256": "69189257a5dbc169e96148f537a50ae2edfee9507218d116eada1142880b5ac0",
             "size_bytes": 1860,
             "label": "Paper-reported Table IV values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+            "sha256": "5415121c0074099e5633a9ddefb3092c8821cd1cc26829081d3206fa8bc753b3",
+            "size_bytes": 13513,
+            "original_sha256": "5415121c0074099e5633a9ddefb3092c8821cd1cc26829081d3206fa8bc753b3",
+            "label": "backup_assets_receipt.json",
+            "original_name": "backup_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [
@@ -22665,15 +23307,15 @@
       },
       "recommendation": null,
       "missing": [
-        "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-        "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+        "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
       ],
       "source": {
         "collection": "Published PP/NAO GW benchmark",
         "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
         "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
         "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-        "archive_directory": "TABLE/Table_04_GW_comparison/BP__src_k8_shrink_wing"
+        "archive_directory": "TABLE/Table_04_GW_comparison/BP__src_k8_shrink_wing",
+        "backup_assets_receipt": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
       },
       "audit": {
         "case_role": "paper_table_04_reference",
@@ -22760,12 +23402,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species B: missing_roles is not empty: ['pp', 'nao']",
-          "species B: expected one unambiguous pp payload, found 0",
-          "species B: expected one unambiguous nao payload, found 0",
-          "species P: missing_roles is not empty: ['pp', 'nao']",
-          "species P: expected one unambiguous pp payload, found 0",
-          "species P: expected one unambiguous nao payload, found 0",
           "software.librpa.commit: full immutable commit is required"
         ]
       }
@@ -25957,31 +26593,29 @@
       "species": [
         {
           "element": "Na",
-          "set_id": "Na-PP-unresolved-ca34912849fe",
+          "set_id": "Na-backup-38e952bce1a4ad18518c13075c6742ff645c2a24346b37c9f3a3c6a983b66281",
           "asset_aliases": {
             "pp": "Na_ONCV_PBE-1.0.upf",
             "nao": "Na_gga_10au_100Ry_6s3p2d.orb",
             "abf": "Na_6s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "Na-PP-unresolved-ca34912849fe",
+          "source_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
         },
         {
           "element": "Cl",
-          "set_id": "Cl-PP-unresolved-264140e3d907",
+          "set_id": "Cl-backup-69587b42af54b0cddabdcecfaa7cbc041743898252ed6d10e237cb233e21b3f8",
           "asset_aliases": {
             "pp": "Cl_ONCV_PBE-1.0.upf",
             "nao": "Cl_gga_8au_100Ry_3s3p2d.orb",
             "abf": "Cl_8au3s3p2d1f1g_pca1e-6.abfs"
           },
-          "missing_roles": [
-            "pp",
-            "nao"
-          ],
-          "linkage": "partial archive; no substitution made"
+          "missing_roles": [],
+          "linkage": "original-path backup association; not a runtime sealed asset manifest",
+          "previous_set_id": "Cl-PP-unresolved-264140e3d907",
+          "source_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
         }
       ],
       "software": {
@@ -26131,6 +26765,16 @@
             "sha256": "773fe5409082cd9609203c3ccaeabf98207bffebfa8d20729a25fd49708c94f5",
             "size_bytes": 1852,
             "label": "Paper-reported Table IV values (DFT / GW)"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json",
+            "sha256": "d10b06f7e8761ed00d43824005c3881d22c6ba157c7123dccfb5ded55c1cd19c",
+            "size_bytes": 13256,
+            "original_sha256": "d10b06f7e8761ed00d43824005c3881d22c6ba157c7123dccfb5ded55c1cd19c",
+            "label": "backup_assets_receipt.json",
+            "original_name": "backup_assets_receipt.json",
+            "transformation": "none"
           }
         ],
         "logs": [
@@ -26254,15 +26898,15 @@
       },
       "recommendation": null,
       "missing": [
-        "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-        "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+        "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
       ],
       "source": {
         "collection": "Published PP/NAO GW benchmark",
         "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
         "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
         "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-        "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15"
+        "archive_directory": "TABLE/Table_04_GW_comparison/NaCl__src_sg15",
+        "backup_assets_receipt": "data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
       },
       "audit": {
         "case_role": "paper_table_04_reference",
@@ -26349,12 +26993,6 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
-          "species Na: missing_roles is not empty: ['pp', 'nao']",
-          "species Na: expected one unambiguous pp payload, found 0",
-          "species Na: expected one unambiguous nao payload, found 0",
-          "species Cl: missing_roles is not empty: ['pp', 'nao']",
-          "species Cl: expected one unambiguous pp payload, found 0",
-          "species Cl: expected one unambiguous nao payload, found 0",
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]

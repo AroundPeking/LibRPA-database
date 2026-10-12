@@ -206,9 +206,36 @@ async function main() {
     const bandDownloadUrls = await page.locator("#record-bands a[download]").evaluateAll(links => links.map(link => link.href));
     check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
     check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("not automatically the global fundamental gap"), "路径gap不等同global fundamental gap脚注保留");
+    const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
+    check(hbn?.status === "path_diagnostic", "replacement hBN keeps its restricted scientific status");
     await go("#/material/hbn-tzdp10-fgext-20261008");
-    check((await page.locator(".result-primary").innerText()).includes("Restricted result"), "frontier path result is not an ordinary GW gap");
+    const hbnHeadline = await page.locator(".result-primary").innerText();
+    check(hbnHeadline.includes("GW · paper-reported") && hbnHeadline.includes("6.94183 eV"), "replacement hBN displays the cited paper headline");
+    check(hbnHeadline.includes("Restricted path · not an accepted fundamental gap"), "paper headline keeps the restricted scope beside its number");
+    check(!hbnHeadline.includes("Restricted result") && !hbnHeadline.includes("6.68084"), "replacement hBN does not hide its paper value or borrow the old value");
+    check((await page.locator(".result-strip > div").nth(0).innerText()).includes("4.68813"), "replacement hBN shows its own cited KS value");
+    check((await page.locator(".result-strip > div").nth(1).innerText()).includes("11.020"), "replacement hBN shows its own archived EXX value");
     check((await page.locator("#record-overview").innerText()).includes("6.94183"), "original restricted numerical result retained");
+    check(await page.locator("#record-inputs .file-row").count() === 21, "replacement hBN has its 21 real inputs");
+    const hbnFigures = hbn.files.figures.filter(file => file.display_priority === "primary");
+    check(hbnFigures.length === 3, "replacement hBN has three traceable primary figures");
+    await page.locator(".section-nav [data-section='record-bands']").click();
+    for (const image of await page.locator("#record-bands > .section-body > .figure-grid img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      check(await image.evaluate(img => img.complete && img.naturalWidth > 0), "replacement hBN primary SVG loads");
+    }
+    for (const file of [...hbn.files.results.filter(file => /(?:KS|EXX|GW)_band_spin_1\.dat$/.test(file.path)), ...hbnFigures, ...hbn.files.figures.filter(file => /hbn_frontier_audit\.json$/.test(file.path))]) {
+      const fetched = await context.request.get(new URL(file.path, archive).href);
+      check(fetched.ok(), `replacement hBN evidence downloadable: ${file.path}`);
+      check(createHash("sha256").update(await fetched.body()).digest("hex") === file.sha256, `replacement hBN evidence hash: ${file.path}`);
+    }
+    await screenshot("hbn-primary-bands.png");
+    await go("");
+    await page.locator("#search").fill("hBN");
+    const replacementRow = page.locator(".material-row").filter({ has: page.locator("a[href='#/material/hbn-tzdp10-fgext-20261008']") });
+    check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Restricted path"), "replacement hBN list shows rounded paper number with restriction");
+    check((await page.locator("#sort").innerText()).includes("Reported GW value"), "sorting label distinguishes reported values from accepted gaps");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");
     check(await page.locator("#status-filter-control").isVisible(), "publication filter visible in basis mode");

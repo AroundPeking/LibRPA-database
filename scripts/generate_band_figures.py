@@ -273,6 +273,153 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
     return report
 
 
+def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = False) -> dict:
+    """Audit the manuscript replacement hBN chain; never promote its GW spectrum."""
+    root = root.resolve()
+    record_path = record_path.resolve()
+    original = record_path.read_bytes()
+    record = json.loads(original)
+    if (record.get("id") != "hbn-tzdp10-fgext-20261008"
+            or record.get("dimension") != "2d" or record.get("status") != "path_diagnostic"):
+        raise ValueError("replacement hBN identity or diagnostic status mismatch")
+    declared = {entry["path"]: entry for group in record["files"].values() for entry in group}
+    verified = {}
+
+    def source(name: str) -> tuple[dict, bytes]:
+        matches = [entry for entry in declared.values() if Path(entry["path"]).name == name]
+        if len(matches) != 1:
+            raise ValueError(f"ambiguous or missing same-record source: {name}")
+        entry = matches[0]
+        path = root / entry["path"]
+        if not path.resolve().is_relative_to(root) or path.is_symlink():
+            raise ValueError("hBN source escapes archive")
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != entry["sha256"] or len(data) != entry["size_bytes"]:
+            raise ValueError(f"hBN source hash/size mismatch: {name}")
+        verified[entry["path"]] = data
+        return entry, data
+
+    receipt_entry, receipt_data = source("calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json")
+    receipt = json.loads(receipt_data)
+    if (receipt.get("route") != "same_producer_pbe_path" or receipt.get("path_points") != 91
+            or receipt.get("states") != 44 or receipt.get("spin") != 1
+            or abs(receipt.get("path_occupied_band_weight", 0) * 91 - 2) > 1e-6):
+        raise ValueError("hBN PBE path receipt does not establish the weighted 91/44/1 contract")
+    nscf_entry, nscf_data = source("calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log")
+    scf_entry, scf_data = source("calculation__OUT.ABACUS__running_scf.log")
+    commits = []
+    for data in (scf_data, nscf_data):
+        text = data.decode("utf-8")
+        if set(re.findall(r"Occupied electronic states\s*=\s*(\d+)", text)) != {"4"}:
+            raise ValueError("hBN logged occupied-state boundary is not uniquely four")
+        if set(re.findall(r"NBANDS\)\s*=\s*(\d+)", text)) != {"44"}:
+            raise ValueError("hBN logged band dimension mismatch")
+        identities = set(re.findall(r"(?m)^\s*Commit:\s*([0-9a-f]{40})\b", text))
+        if len(identities) != 1:
+            raise ValueError("hBN each SCF/NSCF log must establish one full source identity")
+        commits.append(next(iter(identities)))
+    if commits[0] != commits[1]:
+        raise ValueError("hBN SCF/NSCF full source identity is conflicting")
+    commit = commits[0]
+    app = record.setdefault("software", {}).setdefault("abacus", {})
+    if app.get("commit") not in (None, commit):
+        raise ValueError("hBN recorded ABACUS identity conflicts with original logs")
+    kpt_entry, _ = source("calculation__KPT_nscf")
+    contract = {"kind": "uniform_k_weighted", "kpoint_count": 91, "occupied_band_count": 4,
+                "evidence": [receipt_entry["path"], nscf_entry["path"]]}
+    sidecar = record_path.parent / "figures/hbn_frontier_audit.json"
+    sidecar_relative = sidecar.relative_to(root).as_posix()
+    metadata = {"schema_version": 2, "calculation_id": record["id"], "energy_unit": "eV",
+                "comparison_mode": "method-own occupied path VBM, fixed raw bands 1-8",
+                "scientific_status": "path_diagnostic; unchanged",
+                "source_identity": {"abacus": commit, "librpa": "not inferred; original log GITDIR-NOTFOUND"},
+                "chain_scope": "Same-record replacement manuscript chain, PBE path receipt and logged boundary; not a complete offline runtime handoff or full-spectrum GW acceptance.",
+                "source_sha256": {}, "methods": {}}
+    writes, generated = {}, []
+    all_sources = []
+    for method in METHODS:
+        entry, _ = source(f"{method}_band_spin_1.dat")
+        table = plot_bands.parse_abacus_band_table(root / entry["path"])
+        if len(table.x) != 91 or len(table.energies[0]) != 44:
+            raise ValueError("hBN original spectrum dimensions mismatch")
+        path_audit = audit_kpath(table, root / kpt_entry["path"])
+        analysis = plot_bands.analyze_frontier(table, occupation_contract=contract,
+                                              occupied_window=4, empty_window=4,
+                                              known_pathological=method == "GW")
+        if analysis["occupation_audit"].get("full_occupation") != 2:
+            raise ValueError("hBN single-spin receipt requires occupied weights of 2/nk")
+        if method in ("KS", "EXX"):
+            gap = analysis.get("sampled_path_gap_ev")
+            if (analysis.get("gap_status") != "reported" or type(gap) not in (int, float)
+                    or not math.isfinite(gap) or gap <= 0):
+                raise ValueError(f"hBN {method} requires a finite reported full-spectrum path gap")
+        if method == "KS" and abs(analysis["sampled_path_gap_ev"] - receipt["fundamental_gap_eV"]) > 5e-6:
+            raise ValueError("hBN original KS table disagrees with same-producer receipt")
+        if method == "GW" and (analysis["gap_status"] != "rejected"
+                or abs(analysis["selected_window_path_gap_ev"] - record["summary"]["value"]) > 5e-6):
+            raise ValueError("hBN fixed frontier disagrees with recorded restricted observable")
+        sources = [entry["path"], kpt_entry["path"], receipt_entry["path"], scf_entry["path"], nscf_entry["path"]]
+        analysis.update({"source_result_path": entry["path"], "source_sha256": entry["sha256"],
+                         "kpath_audit": path_audit, "source_paths": sources})
+        metadata["methods"][method] = analysis
+        all_sources.extend(sources)
+        output = record_path.parent / f"figures/{method.lower()}_frontier.svg"
+        svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], "hBN", method).encode("utf-8")
+        relative = output.relative_to(root).as_posix()
+        writes[relative] = svg
+        generated.append({"role": "figures", "path": relative, "sha256": hashlib.sha256(svg).hexdigest(),
+                          "size_bytes": len(svg), "label": f"hBN {method} frozen frontier" + (" (diagnostic)" if method == "GW" else ""),
+                          "transformation": "derived audited method-own frontier; original bytes unchanged",
+                          "source_paths": sources, "display_priority": "primary",
+                          "scientific_status": "archived_diagnostic" if method == "GW" else "sampled_path_only"})
+    metadata["source_sha256"] = {path: hashlib.sha256(data).hexdigest() for path, data in sorted(verified.items())}
+    data = (json.dumps(metadata, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    writes[sidecar_relative] = data
+    generated.append({"role": "figures", "path": sidecar_relative, "sha256": hashlib.sha256(data).hexdigest(),
+                      "size_bytes": len(data), "label": "hBN original spectrum audit and frozen display mappings",
+                      "source_paths": sorted(set(all_sources))})
+    exx = {"key": "sampled_path_gap_ev", "category": "electronic", "label": "Sampled path gap",
+           "method": "EXX", "value": metadata["methods"]["EXX"]["sampled_path_gap_ev"], "unit": "eV", "status": "reported",
+           "definition": "Finite occupation-separated gap over all 44 raw bands of the same-record 91-point EXX path; logged four occupied states and receipt-backed 2/nk weights. Not a global BZ gap, an old hBN value, or scientific convergence acceptance.",
+           "evidence": [metadata["methods"]["EXX"]["source_result_path"], sidecar_relative]}
+    props = record.setdefault("properties", [])
+    existing = [prop for prop in props if prop.get("method") == "EXX"]
+    if existing and existing != [exx]:
+        raise ValueError("hBN EXX property conflict; refusing overwrite")
+    if not existing:
+        props.append(exx)
+    for prop in props:
+        if prop.get("key") == "summary_value" and prop.get("method") == "GW path":
+            prop["definition"] = "Restricted raw-band-5 frontier path gap of the replacement hBN production chain. Higher raw states intrude and one full-spectrum value is nonfinite; not an accepted fundamental gap."
+            prop["evidence"] = [metadata["methods"]["GW"]["source_result_path"], sidecar_relative]
+    app["commit"] = commit
+    app["evidence"] = [scf_entry["path"], nscf_entry["path"]]
+    app.pop("missing_reason", None)
+    app["identity_note"] = "Full source commit printed identically in the archived SCF and same-producer NSCF logs. Executable hash and source-tree dirtiness were not retained; not a current-profile validation."
+    new_paths = {entry["path"] for entry in generated}
+    retained = [entry for entry in record["files"]["figures"] if entry["path"] not in new_paths]
+    record["files"]["figures"] = generated + retained
+    record_relative = record_path.relative_to(root).as_posix()
+    writes[record_relative] = (json.dumps(record, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
+    if write:
+        # Recheck the complete read set before any write; never alter raw inputs/results.
+        if record_path.read_bytes() != original or any((root / path).read_bytes() != content for path, content in verified.items()):
+            raise ValueError("hBN read set changed during verification")
+        for relative, content in writes.items():
+            destination = root / relative
+            if destination.exists() and relative != record_relative and destination.read_bytes() != content:
+                raise ValueError("hBN derived artifact conflict; refusing overwrite")
+        for relative, content in writes.items():
+            destination = root / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            if not destination.exists() or destination.read_bytes() != content:
+                destination.write_bytes(content)
+    return {"calculation_id": record["id"], "write": write, "generated_methods": list(METHODS),
+            "abacus_commit": commit, "exx_path_gap_ev": exx["value"],
+            "gw_restricted_path_gap_ev": metadata["methods"]["GW"]["selected_window_path_gap_ev"],
+            "source_files_verified": len(verified), "gw_full_spectrum_accepted": False}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
@@ -280,7 +427,12 @@ def main() -> int:
     mode.add_argument("--audit", action="store_true", help="只读审计，不写文件（默认）")
     mode.add_argument("--write", action="store_true", help="显式写入新SVG/sidecar并补齐可报告的缺失属性")
     parser.add_argument("--allow-weighted-occupations", action="store_true", help="explicit evidence-backed 2/nk archive contract; never infer all-zero occupations")
+    parser.add_argument("--replacement-hbn", action="store_true", help="audit only the exact replacement manuscript hBN chain and preserve restricted GW status")
     args = parser.parse_args()
+    if args.replacement_hbn:
+        path = args.root / "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json"
+        print(json.dumps(generate_hbn_record(path, args.root, args.write), ensure_ascii=False, indent=2))
+        return 0
     reports = [generate_record(path, args.root, args.write, args.allow_weighted_occupations)
                for path in sorted(args.root.glob("data/calculations/3d/*/*/record.json"))]
     print(json.dumps({"write": args.write, "records": reports}, ensure_ascii=False, indent=2))

@@ -12,7 +12,7 @@ This repository is the data companion to the [ABACUS + LibRPA GW basis skill](ht
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
-The current snapshot contains 86 immutable basis-set records covering 27 elements and 33 calculation records (16 two-dimensional and 17 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
+The current snapshot contains 96 immutable basis-set records covering 27 elements and 33 calculation records (16 two-dimensional and 17 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
 
 The generated [`data/log-index.json`](data/log-index.json) gives every retained
 log exactly one calculation owner. [`data/release-index.json`](data/release-index.json)
@@ -44,8 +44,8 @@ repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
 Open a calculation and choose **View inputs** or **Input files**. Every archived
 input has a read-only text preview and a download link; nested calculation
 stages retain their archive names to avoid overwriting same-named files. The
-current archive has input files for **18 of 33 calculations** (157 files).
-The other 15 records explicitly say **Inputs not archived**; result files and
+current archive has input files for **20 of 33 calculations** (173 files).
+The other 13 records explicitly say **Inputs not archived**; result files and
 candidate basis sets do not establish that the missing inputs exist.
 
 The **Pseudopotentials & basis** section links exact species bindings to their

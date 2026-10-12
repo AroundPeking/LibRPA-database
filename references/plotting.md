@@ -43,7 +43,24 @@ python3 -B scripts/generate_band_figures.py --write --allow-weighted-occupations
 python3 -B -m unittest discover -s tests -p 'test*band*.py'
 ```
 
-默认及 `--audit` 只读；只有 `--write` 写入。生成仅限 3D，不修改 2D。
+默认及 `--audit` 只读；只有 `--write` 写入。普通生成仅限 3D，不修改 2D。
+新 hBN 论文替换记录使用独立入口，不能套用到其他二维记录：
+
+```bash
+python3 -B scripts/generate_band_figures.py --replacement-hbn
+python3 -B scripts/generate_band_figures.py --replacement-hbn --write
+```
+
+该入口要求同记录 PBE receipt、SCF/NSCF 各自完整且一致的源码提交、
+91 点/44 带/4 占据带及单自旋 `2/nk` 占据，逐点核对原 KPT。
+显示前固定 raw occupied 1–4、empty 5–8，三方法分别对齐和选能窗，
+全部 44 带、非有限位置与侵入仍保存于 `hbn_frontier_audit.json`。
+KS/EXX 路径值为 4.68813/11.01971 eV；论文 GW 主值 6.94183 eV
+仍是受限路径诊断，非完整谱基本带隙。原始输入、谱和日志不改。
+运行日志未打印 LibRPA commit 的事实，与后续 hash-bound
+`librpa_build_identity_receipt.json` 恢复出的源码身份分别保留；
+恢复身份不证明源码树干净、当前版本兼容或科学验收通过。
+
 新 `ks_frontier.svg`、`exx_frontier.svg`、`gw_frontier.svg` 和
 `band_frontier_metadata.json` 登记为 primary；原 `band_comparison.svg/json`
 改为 secondary，但原文件及全部原始谱的字节不变。重复生成必须字节幂等。

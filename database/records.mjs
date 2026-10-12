@@ -45,8 +45,9 @@ export function paperGap(record, method = "GW") {
 }
 
 export function bandGap(record, method = "GW") {
-  // A selected raw-state separation must not enter an ordinary GW gap column or sort.
-  if (method === "GW" && restrictedGap(record)) return null;
+  // A cited paper value is displayable even when its archived spectrum is restricted.
+  // It does not turn that spectrum into an accepted fundamental gap: archive fallback
+  // still enforces the restriction and the UI keeps the scope beside the paper value.
   const paper = paperGap(record, method);
   if (paper) return paper.value;
   return archivedBandGap(record, method);

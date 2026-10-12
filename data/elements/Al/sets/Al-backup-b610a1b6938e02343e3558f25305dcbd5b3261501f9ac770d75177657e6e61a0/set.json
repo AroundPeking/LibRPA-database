@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
+  "element": "Al",
+  "family": "historical_backup",
+  "role_hashes_sha256": "b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
+  "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Historical 3D original-path compute backup",
+    "receipts": [
+      "data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json",
+      "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+    ],
+    "license": "unknown",
+    "redistribution": "unknown"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Al/pseudopotentials/cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f.upf",
+      "sha256": "cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f",
+      "size_bytes": 90021,
+      "original_sha256": "cb8a3cf0c08e2c3ac39a1d7dfab35e6563c2a59e0db98b8cfd557245c1da531f",
+      "label": "Al_ONCV_PBE-1.0.upf",
+      "original_name": "Al_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Al/orbitals/72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c.orb",
+      "sha256": "72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c",
+      "size_bytes": 258166,
+      "original_sha256": "72db43796b42f5c00b6d7bb223691a36897a4239bae93e7f33273623e03e519c",
+      "label": "Al_gga_8au_100Ry_6s6p2d.orb",
+      "original_name": "Al_gga_8au_100Ry_6s6p2d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Al/auxiliary/7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44.abfs",
+      "sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+      "size_bytes": 2063259,
+      "original_sha256": "7f2bc3be93cb7a74a40d491bebb2e017904fea3d1b3c1ea790cae50ae6906f44",
+      "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 23,
+          "P": 21,
+          "D": 20,
+          "F": 16,
+          "G": 11,
+          "H": 8,
+          "I": 4
+        },
+        "basis_dimension": 537
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "unknown; not inferred from historical usage"
+  },
+  "used_by": [
+    "alas-paper-paper",
+    "alp-paper-k8_shrink_wing"
+  ]
+}

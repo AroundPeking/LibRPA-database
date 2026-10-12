@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "B-backup-993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
+  "element": "B",
+  "family": "historical_backup",
+  "role_hashes_sha256": "993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
+  "validation_scope": "original-path backup association; no runtime sealed manifest or scientific acceptance",
+  "publication": {
+    "status": "database_only"
+  },
+  "source": {
+    "collection": "Historical 3D original-path compute backup",
+    "receipts": [
+      "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+      "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
+    ],
+    "license": "unknown",
+    "redistribution": "unknown"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/B/pseudopotentials/0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f.upf",
+      "sha256": "0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f",
+      "size_bytes": 89982,
+      "original_sha256": "0ea384402c92516dcca6032c1b249e6ced70770661b2acb930e34b5f230b401f",
+      "label": "B_ONCV_PBE-1.0.upf",
+      "original_name": "B_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/B/orbitals/2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58.orb",
+      "sha256": "2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58",
+      "size_bytes": 147596,
+      "original_sha256": "2cdda16416c546e0c31487948db605b0ff98aaf21d65ddc59573c6f6a6160a58",
+      "label": "B_gga_8au_100Ry_3s3p2d.orb",
+      "original_name": "B_gga_8au_100Ry_3s3p2d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/B/auxiliary/f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912.abfs",
+      "sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+      "size_bytes": 1376619,
+      "original_sha256": "f5404c3fb4273e3dcd00418b307e07f434d24732c59e67ddbe1f2a39f466b912",
+      "label": "B_3s3p2d1f1g_pca1e-6.abfs",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8.0,
+        "counts": {
+          "S": 13,
+          "P": 13,
+          "D": 13,
+          "F": 10,
+          "G": 9,
+          "H": 6,
+          "I": 4
+        },
+        "basis_dimension": 386
+      }
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "unknown; not inferred from historical usage"
+  },
+  "used_by": [
+    "bas-paper-k8_shrink_wing",
+    "bp-paper-k8_shrink_wing"
+  ]
+}

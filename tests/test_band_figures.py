@@ -320,6 +320,139 @@ class BandFigureTests(unittest.TestCase):
                             self.assertAlmostEqual(actual_x, x, delta=0.00051)
                             self.assertAlmostEqual(actual_y, y, delta=0.00051)
 
+    def test_replacement_hbn_audit_is_source_bound_and_preserves_raw_status(self):
+        import copy
+        import shutil
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / relative, root / relative)
+            path = root / relative / "record.json"
+            before = json.loads(path.read_text())
+            originals = {p: p.read_bytes() for group in ("inputs", "results", "logs")
+                         for p in (path.parent / group).iterdir() if p.is_file()}
+            report = generator.generate_hbn_record(path, root)
+            self.assertFalse(report["write"])
+            self.assertEqual(json.loads(path.read_text()), before)
+            self.assertAlmostEqual(report["exx_path_gap_ev"], 11.01971)
+            self.assertFalse(report["gw_full_spectrum_accepted"])
+            generator.generate_hbn_record(path, root, write=True)
+            after = json.loads(path.read_text())
+            for field in ("status", "summary", "paper_values", "species"):
+                self.assertEqual(after[field], before[field])
+            self.assertEqual(after["software"]["librpa"], before["software"]["librpa"])
+            for p, content in originals.items():
+                self.assertEqual(p.read_bytes(), content)
+            meta = json.loads((path.parent / "figures/hbn_frontier_audit.json").read_text())
+            self.assertEqual(meta["methods"]["GW"]["gap_status"], "rejected")
+            self.assertEqual(len(meta["methods"]["GW"]["raw_audit"]["nonfinite_states"]), 1)
+            for method in generator.METHODS:
+                analysis = meta["methods"][method]
+                self.assertEqual(analysis["raw_selected_occupied_bands"], [1, 2, 3, 4])
+                self.assertEqual(analysis["raw_selected_empty_bands"], [5, 6, 7, 8])
+                self.assertTrue(analysis["reconstruction_verified"])
+                self.assertEqual(len(analysis["mapping_one_based"]), 91)
+                svg = ET.parse(path.parent / f"figures/{method.lower()}_frontier.svg").getroot()
+                self.assertEqual(svg.find(".//*[@id='" + method + "-VBM-1']").get("fill"), "none")
+            self.assertNotEqual(meta["methods"]["EXX"]["y_limits_ev"], meta["methods"]["GW"]["y_limits_ev"])
+            snapshot = {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()}
+            generator.generate_hbn_record(path, root, write=True)
+            self.assertEqual(snapshot, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+            raw = path.parent / "results/EXX_band_spin_1.dat"
+            raw.write_bytes(raw.read_bytes() + b"\n")
+            with self.assertRaisesRegex(ValueError, "hash/size mismatch"):
+                generator.generate_hbn_record(path, root, write=True)
+
+    def test_replacement_hbn_requires_a_full_matching_commit_in_each_stage(self):
+        import shutil
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        for stage in ("calculation__OUT.ABACUS__running_scf.log",
+                      "calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"):
+            for replacement in ("unknown", "0" * 40):
+                with self.subTest(stage=stage, replacement=replacement), tempfile.TemporaryDirectory() as tmp:
+                    root = Path(tmp)
+                    shutil.copytree(ROOT / relative, root / relative)
+                    path = root / relative / "record.json"
+                    log = path.parent / "logs" / stage
+                    text = log.read_text()
+                    commit = __import__("re").search(r"(?m)^\s*Commit:\s*([0-9a-f]{40})\b", text).group(1)
+                    log.write_text(text.replace(commit, replacement))
+                    record = json.loads(path.read_text())
+                    item = next(entry for entry in record["files"]["logs"] if entry["path"].endswith(stage))
+                    item.update(sha256=generator.sha256(log), size_bytes=log.stat().st_size)
+                    path.write_text(json.dumps(record))
+                    before = {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()}
+                    with self.assertRaisesRegex(ValueError, "source identity"):
+                        generator.generate_hbn_record(path, root, write=True)
+                    self.assertEqual(before, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+
+    def test_replacement_hbn_rejects_weights_inconsistent_with_single_spin_receipt(self):
+        import shutil
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        for method in generator.METHODS:
+            with self.subTest(method=method), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                shutil.copytree(ROOT / relative, root / relative)
+                path = root / relative / "record.json"
+                raw = path.parent / "results" / f"{method}_band_spin_1.dat"
+                lines = []
+                for line in raw.read_text().splitlines():
+                    fields = line.split()
+                    for column in range(4, 12, 2):
+                        fields[column] = "0.01099"
+                    lines.append(" ".join(fields))
+                raw.write_text("\n".join(lines) + "\n")
+                record = json.loads(path.read_text())
+                item = next(entry for entry in record["files"]["results"] if entry["path"].endswith(raw.name))
+                item.update(sha256=generator.sha256(raw), size_bytes=raw.stat().st_size)
+                path.write_text(json.dumps(record))
+                before = {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()}
+                with self.assertRaisesRegex(ValueError, "2/nk"):
+                    generator.generate_hbn_record(path, root, write=True)
+                self.assertEqual(before, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+
+    def test_replacement_hbn_derived_conflict_rejects_before_any_write(self):
+        import shutil
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / relative, root / relative)
+            path = root / relative / "record.json"
+            generator.generate_hbn_record(path, root, write=True)
+            svg = path.parent / "figures/exx_frontier.svg"
+            svg.write_bytes(svg.read_bytes() + b"\n")
+            before = {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()}
+            with self.assertRaisesRegex(ValueError, "derived artifact conflict"):
+                generator.generate_hbn_record(path, root, write=True)
+            self.assertEqual(before, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+
+    def test_replacement_hbn_readset_change_rejects_before_any_write(self):
+        import shutil
+        from unittest import mock
+        relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / relative, root / relative)
+            path = root / relative / "record.json"
+            target = (path.parent / "results/EXX_band_spin_1.dat").resolve()
+            original_read = Path.read_bytes
+            reads = 0
+
+            def changing_read(candidate):
+                nonlocal reads
+                data = original_read(candidate)
+                if candidate.resolve() == target:
+                    reads += 1
+                    if reads > 1:
+                        return data + b"\n"
+                return data
+
+            before = {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()}
+            with mock.patch.object(Path, "read_bytes", changing_read):
+                with self.assertRaisesRegex(ValueError, "read set changed"):
+                    generator.generate_hbn_record(path, root, write=True)
+            self.assertEqual(before, {p: p.read_bytes() for p in path.parent.rglob("*") if p.is_file()})
+
     def test_nonuniform_path_ticks_are_native_and_gamma_is_clear(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "KPT"

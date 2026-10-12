@@ -32,17 +32,24 @@
   "software": {
     "abacus": {
       "source_url": "https://github.com/AroundPeking/abacus-develop",
-      "commit": null,
+      "commit": "9fb19ed4cd7487c6cec1b18326d694691209f40f",
       "abbreviated_commit": null,
-      "evidence": [],
-      "missing_reason": "full producer commit not recorded in the imported evidence"
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+      ],
+      "identity_note": "Full source commit printed identically in the archived SCF and same-producer NSCF logs. Executable hash and source-tree dirtiness were not retained; not a current-profile validation."
     },
     "librpa": {
       "source_url": "https://github.com/AESM-Group/LibRPA",
-      "commit": null,
+      "commit": "14ce4859cf574f09d0b11fa1891f0e8ebe694e08",
       "abbreviated_commit": null,
-      "evidence": [],
-      "missing_reason": "full producer commit not recorded in the imported evidence"
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json",
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_INPUT_MANIFEST.sha256"
+      ],
+      "executable_sha256": "a297307f23a0052d20291701ef2d96a2197fc5b1fa3706fa29f5b2b4be36ad8d",
+      "identity_note": "Recovered from the retained build receipt bound to the exact run-manifest executable SHA-256 and source archive PAX commit. The original runtime GITDIR-NOTFOUND remains unchanged. Source-tree dirtiness at build time is unknown; not current-profile or scientific acceptance."
     }
   },
   "summary": {
@@ -4729,6 +4736,14 @@
         "sha256": "4eb7d442da766ff4853753e6f3426f879eed0a96eed60d3bfb421d757a2a4a5e",
         "size_bytes": 3726,
         "label": "Paper-reported Table I values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json",
+        "sha256": "cff580873574451a591f69d550fcac3d902cd8ce36739ea4468e8d786cd61a89",
+        "size_bytes": 3102,
+        "label": "LibRPA original binary-to-source build identity",
+        "transformation": "derived compact receipt; private source paths omitted, original manifest and runtime logs unchanged"
       }
     ],
     "logs": [
@@ -4853,6 +4868,73 @@
     "figures": [
       {
         "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/ks_frontier.svg",
+        "sha256": "40b51f93f1d015b598c90a9e51d1f79d750477b85b1b4ab2f58f293cadd3d54b",
+        "size_bytes": 19741,
+        "label": "hBN KS frozen frontier",
+        "transformation": "derived audited method-own frontier; original bytes unchanged",
+        "source_paths": [
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/KS_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+        ],
+        "display_priority": "primary",
+        "scientific_status": "sampled_path_only"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/exx_frontier.svg",
+        "sha256": "363d0a9f2cb53ac4afdba448b7fe29fa74ebd05a10aa80243737ddf1117dd601",
+        "size_bytes": 19718,
+        "label": "hBN EXX frozen frontier",
+        "transformation": "derived audited method-own frontier; original bytes unchanged",
+        "source_paths": [
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+        ],
+        "display_priority": "primary",
+        "scientific_status": "sampled_path_only"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/gw_frontier.svg",
+        "sha256": "f8f567e3e9ea2384b9c9aa29b35bdefab1aa5fe6a19ceeb9ae1d5041bb3da8f5",
+        "size_bytes": 20133,
+        "label": "hBN GW frozen frontier (diagnostic)",
+        "transformation": "derived audited method-own frontier; original bytes unchanged",
+        "source_paths": [
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log"
+        ],
+        "display_priority": "primary",
+        "scientific_status": "archived_diagnostic"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json",
+        "sha256": "269908a4d0e7b872b18a7088efa68ac6514b8188fca2166918452a9283dc86bb",
+        "size_bytes": 636021,
+        "label": "hBN original spectrum audit and frozen display mappings",
+        "source_paths": [
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__pbe_path_91_20261008__OUT.ABACUS__running_nscf.log",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/KS_band_spin_1.dat",
+          "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PBE_PATH_RECEIPT.json"
+        ]
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/figures__hbn_tzdp10_cutoff_zoom.pdf",
         "sha256": "63f57ab47fb00198e433497300fc7f845c7377cbb0f0db449999396163f40a8b",
         "size_bytes": 22213,
@@ -4953,9 +5035,25 @@
       "unit": "eV",
       "status": "reported",
       "evidence": [
-        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat"
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json"
       ],
-      "source_summary_key": "value"
+      "source_summary_key": "value",
+      "definition": "Restricted raw-band-5 frontier path gap of the replacement hBN production chain. Higher raw states intrude and one full-spectrum value is nonfinite; not an accepted fundamental gap."
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Sampled path gap",
+      "method": "EXX",
+      "value": 11.01971,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "Finite occupation-separated gap over all 44 raw bands of the same-record 91-point EXX path; logged four occupied states and receipt-backed 2/nk weights. Not a global BZ gap, an old hBN value, or scientific convergence acceptance.",
+      "evidence": [
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/EXX_band_spin_1.dat",
+        "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json"
+      ]
     }
   ],
   "paper_values": {

@@ -1,6 +1,9 @@
 """原输入导入必须先验证、显式写入，并拒绝跨运行或哈希冲突。"""
 
 import importlib.util
+import io
+import tarfile
+from unittest import mock
 import json
 from pathlib import Path
 import subprocess
@@ -189,6 +192,243 @@ class InputImportTests(unittest.TestCase):
     def test_path_escape_rejected(self):
         with self.assertRaisesRegex(ValueError, "非便携"):
             IMPORTER.portable_path(self.repo, "../outside")
+
+
+class BackupAssetImportTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        parent = Path(self.temporary.name)
+        self.repo = parent / "repo"
+        self.ghj = parent / "ghj_backup"
+        self.archive = parent / "rxg.tar.gz"
+        self.report_path = parent / "report.json"
+        self.prefix = "rxg_backup"
+        self.source = {"ghj": {}, "rxg": {}}
+        self.records = {}
+        elements = {"AlAs": ("Al", "As"), "AlP": ("Al", "P"), "BAs": ("B", "As"), "BP": ("B", "P"), "NaCl": ("Na", "Cl")}
+        self.report = {"schema_version": 1, "cases": [], "asset_registry": [], "backup_provenance": {},
+                       "checked_locations": {"ghj_backup": str(self.ghj), "rxg_archive": str(self.archive), "rxg_archive_prefix": self.prefix}}
+        for element in ("Al", "As", "B", "P", "Na", "Cl"):
+            for role, suffix in (("pp", "upf"), ("nao", "orb")):
+                data = (f'<UPF><PP_HEADER element="{element}"/></UPF>\n'.encode() if role == "pp" else self.orbital(element))
+                member = f"data/gw_bas_pp/{'pp' if role == 'pp' else 'nao'}/{element}.{suffix}"
+                self.report["asset_registry"].append({"element": element, "role": role, "name": f"{element}.{suffix}",
+                    "sha256": IMPORTER.sha256(data), "size_bytes": len(data), "ghj_relative": member, "rxg_member_relative": member})
+                self.source["rxg"][member] = data
+                if element in ("Al", "As"):
+                    self.source["ghj"][member] = data
+        for index, (case_id, (material, origin, native)) in enumerate(IMPORTER.BACKUP_CASES.items(), 1):
+            root = "/mnt/original/" + origin
+            relative = f"data/calculations/3d/{material}/{case_id}"
+            input_data = f"INPUT_PARAMETERS\npseudo_dir {root}/gw_bas_pp/pp\norbital_dir {root}/gw_bas_pp/nao\n".encode()
+            stru = "ATOMIC_SPECIES\n" + "".join(f"{element} 1 {element}.upf\n" for element in elements[material])
+            stru += "NUMERICAL_ORBITAL\n" + "".join(f"{element}.orb\n" for element in elements[material])
+            stru += "ABFS_ORBITAL\n" + "".join(f"{element}.abfs\n" for element in elements[material])
+            files = {name: (input_data if name.startswith("INPUT") else stru.encode() if name == "STRU" else (name + "\n").encode()) for name in IMPORTER.CONTROLS}
+            for method in ("KS", "EXX", "GW"):
+                files[f"{method}_band_spin_1.dat"] = f"{case_id} {method} original bands\n".encode()
+            files[f"abacus.{index}.out"] = b"original abacus log\n"
+            files[f"LibRPA.{index}.out"] = f"original librpa log {root}\n".encode()
+            files[f"slurm-{index}.out"] = f"Begin\nWorking directory is {root}/{native.removeprefix('data/')}\n".encode()
+            record = {"schema_version": 1, "id": case_id, "dimension": "3d", "material": material, "status": "gw_diagnostic",
+                "software": {"abacus": {"commit": None}, "librpa": {"commit": None}}, "summary": {"gap": 99},
+                "paper_values": {"GW": 98}, "properties": [{"value": 97}], "publication": {"status": "database_only"},
+                "audit": {"complete_runtime_handoff_included": False, "exact_asset_case": False, "asset_limitation": "original limitation"},
+                "species": [], "missing": ["Exact PP/NAO assets are absent from the archived case; no substitution was made.", "Scientific acceptance unresolved"],
+                "source": {"archive_directory": "TABLE/" + material}, "files": {"inputs": [], "results": [], "logs": [], "figures": []}}
+            for element in elements[material]:
+                old_id = element + "-old-" + case_id
+                record["species"].append({"element": element, "set_id": old_id, "asset_aliases": {"pp": element + ".upf", "nao": element + ".orb", "abf": element + ".abfs"},
+                                          "missing_roles": ["pp", "nao"], "linkage": "partial archive"})
+                data = self.orbital(element)
+                files[element + ".abfs"] = data
+                path = f"data/elements/{element}/auxiliary/{IMPORTER.sha256(data)}.abfs"
+                self.put(self.repo / path, data)
+                basis = {"schema_version": 1, "id": old_id, "element": element,
+                         "files": [IMPORTER.file_item("abf", path, data, element + ".abfs")]}
+                self.put(self.repo / f"data/elements/{element}/sets/{old_id}/set.json", IMPORTER.json_bytes(basis))
+            for name, data in files.items():
+                self.source[origin][native + "/" + name] = data
+                if name.startswith("slurm-") or name.endswith(".abfs"):
+                    continue
+                group = "inputs" if name in IMPORTER.CONTROLS else "logs" if name.endswith(".out") else "results"
+                destination_name = "abacus.out" if name.startswith("abacus.") else "librpa.out" if name.startswith("LibRPA.") else name
+                public = data.replace(root.encode(), b"<redacted>") if name.startswith("INPUT") or name.startswith("LibRPA.") else data
+                path = relative + "/" + group + "/" + destination_name
+                item = IMPORTER.file_item(group, path, public, destination_name)
+                item["original_sha256"] = IMPORTER.sha256(data)
+                if public != data:
+                    item["transformation"] = "private paths redacted"
+                self.put(self.repo / path, public)
+                record["files"][group].append(item)
+            self.records[case_id] = record
+            self.put(self.repo / relative / "record.json", IMPORTER.json_bytes(record))
+            selected = {name: IMPORTER.sha256(files[name]) for name in ("STRU", "INPUT", "INPUT_scf")}
+            selected.update({method: IMPORTER.sha256(files[method + "_band_spin_1.dat"]) for method in ("KS", "EXX", "GW")})
+            selected.update({"abacus_log": IMPORTER.sha256(files[f"abacus.{index}.out"]), "librpa_log": IMPORTER.sha256(files[f"LibRPA.{index}.out"])})
+            self.report["cases"].append({"id": case_id, "material": material, "backup_source": origin, "native_relative": native,
+                "archive_directory": material, "historical_run_directory": root + "/" + native.removeprefix("data/"),
+                "input_external_roots": {"pseudo_dir": root + "/gw_bas_pp/pp", "orbital_dir": root + "/gw_bas_pp/nao"},
+                "job_ids": {"producer": str(index), "librpa": str(index)}, "working_directory_evidence": f"slurm-{index}.out:2",
+                "stru_references": {"elements": list(elements[material])}, "selected_sha256": selected})
+        for origin in ("ghj", "rxg"):
+            readme = f"Source root: /mnt/original/{origin}\ngw_bas_pp/\nExcluded runtime shards\n".encode()
+            manifest = "".join(f"{len(data)}\t2026-01-01\t./{name.removeprefix('data/')}\n" for name, data in sorted(self.source[origin].items())).encode()
+            self.source[origin].update({"README.md": readme, "MANIFEST.tsv": manifest})
+            self.report["backup_provenance"][origin] = {"historical_source_root": "/mnt/original/" + origin,
+                "readme_sha256": IMPORTER.sha256(readme), "manifest_sha256": IMPORTER.sha256(manifest)}
+        for name, data in self.source["ghj"].items():
+            self.put(self.ghj / name, data)
+        self.report["backup_provenance"]["rxg"].update({"readme_member": self.prefix + "/README.md", "manifest_member": self.prefix + "/MANIFEST.tsv"})
+        self.write_archive()
+        self.save_report()
+        self.original_repo = InputImportTests.snapshot(self.repo)
+        self.original_ghj = InputImportTests.snapshot(self.ghj)
+        self.original_archive = self.archive.read_bytes()
+
+    @staticmethod
+    def orbital(element):
+        return f"Element {element}\nEnergy Cutoff(Ry) 100\nRadius Cutoff(a.u.) 8\nLmax 2\nNumber of Sorbital--> 3\nSUMMARY  END\n0.1\n".encode()
+
+    @staticmethod
+    def put(path, data):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+
+    def write_archive(self):
+        with tarfile.open(self.archive, "w:gz") as stream:
+            for name, data in self.source["rxg"].items():
+                member = tarfile.TarInfo(self.prefix + "/" + name)
+                member.size = len(data)
+                stream.addfile(member, io.BytesIO(data))
+        self.report["backup_provenance"]["rxg"].update({"archive_size_bytes": self.archive.stat().st_size,
+            "archive_sha256": IMPORTER.sha256(self.archive.read_bytes())})
+
+    def save_report(self):
+        self.report_path.write_bytes(IMPORTER.json_bytes(self.report))
+
+    def run_import(self, write=False):
+        return IMPORTER.import_backup_assets(self.repo, self.report_path, write=write)
+
+    def test_success_default_dry_run_and_cli_without_two_d_roots(self):
+        result = self.run_import()
+        self.assertEqual(result["asset_role_count"], 20)
+        self.assertEqual(result["unique_asset_sha256_count"], 12)
+        self.assertEqual(self.original_repo, InputImportTests.snapshot(self.repo))
+        cli = subprocess.run([sys.executable, str(SCRIPT), "--repo-root", str(self.repo), "--backup-assets-report", str(self.report_path)], capture_output=True, text=True)
+        self.assertEqual(cli.returncode, 0, cli.stderr)
+        self.assertEqual(self.original_repo, InputImportTests.snapshot(self.repo))
+
+    def test_write_idempotent_preserves_original_assets_and_scientific_status(self):
+        self.run_import()
+        self.run_import(write=True)
+        first = InputImportTests.snapshot(self.repo)
+        with mock.patch.object(IMPORTER.os, "link", side_effect=AssertionError("幂等write不得再次创建既有不可变目标")):
+            self.run_import(write=True)
+        self.assertEqual(first, InputImportTests.snapshot(self.repo))
+        self.assertEqual(self.original_ghj, InputImportTests.snapshot(self.ghj))
+        self.assertEqual(self.original_archive, self.archive.read_bytes())
+        for path, data in self.original_repo.items():
+            if not path.endswith("/record.json"):
+                self.assertEqual(first[path], data)
+        for case_id, original in self.records.items():
+            material = original["material"]
+            record = json.loads((self.repo / f"data/calculations/3d/{material}/{case_id}/record.json").read_bytes())
+            for field in ("status", "summary", "software", "properties", "paper_values", "publication", "audit"):
+                self.assertEqual(record[field], original[field])
+            for group in ("inputs", "logs", "figures"):
+                self.assertEqual(record["files"][group], original["files"][group])
+            self.assertEqual(record["files"]["results"][:-1], original["files"]["results"])
+            self.assertEqual(record["missing"], ["Scientific acceptance unresolved"])
+            for entry, old_entry in zip(record["species"], original["species"]):
+                self.assertEqual(entry["asset_aliases"], old_entry["asset_aliases"])
+                self.assertEqual(entry["previous_set_id"], old_entry["set_id"])
+                self.assertEqual(entry["missing_roles"], [])
+            receipt_data = (self.repo / record["source"]["backup_assets_receipt"]).read_bytes()
+            for token in (b"/" + b"Users/", b"/mnt/", b"/data/home"):
+                self.assertNotIn(token, receipt_data)
+            receipt = json.loads(receipt_data)
+            self.assertFalse(receipt["runtime_asset_seal_verified"])
+            self.assertFalse(receipt["complete_runtime_handoff_included"])
+        for path in self.repo.glob("data/elements/*/sets/*-backup-*/set.json"):
+            basis = json.loads(path.read_bytes())
+            self.assertEqual(basis["publication"]["status"], "database_only")
+            self.assertEqual({item["role"] for item in basis["files"]}, {"pp", "nao", "abf"})
+
+    def test_foreign_asset_sha_rejected_without_fallback(self):
+        original = self.source["rxg"]["data/gw_bas_pp/pp/Al.upf"]
+        self.source["rxg"]["data/gw_bas_pp/pp/Al.upf"] = original[:-1] + b"X"
+        self.write_archive()
+        self.save_report()
+        with self.assertRaisesRegex(ValueError, "MANIFEST.*size|PP/NAO.*SHA"):
+            self.run_import(write=True)
+        self.assertEqual(self.original_repo, InputImportTests.snapshot(self.repo))
+
+    def test_original_stru_alias_mismatch_rejected(self):
+        case = self.report["cases"][0]
+        path = self.repo / f"data/calculations/3d/{case['material']}/{case['id']}/record.json"
+        record = json.loads(path.read_bytes())
+        record["species"][0]["asset_aliases"]["abf"] = "As.abfs"
+        path.write_bytes(IMPORTER.json_bytes(record))
+        before = InputImportTests.snapshot(self.repo)
+        with self.assertRaisesRegex(ValueError, "MANIFEST.*成员缺失|STRU.*角色绑定"):
+            self.run_import(write=True)
+        self.assertEqual(before, InputImportTests.snapshot(self.repo))
+
+    def test_existing_directory_target_conflict_rejected_before_write(self):
+        asset = self.report["asset_registry"][0]
+        path = self.repo / f"data/elements/Al/pseudopotentials/{asset['sha256']}.upf"
+        path.mkdir(parents=True)
+        before = InputImportTests.snapshot(self.repo)
+        with self.assertRaisesRegex(ValueError, "目标路径冲突"):
+            self.run_import(write=True)
+        self.assertEqual(before, InputImportTests.snapshot(self.repo))
+
+    def test_original_backup_root_mismatch_rejected(self):
+        self.report["cases"][0]["input_external_roots"]["pseudo_dir"] = "/mnt/foreign/pp"
+        self.save_report()
+        with self.assertRaisesRegex(ValueError, "INPUT外置根"):
+            self.run_import(write=True)
+        self.assertEqual(self.original_repo, InputImportTests.snapshot(self.repo))
+
+    def test_readset_mutation_rejected_before_any_write(self):
+        case = self.report["cases"][0]
+        target = self.repo / f"data/calculations/3d/{case['material']}/{case['id']}/inputs/KPT"
+        original_header = IMPORTER.asset_header
+        changed = False
+        def mutate(data, element, role):
+            nonlocal changed
+            if not changed:
+                target.write_bytes(target.read_bytes() + b"changed after verification\n")
+                changed = True
+            return original_header(data, element, role)
+        with mock.patch.object(IMPORTER, "asset_header", side_effect=mutate):
+            with self.assertRaisesRegex(ValueError, "readset"):
+                self.run_import(write=True)
+        after = InputImportTests.snapshot(self.repo)
+        self.assertEqual(set(after), set(self.original_repo))
+        for path, data in self.original_repo.items():
+            if path != target.relative_to(self.repo).as_posix():
+                self.assertEqual(after[path], data)
+
+    def test_publishable_target_rejected_without_scientific_upgrade(self):
+        case = self.report["cases"][0]
+        path = self.repo / f"data/calculations/3d/{case['material']}/{case['id']}/record.json"
+        record = json.loads(path.read_bytes())
+        record["publication"]["status"] = "publishable"
+        path.write_bytes(IMPORTER.json_bytes(record))
+        before = InputImportTests.snapshot(self.repo)
+        with self.assertRaisesRegex(ValueError, "publication status"):
+            self.run_import(write=True)
+        self.assertEqual(before, InputImportTests.snapshot(self.repo))
+
+    def test_archive_hash_and_public_source_are_not_replaced(self):
+        self.report["backup_provenance"]["rxg"]["archive_sha256"] = "0" * 64
+        self.save_report()
+        with self.assertRaisesRegex(ValueError, "archive原SHA"):
+            self.run_import(write=True)
+        self.assertEqual(self.original_repo, InputImportTests.snapshot(self.repo))
 
 
 if __name__ == "__main__":

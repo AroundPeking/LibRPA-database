@@ -48,9 +48,10 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.match(html, /Restricted &lt;scope&gt;; not a certification/);
   assert.doesNotMatch(html, /Restricted <scope>/);
   record.status = "path_diagnostic";
-  assert.equal(bandGap(record), null);
+  assert.equal(bandGap(record), 2.674);
+  assert.equal(archivedBandGap(record), null);
   assert.equal(paperGap(record).value, 2.674);
-  assert.match(renderMaterial(record, []), /Restricted result/);
+  assert.match(renderMaterial(record, []), /Restricted path · not an accepted fundamental gap/);
   record.paper_values.values.DFT.value = Infinity;
   assert.equal(bandGap(record, "DFT"), 0.60168);
   record.paper_values.values.DFT.value = 1.80171;
@@ -59,14 +60,27 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(bandGap(record, "DFT"), 0.60168);
 });
 
-test("restricted hBN frontier gap is retained with scope but never used as ordinary GW gap", () => {
+test("new hBN shows the cited 6.94183 headline without accepting the restricted archive", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json", import.meta.url)));
-  assert.equal(bandGap(record), null);
+  assert.equal(record.status, "path_diagnostic");
+  assert.equal(bandGap(record), 6.94183);
+  assert.equal(bandGap(record, "DFT"), 4.68813);
+  assert.equal(archivedBandGap(record), null);
   const html = renderMaterial(record, []);
-  assert.match(html, /Restricted result/);
-  assert.match(html, /6\.94183/);
+  const headline = html.slice(html.indexOf('class="result-strip"'), html.indexOf('class="detail-layout"'));
+  assert.match(headline, /GW · paper-reported/);
+  assert.match(headline, /6\.94183/);
+  assert.match(headline, /Restricted path · not an accepted fundamental gap/);
+  assert.doesNotMatch(headline, /Restricted result|6\.68084/);
   assert.match(html, /GW raw-band-5 frontier path gap/);
   assert.match(html, /PBE valley-order gate FAILED/);
+  assert.match(html, /numerical sorting uses that reported value/);
+  const old = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-table-gw/record.json", import.meta.url)));
+  assert.equal(old.paper_values, undefined);
+  assert.equal(bandGap(old), 6.68084);
+  delete record.paper_values;
+  assert.equal(bandGap(record), null);
+  assert.match(renderMaterial(record, []), /Restricted result/);
 });
 
 test("all figure metadata attachments remain available", () => {

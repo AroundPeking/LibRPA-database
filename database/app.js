@@ -1,5 +1,5 @@
 import { matchesSearch } from "./search.mjs";
-import { esc, bandGap, paperGap, filesOf, recordElements, methodNames } from "./records.mjs";
+import { esc, bandGap, paperGap, restrictedGap, filesOf, recordElements, methodNames } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 
@@ -47,7 +47,12 @@ function materialRow(record) {
   const count = filesOf(record, "inputs").length;
   const methods = methodNames(record).map(method => `<span class="method-tag method-${method.toLowerCase()}">${method}</span>`).join("") || '<span class="not-reported">—</span>';
   const url = `#/material/${encodeURIComponent(record.id)}`;
-  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span></td><td><div class="method-list">${methods}</div></td>${["DFT", "EXX", "GW"].map(method => `<td class="numeric ${method === "GW" ? "gw-value" : ""}"><span title="${paperGap(record, method) ? `Paper-reported · Table ${esc(record.paper_values.source.table)}; archived value retained in Overview` : "Archived result / sampled path"}">${gapText(bandGap(record, method))}</span></td>`).join("")}<td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="missing-value">Not archived</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
+  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span></td><td><div class="method-list">${methods}</div></td>${["DFT", "EXX", "GW"].map(method => {
+    const paper = paperGap(record, method);
+    const limitedPaper = method === "GW" && paper && restrictedGap(record);
+    const title = paper ? `Paper-reported · Table ${esc(record.paper_values.source.table)}; archived value retained in Overview${limitedPaper ? "; restricted path, not an accepted fundamental gap" : ""}` : "Archived result / sampled path";
+    return `<td class="numeric ${method === "GW" ? "gw-value" : ""}"><span title="${title}">${gapText(bandGap(record, method))}</span>${limitedPaper ? '<span class="table-description gap-scope">Restricted path</span>' : ""}</td>`;
+  }).join("")}<td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="missing-value">Not archived</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
 
 function basisRow(set) {
@@ -73,7 +78,7 @@ function syncFilters() {
   $("#input-filter").value = state.inputs;
   $("#status-filter").value = state.status;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
-  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="gap">GW gap ↓</option>';
+  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="gap">Reported GW value ↓</option>';
   if (!(basis ? ["element", "status"] : ["material", "gap"]).includes(state.sort)) state.sort = basis ? "element" : "material";
   $("#sort").value = state.sort;
 }
@@ -92,7 +97,7 @@ function renderHome() {
   $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, original inputs, and exact basis files — linked to each calculation and its source commits.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation. PBE/GW values prefer the paper's own columns when recorded; EXX remains archive-derived. Original path values and differences are retained in Overview. The archived k-path is not the global fundamental gap; diagnostics retain their scope. A dash means not reported.";
+  $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation. PBE/GW values prefer the paper's own columns when recorded; EXX remains archive-derived. Restricted paper values are labelled and sorted by their reported numbers, without scientific acceptance. Original path values and differences are retained in Overview. The archived k-path is not the global fundamental gap. A dash means not reported.";
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);

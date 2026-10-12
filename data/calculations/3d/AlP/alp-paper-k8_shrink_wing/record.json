@@ -8,31 +8,29 @@
   "species": [
     {
       "element": "Al",
-      "set_id": "Al-PP-unresolved-b58dd8eabafc",
+      "set_id": "Al-backup-b610a1b6938e02343e3558f25305dcbd5b3261501f9ac770d75177657e6e61a0",
       "asset_aliases": {
         "pp": "Al_ONCV_PBE-1.0.upf",
         "nao": "Al_gga_8au_100Ry_6s6p2d.orb",
         "abf": "Al_6s6p2d1f1g_pca1e-6.abfs"
       },
-      "missing_roles": [
-        "pp",
-        "nao"
-      ],
-      "linkage": "partial archive; no substitution made"
+      "missing_roles": [],
+      "linkage": "original-path backup association; not a runtime sealed asset manifest",
+      "previous_set_id": "Al-PP-unresolved-b58dd8eabafc",
+      "source_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
     },
     {
       "element": "P",
-      "set_id": "P-PP-unresolved-95089e7953f1",
+      "set_id": "P-backup-10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
       "asset_aliases": {
         "pp": "P_ONCV_PBE-1.0.upf",
         "nao": "P_gga_8au_100Ry_3s3p2d.orb",
         "abf": "P_3s3p2d1f1g_pca1e-6.abfs"
       },
-      "missing_roles": [
-        "pp",
-        "nao"
-      ],
-      "linkage": "partial archive; no substitution made"
+      "missing_roles": [],
+      "linkage": "original-path backup association; not a runtime sealed asset manifest",
+      "previous_set_id": "P-PP-unresolved-95089e7953f1",
+      "source_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
     }
   ],
   "software": {
@@ -181,6 +179,16 @@
         "sha256": "c38f28c3110d905661670340aa8b21507179100c5ef92277b174b074aaeab7c8",
         "size_bytes": 1867,
         "label": "Paper-reported Table IV values (DFT / GW)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+        "sha256": "cde4704047fef384c4e50752d91f3c735bb624eccf3ca07f97e5afac74f6d6c7",
+        "size_bytes": 13608,
+        "original_sha256": "cde4704047fef384c4e50752d91f3c735bb624eccf3ca07f97e5afac74f6d6c7",
+        "label": "backup_assets_receipt.json",
+        "original_name": "backup_assets_receipt.json",
+        "transformation": "none"
       }
     ],
     "logs": [
@@ -304,15 +312,15 @@
   },
   "recommendation": null,
   "missing": [
-    "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
-    "Exact PP/NAO assets are absent from the archived case; no substitution was made."
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
   ],
   "source": {
     "collection": "Published PP/NAO GW benchmark",
     "repository": "https://github.com/AESM-Group/abacus-librpa-g0w0-nao-pp-benchmarks",
     "original_repository": "https://github.com/AroundPeking/abacus-librpa-g0w0-nao-pp-benchmarks",
     "archive_commit": "b17cf8ae97d5a1969397323b29ccf8a4578a6258",
-    "archive_directory": "TABLE/Table_04_GW_comparison/AlP__src_k8_shrink_wing"
+    "archive_directory": "TABLE/Table_04_GW_comparison/AlP__src_k8_shrink_wing",
+    "backup_assets_receipt": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
   },
   "audit": {
     "case_role": "paper_table_04_reference",
