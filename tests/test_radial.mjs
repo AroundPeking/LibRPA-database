@@ -91,16 +91,16 @@ for (const [element, headerElement, hash, mesh] of [
     assert.ok(paths.every(match => (match[2].match(/[ML]/g) || []).length === mesh));
     assert.match(svg, new RegExp(`${headerElement} l=${l}`));
     assert.match(svg, /original N=99/);
-    assert.match(svg, /WARNING: declared angular counts differ/);
-    assert.match(svg, /Diagnostic only/);
+    assert.match(svg, /Header metadata differs from the parsed channel blocks/);
+    assert.match(svg, /preserves the source header and every stored sample/);
   }
   assert.equal(createHash("sha256").update(bytes).digest("hex"), hash);
 });
-test("plot section distinguishes physical NAO/ABF and discloses non-certification", () => {
+test("plot section distinguishes physical NAO/ABF and explains display scope", () => {
   const html = radialSection({ element: "Al", files: [{ role: "nao", path: "data/elements/Al/orbitals/a.orb", sha256: "a".repeat(64) }, { role: "abf", path: "data/elements/Al/auxiliary/a.abfs", sha256: "b".repeat(64) }] });
   assert.match(html, /Physical NAO/);
   assert.match(html, /Auxiliary basis/);
-  assert.match(html, /no smoothing/i);
+  assert.match(html, /without smoothing/i);
   assert.match(html, /SHA-256 is checked before plotting/);
-  assert.match(html, /does not validate periodic overlap/);
+  assert.match(html, /Periodic overlap, RI conditioning, EXX\/GW accuracy, and basis completeness are separate/);
 });

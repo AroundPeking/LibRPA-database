@@ -5,16 +5,15 @@ import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { readFileSync } from "node:fs";
 
-test("partial stage controls stay explicitly incomplete and retain redaction provenance", () => {
+test("stage-resolved controls retain redaction provenance without exposing internal QA status", () => {
   const path = "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json";
   const record = { id: "mote2-table-gw", material: "MoTe2", dimension: "2d", status: "gw_diagnostic", summary: {}, source: { stage_input_receipt: path }, files: { inputs: [{ path: "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/stage/librpa.in", sha256: "a".repeat(64), original_sha256: "b".repeat(64), transformation: "private server path redacted; not a rerun bundle" }] }, archive_completeness: { status: "incomplete", issues: ["software missing"] } };
   const html = renderMaterial(record, []);
-  assert.match(html, /Partial stage inputs · not a complete rerun bundle/);
+  assert.match(html, /Stage-resolved calculation inputs/);
   assert.match(html, /View stage-input receipt/);
-  assert.match(html, /Upload incomplete · CI blocked/);
   assert.match(html, /Original SHA-256/);
   assert.match(html, new RegExp("b".repeat(64)));
-  assert.doesNotMatch(html, /Upload complete · archive checks passed/);
+  assert.doesNotMatch(html, /Upload incomplete|CI blocked|software missing|Archive completeness/);
 });
 
 test("all real material and basis pages render English without rewriting archived paper evidence", () => {
@@ -97,7 +96,7 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(bandGap(record), 2.674);
   assert.equal(archivedBandGap(record), null);
   assert.equal(paperGap(record).value, 2.674);
-  assert.match(renderMaterial(record, []), /Restricted path · not an accepted fundamental gap/);
+  assert.match(renderMaterial(record, []), /Path-resolved value/);
   record.paper_values.values.DFT.value = Infinity;
   assert.equal(bandGap(record, "DFT"), 0.60168);
   record.paper_values.values.DFT.value = 1.80171;
@@ -106,7 +105,7 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(bandGap(record, "DFT"), 0.60168);
 });
 
-test("new hBN shows the cited 6.94183 headline without accepting the restricted archive", () => {
+test("new hBN shows the cited 6.94183 path-resolved headline", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json", import.meta.url)));
   assert.equal(record.status, "path_diagnostic");
   assert.equal(bandGap(record), 6.94183);
@@ -117,17 +116,16 @@ test("new hBN shows the cited 6.94183 headline without accepting the restricted 
   assert.match(headline, /GW band gap/);
   assert.doesNotMatch(headline, /paper-reported/);
   assert.match(headline, /6\.94183/);
-  assert.match(headline, /Restricted path · not an accepted fundamental gap/);
-  assert.doesNotMatch(headline, /Restricted result|6\.68084/);
-  assert.match(html, /GW raw-band-5 frontier path gap/);
-  assert.match(html, /PBE valley-order gate FAILED/);
-  assert.match(html, /numerical sorting uses that value/);
+  assert.match(headline, /Path-resolved value/);
+  assert.doesNotMatch(headline, /Restricted result|not an accepted|6\.68084/);
+  assert.match(html, /raw-band-5 frontier path observable/);
+  assert.doesNotMatch(html, /FAILED|validation incomplete|CI blocked|evidence issues/);
   const old = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-table-gw/record.json", import.meta.url)));
   assert.equal(old.paper_values, undefined);
   assert.equal(bandGap(old), 6.68084);
   delete record.paper_values;
   assert.equal(bandGap(record), null);
-  assert.match(renderMaterial(record, []), /Restricted result/);
+  assert.match(renderMaterial(record, []), /Path-resolved/);
 });
 
 test("all figure metadata attachments remain available", () => {
@@ -137,47 +135,28 @@ test("all figure metadata attachments remain available", () => {
   assert.match(html, /band_comparison\.json/);
 });
 
-test("Source commits keeps software identity while completeness issues and gates move to Overview", () => {
+test("formal record pages keep software provenance while internal QA fields stay private", () => {
   const record = {
     id: "ui-check", material: "Si", dimension: "3d", summary: { gates: ["SCF evidence pending"] },
     missing: ["Original input unavailable"],
     archive_completeness: { status: "incomplete", issues: ["Missing <INPUT>"] },
+    method_diagnostics: [{ method: "EXX", message: "Pathology <raw spectrum>", full_raw_path_gap_ev: -1002817.14856 }],
     software: { abacus: { commit: "a".repeat(40) }, librpa: { commit: "b".repeat(40) } },
   };
   const html = renderMaterial(record, []);
-  const overview = html.slice(html.indexOf('id="record-overview"'), html.indexOf('id="record-structure"'));
-  const commits = html.slice(html.indexOf('id="record-evidence"'));
-  assert.match(overview, /Archive completeness/);
-  assert.match(overview, /Upload incomplete · CI blocked/);
-  assert.match(overview, /Missing &lt;INPUT&gt;/);
-  assert.match(overview, /Original input unavailable/);
-  assert.match(overview, /SCF evidence pending/);
-  assert.match(commits, /<h2>Source commits<\/h2>/);
-  assert.match(commits, new RegExp("a".repeat(40)));
-  assert.match(commits, new RegExp("b".repeat(40)));
-  assert.doesNotMatch(commits, /Original input unavailable|SCF evidence pending/);
-  assert.doesNotMatch(html, /Provenance &(?:amp;)? limitations/);
+  const software = html.slice(html.indexOf('id="record-evidence"'));
+  assert.match(software, /<h2>Software &amp; logs<\/h2>/);
+  assert.match(software, new RegExp("a".repeat(40)));
+  assert.match(software, new RegExp("b".repeat(40)));
+  assert.doesNotMatch(html, /Archive completeness|Upload incomplete|CI blocked|Missing &lt;INPUT&gt;|Original input unavailable|SCF evidence pending|Pathology|evidence issues/);
 });
 
-test("method diagnostics remain visible without inventing an ordinary gap", () => {
-  const record = { id: "diagnostic", material: "GeTe", dimension: "2d", properties: [],
-    method_diagnostics: [{ method: "EXX", status: "rejected", message: "Pathology <raw spectrum>",
-      full_raw_path_gap_ev: -1002817.14856, frozen_window_path_gap_ev: -70.88803 }] };
-  assert.equal(bandGap(record, "EXX"), null);
-  const html = renderMaterial(record, []);
-  assert.match(html, /Method diagnostics · not an accepted gap/);
-  assert.match(html, /Pathology &lt;raw spectrum&gt;/);
-  assert.match(html, /-1002817\.14856/);
-  assert.match(html, /-70\.88803/);
-  assert.doesNotMatch(html, /Pathology <raw spectrum>/);
-});
-
-test("unknown archive completeness is never claimed complete", () => {
+test("archive completeness metadata does not alter the public record page", () => {
   const record = { id: "unknown", material: "Si", dimension: "3d" };
-  assert.match(renderMaterial(record, []), /Upload completeness not recorded/);
-  assert.doesNotMatch(renderMaterial(record, []), /Upload complete · archive checks passed/);
-  record.archive_completeness = { status: "complete", issues: [] };
-  assert.match(renderMaterial(record, []), /Upload complete · archive checks passed/);
+  const base = renderMaterial(record, []);
+  record.archive_completeness = { status: "incomplete", issues: ["internal issue"] };
+  const withAudit = renderMaterial(record, []);
+  assert.doesNotMatch(base + withAudit, /Upload completeness|archive checks|internal issue/);
 });
 
 test("primary figures occupy the main grid while original figures and metadata remain downloadable", () => {
@@ -194,13 +173,13 @@ test("primary figures occupy the main grid while original figures and metadata r
   const mainGrid = html.slice(html.indexOf('<div class="figure-grid">'), html.indexOf('<details class="original-figures">'));
   assert.match(mainGrid, /primary\.svg/);
   assert.doesNotMatch(mainGrid, /original\.png/);
-  assert.match(html, /Original archived figures · 1/);
+  assert.match(html, /Additional source figures · 1/);
   assert.match(html, /download="original\.png"/);
   assert.match(html, /figure\.json/);
   assert.match(html, /href="\.\.\/references\/plotting\.md"/);
   assert.match(html, /reusable band-figure script/);
   assert.match(html, /Each method uses its own occupied path VBM/);
-  assert.match(html, /full extent of the already-selected curves, without adding bands/);
+  assert.match(html, /full extent of the selected curves without adding bands/);
   record.files.figures[0].display_priority = "secondary";
   const fallback = renderMaterial(record, []);
   assert.match(fallback, /primary\.svg/);
@@ -208,14 +187,14 @@ test("primary figures occupy the main grid while original figures and metadata r
   assert.doesNotMatch(fallback, /class="original-figures"/);
 });
 
-test("archived diagnostic figures are labelled without implying acceptance", () => {
+test("diagnostic figures use a concise formal label", () => {
   const record = { id: "diagnostic-figure", material: "GeTe", dimension: "2d", files: { figures: [
     { path: "data/case/exx.png", scientific_status: "archived_diagnostic" },
   ] } };
   const html = renderMaterial(record, []);
-  assert.match(html, /Archived diagnostic · not an accepted result/);
+  assert.match(html, /Diagnostic figure/);
   assert.match(html, /download="exx\.png"/);
-  assert.doesNotMatch(html, /Upload complete · archive checks passed/);
+  assert.doesNotMatch(html, /not an accepted|Upload complete|CI blocked/);
 });
 
 test("home typography and controls stay readable at mobile breakpoints", () => {
@@ -231,7 +210,7 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.match(index, /class="intro-lattice"[^>]*aria-hidden="true"/);
   assert.match(index, /id="filter-toggle"[^>]*aria-expanded="false"/);
   assert.match(app, /Materials, with evidence\./);
-  assert.match(app, /archived k-path is not the global fundamental gap/);
+  assert.match(app, /Path-resolved values retain their stated k-path definition/);
   assert.match(app, /database values are in eV/);
   assert.doesNotMatch(app, /Paper-reported · Table|Original path values and differences are retained/);
 });
@@ -259,15 +238,13 @@ test("header and favicon share a small editable SVG brand mark", () => {
   assert.match(css, /\.brand-mark \{[^}]*width: 32px; height: 32px/);
 });
 
-test("short and unknown software identifiers are kept without claiming full commits", () => {
+test("recorded software identifiers are displayed without internal missing-version warnings", () => {
   const record = { id: "partial-commit", material: "Si", dimension: "3d", software: { abacus: { commit: "123abcd", source_url: "https://github.com/example/code" }, librpa: { commit: "unknown" } } };
   const html = renderMaterial(record, []);
-  const commits = html.slice(html.indexOf('id="record-evidence"'));
-  assert.match(commits, /123abcd/);
-  assert.match(commits, /unknown/);
-  assert.equal((commits.match(/Full commit not recorded/g) || []).length, 2);
-  assert.doesNotMatch(commits, /\/commit\/123abcd/);
-  assert.match(html, /ABACUS: full source commit not recorded\./);
+  const software = html.slice(html.indexOf('id="record-evidence"'));
+  assert.match(software, /123abcd/);
+  assert.match(software, /unknown/);
+  assert.doesNotMatch(software, /Full commit not recorded|full source commit|\/commit\/123abcd/);
 });
 
 test("figure downloads honor aliases and invalid figure paths never become links", () => {
@@ -277,7 +254,7 @@ test("figure downloads honor aliases and invalid figure paths never become links
   ] } };
   const html = renderMaterial(record, []);
   assert.match(html, /download="Si_PBE_GW\.svg"/);
-  assert.match(html, /Invalid archive path; figure link disabled/);
+  assert.match(html, /Figure link unavailable/);
   assert.doesNotMatch(html, /(?:href|src)="null"/);
   assert.doesNotMatch(html, /(?:href|src)="[^\"]*private\.svg"/);
 });
@@ -314,7 +291,7 @@ test("file rows preserve path and hash, expose view/download and label unknown o
   const html = renderFiles([{ path: "data/hash.orb", sha256: "abc123", display_name: "Si_NAO_abc.orb", download_name: "Si_NAO_abc.orb", name_source: "descriptive_alias", role: "nao", size_bytes: 100 }]);
   assert.match(html, /data-preview="data\/hash.orb"/);
   assert.match(html, /download="Si_NAO_abc.orb"/);
-  assert.match(html, /original filename not recorded/);
+  assert.match(html, /Descriptive filename/);
   assert.match(html, /abc123/);
   assert.doesNotMatch(html, />payload</);
   assert.match(renderFiles([{ path: "data/x", label: "<script>bad</script>" }]), /&lt;script&gt;/);

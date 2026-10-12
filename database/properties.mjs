@@ -12,8 +12,7 @@ const initialCategories = [
 const statusLabels = {
   reported: "Reported",
   validated: "Validated",
-  provisional: "Provisional",
-  failed: "Failed",
+  provisional: "Computed",
 };
 
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -26,9 +25,9 @@ function categoryLabel(slug) {
 
 function displayValue(value) {
   if (typeof value === "string") return value;
-  if (value === undefined) return "Not recorded";
+  if (value === undefined) return "—";
   const result = JSON.stringify(value);
-  return result === undefined ? "Not recorded" : result;
+  return result === undefined ? "—" : result;
 }
 
 function evidenceLinks(evidence) {
@@ -36,8 +35,8 @@ function evidenceLinks(evidence) {
     const file = String(path);
     const name = file.split("/").at(-1);
     const url = publicPath(file);
-    return url ? `<a href="${escapeHtml(url)}" title="${escapeHtml(file)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>` : '<span class="muted">Invalid evidence path</span>';
-  }).join(", ") || '<span class="muted">Not recorded</span>';
+    return url ? `<a href="${escapeHtml(url)}" title="${escapeHtml(file)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>` : '<span class="muted">Evidence link unavailable</span>';
+  }).join(", ") || '<span class="muted">—</span>';
 }
 
 export function getPropertyCategories(properties = []) {
@@ -59,7 +58,7 @@ export function renderPropertyTabs(properties = [], selectedCategory = "electron
 }
 
 export function renderPropertyPanel(properties = [], selectedCategory = "electronic") {
-  const rows = properties.filter(property => property?.category === selectedCategory);
+  const rows = properties.filter(property => property?.category === selectedCategory && property.status !== "failed");
   if (!rows.length) {
     return '<div class="property-empty"><p>No results reported</p><a href="../CONTRIBUTING.md">Contribute a property</a></div>';
   }

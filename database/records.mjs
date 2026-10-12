@@ -98,7 +98,7 @@ export function boundFiles(set, species = {}) {
 }
 
 export function sizeLabel(bytes) {
-  if (typeof bytes !== "number" || bytes < 0) return "Size not recorded";
+  if (typeof bytes !== "number" || bytes < 0) return "—";
   if (bytes < 1024) return `${bytes} B`;
   return bytes < 1024 * 1024 ? `${(bytes / 1024).toFixed(1)} KB` : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }

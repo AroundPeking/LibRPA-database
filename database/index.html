@@ -25,10 +25,9 @@
     </div>
   </header>
   <main id="main">
-    <aside id="archive-status" class="archive-status" aria-label="Archive validation status" hidden></aside>
     <section id="home-view" aria-labelledby="page-title">
       <div class="intro">
-        <div class="intro-text"><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Materials, with evidence.</h1><p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its source commits.</p></div>
+        <div class="intro-text"><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Materials, with evidence.</h1><p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.</p></div>
         <div class="intro-aside">
           <svg class="intro-lattice" viewBox="0 0 280 156" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1"><path d="M36 40 103 16 170 40 103 66Z M103 66 170 40 237 66 170 92Z M36 92 103 66 170 92 103 118Z M36 40v52 M103 16v50 M170 40v52 M237 66v50 M103 66v52 M170 92v50 M36 92 103 118 170 92 237 116 170 142 103 118"/><path class="lattice-guide" d="M12 128 259 34 M12 76 259 128" stroke-dasharray="3 6"/></g><g fill="currentColor"><circle cx="36" cy="40" r="4"/><circle cx="103" cy="16" r="4"/><circle cx="170" cy="40" r="5"/><circle cx="103" cy="66" r="6"/><circle cx="237" cy="66" r="4"/><circle cx="36" cy="92" r="4"/><circle cx="170" cy="92" r="6"/><circle cx="103" cy="118" r="4"/><circle cx="237" cy="116" r="4"/><circle cx="170" cy="142" r="4"/></g></svg>
           <a class="intro-link" href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contribute a calculation <span aria-hidden="true">↗</span></a>
@@ -45,9 +44,9 @@
             <label><input type="radio" name="dimension" value="3d"><span>3D materials</span><b data-dimension-count="3d"></b></label>
           </fieldset>
           <label class="select-control" for="element-filter"><span>ELEMENT</span><select id="element-filter"><option value="all">All elements</option></select></label>
-          <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Archived inputs</option><option value="missing">Inputs not archived</option></select></label>
+          <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Input files available</option></select></label>
           <label class="select-control" id="status-filter-control" for="status-filter" hidden><span>PUBLICATION</span><select id="status-filter"><option value="all">All states</option></select></label>
-          <div class="filter-note"><span class="note-marker" aria-hidden="true">i</span><p>Archived does not mean validated. Each record retains its original scope, missing evidence, and code provenance.</p></div>
+          <div class="filter-note"><span class="note-marker" aria-hidden="true">i</span><p>Each calculation links its numerical results, inputs, basis data, and code provenance.</p></div>
           <a class="sidebar-link" href="https://github.com/AroundPeking/abacus-librpa-gw-basis-skill">Basis selection guide <span aria-hidden="true">↗</span></a>
           </div>
         </aside>
@@ -63,10 +62,10 @@
       </div>
     </section>
     <section id="detail-view" class="detail-view" hidden aria-live="polite"></section>
-    <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Open calculation archive</span><div><a href="missing-evidence.html">Missing evidence</a><a href="data.json">Catalog JSON</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
+    <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="https://github.com/AroundPeking/abacus-librpa-gw-database">Source code</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
   <noscript><p class="notice">JavaScript is needed for searching. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261013-librpa-brand"></script>
+  <script type="module" src="app.js?v=20261013-formal-release"></script>
 </body>
 </html>

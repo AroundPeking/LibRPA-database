@@ -38,3 +38,9 @@ test("shows an empty topology category without inventing a value", () => {
   assert.match(panel, /CONTRIBUTING\.md/);
   assert.doesNotMatch(panel, /\b(?:0|1|2)\b/);
 });
+
+test("internal failed properties are omitted from the formal database view", () => {
+  const panel = renderPropertyPanel([{ category: "electronic", label: "Internal gate", method: "GW", status: "failed", value: null }], "electronic");
+  assert.match(panel, /No results reported/);
+  assert.doesNotMatch(panel, /Internal gate|Failed/);
+});

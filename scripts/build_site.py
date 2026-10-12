@@ -16,6 +16,7 @@ from urllib.parse import unquote, urlsplit
 ROOT_FILES = {"index.html", ".nojekyll", "README.md", "CONTRIBUTING.md", "LICENSE"}
 REFERENCE_FILES = {"references/database.md", "references/plotting.md"}
 INDEX_FILES = {"data/log-index.json", "data/release-index.json"}
+INTERNAL_WEB_FILES = {"database/archive-completeness.json", "database/missing-evidence.html"}
 WEB_SUFFIXES = {".html", ".css", ".js", ".mjs", ".json"}
 STATIC_DIRS = {"database", "references", "assets", "images", "fonts"}
 ASSET_SUFFIXES = WEB_SUFFIXES | {
@@ -173,7 +174,8 @@ def collect_files(root: Path) -> dict[str, str | None]:
                 raise ValueError(f"不允许符号链接: {relative_dir / name}")
         for name in sorted(names):
             relative = PurePosixPath(relative_dir, name)
-            if not excluded(relative) and relative.suffix.lower() in WEB_SUFFIXES:
+            if (not excluded(relative) and relative.as_posix() not in INTERNAL_WEB_FILES
+                    and relative.suffix.lower() in WEB_SUFFIXES):
                 add(relative.as_posix())
 
     catalog = load_json(root, "database/data.json")

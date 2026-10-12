@@ -4,15 +4,15 @@ export const roleNames = { pp: "Pseudopotential", nao: "Physical NAO", abf: "Aux
 const previewable = path => !/\.(?:png|jpe?g|webp|gif|pdf|zip|gz|xz|tar|bin)$/i.test(path);
 
 export function renderFiles(files, { input = false } = {}) {
-  if (!files.length) return '<p class="empty-panel">No files archived in this group.</p>';
+  if (!files.length) return '<p class="empty-panel">No files listed in this group.</p>';
   return `<div class="file-list">${files.map(file => {
     const url = publicPath(file.path);
-    if (!url) return '<div class="notice warning">Invalid archive path; link disabled.</div>';
+    if (!url) return '<div class="notice warning">File link unavailable.</div>';
     const alias = file.name_source === "descriptive_alias";
     return `<article class="file-row">
-      <div class="file-info"><strong>${esc(fileName(file))}</strong><span>${esc(input ? inputStage(file) : roleNames[file.role] || file.role || "Archived file")} <span aria-hidden="true">·</span> ${esc(sizeLabel(file.size_bytes))}</span>
-      ${alias ? '<span class="name-warning">Descriptive alias; original filename not recorded.</span>' : file.name_source === "calculation_alias" ? '<span class="name-note">Filename recorded for this calculation.</span>' : ""}
-      <details class="file-integrity"><summary>Archive path &amp; SHA-256</summary><code>${esc(file.path)}</code><code>${esc(file.sha256 || "Not recorded")}</code>${file.original_names?.length ? `<p>Recorded names: ${file.original_names.map(esc).join(", ")}</p>` : ""}${file.transformation && file.transformation !== "none" ? `<p>${esc(file.transformation)}</p>${file.original_sha256 && file.original_sha256 !== file.sha256 ? `<p>Original SHA-256</p><code>${esc(file.original_sha256)}</code>` : ""}` : ""}</details></div>
+      <div class="file-info"><strong>${esc(fileName(file))}</strong><span>${esc(input ? inputStage(file) : roleNames[file.role] || file.role || "Data file")} <span aria-hidden="true">·</span> ${esc(sizeLabel(file.size_bytes))}</span>
+      ${alias ? '<span class="name-note">Descriptive filename</span>' : file.name_source === "calculation_alias" ? '<span class="name-note">Calculation filename</span>' : ""}
+      <details class="file-integrity"><summary>Data path &amp; SHA-256</summary><code>${esc(file.path)}</code><code>${esc(file.sha256 || "—")}</code>${file.original_names?.length ? `<p>Recorded names: ${file.original_names.map(esc).join(", ")}</p>` : ""}${file.transformation && file.transformation !== "none" ? `<p>${esc(file.transformation)}</p>${file.original_sha256 && file.original_sha256 !== file.sha256 ? `<p>Original SHA-256</p><code>${esc(file.original_sha256)}</code>` : ""}` : ""}</details></div>
       <div class="file-actions">${previewable(file.path) ? `<button type="button" class="text-button" data-preview="${esc(file.path)}" data-name="${esc(fileName(file))}" data-download="${esc(downloadName(file))}">View</button>` : `<a href="${esc(url)}" target="_blank" rel="noopener">Open</a>`}<a class="download-link" href="${esc(url)}" download="${esc(downloadName(file))}">Download <span aria-hidden="true">↓</span></a></div>
     </article>`;
   }).join("")}</div>`;
@@ -35,8 +35,8 @@ export function installPreview(dialog) {
     download.download = button.dataset.download;
     const pre = dialog.querySelector("pre");
     const status = dialog.querySelector(".preview-status");
-    pre.textContent = "Loading archived file…";
-    status.textContent = "Read-only preview; the download retains the archived bytes.";
+    pre.textContent = "Loading source file…";
+    status.textContent = "Read-only preview; the download retains the source bytes.";
     if (!dialog.open) dialog.showModal();
     try {
       const response = await fetch(url, { signal: current.signal });
@@ -58,10 +58,10 @@ export function installPreview(dialog) {
       let offset = 0;
       for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
       if (current.signal.aborted) return;
-      pre.textContent = bytes.includes(0) ? "This file appears to be binary. Download it to inspect the original content." : new TextDecoder("utf-8").decode(bytes) || "This archived file is empty.";
-      if (truncated) status.textContent = "Preview limited to the first 64 KB. Download the complete archived file.";
+      pre.textContent = bytes.includes(0) ? "This file appears to be binary. Download it to inspect the original content." : new TextDecoder("utf-8").decode(bytes) || "This source file is empty.";
+      if (truncated) status.textContent = "Preview limited to the first 64 KB. Download the complete source file.";
     } catch (error) {
-      if (error.name !== "AbortError") { pre.textContent = `Could not read this file (${error.message}).`; status.textContent = "The archive may be unavailable. No replacement content has been generated."; }
+      if (error.name !== "AbortError") { pre.textContent = `Could not read this file (${error.message}).`; status.textContent = "The source file is currently unavailable."; }
     }
   });
   dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());

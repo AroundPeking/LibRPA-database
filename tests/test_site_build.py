@@ -86,6 +86,7 @@ class SiteBuildTests(unittest.TestCase):
         excluded = ["docs/superpowers/plans/design.html", ".superpowers/design.html", ".git/config",
                     "scripts/tool.py", "tests/example.html", "database/cache/draft.json",
                     "database/__pycache__/cache.pyc", "database/draft.html.tmp", "database/.draft.html",
+                    "database/archive-completeness.json", "database/missing-evidence.html",
                     "data/calculations/3d/Si/si-test/results/unlisted.dat", "references/draft.md"]
         for relative in excluded:
             self.write(relative, "not deployed")

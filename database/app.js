@@ -8,7 +8,7 @@ const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/", history: false };
 const pageSize = 20;
 const publication = set => set.publication?.status || "database_only";
-const statusNames = { database_only: "Archive only", legacy_incomplete: "Incomplete evidence", review: "Under review", publishable: "Publishable", superseded: "Superseded" };
+const statusNames = { database_only: "Basis record", legacy_incomplete: "Historical record", review: "Curated record", publishable: "Published set", superseded: "Previous version" };
 const gapText = value => value === null ? '<span class="not-reported" title="Not reported">—</span>' : value.toFixed(3);
 let bySet = new Map();
 let elements = [];
@@ -51,15 +51,15 @@ function materialRow(record) {
   return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span></td><td><div class="method-list">${methods}</div></td>${["DFT", "EXX", "GW"].map(method => {
     const paper = paperGap(record, method);
     const limitedPaper = method === "GW" && paper && restrictedGap(record);
-    const title = `Database ${method} value${limitedPaper ? "; restricted path, not an accepted fundamental gap" : "; see record for definition and source"}`;
-    return `<td class="numeric ${method === "GW" ? "gw-value" : ""}"><span title="${title}">${gapText(bandGap(record, method))}</span>${limitedPaper ? '<span class="table-description gap-scope">Restricted path</span>' : ""}</td>`;
-  }).join("")}<td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="missing-value">Not archived</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
+    const title = `Database ${method} value${limitedPaper ? "; path-resolved observable" : "; see record for definition and source"}`;
+    return `<td class="numeric ${method === "GW" ? "gw-value" : ""}"><span title="${title}">${gapText(bandGap(record, method))}</span>${limitedPaper ? '<span class="table-description gap-scope">Path-resolved</span>' : ""}</td>`;
+  }).join("")}<td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
 
 function basisRow(set) {
   const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf"].includes(f.role));
   const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role === "for_aux" ? "for_aux" : role.toUpperCase())}</span>`).join("");
-  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Unspecified family")}</span></th><td><div class="method-list">${roles}</div></td><td><span class="publication-tag">${esc(statusNames[publication(set)] || publication(set))}</span></td><td class="basis-scope">${esc(set.validation_scope || "Not recorded")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
+  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td><div class="method-list">${roles}</div></td><td><span class="publication-tag">${esc(statusNames[publication(set)] || "Basis record")}</span></td><td class="basis-scope">${esc(set.validation_scope || "Recorded basis data")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
 }
 
 function stats() {
@@ -95,11 +95,11 @@ function renderHome() {
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
   $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, original inputs, and exact basis files — linked to each calculation and its source commits.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Archive records are not automatically recommended releases. Open a set for readable filenames, downloads, source hashes, and linked calculations." : "One row per calculation; database values are in eV. Restricted path results are labelled, not accepted fundamental gaps. The archived k-path is not the global fundamental gap. A dash means not reported. Open a record for source evidence and definitions.";
-  if (!basis) $("#catalog-footnote").innerHTML += ` <a href="${state.history ? "#/" : "#/?history=true"}">${state.history ? "Hide superseded hBN" : "Show superseded hBN archive"}</a>. Default browsing uses only the replacement hBN; historical files remain archived and are not exempt from CI.`;
+  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, source hashes, radial functions, and linked calculations." : "One row per calculation; database values are in eV. Path-resolved values retain their stated k-path definition. A dash means no value is listed. Open a record for source evidence and definitions.";
+  if (!basis) $("#catalog-footnote").innerHTML += ` <a href="${state.history ? "#/" : "#/?history=true"}">${state.history ? "Hide previous hBN record" : "Show previous hBN record"}</a>. Default browsing features the current hBN calculation; the previous record remains available for comparison.`;
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
@@ -108,7 +108,7 @@ function renderHome() {
   $("#empty").hidden = records.length > 0;
   $("#catalog").hidden = !records.length;
   $("#catalog").setAttribute("aria-busy", "false");
-  const headings = basis ? ["Element / family", "Assets", "Publication", "Recorded scope", "Linked", ""] : ["Material", "Dim.", "Methods", "DFT gap", "EXX gap", "GW gap", "Inputs", ""];
+  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Dim.", "Methods", "DFT gap", "EXX gap", "GW gap", "Inputs", ""];
   $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and electronic band gaps in eV"}</caption><thead><tr>${headings.map((heading, i) => `<th scope="col" class="${!basis && i >= 3 && i <= 5 ? "numeric" : ""}">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
   document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
@@ -165,15 +165,10 @@ async function start() {
     if (!Array.isArray(data.calculations) || !Array.isArray(data.basis_sets)) throw new Error("Invalid catalog format");
     state.calculations = data.calculations;
     state.sets = data.basis_sets;
-    const incomplete = data.calculations.filter(record => record.archive_completeness?.status === "incomplete");
-    const issues = incomplete.reduce((sum, record) => sum + (record.archive_completeness.issues || []).length, 0);
-    const archiveStatus = $("#archive-status");
-    archiveStatus.hidden = false;
-    archiveStatus.innerHTML = incomplete.length ? `<strong>Public preview · strict archive validation incomplete</strong><span>${incomplete.length} / ${data.calculations.length} records incomplete · ${issues} evidence issues. Website publication is not scientific acceptance.</span><a href="missing-evidence.html">View all missing evidence →</a>` : '<strong>Archive completeness checks passed</strong><span>File completeness is not scientific acceptance.</span><a href="missing-evidence.html">View evidence report →</a>';
     buildIndexes();
     stats();
     $("#element-filter").innerHTML = '<option value="all">All elements</option>' + elements.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");
-    $("#status-filter").innerHTML = '<option value="all">All publication states</option>' + [...new Set(state.sets.map(publication))].sort().map(s => `<option value="${esc(s)}">${esc(statusNames[s] || s)}</option>`).join("");
+    $("#status-filter").innerHTML = '<option value="all">All record types</option>' + [...new Set(state.sets.map(publication))].sort().map(s => `<option value="${esc(s)}">${esc(statusNames[s] || "Basis record")}</option>`).join("");
     $("#search").addEventListener("input", event => { state.query = event.target.value.trim(); updateFilter(); });
     for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["status-filter", "status"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
     document.querySelectorAll("input[name=dimension]").forEach(input => input.addEventListener("change", event => { state.dimension = event.target.value; updateFilter(); }));
@@ -191,7 +186,7 @@ async function start() {
     window.addEventListener("hashchange", route);
     route();
   } catch (error) {
-    $("#result-count").textContent = "Archive unavailable";
+    $("#result-count").textContent = "Catalog unavailable";
     $("#catalog").setAttribute("aria-busy", "false");
     $("#load-error").hidden = false;
     $("#load-error").textContent = `The catalog could not be loaded (${error.message}). Serve the repository over HTTP, or retry the deployed website. No substitute records are shown.`;

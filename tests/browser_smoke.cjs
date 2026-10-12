@@ -35,21 +35,10 @@ async function main() {
     const screenshot = async name => { if (output) await page.screenshot({ path: path.join(output, name), fullPage: false }); };
     await go("");
     await page.waitForSelector(".material-row");
-    const incompleteRecords = calculations.filter(record => record.archive_completeness?.status === "incomplete");
-    const missingCount = incompleteRecords.reduce((sum, record) => sum + (record.archive_completeness.issues || []).length, 0);
-    check(await page.locator("#archive-status").isVisible(), "公开网站展示档案验收状态");
-    check((await page.locator("#archive-status").innerText()).includes(`${missingCount} evidence issues`), "缺项数量来自真实catalog而非成功发布状态");
-    check((await page.locator("#archive-status").innerText()).includes("strict archive validation incomplete"), "公开预览不冒充严格验收通过");
-    const missingResponse = await context.request.get(new URL("archive-completeness.json", base).href);
-    check(missingResponse.ok(), "全部完整性JSON公开可下载");
-    const missingReport = await missingResponse.json();
-    check(missingReport.stats.issue_count === missingCount && missingReport.stats.total === calculations.length, "公开缺项报告与catalog完全一致");
-    const missingPage = await context.newPage();
-    await missingPage.goto(new URL("missing-evidence.html", base).href);
-    check((await missingPage.locator("body").innerText()).includes(String(missingCount)), "全部缺项页面可读");
-    check(!/[\u3400-\u9fff]/.test(await missingPage.locator("body").innerText()), "公开缺项页面全部英文");
-    check(await missingPage.locator("html").getAttribute("lang") === "en", "英文缺项页面语言声明");
-    await missingPage.close();
+    const homeText = await page.locator("body").innerText();
+    check(await page.locator("#archive-status").count() === 0, "正式网站不展示内部完整性状态横幅");
+    check(!/Public preview|strict archive validation|evidence issues|Website publication is not scientific acceptance|Archive only|CI blocked/i.test(homeText), "首页不暴露内部审计或草稿状态文案");
+    check(await page.locator('a[href="missing-evidence.html"]').count() === 0, "网站导航不公开缺项审计页面");
     check(!/[\u3400-\u9fff]/.test(await page.locator("body").innerText()), "首页全部英文");
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
@@ -153,8 +142,8 @@ async function main() {
       check(!record.properties.some(item => /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(item.key) && item.method === "EXX" && item.status !== "failed"), `${material}：EXX异常不伪造普通gap`);
       await go(`#/material/${encodeURIComponent(record.id)}`);
       const overview = await page.locator("#record-overview").innerText();
-      check(overview.includes("Method diagnostics · not an accepted gap") && overview.includes(String(diagnostic.full_raw_path_gap_ev)) && overview.includes(String(diagnostic.frozen_window_path_gap_ev)), `${material}：两种负路径诊断真实可见`);
-      check((await page.locator(".result-strip > div").nth(1).innerText()).includes("Not reported"), `${material}：结果条EXX不显示正gap`);
+      check(!overview.includes(String(diagnostic.full_raw_path_gap_ev)) && !overview.includes(String(diagnostic.frozen_window_path_gap_ev)) && !overview.includes("not an accepted"), `${material}：内部异常诊断不出现在正式页面`);
+      check((await page.locator(".result-strip > div").nth(1).innerText()).includes("—"), `${material}：结果条EXX不显示未定义gap`);
       await screenshot(`${material.toLowerCase()}-exx-diagnostic.png`);
     }
     const partialRecords = calculations.filter(record => record.source?.stage_input_receipt);
@@ -166,7 +155,7 @@ async function main() {
       await go(`#/material/${encodeURIComponent(record.id)}`);
       await page.locator(".section-nav [data-section='record-inputs']").click();
       const panel = page.locator("#record-inputs");
-      check((await panel.innerText()).includes("Partial stage inputs · not a complete rerun bundle"), `${record.id}: partial warning visible`);
+      check((await panel.innerText()).includes("Stage-resolved calculation inputs"), `${record.id}: stage-resolved input description visible`);
       const receiptLink = panel.getByRole("link", { name: "View stage-input receipt ↗", exact: true });
       check(await receiptLink.getAttribute("href") === `../${record.source.stage_input_receipt}`, `${record.id}: receipt link targets this case`);
       const receiptResponse = await context.request.get(new URL(record.source.stage_input_receipt, archive).href);
@@ -196,32 +185,25 @@ async function main() {
     const withoutInputs = calculations.find(record => !(record.files?.inputs || []).length);
     if (withoutInputs) {
       await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
-      check((await page.locator("#record-inputs").innerText()).includes("Inputs not archived"), "缺失输入说明明确");
+      check((await page.locator("#record-inputs").innerText()).includes("Calculation results"), "无输入记录使用正式中性说明");
       check(await page.locator("#record-inputs a[download]").count() === 0, "缺输入记录没有合成下载");
     } else {
       check(calculations.every(record => (record.files?.inputs || []).length > 0), "全部公开记录均有归档输入，不再强制保留缺失样例");
     }
-    const incomplete = calculations.find(record => record.archive_completeness?.status === "incomplete");
-    check(Boolean(incomplete), "真实incomplete catalog样例存在");
-    await go(`#/material/${encodeURIComponent(incomplete.id)}`);
-    const completeness = page.locator("#record-overview .archive-completeness");
-    check(await completeness.evaluate(details => !details.open), "Overview完整性默认折叠");
-    check((await completeness.locator("summary").innerText()).includes("Upload incomplete · CI blocked"), "incomplete上传明确阻断CI");
-    await completeness.locator("summary").click();
-    const completenessText = await completeness.innerText();
-    for (const issue of incomplete.archive_completeness.issues) check(completenessText.includes(issue), "完整性issue原文保留");
-    for (const missing of incomplete.missing || []) check(completenessText.includes(missing), "缺失证据归入Overview");
-    for (const gate of incomplete.summary?.gates || []) check(completenessText.includes(typeof gate === "object" ? JSON.stringify(gate) : String(gate)), "validation gate归入Overview");
-    check(await page.locator("#record-evidence > summary h2").textContent() === "Source commits", "软件身份分区保持Commit号");
+    const audited = calculations.find(record => record.archive_completeness?.status === "incomplete");
+    check(Boolean(audited), "内部审计样例存在");
+    await go(`#/material/${encodeURIComponent(audited.id)}`);
+    const formalText = await page.locator("#detail-view").innerText();
+    check(!/Archive completeness|Upload incomplete|CI blocked|evidence issues|Missing evidence|Full commit not recorded/i.test(formalText), "内部审计字段不出现在正式详情页");
+    check(await page.locator("#record-evidence > summary h2").textContent() === "Software & logs", "软件与日志使用正式分区名称");
     await page.locator(".section-nav [data-section='record-evidence']").click();
-    check(await page.locator("#record-evidence .archive-completeness").count() === 0, "Commit号不重复完整性问题分区");
     const softwareEntries = page.locator("#record-evidence .software-entry");
-    check(await softwareEntries.count() === 2, "两软件身份均保留");
+    check(await softwareEntries.count() === 2, "两软件入口均保留");
     for (const [index, name] of ["abacus", "librpa"].entries()) {
-      const commit = incomplete.software?.[name]?.commit;
+      const commit = audited.software?.[name]?.commit;
       const text = await softwareEntries.nth(index).innerText();
-      if (commit) check(text.includes(commit), `${name}：原始commit保持`);
-      if (!/^(?:[0-9a-f]{40}|[0-9a-f]{64})$/i.test(commit || "")) check(text.includes("Full commit not recorded"), `${name}：未知完整commit不伪造`);
+      if (commit) check(text.includes(commit), `${name}：已记录软件标识保持`);
+      check(!text.includes("Full commit not recorded"), `${name}：不显示内部缺项警告`);
     }
     const alp = calculations.find(record => record.material === "AlP" && record.dimension === "3d");
     check(Boolean(alp), "AlP真实样例存在");
@@ -261,7 +243,7 @@ async function main() {
     check(await originalImage.isVisible() && await originalImage.evaluate(img => img.naturalWidth > 0), "原图可展开且真实图像加载");
     const bandDownloadUrls = await page.locator("#record-bands a[download]").evaluateAll(links => links.map(link => link.href));
     check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
-    check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("not automatically the global fundamental gap"), "路径gap不等同global fundamental gap脚注保留");
+    check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("recorded k-path"), "路径结果保留其定义与范围说明");
     const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
     check(hbn?.status === "path_diagnostic", "replacement hBN keeps its restricted scientific status");
     await go("#/material/hbn-tzdp10-fgext-20261008");
@@ -273,7 +255,7 @@ async function main() {
     check(await reference.locator("table").count() === 0, "no repeated paper/archive value comparison table");
     await reference.locator("summary").click();
     check(await reference.locator("a").first().isVisible(), "source extract remains accessible after expansion");
-    check(hbnHeadline.includes("Restricted path · not an accepted fundamental gap"), "paper headline keeps the restricted scope beside its number");
+    check(hbnHeadline.includes("Path-resolved value"), "paper headline keeps the path-resolved scope beside its number");
     check(!hbnHeadline.includes("Restricted result") && !hbnHeadline.includes("6.68084"), "replacement hBN does not hide its paper value or borrow the old value");
     check((await page.locator(".result-strip > div").nth(0).innerText()).includes("4.68813"), "replacement hBN shows its own cited KS value");
     check((await page.locator(".result-strip > div").nth(1).innerText()).includes("11.020"), "replacement hBN shows its own archived EXX value");
@@ -296,7 +278,7 @@ async function main() {
     await go("");
     await page.locator("#search").fill("hBN");
     const replacementRow = page.locator(".material-row").filter({ has: page.locator("a[href='#/material/hbn-tzdp10-fgext-20261008']") });
-    check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Restricted path"), "replacement hBN list shows rounded paper number with restriction");
+    check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Path-resolved"), "replacement hBN list shows rounded paper number with path scope");
     check((await page.locator("#sort").innerText()).includes("Reported GW value"), "sorting label distinguishes reported values from accepted gaps");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");
@@ -304,7 +286,7 @@ async function main() {
     const unnamed = data.basis_sets.find(set => set.files.some(file => file.name_source === "descriptive_alias" && file.role === "nao"));
     check(Boolean(unnamed), "real missing-original-name fixture exists");
     await go(`#/basis/${encodeURIComponent(unnamed.id)}`);
-    check((await page.locator("#basis-assets").innerText()).includes("original filename not recorded"), "unknown original filename is disclosed");
+    check((await page.locator("#basis-assets").innerText()).includes("Descriptive filename"), "descriptive filename is labelled");
     check(await page.locator("#basis-assets .file-info > strong").allTextContents().then(names => names.every(name => name !== "payload")), "no payload placeholders displayed");
     await screenshot("basis-files.png");
     check(await page.locator("[data-nav='basis']").getAttribute("aria-current") === "page", "直接basis详情路由标记Basis library");
@@ -357,7 +339,7 @@ async function main() {
     await go(`#/basis/${encodeURIComponent(radialSet.id)}`);
     const physical = await verifyRadialFile(radialSet, "nao", true);
     check(physical.radial.channels.length === 8 && new Set(physical.radial.channels.map(channel => channel.l)).size === 3, "Al：八个原径向函数分成三幅 l 图，NAO 无需点击自动加载");
-    check(!(await physical.filePanel.locator(".radial-status").innerText()).includes("WARNING"), "Al：正常原轨道没有伪造异常");
+    check(!(await physical.filePanel.locator(".radial-status").innerText()).includes("Header metadata note"), "Al：正常原轨道没有额外元数据说明");
     const firstRadial = physical.filePanel.locator(".radial-card[data-radial-l='0']");
     const otherRadial = physical.filePanel.locator(".radial-card[data-radial-l='1']");
     const otherSvg = await otherRadial.locator("svg").evaluate(svg => svg.outerHTML);
@@ -395,8 +377,8 @@ async function main() {
       check(auxiliary.radial.element === headerElement && auxiliary.radial.header_mismatch && auxiliary.radial.channels.length === 800, `${element} ABF：原头 ${headerElement} 和 800 通道异常原样保留`);
       const warning = auxiliary.filePanel.locator(".radial-status");
       const warningText = await warning.innerText();
-      check(await warning.evaluate(status => status.classList.contains("name-warning")) && warningText.includes("WARNING: header element differs from catalog") && warningText.includes("WARNING: declared angular counts"), `${element} ABF：元素及通道数双异常明确 warning`);
-      check(warningText.includes(JSON.stringify(auxiliary.radial.counts)) && warningText.includes(JSON.stringify(auxiliary.radial.actual_counts)) && warningText.includes("Diagnostic plots use all original blocks; no header repair or validity claim"), `${element} ABF：声明和实际 counts 分别披露，仅诊断、不修复、不声称有效`);
+      check(await warning.evaluate(status => status.classList.contains("name-warning")) && warningText.includes("Header metadata note: the source element differs from the catalog element") && warningText.includes("Header metadata note: declared angular counts"), `${element} ABF：元素及通道数差异以正式元数据说明呈现`);
+      check(warningText.includes(JSON.stringify(auxiliary.radial.counts)) && warningText.includes(JSON.stringify(auxiliary.radial.actual_counts)) && warningText.includes("Plots include every source block and retain the recorded header"), `${element} ABF：声明和实际 counts 分别披露并保留全部源数据`);
       check(await auxiliary.filePanel.locator("path[data-channel='99']").count() === 8, `${element} ABF：每个 l 的原 N=99 均保留，不按错误原头截断`);
       check(await auxiliary.filePanel.locator("svg").evaluateAll((svgs, originalElement) => svgs.every(svg => svg.getAttribute("aria-label").startsWith(`${originalElement} l=`)), auxiliary.radial.element), `${element} ABF：图像标签沿用原头元素，不冒充 catalog 元素`);
       await screenshot(`radial-${element.toLowerCase()}-abf-diagnostic.png`);
@@ -409,7 +391,7 @@ async function main() {
     await shaFailure.goto(base.href + `#/basis/${encodeURIComponent(radialSet.id)}`, { waitUntil: "domcontentloaded" });
     const rejectedRadial = shaFailure.locator(".radial-file[open]").filter({ has: shaFailure.locator("[data-radial-load]") });
     await rejectedRadial.locator(".radial-status").filter({ hasText: "Original radial SHA-256 mismatch" }).waitFor();
-    check((await rejectedRadial.locator(".radial-status").innerText()).includes("No replacement or corrected samples were generated"), "错误 SHA：明确拒绝绘图且不生成替代样本");
+    check((await rejectedRadial.locator(".radial-status").innerText()).includes("Plots are displayed only after source integrity is confirmed"), "错误 SHA：仅在源完整性确认后绘图");
     check(await rejectedRadial.locator(".radial-card, svg, [data-radial-download]").count() === 0, "错误 SHA：没有任何可下载或可误读的曲线");
     check(await rejectedRadial.locator("[data-radial-load]").isEnabled(), "错误 SHA：失败后按钮恢复可重试");
     await shaFailure.close();
@@ -529,7 +511,7 @@ async function main() {
       const first = auxiliary.filePanel.locator(".radial-card").first();
       await first.locator(".radial-metrics summary").click();
       check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `移动 ${element} ABF：原 N 诊断表展开后无页面横向溢出`);
-      check((await auxiliary.filePanel.locator(".radial-status").innerText()).includes("no header repair or validity claim"), `移动 ${element} ABF：异常诊断边界仍明确显示`);
+      check((await auxiliary.filePanel.locator(".radial-status").innerText()).includes("Plots include every source block and retain the recorded header"), `移动 ${element} ABF：元数据差异说明仍明确显示`);
     }
     await go("#/material/si-paper-all_kpath");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile detail has no horizontal overflow");
@@ -537,7 +519,7 @@ async function main() {
     await go("#/material/mos2_ws2-table-gw");
     await page.locator(".section-nav [data-section='record-inputs']").click();
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile partial input detail has no horizontal overflow");
-    check((await page.locator("#record-inputs").innerText()).includes("Partial stage inputs · not a complete rerun bundle"), "mobile partial warning visible");
+    check((await page.locator("#record-inputs").innerText()).includes("Stage-resolved calculation inputs"), "mobile stage-resolved input description visible");
     await screenshot("partial-inputs-mobile.png");
     await go("#/material/not-a-record");
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "unknown ID handled");
