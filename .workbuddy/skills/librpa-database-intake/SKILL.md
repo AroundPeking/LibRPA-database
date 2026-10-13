@@ -47,6 +47,7 @@ After exact approval:
    - `band`: require numerical band data, a provenance-linked figure, and scoped gap properties.
    - `large_system_gw`: require a complete finite QP table, sampled-grid observable, completion log, atom/state counts, runtime/resources, and explicit auxiliary-basis provenance; do not require or invent a band figure.
    - `rpa_energy`: require the complete q/frequency aggregation, finite correlation energy, and completion evidence.
+   - `reader_conversion`: require separately approved conversion provenance, converter identity, runtime receipt, validated reader header and dimensions, and an explicit statement that no RPA/GW scientific result is claimed.
 6. Preserve exact PP and physical NAO bindings. For PCA-generated auxiliary bases, record `auxiliary_basis.mode = pca_generated`, threshold, and input evidence; never bind a nonexistent `.abfs` file.
 7. Regenerate the catalog with the repository scripts. Do not hand-edit generated catalog data.
 8. Run Python, Node, browser, mobile, public-scan, and catalog checks required by the repository.

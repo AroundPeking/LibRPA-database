@@ -50,7 +50,7 @@ function materialRow(record) {
   const url = `#/material/${encodeURIComponent(record.id)}`;
   const atoms = atomCount(record);
   const primary = primaryResult(record);
-  const precision = recordType(record) === "large_system_gw" ? 5 : 3;
+  const precision = recordType(record) === "large_system_gw" ? 5 : recordType(record) === "reader_conversion" ? 0 : 3;
   const primaryValue = primary ? `${typeof primary.value === "number" ? primary.value.toFixed(precision) : esc(primary.value)}${primary.unit ? ` <small>${esc(primary.unit)}</small>` : ""}` : '<span class="not-reported">—</span>';
   return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(recordTypeLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
@@ -94,7 +94,7 @@ function renderHome() {
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
   $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, RPA energies, and large-system GW results — with original inputs, basis provenance, software identity, and immutable evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, software identity, and immutable evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
   $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, source hashes, radial functions, and linked calculations." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";

@@ -1,0 +1,37 @@
+{
+  "approval_candidate_sha256": "586159e62c2065b145d08786bcfdd586dbdcb31cca0a7d314e73945beae45188",
+  "conversion": {
+    "active_file_count": 1,
+    "active_file_format": "reader_v1_binary",
+    "active_size_gib_approx": 11,
+    "converter_sha256": "e3570c837b3c0273b9ba8c470f96d0d5fc6c73fb87f67db8c7f6f31b94eb5ec1",
+    "elapsed_seconds": 1169,
+    "job_id": "21017903",
+    "job_name": "C2048_ksv1_py311",
+    "legacy_backup_format": "ASCII text",
+    "legacy_size_gib_approx": 41,
+    "max_rss_kib_approx": 11096476,
+    "mode": "in_place",
+    "scheduler_state": "COMPLETED",
+    "temporary_files_remaining": 0,
+    "verified_header": [
+      -12345679,
+      28,
+      1,
+      1,
+      26624,
+      26624
+    ]
+  },
+  "evidence_class": "historical_operation_receipt",
+  "record_id": "c2048-reader-v1-20260607",
+  "schema_version": 1,
+  "scientific_result": {
+    "gw_completed": false,
+    "observable": null,
+    "qp_table_present": false,
+    "rpa_completed": false
+  },
+  "scope": "Reader-v1 eigenvector conversion only; no completed RPA or GW result is claimed.",
+  "source_access": "The original source host is no longer authorized for access; this record preserves only the previously verified conversion receipt."
+}

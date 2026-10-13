@@ -66,6 +66,13 @@ async function main() {
       check(await page.locator("#record-bands").count() === 0 && await page.locator("#record-results img").count() === 0, `${expected.id} does not fabricate a band section or figure`);
       check(text.includes("Executable SHA-256"), `${expected.id} exposes executable identities`);
     }
+    const c2048 = calculations.find(item => item.id === "c2048-reader-v1-20260607");
+    check(c2048?.record_type === "reader_conversion", "C2048 is a reader-conversion provenance record");
+    await go("#/material/c2048-reader-v1-20260607");
+    const c2048Text = await page.locator("#detail-view").innerText();
+    check(c2048Text.includes("Reader-v1 conversion only") && c2048Text.includes("26624 × 26624"), "C2048 shows its conversion scope and matrix dimensions");
+    check(c2048Text.includes("RPA result\nNot claimed") && c2048Text.includes("GW result\nNot claimed"), "C2048 does not claim RPA/GW completion");
+    check(await page.locator("#record-bands, #record-results").count() === 0, "C2048 does not expose a scientific result section");
     await go("");
     await page.getByRole("button", { name: "Next page", exact: true }).click();
     check((await page.locator(".pagination").innerText()).includes("Page 2"), "pagination");

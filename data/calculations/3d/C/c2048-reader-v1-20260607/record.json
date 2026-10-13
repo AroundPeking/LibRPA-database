@@ -1,0 +1,99 @@
+{
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2048,
+    "matrix_columns": 26624,
+    "matrix_rows": 26624
+  },
+  "conversion": {
+    "converter_sha256": "e3570c837b3c0273b9ba8c470f96d0d5fc6c73fb87f67db8c7f6f31b94eb5ec1",
+    "elapsed_seconds": 1169,
+    "evidence": [
+      "data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json"
+    ],
+    "job_id": "21017903",
+    "max_rss_kib_approx": 11096476,
+    "reader_header": [
+      -12345679,
+      28,
+      1,
+      1,
+      26624,
+      26624
+    ]
+  },
+  "dimension": "3d",
+  "files": {
+    "figures": [],
+    "inputs": [],
+    "logs": [],
+    "results": [
+      {
+        "label": "Reader-v1 conversion receipt",
+        "original_name": "reader_v1_conversion_receipt.json",
+        "original_sha256": "16a2f4f467c99349551a294cd6912d88fa10bc252314f134e02554f2306223a3",
+        "path": "data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json",
+        "role": "results",
+        "scientific_role": "reader_conversion_receipt",
+        "sha256": "16a2f4f467c99349551a294cd6912d88fa10bc252314f134e02554f2306223a3",
+        "size_bytes": 1231,
+        "transformation": "none"
+      }
+    ]
+  },
+  "formula": "C2048",
+  "id": "c2048-reader-v1-20260607",
+  "material": "C",
+  "missing": [
+    "Raw reader-v1 binary and legacy text eigenvector files are not mirrored in this database.",
+    "No completed RPA/GW output exists in the retained evidence."
+  ],
+  "properties": [],
+  "publication": {
+    "status": "database_only"
+  },
+  "record_type": "reader_conversion",
+  "schema_version": 1,
+  "scientific_scope": {
+    "gw_completed": false,
+    "qp_table_present": false,
+    "rpa_completed": false,
+    "statement": "Reader-v1 eigenvector conversion only; no completed RPA or GW result is claimed."
+  },
+  "software": {
+    "abacus": {
+      "abbreviated_commit": null,
+      "commit": null,
+      "evidence": [],
+      "missing_reason": "No ABACUS production run is claimed by this conversion-only record.",
+      "source_url": "https://github.com/deepmodeling/abacus-develop"
+    },
+    "librpa": {
+      "abbreviated_commit": null,
+      "commit": null,
+      "evidence": [
+        "data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json"
+      ],
+      "missing_reason": "No LibRPA RPA/GW execution is claimed; only reader-v1 input conversion is recorded.",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "approval_candidate_sha256": "586159e62c2065b145d08786bcfdd586dbdcb31cca0a7d314e73945beae45188",
+    "collection": "Verified historical reader-v1 conversion operation"
+  },
+  "species": [],
+  "status": "generation_only",
+  "summary": {
+    "notes": "Conversion evidence only; no RPA/GW observable.",
+    "observable": "Reader-v1 eigenvector conversion",
+    "unit": "matrix dimension",
+    "value": 26624
+  },
+  "workflow": {
+    "input_format": "legacy_text",
+    "output_format": "reader_v1_binary",
+    "scientific_result_available": false,
+    "task": "reader_v1_conversion"
+  }
+}

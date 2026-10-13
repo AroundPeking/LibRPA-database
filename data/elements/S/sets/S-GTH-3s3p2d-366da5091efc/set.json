@@ -1,0 +1,55 @@
+{
+  "element": "S",
+  "family": "GTH + 3s3p2d physical NAO",
+  "files": [
+    {
+      "label": "S-GTH-SOC-PBE-q6.upf",
+      "original_name": "S-GTH-SOC-PBE-q6.upf",
+      "original_sha256": "c415e911cd59d5e6d39ff60c57cb88e61db7944161263f0aa69c4fbb1fcc5280",
+      "path": "data/elements/S/pseudopotentials/c415e911cd59d5e6d39ff60c57cb88e61db7944161263f0aa69c4fbb1fcc5280.upf",
+      "role": "pp",
+      "sha256": "c415e911cd59d5e6d39ff60c57cb88e61db7944161263f0aa69c4fbb1fcc5280",
+      "size_bytes": 309875,
+      "transformation": "none"
+    },
+    {
+      "dimensions": {
+        "basis_dimension": 22,
+        "counts": {
+          "D": 2,
+          "F": 0,
+          "G": 0,
+          "P": 3,
+          "S": 3
+        },
+        "lmax": 4.0
+      },
+      "label": "S_gga_10au_110Ry_3s3p2d.orb",
+      "original_name": "S_gga_10au_110Ry_3s3p2d.orb",
+      "original_sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+      "path": "data/elements/S/orbitals/366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517.orb",
+      "role": "nao",
+      "sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+      "size_bytes": 187545,
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "physical NAO payload preserved from the approved production run; generation history not inferred"
+  },
+  "id": "S-GTH-3s3p2d-366da5091efc",
+  "notes": "22 atomic orbitals per S atom from the recorded channel counts.",
+  "publication": {
+    "status": "database_only"
+  },
+  "schema_version": 1,
+  "source": {
+    "approval_candidate_sha256": "963fe98c2485e441692d72c98dcf814c2b3b42e321d50fba5f1e1328158f1771",
+    "collection": "Verified 2D manuscript GW production inputs"
+  },
+  "used_by": [
+    "ws2-table-gw"
+  ],
+  "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+}

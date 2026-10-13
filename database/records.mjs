@@ -75,11 +75,11 @@ export function methodNames(record) {
 }
 
 export function recordType(record) {
-  return ["band", "large_system_gw", "rpa_energy"].includes(record?.record_type) ? record.record_type : "band";
+  return ["band", "large_system_gw", "rpa_energy", "reader_conversion"].includes(record?.record_type) ? record.record_type : "band";
 }
 
 export function recordTypeLabel(record) {
-  return ({ band: "Band structure", large_system_gw: "Large-system GW", rpa_energy: "RPA energy" })[recordType(record)];
+  return ({ band: "Band structure", large_system_gw: "Large-system GW", rpa_energy: "RPA energy", reader_conversion: "Reader conversion" })[recordType(record)];
 }
 
 export function atomCount(record) {
@@ -105,6 +105,10 @@ export function primaryResult(record) {
   if (type === "rpa_energy") {
     const property = finiteProperty(record, item => item.key === "rpa_correlation_energy");
     return property ? { label: property.label || "RPA correlation energy", value: property.value, unit: property.unit, scope: property.definition || "" } : null;
+  }
+  if (type === "reader_conversion") {
+    const dimension = record?.computational_scale?.matrix_rows;
+    return Number.isInteger(dimension) && dimension > 0 ? { label: "Reader-v1 matrix dimension", value: dimension, unit: "states", scope: "Conversion evidence only; no RPA/GW observable" } : null;
   }
   const value = bandGap(record, "GW");
   if (value !== null) return { label: restrictedGap(record) ? "Path-resolved GW value" : "GW gap", value, unit: "eV", scope: record.summary?.gap_definition || "" };

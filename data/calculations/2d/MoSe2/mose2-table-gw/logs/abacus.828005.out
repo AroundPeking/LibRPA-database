@@ -1,0 +1,113 @@
+                                                                                     
+                              ABACUS v3.9.0.7
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: 1dd0199 (Tue Sep 23 13:40:42 2025 +0800)
+
+ Wed Nov 12 13:05:04 2025
+ MAKE THE DIR         : OUT.ABACUS/
+ RUNNING WITH DEVICE  : CPU / Montage Jintide(R) C6226R
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 6 for Mo: [Kr] 4d5 5s1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 45 * 45 * 675
+ UNIFORM GRID DIM(BIG): 9 * 9 * 135
+ DONE(0.524639   SEC) : SETUP UNITCELL
+ DONE(0.53661    SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       400             4           128         88          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Mo      6s3p3d2f-10au   44          1           
+ Se      3s3p2d0f0g-10au 22          2           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(1.04869    SEC) : INIT PLANEWAVE
+ DONE(1.72118    SEC) : LOCAL POTENTIAL
+ -------------------------------------------
+ SELF-CONSISTENT : 
+ -------------------------------------------
+ START CHARGE      : atomic
+ DONE(2.11971    SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -2.43474208e+03   0.00000000e+00   2.0308e-01   4.96
+ GE2     -2.42056513e+03   1.41769531e+01   4.4106e-01   4.68
+ GE3     -2.44964330e+03  -2.90781682e+01   7.5682e-02   4.78
+ GE4     -2.44961024e+03   3.30611016e-02   3.4120e-02   4.78
+ GE5     -2.44971113e+03  -1.00892588e-01   2.9827e-03   4.86
+ GE6     -2.44971090e+03   2.27652697e-04   1.6744e-03   4.74
+ GE7     -2.44971076e+03   1.46109985e-04   1.6654e-03   5.02
+ GE8     -2.44971063e+03   1.24591168e-04   1.1712e-03   5.15
+ GE9     -2.44971070e+03  -6.63505094e-05   9.9337e-04   4.64
+ GE10    -2.44971083e+03  -1.30702304e-04   5.7389e-04   4.92
+ GE11    -2.44971095e+03  -1.16584277e-04   4.5593e-04   5.07
+ GE12    -2.44971112e+03  -1.69723721e-04   3.4575e-04   5.73
+ GE13    -2.44971120e+03  -8.86216298e-05   2.1248e-04   4.78
+ GE14    -2.44971126e+03  -5.63903733e-05   1.3800e-04   4.64
+ GE15    -2.44971129e+03  -2.74987433e-05   7.6999e-05   4.77
+ GE16    -2.44971130e+03  -9.49531985e-06   3.6993e-05   4.72
+ GE17    -2.44971130e+03  -2.31777521e-06   1.5225e-05   4.80
+ GE18    -2.44971130e+03  -6.17699659e-07   6.6906e-06   4.77
+ GE19    -2.44971130e+03  -1.78355961e-07   2.4496e-06   4.69
+ GE20    -2.44971130e+03  -3.46596696e-09   1.0278e-06   4.69
+ GE21    -2.44971130e+03  -2.77184549e-09   4.6161e-07   4.66
+ GE22    -2.44971130e+03   1.17064842e-08   3.1691e-07   4.66
+ GE23    -2.44971130e+03  -5.53247677e-09   1.5178e-07   6.11
+ GE24    -2.44971130e+03  -2.79968769e-09   1.1741e-07  11.72
+ GE25    -2.44971130e+03  -5.14925985e-09   1.0087e-07   8.42
+ GE26    -2.44971130e+03  -4.73820073e-09   7.7440e-08   8.57
+Use rpa_ccp_rmesh_times=6 to calculate cut Coulomb
+rpa_pca_threshold: 0.0001
+rpa_ccp_rmesh_times: 6
+rpa_lcao_exx(Ha): -10.914909039169235
+etxc(Ha): -14.599094205110427
+etot(Ha): -90.025197549676250
+Etot_without_rpa(Ha): -86.341012383735048
+Use exx_ccp_rmesh_times=3.000000000000000 to calculate full Coulomb
+
+TIME STATISTICS
+-------------------------------------------------------------------
+   CLASS_NAME          NAME        TIME/s   CALLS    AVG/s  PER/%  
+-------------------------------------------------------------------
+                 total             3607.05 85406    0.04    100.00 
+ Driver          atomic_world      3607.06 1        3607.06 100.00 
+ NOrbital_Lm     extra_uniform     38.94   154406   0.00    1.08   
+ Ions            opt_ions          3600.03 1        3600.03 99.81  
+ ESolver_KS      runner            3600.02 1        3600.02 99.80  
+ HSolverLCAO     solve             139.40  26       5.36    3.86   
+ HSolverLCAO     hamiltSolvePsiK   122.97  10400    0.01    3.41   
+ DiagoElpa       elpa_solve        118.45  10400    0.01    3.28   
+ ESolver_KS_LCAO after_scf         3458.09 1        3458.09 95.87  
+ ModuleIO        ctrl_output_lcao  3457.54 1        3457.54 95.85  
+ Center2_Orb     cal_ST_Phi12_R    843.31  333623   0.00    23.38  
+ RPA_LRI         cal_postSCF_exx   2255.88 1        2255.88 62.54  
+ Exx_LRI         init              1595.30 2        797.65  44.23  
+ Matrix_Orbs21   init_radial_table 564.95  3        188.32  15.66  
+ LRI_CV          set_orbitals      899.18  4        224.79  24.93  
+ Matrix_Orbs11   init_radial_table 412.20  4        103.05  11.43  
+ Ewald_Vq        init              458.19  2        229.09  12.70  
+ Exx_LRI         cal_exx_ions_rpa  729.62  2        364.81  20.23  
+ Exx_LRI         cal_exx_elec      75.61   1        75.61   2.10   
+ Ewald_Vq        cal_Vs            48.71   1        48.71   1.35   
+-------------------------------------------------------------------
+
+
+ START  Time  : Wed Nov 12 13:05:04 2025
+ FINISH Time  : Wed Nov 12 14:05:11 2025
+ TOTAL  Time  : 3607
+ SEE INFORMATION IN : OUT.ABACUS/

@@ -12,7 +12,7 @@ This repository is an open data archive for LibRPA materials calculations. It ca
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
-The current snapshot contains 119 immutable basis-set records covering 27 elements and 34 calculation records (15 two-dimensional and 19 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
+The current snapshot contains 123 immutable basis-set records covering 27 elements and 35 records (15 two-dimensional calculations and 20 three-dimensional calculation or conversion records). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
 
 The generated [`data/log-index.json`](data/log-index.json) gives every retained
 log exactly one calculation owner. [`data/release-index.json`](data/release-index.json)
@@ -31,7 +31,8 @@ methods, commits, and public file names; formula subscripts and punctuation are
 normalized. The dimension filter keeps 2D and 3D records visibly separate. The
 material list stays compact and opens a detail page for each record. That page
 contains DFT/EXX/GW figures, raw band files, provenance, and a category-based
-properties table. Electronic results are migrated from the recorded summaries;
+properties table. Reader-format provenance uses a separate record type and never
+appears as an RPA/GW result. Electronic results are migrated from the recorded summaries;
 Topology, Optical, Magnetic, Structural, and Other remain ready for evidence-
 linked contributions without implying those results already exist.
 
@@ -44,7 +45,7 @@ repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
 Open a calculation and choose **View inputs** or **Input files**. Every archived
 input has a read-only text preview and a download link; nested calculation
 stages retain their archive names to avoid overwriting same-named files. The
-current archive has input files for **all 34 calculations** (297 files).
+current archive has input files for **all 34 scientific calculation records** (297 files); the separate C2048 reader-conversion provenance record intentionally contains no calculation input bundle.
 Nine records include **89 partial stage controls**, with stage-input receipts
 and explicit incomplete-run warnings; these attachments do not certify a full
 production chain, exact basis linkage, or a self-contained rerun bundle.
@@ -85,13 +86,10 @@ remain visible for every file; aliases do not invent original filenames.
    The workflow checks Pages configuration, validates the data and indexes,
    runs Python/JavaScript tests, and builds a restricted `_site` artifact.
    It does not publish design drafts, private Git state, tests, or caches.
-   As explicitly approved on 2026-10-12, Pages publishes the browsable archive
-   separately from strict data acceptance: it checks that the complete missing-
-   evidence report is current and publicly visible, while schema/hash validation,
-   catalog/index checks, public scanning, and software tests remain blocking.
-   **Validate database** still runs `--check-completeness` without waivers and
-   fails when evidence is missing. A successful Pages deployment does not mean
-   that strict validation or scientific acceptance passed.
+   Pages publishes the formal browsable archive after schema/hash validation,
+   catalog/index checks, public scanning, and software tests pass. Internal
+   completeness reports remain repository-side validation artifacts and are not
+   included in the deployed website.
 3. Check the deployment job's returned URL and `build-info.json`. The latter
    records the deployed source commit and `source_dirty` state; a local build
    with uncommitted changes is not represented as an exact commit build. A

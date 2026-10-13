@@ -1,0 +1,54 @@
+{
+  "element": "Mo",
+  "family": "GTH + 6s3p3d2f physical NAO",
+  "files": [
+    {
+      "label": "Mo.upf",
+      "original_name": "Mo.upf",
+      "original_sha256": "b5a929dee3378934d30b33a8f510c8a715450d22b4f1a3469276569ac47ab29d",
+      "path": "data/elements/Mo/pseudopotentials/b5a929dee3378934d30b33a8f510c8a715450d22b4f1a3469276569ac47ab29d.upf",
+      "role": "pp",
+      "sha256": "b5a929dee3378934d30b33a8f510c8a715450d22b4f1a3469276569ac47ab29d",
+      "size_bytes": 398360,
+      "transformation": "none"
+    },
+    {
+      "dimensions": {
+        "basis_dimension": 44,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "P": 3,
+          "S": 6
+        },
+        "lmax": 3.0
+      },
+      "label": "Mo_gga_10au_100Ry_6s3p3d2f.orb",
+      "original_name": "Mo_gga_10au_100Ry_6s3p3d2f.orb",
+      "original_sha256": "972eb1b83cc78106f0b5c2b0886d0801ae4ea4e1be86067424ee47a7ec152cb2",
+      "path": "data/elements/Mo/orbitals/972eb1b83cc78106f0b5c2b0886d0801ae4ea4e1be86067424ee47a7ec152cb2.orb",
+      "role": "nao",
+      "sha256": "972eb1b83cc78106f0b5c2b0886d0801ae4ea4e1be86067424ee47a7ec152cb2",
+      "size_bytes": 321759,
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "physical NAO payload preserved from the approved production run; generation history not inferred"
+  },
+  "id": "Mo-GTH-6s3p3d2f-972eb1b83cc7",
+  "notes": "44 atomic orbitals per Mo atom from the recorded channel counts.",
+  "publication": {
+    "status": "database_only"
+  },
+  "schema_version": 1,
+  "source": {
+    "approval_candidate_sha256": "a41cf0c288166975ade004c0189f7c381b550f957ecb344a8b348b868f2eb2c2",
+    "collection": "Verified 2D manuscript GW production inputs"
+  },
+  "used_by": [
+    "mose2-table-gw"
+  ],
+  "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+}

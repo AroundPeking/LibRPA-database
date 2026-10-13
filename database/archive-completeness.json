@@ -3,15 +3,11 @@
   "status": "blocked",
   "integrity_issues": [],
   "stats": {
-    "total": 34,
-    "complete": 1,
+    "total": 35,
+    "complete": 2,
     "incomplete": 33,
-    "issue_count": 60,
+    "issue_count": 50,
     "missing_categories": {
-      "basis_binding": {
-        "cases": 2,
-        "issues": 10
-      },
       "software": {
         "cases": 33,
         "issues": 50
@@ -145,22 +141,10 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "species: missing exact binding for formula element Mo",
-        "species: missing exact binding for formula element Se",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-        "STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species",
-        "STRU: at least one production STRU must declare exact abf payloads",
         "software.abacus.commit: full immutable commit is required",
         "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "basis_binding": [
-          "species: missing exact binding for formula element Mo",
-          "species: missing exact binding for formula element Se",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU: at least one production STRU must declare exact abf payloads"
-        ],
         "software": [
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
@@ -242,22 +226,10 @@
       "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "issues": [
-        "species: missing exact binding for formula element S",
-        "species: missing exact binding for formula element W",
-        "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-        "STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species",
-        "STRU: at least one production STRU must declare exact abf payloads",
         "software.abacus.commit: full immutable commit is required",
         "software.librpa.commit: full immutable commit is required"
       ],
       "missing_categories": {
-        "basis_binding": [
-          "species: missing exact binding for formula element S",
-          "species: missing exact binding for formula element W",
-          "species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings",
-          "STRU data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU: ATOMIC_SPECIES elements do not match exact species",
-          "STRU: at least one production STRU must declare exact abf payloads"
-        ],
         "software": [
           "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
@@ -411,6 +383,15 @@
           "software.librpa.commit: full immutable commit is required"
         ]
       }
+    },
+    {
+      "id": "c2048-reader-v1-20260607",
+      "material": "C",
+      "dimension": "3d",
+      "scientific_status": "generation_only",
+      "status": "complete",
+      "issues": [],
+      "missing_categories": {}
     },
     {
       "id": "c512-gamma-g0w0-20260519",

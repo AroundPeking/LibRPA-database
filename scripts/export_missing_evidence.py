@@ -73,6 +73,8 @@ def _stages(case: dict) -> list[dict]:
 
 def _binding_request(root: Path, case: dict) -> dict:
     required = sorted(library._formula_elements(case.get("formula", case.get("material"))))
+    generated_auxiliary = case.get("auxiliary_basis", {}).get("mode") == "pca_generated"
+    required_roles = ["pp", "nao"] if generated_auxiliary else ["pp", "nao", "abf"]
     declarations = []
     for item in case.get("files", {}).get("inputs", []):
         if not library._input_name(item, "STRU"):
@@ -91,14 +93,20 @@ def _binding_request(root: Path, case: dict) -> dict:
         declarations.append({"path": item["path"], "elements": elements,
                              "has_abfs_orbital": bool(sections.get("ABFS_ORBITAL"))})
     return {
-        "elements": [{"element": element, "required_roles": ["pp", "nao", "abf"]} for element in required],
+        "elements": [{"element": element, "required_roles": required_roles} for element in required],
         "production_stru_declarations": declarations,
-        "requirements": [
+        "requirements": ([
+            "Recover the original PP (.upf) and physical NAO (.orb) files and SHA-256 for each element, as actually used in the same production run.",
+            "Bind the order and names in the original STRU ATOMIC_SPECIES/NUMERICAL_ORBITAL declarations to those exact payload hashes.",
+            "Verify the PCA threshold from the declared production INPUT; do not invent a standalone .abfs payload.",
+        ] if generated_auxiliary else [
             "Recover the original PP (.upf), physical NAO (.orb), and ABF (.abfs) files and SHA-256 for each element, as actually used in the same production run.",
             "Bind the order and names in the original STRU ATOMIC_SPECIES/NUMERICAL_ORBITAL/ABFS_ORBITAL declarations to those exact payload hashes.",
             "Candidate sets, matching filenames, for_aux orbitals, another material, or assets from a new case cannot replace exact role binding.",
-        ],
-        "note": ("Existing partial STRU files establish the original PP/NAO names below, but lack ABFS_ORBITAL. Recover the ABF declarations, payloads, and run evidence from the original DF/EXX/GW stage; do not guess the ABF."
+        ]),
+        "note": ("This run used a PCA-generated auxiliary basis; no standalone .abfs payload is required or claimed."
+                 if generated_auxiliary else
+                 "Existing partial STRU files establish the original PP/NAO names below, but lack ABFS_ORBITAL. Recover the ABF declarations, payloads, and run evidence from the original DF/EXX/GW stage; do not guess the ABF."
                  if declarations and not any(item["has_abfs_orbital"] for item in declarations)
                  else "No audited production STRU binding is available. Recover the original structure and role files first; do not fill them from candidate basis sets."),
     }
@@ -231,7 +239,11 @@ def render_text(export: dict) -> str:
             lines.append("Original inputs to recover: " + ", ".join(collection["missing_inputs"]))
         binding = collection.get("basis_binding_request")
         if binding:
-            lines.append("Exact roles by element: " + "; ".join(f"{item['element']} => PP(.upf) / physical NAO(.orb) / ABF(.abfs)" for item in binding["elements"]))
+            role_labels = {"pp": "PP(.upf)", "nao": "physical NAO(.orb)", "abf": "ABF(.abfs)"}
+            lines.append("Exact roles by element: " + "; ".join(
+                f"{item['element']} => " + " / ".join(role_labels[role] for role in item["required_roles"])
+                for item in binding["elements"]
+            ))
             lines.extend(binding["requirements"] + [binding["note"]])
             for stru in binding["production_stru_declarations"]:
                 lines.append("Existing partial STRU: " + stru["path"])

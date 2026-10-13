@@ -260,6 +260,18 @@
       "label": "librpa.out"
     },
     {
+      "calculation_id": "mose2-table-gw",
+      "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out",
+      "sha256": "48872790ea6c58d7cf2bbc4e00f0041464bdad4e7120e50559a2cd548d798235",
+      "label": "LibRPA G0W0 band log"
+    },
+    {
+      "calculation_id": "mose2-table-gw",
+      "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/abacus.828005.out",
+      "sha256": "4781822bd4b2285d5f1555787cd04b5f45b234e5495f193bf486000cc90a4dff",
+      "label": "ABACUS production log"
+    },
+    {
       "calculation_id": "nacl-paper-sg15",
       "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out",
       "sha256": "0cbbab472eb92485e5e6789b207c4292e486c39ffe57a408c7ccc842b8dd9a2f",
@@ -294,6 +306,18 @@
       "path": "data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out",
       "sha256": "d68aae360246c284d7808989aa7aa9960c8d23616845f01047e5c1a0d6f6f14f",
       "label": "librpa.out"
+    },
+    {
+      "calculation_id": "ws2-table-gw",
+      "path": "data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out",
+      "sha256": "ceafe42de5552f0a675e016edb78d6d4becbe331d2605008475b9bef5e6673f4",
+      "label": "LibRPA G0W0 band log"
+    },
+    {
+      "calculation_id": "ws2-table-gw",
+      "path": "data/calculations/2d/WS2/ws2-table-gw/logs/abacus.825549.out",
+      "sha256": "47179a5e662b1042e9814c88cde71cb5ec7478d04d75dc10ff90dccec43fcf06",
+      "label": "ABACUS production log"
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "element": "Se",
+  "family": "GTH + 3s3p2d physical NAO",
+  "files": [
+    {
+      "label": "Se-GTH-SOC-PBE-q6-cp2k-default-grid-1.upf",
+      "original_name": "Se-GTH-SOC-PBE-q6-cp2k-default-grid-1.upf",
+      "original_sha256": "b1a4f71d39b298eb29417903feb27aef2754ba99cd1bc128f5b33bcb9cdb31da",
+      "path": "data/elements/Se/pseudopotentials/b1a4f71d39b298eb29417903feb27aef2754ba99cd1bc128f5b33bcb9cdb31da.upf",
+      "role": "pp",
+      "sha256": "b1a4f71d39b298eb29417903feb27aef2754ba99cd1bc128f5b33bcb9cdb31da",
+      "size_bytes": 136723,
+      "transformation": "none"
+    },
+    {
+      "dimensions": {
+        "basis_dimension": 22,
+        "counts": {
+          "D": 2,
+          "F": 0,
+          "G": 0,
+          "P": 3,
+          "S": 3
+        },
+        "lmax": 4.0
+      },
+      "label": "Se_gga_10au_110Ry_3s3p2d.orb",
+      "original_name": "Se_gga_10au_110Ry_3s3p2d.orb",
+      "original_sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
+      "path": "data/elements/Se/orbitals/3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2.orb",
+      "role": "nao",
+      "sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
+      "size_bytes": 187546,
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "physical NAO payload preserved from the approved production run; generation history not inferred"
+  },
+  "id": "Se-GTH-3s3p2d-3c0cf8a33c9d",
+  "notes": "22 atomic orbitals per Se atom from the recorded channel counts.",
+  "publication": {
+    "status": "database_only"
+  },
+  "schema_version": 1,
+  "source": {
+    "approval_candidate_sha256": "a41cf0c288166975ade004c0189f7c381b550f957ecb344a8b348b868f2eb2c2",
+    "collection": "Verified 2D manuscript GW production inputs"
+  },
+  "used_by": [
+    "mose2-table-gw"
+  ],
+  "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+}

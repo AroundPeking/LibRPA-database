@@ -636,6 +636,44 @@ libRPA finished successfully
         self.lib.validate(self.root, [self.basis], [self.case])
         self.assertEqual(self.issues(), [])
 
+    def test_band_record_accepts_pca_generated_auxiliary_without_abfs_payload(self):
+        input_item = self.case["files"]["inputs"][0]
+        input_data = b"INPUT_PARAMETERS\ncalculation scf\nntype 1\nexx_pca_threshold 1e-6\n"
+        (self.root / input_item["path"]).write_bytes(input_data)
+        input_item["sha256"] = hashlib.sha256(input_data).hexdigest()
+        stru_item = self.case["files"]["inputs"][2]
+        stru_data = (self.root / stru_item["path"]).read_bytes().replace(b"ABFS_ORBITAL\ntest.abfs\n", b"")
+        (self.root / stru_item["path"]).write_bytes(stru_data)
+        stru_item["sha256"] = hashlib.sha256(stru_data).hexdigest()
+        self.basis["files"] = [item for item in self.basis["files"] if item["role"] != "abf"]
+        self.case["species"][0]["asset_aliases"].pop("abf")
+        self.case["auxiliary_basis"] = {"mode": "pca_generated", "threshold": 1e-6, "evidence": [input_item["path"]]}
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_reader_conversion_is_complete_only_for_its_conversion_scope(self):
+        receipt = {
+            "record_id": "si-control", "scope": "Reader-v1 conversion only",
+            "conversion": {"verified_header": [-12345679, 28, 1, 1, 32, 32]},
+            "scientific_result": {"rpa_completed": False, "gw_completed": False, "qp_table_present": False, "observable": None},
+        }
+        data = (json.dumps(receipt) + "\n").encode()
+        item = self._add_file(self.prefix + "results/reader_v1_conversion_receipt.json", data, "results")
+        item["scientific_role"] = "reader_conversion_receipt"
+        self.case.update({
+            "record_type": "reader_conversion", "status": "generation_only", "properties": [],
+            "workflow": {"task": "reader_v1_conversion", "scientific_result_available": False},
+            "computational_scale": {"atom_count": 2048, "matrix_rows": 32, "matrix_columns": 32},
+            "conversion": {"elapsed_seconds": 60, "converter_sha256": "a" * 64,
+                           "reader_header": [-12345679, 28, 1, 1, 32, 32], "evidence": [item["path"]]},
+            "scientific_scope": {"statement": "Reader-v1 conversion only"},
+            "files": {"inputs": [], "results": [item], "logs": [], "figures": []},
+        })
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+        self.case["workflow"]["scientific_result_available"] = True
+        self.assertTrue(any("disclaim" in issue for issue in self.issues()))
+
     def test_large_system_gw_uses_only_auxiliary_evidence_production_input(self):
         self._make_large_system_gw()
         nscf_data = b"INPUT_PARAMETERS\ncalculation nscf\nntype 1\nexx_pca_threshold 10\n"

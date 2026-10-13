@@ -1,0 +1,55 @@
+{
+  "element": "W",
+  "family": "GTH + 6s3p3d2f physical NAO",
+  "files": [
+    {
+      "label": "W-GTH-SOC-PBE-q14.upf",
+      "original_name": "W-GTH-SOC-PBE-q14.upf",
+      "original_sha256": "01ac166e0a69918afcd99c91c05ecc02d145de7de56ef9ac7f503c94d28b1f0b",
+      "path": "data/elements/W/pseudopotentials/01ac166e0a69918afcd99c91c05ecc02d145de7de56ef9ac7f503c94d28b1f0b.upf",
+      "role": "pp",
+      "sha256": "01ac166e0a69918afcd99c91c05ecc02d145de7de56ef9ac7f503c94d28b1f0b",
+      "size_bytes": 608590,
+      "transformation": "none"
+    },
+    {
+      "dimensions": {
+        "basis_dimension": 44,
+        "counts": {
+          "D": 3,
+          "F": 2,
+          "G": 0,
+          "P": 3,
+          "S": 6
+        },
+        "lmax": 4.0
+      },
+      "label": "W_gga_10au_110Ry_6s3p3d2f.orb",
+      "original_name": "W_gga_10au_110Ry_6s3p3d2f.orb",
+      "original_sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
+      "path": "data/elements/W/orbitals/96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad.orb",
+      "role": "nao",
+      "sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
+      "size_bytes": 327825,
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "commit": null,
+    "status": "physical NAO payload preserved from the approved production run; generation history not inferred"
+  },
+  "id": "W-GTH-6s3p3d2f-96a3dd0a23e3",
+  "notes": "44 atomic orbitals per W atom from the recorded channel counts.",
+  "publication": {
+    "status": "database_only"
+  },
+  "schema_version": 1,
+  "source": {
+    "approval_candidate_sha256": "963fe98c2485e441692d72c98dcf814c2b3b42e321d50fba5f1e1328158f1771",
+    "collection": "Verified 2D manuscript GW production inputs"
+  },
+  "used_by": [
+    "ws2-table-gw"
+  ],
+  "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+}

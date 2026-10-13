@@ -1,408 +1,453 @@
 {
-  "schema_version": 1,
-  "id": "mose2-table-gw",
+  "auxiliary_basis": {
+    "evidence": [
+      "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_scf"
+    ],
+    "mode": "pca_generated",
+    "note": "No standalone .abfs file was present in the hash-matched production directory. LibRPA's use_shrink_abfs setting is preserved separately from ABACUS PCA generation.",
+    "threshold": 0.0001,
+    "use_shrink_abfs": false
+  },
+  "basis_candidates": [],
   "dimension": "2d",
-  "material": "MoSe2",
-  "formula": "MoSe2",
-  "status": "gw_diagnostic",
-  "species": [],
-  "basis_candidates": [
-    {
-      "element": "Mo",
-      "set_id": "Mo-GTH-055578b42276",
-      "scope": "contextual PBE candidate; exact GW binding pending"
-    },
-    {
-      "element": "Se",
-      "set_id": "Se-GTH-4b941920e1f4",
-      "scope": "contextual producer-used candidate; exact GW binding pending"
-    }
-  ],
-  "software": {
-    "abacus": {
-      "source_url": "https://github.com/AroundPeking/abacus-develop",
-      "commit": null,
-      "abbreviated_commit": null,
-      "evidence": [],
-      "missing_reason": "full producer commit not recorded in the imported evidence"
-    },
-    "librpa": {
-      "source_url": "https://github.com/AESM-Group/LibRPA",
-      "commit": null,
-      "abbreviated_commit": null,
-      "evidence": [],
-      "missing_reason": "full producer commit not recorded in the imported evidence"
-    }
-  },
-  "summary": {
-    "observable": "Archived GW path gap",
-    "value": 2.088,
-    "unit": "eV",
-    "notes": "near-gap benchmark",
-    "gates": []
-  },
   "files": {
+    "figures": [
+      {
+        "label": "mose2_ks.png",
+        "method": "KS",
+        "original_sha256": "064bcb6d0977829e5c55c51feb8a7e09e1885dd3cd0700706dcbae9c2226311c",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_ks.png",
+        "role": "figures",
+        "sha256": "064bcb6d0977829e5c55c51feb8a7e09e1885dd3cd0700706dcbae9c2226311c",
+        "size_bytes": 264933,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      },
+      {
+        "label": "mose2_ks.pdf",
+        "method": "KS",
+        "original_sha256": "c3d209d51fe199bf72e285945e448cb04fd4a052ce851ae05e1d5fc38ab3fc2e",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_ks.pdf",
+        "role": "figures",
+        "sha256": "c3d209d51fe199bf72e285945e448cb04fd4a052ce851ae05e1d5fc38ab3fc2e",
+        "size_bytes": 49973,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      },
+      {
+        "label": "mose2_exx.png",
+        "method": "EXX",
+        "original_sha256": "96470208fa8bcd43c2063b77af6e23efd2e97021f1e35df56dfb15e5cbb2e150",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_exx.png",
+        "role": "figures",
+        "sha256": "96470208fa8bcd43c2063b77af6e23efd2e97021f1e35df56dfb15e5cbb2e150",
+        "size_bytes": 249206,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      },
+      {
+        "label": "mose2_exx.pdf",
+        "method": "EXX",
+        "original_sha256": "a479d1d5b9ab3a6dc91d6c4c49c7b2c85f3e0b8dc995cf6a62bca9dbde695b25",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_exx.pdf",
+        "role": "figures",
+        "sha256": "a479d1d5b9ab3a6dc91d6c4c49c7b2c85f3e0b8dc995cf6a62bca9dbde695b25",
+        "size_bytes": 51039,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      },
+      {
+        "label": "mose2_gw.png",
+        "method": "GW",
+        "original_sha256": "1ff329fd444a1e6d17bbcead7accf6d43b8fa5e4743a4e44f1177d5b719f3452",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_gw.png",
+        "role": "figures",
+        "sha256": "1ff329fd444a1e6d17bbcead7accf6d43b8fa5e4743a4e44f1177d5b719f3452",
+        "size_bytes": 292052,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      },
+      {
+        "label": "mose2_gw.pdf",
+        "method": "GW",
+        "original_sha256": "f5b0aeb0e0ded833c26cbcdbee9cd2c9b667fe01e4ff0bdc12efb09ff9e3e914",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_gw.pdf",
+        "role": "figures",
+        "sha256": "f5b0aeb0e0ded833c26cbcdbee9cd2c9b667fe01e4ff0bdc12efb09ff9e3e914",
+        "size_bytes": 52168,
+        "source_paths": [
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat",
+          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
+        ],
+        "transformation": "none"
+      }
+    ],
     "inputs": [
       {
-        "role": "inputs",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT",
-        "sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
-        "size_bytes": 625,
-        "original_sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
-        "label": "GW / INPUT (partial stage 34d26c328820)",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / INPUT (verified production stage 34d26c328820)",
         "original_name": "INPUT",
-        "transformation": "none",
+        "original_sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
         "original_size_bytes": 625,
-        "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
-      },
-      {
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT",
         "role": "inputs",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_nscf",
         "sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
         "size_bytes": 625,
-        "original_sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
-        "label": "GW / INPUT_nscf (partial stage 34d26c328820)",
-        "original_name": "INPUT_nscf",
-        "transformation": "none",
-        "original_size_bytes": 625,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / INPUT_nscf (verified production stage 34d26c328820)",
+        "original_name": "INPUT_nscf",
+        "original_sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
+        "original_size_bytes": 625,
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_nscf",
         "role": "inputs",
+        "sha256": "7bd32008c035316be627c4a1479ab88bfd649c9b64563dce54afb91ff27f32c7",
+        "size_bytes": 625,
+        "stage_id": "34d26c328820",
+        "transformation": "none"
+      },
+      {
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / INPUT_scf (verified production stage 34d26c328820)",
+        "original_name": "INPUT_scf",
+        "original_sha256": "fbd7e611dcceb94c4d2000db0aa8ffd2e995716f774d1ac120a91ccdaf5e1dad",
+        "original_size_bytes": 707,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/INPUT_scf",
+        "role": "inputs",
         "sha256": "fbd7e611dcceb94c4d2000db0aa8ffd2e995716f774d1ac120a91ccdaf5e1dad",
         "size_bytes": 707,
-        "original_sha256": "fbd7e611dcceb94c4d2000db0aa8ffd2e995716f774d1ac120a91ccdaf5e1dad",
-        "label": "GW / INPUT_scf (partial stage 34d26c328820)",
-        "original_name": "INPUT_scf",
-        "transformation": "none",
-        "original_size_bytes": 707,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
-        "role": "inputs",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT",
-        "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
-        "size_bytes": 165,
-        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
-        "label": "GW / KPT (partial stage 34d26c328820)",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / KPT (verified production stage 34d26c328820)",
         "original_name": "KPT",
-        "transformation": "none",
+        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
         "original_size_bytes": 165,
-        "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
-      },
-      {
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT",
         "role": "inputs",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT_nscf",
         "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
         "size_bytes": 165,
-        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
-        "label": "GW / KPT_nscf (partial stage 34d26c328820)",
-        "original_name": "KPT_nscf",
-        "transformation": "none",
-        "original_size_bytes": 165,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / KPT_nscf (verified production stage 34d26c328820)",
+        "original_name": "KPT_nscf",
+        "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "original_size_bytes": 165,
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT_nscf",
         "role": "inputs",
+        "sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
+        "size_bytes": 165,
+        "stage_id": "34d26c328820",
+        "transformation": "none"
+      },
+      {
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / KPT_scf (verified production stage 34d26c328820)",
+        "original_name": "KPT_scf",
+        "original_sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
+        "original_size_bytes": 31,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/KPT_scf",
+        "role": "inputs",
         "sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
         "size_bytes": 31,
-        "original_sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
-        "label": "GW / KPT_scf (partial stage 34d26c328820)",
-        "original_name": "KPT_scf",
-        "transformation": "none",
-        "original_size_bytes": 31,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
-        "role": "inputs",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / STRU (verified production stage 34d26c328820)",
+        "original_name": "STRU",
+        "original_sha256": "d5581cce686dd685bbb8cb651d536dd583357449c1adf576cdcae6f814cea508",
+        "original_size_bytes": 463,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/STRU",
+        "role": "inputs",
         "sha256": "d5581cce686dd685bbb8cb651d536dd583357449c1adf576cdcae6f814cea508",
         "size_bytes": 463,
-        "original_sha256": "d5581cce686dd685bbb8cb651d536dd583357449c1adf576cdcae6f814cea508",
-        "label": "GW / STRU (partial stage 34d26c328820)",
-        "original_name": "STRU",
-        "transformation": "none",
-        "original_size_bytes": 463,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
-        "role": "inputs",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / band_kpath_info (verified production stage 34d26c328820)",
+        "original_name": "band_kpath_info",
+        "original_sha256": "0335ceaa981874599c729a72c9b7cecfbe3183a90a6495ee81922b407f2bb2f1",
+        "original_size_bytes": 6680,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/band_kpath_info",
+        "role": "inputs",
         "sha256": "0335ceaa981874599c729a72c9b7cecfbe3183a90a6495ee81922b407f2bb2f1",
         "size_bytes": 6680,
-        "original_sha256": "0335ceaa981874599c729a72c9b7cecfbe3183a90a6495ee81922b407f2bb2f1",
-        "label": "GW / band_kpath_info (partial stage 34d26c328820)",
-        "original_name": "band_kpath_info",
-        "transformation": "none",
-        "original_size_bytes": 6680,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
-        "role": "inputs",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / geometry.in (verified production stage 34d26c328820)",
+        "original_name": "geometry.in",
+        "original_sha256": "b3f7d047d40f3e3cd0b77e85a00180c18fa8d337c7b216b060b093679e7b734d",
+        "original_size_bytes": 330,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/geometry.in",
+        "role": "inputs",
         "sha256": "b3f7d047d40f3e3cd0b77e85a00180c18fa8d337c7b216b060b093679e7b734d",
         "size_bytes": 330,
-        "original_sha256": "b3f7d047d40f3e3cd0b77e85a00180c18fa8d337c7b216b060b093679e7b734d",
-        "label": "GW / geometry.in (partial stage 34d26c328820)",
-        "original_name": "geometry.in",
-        "transformation": "none",
-        "original_size_bytes": 330,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
       },
       {
-        "role": "inputs",
+        "evidence_scope": "Hash-matched production input from the original paper GW directory.",
+        "label": "GW / librpa.in (verified production stage 34d26c328820)",
+        "original_name": "librpa.in",
+        "original_sha256": "2148032e044c7a5b169900976ff6cb690a888f0a4bdde9eb32e904e1667c4531",
+        "original_size_bytes": 197,
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/inputs/recovered/34d26c328820/librpa.in",
+        "role": "inputs",
         "sha256": "2148032e044c7a5b169900976ff6cb690a888f0a4bdde9eb32e904e1667c4531",
         "size_bytes": 197,
-        "original_sha256": "2148032e044c7a5b169900976ff6cb690a888f0a4bdde9eb32e904e1667c4531",
-        "label": "GW / librpa.in (partial stage 34d26c328820)",
-        "original_name": "librpa.in",
-        "transformation": "none",
-        "original_size_bytes": 197,
         "stage_id": "34d26c328820",
-        "evidence_scope": "Partial recovered stage controls linked to the archived KS/EXX/GW spectrum hashes; directory association is not an immutable full production chain or a self-contained rerun bundle. Basis bindings, software identities and scientific acceptance are not changed by this import."
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "label": "ABACUS production log",
+        "original_name": "abacus.828005.out",
+        "original_sha256": "4781822bd4b2285d5f1555787cd04b5f45b234e5495f193bf486000cc90a4dff",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/abacus.828005.out",
+        "role": "logs",
+        "scientific_role": "abacus_completion_log",
+        "sha256": "4781822bd4b2285d5f1555787cd04b5f45b234e5495f193bf486000cc90a4dff",
+        "size_bytes": 6204,
+        "transformation": "private paths and node identifiers redacted; scientific settings and completion retained"
+      },
+      {
+        "label": "LibRPA G0W0 band log",
+        "original_name": "LibRPA.828137.out",
+        "original_sha256": "b89b35d8acc2e6e1429b0999556a434de51a4534216b3a61b21852eb1abba3fb",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out",
+        "role": "logs",
+        "scientific_role": "gw_completion_log",
+        "sha256": "48872790ea6c58d7cf2bbc4e00f0041464bdad4e7120e50559a2cd548d798235",
+        "size_bytes": 5219283,
+        "transformation": "private paths and node identifiers redacted; scientific settings and completion retained"
       }
     ],
     "results": [
       {
-        "role": "results",
+        "label": "mose2_KS.dat",
+        "original_sha256": "25d324e96fc91663898860e9848a46956b93ea0817a82e33f983da6eebdde5d0",
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
+        "role": "results",
         "sha256": "25d324e96fc91663898860e9848a46956b93ea0817a82e33f983da6eebdde5d0",
         "size_bytes": 325611,
-        "original_sha256": "25d324e96fc91663898860e9848a46956b93ea0817a82e33f983da6eebdde5d0",
-        "label": "mose2_KS.dat",
         "transformation": "none"
       },
       {
-        "role": "results",
+        "label": "mose2_EXX.dat",
+        "original_sha256": "7f392253df469cc51bdfebafcfecc12730c3a7ad45685567de52a011f15bb83b",
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
+        "role": "results",
         "sha256": "7f392253df469cc51bdfebafcfecc12730c3a7ad45685567de52a011f15bb83b",
         "size_bytes": 325611,
-        "original_sha256": "7f392253df469cc51bdfebafcfecc12730c3a7ad45685567de52a011f15bb83b",
-        "label": "mose2_EXX.dat",
         "transformation": "none"
       },
       {
-        "role": "results",
+        "label": "mose2_GW.dat",
+        "original_sha256": "2508e332a2a64dfa14f2afa24adcdf9d21be4f2cd48ce3807afaa305c53f3d1e",
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat",
+        "role": "results",
         "sha256": "2508e332a2a64dfa14f2afa24adcdf9d21be4f2cd48ce3807afaa305c53f3d1e",
         "size_bytes": 325611,
-        "original_sha256": "2508e332a2a64dfa14f2afa24adcdf9d21be4f2cd48ce3807afaa305c53f3d1e",
-        "label": "mose2_GW.dat",
         "transformation": "none"
       },
       {
-        "role": "results",
+        "label": "mose2.json",
+        "original_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json",
+        "role": "results",
         "sha256": "4717a93618bebf1535d342dee92a211f59bb3c97a36314954c895de74d2e342b",
         "size_bytes": 59960,
-        "original_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
-        "label": "mose2.json",
         "transformation": "private paths and host identifiers redacted; scientific values retained"
       },
       {
-        "role": "results",
+        "label": "Paper-reported Table I values (DFT / GW)",
         "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+        "role": "results",
         "sha256": "4b2b40b03c10f12129fcbd7be953c8fbfe7ea10f79a14440785e1c34baaf749f",
-        "size_bytes": 2481,
-        "label": "Paper-reported Table I values (DFT / GW)"
+        "size_bytes": 2481
       },
       {
-        "role": "results",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json",
-        "sha256": "cb9f617d3ed65abbc94b76d5ab629f36de6934211fde5565d15725c339489d1f",
-        "size_bytes": 8069,
-        "original_sha256": "cb9f617d3ed65abbc94b76d5ab629f36de6934211fde5565d15725c339489d1f",
         "label": "stage_input_receipt.json",
         "original_name": "stage_input_receipt.json",
+        "original_sha256": "cb9f617d3ed65abbc94b76d5ab629f36de6934211fde5565d15725c339489d1f",
+        "path": "data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json",
+        "role": "results",
+        "sha256": "cb9f617d3ed65abbc94b76d5ab629f36de6934211fde5565d15725c339489d1f",
+        "size_bytes": 8069,
         "transformation": "none"
-      }
-    ],
-    "logs": [],
-    "figures": [
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_ks.png",
-        "sha256": "064bcb6d0977829e5c55c51feb8a7e09e1885dd3cd0700706dcbae9c2226311c",
-        "size_bytes": 264933,
-        "original_sha256": "064bcb6d0977829e5c55c51feb8a7e09e1885dd3cd0700706dcbae9c2226311c",
-        "label": "mose2_ks.png",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "KS"
-      },
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_ks.pdf",
-        "sha256": "c3d209d51fe199bf72e285945e448cb04fd4a052ce851ae05e1d5fc38ab3fc2e",
-        "size_bytes": 49973,
-        "original_sha256": "c3d209d51fe199bf72e285945e448cb04fd4a052ce851ae05e1d5fc38ab3fc2e",
-        "label": "mose2_ks.pdf",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "KS"
-      },
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_exx.png",
-        "sha256": "96470208fa8bcd43c2063b77af6e23efd2e97021f1e35df56dfb15e5cbb2e150",
-        "size_bytes": 249206,
-        "original_sha256": "96470208fa8bcd43c2063b77af6e23efd2e97021f1e35df56dfb15e5cbb2e150",
-        "label": "mose2_exx.png",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "EXX"
-      },
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_exx.pdf",
-        "sha256": "a479d1d5b9ab3a6dc91d6c4c49c7b2c85f3e0b8dc995cf6a62bca9dbde695b25",
-        "size_bytes": 51039,
-        "original_sha256": "a479d1d5b9ab3a6dc91d6c4c49c7b2c85f3e0b8dc995cf6a62bca9dbde695b25",
-        "label": "mose2_exx.pdf",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "EXX"
-      },
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_gw.png",
-        "sha256": "1ff329fd444a1e6d17bbcead7accf6d43b8fa5e4743a4e44f1177d5b719f3452",
-        "size_bytes": 292052,
-        "original_sha256": "1ff329fd444a1e6d17bbcead7accf6d43b8fa5e4743a4e44f1177d5b719f3452",
-        "label": "mose2_gw.png",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "GW"
-      },
-      {
-        "role": "figures",
-        "path": "data/calculations/2d/MoSe2/mose2-table-gw/figures/mose2_gw.pdf",
-        "sha256": "f5b0aeb0e0ded833c26cbcdbee9cd2c9b667fe01e4ff0bdc12efb09ff9e3e914",
-        "size_bytes": 52168,
-        "original_sha256": "f5b0aeb0e0ded833c26cbcdbee9cd2c9b667fe01e4ff0bdc12efb09ff9e3e914",
-        "label": "mose2_gw.pdf",
-        "transformation": "none",
-        "source_paths": [
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat",
-          "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
-        ],
-        "method": "GW"
       }
     ]
   },
-  "recommendation": null,
+  "formula": "MoSe2",
+  "id": "mose2-table-gw",
+  "material": "MoSe2",
   "missing": [
-    "Exact production STRU/PP/NAO/ABF link pending source-case audit",
-    "Full per-case ABACUS/LibRPA commits pending source-case audit"
+    "Full immutable ABACUS commit or executable SHA-256 was not retained.",
+    "Full immutable LibRPA commit or executable SHA-256 was not retained."
   ],
-  "source": {
-    "collection": "2D manuscript band catalog",
-    "original_sidecar_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
-    "stage_input_receipt": "data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json"
-  },
-  "scientific_scope": {
-    "original_status": "near-gap benchmark",
-    "occupation_counts_match": true,
-    "warning": null,
-    "methods_are_separate_producers": false
+  "paper_values": {
+    "evidence": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。",
+    "schema_version": 1,
+    "source": {
+      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
+      "pdf_page": 12,
+      "table": "I",
+      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation"
+    },
+    "values": {
+      "DFT": {
+        "column": "Eg(PBE) / ABACUS",
+        "precision": 5,
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。",
+        "unit": "eV",
+        "value": 1.45218
+      },
+      "GW": {
+        "column": "Eg(G0W0) / ABACUS+LibRPA",
+        "precision": 3,
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。",
+        "unit": "eV",
+        "value": 2.088
+      }
+    }
   },
   "properties": [
     {
-      "key": "summary_value",
       "category": "electronic",
-      "label": "Archived GW path gap",
-      "method": "GW path",
-      "value": 2.088,
-      "unit": "eV",
-      "status": "reported",
       "evidence": [
         "data/calculations/2d/MoSe2/mose2-table-gw/results/GW_bands.dat"
       ],
-      "source_summary_key": "value"
+      "key": "summary_value",
+      "label": "Archived GW path gap",
+      "method": "GW path",
+      "source_summary_key": "value",
+      "status": "reported",
+      "unit": "eV",
+      "value": 2.088
     },
     {
-      "key": "sampled_path_gap_ev",
       "category": "electronic",
-      "label": "Sampled path gap",
-      "method": "PBE",
-      "value": 1.39004,
-      "unit": "eV",
-      "status": "reported",
       "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
       "evidence": [
         "data/calculations/2d/MoSe2/mose2-table-gw/results/KS_bands.dat",
         "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
       ],
-      "source_sidecar_key": "methods.KS.path_gap_ev"
+      "key": "sampled_path_gap_ev",
+      "label": "Sampled path gap",
+      "method": "PBE",
+      "source_sidecar_key": "methods.KS.path_gap_ev",
+      "status": "reported",
+      "unit": "eV",
+      "value": 1.39004
     },
     {
-      "key": "sampled_path_gap_ev",
       "category": "electronic",
-      "label": "Sampled path gap",
-      "method": "EXX",
-      "value": 5.9218399999999995,
-      "unit": "eV",
-      "status": "reported",
       "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
       "evidence": [
         "data/calculations/2d/MoSe2/mose2-table-gw/results/EXX_bands.dat",
         "data/calculations/2d/MoSe2/mose2-table-gw/results/band_window_and_provenance.json"
       ],
-      "source_sidecar_key": "methods.EXX.path_gap_ev"
+      "key": "sampled_path_gap_ev",
+      "label": "Sampled path gap",
+      "method": "EXX",
+      "source_sidecar_key": "methods.EXX.path_gap_ev",
+      "status": "reported",
+      "unit": "eV",
+      "value": 5.9218399999999995
     }
   ],
-  "paper_values": {
-    "schema_version": 1,
-    "source": {
-      "title": "Vacuum-height-independent G0W0 calculations for two-dimensional materials using two-dimensional Ewald summation",
-      "document_sha256": "c443b1b9b0f3a766069ab03c8dad67fdbb81f8f2d15cf1711d2ae086db2a0fb1",
-      "pdf_page": 12,
-      "table": "I"
+  "recommendation": null,
+  "schema_version": 1,
+  "scientific_scope": {
+    "librpa_finished_successfully": true,
+    "methods_are_separate_producers": false,
+    "occupation_counts_match": true,
+    "original_status": "near-gap benchmark",
+    "production_directory_hash_matched": true,
+    "warning": null
+  },
+  "software": {
+    "abacus": {
+      "abbreviated_commit": "1dd0199",
+      "commit": null,
+      "evidence": [
+        "data/calculations/2d/MoSe2/mose2-table-gw/logs/abacus.828005.out"
+      ],
+      "missing_reason": "The production log records abbreviated commit 1dd0199; the full immutable commit and executable SHA-256 were not retained.",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
     },
-    "evidence": "data/calculations/2d/MoSe2/mose2-table-gw/results/paper_reported_values.json",
-    "values": {
-      "DFT": {
-        "value": 1.45218,
-        "unit": "eV",
-        "precision": 5,
-        "column": "Eg(PBE) / ABACUS",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+    "librpa": {
+      "abbreviated_commit": null,
+      "commit": null,
+      "evidence": [
+        "data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out"
+      ],
+      "missing_reason": "The production log has an empty Git hash field; the full immutable commit and executable SHA-256 were not retained.",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "approval_candidate_sha256": "a41cf0c288166975ade004c0189f7c381b550f957ecb344a8b348b868f2eb2c2",
+    "collection": "Hash-matched original 2D manuscript GW production directory",
+    "original_sidecar_sha256": "5be261f67906145964ae1e92faed7efb780798c3954eb843adc8227872e7ca31",
+    "stage_input_receipt": "data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json"
+  },
+  "species": [
+    {
+      "asset_aliases": {
+        "nao": "Mo_gga_10au_100Ry_6s3p3d2f.orb",
+        "pp": "Mo.upf"
       },
-      "GW": {
-        "value": 2.088,
-        "unit": "eV",
-        "precision": 3,
-        "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；正文首三个TMDC的显示near-gap window已收敛；不由此推定全空态完整谱验收。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
-      }
+      "element": "Mo",
+      "set_id": "Mo-GTH-6s3p3d2f-972eb1b83cc7"
     },
-    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+    {
+      "asset_aliases": {
+        "nao": "Se_gga_10au_110Ry_3s3p2d.orb",
+        "pp": "Se-GTH-SOC-PBE-q6-cp2k-default-grid-1.upf"
+      },
+      "element": "Se",
+      "set_id": "Se-GTH-3s3p2d-3c0cf8a33c9d"
+    }
+  ],
+  "status": "gw_diagnostic",
+  "summary": {
+    "gates": [],
+    "notes": "near-gap benchmark",
+    "observable": "Archived GW path gap",
+    "unit": "eV",
+    "value": 2.088
   }
 }

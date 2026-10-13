@@ -338,11 +338,33 @@ test("large-system GW renders sampled-grid results and performance without inven
   assert.doesNotMatch(html, /Electronic bands|0 figures|plotting reference/);
 });
 
+test("reader conversion is clearly separated from RPA and GW results", () => {
+  const receipt = "data/calculations/3d/C/c2048/results/reader_v1_conversion_receipt.json";
+  const record = {
+    id: "c2048", material: "C", formula: "C2048", dimension: "3d", status: "generation_only", record_type: "reader_conversion",
+    workflow: { task: "reader_v1_conversion", scientific_result_available: false },
+    computational_scale: { atom_count: 2048, matrix_rows: 26624, matrix_columns: 26624 },
+    conversion: { elapsed_seconds: 1169, converter_sha256: "a".repeat(64), reader_header: [-12345679, 28, 1, 1, 26624, 26624], evidence: [receipt] },
+    scientific_scope: { statement: "Reader-v1 eigenvector conversion only; no completed RPA or GW result is claimed." },
+    summary: { observable: "Reader-v1 eigenvector conversion", value: 26624, unit: "matrix dimension" },
+    properties: [], files: { inputs: [], results: [{ path: receipt, label: "Reader-v1 conversion receipt" }], logs: [], figures: [] },
+  };
+  assert.equal(recordType(record), "reader_conversion");
+  assert.deepEqual(primaryResult(record), { label: "Reader-v1 matrix dimension", value: 26624, unit: "states", scope: "Conversion evidence only; no RPA/GW observable" });
+  const html = renderMaterial(record, []);
+  assert.match(html, /Reader-v1 conversion only/);
+  assert.match(html, /2048/);
+  assert.match(html, /26624 × 26624/);
+  assert.match(html, /RPA result[\s\S]*Not claimed/);
+  assert.match(html, /GW result[\s\S]*Not claimed/);
+  assert.doesNotMatch(html, /Electronic bands|Sampled Γ G0W0 gap|fundamental gap/);
+});
+
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   assert.match(css, /\.catalog-table:not\(\.basis-table\)\{display:block;min-width:0/);
   assert.match(css, /content:"Primary result"/);
   assert.match(app, /\["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
-  assert.match(app, /large-system GW results/);
+  assert.match(app, /large-system GW results, and reader-format provenance/);
 });

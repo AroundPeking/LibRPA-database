@@ -32,7 +32,7 @@ INTERMEDIATE_PATH = re.compile(
 )
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
-RECORD_TYPES = {"band", "large_system_gw", "rpa_energy"}
+RECORD_TYPES = {"band", "large_system_gw", "rpa_energy", "reader_conversion"}
 
 
 def _fail(message: str) -> None:
@@ -139,6 +139,43 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
     record_type = case.get("record_type", "band")
     if record_type not in RECORD_TYPES:
         _fail(f"{label}.record_type: unsupported record type {record_type!r}")
+
+    auxiliary = case.get("auxiliary_basis")
+    if auxiliary is not None:
+        if not isinstance(auxiliary, dict) or auxiliary.get("mode") != "pca_generated":
+            _fail(f"{label}.auxiliary_basis: only explicit pca_generated provenance is supported")
+        threshold = auxiliary.get("threshold")
+        if isinstance(threshold, bool) or not isinstance(threshold, (int, float)) or not math.isfinite(threshold) or threshold <= 0:
+            _fail(f"{label}.auxiliary_basis.threshold: a positive finite threshold is required")
+        evidence = auxiliary.get("evidence")
+        if (not isinstance(evidence, list) or not evidence
+                or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
+            _fail(f"{label}.auxiliary_basis.evidence: declared same-record evidence is required")
+
+    if record_type == "reader_conversion":
+        workflow = case.get("workflow")
+        scale = case.get("computational_scale")
+        conversion = case.get("conversion")
+        if (not isinstance(workflow, dict) or workflow.get("task") != "reader_v1_conversion"
+                or workflow.get("scientific_result_available") is not False):
+            _fail(f"{label}.workflow: reader conversion must explicitly disclaim a scientific result")
+        if (not isinstance(scale, dict)
+                or any(not _positive_int(scale.get(field)) for field in ("atom_count", "matrix_rows", "matrix_columns"))):
+            _fail(f"{label}.computational_scale: reader conversion requires positive atom and matrix dimensions")
+        evidence = conversion.get("evidence") if isinstance(conversion, dict) else None
+        header = conversion.get("reader_header") if isinstance(conversion, dict) else None
+        if (not isinstance(conversion, dict) or not _positive_int(conversion.get("elapsed_seconds"))
+                or not isinstance(conversion.get("converter_sha256"), str)
+                or not SHA256.fullmatch(conversion["converter_sha256"])
+                or not isinstance(header, list) or len(header) != 6
+                or header[-2:] != [scale["matrix_rows"], scale["matrix_columns"]]
+                or not isinstance(evidence, list) or len(evidence) != 1
+                or evidence[0] not in declared_paths):
+            _fail(f"{label}.conversion: reader-v1 header, converter identity, runtime and same-record receipt are required")
+        if case.get("properties"):
+            _fail(f"{label}.properties: conversion-only records cannot claim scientific properties")
+        return
+
     if record_type != "large_system_gw":
         return
     workflow = case.get("workflow")
@@ -161,16 +198,8 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
     if (not isinstance(evidence, list) or not evidence
             or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
         _fail(f"{label}.performance.evidence: declared same-record evidence is required")
-    auxiliary = case.get("auxiliary_basis")
-    if not isinstance(auxiliary, dict) or auxiliary.get("mode") != "pca_generated":
+    if not isinstance(auxiliary, dict):
         _fail(f"{label}.auxiliary_basis: large-system GW requires explicit pca_generated provenance")
-    threshold = auxiliary.get("threshold")
-    if isinstance(threshold, bool) or not isinstance(threshold, (int, float)) or not math.isfinite(threshold) or threshold <= 0:
-        _fail(f"{label}.auxiliary_basis.threshold: a positive finite threshold is required")
-    evidence = auxiliary.get("evidence")
-    if (not isinstance(evidence, list) or not evidence
-            or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
-        _fail(f"{label}.auxiliary_basis.evidence: declared same-record evidence is required")
 
 
 def _validate_paper_values(root: Path, case: dict, label: str) -> None:
@@ -667,6 +696,26 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     except ValueError as exc:
         issues.append(str(exc))
 
+    if record_type == "reader_conversion":
+        receipts = [item for item in owned["results"] if item.get("scientific_role") == "reader_conversion_receipt"]
+        if len(receipts) != 1:
+            issues.append("results: reader conversion requires one declared conversion receipt")
+        else:
+            try:
+                receipt = json.loads(_payload_bytes(root, receipts[0]))
+            except (ValueError, UnicodeError):
+                receipt = None
+            conversion = case.get("conversion", {})
+            if (not isinstance(receipt, dict) or receipt.get("record_id") != case.get("id")
+                    or receipt.get("scope") != case.get("scientific_scope", {}).get("statement")
+                    or receipt.get("conversion", {}).get("verified_header") != conversion.get("reader_header")
+                    or receipt.get("scientific_result") != {
+                        "rpa_completed": False, "gw_completed": False,
+                        "qp_table_present": False, "observable": None,
+                    }):
+                issues.append("results: conversion receipt does not match the record scope and reader-v1 header")
+        return issues
+
     inputs = {}
     for name in ("INPUT", "KPT", "STRU", "librpa.in"):
         valid = []
@@ -706,8 +755,7 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     if len(actual) != len(species):
         issues.append("species: duplicate element bindings are ambiguous")
     auxiliary = case.get("auxiliary_basis", {})
-    generated_auxiliary = (record_type == "large_system_gw"
-                           and isinstance(auxiliary, dict)
+    generated_auxiliary = (isinstance(auxiliary, dict)
                            and auxiliary.get("mode") == "pca_generated")
     required_roles = ("pp", "nao") if generated_auxiliary else ("pp", "nao", "abf")
     payloads = {}
