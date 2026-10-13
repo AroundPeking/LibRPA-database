@@ -32,6 +32,7 @@ INTERMEDIATE_PATH = re.compile(
 )
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
+RECORD_TYPES = {"band", "large_system_gw", "rpa_energy"}
 
 
 def _fail(message: str) -> None:
@@ -128,6 +129,48 @@ def _validate_properties(case: dict, label: str, declared_paths: set[str]) -> No
             if (parsed is None or parsed.is_absolute() or ".." in parsed.parts
                     or path not in declared_paths):
                 _fail(f"{prop_label}.evidence: path must be a file declared by this calculation")
+
+
+def _positive_int(value: object) -> bool:
+    return type(value) is int and value > 0
+
+
+def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]) -> None:
+    record_type = case.get("record_type", "band")
+    if record_type not in RECORD_TYPES:
+        _fail(f"{label}.record_type: unsupported record type {record_type!r}")
+    if record_type != "large_system_gw":
+        return
+    workflow = case.get("workflow")
+    if (not isinstance(workflow, dict) or not isinstance(workflow.get("task"), str)
+            or not workflow["task"].strip() or workflow.get("sampling") != "regular_grid"
+            or workflow.get("band_path_available") is not False
+            or workflow.get("k_point_count") != 1):
+        _fail(f"{label}.workflow: large-system GW requires a one-k-point regular-grid contract without a band path")
+    scale = case.get("computational_scale")
+    required_scale = ("atom_count", "ao_count", "state_count", "occupied_states", "unoccupied_states")
+    if not isinstance(scale, dict) or any(not _positive_int(scale.get(field)) for field in required_scale):
+        _fail(f"{label}.computational_scale: positive atom/AO/state counts are required")
+    if scale["occupied_states"] + scale["unoccupied_states"] != scale["state_count"]:
+        _fail(f"{label}.computational_scale: occupied and unoccupied counts must sum to state_count")
+    performance = case.get("performance")
+    required_performance = ("wall_time_seconds", "nodes", "mpi_ranks", "omp_threads_per_rank")
+    if not isinstance(performance, dict) or any(not _positive_int(performance.get(field)) for field in required_performance):
+        _fail(f"{label}.performance: positive wall time, node, rank, and thread counts are required")
+    evidence = performance.get("evidence")
+    if (not isinstance(evidence, list) or not evidence
+            or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
+        _fail(f"{label}.performance.evidence: declared same-record evidence is required")
+    auxiliary = case.get("auxiliary_basis")
+    if not isinstance(auxiliary, dict) or auxiliary.get("mode") != "pca_generated":
+        _fail(f"{label}.auxiliary_basis: large-system GW requires explicit pca_generated provenance")
+    threshold = auxiliary.get("threshold")
+    if isinstance(threshold, bool) or not isinstance(threshold, (int, float)) or not math.isfinite(threshold) or threshold <= 0:
+        _fail(f"{label}.auxiliary_basis.threshold: a positive finite threshold is required")
+    evidence = auxiliary.get("evidence")
+    if (not isinstance(evidence, list) or not evidence
+            or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
+        _fail(f"{label}.auxiliary_basis.evidence: declared same-record evidence is required")
 
 
 def _validate_paper_values(root: Path, case: dict, label: str) -> None:
@@ -277,6 +320,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                 if publication.get("status") == "publishable" and INTERMEDIATE_PATH.search(file_item["path"]):
                     _fail(f"{label}: publishable case contains an intermediate file")
 
+        _validate_workflow_contract(case, label, declared_paths)
         _validate_properties(case, label, declared_paths)
         _validate_paper_values(root, case, label)
 
@@ -541,6 +585,56 @@ def _band_figure(data: bytes, item: dict, band_paths: set[str], evidence_paths: 
     return False
 
 
+def _qp_table_summary(data: bytes) -> dict | None:
+    text = data.decode("utf-8", errors="replace")
+    marker = text.find("Printing quasi-particle energy [unit: eV]")
+    finished = text.find("libRPA finished successfully", marker + 1)
+    if marker < 0 or finished < 0:
+        return None
+    body = text[marker:finished]
+    if not re.search(r"spin\s+1,\s*k-point\s+1:\s*\(\s*0(?:\.0+)?\s*,\s*0(?:\.0+)?\s*,\s*0(?:\.0+)?\s*\)", body):
+        return None
+    rows = []
+    for line in body.splitlines():
+        parts = line.split()
+        if len(parts) != 8 or not parts[0].isdigit():
+            continue
+        try:
+            state = int(parts[0])
+            values = [float(value) for value in parts[1:]]
+        except ValueError:
+            return None
+        if not all(math.isfinite(value) for value in values):
+            return None
+        rows.append((state, *values))
+    if not rows or [row[0] for row in rows] != list(range(1, len(rows) + 1)):
+        return None
+    occupied = [row for row in rows if row[1] > 0]
+    unoccupied = [row for row in rows if row[1] <= 0]
+    if not occupied or not unoccupied:
+        return None
+    return {
+        "state_count": len(rows),
+        "occupied_states": len(occupied),
+        "unoccupied_states": len(unoccupied),
+        "pbe_gap_ev": min(row[2] for row in unoccupied) - max(row[2] for row in occupied),
+        "gw_gap_ev": min(row[7] for row in unoccupied) - max(row[7] for row in occupied),
+    }
+
+
+def _finite_property(case: dict, *, key: str, methods: set[str], unit: str, evidence_path: str) -> list[dict]:
+    matches = []
+    for prop in case.get("properties", []):
+        value = prop.get("value")
+        evidence = prop.get("evidence")
+        if (prop.get("key") == key and str(prop.get("method", "")).upper() in methods
+                and prop.get("unit") == unit and prop.get("status") in {"reported", "validated", "provisional"}
+                and not isinstance(value, bool) and isinstance(value, (int, float)) and math.isfinite(value)
+                and isinstance(evidence, list) and evidence_path in evidence):
+            matches.append(prop)
+    return matches
+
+
 def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     """完整上传门槛；历史记录、科学诊断状态和missing注释均不构成豁免。"""
     issues = []
@@ -566,6 +660,12 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             owned[group].append(item)
             if _payload_bytes(root, item, 1):
                 evidence_paths.add(path)
+
+    record_type = case.get("record_type", "band")
+    try:
+        _validate_workflow_contract(case, "record", evidence_paths)
+    except ValueError as exc:
+        issues.append(str(exc))
 
     inputs = {}
     for name in ("INPUT", "KPT", "STRU", "librpa.in"):
@@ -605,6 +705,11 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         issues.append("species: exact production PP/physical NAO/ABF bindings are required; candidates and missing notes are not bindings")
     if len(actual) != len(species):
         issues.append("species: duplicate element bindings are ambiguous")
+    auxiliary = case.get("auxiliary_basis", {})
+    generated_auxiliary = (record_type == "large_system_gw"
+                           and isinstance(auxiliary, dict)
+                           and auxiliary.get("mode") == "pca_generated")
+    required_roles = ("pp", "nao") if generated_auxiliary else ("pp", "nao", "abf")
     payloads = {}
     for entry in species:
         element, set_id = entry.get("element"), entry.get("set_id")
@@ -615,7 +720,7 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         if entry.get("missing_roles"):
             issues.append(f"species {element}: missing_roles is not empty: {entry['missing_roles']}")
         payloads[element] = {}
-        for role in ("pp", "nao", "abf"):
+        for role in required_roles:
             files = [item for item in basis["files"] if item.get("role") == role]
             if len(files) != 1:
                 issues.append(f"species {element}: expected one unambiguous {role} payload, found {len(files)}")
@@ -655,6 +760,20 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             if section in sections:
                 declarations[role] = [line.split()[0] for line in sections[section]]
         declared_roles.update(declarations)
+        if generated_auxiliary:
+            threshold = auxiliary.get("threshold")
+            evidence = set(auxiliary.get("evidence", []))
+            values = []
+            for input_item, input_text in inputs["INPUT"]:
+                if input_item["path"] not in evidence:
+                    continue
+                values.extend(float(value) for value in re.findall(
+                    r"(?im)^\s*exx_pca_threshold\s+(\S+)", input_text
+                ) if re.fullmatch(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][-+]?\d+)?", value))
+            if len(values) != 1 or not math.isclose(values[0], threshold, rel_tol=1e-12, abs_tol=0.0):
+                issues.append("auxiliary_basis: exx_pca_threshold must be uniquely recorded in the evidence-targeted production INPUT and match provenance")
+            if "ABFS_ORBITAL" in sections:
+                issues.append(f"STRU {stru_item['path']}: PCA-generated auxiliary provenance cannot also declare ABFS_ORBITAL")
         for role, names in declarations.items():
             if len(names) != len(order) or any(not name for name in names):
                 issues.append(f"STRU {stru_item['path']}: {role} declarations do not cover ATOMIC_SPECIES")
@@ -679,8 +798,8 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                               == (root / item["path"]).resolve())
                 if name not in proved and not exact_path:
                     issues.append(f"STRU {stru_item['path']}: {element} {role} original name {name!r} is not proven for the bound payload hash")
-    for role in ("nao", "abf"):
-        if inputs["STRU"] and role not in declared_roles:
+    for role in required_roles:
+        if role != "pp" and inputs["STRU"] and role not in declared_roles:
             issues.append(f"STRU: at least one production STRU must declare exact {role} payloads")
 
     for name in ("abacus", "librpa"):
@@ -688,49 +807,77 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         if not isinstance(app.get("commit"), str) or not COMMIT.fullmatch(app["commit"]):
             issues.append(f"software.{name}.commit: full immutable commit is required")
 
-    methods = {}
-    for item in owned["results"]:
-        method = _band_method(item)
-        if method:
-            methods.setdefault(method, set())
-            if _numeric_bands(_payload_bytes(root, item)):
-                methods[method].add(item["path"])
-            else:
-                issues.append(f"results: {method} band data is empty, unreadable, or has inconsistent row widths: {item['path']}")
-    if not methods:
-        issues.append("results: at least one actual KS/PBE/DFT, EXX, or GW band result is required")
-    band_paths = set().union(*methods.values()) if methods else set()
-    if not any(_band_figure(_payload_bytes(root, item), item, band_paths, evidence_paths)
-               for item in owned["figures"]):
-        issues.append("figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required")
+    if record_type == "large_system_gw":
+        qp_tables = []
+        for item in owned["results"] + owned["logs"]:
+            summary = _qp_table_summary(_payload_bytes(root, item))
+            if summary:
+                qp_tables.append((item, summary))
+        if len(qp_tables) != 1:
+            issues.append("results: large-system GW requires one complete finite QP table followed by successful LibRPA completion")
+        else:
+            item, summary = qp_tables[0]
+            scale = case.get("computational_scale", {})
+            for field in ("state_count", "occupied_states", "unoccupied_states"):
+                if scale.get(field) != summary[field]:
+                    issues.append(f"computational_scale.{field}: does not match the complete QP table")
+            for methods, expected, label in (({"PBE", "DFT", "KS"}, summary["pbe_gap_ev"], "PBE"),
+                                             ({"G0W0", "GW"}, summary["gw_gap_ev"], "G0W0")):
+                matches = _finite_property(case, key="sampled_grid_gap_ev", methods=methods,
+                                           unit="eV", evidence_path=item["path"])
+                if (len(matches) != 1 or not math.isclose(matches[0]["value"], expected,
+                                                          rel_tol=0.0, abs_tol=5e-5)
+                        or not re.search(r"(?:gamma|Γ).*regular.grid|regular.grid.*(?:gamma|Γ)",
+                                         str(matches[0].get("definition", "")), re.I)):
+                    issues.append(f"properties: {label} requires a finite sampled_grid_gap_ev matching the QP table and an explicit Γ regular-grid definition")
+        if not owned["results"]:
+            issues.append("results: large-system GW requires a declared final result file")
+        if not owned["logs"]:
+            issues.append("logs: large-system GW requires completion and resource logs")
+    else:
+        methods = {}
+        for item in owned["results"]:
+            method = _band_method(item)
+            if method:
+                methods.setdefault(method, set())
+                if _numeric_bands(_payload_bytes(root, item)):
+                    methods[method].add(item["path"])
+                else:
+                    issues.append(f"results: {method} band data is empty, unreadable, or has inconsistent row widths: {item['path']}")
+        if not methods:
+            issues.append("results: at least one actual KS/PBE/DFT, EXX, or GW band result is required")
+        band_paths = set().union(*methods.values()) if methods else set()
+        if not any(_band_figure(_payload_bytes(root, item), item, band_paths, evidence_paths)
+                   for item in owned["figures"]):
+            issues.append("figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required")
 
-    for method, paths in sorted(methods.items()):
-        valid = False
-        for prop in case.get("properties", []):
-            value = prop.get("value")
-            evidence = prop.get("evidence", [])
-            if (_method(prop.get("method")) != method or prop.get("status") not in {"reported", "validated", "provisional"}
-                    or prop.get("unit") != "eV" or isinstance(value, bool)
-                    or not isinstance(value, (int, float)) or not math.isfinite(value)
-                    or not isinstance(evidence, list) or not paths.intersection(evidence)
-                    or not all(isinstance(path, str) and path in evidence_paths for path in evidence)):
-                continue
-            key = prop.get("key", "")
-            definition = " ".join(str(prop.get(field, "")) for field in ("key", "label", "definition", "scope", "observable"))
-            restricted = (re.search(r"gap", definition, re.I)
-                          and re.search(r"restricted|raw.band|frontier", definition, re.I)
-                          and re.search(r"path|selected", definition, re.I)
-                          and isinstance(prop.get("definition") or prop.get("scope"), str)
-                          and bool((prop.get("definition") or prop.get("scope")).strip()))
-            sampled_path = (bool(re.search(r"gap", definition, re.I))
-                            and bool(re.search(r"path|sampled", definition, re.I))
-                            and (bool(re.fullmatch(r"(?:sampled_)?path_gap(?:_ev)?", key))
-                                 or bool(re.search(r"(?:sampled|archived|restricted).*path.*gap|path.*band.*gap", definition, re.I))))
-            if key == "band_gap" or restricted or sampled_path:
-                valid = True
-                break
-        if not valid:
-            issues.append(f"properties: {method} requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence")
+        for method, paths in sorted(methods.items()):
+            valid = False
+            for prop in case.get("properties", []):
+                value = prop.get("value")
+                evidence = prop.get("evidence", [])
+                if (_method(prop.get("method")) != method or prop.get("status") not in {"reported", "validated", "provisional"}
+                        or prop.get("unit") != "eV" or isinstance(value, bool)
+                        or not isinstance(value, (int, float)) or not math.isfinite(value)
+                        or not isinstance(evidence, list) or not paths.intersection(evidence)
+                        or not all(isinstance(path, str) and path in evidence_paths for path in evidence)):
+                    continue
+                key = prop.get("key", "")
+                definition = " ".join(str(prop.get(field, "")) for field in ("key", "label", "definition", "scope", "observable"))
+                restricted = (re.search(r"gap", definition, re.I)
+                              and re.search(r"restricted|raw.band|frontier", definition, re.I)
+                              and re.search(r"path|selected", definition, re.I)
+                              and isinstance(prop.get("definition") or prop.get("scope"), str)
+                              and bool((prop.get("definition") or prop.get("scope")).strip()))
+                sampled_path = (bool(re.search(r"gap", definition, re.I))
+                                and bool(re.search(r"path|sampled", definition, re.I))
+                                and (bool(re.fullmatch(r"(?:sampled_)?path_gap(?:_ev)?", key))
+                                     or bool(re.search(r"(?:sampled|archived|restricted).*path.*gap|path.*band.*gap", definition, re.I))))
+                if key == "band_gap" or restricted or sampled_path:
+                    valid = True
+                    break
+            if not valid:
+                issues.append(f"properties: {method} requires a nonfailed finite eV band_gap or explicitly restricted/path gap observable with valid same-method band evidence")
     return issues
 
 

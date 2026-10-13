@@ -1,0 +1,58 @@
+{
+  "element": "C",
+  "family": "ONCV PBE + 2s2p1d physical NAO",
+  "files": [
+    {
+      "label": "C_ONCV_PBE-1.0.upf",
+      "original_name": "C_ONCV_PBE-1.0.upf",
+      "original_sha256": "e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99",
+      "path": "data/elements/C/pseudopotentials/e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99.upf",
+      "role": "pp",
+      "sha256": "e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99",
+      "size_bytes": 89982,
+      "transformation": "none"
+    },
+    {
+      "dimensions": {
+        "basis_dimension": 13,
+        "counts": {
+          "D": 1,
+          "F": 0,
+          "G": 0,
+          "P": 2,
+          "S": 2
+        },
+        "lmax": 2.0
+      },
+      "label": "C_gga_8au_100Ry_2s2p1d.orb",
+      "original_name": "C_gga_8au_100Ry_2s2p1d.orb",
+      "original_sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+      "path": "data/elements/C/orbitals/e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811.orb",
+      "role": "nao",
+      "sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+      "size_bytes": 91797,
+      "transformation": "none"
+    }
+  ],
+  "generation_provenance": {
+    "status": "physical NAO payload preserved from the approved production runs; generation history not inferred"
+  },
+  "id": "C-ONCV-2s2p1d-e8085a5ff072",
+  "notes": "13 atomic orbitals per carbon atom: 2s + 2p + 1d.",
+  "publication": {
+    "status": "database_only"
+  },
+  "schema_version": 1,
+  "source": {
+    "approval_candidate_sha256": [
+      "9b30fe95f33b937241266e28293a4ccfac4a671ee5813fc89931d954a2bdc710",
+      "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30"
+    ],
+    "collection": "Verified large-system carbon GW calculations"
+  },
+  "used_by": [
+    "c512-gamma-g0w0-20260519",
+    "c1024-gamma-g0w0-20260521"
+  ],
+  "validation_scope": "Exact production PP and physical NAO used by the approved 512- and 1024-atom carbon GW records. The auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload."
+}

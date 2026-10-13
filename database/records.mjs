@@ -69,9 +69,67 @@ export function archivedBandGap(record, method = "GW") {
 }
 
 export function methodNames(record) {
-  const corpus = filesOf(record, "results").map(f => `${f.label || ""} ${f.path?.split("/").at(-1)}`).join(" ");
+  const corpus = [...filesOf(record, "results"), ...filesOf(record, "logs")].map(f => `${f.label || ""} ${f.path?.split("/").at(-1)}`).join(" ");
   const props = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed").map(p => p.method).join(" ");
   return ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBE|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props}`));
+}
+
+export function recordType(record) {
+  return ["band", "large_system_gw", "rpa_energy"].includes(record?.record_type) ? record.record_type : "band";
+}
+
+export function recordTypeLabel(record) {
+  return ({ band: "Band structure", large_system_gw: "Large-system GW", rpa_energy: "RPA energy" })[recordType(record)];
+}
+
+export function atomCount(record) {
+  const value = record?.computational_scale?.atom_count;
+  return Number.isInteger(value) && value > 0 ? value : null;
+}
+
+function finiteProperty(record, predicate) {
+  const matches = (record.properties || []).filter(property => property.status !== "failed" && typeof property.value === "number" && Number.isFinite(property.value) && predicate(property));
+  return matches.length === 1 ? matches[0] : null;
+}
+
+export function sampledGridGap(record, method = "G0W0") {
+  return finiteProperty(record, property => property.category === "electronic" && property.key === "sampled_grid_gap_ev" && property.unit === "eV" && new RegExp(method === "PBE" ? "^(?:PBE|DFT|KS)$" : "^(?:G0W0|GW)$", "i").test(property.method || ""));
+}
+
+export function primaryResult(record) {
+  const type = recordType(record);
+  if (type === "large_system_gw") {
+    const property = sampledGridGap(record, "G0W0");
+    return property ? { label: "Sampled Γ G0W0 gap", value: property.value, unit: property.unit, scope: property.definition || "Regular-grid Γ-point observable" } : null;
+  }
+  if (type === "rpa_energy") {
+    const property = finiteProperty(record, item => item.key === "rpa_correlation_energy");
+    return property ? { label: property.label || "RPA correlation energy", value: property.value, unit: property.unit, scope: property.definition || "" } : null;
+  }
+  const value = bandGap(record, "GW");
+  if (value !== null) return { label: restrictedGap(record) ? "Path-resolved GW value" : "GW gap", value, unit: "eV", scope: record.summary?.gap_definition || "" };
+  for (const method of ["EXX", "DFT"]) {
+    const fallback = bandGap(record, method);
+    if (fallback !== null) return { label: `${method} gap`, value: fallback, unit: "eV", scope: record.summary?.gap_definition || "" };
+  }
+  return null;
+}
+
+export function performanceSummary(record) {
+  const performance = record?.performance;
+  if (!performance || typeof performance !== "object") return [];
+  const values = [
+    ["Wall time", performance.wall_time_seconds, value => {
+      const hours = Math.floor(value / 3600);
+      const minutes = Math.floor((value % 3600) / 60);
+      const seconds = value % 60;
+      return `${hours}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    }],
+    ["Nodes", performance.nodes, String],
+    ["MPI ranks", performance.mpi_ranks, String],
+    ["OpenMP threads / rank", performance.omp_threads_per_rank, String],
+  ];
+  return values.filter(([, value]) => Number.isInteger(value) && value > 0).map(([label, value, format]) => ({ label, value: format(value) }));
 }
 
 export function recordElements(record) {

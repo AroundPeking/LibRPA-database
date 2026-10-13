@@ -120,15 +120,6 @@ class MissingEvidenceTests(unittest.TestCase):
         self.assertEqual(export["stats"], report["stats"])
         self.assertEqual(export["stats"]["issue_count"], sum(len(item["issues"]) for item in export["cases"]))
 
-    def test_old_hbn_cannot_borrow_new_hbn_identity(self):
-        case = copy.deepcopy(self.other)
-        case.update({"id": "hbn-table-gw", "material": "hBN", "formula": "BN"})
-        self._save(case)
-        _, export = EXPORT.build_export(self.root)
-        collection = next(item["collection"] for item in export["cases"] if item["id"] == case["id"])
-        self.assertTrue(any("must not be borrowed" in note for note in collection["notes"]))
-        self.assertEqual(collection["missing_inputs"], ["INPUT", "KPT", "STRU", "librpa.in"])
-
     def test_generated_html_text_and_json_are_english_without_cjk(self):
         report, export = EXPORT.build_export(self.root)
         output = EXPORT.render_html(export)

@@ -3,18 +3,18 @@
   "status": "blocked",
   "integrity_issues": [],
   "stats": {
-    "total": 33,
+    "total": 34,
     "complete": 1,
-    "incomplete": 32,
+    "incomplete": 33,
     "issue_count": 60,
     "missing_categories": {
       "basis_binding": {
-        "cases": 3,
-        "issues": 12
+        "cases": 2,
+        "issues": 10
       },
       "software": {
-        "cases": 32,
-        "issues": 48
+        "cases": 33,
+        "issues": 50
       }
     }
   },
@@ -282,29 +282,6 @@
       }
     },
     {
-      "id": "hbn-table-gw",
-      "material": "hBN",
-      "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
-      "status": "incomplete",
-      "issues": [
-        "species B: missing_roles is not empty: ['pp']",
-        "species B: expected one unambiguous pp payload, found 0",
-        "software.abacus.commit: full immutable commit is required",
-        "software.librpa.commit: full immutable commit is required"
-      ],
-      "missing_categories": {
-        "basis_binding": [
-          "species B: missing_roles is not empty: ['pp']",
-          "species B: expected one unambiguous pp payload, found 0"
-        ],
-        "software": [
-          "software.abacus.commit: full immutable commit is required",
-          "software.librpa.commit: full immutable commit is required"
-        ]
-      }
-    },
-    {
       "id": "hbn-tzdp10-fgext-20261008",
       "material": "hBN",
       "dimension": "2d",
@@ -414,6 +391,40 @@
       ],
       "missing_categories": {
         "software": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "c1024-gamma-g0w0-20260521",
+      "material": "C",
+      "dimension": "3d",
+      "scientific_status": "gw_validated",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "id": "c512-gamma-g0w0-20260519",
+      "material": "C",
+      "dimension": "3d",
+      "scientific_status": "gw_validated",
+      "status": "incomplete",
+      "issues": [
+        "software.abacus.commit: full immutable commit is required",
+        "software.librpa.commit: full immutable commit is required"
+      ],
+      "missing_categories": {
+        "software": [
+          "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
       }

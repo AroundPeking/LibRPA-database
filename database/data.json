@@ -761,66 +761,74 @@
       ]
     },
     {
-      "schema_version": 1,
-      "id": "B-producer-38083441768ddce230e6",
-      "element": "B",
-      "family": "Recovered producer-bound assets",
-      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
-      "publication": {
-        "status": "database_only"
-      },
-      "source": {
-        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
-        "receipts": [
-          "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
-        ]
-      },
+      "element": "C",
+      "family": "ONCV PBE + 2s2p1d physical NAO",
       "files": [
         {
-          "role": "nao",
-          "path": "data/elements/B/orbitals/fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80.orb",
-          "sha256": "fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80",
-          "size_bytes": 261885,
-          "original_sha256": "fe6a0726766d74fd13c05021f41503f583eb0b10f9358845bea2c7f110709b80",
-          "label": "B_gga_14au_150Ry_3s3p2d.orb",
-          "original_name": "B_gga_14au_150Ry_3s3p2d.orb",
+          "label": "C_ONCV_PBE-1.0.upf",
+          "original_name": "C_ONCV_PBE-1.0.upf",
+          "original_sha256": "e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99",
+          "path": "data/elements/C/pseudopotentials/e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99.upf",
+          "role": "pp",
+          "sha256": "e95d682a8b918557fb57e2e0ec11b2f48cf693cb72a11d078cf07ec489a8fa99",
+          "size_bytes": 89982,
           "transformation": "none",
-          "source_declarations": [
-            "B_gga_14au_150Ry_3s3p2d.orb"
-          ],
-          "display_name": "B_gga_14au_150Ry_3s3p2d.orb",
-          "download_name": "B_gga_14au_150Ry_3s3p2d.orb",
+          "display_name": "C_ONCV_PBE-1.0.upf",
+          "download_name": "C_ONCV_PBE-1.0.upf",
           "name_source": "recorded",
           "original_names": [
-            "B_gga_14au_150Ry_3s3p2d.orb"
+            "C_ONCV_PBE-1.0.upf"
           ]
         },
         {
-          "role": "abf",
-          "path": "data/elements/B/auxiliary/d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6.abfs",
-          "sha256": "d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6",
-          "size_bytes": 3277170,
-          "original_sha256": "d6c38704362387254fc992bec42b0145257a83f846df8e1929b980f96be87cf6",
-          "label": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
-          "original_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "dimensions": {
+            "basis_dimension": 13,
+            "counts": {
+              "D": 1,
+              "F": 0,
+              "G": 0,
+              "P": 2,
+              "S": 2
+            },
+            "lmax": 2.0
+          },
+          "label": "C_gga_8au_100Ry_2s2p1d.orb",
+          "original_name": "C_gga_8au_100Ry_2s2p1d.orb",
+          "original_sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+          "path": "data/elements/C/orbitals/e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811.orb",
+          "role": "nao",
+          "sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+          "size_bytes": 91797,
           "transformation": "none",
-          "source_declarations": [
-            "B_14au_4s4p3d2f1g_pca1e-6.abfs"
-          ],
-          "display_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
-          "download_name": "B_14au_4s4p3d2f1g_pca1e-6.abfs",
+          "display_name": "C_gga_8au_100Ry_2s2p1d.orb",
+          "download_name": "C_gga_8au_100Ry_2s2p1d.orb",
           "name_source": "recorded",
           "original_names": [
-            "B_14au_4s4p3d2f1g_pca1e-6.abfs"
+            "C_gga_8au_100Ry_2s2p1d.orb"
           ]
         }
       ],
       "generation_provenance": {
-        "status": "historical production association verified; generation history not reassessed"
+        "status": "physical NAO payload preserved from the approved production runs; generation history not inferred"
+      },
+      "id": "C-ONCV-2s2p1d-e8085a5ff072",
+      "notes": "13 atomic orbitals per carbon atom: 2s + 2p + 1d.",
+      "publication": {
+        "status": "database_only"
+      },
+      "schema_version": 1,
+      "source": {
+        "approval_candidate_sha256": [
+          "9b30fe95f33b937241266e28293a4ccfac4a671ee5813fc89931d954a2bdc710",
+          "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30"
+        ],
+        "collection": "Verified large-system carbon GW calculations"
       },
       "used_by": [
-        "hbn-table-gw"
-      ]
+        "c512-gamma-g0w0-20260519",
+        "c1024-gamma-g0w0-20260521"
+      ],
+      "validation_scope": "Exact production PP and physical NAO used by the approved 512- and 1024-atom carbon GW records. The auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload."
     },
     {
       "schema_version": 1,
@@ -5824,87 +5832,6 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": []
-    },
-    {
-      "schema_version": 1,
-      "id": "N-producer-855afdf5a7f51fae53f3",
-      "element": "N",
-      "family": "Recovered producer-bound assets",
-      "validation_scope": "Original production STRU and payload SHA-256 association; scientific acceptance and full runtime handoff not reassessed.",
-      "publication": {
-        "status": "database_only"
-      },
-      "source": {
-        "collection": "Recovered production assets (user-supplied original evidence, 2026-10-12)",
-        "receipts": [
-          "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
-        ]
-      },
-      "files": [
-        {
-          "role": "pp",
-          "path": "data/elements/N/pseudopotentials/b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475.upf",
-          "sha256": "b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475",
-          "size_bytes": 89696,
-          "original_sha256": "b1337b1e7e3246179c9c12ae62663b7642e7aa1e7b6bc5aecd6e0dbe1d0ce475",
-          "label": "N_ONCV_PBE-1.0.upf",
-          "original_name": "N_ONCV_PBE-1.0.upf",
-          "transformation": "none",
-          "source_declarations": [
-            "N_ONCV_PBE-1.0.upf"
-          ],
-          "display_name": "N_ONCV_PBE-1.0.upf",
-          "download_name": "N_ONCV_PBE-1.0.upf",
-          "name_source": "recorded",
-          "original_names": [
-            "N_ONCV_PBE-1.0.upf"
-          ]
-        },
-        {
-          "role": "nao",
-          "path": "data/elements/N/orbitals/ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067.orb",
-          "sha256": "ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067",
-          "size_bytes": 261885,
-          "original_sha256": "ed578dc7f780dd562158aec1abb64a14d935d3de35ebc46982dc535433a9b067",
-          "label": "N_gga_14au_150Ry_3s3p2d.orb",
-          "original_name": "N_gga_14au_150Ry_3s3p2d.orb",
-          "transformation": "none",
-          "source_declarations": [
-            "N_gga_14au_150Ry_3s3p2d.orb"
-          ],
-          "display_name": "N_gga_14au_150Ry_3s3p2d.orb",
-          "download_name": "N_gga_14au_150Ry_3s3p2d.orb",
-          "name_source": "recorded",
-          "original_names": [
-            "N_gga_14au_150Ry_3s3p2d.orb"
-          ]
-        },
-        {
-          "role": "abf",
-          "path": "data/elements/N/auxiliary/4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4.abfs",
-          "sha256": "4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4",
-          "size_bytes": 2644198,
-          "original_sha256": "4abbd1ee111bbe6704682e5540c6ebfddcd5540cd506df710de4ae093222c2d4",
-          "label": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
-          "original_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
-          "transformation": "none",
-          "source_declarations": [
-            "N_14au_3s3p2d2f1g_pca1e-6.abfs"
-          ],
-          "display_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
-          "download_name": "N_14au_3s3p2d2f1g_pca1e-6.abfs",
-          "name_source": "recorded",
-          "original_names": [
-            "N_14au_3s3p2d2f1g_pca1e-6.abfs"
-          ]
-        }
-      ],
-      "generation_provenance": {
-        "status": "historical production association verified; generation history not reassessed"
-      },
-      "used_by": [
-        "hbn-table-gw"
-      ]
     },
     {
       "schema_version": 1,
@@ -19254,398 +19181,6 @@
     },
     {
       "schema_version": 1,
-      "id": "hbn-table-gw",
-      "dimension": "2d",
-      "material": "hBN",
-      "formula": "hBN",
-      "status": "gw_diagnostic",
-      "species": [
-        {
-          "element": "B",
-          "set_id": "B-producer-38083441768ddce230e6",
-          "missing_roles": [
-            "pp"
-          ],
-          "asset_aliases": {
-            "pp": "B.PD04.PBE.UPF",
-            "nao": "B_gga_14au_150Ry_3s3p2d.orb",
-            "abf": "B_14au_4s4p3d2f1g_pca1e-6.abfs"
-          },
-          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
-        },
-        {
-          "element": "N",
-          "set_id": "N-producer-855afdf5a7f51fae53f3",
-          "missing_roles": [],
-          "asset_aliases": {
-            "pp": "N_ONCV_PBE-1.0.upf",
-            "nao": "N_gga_14au_150Ry_3s3p2d.orb",
-            "abf": "N_14au_3s3p2d2f1g_pca1e-6.abfs"
-          },
-          "binding_scope": "Original production STRU plus payload SHA-256 association; not a full immutable runtime seal."
-        }
-      ],
-      "basis_candidates": [
-        {
-          "element": "B",
-          "set_id": "B-GTH-e07d6fb55c4a",
-          "scope": "contextual hBN extension candidate; exact older case binding pending"
-        },
-        {
-          "element": "N",
-          "set_id": "N-GTH-f896bb84c70f",
-          "scope": "contextual hBN extension candidate; exact older case binding pending"
-        },
-        {
-          "element": "B",
-          "set_id": "B-SG15-4a1c4e291908",
-          "scope": "contextual alternative PP family; exact older case binding pending"
-        },
-        {
-          "element": "N",
-          "set_id": "N-SG15-da2244926434",
-          "scope": "contextual alternative PP family; exact older case binding pending"
-        }
-      ],
-      "software": {
-        "abacus": {
-          "source_url": "https://github.com/AroundPeking/abacus-develop",
-          "commit": null,
-          "abbreviated_commit": null,
-          "evidence": [],
-          "missing_reason": "full producer commit not recorded in the imported evidence"
-        },
-        "librpa": {
-          "source_url": "https://github.com/AESM-Group/LibRPA",
-          "commit": null,
-          "abbreviated_commit": null,
-          "evidence": [],
-          "missing_reason": "full producer commit not recorded in the imported evidence"
-        }
-      },
-      "summary": {
-        "observable": "Archived GW path gap",
-        "value": 6.68084,
-        "unit": "eV",
-        "notes": "near-frontier diagnostic",
-        "gates": []
-      },
-      "files": {
-        "inputs": [
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT",
-            "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
-            "size_bytes": 625,
-            "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
-            "label": "gw / INPUT",
-            "original_name": "INPUT",
-            "transformation": "none",
-            "original_size_bytes": 625,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_scf",
-            "sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
-            "size_bytes": 704,
-            "original_sha256": "f0d604de2f69bfe5776f83ec9ac377215dee2dc9b1501b1297962e00cff3fb6c",
-            "label": "gw / INPUT_scf",
-            "original_name": "INPUT_scf",
-            "transformation": "none",
-            "original_size_bytes": 704,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/INPUT_nscf",
-            "sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
-            "size_bytes": 625,
-            "original_sha256": "f15ee377dbb30bc1d5dfb5200e9d29bc8fb8476e1ef8c4f330b5e424c3f425e4",
-            "label": "gw / INPUT_nscf",
-            "original_name": "INPUT_nscf",
-            "transformation": "none",
-            "original_size_bytes": 625,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT",
-            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
-            "size_bytes": 175,
-            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
-            "label": "gw / KPT",
-            "original_name": "KPT",
-            "transformation": "none",
-            "original_size_bytes": 175,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_scf",
-            "sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
-            "size_bytes": 31,
-            "original_sha256": "1a338a85b5d80a9166ccbef7f04abc313107a26d26b06d2c12b3d1409e99ed58",
-            "label": "gw / KPT_scf",
-            "original_name": "KPT_scf",
-            "transformation": "none",
-            "original_size_bytes": 31,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/KPT_nscf",
-            "sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
-            "size_bytes": 175,
-            "original_sha256": "76ba73e6f3aba8527f2ee184be67f17be3370d7cd31ab48e1dd21c4d03fd39dc",
-            "label": "gw / KPT_nscf",
-            "original_name": "KPT_nscf",
-            "transformation": "none",
-            "original_size_bytes": 175,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/STRU",
-            "sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
-            "size_bytes": 555,
-            "original_sha256": "abb10e6d2659dfd2d083fee782cc1c5042b722d14e676ae3fd794325a0f9cfa1",
-            "label": "gw / STRU",
-            "original_name": "STRU",
-            "transformation": "none",
-            "original_size_bytes": 555,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/inputs/recovered/gw/librpa.in",
-            "sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
-            "size_bytes": 217,
-            "original_sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
-            "label": "gw / librpa.in",
-            "original_name": "librpa.in",
-            "transformation": "none",
-            "original_size_bytes": 217,
-            "stage_id": "gw",
-            "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
-          }
-        ],
-        "results": [
-          {
-            "role": "results",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/results/KS_bands.dat",
-            "sha256": "b0a31b72fda382ce94ed1c705baf8201ba4369af86bc3683d2f83ee0735ec5a6",
-            "size_bytes": 165891,
-            "original_sha256": "b0a31b72fda382ce94ed1c705baf8201ba4369af86bc3683d2f83ee0735ec5a6",
-            "label": "hbn_KS.dat",
-            "transformation": "none"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/results/EXX_bands.dat",
-            "sha256": "bd5dfa088b2fc400cdd16c156068dea94c771261ab5f61528096e2dc4049de89",
-            "size_bytes": 165891,
-            "original_sha256": "bd5dfa088b2fc400cdd16c156068dea94c771261ab5f61528096e2dc4049de89",
-            "label": "hbn_EXX.dat",
-            "transformation": "none"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat",
-            "sha256": "621e67ca32a9038401cd2d17818382497a3df755032151133606c07abd28175f",
-            "size_bytes": 165891,
-            "original_sha256": "621e67ca32a9038401cd2d17818382497a3df755032151133606c07abd28175f",
-            "label": "hbn_GW.dat",
-            "transformation": "none"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json",
-            "sha256": "6a10f56bffc3372c0549b22f442f0069b7152ba79a702c67d2876e18d95e05df",
-            "size_bytes": 56803,
-            "original_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
-            "label": "hbn.json",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json",
-            "sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
-            "size_bytes": 4169,
-            "original_sha256": "f8079a5fce9bb822210bbfa634cc6c311eaedd38f4283ea05af96dc924ef614e",
-            "label": "producer_assets_receipt.json",
-            "original_name": "producer_assets_receipt.json",
-            "transformation": "none"
-          }
-        ],
-        "logs": [],
-        "figures": [
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_ks.png",
-            "sha256": "4eb2e0d71eb2c43194307a55554de7130cca65faa0024efbb7e764d6533f575b",
-            "size_bytes": 268661,
-            "original_sha256": "4eb2e0d71eb2c43194307a55554de7130cca65faa0024efbb7e764d6533f575b",
-            "label": "hbn_ks.png",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/KS_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "KS"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_ks.pdf",
-            "sha256": "ca0d66407ac954942f753eb81f1d07ce405e6e60a06a564195b27b0352fa9997",
-            "size_bytes": 51119,
-            "original_sha256": "ca0d66407ac954942f753eb81f1d07ce405e6e60a06a564195b27b0352fa9997",
-            "label": "hbn_ks.pdf",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/KS_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "KS"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_exx.png",
-            "sha256": "5f6a105229e491698b34bba7bf6ac24943fae2c70a6c48947f1f24d270b042e7",
-            "size_bytes": 258049,
-            "original_sha256": "5f6a105229e491698b34bba7bf6ac24943fae2c70a6c48947f1f24d270b042e7",
-            "label": "hbn_exx.png",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/EXX_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "EXX"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_exx.pdf",
-            "sha256": "25aa4365242978598e854d99f6f7d0a561e953c7d69e573643b5f430ad213079",
-            "size_bytes": 52719,
-            "original_sha256": "25aa4365242978598e854d99f6f7d0a561e953c7d69e573643b5f430ad213079",
-            "label": "hbn_exx.pdf",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/EXX_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "EXX"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_gw.png",
-            "sha256": "bbf8fef476ac1fbf69670d88066f846b7d47be90cf87e62a799dfc371c957f63",
-            "size_bytes": 309333,
-            "original_sha256": "bbf8fef476ac1fbf69670d88066f846b7d47be90cf87e62a799dfc371c957f63",
-            "label": "hbn_gw.png",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "GW"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/hBN/hbn-table-gw/figures/hbn_gw.pdf",
-            "sha256": "c0317577055edbce7635e8a53ddb2bbcb68d67ab24fa72a88c91c04f8a7a37f1",
-            "size_bytes": 53091,
-            "original_sha256": "c0317577055edbce7635e8a53ddb2bbcb68d67ab24fa72a88c91c04f8a7a37f1",
-            "label": "hbn_gw.pdf",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat",
-              "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-            ],
-            "method": "GW"
-          }
-        ]
-      },
-      "recommendation": null,
-      "missing": [
-        "B production PP (B.PD04.PBE.UPF) payload was not preserved in available backups; N and the B NAO/ABF are bound, the B PP stays an explicit missing role",
-        "Full per-case ABACUS/LibRPA commits pending source-case audit"
-      ],
-      "source": {
-        "collection": "2D manuscript band catalog",
-        "original_sidecar_sha256": "5039ad7a1a67a2dac31778703ec14b896fd3d2f24c8b673ca95afefda7d70bdf",
-        "producer_assets_receipt": "data/calculations/2d/hBN/hbn-table-gw/results/producer_assets_receipt.json"
-      },
-      "scientific_scope": {
-        "original_status": "near-frontier diagnostic",
-        "occupation_counts_match": true,
-        "warning": null,
-        "methods_are_separate_producers": false
-      },
-      "properties": [
-        {
-          "key": "summary_value",
-          "category": "electronic",
-          "label": "Archived GW path gap",
-          "method": "GW path",
-          "value": 6.68084,
-          "unit": "eV",
-          "status": "reported",
-          "evidence": [
-            "data/calculations/2d/hBN/hbn-table-gw/results/GW_bands.dat"
-          ],
-          "source_summary_key": "value"
-        },
-        {
-          "key": "sampled_path_gap_ev",
-          "category": "electronic",
-          "label": "Sampled path gap",
-          "method": "PBE",
-          "value": 4.68352,
-          "unit": "eV",
-          "status": "reported",
-          "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
-          "evidence": [
-            "data/calculations/2d/hBN/hbn-table-gw/results/KS_bands.dat",
-            "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-          ],
-          "source_sidecar_key": "methods.KS.path_gap_ev"
-        },
-        {
-          "key": "sampled_path_gap_ev",
-          "category": "electronic",
-          "label": "Sampled path gap",
-          "method": "EXX",
-          "value": 10.53324,
-          "unit": "eV",
-          "status": "reported",
-          "definition": "Sampled path CBM minus VBM from finite original bands with sidecar occupied-state boundary; not a full-Brillouin-zone fundamental gap",
-          "evidence": [
-            "data/calculations/2d/hBN/hbn-table-gw/results/EXX_bands.dat",
-            "data/calculations/2d/hBN/hbn-table-gw/results/band_window_and_provenance.json"
-          ],
-          "source_sidecar_key": "methods.EXX.path_gap_ev"
-        }
-      ],
-      "archive_completeness": {
-        "status": "incomplete",
-        "issues": [
-          "species B: missing_roles is not empty: ['pp']",
-          "species B: expected one unambiguous pp payload, found 0",
-          "software.abacus.commit: full immutable commit is required",
-          "software.librpa.commit: full immutable commit is required"
-        ]
-      }
-    },
-    {
-      "schema_version": 1,
       "id": "hbn-tzdp10-fgext-20261008",
       "dimension": "2d",
       "material": "hBN",
@@ -27562,6 +27097,458 @@
       "archive_completeness": {
         "status": "incomplete",
         "issues": [
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "audit": {
+        "candidate_sha256": "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30",
+        "code_identity_status": "executable_hash_bound",
+        "process_status": "LibRPA successful completion follows a complete finite QP table"
+      },
+      "auxiliary_basis": {
+        "evidence": [
+          "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT"
+        ],
+        "mode": "pca_generated",
+        "threshold": 0.0001
+      },
+      "computational_scale": {
+        "ao_count": 13312,
+        "ao_per_atom": 13,
+        "atom_count": 1024,
+        "occupied_states": 2048,
+        "state_count": 13312,
+        "unoccupied_states": 11264
+      },
+      "dimension": "3d",
+      "files": {
+        "figures": [],
+        "inputs": [
+          {
+            "label": "INPUT",
+            "original_sha256": "2ed785c863c497787e06e4995814890ff212b6b597e6759515e544d7eaa20fe0",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT",
+            "role": "inputs",
+            "sha256": "2ed785c863c497787e06e4995814890ff212b6b597e6759515e544d7eaa20fe0",
+            "size_bytes": 596,
+            "transformation": "none"
+          },
+          {
+            "label": "INPUT_nscf",
+            "original_sha256": "5f45b389ff835eaea5881ae2b3bfc66f831cb0d34129c4bd772b8fe08212c77d",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT_nscf",
+            "role": "inputs",
+            "sha256": "5f45b389ff835eaea5881ae2b3bfc66f831cb0d34129c4bd772b8fe08212c77d",
+            "size_bytes": 547,
+            "transformation": "none"
+          },
+          {
+            "label": "KPT",
+            "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/KPT",
+            "role": "inputs",
+            "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "size_bytes": 29,
+            "transformation": "none"
+          },
+          {
+            "label": "STRU",
+            "original_sha256": "117bd29202559da871462b1449c0e3fc717c747cd03bf19f6b35ab127d8cd3ff",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/STRU",
+            "role": "inputs",
+            "sha256": "117bd29202559da871462b1449c0e3fc717c747cd03bf19f6b35ab127d8cd3ff",
+            "size_bytes": 68963,
+            "transformation": "none"
+          },
+          {
+            "label": "librpa.in",
+            "original_sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/librpa.in",
+            "role": "inputs",
+            "sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+            "size_bytes": 561,
+            "transformation": "none"
+          },
+          {
+            "label": "run_librpa_36r_18n.sh",
+            "original_sha256": "79121d94c5cf7b2fab659b26ca51f168275feb2c10f84d7a67c4b629dee24c25",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh",
+            "role": "inputs",
+            "sha256": "0700f48eca0b2355acb4f91bbf827b8a2808d15f5f1bd62a63b1920037f08586",
+            "size_bytes": 2356,
+            "transformation": "private paths redacted; scheduler and threading controls retained"
+          }
+        ],
+        "logs": [
+          {
+            "label": "slurm-1827023.out",
+            "original_sha256": "48017d7da4badd96b4fcd48300f6b53fb65a0f7171570a6465074265e5a9bff5",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out",
+            "role": "logs",
+            "scientific_role": "runtime_resource_log",
+            "sha256": "bfbdac743e307639f0402f6d12c6b8f55269fe73f713c39498479fadd629dfb0",
+            "size_bytes": 367,
+            "transformation": "working directory, node hostnames, and executable paths redacted; timing and resource layout retained"
+          }
+        ],
+        "results": [
+          {
+            "label": "LibRPA.1827023.out",
+            "original_sha256": "99b48d6a783b6d02af6a9eed6685a569747a9750cba113a7742815d9dfeb9ba5",
+            "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out",
+            "role": "results",
+            "scientific_role": "qp_energy_table",
+            "sha256": "5e8faae7b1a1c21861759b47b955d965b4df4f585818013d31675448f9f9e418",
+            "size_bytes": 1859769,
+            "transformation": "private build paths redacted; complete QP table and successful completion retained"
+          }
+        ]
+      },
+      "formula": "C1024",
+      "id": "c1024-gamma-g0w0-20260521",
+      "material": "C",
+      "missing": [
+        "Historical full ABACUS and LibRPA source commits were not retained; executable SHA-256 identities are preserved."
+      ],
+      "performance": {
+        "allocated_cpus": 1728,
+        "evidence": [
+          "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh",
+          "data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out"
+        ],
+        "mkl_threads_per_rank": 1,
+        "mpi_ranks": 36,
+        "nodes": 18,
+        "omp_threads_per_rank": 48,
+        "scheduler_job_id": "1827023",
+        "wall_time": "16:50:12",
+        "wall_time_seconds": 60612
+      },
+      "properties": [
+        {
+          "category": "electronic",
+          "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_mf; not a global fundamental gap.",
+          "evidence": [
+            "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
+          ],
+          "key": "sampled_grid_gap_ev",
+          "label": "Sampled Γ PBE gap",
+          "method": "PBE",
+          "status": "validated",
+          "unit": "eV",
+          "value": 4.28716
+        },
+        {
+          "category": "electronic",
+          "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_qp; not a global fundamental gap.",
+          "evidence": [
+            "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
+          ],
+          "key": "sampled_grid_gap_ev",
+          "label": "Sampled Γ G0W0 gap",
+          "method": "G0W0",
+          "status": "validated",
+          "unit": "eV",
+          "value": 6.2216
+        }
+      ],
+      "publication": {
+        "status": "database_only"
+      },
+      "recommendation": null,
+      "record_type": "large_system_gw",
+      "schema_version": 1,
+      "software": {
+        "abacus": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh"
+          ],
+          "executable_sha256": "f467a015c0828be672a99fb441776d78e1b02c6c7dac6b7b9bc4f8659b1a23b3",
+          "identity_note": "Historical source commit was not retained. The producing ABACUS executable is bound by SHA-256.",
+          "source_url": "https://github.com/deepmodeling/abacus-develop"
+        },
+        "librpa": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out",
+            "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh"
+          ],
+          "executable_sha256": "9c0365dd0bb61db535e0f249ef3b753fc35210f8bc5b90b32195e3832092f8ca",
+          "identity_note": "Historical source commit was not retained. The producing LibRPA executable is bound by SHA-256.",
+          "source_url": "https://github.com/AESM-Group/LibRPA"
+        }
+      },
+      "source": {
+        "approval_candidate_sha256": "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30",
+        "approval_statement_bound": true,
+        "collection": "Verified large-system carbon GW calculations",
+        "runtime_date": "2026-05-21"
+      },
+      "species": [
+        {
+          "asset_aliases": {
+            "nao": "C_gga_8au_100Ry_2s2p1d.orb",
+            "pp": "C_ONCV_PBE-1.0.upf"
+          },
+          "element": "C",
+          "linkage": "exact production PP and physical NAO; auxiliary basis generated by PCA",
+          "missing_roles": [],
+          "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
+        }
+      ],
+      "status": "gw_validated",
+      "summary": {
+        "dft_gap_ev": 4.28716,
+        "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
+        "gw_gap_ev": 6.2216,
+        "observable": "Sampled Γ G0W0 gap",
+        "scientific_status": "completed_finite_qp_table",
+        "scope": "Immutable 1024-atom carbon supercell run with one sampled Γ point and no band-path result.",
+        "unit": "eV",
+        "value": 6.2216
+      },
+      "workflow": {
+        "band_path_available": false,
+        "k_point_count": 1,
+        "sampling": "regular_grid",
+        "sampling_label": "Sampled Γ point on the regular grid",
+        "task": "G0W0@PBE quasiparticle calculation"
+      },
+      "archive_completeness": {
+        "status": "incomplete",
+        "issues": [
+          "software.abacus.commit: full immutable commit is required",
+          "software.librpa.commit: full immutable commit is required"
+        ]
+      }
+    },
+    {
+      "audit": {
+        "candidate_sha256": "9b30fe95f33b937241266e28293a4ccfac4a671ee5813fc89931d954a2bdc710",
+        "code_identity_status": "executable_hash_bound",
+        "process_status": "LibRPA successful completion follows a complete finite QP table"
+      },
+      "auxiliary_basis": {
+        "evidence": [
+          "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/INPUT"
+        ],
+        "mode": "pca_generated",
+        "threshold": 0.0001
+      },
+      "computational_scale": {
+        "ao_count": 6656,
+        "ao_per_atom": 13,
+        "atom_count": 512,
+        "occupied_states": 1024,
+        "state_count": 6656,
+        "unoccupied_states": 5632
+      },
+      "dimension": "3d",
+      "files": {
+        "figures": [],
+        "inputs": [
+          {
+            "label": "INPUT",
+            "original_sha256": "13ac1a87aa1d235b9b563a278eb7d74475ea0cdafecd8d0a4614b75c893e0f70",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/INPUT",
+            "role": "inputs",
+            "sha256": "13ac1a87aa1d235b9b563a278eb7d74475ea0cdafecd8d0a4614b75c893e0f70",
+            "size_bytes": 595,
+            "transformation": "none"
+          },
+          {
+            "label": "INPUT_nscf",
+            "original_sha256": "45ca50d0865209429020052a3c46079d3d3d15e22f866908f560735d3c9d4786",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/INPUT_nscf",
+            "role": "inputs",
+            "sha256": "45ca50d0865209429020052a3c46079d3d3d15e22f866908f560735d3c9d4786",
+            "size_bytes": 546,
+            "transformation": "none"
+          },
+          {
+            "label": "KPT",
+            "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/KPT",
+            "role": "inputs",
+            "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "size_bytes": 29,
+            "transformation": "none"
+          },
+          {
+            "label": "STRU",
+            "original_sha256": "04b2997e3b33bd5d183e9946e410ee9e7e1691a2e182e330bcf5e29f14a07376",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/STRU",
+            "role": "inputs",
+            "sha256": "04b2997e3b33bd5d183e9946e410ee9e7e1691a2e182e330bcf5e29f14a07376",
+            "size_bytes": 34658,
+            "transformation": "none"
+          },
+          {
+            "label": "librpa.in",
+            "original_sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/librpa.in",
+            "role": "inputs",
+            "sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+            "size_bytes": 561,
+            "transformation": "none"
+          },
+          {
+            "label": "run_abacus.sh",
+            "original_sha256": "b65ffeeac6e930503dffd6bcb43b47cf7e440310873c557bcec282dd631e7828",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/run_abacus.sh",
+            "role": "inputs",
+            "sha256": "4bea980e416086f32ee1387a474b905e4246d6a63ee76b9f216defed17a5aa97",
+            "size_bytes": 2598,
+            "transformation": "private paths redacted; scheduler and threading controls retained"
+          }
+        ],
+        "logs": [
+          {
+            "label": "slurm-1817756.out",
+            "original_sha256": "c388ea1ea494ba885ab8bcf0e5917887809a89566013fa0761619aa64daf6915",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out",
+            "role": "logs",
+            "scientific_role": "runtime_resource_log",
+            "sha256": "e2ab615d52b4d36504136148cbea630d75cdcb5d71b34c463effcc8b777c6b83",
+            "size_bytes": 397,
+            "transformation": "working directory, node hostnames, and executable paths redacted; timing and resource layout retained"
+          }
+        ],
+        "results": [
+          {
+            "label": "LibRPA.1817756.out",
+            "original_sha256": "0d1f0aedd36c578db2307546749370243660b3f71560f62cd2bff9864b54de5b",
+            "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/results/LibRPA.1817756.out",
+            "role": "results",
+            "scientific_role": "qp_energy_table",
+            "sha256": "d9a1e1e189e65ccdfd27b60d5c215b44f6149706a0786248074e0c9dc43ad1a3",
+            "size_bytes": 907066,
+            "transformation": "private build paths redacted; complete QP table and successful completion retained"
+          }
+        ]
+      },
+      "formula": "C512",
+      "id": "c512-gamma-g0w0-20260519",
+      "material": "C",
+      "missing": [
+        "Historical full ABACUS and LibRPA source commits were not retained; executable SHA-256 identities are preserved."
+      ],
+      "performance": {
+        "allocated_cpus": 384,
+        "evidence": [
+          "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/run_abacus.sh",
+          "data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out"
+        ],
+        "mkl_threads_per_rank": 1,
+        "mpi_ranks": 4,
+        "nodes": 4,
+        "omp_threads_per_rank": 96,
+        "scheduler_job_id": "1817756",
+        "wall_time": "18:42:46",
+        "wall_time_seconds": 67366
+      },
+      "properties": [
+        {
+          "category": "electronic",
+          "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_mf; not a global fundamental gap.",
+          "evidence": [
+            "data/calculations/3d/C/c512-gamma-g0w0-20260519/results/LibRPA.1817756.out"
+          ],
+          "key": "sampled_grid_gap_ev",
+          "label": "Sampled Γ PBE gap",
+          "method": "PBE",
+          "status": "validated",
+          "unit": "eV",
+          "value": 4.28347
+        },
+        {
+          "category": "electronic",
+          "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_qp; not a global fundamental gap.",
+          "evidence": [
+            "data/calculations/3d/C/c512-gamma-g0w0-20260519/results/LibRPA.1817756.out"
+          ],
+          "key": "sampled_grid_gap_ev",
+          "label": "Sampled Γ G0W0 gap",
+          "method": "G0W0",
+          "status": "validated",
+          "unit": "eV",
+          "value": 6.09949
+        }
+      ],
+      "publication": {
+        "status": "database_only"
+      },
+      "recommendation": null,
+      "record_type": "large_system_gw",
+      "schema_version": 1,
+      "software": {
+        "abacus": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/run_abacus.sh"
+          ],
+          "executable_sha256": "f467a015c0828be672a99fb441776d78e1b02c6c7dac6b7b9bc4f8659b1a23b3",
+          "identity_note": "Historical source commit was not retained. The producing ABACUS executable is bound by SHA-256.",
+          "source_url": "https://github.com/deepmodeling/abacus-develop"
+        },
+        "librpa": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c512-gamma-g0w0-20260519/results/LibRPA.1817756.out",
+            "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/run_abacus.sh"
+          ],
+          "executable_sha256": "9c0365dd0bb61db535e0f249ef3b753fc35210f8bc5b90b32195e3832092f8ca",
+          "identity_note": "Historical source commit was not retained. The producing LibRPA executable is bound by SHA-256.",
+          "source_url": "https://github.com/AESM-Group/LibRPA"
+        }
+      },
+      "source": {
+        "approval_candidate_sha256": "9b30fe95f33b937241266e28293a4ccfac4a671ee5813fc89931d954a2bdc710",
+        "approval_statement_bound": true,
+        "collection": "Verified large-system carbon GW calculations",
+        "runtime_date": "2026-05-19"
+      },
+      "species": [
+        {
+          "asset_aliases": {
+            "nao": "C_gga_8au_100Ry_2s2p1d.orb",
+            "pp": "C_ONCV_PBE-1.0.upf"
+          },
+          "element": "C",
+          "linkage": "exact production PP and physical NAO; auxiliary basis generated by PCA",
+          "missing_roles": [],
+          "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
+        }
+      ],
+      "status": "gw_validated",
+      "summary": {
+        "dft_gap_ev": 4.28347,
+        "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
+        "gw_gap_ev": 6.09949,
+        "observable": "Sampled Γ G0W0 gap",
+        "scientific_status": "completed_finite_qp_table",
+        "scope": "Immutable 512-atom carbon supercell run with one sampled Γ point and no band-path result.",
+        "unit": "eV",
+        "value": 6.09949
+      },
+      "workflow": {
+        "band_path_available": false,
+        "k_point_count": 1,
+        "sampling": "regular_grid",
+        "sampling_label": "Sampled Γ point on the regular grid",
+        "task": "G0W0@PBE quasiparticle calculation"
+      },
+      "archive_completeness": {
+        "status": "incomplete",
+        "issues": [
+          "software.abacus.commit: full immutable commit is required",
           "software.librpa.commit: full immutable commit is required"
         ]
       }

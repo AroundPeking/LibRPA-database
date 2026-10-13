@@ -42,7 +42,7 @@ async function main() {
     check(!/[\u3400-\u9fff]/.test(await page.locator("body").innerText()), "首页全部英文");
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
-    check((await page.locator("#result-count").innerText()).includes(`${calculations.filter(record => record.id !== "hbn-table-gw").length} of ${calculations.length}`), "inventory count");
+    check((await page.locator("#result-count").innerText()).includes(`${calculations.length} of ${calculations.length}`), "inventory count");
     const logo = page.locator(".brand-mark");
     await logo.evaluate(img => img.decode());
     check(await logo.evaluate(img => img.complete && img.naturalWidth === 48), "external SVG brand mark loads");
@@ -52,6 +52,21 @@ async function main() {
     check(logoUrl === new URL("logo.svg", base).href, "brand mark resolves at deployed catalog subpath");
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "desktop search is visible in first viewport");
     await screenshot("materials-desktop.png");
+    for (const expected of [
+      { id: "c512-gamma-g0w0-20260519", states: "6656", atoms: "512", gap: "6.09949", wall: "18:42:46", nodes: "4", mpi: "4", omp: "96" },
+      { id: "c1024-gamma-g0w0-20260521", states: "13312", atoms: "1024", gap: "6.22160", wall: "16:50:12", nodes: "18", mpi: "36", omp: "48" },
+    ]) {
+      const record = calculations.find(item => item.id === expected.id);
+      check(record?.record_type === "large_system_gw", `${expected.id} is a large-system GW record`);
+      await go(`#/material/${expected.id}`);
+      const text = await page.locator("#detail-view").innerText();
+      check(text.includes("Sampled Γ G0W0 gap") && text.includes(expected.gap), `${expected.id} shows the sampled Γ result`);
+      check(text.includes(`${expected.states}`) && text.includes(`${expected.atoms}`), `${expected.id} shows QP-state and atom counts`);
+      check(text.includes(expected.wall) && text.includes(`Nodes\n${expected.nodes}`) && text.includes(`MPI ranks\n${expected.mpi}`) && text.includes(`OpenMP threads / rank\n${expected.omp}`), `${expected.id} shows immutable runtime resources`);
+      check(await page.locator("#record-bands").count() === 0 && await page.locator("#record-results img").count() === 0, `${expected.id} does not fabricate a band section or figure`);
+      check(text.includes("Executable SHA-256"), `${expected.id} exposes executable identities`);
+    }
+    await go("");
     await page.getByRole("button", { name: "Next page", exact: true }).click();
     check((await page.locator(".pagination").innerText()).includes("Page 2"), "pagination");
     await page.locator("#search").fill("MoS₂");
@@ -279,7 +294,7 @@ async function main() {
     await page.locator("#search").fill("hBN");
     const replacementRow = page.locator(".material-row").filter({ has: page.locator("a[href='#/material/hbn-tzdp10-fgext-20261008']") });
     check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Path-resolved"), "replacement hBN list shows rounded paper number with path scope");
-    check((await page.locator("#sort").innerText()).includes("Reported GW value"), "sorting label distinguishes reported values from accepted gaps");
+    check((await page.locator("#sort").innerText()).includes("Primary result"), "sorting label covers task-aware primary results");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");
     check(await page.locator("#status-filter-control").isVisible(), "publication filter visible in basis mode");
@@ -467,13 +482,13 @@ async function main() {
     await caoImage.evaluate(img => img.decode());
     check(await caoImage.evaluate(img => img.naturalWidth > 0), "CaO GW真实新图加载");
     await screenshot("cao-gw-bands.png");
-    await page.setViewportSize({ width: 390, height: 844 });
+    await page.setViewportSize({ width: 320, height: 844 });
     await go("");
-    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "mobile document has no horizontal overflow");
-    check(await page.locator(".table-wrap").evaluate(el => el.scrollWidth > el.clientWidth), "mobile table remains independently scrollable");
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px mobile document has no horizontal overflow");
+    check(await page.locator(".material-row").first().evaluate(row => getComputedStyle(row).display === "grid"), "320px material catalog uses semantic cards");
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "移动搜索首屏可见");
     check(await page.evaluate(() => getComputedStyle(document.body).fontSize === "16px"), "移动正文保持16px");
-    check(await page.locator(".catalog-table tbody td.numeric").first().evaluate(cell => getComputedStyle(cell).fontSize === "14px"), "移动表格数值保持14px");
+    check(await page.locator(".material-row .primary-result strong").first().evaluate(cell => Number.parseFloat(getComputedStyle(cell).fontSize) >= 15), "320px卡片主结果保持可读字号");
     check(await page.locator(".brand-mark").evaluate(img => img.getBoundingClientRect().width === 32 && img.complete && img.naturalWidth === 48), "移动32px logo正确加载");
     const filterToggle = page.locator("#filter-toggle");
     check(await filterToggle.isVisible() && await filterToggle.getAttribute("aria-expanded") === "false", "移动filter-toggle默认折叠");

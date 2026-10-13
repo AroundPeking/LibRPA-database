@@ -86,6 +86,18 @@
       "label": "librpa.out"
     },
     {
+      "calculation_id": "c1024-gamma-g0w0-20260521",
+      "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out",
+      "sha256": "bfbdac743e307639f0402f6d12c6b8f55269fe73f713c39498479fadd629dfb0",
+      "label": "slurm-1827023.out"
+    },
+    {
+      "calculation_id": "c512-gamma-g0w0-20260519",
+      "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out",
+      "sha256": "e2ab615d52b4d36504136148cbea630d75cdcb5d71b34c463effcc8b777c6b83",
+      "label": "slurm-1817756.out"
+    },
+    {
       "calculation_id": "cao-paper-24freq",
       "path": "data/calculations/3d/CaO/cao-paper-24freq/logs/abacus.out",
       "sha256": "fd95d46f7c5515aa61611e8522f7c0d2f0f0d9380c409647537967401d2426cc",

@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import import_recovered_2d_cases as importer  # noqa: E402
 import library  # noqa: E402
 
-CASE_IDS = ["gete-table-gw", "snse-table-gw", "phosphorene-table-gw", "hbn-table-gw"]
+CASE_IDS = ["gete-table-gw", "snse-table-gw", "phosphorene-table-gw"]
 
 
 def load_case(case_id):
@@ -54,7 +54,7 @@ class RecoveredCaseImportTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 importer.verify_readset(readset)
 
-    def test_four_cases_have_only_expected_remaining_issues(self):
+    def test_three_cases_have_only_expected_remaining_issues(self):
         for case_id, expected in importer.EXPECTED_ISSUES.items():
             issues = set(library.completeness_issues(ROOT, self.sets, self.by_id[case_id]))
             self.assertEqual(issues, expected, case_id)
@@ -118,9 +118,6 @@ class RecoveredCaseImportTests(unittest.TestCase):
                     data = (ROOT / item["path"]).read_bytes()
                     self.assertTrue(library._basis_payload(data, item, entry["element"]),
                                     f"{case_id} {entry['element']} {role}")
-        _, hbn = load_case("hbn-table-gw")
-        boron = next(entry for entry in hbn["species"] if entry["element"] == "B")
-        self.assertEqual(boron["missing_roles"], ["pp"])
 
     def test_restricted_exx_properties_close_gate_without_ordinary_gap(self):
         for case_id, value in (("gete-table-gw", -1002817.14856), ("snse-table-gw", -1898024.7638299998)):
@@ -144,7 +141,6 @@ class RecoveredCaseImportTests(unittest.TestCase):
             "gete-table-gw": ("gw_diagnostic", 1.3807),
             "snse-table-gw": ("gw_diagnostic", 1.74577),
             "phosphorene-table-gw": ("gw_diagnostic", 1.93526),
-            "hbn-table-gw": ("gw_diagnostic", 6.68084),
         }
         for case_id, (status, gw_value) in expected.items():
             _, record = load_case(case_id)
@@ -158,8 +154,6 @@ class RecoveredCaseImportTests(unittest.TestCase):
         diagnostics = gete["method_diagnostics"][0]
         self.assertEqual(diagnostics["status"], "rejected")
         self.assertEqual(diagnostics["full_raw_path_gap_ev"], -1002817.14856)
-        _, old_hbn = load_case("hbn-table-gw")
-        self.assertNotIn("paper_values", old_hbn)
 
     def test_receipts_document_provenance_and_remaining_gaps(self):
         for case_id in CASE_IDS:

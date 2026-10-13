@@ -600,6 +600,80 @@ class CompletenessTests(unittest.TestCase):
         self.case["properties"][0]["evidence"].append("data/calculations/3d/Si/foreign/logs/librpa.out")
         self.assertTrue(any("PBE" in issue and "band_gap" in issue for issue in self.issues()))
 
+    def _make_large_system_gw(self):
+        input_item = self.case["files"]["inputs"][0]
+        input_data = b"INPUT_PARAMETERS\ncalculation scf\nntype 1\nexx_pca_threshold 1e-4\n"
+        (self.root / input_item["path"]).write_bytes(input_data)
+        input_item["sha256"] = hashlib.sha256(input_data).hexdigest()
+        stru_item = self.case["files"]["inputs"][2]
+        stru_data = (self.root / stru_item["path"]).read_bytes().replace(b"ABFS_ORBITAL\ntest.abfs\n", b"")
+        (self.root / stru_item["path"]).write_bytes(stru_data)
+        stru_item["sha256"] = hashlib.sha256(stru_data).hexdigest()
+        qp_data = b"""Printing quasi-particle energy [unit: eV]
+spin  1, k-point    1: (0.00000, 0.00000, 0.00000)
+State occ e_mf v_xc v_exx ReSigc ImSigc e_qp
+1 2.00000 1.00000 -1.0 -2.0 0.5 -0.1 2.00000
+2 0.00000 5.00000 -1.0 -2.0 0.5 -0.1 8.00000
+libRPA finished successfully
+"""
+        qp = self._add_file(self.prefix + "results/LibRPA.1.out", qp_data, "results")
+        slurm = self._add_file(self.prefix + "logs/slurm-1.out", b"COMPLETED ExitCode 0:0\n", "logs")
+        self.case.update({
+            "record_type": "large_system_gw",
+            "workflow": {"task": "g0w0_band", "sampling": "regular_grid", "sampling_label": "Gamma point on the regular grid", "band_path_available": False, "k_point_count": 1},
+            "computational_scale": {"atom_count": 512, "ao_count": 2, "state_count": 2, "occupied_states": 1, "unoccupied_states": 1},
+            "performance": {"wall_time_seconds": 60, "nodes": 1, "mpi_ranks": 1, "omp_threads_per_rank": 48, "evidence": [slurm["path"]]},
+            "auxiliary_basis": {"mode": "pca_generated", "threshold": 1e-4, "evidence": [input_item["path"]]},
+            "files": {"inputs": self.case["files"]["inputs"], "results": [qp], "logs": [slurm], "figures": []},
+            "properties": [
+                {"key": "sampled_grid_gap_ev", "category": "electronic", "label": "Sampled Gamma PBE gap", "method": "PBE", "value": 4.0, "unit": "eV", "status": "validated", "evidence": [qp["path"]], "definition": "Gamma regular-grid sampled gap; not a global fundamental gap"},
+                {"key": "sampled_grid_gap_ev", "category": "electronic", "label": "Sampled Gamma G0W0 gap", "method": "G0W0", "value": 6.0, "unit": "eV", "status": "validated", "evidence": [qp["path"]], "definition": "Gamma regular-grid sampled gap; not a global fundamental gap"},
+            ],
+        })
+
+    def test_large_system_gw_accepts_complete_qp_table_without_band_figure(self):
+        self._make_large_system_gw()
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_large_system_gw_uses_only_auxiliary_evidence_production_input(self):
+        self._make_large_system_gw()
+        nscf_data = b"INPUT_PARAMETERS\ncalculation nscf\nntype 1\nexx_pca_threshold 10\n"
+        self._add_file(self.prefix + "inputs/INPUT_nscf", nscf_data, "inputs")
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_large_system_gw_requires_scale_runtime_resources_and_logs(self):
+        self._make_large_system_gw()
+        for container, field in (("computational_scale", "atom_count"), ("performance", "wall_time_seconds"),
+                                 ("performance", "nodes"), ("performance", "mpi_ranks"),
+                                 ("performance", "omp_threads_per_rank")):
+            with self.subTest(container=container, field=field):
+                value = self.case[container].pop(field)
+                self.assertTrue(any(container in issue or "performance" in issue for issue in self.issues()))
+                self.case[container][field] = value
+        self.case["files"]["logs"] = []
+        self.assertTrue(any("logs" in issue for issue in self.issues()))
+
+    def test_large_system_gw_rejects_incomplete_nonfinite_or_mismatched_qp_evidence(self):
+        self._make_large_system_gw()
+        qp = self.case["files"]["results"][0]
+        original = (self.root / qp["path"]).read_bytes()
+        for data in (original.replace(b"libRPA finished successfully", b"stopped"),
+                     original.replace(b"8.00000", b"nan")):
+            with self.subTest(data=data[-24:]):
+                (self.root / qp["path"]).write_bytes(data)
+                qp["sha256"] = hashlib.sha256(data).hexdigest()
+                self.assertTrue(any("complete finite QP table" in issue for issue in self.issues()))
+        (self.root / qp["path"]).write_bytes(original)
+        qp["sha256"] = hashlib.sha256(original).hexdigest()
+        self.case["computational_scale"]["state_count"] = 3
+        self.assertTrue(any("state_count" in issue for issue in self.issues()))
+
+    def test_ordinary_band_record_still_requires_a_band_figure(self):
+        self.case["files"]["figures"] = []
+        self.assertTrue(any("band figure" in issue for issue in self.issues()))
+
     def test_completeness_report_keeps_complete_and_incomplete_cases(self):
         import copy
         other = copy.deepcopy(self.case)

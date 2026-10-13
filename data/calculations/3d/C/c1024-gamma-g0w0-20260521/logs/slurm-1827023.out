@@ -1,0 +1,12 @@
+Begin Time: Wed May 20 13:33:42 CST 2026
+Working directory: redacted
+This job runs on the following nodes:
+compute nodes: redacted
+This job has allocated 96(x18) cpu cores.
+ntasks per node: 2
+cpus per task: 48, OMP_NUM_THREADS: 48
+LIBRPA_EXEC=<redacted-user-path>
+MPI_LAUNCHER=<redacted-app-path>
+LIBRPA_MPI=36
+RANKS_PER_NODE=2
+End Time: Thu May 21 06:23:54 CST 2026

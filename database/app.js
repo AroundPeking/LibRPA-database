@@ -1,11 +1,11 @@
 import { matchesSearch } from "./search.mjs";
-import { esc, bandGap, paperGap, restrictedGap, filesOf, recordElements, methodNames } from "./records.mjs";
+import { esc, filesOf, recordElements, methodNames, recordType, recordTypeLabel, atomCount, primaryResult } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/", history: false };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
 const pageSize = 20;
 const publication = set => set.publication?.status || "database_only";
 const statusNames = { database_only: "Basis record", legacy_incomplete: "Historical record", review: "Curated record", publishable: "Published set", superseded: "Previous version" };
@@ -41,19 +41,18 @@ function matchesQuery(item, isBasis = false) {
 
 function filtered() {
   if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element) && (state.status === "all" || state.status === publication(set))).sort((a, b) => (state.sort === "status" ? publication(a).localeCompare(publication(b)) : 0) || a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
-  return state.calculations.filter(record => (state.history || record.id !== "hbn-table-gw") && matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "gap" ? (bandGap(b) ?? -Infinity) - (bandGap(a) ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
+  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (primaryResult(b)?.value ?? -Infinity) - (primaryResult(a)?.value ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
 function materialRow(record) {
   const count = filesOf(record, "inputs").length;
   const methods = methodNames(record).map(method => `<span class="method-tag method-${method.toLowerCase()}">${method}</span>`).join("") || '<span class="not-reported">—</span>';
   const url = `#/material/${encodeURIComponent(record.id)}`;
-  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span></td><td><div class="method-list">${methods}</div></td>${["DFT", "EXX", "GW"].map(method => {
-    const paper = paperGap(record, method);
-    const limitedPaper = method === "GW" && paper && restrictedGap(record);
-    const title = `Database ${method} value${limitedPaper ? "; path-resolved observable" : "; see record for definition and source"}`;
-    return `<td class="numeric ${method === "GW" ? "gw-value" : ""}"><span title="${title}">${gapText(bandGap(record, method))}</span>${limitedPaper ? '<span class="table-description gap-scope">Path-resolved</span>' : ""}</td>`;
-  }).join("")}<td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
+  const atoms = atomCount(record);
+  const primary = primaryResult(record);
+  const precision = recordType(record) === "large_system_gw" ? 5 : 3;
+  const primaryValue = primary ? `${typeof primary.value === "number" ? primary.value.toFixed(precision) : esc(primary.value)}${primary.unit ? ` <small>${esc(primary.unit)}</small>` : ""}` : '<span class="not-reported">—</span>';
+  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(recordTypeLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
 
 function basisRow(set) {
@@ -79,14 +78,14 @@ function syncFilters() {
   $("#input-filter").value = state.inputs;
   $("#status-filter").value = state.status;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
-  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="gap">Reported GW value ↓</option>';
-  if (!(basis ? ["element", "status"] : ["material", "gap"]).includes(state.sort)) state.sort = basis ? "element" : "material";
+  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
+  if (!(basis ? ["element", "status"] : ["material", "result"]).includes(state.sort)) state.sort = basis ? "element" : "material";
   $("#sort").value = state.sort;
 }
 
 function listHash() {
   const params = new URLSearchParams();
-  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1], ["history", state.history, false]]) if (value !== fallback) params.set(key, value);
+  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
   return `#/${state.mode === "basis" ? "basis" : ""}${params.size ? `?${params}` : ""}`;
 }
 
@@ -95,11 +94,10 @@ function renderHome() {
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
   $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, RPA energies, and large-system GW results — with original inputs, basis provenance, software identity, and immutable evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, source hashes, radial functions, and linked calculations." : "One row per calculation; database values are in eV. Path-resolved values retain their stated k-path definition. A dash means no value is listed. Open a record for source evidence and definitions.";
-  if (!basis) $("#catalog-footnote").innerHTML += ` <a href="${state.history ? "#/" : "#/?history=true"}">${state.history ? "Hide previous hBN record" : "Show previous hBN record"}</a>. Default browsing features the current hBN calculation; the previous record remains available for comparison.`;
+  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, source hashes, radial functions, and linked calculations." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
@@ -108,8 +106,8 @@ function renderHome() {
   $("#empty").hidden = records.length > 0;
   $("#catalog").hidden = !records.length;
   $("#catalog").setAttribute("aria-busy", "false");
-  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Dim.", "Methods", "DFT gap", "EXX gap", "GW gap", "Inputs", ""];
-  $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and electronic band gaps in eV"}</caption><thead><tr>${headings.map((heading, i) => `<th scope="col" class="${!basis && i >= 3 && i <= 5 ? "numeric" : ""}">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
+  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""];
+  $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and evidence-linked electronic-structure results"}</caption><thead><tr>${headings.map(heading => `<th scope="col">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
   document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
 }
@@ -122,7 +120,7 @@ function updateFilter() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", dimension: "all", element: "all", inputs: "all", status: "all", history: false, sort: state.mode === "basis" ? "element" : "material", page: 1 });
+  Object.assign(state, { query: "", dimension: "all", element: "all", inputs: "all", status: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
   syncFilters();
   updateFilter();
 }
@@ -148,7 +146,7 @@ function route() {
   }
   state.mode = hash.split("?")[0] === "#/basis" ? "basis" : "materials";
   const params = new URLSearchParams(hash.split("?")[1] || "");
-  Object.assign(state, { history: params.get("history") === "true", query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
+  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
   renderHome();

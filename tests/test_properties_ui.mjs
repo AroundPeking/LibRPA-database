@@ -6,9 +6,9 @@ import {
   renderPropertyTabs,
 } from "../database/properties.mjs";
 
-test("provides the six initial property categories", () => {
+test("provides the initial scientific and performance property categories", () => {
   assert.deepEqual(getPropertyCategories([]).map(item => item.slug), [
-    "electronic", "topological", "optical", "magnetic", "structural", "other",
+    "electronic", "energetic", "performance", "topological", "optical", "magnetic", "structural", "other",
   ]);
 });
 

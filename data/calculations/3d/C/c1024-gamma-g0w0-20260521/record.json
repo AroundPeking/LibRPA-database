@@ -1,0 +1,219 @@
+{
+  "audit": {
+    "candidate_sha256": "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30",
+    "code_identity_status": "executable_hash_bound",
+    "process_status": "LibRPA successful completion follows a complete finite QP table"
+  },
+  "auxiliary_basis": {
+    "evidence": [
+      "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT"
+    ],
+    "mode": "pca_generated",
+    "threshold": 0.0001
+  },
+  "computational_scale": {
+    "ao_count": 13312,
+    "ao_per_atom": 13,
+    "atom_count": 1024,
+    "occupied_states": 2048,
+    "state_count": 13312,
+    "unoccupied_states": 11264
+  },
+  "dimension": "3d",
+  "files": {
+    "figures": [],
+    "inputs": [
+      {
+        "label": "INPUT",
+        "original_sha256": "2ed785c863c497787e06e4995814890ff212b6b597e6759515e544d7eaa20fe0",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT",
+        "role": "inputs",
+        "sha256": "2ed785c863c497787e06e4995814890ff212b6b597e6759515e544d7eaa20fe0",
+        "size_bytes": 596,
+        "transformation": "none"
+      },
+      {
+        "label": "INPUT_nscf",
+        "original_sha256": "5f45b389ff835eaea5881ae2b3bfc66f831cb0d34129c4bd772b8fe08212c77d",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/INPUT_nscf",
+        "role": "inputs",
+        "sha256": "5f45b389ff835eaea5881ae2b3bfc66f831cb0d34129c4bd772b8fe08212c77d",
+        "size_bytes": 547,
+        "transformation": "none"
+      },
+      {
+        "label": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/KPT",
+        "role": "inputs",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "transformation": "none"
+      },
+      {
+        "label": "STRU",
+        "original_sha256": "117bd29202559da871462b1449c0e3fc717c747cd03bf19f6b35ab127d8cd3ff",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/STRU",
+        "role": "inputs",
+        "sha256": "117bd29202559da871462b1449c0e3fc717c747cd03bf19f6b35ab127d8cd3ff",
+        "size_bytes": 68963,
+        "transformation": "none"
+      },
+      {
+        "label": "librpa.in",
+        "original_sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/librpa.in",
+        "role": "inputs",
+        "sha256": "f2e6330913c1c93734da33c0d334ea4fecd2b324b946e848a8046eec9b95a6ff",
+        "size_bytes": 561,
+        "transformation": "none"
+      },
+      {
+        "label": "run_librpa_36r_18n.sh",
+        "original_sha256": "79121d94c5cf7b2fab659b26ca51f168275feb2c10f84d7a67c4b629dee24c25",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh",
+        "role": "inputs",
+        "sha256": "0700f48eca0b2355acb4f91bbf827b8a2808d15f5f1bd62a63b1920037f08586",
+        "size_bytes": 2356,
+        "transformation": "private paths redacted; scheduler and threading controls retained"
+      }
+    ],
+    "logs": [
+      {
+        "label": "slurm-1827023.out",
+        "original_sha256": "48017d7da4badd96b4fcd48300f6b53fb65a0f7171570a6465074265e5a9bff5",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out",
+        "role": "logs",
+        "scientific_role": "runtime_resource_log",
+        "sha256": "bfbdac743e307639f0402f6d12c6b8f55269fe73f713c39498479fadd629dfb0",
+        "size_bytes": 367,
+        "transformation": "working directory, node hostnames, and executable paths redacted; timing and resource layout retained"
+      }
+    ],
+    "results": [
+      {
+        "label": "LibRPA.1827023.out",
+        "original_sha256": "99b48d6a783b6d02af6a9eed6685a569747a9750cba113a7742815d9dfeb9ba5",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out",
+        "role": "results",
+        "scientific_role": "qp_energy_table",
+        "sha256": "5e8faae7b1a1c21861759b47b955d965b4df4f585818013d31675448f9f9e418",
+        "size_bytes": 1859769,
+        "transformation": "private build paths redacted; complete QP table and successful completion retained"
+      }
+    ]
+  },
+  "formula": "C1024",
+  "id": "c1024-gamma-g0w0-20260521",
+  "material": "C",
+  "missing": [
+    "Historical full ABACUS and LibRPA source commits were not retained; executable SHA-256 identities are preserved."
+  ],
+  "performance": {
+    "allocated_cpus": 1728,
+    "evidence": [
+      "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh",
+      "data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out"
+    ],
+    "mkl_threads_per_rank": 1,
+    "mpi_ranks": 36,
+    "nodes": 18,
+    "omp_threads_per_rank": 48,
+    "scheduler_job_id": "1827023",
+    "wall_time": "16:50:12",
+    "wall_time_seconds": 60612
+  },
+  "properties": [
+    {
+      "category": "electronic",
+      "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_mf; not a global fundamental gap.",
+      "evidence": [
+        "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
+      ],
+      "key": "sampled_grid_gap_ev",
+      "label": "Sampled Γ PBE gap",
+      "method": "PBE",
+      "status": "validated",
+      "unit": "eV",
+      "value": 4.28716
+    },
+    {
+      "category": "electronic",
+      "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_qp; not a global fundamental gap.",
+      "evidence": [
+        "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
+      ],
+      "key": "sampled_grid_gap_ev",
+      "label": "Sampled Γ G0W0 gap",
+      "method": "G0W0",
+      "status": "validated",
+      "unit": "eV",
+      "value": 6.2216
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "large_system_gw",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "abbreviated_commit": null,
+      "commit": null,
+      "evidence": [
+        "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh"
+      ],
+      "executable_sha256": "f467a015c0828be672a99fb441776d78e1b02c6c7dac6b7b9bc4f8659b1a23b3",
+      "identity_note": "Historical source commit was not retained. The producing ABACUS executable is bound by SHA-256.",
+      "source_url": "https://github.com/deepmodeling/abacus-develop"
+    },
+    "librpa": {
+      "abbreviated_commit": null,
+      "commit": null,
+      "evidence": [
+        "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out",
+        "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/run_librpa_36r_18n.sh"
+      ],
+      "executable_sha256": "9c0365dd0bb61db535e0f249ef3b753fc35210f8bc5b90b32195e3832092f8ca",
+      "identity_note": "Historical source commit was not retained. The producing LibRPA executable is bound by SHA-256.",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "approval_candidate_sha256": "2b07ab270fdd2370a7db4326009e2c41e6a32146d6b0e164bc84de09d5837a30",
+    "approval_statement_bound": true,
+    "collection": "Verified large-system carbon GW calculations",
+    "runtime_date": "2026-05-21"
+  },
+  "species": [
+    {
+      "asset_aliases": {
+        "nao": "C_gga_8au_100Ry_2s2p1d.orb",
+        "pp": "C_ONCV_PBE-1.0.upf"
+      },
+      "element": "C",
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated by PCA",
+      "missing_roles": [],
+      "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
+    }
+  ],
+  "status": "gw_validated",
+  "summary": {
+    "dft_gap_ev": 4.28716,
+    "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
+    "gw_gap_ev": 6.2216,
+    "observable": "Sampled Γ G0W0 gap",
+    "scientific_status": "completed_finite_qp_table",
+    "scope": "Immutable 1024-atom carbon supercell run with one sampled Γ point and no band-path result.",
+    "unit": "eV",
+    "value": 6.2216
+  },
+  "workflow": {
+    "band_path_available": false,
+    "k_point_count": 1,
+    "sampling": "regular_grid",
+    "sampling_label": "Sampled Γ point on the regular grid",
+    "task": "G0W0@PBE quasiparticle calculation"
+  }
+}

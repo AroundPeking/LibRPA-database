@@ -2,6 +2,8 @@ import { publicPath } from "./records.mjs";
 
 const initialCategories = [
   { slug: "electronic", label: "Electronic structure" },
+  { slug: "energetic", label: "Energetics" },
+  { slug: "performance", label: "Performance" },
   { slug: "topological", label: "Topology" },
   { slug: "optical", label: "Optical" },
   { slug: "magnetic", label: "Magnetic" },

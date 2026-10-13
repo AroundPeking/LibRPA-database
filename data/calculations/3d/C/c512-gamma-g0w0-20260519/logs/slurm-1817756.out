@@ -1,0 +1,11 @@
+Begin Time: Tue May 19 00:46:38 CST 2026
+Working directory: redacted
+This job runs on the following nodes:
+compute nodes: redacted
+This job has allocated 96(x4) cpu cores.
+cpus per task: 96, this should be OMP_NUM_THREADS: 96
+ABACUS_EXEC=<redacted-user-path>
+LIBRPA_EXEC=<redacted-user-path>
+PYTHON_EXEC=<redacted-user-path>
+MPI_LAUNCHER=<redacted-app-path>
+End Time: Tue May 19 19:29:22 CST 2026

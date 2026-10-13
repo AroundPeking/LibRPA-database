@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import recovered production inputs and exact basis bindings for four 2D records.
+"""Import recovered production inputs and exact basis bindings for three 2D records.
 
 User-supplied original evidence (2026-10-12):
 
@@ -9,11 +9,6 @@ User-supplied original evidence (2026-10-12):
   gw + exx librpa.in) plus assets/Sn and assets/Se payloads with REGISTRY_MANIFEST.
 - Phosphorene: compute_backup_review_20260514 gw/2d/phosphorene pbe + gw stage
   controls and P PP/NAO/ABF payloads.
-- hBN legacy (hbn-table-gw): compute_backup_review_20260514 gw/2d/mono-hBN/gw_14au/
-  6_3_ccp controls and B/N NAO/ABF plus N PP payloads. The B production PP
-  (B.PD04.PBE.UPF, pseudo_dir ./) was not preserved in any available backup and
-  remains an explicit missing role; no other PP is substituted.
-
 GeTe/SnSe EXX spectra are pathological. This importer records the raw-band
 frontier path observable as an explicitly restricted property with the archived
 spectrum as evidence; it does not fabricate an ordinary EXX gap.
@@ -39,9 +34,9 @@ SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 import library  # noqa: E402
 
-GETE_ROOT = Path("/Users/ghj/同步空间/AITP_project/2d_gw_applications_20260905/production_20260906/GeTe_stringent_tzdp10_n12_direct2d")
-SNSE_ROOT = Path("/Users/ghj/同步空间/AITP_project/2d_gw_applications_20260905/production_20260909/snse_library_tzdp10_plusg_20260909")
-BACKUP_2D = Path("/Users/ghj/同步空间/ks_data/compute_backup_review_20260514_ks_iopcas_ghj/data/gw/2d")
+GETE_ROOT = Path(os.environ.get("LIBRPA_GETE_RECOVERY_ROOT", "/path/to/GeTe_stringent_tzdp10_n12_direct2d"))
+SNSE_ROOT = Path(os.environ.get("LIBRPA_SNSE_RECOVERY_ROOT", "/path/to/snse_library_tzdp10_plusg"))
+BACKUP_2D = Path(os.environ.get("LIBRPA_2D_BACKUP_ROOT", "/path/to/compute_backup/gw/2d"))
 
 INPUT_SCOPE = ("Recovered production controls from the original run directory; byte-preserved. "
                "Directory association is not an immutable full production chain or a self-contained "
@@ -136,33 +131,6 @@ CASES = {
         "exx_restricted": None,
         "missing_after": [SOFTWARE_MISSING],
     },
-    "hbn-table-gw": {
-        "material": "hBN",
-        "source_note": "compute_backup_review_20260514 gw/2d/mono-hBN/gw_14au/6_3_ccp production directory",
-        "inputs": ([{"stage": "gw", "source": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp" / name, "name": name}
-                    for name in ["INPUT", "INPUT_scf", "INPUT_nscf", "KPT", "KPT_scf", "KPT_nscf", "STRU", "librpa.in"]]),
-        "species": [
-            _species("B",
-                     {"nao": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp/B_gga_14au_150Ry_3s3p2d.orb",
-                      "abf": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp/B_14au_4s4p3d2f1g_pca1e-6.abfs"},
-                     {"pp": "B.PD04.PBE.UPF",
-                      "nao": "B_gga_14au_150Ry_3s3p2d.orb",
-                      "abf": "B_14au_4s4p3d2f1g_pca1e-6.abfs"},
-                     missing=["pp"]),
-            _species("N",
-                     {"pp": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp/N_ONCV_PBE-1.0.upf",
-                      "nao": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp/N_gga_14au_150Ry_3s3p2d.orb",
-                      "abf": BACKUP_2D / "mono-hBN/gw_14au/6_3_ccp/N_14au_3s3p2d2f1g_pca1e-6.abfs"},
-                     {"pp": "N_ONCV_PBE-1.0.upf",
-                      "nao": "N_gga_14au_150Ry_3s3p2d.orb",
-                      "abf": "N_14au_3s3p2d2f1g_pca1e-6.abfs"}),
-        ],
-        "exx_restricted": None,
-        "missing_after": [
-            "B production PP (B.PD04.PBE.UPF) payload was not preserved in available backups; N and the B NAO/ABF are bound, the B PP stays an explicit missing role",
-            SOFTWARE_MISSING,
-        ],
-    },
 }
 
 ROLE_DIRS = {"pp": ("pseudopotentials", ".upf"), "nao": ("orbitals", ".orb"), "abf": ("auxiliary", ".abfs")}
@@ -173,10 +141,6 @@ EXPECTED_ISSUES = {
                       "software.librpa.commit: full immutable commit is required"},
     "phosphorene-table-gw": {"software.abacus.commit: full immutable commit is required",
                              "software.librpa.commit: full immutable commit is required"},
-    "hbn-table-gw": {"species B: missing_roles is not empty: ['pp']",
-                     "species B: expected one unambiguous pp payload, found 0",
-                     "software.abacus.commit: full immutable commit is required",
-                     "software.librpa.commit: full immutable commit is required"},
 }
 
 

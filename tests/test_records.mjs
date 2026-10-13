@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { readFileSync } from "node:fs";
@@ -32,9 +32,14 @@ test("all database headlines retain their values while references omit repeated 
     const html = renderMaterial(record, catalog.basis_sets);
     const headline = html.slice(html.indexOf('class="result-strip"'), html.indexOf('class="detail-layout"'));
     assert.doesNotMatch(headline, /paper-reported/, record.id);
-    for (const method of ["DFT", "EXX", "GW"]) {
-      const value = bandGap(record, method);
-      if (value !== null) assert.ok(headline.includes(value.toFixed(paperGap(record, method)?.precision ?? 3)), `${record.id} ${method}`);
+    if (recordType(record) === "large_system_gw") {
+      const result = primaryResult(record);
+      assert.ok(result && headline.includes(result.value.toFixed(5)), `${record.id} primary result`);
+    } else {
+      for (const method of ["DFT", "EXX", "GW"]) {
+        const value = bandGap(record, method);
+        if (value !== null) assert.ok(headline.includes(value.toFixed(paperGap(record, method)?.precision ?? 3)), `${record.id} ${method}`);
+      }
     }
     if (paperGap(record, "DFT") || paperGap(record, "GW")) {
       const reference = html.slice(html.indexOf('<details class="reference-source">'), html.indexOf('</details>', html.indexOf('<details class="reference-source">')));
@@ -120,9 +125,6 @@ test("new hBN shows the cited 6.94183 path-resolved headline", () => {
   assert.doesNotMatch(headline, /Restricted result|not an accepted|6\.68084/);
   assert.match(html, /raw-band-5 frontier path observable/);
   assert.doesNotMatch(html, /FAILED|validation incomplete|CI blocked|evidence issues/);
-  const old = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-table-gw/record.json", import.meta.url)));
-  assert.equal(old.paper_values, undefined);
-  assert.equal(bandGap(old), 6.68084);
   delete record.paper_values;
   assert.equal(bandGap(record), null);
   assert.match(renderMaterial(record, []), /Path-resolved/);
@@ -210,8 +212,8 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.match(index, /class="intro-lattice"[^>]*aria-hidden="true"/);
   assert.match(index, /id="filter-toggle"[^>]*aria-expanded="false"/);
   assert.match(app, /Materials, with evidence\./);
-  assert.match(app, /Path-resolved values retain their stated k-path definition/);
-  assert.match(app, /database values are in eV/);
+  assert.match(app, /path-resolved and sampled-grid observables are not presented as global fundamental gaps/i);
+  assert.match(app, /Primary results retain their recorded unit and scope/);
   assert.doesNotMatch(app, /Paper-reported · Table|Original path values and differences are retained/);
 });
 
@@ -303,4 +305,44 @@ test("nested input archive names retain stage labels", () => {
 
 test("methods can come from contributed properties without inventing a figure", () => {
   assert.deepEqual(methodNames({ properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["GW"]);
+});
+
+test("large-system GW renders sampled-grid results and performance without inventing bands", () => {
+  const result = "data/calculations/3d/C/c512/results/LibRPA.out";
+  const log = "data/calculations/3d/C/c512/logs/slurm.out";
+  const record = {
+    id: "c512", material: "C", formula: "C512", dimension: "3d", status: "gw_validated", record_type: "large_system_gw",
+    workflow: { task: "g0w0_band", sampling: "regular_grid", sampling_label: "Γ point on the regular grid", band_path_available: false, k_point_count: 1 },
+    computational_scale: { atom_count: 512, ao_count: 6656, state_count: 6656, occupied_states: 1024, unoccupied_states: 5632 },
+    performance: { wall_time_seconds: 67366, nodes: 4, mpi_ranks: 4, omp_threads_per_rank: 96, evidence: [log] },
+    auxiliary_basis: { mode: "pca_generated", threshold: 1e-4, evidence: ["data/calculations/3d/C/c512/inputs/INPUT"] },
+    properties: [
+      { key: "sampled_grid_gap_ev", category: "electronic", label: "Sampled Γ PBE gap", method: "PBE", value: 4.28347, unit: "eV", status: "validated", evidence: [result], definition: "Γ-point gap on the regular grid; not a global fundamental gap" },
+      { key: "sampled_grid_gap_ev", category: "electronic", label: "Sampled Γ G0W0 gap", method: "G0W0", value: 6.09949, unit: "eV", status: "validated", evidence: [result], definition: "Γ-point gap on the regular grid; not a global fundamental gap" },
+    ],
+    files: { inputs: [{ path: "data/calculations/3d/C/c512/inputs/INPUT" }], results: [{ path: result, scientific_role: "qp_energy_table" }], logs: [{ path: log }], figures: [] },
+    software: { abacus: { commit: null, identity_note: "Executable SHA-256 recorded" }, librpa: { commit: null, identity_note: "Executable SHA-256 recorded" } },
+  };
+  assert.equal(recordType(record), "large_system_gw");
+  assert.equal(atomCount(record), 512);
+  assert.deepEqual(primaryResult(record), { label: "Sampled Γ G0W0 gap", value: 6.09949, unit: "eV", scope: record.properties[1].definition });
+  assert.deepEqual(performanceSummary(record).map(item => item.value), ["18:42:46", "4", "4", "96"]);
+  const html = renderMaterial(record, []);
+  assert.match(html, /Results &amp; evidence/);
+  assert.match(html, /Computational scale &amp; performance/);
+  assert.match(html, /512 atoms/);
+  assert.match(html, /6656 QP states/);
+  assert.match(html, /6\.09949/);
+  assert.match(html, /18:42:46/);
+  assert.match(html, /PCA with threshold 0\.0001/);
+  assert.doesNotMatch(html, /Electronic bands|0 figures|plotting reference/);
+});
+
+test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
+  const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  assert.match(css, /\.catalog-table:not\(\.basis-table\)\{display:block;min-width:0/);
+  assert.match(css, /content:"Primary result"/);
+  assert.match(app, /\["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
+  assert.match(app, /large-system GW results/);
 });

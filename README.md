@@ -12,7 +12,7 @@ This repository is an open data archive for LibRPA materials calculations. It ca
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
-The current snapshot contains 113 immutable basis-set records covering 27 elements and 33 calculation records (16 two-dimensional and 17 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
+The current snapshot contains 119 immutable basis-set records covering 27 elements and 34 calculation records (15 two-dimensional and 19 three-dimensional). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
 
 The generated [`data/log-index.json`](data/log-index.json) gives every retained
 log exactly one calculation owner. [`data/release-index.json`](data/release-index.json)
@@ -44,7 +44,7 @@ repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
 Open a calculation and choose **View inputs** or **Input files**. Every archived
 input has a read-only text preview and a download link; nested calculation
 stages retain their archive names to avoid overwriting same-named files. The
-current archive has input files for **29 of 33 calculations** (262 files).
+current archive has input files for **all 34 calculations** (297 files).
 Nine records include **89 partial stage controls**, with stage-input receipts
 and explicit incomplete-run warnings; these attachments do not certify a full
 production chain, exact basis linkage, or a self-contained rerun bundle.
@@ -52,8 +52,6 @@ Seven of those calculations now have a separate producer-assets receipt binding
 17 species and 51 PP/NAO/ABF roles to original STRU declarations and payload
 hashes. This separate recovery is not a complete immutable runtime seal; the
 original stage-input receipt retains its narrower, unchanged scope.
-The other four records explicitly say **Inputs not archived**; result files and
-candidate basis sets do not establish that the missing inputs exist.
 
 The **Pseudopotentials & basis** section links exact species bindings to their
 PP, physical NAO, optional `for_aux`, and ABF files. The Basis library also has
@@ -69,11 +67,6 @@ interpolated, reordered, or renormalized. SVG downloads preserve this display.
 Header/count mismatches are visibly marked as diagnostics, not repaired files
 or accepted bases. Radial appearance alone does not validate periodic overlap,
 RI conditioning, or EXX/GW accuracy.
-
-The superseded `hbn-table-gw` record is hidden from ordinary material browsing.
-The new hBN record is the default; an explicit history link retains the old
-record and its separate evidence. Hiding it does not exempt it from strict
-archive-completeness checks.
 
 Hash-addressed storage is intentional and unchanged. The generated catalog
 adds `display_name`, `download_name`, `name_source`, and `original_names`:
@@ -118,7 +111,7 @@ an existing directory automatically.
 
 For archived 3D ABACUS band tables, the checked-in SVG figures can be rebuilt
 with `python3 scripts/generate_band_figures.py --write --allow-weighted-occupations`
-(`--audit` is read-only). All 17 3D records have been rechecked: 49 valid or
+(`--audit` is read-only). All 17 band-structure 3D records have been rechecked: 49 valid or
 explicitly diagnostic single-method SVGs; GaAs/GaP GW near-gap figures remain
 rejected because their frozen raw windows are pathological. The script preserves the raw
 tables and records source paths and SHA-256 hashes in each figure sidecar.
