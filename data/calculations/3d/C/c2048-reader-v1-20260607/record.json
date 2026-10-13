@@ -1,4 +1,37 @@
 {
+  "associated_gw_run": {
+    "band_path_available": false,
+    "band_path_status": "Skipped after band_kpath_info could not be read",
+    "cpus": 8640,
+    "elapsed_seconds": 71168,
+    "exit_code": "0:0",
+    "fermi_energy": {
+      "role": "Fermi energy from band_out; not a KS or G0W0 gap",
+      "unit": "Ha",
+      "value": 0.585339,
+      "value_ev": 15.92788561384
+    },
+    "frontier_states": {
+      "occupied_state": 4096,
+      "retained": false,
+      "unoccupied_state": 4097
+    },
+    "gap": {
+      "g0w0_available": false,
+      "ks_available": false,
+      "reason": "The retained historical excerpts do not contain states 4096 and 4097, so neither the KS nor G0W0 frontier gap can be reconstructed."
+    },
+    "job_id": "20861222",
+    "job_name": "C2048_v1_chol288_noelpa",
+    "nodes": 288,
+    "program_completion_markers": [
+      "Solve quasi-particle equation",
+      "libRPA finished successfully"
+    ],
+    "sampling": "Gamma-point SCF states",
+    "scheduler_state": "COMPLETED",
+    "task": "G0W0 quasi-particle energy calculation"
+  },
   "basis_candidates": [],
   "computational_scale": {
     "atom_count": 2048,
@@ -29,14 +62,14 @@
     "logs": [],
     "results": [
       {
-        "label": "Reader-v1 conversion receipt",
+        "label": "Reader-v1 conversion and historical GW audit receipt",
         "original_name": "reader_v1_conversion_receipt.json",
-        "original_sha256": "16a2f4f467c99349551a294cd6912d88fa10bc252314f134e02554f2306223a3",
+        "original_sha256": "8068bd22026d469f90df88b2c8ddebc456ef1fe54c0a3ba78abf96e4436e55f4",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json",
         "role": "results",
         "scientific_role": "reader_conversion_receipt",
-        "sha256": "16a2f4f467c99349551a294cd6912d88fa10bc252314f134e02554f2306223a3",
-        "size_bytes": 1231,
+        "sha256": "8068bd22026d469f90df88b2c8ddebc456ef1fe54c0a3ba78abf96e4436e55f4",
+        "size_bytes": 2676,
         "transformation": "none"
       }
     ]
@@ -46,7 +79,8 @@
   "material": "C",
   "missing": [
     "Raw reader-v1 binary and legacy text eigenvector files are not mirrored in this database.",
-    "No completed RPA/GW output exists in the retained evidence."
+    "The retained historical excerpts omit frontier states 4096 and 4097, so precise KS and G0W0 gaps cannot be reconstructed.",
+    "The completed historical run skipped the k-path band structure after band_kpath_info could not be read."
   ],
   "properties": [],
   "publication": {
@@ -55,17 +89,18 @@
   "record_type": "reader_conversion",
   "schema_version": 1,
   "scientific_scope": {
-    "gw_completed": false,
-    "qp_table_present": false,
+    "associated_gw_run_completed": true,
+    "conversion_record_claims_gw_observable": false,
+    "precise_gap_available": false,
     "rpa_completed": false,
-    "statement": "Reader-v1 eigenvector conversion only; no completed RPA or GW result is claimed."
+    "statement": "This record preserves the Reader-v1 conversion. A separate historical Gamma/SCF-state G0W0 run completed successfully, but the retained evidence does not contain frontier states 4096 and 4097, so no precise KS or G0W0 gap is claimed."
   },
   "software": {
     "abacus": {
       "abbreviated_commit": null,
       "commit": null,
       "evidence": [],
-      "missing_reason": "No ABACUS production run is claimed by this conversion-only record.",
+      "missing_reason": "The historical ABACUS source commit and executable hash were not retained.",
       "source_url": "https://github.com/deepmodeling/abacus-develop"
     },
     "librpa": {
@@ -74,21 +109,21 @@
       "evidence": [
         "data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json"
       ],
-      "missing_reason": "No LibRPA RPA/GW execution is claimed; only reader-v1 input conversion is recorded.",
+      "missing_reason": "The historical LibRPA source commit and executable hash were not retained; the receipt preserves completion markers only.",
       "source_url": "https://github.com/AESM-Group/LibRPA"
     }
   },
   "source": {
     "approval_candidate_sha256": "586159e62c2065b145d08786bcfdd586dbdcb31cca0a7d314e73945beae45188",
-    "collection": "Verified historical reader-v1 conversion operation"
+    "collection": "Verified historical Reader-v1 conversion with linked G0W0 completion audit"
   },
   "species": [],
   "status": "generation_only",
   "summary": {
-    "notes": "Conversion evidence only; no RPA/GW observable.",
-    "observable": "Reader-v1 eigenvector conversion",
-    "unit": "matrix dimension",
-    "value": 26624
+    "notes": "The associated Gamma/SCF-state G0W0 calculation completed. No numerical gap is shown because frontier states 4096 and 4097 were not retained.",
+    "observable": "Historical Gamma-state G0W0 completion",
+    "unit": "status",
+    "value": "Completed"
   },
   "workflow": {
     "input_format": "legacy_text",

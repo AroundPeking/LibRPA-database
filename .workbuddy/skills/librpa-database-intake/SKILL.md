@@ -30,10 +30,10 @@ For each candidate:
 - Confirm the requested RPA/GW task reached its scientifically final stage.
 - Parse the full result, reject truncated tables, missing expected states/q-points/frequencies, nonfinite values, duplicate rows, and inconsistent counts.
 - Preserve the exact observable scope. Label a Γ-point regular-grid gap as sampled Γ; never call it a global fundamental gap or a band-path gap.
-- Verify INPUT/KPT/STRU/control files, physical basis identity, auxiliary-basis mode, software identity, executable hash when commits are unavailable, and resource evidence.
+- Verify INPUT/KPT/STRU/control files, physical basis identity, auxiliary-basis mode, resource evidence, and immutable software identity for every executing code. A new candidate must retain a full source commit or a SHA-256 of the exact executable for the front end (ABACUS/FHI-aims) and LibRPA.
 - Record known historical settings exactly. Do not replace them with current recommendations.
 - Run `scripts/prepare_candidate.py` only on a local read-only snapshot when applicable. For remote sources, perform equivalent read-only checks remotely and calculate the same canonical receipt fields.
-- Present missing immutable commits or basis evidence as limitations, not as reasons to fabricate substitutes.
+- Present missing immutable commits or basis evidence as limitations, not as reasons to fabricate substitutes. The repository's fixed historical software-identity baseline applies only to the exact pre-existing calculation/software pairs already listed there; never add a new intake candidate to that baseline.
 
 ## Phase B: import only after approval
 
@@ -64,6 +64,7 @@ Stop and report without importing when any of these occurs:
 - Only a scheduler completion or reader/converter success is available.
 - Observable scope cannot be stated accurately.
 - Input, physical basis, or auxiliary-basis provenance would require guessing.
+- A new material lacks a full source commit and also lacks the exact executable SHA-256 for any executing front end or LibRPA; this must fail intake and CI rather than expanding the historical exception baseline.
 - A target path already contains different bytes.
 - Tests fail or the generated catalog is stale.
 

@@ -64,15 +64,19 @@ async function main() {
       check(text.includes(`${expected.states}`) && text.includes(`${expected.atoms}`), `${expected.id} shows QP-state and atom counts`);
       check(text.includes(expected.wall) && text.includes(`Nodes\n${expected.nodes}`) && text.includes(`MPI ranks\n${expected.mpi}`) && text.includes(`OpenMP threads / rank\n${expected.omp}`), `${expected.id} shows immutable runtime resources`);
       check(await page.locator("#record-bands").count() === 0 && await page.locator("#record-results img").count() === 0, `${expected.id} does not fabricate a band section or figure`);
-      check(text.includes("Executable SHA-256"), `${expected.id} exposes executable identities`);
+      check(/^[0-9a-f]{64}$/.test(record.software?.abacus?.executable_sha256 || "") && /^[0-9a-f]{64}$/.test(record.software?.librpa?.executable_sha256 || ""), `${expected.id} exposes executable identities`);
     }
     const c2048 = calculations.find(item => item.id === "c2048-reader-v1-20260607");
-    check(c2048?.record_type === "reader_conversion", "C2048 is a reader-conversion provenance record");
+    check(c2048?.record_type === "reader_conversion", "C2048 remains a reader-conversion provenance record");
+    check(c2048?.associated_gw_run?.job_id === "20861222" && c2048.associated_gw_run.scheduler_state === "COMPLETED", "C2048 links the completed historical GW audit");
     await go("#/material/c2048-reader-v1-20260607");
     const c2048Text = await page.locator("#detail-view").innerText();
-    check(c2048Text.includes("Reader-v1 conversion only") && c2048Text.includes("26624 × 26624"), "C2048 shows its conversion scope and matrix dimensions");
-    check(c2048Text.includes("RPA result\nNot claimed") && c2048Text.includes("GW result\nNot claimed"), "C2048 does not claim RPA/GW completion");
-    check(await page.locator("#record-bands, #record-results").count() === 0, "C2048 does not expose a scientific result section");
+    check(c2048Text.includes("Reader-v1 conversion with linked GW completion audit") && c2048Text.includes("26624 × 26624"), "C2048 shows its conversion scope and matrix dimensions");
+    check(c2048Text.includes("Historical Γ-state G0W0\nCompleted") && c2048Text.includes("Precise Γ gap\nUnavailable"), "C2048 reports GW completion without inventing a gap");
+    check(c2048Text.includes("0.585339 Ha") && c2048Text.includes("Fermi energy, not a gap"), "C2048 labels the retained energy as Fermi energy rather than a gap");
+    check(c2048Text.includes("frontier states 4096 and 4097") && c2048Text.includes("19:46:08"), "C2048 explains the missing frontier rows and retained runtime");
+    check(!/Sampled Γ G0W0 gap|fundamental gap|315\.02863/.test(c2048Text), "C2048 exposes no fabricated numerical gap or unrelated high-energy state");
+    check(await page.locator("#record-bands, #record-results").count() === 0, "C2048 does not expose a fabricated band or QP-table section");
     await go("");
     await page.getByRole("button", { name: "Next page", exact: true }).click();
     check((await page.locator(".pagination").innerText()).includes("Page 2"), "pagination");
@@ -173,7 +177,7 @@ async function main() {
     let partialInputsVerified = 0;
     for (const record of partialRecords) {
       check(record.archive_completeness?.status === "incomplete", `${record.id}: controls do not promote upload completeness`);
-      check(record.species.length === 0 || Boolean(record.source?.producer_assets_receipt), `${record.id}: any recovered basis binding requires producer asset evidence`);
+      check(record.species.length === 0 || Boolean(record.source?.producer_assets_receipt) || /^[0-9a-f]{64}$/.test(record.source?.approval_candidate_sha256 || ""), `${record.id}: any recovered basis binding requires producer asset evidence or an approved hash-bound production audit`);
       await go(`#/material/${encodeURIComponent(record.id)}`);
       await page.locator(".section-nav [data-section='record-inputs']").click();
       const panel = page.locator("#record-inputs");
@@ -204,13 +208,13 @@ async function main() {
       }
     }
     check(partialInputsVerified === 89, "89 partial controls previewed and natively downloaded byte-for-byte");
-    const withoutInputs = calculations.find(record => !(record.files?.inputs || []).length);
+    const withoutInputs = calculations.find(record => record.record_type !== "reader_conversion" && !(record.files?.inputs || []).length);
     if (withoutInputs) {
       await go(`#/material/${encodeURIComponent(withoutInputs.id)}`);
       check((await page.locator("#record-inputs").innerText()).includes("Calculation results"), "无输入记录使用正式中性说明");
       check(await page.locator("#record-inputs a[download]").count() === 0, "缺输入记录没有合成下载");
     } else {
-      check(calculations.every(record => (record.files?.inputs || []).length > 0), "全部公开记录均有归档输入，不再强制保留缺失样例");
+      check(calculations.filter(record => record.record_type !== "reader_conversion").every(record => (record.files?.inputs || []).length > 0), "全部科学计算记录均有归档输入；转换凭据单独处理");
     }
     const audited = calculations.find(record => record.archive_completeness?.status === "incomplete");
     check(Boolean(audited), "内部审计样例存在");

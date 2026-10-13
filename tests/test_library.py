@@ -212,11 +212,13 @@ class LibraryTests(unittest.TestCase):
         self._make_publishable()
         self.lib.validate(self.root, [self.set], [self.case])
 
-    def test_publishable_case_requires_exact_full_commits(self):
+    def test_publishable_case_requires_exact_immutable_software_identity(self):
         self._make_publishable()
         self.case["software"]["librpa"]["commit"] = None
-        with self.assertRaisesRegex(ValueError, "publishable.*full.*commit"):
+        with self.assertRaisesRegex(ValueError, "publishable.*commit or executable SHA-256"):
             self.lib.validate(self.root, [self.set], [self.case])
+        self.case["software"]["librpa"]["executable_sha256"] = "c" * 64
+        self.lib.validate(self.root, [self.set], [self.case])
 
     def test_publishable_case_requires_inputs_and_final_results(self):
         self._make_publishable()
@@ -315,6 +317,19 @@ class CompletenessTests(unittest.TestCase):
     def issues(self):
         return self.lib.completeness_issues(self.root, [self.basis], self.case)
 
+    def _write_software_exceptions(self, records, frozen_issue_count=None):
+        path = self.root / "data/historical-software-identity-exceptions.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        count = frozen_issue_count
+        if count is None:
+            count = sum(len(record["software"]) for record in records)
+        path.write_text(json.dumps({
+            "schema_version": 1,
+            "policy": "grandfathered_missing_software_identity",
+            "frozen_issue_count": count,
+            "records": records,
+        }))
+
     def test_complete_diagnostic_archive_is_accepted_without_changing_status(self):
         self.lib.validate(self.root, [self.basis], [self.case])
         self.assertEqual(self.issues(), [])
@@ -395,12 +410,60 @@ class CompletenessTests(unittest.TestCase):
         self.assertTrue(any("input INPUT" in issue for issue in issues))
         self.assertTrue(any("same calculation" in issue for issue in issues))
 
-    def test_full_commits_are_required_even_for_legacy_records(self):
+    def test_immutable_software_identity_is_required_without_a_historical_exception(self):
         self.case["software"]["abacus"]["commit"] = None
         self.case["software"]["librpa"]["commit"] = None
         issues = self.issues()
-        self.assertTrue(any("abacus" in issue and "commit" in issue for issue in issues))
-        self.assertTrue(any("librpa" in issue and "commit" in issue for issue in issues))
+        self.assertTrue(any("abacus" in issue and "identity" in issue for issue in issues))
+        self.assertTrue(any("librpa" in issue and "identity" in issue for issue in issues))
+
+    def test_executable_sha256_satisfies_future_software_identity_gate(self):
+        for name, digest in (("abacus", "c" * 64), ("librpa", "d" * 64)):
+            self.case["software"][name]["commit"] = None
+            self.case["software"][name]["executable_sha256"] = digest
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_exact_historical_software_exceptions_pass_ci_but_remain_in_raw_report(self):
+        self.case["software"]["abacus"]["commit"] = None
+        self.case["software"]["librpa"]["commit"] = None
+        self._write_software_exceptions([
+            {"id": "si-control", "software": ["abacus", "librpa"]},
+        ])
+        report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+        self.assertEqual(report["status"], "blocked")
+        self.assertEqual(report["gate_status"], "complete")
+        self.assertEqual(report["stats"]["issue_count"], 2)
+        self.assertEqual(report["stats"]["accepted_exception_count"], 2)
+        self.assertEqual(report["cases"][0]["blocking_issues"], [])
+        self.lib.check_completeness(self.root, [self.basis], [self.case], report)
+
+    def test_unlisted_future_identity_and_nonsoftware_issues_still_block(self):
+        self.case["software"]["abacus"]["commit"] = None
+        self.case["software"]["librpa"]["commit"] = None
+        self.case["files"]["inputs"] = self.case["files"]["inputs"][1:]
+        self._write_software_exceptions([
+            {"id": "si-control", "software": ["abacus"]},
+        ])
+        report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+        self.assertEqual(report["gate_status"], "blocked")
+        blocking = report["cases"][0]["blocking_issues"]
+        self.assertTrue(any("librpa" in issue and "identity" in issue for issue in blocking))
+        self.assertTrue(any("input INPUT" in issue for issue in blocking))
+
+    def test_unknown_stale_duplicate_or_count_mismatched_exception_baseline_blocks(self):
+        variants = [
+            ([{"id": "not-a-case", "software": ["abacus"]}], None, "unknown calculation"),
+            ([{"id": "si-control", "software": ["abacus"]}], None, "stale entry"),
+            ([{"id": "si-control", "software": ["abacus", "abacus"]}], None, "duplicates"),
+            ([{"id": "si-control", "software": ["abacus"]}], 2, "frozen_issue_count"),
+        ]
+        for records, count, message in variants:
+            with self.subTest(message=message):
+                self._write_software_exceptions(records, count)
+                report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+                self.assertEqual(report["gate_status"], "blocked")
+                self.assertTrue(any(message in issue for issue in report["integrity_issues"]))
 
     def test_existing_dft_and_exx_methods_cannot_omit_gaps(self):
         self.case["properties"] = self.case["properties"][2:]

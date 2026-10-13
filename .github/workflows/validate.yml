@@ -18,9 +18,9 @@ jobs:
           node-version: "22"
       - run: node --check database/app.js
       - run: node --test tests/*.mjs
-      - name: 严格检查所有记录的完整上传证据（历史和诊断记录无豁免）
+      - name: 检查归档完整性（仅接受固定历史软件身份基线）
         run: python scripts/library.py --check-completeness --completeness-report "${{ runner.temp }}/archive-completeness.json"
-      - name: 保留全部记录的完整性报告（失败仍阻断CI）
+      - name: 保留原始缺项、历史接受项与CI阻断结果
         if: always()
         uses: actions/upload-artifact@v4
         with:

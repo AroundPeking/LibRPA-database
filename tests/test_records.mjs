@@ -360,6 +360,26 @@ test("reader conversion is clearly separated from RPA and GW results", () => {
   assert.doesNotMatch(html, /Electronic bands|Sampled Γ G0W0 gap|fundamental gap/);
 });
 
+test("C2048 preserves completed historical Gamma-state GW evidence without inventing a gap", () => {
+  const record = JSON.parse(readFileSync(new URL("../data/calculations/3d/C/c2048-reader-v1-20260607/record.json", import.meta.url)));
+  assert.equal(recordType(record), "reader_conversion");
+  assert.deepEqual(methodNames(record), ["GW"]);
+  assert.deepEqual(primaryResult(record), {
+    label: "Historical Γ-state G0W0 run",
+    value: "Completed",
+    unit: "",
+    scope: "Precise KS/G0W0 gap unavailable: frontier states 4096 and 4097 were not retained",
+  });
+  const html = renderMaterial(record, []);
+  assert.match(html, /Historical Γ-state G0W0[\s\S]*Completed/);
+  assert.match(html, /Precise Γ gap[\s\S]*Unavailable/);
+  assert.match(html, /0\.585339 Ha[\s\S]*Fermi energy, not a gap/);
+  assert.match(html, /frontier states 4096 and 4097/);
+  assert.match(html, /20861222/);
+  assert.match(html, /19:46:08/);
+  assert.doesNotMatch(html, /Sampled Γ G0W0 gap|fundamental gap|315\.02863/);
+});
+
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");

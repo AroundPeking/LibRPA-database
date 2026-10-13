@@ -187,7 +187,7 @@ class MissingEvidenceTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 EXPORT.assert_public(value)
         EXPORT.assert_public({"record_path": "data/calculations/3d/Si/si-history/record.json",
-                              "issues": ["software.abacus.commit: full immutable commit is required"]})
+                              "issues": ["software.abacus.identity: full immutable commit or executable SHA-256 is required"]})
 
     def test_private_record_is_rejected_before_any_public_write(self):
         self.case["notes"] = "/" + "Users/owner/private"

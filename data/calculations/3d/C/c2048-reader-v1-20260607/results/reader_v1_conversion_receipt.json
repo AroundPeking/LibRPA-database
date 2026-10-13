@@ -1,5 +1,38 @@
 {
   "approval_candidate_sha256": "586159e62c2065b145d08786bcfdd586dbdcb31cca0a7d314e73945beae45188",
+  "associated_gw_run": {
+    "band_path_available": false,
+    "band_path_status": "Skipped after band_kpath_info could not be read",
+    "cpus": 8640,
+    "elapsed_seconds": 71168,
+    "exit_code": "0:0",
+    "fermi_energy": {
+      "role": "Fermi energy from band_out; not a KS or G0W0 gap",
+      "unit": "Ha",
+      "value": 0.585339,
+      "value_ev": 15.92788561384
+    },
+    "frontier_states": {
+      "occupied_state": 4096,
+      "retained": false,
+      "unoccupied_state": 4097
+    },
+    "gap": {
+      "g0w0_available": false,
+      "ks_available": false,
+      "reason": "The retained historical excerpts do not contain states 4096 and 4097, so neither the KS nor G0W0 frontier gap can be reconstructed."
+    },
+    "job_id": "20861222",
+    "job_name": "C2048_v1_chol288_noelpa",
+    "nodes": 288,
+    "program_completion_markers": [
+      "Solve quasi-particle equation",
+      "libRPA finished successfully"
+    ],
+    "sampling": "Gamma-point SCF states",
+    "scheduler_state": "COMPLETED",
+    "task": "G0W0 quasi-particle energy calculation"
+  },
   "conversion": {
     "active_file_count": 1,
     "active_file_format": "reader_v1_binary",
@@ -32,6 +65,7 @@
     "qp_table_present": false,
     "rpa_completed": false
   },
-  "scope": "Reader-v1 eigenvector conversion only; no completed RPA or GW result is claimed.",
-  "source_access": "The original source host is no longer authorized for access; this record preserves only the previously verified conversion receipt."
+  "scientific_result_note": "The conversion record itself does not archive a complete QP table or claim a numerical observable. The associated historical GW run above completed separately.",
+  "scope": "This record preserves the Reader-v1 conversion. A separate historical Gamma/SCF-state G0W0 run completed successfully, but the retained evidence does not contain frontier states 4096 and 4097, so no precise KS or G0W0 gap is claimed.",
+  "source_access": "The original source host is no longer authorized for access; this receipt preserves previously captured conversion, scheduler, and LibRPA completion evidence only."
 }

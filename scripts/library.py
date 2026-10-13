@@ -33,6 +33,11 @@ INTERMEDIATE_PATH = re.compile(
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
 RECORD_TYPES = {"band", "large_system_gw", "rpa_energy", "reader_conversion"}
+SOFTWARE_NAMES = {"abacus", "librpa"}
+SOFTWARE_IDENTITY_ISSUE = re.compile(
+    r"^software\.(abacus|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
+)
+HISTORICAL_SOFTWARE_EXCEPTIONS = Path("data/historical-software-identity-exceptions.json")
 
 
 def _fail(message: str) -> None:
@@ -135,6 +140,14 @@ def _positive_int(value: object) -> bool:
     return type(value) is int and value > 0
 
 
+def _immutable_software_identity(app: object) -> bool:
+    if not isinstance(app, dict):
+        return False
+    return bool((isinstance(app.get("commit"), str) and COMMIT.fullmatch(app["commit"]))
+                or (isinstance(app.get("executable_sha256"), str)
+                    and SHA256.fullmatch(app["executable_sha256"])))
+
+
 def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]) -> None:
     record_type = case.get("record_type", "band")
     if record_type not in RECORD_TYPES:
@@ -172,6 +185,35 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
                 or not isinstance(evidence, list) or len(evidence) != 1
                 or evidence[0] not in declared_paths):
             _fail(f"{label}.conversion: reader-v1 header, converter identity, runtime and same-record receipt are required")
+        associated = case.get("associated_gw_run")
+        if associated is not None:
+            fermi = associated.get("fermi_energy") if isinstance(associated, dict) else None
+            frontier = associated.get("frontier_states") if isinstance(associated, dict) else None
+            gap = associated.get("gap") if isinstance(associated, dict) else None
+            markers = associated.get("program_completion_markers") if isinstance(associated, dict) else None
+            if (not isinstance(associated, dict)
+                    or associated.get("scheduler_state") != "COMPLETED"
+                    or associated.get("exit_code") != "0:0"
+                    or any(not _positive_int(associated.get(field)) for field in ("elapsed_seconds", "nodes", "cpus"))
+                    or not isinstance(markers, list)
+                    or "Solve quasi-particle equation" not in markers
+                    or "libRPA finished successfully" not in markers
+                    or not isinstance(fermi, dict)
+                    or isinstance(fermi.get("value"), bool)
+                    or not isinstance(fermi.get("value"), (int, float))
+                    or not math.isfinite(fermi["value"])
+                    or fermi.get("unit") != "Ha"
+                    or not re.search(r"not .*gap", str(fermi.get("role", "")), re.I)
+                    or not isinstance(frontier, dict)
+                    or frontier.get("occupied_state") != 4096
+                    or frontier.get("unoccupied_state") != 4097
+                    or frontier.get("retained") is not False
+                    or not isinstance(gap, dict)
+                    or gap.get("ks_available") is not False
+                    or gap.get("g0w0_available") is not False
+                    or not isinstance(gap.get("reason"), str)
+                    or not gap["reason"].strip()):
+                _fail(f"{label}.associated_gw_run: completed QP provenance and explicit unavailable-gap boundary are required")
         if case.get("properties"):
             _fail(f"{label}.properties: conversion-only records cannot claim scientific properties")
         return
@@ -335,6 +377,9 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             commit = app.get("commit")
             if commit is not None and (not isinstance(commit, str) or not COMMIT.fullmatch(commit)):
                 _fail(f"{label}: software.{name}.commit must be a full commit or null")
+            executable = app.get("executable_sha256")
+            if executable is not None and (not isinstance(executable, str) or not SHA256.fullmatch(executable)):
+                _fail(f"{label}: software.{name}.executable_sha256 must be a lowercase SHA-256 or null")
         files = case.get("files", {})
         if not isinstance(files, dict):
             _fail(f"{label}: files must be an object")
@@ -357,9 +402,8 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             if case.get("status") != "gw_validated":
                 _fail(f"{label}: publishable case must be gw_validated")
             for name in ("abacus", "librpa"):
-                commit = software[name].get("commit")
-                if not isinstance(commit, str) or not COMMIT.fullmatch(commit):
-                    _fail(f"{label}: publishable case requires a full {name} commit")
+                if not _immutable_software_identity(software[name]):
+                    _fail(f"{label}: publishable case requires a full {name} commit or executable SHA-256")
             if not files.get("inputs"):
                 _fail(f"{label}: publishable case requires at least one input file")
             if not files.get("results"):
@@ -712,8 +756,9 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                     or receipt.get("scientific_result") != {
                         "rpa_completed": False, "gw_completed": False,
                         "qp_table_present": False, "observable": None,
-                    }):
-                issues.append("results: conversion receipt does not match the record scope and reader-v1 header")
+                    }
+                    or receipt.get("associated_gw_run") != case.get("associated_gw_run")):
+                issues.append("results: conversion receipt does not match the record scope, reader-v1 header, and associated GW provenance")
         return issues
 
     inputs = {}
@@ -852,8 +897,10 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
 
     for name in ("abacus", "librpa"):
         app = case.get("software", {}).get(name, {})
-        if not isinstance(app.get("commit"), str) or not COMMIT.fullmatch(app["commit"]):
-            issues.append(f"software.{name}.commit: full immutable commit is required")
+        if not _immutable_software_identity(app):
+            issues.append(
+                f"software.{name}.identity: full immutable commit or executable SHA-256 is required"
+            )
 
     if record_type == "large_system_gw":
         qp_tables = []
@@ -929,16 +976,63 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     return issues
 
 
+def load_historical_software_exceptions(root: Path) -> set[tuple[str, str]]:
+    """读取固定历史软件身份基线；缺失基线意味着不豁免任何记录。"""
+    path = root / HISTORICAL_SOFTWARE_EXCEPTIONS
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        _fail(f"historical software exception baseline is unreadable: {exc}")
+    records = data.get("records") if isinstance(data, dict) else None
+    if (not isinstance(data, dict) or data.get("schema_version") != 1
+            or data.get("policy") != "grandfathered_missing_software_identity"
+            or not isinstance(records, list)):
+        _fail("historical software exception baseline has an invalid schema or policy")
+    pairs = set()
+    for index, entry in enumerate(records):
+        case_id = entry.get("id") if isinstance(entry, dict) else None
+        software = entry.get("software") if isinstance(entry, dict) else None
+        if (not isinstance(case_id, str) or not case_id.strip()
+                or not isinstance(software, list) or not software):
+            _fail(f"historical software exception baseline records[{index}] is invalid")
+        for name in software:
+            if name not in SOFTWARE_NAMES:
+                _fail(f"historical software exception baseline records[{index}] has unknown software {name!r}")
+            pair = (case_id, name)
+            if pair in pairs:
+                _fail(f"historical software exception baseline duplicates {case_id}/{name}")
+            pairs.add(pair)
+    if data.get("frozen_issue_count") != len(pairs):
+        _fail("historical software exception baseline frozen_issue_count does not match its exact entries")
+    return pairs
+
+
+def _issue_categories(issues: list[str]) -> dict[str, list[str]]:
+    missing = {}
+    for issue in issues:
+        category = issue.split(":", 1)[0].split(" ", 1)[0].split(".", 1)[0].lower()
+        category = {"input": "inputs", "stru": "basis_binding", "species": "basis_binding"}.get(category, category)
+        missing.setdefault(category, []).append(issue)
+    return missing
+
+
 def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict:
-    """保留全部case和缺证分类；schema/hash错误也阻断门槛。"""
+    """保留原始缺项，同时将固定历史软件身份基线与CI阻断结果分开。"""
     integrity_issues = []
+    try:
+        exceptions = load_historical_software_exceptions(root)
+    except ValueError as exc:
+        exceptions = set()
+        integrity_issues.append(f"software exception baseline: {exc}")
     try:
         validate(root, sets, cases)
     except ValueError as exc:
         integrity_issues.append(str(exc))
-    records = []
-    categories = {}
-    issue_count = 0
+    raw_records = []
+    raw_pairs = set()
+    case_ids = {case.get("id") for case in cases}
     for index, case in enumerate(cases):
         try:
             issues = completeness_issues(root, sets, case)
@@ -949,38 +1043,78 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
         for issue in integrity_issues:
             if issue.startswith(f"cases[{index}]"):
                 issues.insert(0, f"integrity: {issue}")
-        missing = {}
         for issue in issues:
-            category = issue.split(":", 1)[0].split(" ", 1)[0].split(".", 1)[0].lower()
-            category = {"input": "inputs", "stru": "basis_binding", "species": "basis_binding"}.get(category, category)
-            missing.setdefault(category, []).append(issue)
+            match = SOFTWARE_IDENTITY_ISSUE.fullmatch(issue)
+            if match:
+                raw_pairs.add((case.get("id"), match.group(1)))
+        raw_records.append((case, issues))
+    if not integrity_issues:
+        for case_id, name in sorted(exceptions):
+            if case_id not in case_ids:
+                integrity_issues.append(
+                    f"software exception baseline: unknown calculation {case_id}/{name}"
+                )
+            elif (case_id, name) not in raw_pairs:
+                integrity_issues.append(
+                    f"software exception baseline: stale entry {case_id}/{name}"
+                )
+    baseline_valid = not integrity_issues
+    records = []
+    categories = {}
+    issue_count = 0
+    accepted_count = 0
+    blocking_count = 0
+    for case, issues in raw_records:
+        accepted, blocking = [], []
+        for issue in issues:
+            match = SOFTWARE_IDENTITY_ISSUE.fullmatch(issue)
+            if baseline_valid and match and (case.get("id"), match.group(1)) in exceptions:
+                accepted.append(issue)
+            else:
+                blocking.append(issue)
+        missing = _issue_categories(issues)
+        blocking_missing = _issue_categories(blocking)
         for category, values in missing.items():
             counts = categories.setdefault(category, {"cases": 0, "issues": 0})
             counts["cases"] += 1
             counts["issues"] += len(values)
         issue_count += len(issues)
+        accepted_count += len(accepted)
+        blocking_count += len(blocking)
         records.append({"id": case["id"], "material": case.get("material"),
                         "dimension": case.get("dimension"), "scientific_status": case.get("status"),
                         "status": "incomplete" if issues else "complete",
-                        "issues": issues, "missing_categories": missing})
+                        "gate_status": "blocked" if blocking else "accepted",
+                        "issues": issues, "accepted_issues": accepted, "blocking_issues": blocking,
+                        "missing_categories": missing, "blocking_categories": blocking_missing})
     incomplete = sum(record["status"] == "incomplete" for record in records)
-    return {"schema_version": 1, "status": "blocked" if incomplete or integrity_issues else "complete",
-            "integrity_issues": integrity_issues,
+    blocking_cases = sum(record["gate_status"] == "blocked" for record in records)
+    gate_status = "blocked" if blocking_cases or integrity_issues else "complete"
+    return {"schema_version": 2, "status": "blocked" if incomplete or integrity_issues else "complete",
+            "gate_status": gate_status, "integrity_issues": integrity_issues,
+            "software_exception_baseline": HISTORICAL_SOFTWARE_EXCEPTIONS.as_posix(),
             "stats": {"total": len(records), "complete": len(records) - incomplete,
                       "incomplete": incomplete, "issue_count": issue_count,
+                      "accepted_exception_count": accepted_count,
+                      "blocking_case_count": blocking_cases,
+                      "blocking_issue_count": blocking_count,
                       "missing_categories": dict(sorted(categories.items()))},
             "cases": records}
 
 
 def check_completeness(root: Path, sets: list[dict], cases: list[dict], report: dict | None = None) -> None:
-    """报告全部不完整记录，不使用历史、科学状态或基线白名单。"""
+    """仅固定历史软件身份缺项可被接受；所有新缺项继续阻断。"""
     report = report if report is not None else completeness_report(root, sets, cases)
-    if report["status"] == "blocked":
-        details = "\n".join(f"{case['id']}:\n" + "\n".join(f"  - {issue}" for issue in case["issues"])
-                            for case in report["cases"] if case["issues"])
+    if report["gate_status"] == "blocked":
+        details = "\n".join(
+            f"{case['id']}:\n" + "\n".join(f"  - {issue}" for issue in case["blocking_issues"])
+            for case in report["cases"] if case["blocking_issues"]
+        )
         integrity = "\n".join(report["integrity_issues"])
-        raise ValueError(f"archive completeness FAILED: {report['stats']['incomplete']}/{len(cases)} calculations incomplete\n"
-                         + "\n".join(value for value in (integrity, details) if value))
+        raise ValueError(
+            f"archive CI gate FAILED: {report['stats']['blocking_case_count']}/{len(cases)} calculations have blocking issues\n"
+            + "\n".join(value for value in (integrity, details) if value)
+        )
 
 
 def load_records(root: Path) -> tuple[list[dict], list[dict]]:
@@ -1044,7 +1178,10 @@ def main() -> int:
         except ValueError as exc:
             print(str(exc))
             return 1
-        print(f"archive completeness OK: {len(cases)} calculations")
+        print(
+            f"archive CI gate OK: {len(cases)} calculations; "
+            f"{report['stats']['accepted_exception_count']} grandfathered software identity issues retained in raw report"
+        )
     catalog = build_catalog(args.root)
     if args.check_catalog:
         sync_catalog(args.root, catalog, write=False)

@@ -3,28 +3,28 @@
 <title>GW database: complete missing-evidence checklist</title><style>
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 80px}h1{font-size:30px;line-height:1.3;margin:0 0 16px}h2{font-size:22px;margin:0}h2 span{font-size:14px;color:#a9c0df}.summary,.case,.notes{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}.summary{border-color:#cfa85e}.counts{font-size:22px;color:#ffd68b}.muted,.case-id{color:#bed0e5}.case-id{overflow-wrap:anywhere;margin:6px 0}input{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}input:focus{outline:2px solid #78bafa;outline-offset:2px}label{display:block;margin-bottom:8px}code,pre{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}li{margin:8px 0}ol{padding-left:36px}details{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}summary{cursor:pointer;color:#98ccff}pre{color:#d4e1f0}[hidden]{display:none!important}.toolbar{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}footer{color:#a7bdd8;margin-top:30px}@media(max-width:600px){main{padding:24px 14px}.case,.summary,.notes{padding:16px}h1{font-size:25px}}
 </style></head><body><main>
-<h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original strict issues are preserved by material and case. Search and expand the actual evidence-recovery entry points. A public website does not imply strict data acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
-<section class="summary"><div class="counts">50 original issues · 33/35 records incomplete</div><p>Strict: blocked; 2 complete. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
-<section class="notes"><ul><li>Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.</li><li>Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.</li><li>Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.</li><li>Strict upload completeness, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.</li></ul></section>
+<h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original raw completeness issues are preserved by material and case. The fixed historical software-identity baseline changes only the CI decision, not these facts or scientific acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
+<section class="summary"><div class="counts">46 original issues · 31/35 records with raw issues</div><p>Raw completeness: blocked; CI gate: complete; 46 grandfathered software identity issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
+<section class="notes"><ul><li>Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.</li><li>Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.</li><li>Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.</li><li>Raw upload completeness, the fixed historical software-identity acceptance baseline, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.</li></ul></section>
 <div class="toolbar"><label for="search">Search material / case ID / dimension</label><input id="search" type="search" placeholder="For example: GeTe, MoSe2, C512, 3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">Showing all 35 records</p></div>
-<article class="case" data-search="cuinp2se6 · 2d · cuinp2se6-table-gw"><h2>CuInP2Se6 <span>2d</span></h2><p class="case-id">cuinp2se6-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="1"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CuInP2Se6 | 2d | cuinp2se6-table-gw ===
+<article class="case" data-search="cuinp2se6 · 2d · cuinp2se6-table-gw"><h2>CuInP2Se6 <span>2d</span></h2><p class="case-id">cuinp2se6-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="1"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CuInP2Se6 | 2d | cuinp2se6-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [001] software.abacus.commit: full immutable commit is required
-  [002] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [001] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [002] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [0bfc422bd721]; SCF [734ea01ae029]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [b67557d8edee]; GW [359e4f55757d]; GW [e92fd23422c1]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -49,24 +49,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/stage_input_receipt.json
   data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="gate · 2d · gate-table-gw"><h2>GaTe <span>2d</span></h2><p class="case-id">gate-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="3"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaTe | 2d | gate-table-gw ===
+</pre></details></article><article class="case" data-search="gate · 2d · gate-table-gw"><h2>GaTe <span>2d</span></h2><p class="case-id">gate-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="3"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaTe | 2d | gate-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/GaTe/gate-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [003] software.abacus.commit: full immutable commit is required
-  [004] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [003] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [004] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [8ce60b5932f4]; SCF [ad2279acd111]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [715ad5c848a6]; EXX [28616464de81]; GW [c001420676d0]; GW [a40b6a58161e]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -93,24 +93,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/GaTe/gate-table-gw/results/stage_input_receipt.json
   data/calculations/2d/GaTe/gate-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="gete · 2d · gete-table-gw"><h2>GeTe <span>2d</span></h2><p class="case-id">gete-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="5"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GeTe | 2d | gete-table-gw ===
+</pre></details></article><article class="case" data-search="gete · 2d · gete-table-gw"><h2>GeTe <span>2d</span></h2><p class="case-id">gete-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="5"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GeTe | 2d | gete-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/GeTe/gete-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [005] software.abacus.commit: full immutable commit is required
-  [006] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [005] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [006] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: scf [scf]; band [band]; gw [gw]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -129,24 +129,24 @@ Existing stage controls (inspect first; do not search again)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/GeTe/gete-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="in2se3 · 2d · in2se3-table-gw"><h2>In2Se3 <span>2d</span></h2><p class="case-id">in2se3-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="7"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== In2Se3 | 2d | in2se3-table-gw ===
+</pre></details></article><article class="case" data-search="in2se3 · 2d · in2se3-table-gw"><h2>In2Se3 <span>2d</span></h2><p class="case-id">in2se3-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="7"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== In2Se3 | 2d | in2se3-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/In2Se3/in2se3-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [007] software.abacus.commit: full immutable commit is required
-  [008] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [007] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [008] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: Path export [766af52fa2f7]; NSCF [68910c682785]; SCF [01726aa6cdca]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [80f2cc344165]; EXX [58cd2c3d44d1]; GW [6f5250011d1b]; GW [5c7a139cef02]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -174,24 +174,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/In2Se3/in2se3-table-gw/results/stage_input_receipt.json
   data/calculations/2d/In2Se3/in2se3-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="inse · 2d · inse-table-gw"><h2>InSe <span>2d</span></h2><p class="case-id">inse-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="9"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InSe | 2d | inse-table-gw ===
+</pre></details></article><article class="case" data-search="inse · 2d · inse-table-gw"><h2>InSe <span>2d</span></h2><p class="case-id">inse-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="9"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InSe | 2d | inse-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/InSe/inse-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [009] software.abacus.commit: full immutable commit is required
-  [010] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [009] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [010] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [dee5bce09bf6]; Path export [39e4a99a3c6a]; SCF [3dba2707b2c2]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [4d4731ff210e]; EXX [4f6a969fd680]; GW [c52f53b50ee0]; GW [faa54372a663]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -219,24 +219,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json
   data/calculations/2d/InSe/inse-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-table-gw"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="11"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-table-gw ===
+</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-table-gw"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="11"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/MoS2/mos2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [011] software.abacus.commit: full immutable commit is required
-  [012] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [011] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [012] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -244,24 +244,24 @@ Stages to cross-check: EXX/GW (LibRPA)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json
-</pre></details></article><article class="case" data-search="mos2-ws2 · 2d · mos2_ws2-table-gw"><h2>MoS2-WS2 <span>2d</span></h2><p class="case-id">mos2_ws2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="13"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2-WS2 | 2d | mos2_ws2-table-gw ===
+</pre></details></article><article class="case" data-search="mos2-ws2 · 2d · mos2_ws2-table-gw"><h2>MoS2-WS2 <span>2d</span></h2><p class="case-id">mos2_ws2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="13"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2-WS2 | 2d | mos2_ws2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [013] software.abacus.commit: full immutable commit is required
-  [014] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [013] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [014] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [23fb18a26bee]; SCF [2574059c9692]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: GW [a4a9a270b43e]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -282,24 +282,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
   data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="mose2 · 2d · mose2-table-gw"><h2>MoSe2 <span>2d</span></h2><p class="case-id">mose2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="15"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoSe2 | 2d | mose2-table-gw ===
+</pre></details></article><article class="case" data-search="mose2 · 2d · mose2-table-gw"><h2>MoSe2 <span>2d</span></h2><p class="case-id">mose2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="15"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoSe2 | 2d | mose2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/MoSe2/mose2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [015] software.abacus.commit: full immutable commit is required
-  [016] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [015] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [016] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: GW [34d26c328820]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -321,24 +321,24 @@ Existing logs (cross-check first)
   data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json
-</pre></details></article><article class="case" data-search="mote2 · 2d · mote2-table-gw"><h2>MoTe2 <span>2d</span></h2><p class="case-id">mote2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="17"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoTe2 | 2d | mote2-table-gw ===
+</pre></details></article><article class="case" data-search="mote2 · 2d · mote2-table-gw"><h2>MoTe2 <span>2d</span></h2><p class="case-id">mote2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="17"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoTe2 | 2d | mote2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/MoTe2/mote2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [017] software.abacus.commit: full immutable commit is required
-  [018] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [017] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [018] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [a9314a2d7fbb]; SCF [b03cf07e253c]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [6ca72a37b565]; GW [d5ca5cb3a75f]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -361,24 +361,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json
   data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="phosphorene · 2d · phosphorene-table-gw"><h2>Phosphorene <span>2d</span></h2><p class="case-id">phosphorene-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="19"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Phosphorene | 2d | phosphorene-table-gw ===
+</pre></details></article><article class="case" data-search="phosphorene · 2d · phosphorene-table-gw"><h2>Phosphorene <span>2d</span></h2><p class="case-id">phosphorene-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="19"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Phosphorene | 2d | phosphorene-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/Phosphorene/phosphorene-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [019] software.abacus.commit: full immutable commit is required
-  [020] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [019] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [020] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: gw [gw]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -396,24 +396,24 @@ Existing stage controls (inspect first; do not search again)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="snse · 2d · snse-table-gw"><h2>SnSe <span>2d</span></h2><p class="case-id">snse-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="21"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SnSe | 2d | snse-table-gw ===
+</pre></details></article><article class="case" data-search="snse · 2d · snse-table-gw"><h2>SnSe <span>2d</span></h2><p class="case-id">snse-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="21"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SnSe | 2d | snse-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/SnSe/snse-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [021] software.abacus.commit: full immutable commit is required
-  [022] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [021] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [022] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: scf [scf]; band [band]; gw [gw]; exx [exx]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -434,24 +434,24 @@ Existing stage controls (inspect first; do not search again)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="tis3 · 2d · tis3-table-gw"><h2>TiS3 <span>2d</span></h2><p class="case-id">tis3-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="23"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== TiS3 | 2d | tis3-table-gw ===
+</pre></details></article><article class="case" data-search="tis3 · 2d · tis3-table-gw"><h2>TiS3 <span>2d</span></h2><p class="case-id">tis3-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="23"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== TiS3 | 2d | tis3-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/TiS3/tis3-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [023] software.abacus.commit: full immutable commit is required
-  [024] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [023] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [024] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [20f55412a54c]; SCF [222dbd31dfe0]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX [fec24c2d8d45]; GW [5c43c5a84bed]; GW [9e5b8ec9f903]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -476,24 +476,24 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json
   data/calculations/2d/TiS3/tis3-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="ws2 · 2d · ws2-table-gw"><h2>WS2 <span>2d</span></h2><p class="case-id">ws2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="25"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WS2 | 2d | ws2-table-gw ===
+</pre></details></article><article class="case" data-search="ws2 · 2d · ws2-table-gw"><h2>WS2 <span>2d</span></h2><p class="case-id">ws2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="25"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WS2 | 2d | ws2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/WS2/ws2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [025] software.abacus.commit: full immutable commit is required
-  [026] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [025] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [026] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: GW [9345cb0081be]
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -514,24 +514,24 @@ Existing logs (cross-check first)
   data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/WS2/ws2-table-gw/results/stage_input_receipt.json
-</pre></details></article><article class="case" data-search="wse2 · 2d · wse2-table-gw"><h2>WSe2 <span>2d</span></h2><p class="case-id">wse2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="27"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WSe2 | 2d | wse2-table-gw ===
+</pre></details></article><article class="case" data-search="wse2 · 2d · wse2-table-gw"><h2>WSe2 <span>2d</span></h2><p class="case-id">wse2-table-gw</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="27"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WSe2 | 2d | wse2-table-gw ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/2d/WSe2/wse2-table-gw/record.json
-Original strict issues (full, unmodified text)
-  [027] software.abacus.commit: full immutable commit is required
-  [028] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [027] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [028] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -539,10 +539,10 @@ Stages to cross-check: EXX/GW (LibRPA)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json
-</pre></details></article><article class="case" data-search="hbn · 2d · hbn-tzdp10-fgext-20261008"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-tzdp10-fgext-20261008</p><p>path_diagnostic · complete · 0 original issues</p><ol start="29"></ol><p>No current strict issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== hBN | 2d | hbn-tzdp10-fgext-20261008 ===
+</pre></details></article><article class="case" data-search="hbn · 2d · hbn-tzdp10-fgext-20261008"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-tzdp10-fgext-20261008</p><p>path_diagnostic · complete · 0 original issues</p><ol start="29"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== hBN | 2d | hbn-tzdp10-fgext-20261008 ===
 Scientific status: path_diagnostic; archive: complete
 Record: data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json
-Original strict issues (full, unmodified text)
+Original raw completeness issues (full, unmodified text)
   None.
 Existing logs (cross-check first)
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log
@@ -565,16 +565,16 @@ Existing receipts/manifests (cross-check first)
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PRODUCER_RECOVERY_RECEIPT.sha256
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PYATB_RECEIPT.txt
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json
-No current strict issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alas · 3d · alas-paper-paper"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-paper-paper</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="29"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-paper-paper ===
+No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
+</pre></details></article><article class="case" data-search="alas · 3d · alas-paper-paper"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-paper-paper</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="29"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-paper-paper ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/AlAs/alas-paper-paper/record.json
-Original strict issues (full, unmodified text)
-  [029] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [029] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -584,15 +584,15 @@ Existing logs (cross-check first)
   data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="alp · 3d · alp-paper-k8_shrink_wing"><h2>AlP <span>3d</span></h2><p class="case-id">alp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="30"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="alp · 3d · alp-paper-k8_shrink_wing"><h2>AlP <span>3d</span></h2><p class="case-id">alp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="30"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-paper-k8_shrink_wing ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/AlP/alp-paper-k8_shrink_wing/record.json
-Original strict issues (full, unmodified text)
-  [030] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [030] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -602,15 +602,15 @@ Existing logs (cross-check first)
   data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="alsb · 3d · alsb-paper-gw_gth_modspencer"><h2>AlSb <span>3d</span></h2><p class="case-id">alsb-paper-gw_gth_modspencer</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="31"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlSb | 3d | alsb-paper-gw_gth_modspencer ===
+</pre></details></article><article class="case" data-search="alsb · 3d · alsb-paper-gw_gth_modspencer"><h2>AlSb <span>3d</span></h2><p class="case-id">alsb-paper-gw_gth_modspencer</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="31"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlSb | 3d | alsb-paper-gw_gth_modspencer ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/record.json
-Original strict issues (full, unmodified text)
-  [031] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [031] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -619,15 +619,15 @@ Existing logs (cross-check first)
   data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/abacus.out
   data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bas · 3d · bas-paper-k8_shrink_wing"><h2>BAs <span>3d</span></h2><p class="case-id">bas-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="32"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BAs | 3d | bas-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="bas · 3d · bas-paper-k8_shrink_wing"><h2>BAs <span>3d</span></h2><p class="case-id">bas-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="32"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BAs | 3d | bas-paper-k8_shrink_wing ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/BAs/bas-paper-k8_shrink_wing/record.json
-Original strict issues (full, unmodified text)
-  [032] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [032] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -637,15 +637,15 @@ Existing logs (cross-check first)
   data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="bn · 3d · bn-paper-sg15"><h2>BN <span>3d</span></h2><p class="case-id">bn-paper-sg15</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="33"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-paper-sg15 ===
+</pre></details></article><article class="case" data-search="bn · 3d · bn-paper-sg15"><h2>BN <span>3d</span></h2><p class="case-id">bn-paper-sg15</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="33"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-paper-sg15 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/BN/bn-paper-sg15/record.json
-Original strict issues (full, unmodified text)
-  [033] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [033] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -654,15 +654,15 @@ Existing logs (cross-check first)
   data/calculations/3d/BN/bn-paper-sg15/logs/abacus.out
   data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bp · 3d · bp-paper-k8_shrink_wing"><h2>BP <span>3d</span></h2><p class="case-id">bp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="34"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="bp · 3d · bp-paper-k8_shrink_wing"><h2>BP <span>3d</span></h2><p class="case-id">bp-paper-k8_shrink_wing</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="34"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-paper-k8_shrink_wing ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/BP/bp-paper-k8_shrink_wing/record.json
-Original strict issues (full, unmodified text)
-  [034] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [034] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -672,15 +672,15 @@ Existing logs (cross-check first)
   data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="c · 3d · c-paper-sg15_cs1e-5"><h2>C <span>3d</span></h2><p class="case-id">c-paper-sg15_cs1e-5</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="35"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-paper-sg15_cs1e-5 ===
+</pre></details></article><article class="case" data-search="c · 3d · c-paper-sg15_cs1e-5"><h2>C <span>3d</span></h2><p class="case-id">c-paper-sg15_cs1e-5</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="35"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-paper-sg15_cs1e-5 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/C/c-paper-sg15_cs1e-5/record.json
-Original strict issues (full, unmodified text)
-  [035] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [035] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -689,74 +689,42 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/abacus.out
   data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c1024-gamma-g0w0-20260521"><h2>C <span>3d</span></h2><p class="case-id">c1024-gamma-g0w0-20260521</p><p>gw_validated · incomplete · 2 original issues</p><ol start="36"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c1024-gamma-g0w0-20260521 ===
-Scientific status: gw_validated; archive: incomplete
+</pre></details></article><article class="case" data-search="c · 3d · c1024-gamma-g0w0-20260521"><h2>C <span>3d</span></h2><p class="case-id">c1024-gamma-g0w0-20260521</p><p>gw_validated · complete · 0 original issues</p><ol start="36"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c1024-gamma-g0w0-20260521 ===
+Scientific status: gw_validated; archive: complete
 Record: data/calculations/3d/C/c1024-gamma-g0w0-20260521/record.json
-Original strict issues (full, unmodified text)
-  [036] software.abacus.commit: full immutable commit is required
-  [037] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
-The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
-Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
-  - The version/commit token, launch time, and actual launch command from the original log of that stage.
-  - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
-  - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
-  - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
-The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
-Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
-  - The version/commit token, launch time, and actual launch command from the original log of that stage.
-  - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
-  - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
-  - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
+Original raw completeness issues (full, unmodified text)
+  None.
 Existing logs (cross-check first)
   data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c2048-reader-v1-20260607"><h2>C <span>3d</span></h2><p class="case-id">c2048-reader-v1-20260607</p><p>generation_only · complete · 0 original issues</p><ol start="38"></ol><p>No current strict issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-reader-v1-20260607 ===
+No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
+</pre></details></article><article class="case" data-search="c · 3d · c2048-reader-v1-20260607"><h2>C <span>3d</span></h2><p class="case-id">c2048-reader-v1-20260607</p><p>generation_only · complete · 0 original issues</p><ol start="36"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-reader-v1-20260607 ===
 Scientific status: generation_only; archive: complete
 Record: data/calculations/3d/C/c2048-reader-v1-20260607/record.json
-Original strict issues (full, unmodified text)
+Original raw completeness issues (full, unmodified text)
   None.
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json
-No current strict issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="c · 3d · c512-gamma-g0w0-20260519"><h2>C <span>3d</span></h2><p class="case-id">c512-gamma-g0w0-20260519</p><p>gw_validated · incomplete · 2 original issues</p><ol start="38"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c512-gamma-g0w0-20260519 ===
-Scientific status: gw_validated; archive: incomplete
+No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
+</pre></details></article><article class="case" data-search="c · 3d · c512-gamma-g0w0-20260519"><h2>C <span>3d</span></h2><p class="case-id">c512-gamma-g0w0-20260519</p><p>gw_validated · complete · 0 original issues</p><ol start="36"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c512-gamma-g0w0-20260519 ===
+Scientific status: gw_validated; archive: complete
 Record: data/calculations/3d/C/c512-gamma-g0w0-20260519/record.json
-Original strict issues (full, unmodified text)
-  [038] software.abacus.commit: full immutable commit is required
-  [039] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
-The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
-Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
-  - The version/commit token, launch time, and actual launch command from the original log of that stage.
-  - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
-  - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
-  - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
-The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
-Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
-  - The version/commit token, launch time, and actual launch command from the original log of that stage.
-  - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
-  - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
-  - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
+Original raw completeness issues (full, unmodified text)
+  None.
 Existing logs (cross-check first)
   data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="cao · 3d · cao-paper-24freq"><h2>CaO <span>3d</span></h2><p class="case-id">cao-paper-24freq</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="40"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-paper-24freq ===
+No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
+</pre></details></article><article class="case" data-search="cao · 3d · cao-paper-24freq"><h2>CaO <span>3d</span></h2><p class="case-id">cao-paper-24freq</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="36"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-paper-24freq ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/CaO/cao-paper-24freq/record.json
-Original strict issues (full, unmodified text)
-  [040] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [036] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -765,15 +733,15 @@ Existing logs (cross-check first)
   data/calculations/3d/CaO/cao-paper-24freq/logs/abacus.out
   data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="cds · 3d · cds-paper-debug"><h2>CdS <span>3d</span></h2><p class="case-id">cds-paper-debug</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="41"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-paper-debug ===
+</pre></details></article><article class="case" data-search="cds · 3d · cds-paper-debug"><h2>CdS <span>3d</span></h2><p class="case-id">cds-paper-debug</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="37"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-paper-debug ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/CdS/cds-paper-debug/record.json
-Original strict issues (full, unmodified text)
-  [041] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [037] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -782,15 +750,15 @@ Existing logs (cross-check first)
   data/calculations/3d/CdS/cds-paper-debug/logs/abacus.out
   data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-paper-gw_xsoc_1e-10"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-paper-gw_xsoc_1e-10</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="42"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-paper-gw_xsoc_1e-10 ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-paper-gw_xsoc_1e-10"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-paper-gw_xsoc_1e-10</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="38"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-paper-gw_xsoc_1e-10 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/record.json
-Original strict issues (full, unmodified text)
-  [042] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [038] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -799,15 +767,15 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out
   data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gan · 3d · gan-paper-pca1e-6"><h2>GaN <span>3d</span></h2><p class="case-id">gan-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="43"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-paper-pca1e-6 ===
+</pre></details></article><article class="case" data-search="gan · 3d · gan-paper-pca1e-6"><h2>GaN <span>3d</span></h2><p class="case-id">gan-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="39"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-paper-pca1e-6 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/GaN/gan-paper-pca1e-6/record.json
-Original strict issues (full, unmodified text)
-  [043] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [039] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -816,15 +784,15 @@ Existing logs (cross-check first)
   data/calculations/3d/GaN/gan-paper-pca1e-6/logs/abacus.out
   data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gap · 3d · gap-paper-gw_shrink_chi"><h2>GaP <span>3d</span></h2><p class="case-id">gap-paper-gw_shrink_chi</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="44"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-paper-gw_shrink_chi ===
+</pre></details></article><article class="case" data-search="gap · 3d · gap-paper-gw_shrink_chi"><h2>GaP <span>3d</span></h2><p class="case-id">gap-paper-gw_shrink_chi</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="40"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-paper-gw_shrink_chi ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/GaP/gap-paper-gw_shrink_chi/record.json
-Original strict issues (full, unmodified text)
-  [044] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [040] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -833,15 +801,15 @@ Existing logs (cross-check first)
   data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/abacus.out
   data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="lif · 3d · lif-paper-jy"><h2>LiF <span>3d</span></h2><p class="case-id">lif-paper-jy</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="45"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-paper-jy ===
+</pre></details></article><article class="case" data-search="lif · 3d · lif-paper-jy"><h2>LiF <span>3d</span></h2><p class="case-id">lif-paper-jy</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="41"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-paper-jy ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/LiF/lif-paper-jy/record.json
-Original strict issues (full, unmodified text)
-  [045] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [041] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -850,15 +818,15 @@ Existing logs (cross-check first)
   data/calculations/3d/LiF/lif-paper-jy/logs/abacus.out
   data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-paper-fix_gap"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-paper-fix_gap</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="46"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-paper-fix_gap ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-paper-fix_gap"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-paper-fix_gap</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="42"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-paper-fix_gap ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/MgO/mgo-paper-fix_gap/record.json
-Original strict issues (full, unmodified text)
-  [046] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [042] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -867,24 +835,24 @@ Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-paper-fix_gap/logs/abacus.out
   data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="nacl · 3d · nacl-paper-sg15"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-paper-sg15</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="47"><li><code>software.abacus.commit: full immutable commit is required</code></li><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-paper-sg15 ===
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-paper-sg15"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-paper-sg15</p><p>gw_diagnostic · incomplete · 2 original issues</p><ol start="43"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-paper-sg15 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/NaCl/nacl-paper-sg15/record.json
-Original strict issues (full, unmodified text)
-  [047] software.abacus.commit: full immutable commit is required
-  [048] software.librpa.commit: full immutable commit is required
-ABACUS fullcommit to close: software.abacus.commit
+Original raw completeness issues (full, unmodified text)
+  [043] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [044] software.librpa.identity: full immutable commit or executable SHA-256 is required
+ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA fullcommit to close: software.librpa.commit
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -894,15 +862,15 @@ Existing logs (cross-check first)
   data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="si · 3d · si-paper-all_kpath"><h2>Si <span>3d</span></h2><p class="case-id">si-paper-all_kpath</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="49"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-paper-all_kpath ===
+</pre></details></article><article class="case" data-search="si · 3d · si-paper-all_kpath"><h2>Si <span>3d</span></h2><p class="case-id">si-paper-all_kpath</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="45"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-paper-all_kpath ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/Si/si-paper-all_kpath/record.json
-Original strict issues (full, unmodified text)
-  [049] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [045] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -911,15 +879,15 @@ Existing logs (cross-check first)
   data/calculations/3d/Si/si-paper-all_kpath/logs/abacus.out
   data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-paper-pca1e-6"><h2>SiC <span>3d</span></h2><p class="case-id">sic-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="50"><li><code>software.librpa.commit: full immutable commit is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-paper-pca1e-6 ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-paper-pca1e-6"><h2>SiC <span>3d</span></h2><p class="case-id">sic-paper-pca1e-6</p><p>gw_diagnostic · incomplete · 1 original issues</p><ol start="46"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-paper-pca1e-6 ===
 Scientific status: gw_diagnostic; archive: incomplete
 Record: data/calculations/3d/SiC/sic-paper-pca1e-6/record.json
-Original strict issues (full, unmodified text)
-  [050] software.librpa.commit: full immutable commit is required
-LibRPA fullcommit to close: software.librpa.commit
+Original raw completeness issues (full, unmodified text)
+  [046] software.librpa.identity: full immutable commit or executable SHA-256 is required
+LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.
+  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
   - The version/commit token, launch time, and actual launch command from the original log of that stage.
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
@@ -999,7 +967,7 @@ full_runtime_seal | inse-table-gw: Recovered controls/role bindings do not estab
   Public evidence: data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json
 full_runtime_seal | mos2_ws2-table-gw: Recovered controls/role bindings do not establish a full runtime seal. Recover each stage&#x27;s inputs, reader payloads, payload-survival/rehash evidence, and the identity chain from the same run.
   Public evidence: data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
-dangling_reader_links | mos2_ws2-table-gw: The original recovery audit reported 405 dangling reader links in input_librpa. A manifest does not prove payload survival. Recover the original target payloads/full backup; do not add 405 to the 87 strict issues. This export did not rescan the private directory.
+dangling_reader_links | mos2_ws2-table-gw: The original recovery audit reported 405 dangling reader links in input_librpa. A manifest does not prove payload survival. Recover the original target payloads/full backup; do not add the link count to the raw completeness issue count. This export did not rescan the private directory.
   Public evidence: data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
 full_runtime_seal | mose2-table-gw: Recovered controls/role bindings do not establish a full runtime seal. Recover each stage&#x27;s inputs, reader payloads, payload-survival/rehash evidence, and the identity chain from the same run.
   Public evidence: data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json

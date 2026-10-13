@@ -71,7 +71,8 @@ export function archivedBandGap(record, method = "GW") {
 export function methodNames(record) {
   const corpus = [...filesOf(record, "results"), ...filesOf(record, "logs")].map(f => `${f.label || ""} ${f.path?.split("/").at(-1)}`).join(" ");
   const props = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed").map(p => p.method).join(" ");
-  return ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBE|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props}`));
+  const associated = record.associated_gw_run?.scheduler_state === "COMPLETED" ? record.associated_gw_run.task || "G0W0" : "";
+  return ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBE|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props} ${associated}`));
 }
 
 export function recordType(record) {
@@ -107,6 +108,9 @@ export function primaryResult(record) {
     return property ? { label: property.label || "RPA correlation energy", value: property.value, unit: property.unit, scope: property.definition || "" } : null;
   }
   if (type === "reader_conversion") {
+    if (record?.associated_gw_run?.scheduler_state === "COMPLETED") {
+      return { label: "Historical Γ-state G0W0 run", value: "Completed", unit: "", scope: "Precise KS/G0W0 gap unavailable: frontier states 4096 and 4097 were not retained" };
+    }
     const dimension = record?.computational_scale?.matrix_rows;
     return Number.isInteger(dimension) && dimension > 0 ? { label: "Reader-v1 matrix dimension", value: dimension, unit: "states", scope: "Conversion evidence only; no RPA/GW observable" } : null;
   }

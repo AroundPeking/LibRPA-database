@@ -135,12 +135,12 @@ CASES = {
 
 ROLE_DIRS = {"pp": ("pseudopotentials", ".upf"), "nao": ("orbitals", ".orb"), "abf": ("auxiliary", ".abfs")}
 EXPECTED_ISSUES = {
-    "gete-table-gw": {"software.abacus.commit: full immutable commit is required",
-                      "software.librpa.commit: full immutable commit is required"},
-    "snse-table-gw": {"software.abacus.commit: full immutable commit is required",
-                      "software.librpa.commit: full immutable commit is required"},
-    "phosphorene-table-gw": {"software.abacus.commit: full immutable commit is required",
-                             "software.librpa.commit: full immutable commit is required"},
+    "gete-table-gw": {"software.abacus.identity: full immutable commit or executable SHA-256 is required",
+                      "software.librpa.identity: full immutable commit or executable SHA-256 is required"},
+    "snse-table-gw": {"software.abacus.identity: full immutable commit or executable SHA-256 is required",
+                      "software.librpa.identity: full immutable commit or executable SHA-256 is required"},
+    "phosphorene-table-gw": {"software.abacus.identity: full immutable commit or executable SHA-256 is required",
+                             "software.librpa.identity: full immutable commit or executable SHA-256 is required"},
 }
 
 

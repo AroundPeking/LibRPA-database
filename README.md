@@ -31,8 +31,10 @@ methods, commits, and public file names; formula subscripts and punctuation are
 normalized. The dimension filter keeps 2D and 3D records visibly separate. The
 material list stays compact and opens a detail page for each record. That page
 contains DFT/EXX/GW figures, raw band files, provenance, and a category-based
-properties table. Reader-format provenance uses a separate record type and never
-appears as an RPA/GW result. Electronic results are migrated from the recorded summaries;
+properties table. Reader-format provenance uses a separate record type and does not
+become an RPA/GW result record. It may link a bounded audit of a separate completed
+historical GW run; when frontier rows were not retained, the site shows completion and
+`gap unavailable` rather than turning a Fermi energy into a gap. Electronic results are migrated from the recorded summaries;
 Topology, Optical, Magnetic, Structural, and Other remain ready for evidence-
 linked contributions without implying those results already exist.
 
@@ -140,6 +142,13 @@ python3 scripts/public_scan.py .
 python3 -m unittest discover -s tests -v
 node --test tests/*.mjs
 ```
+
+The completeness report keeps unresolved historical software-identity facts visible.
+CI accepts only the exact pre-existing calculation/software pairs frozen in
+`data/historical-software-identity-exceptions.json`. New material must provide a full
+source commit or the SHA-256 of the exact executable for each executing code; new
+identity gaps, all non-software evidence gaps, and unknown/duplicate/stale baseline
+entries remain blocking.
 
 An optional real-browser regression is available as `node tests/browser_smoke.cjs`
 when Playwright is installed in the caller's environment. It defaults to the

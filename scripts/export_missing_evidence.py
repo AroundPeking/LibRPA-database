@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""导出不放宽 strict 门槛的逐材料缺证清单；默认只读。"""
+"""导出原始缺项、历史接受项与当前CI阻断项；默认只读。"""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from pathlib import Path, PurePosixPath
 import library
 
 SOFTWARE_REQUIREMENTS = [
-    "The full immutable source commit for the historical stage, not the current HEAD, a branch name, or a short token.",
+    "The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.",
     "The version/commit token, launch time, and actual launch command from the original log of that stage.",
     "source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.",
     "The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.",
@@ -23,7 +23,7 @@ SCOPE_NOTES = [
     "Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.",
     "Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.",
     "Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.",
-    "Strict upload completeness, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.",
+    "Raw upload completeness, the fixed historical software-identity acceptance baseline, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.",
 ]
 PATH_KEYS = {"path", "paths", "record_path", "repository_path", "evidence", "source_paths", "metadata_path", "receipt_path", "existing_identity_evidence"}
 
@@ -126,12 +126,12 @@ def _case_collection(root: Path, case: dict, issues: list[str]) -> dict:
         "notes": [],
     }
     for name in ("abacus", "librpa"):
-        if not any(issue.startswith(f"software.{name}.commit:") for issue in issues):
+        if not any(issue.startswith(f"software.{name}.identity:") for issue in issues):
             continue
         app = case.get("software", {}).get(name, {})
         result["software_requests"].append({
             "software": "ABACUS" if name == "abacus" else "LibRPA",
-            "field": f"software.{name}.commit",
+            "field": f"software.{name}.identity",
             "known_full_commit": app.get("commit"),
             "known_abbreviated_commit": app.get("abbreviated_commit"),
             "existing_identity_evidence": app.get("evidence", []),
@@ -148,7 +148,7 @@ def _case_collection(root: Path, case: dict, issues: list[str]) -> dict:
     if any(issue.startswith("properties: EXX") for issue in issues):
         result["notes"].append("The existing EXX anomaly is not a missing ordinary gap. Recover a correct, complete spectrum from the same source with diagnostic, occupation, and export-range evidence, or explicitly record the scientific decision to retain the failed diagnostic. Do not invent a normal gap or substitute a paper value.")
     if not issues:
-        result["notes"].append("No current strict issues; this does not automatically establish a full runtime mirror or scientific acceptance.")
+        result["notes"].append("No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.")
     return result
 
 
@@ -194,7 +194,7 @@ def _supplementary(root: Path, cases: list[dict]) -> list[dict]:
                 extras.append({"kind": "dangling_reader_links", "case_id": case["id"],
                                "material": case["material"], "counted_in_strict_issues": False,
                                "reported_link_count": 405, "receipt_path": item["path"],
-                               "note": "The original recovery audit reported 405 dangling reader links in input_librpa. A manifest does not prove payload survival. Recover the original target payloads/full backup; do not add 405 to the 87 strict issues. This export did not rescan the private directory."})
+                               "note": "The original recovery audit reported 405 dangling reader links in input_librpa. A manifest does not prove payload survival. Recover the original target payloads/full backup; do not add the link count to the raw completeness issue count. This export did not rescan the private directory."})
     return extras
 
 
@@ -205,7 +205,7 @@ def build_export(root: Path) -> tuple[dict, dict]:
     if report["integrity_issues"]:
         raise ValueError("archive schema/hash integrity failed: " + "; ".join(report["integrity_issues"]))
     export = copy.deepcopy(report)
-    export["export_scope"] = {"strict_gate_unchanged": True, "notes": SCOPE_NOTES}
+    export["export_scope"] = {"raw_issues_preserved": True, "historical_identity_baseline_applied_only_to_ci_gate": True, "notes": SCOPE_NOTES}
     by_id = {case["id"]: case for case in cases}
     for record in export["cases"]:
         record["collection"] = _case_collection(root, by_id[record["id"]], record["issues"])
@@ -219,7 +219,7 @@ def render_text(export: dict) -> str:
     assert_public(export)
     stats = export["stats"]
     lines = ["ABACUS + LibRPA public archive: complete missing-evidence checklist", "",
-             f"Strict status: {export['status']}; {stats['total']} records, {stats['incomplete']} incomplete, {stats['complete']} complete, {stats['issue_count']} original issues in total.",
+             f"Raw completeness status: {export['status']}; CI gate: {export['gate_status']}; {stats['total']} records, {stats['incomplete']} with retained raw issues, {stats['complete']} without raw issues, {stats['issue_count']} original issues in total.",
              "All original issues are preserved case by case. Supplementary evidence requests and runtime gaps are excluded from this total.", ""]
     lines += export["export_scope"]["notes"]
     for category, value in stats["missing_categories"].items():
@@ -229,7 +229,7 @@ def render_text(export: dict) -> str:
         collection = case["collection"]
         lines += ["", f"=== {case['material']} | {case['dimension']} | {case['id']} ===",
                   f"Scientific status: {case['scientific_status']}; archive: {case['status']}",
-                  f"Record: {collection['record_path']}", "Original strict issues (full, unmodified text)"]
+                  f"Record: {collection['record_path']}", "Original raw completeness issues (full, unmodified text)"]
         if not case["issues"]:
             lines.append("  None.")
         for issue in case["issues"]:
@@ -251,7 +251,7 @@ def render_text(export: dict) -> str:
                     names = element["original_names"]
                     lines.append(f"  {element['element']}: PP={names['pp'] or 'not declared'}; NAO={names['nao'] or 'not declared'}; ABF={names['abf'] or 'not declared (do not guess)'}")
         for request in collection["software_requests"]:
-            lines += [f"{request['software']} fullcommit to close: {request['field']}", request["note"],
+            lines += [f"{request['software']} immutable identity to close: {request['field']}", request["note"],
                       "Stages to cross-check: " + "; ".join(request["stages_to_bind"])]
             lines += ["  - " + requirement for requirement in request["requirements"]]
         if collection["existing_stage_controls"]:
@@ -295,7 +295,7 @@ def render_html(export: dict) -> str:
                      f'<p class="case-id">{escape(case["id"])}</p><p>{escape(case["scientific_status"])} · '
                      f'{escape(case["status"])} · {len(case["issues"])} original issues</p>'
                      f'<ol start="{start}">{raw}</ol>'
-                     f'{"<p>No current strict issues; scientific acceptance is not automatic.</p>" if not raw else ""}'
+                     f'{"<p>No current raw completeness issues; scientific acceptance is not automatic.</p>" if not raw else ""}'
                      f'<details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>{escape(detail)}</pre></details></article>')
     supplemental = text.split("=== Supplementary items: excluded from the strict issue total ===", 1)[1]
     notes = "".join(f"<li>{escape(note)}</li>" for note in export["export_scope"]["notes"])
@@ -304,8 +304,8 @@ def render_html(export: dict) -> str:
 <title>GW database: complete missing-evidence checklist</title><style>
 :root{{color-scheme:dark}}*{{box-sizing:border-box}}body{{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}}main{{max-width:1120px;margin:auto;padding:40px 24px 80px}}h1{{font-size:30px;line-height:1.3;margin:0 0 16px}}h2{{font-size:22px;margin:0}}h2 span{{font-size:14px;color:#a9c0df}}.summary,.case,.notes{{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}}.summary{{border-color:#cfa85e}}.counts{{font-size:22px;color:#ffd68b}}.muted,.case-id{{color:#bed0e5}}.case-id{{overflow-wrap:anywhere;margin:6px 0}}input{{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}}input:focus{{outline:2px solid #78bafa;outline-offset:2px}}label{{display:block;margin-bottom:8px}}code,pre{{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}}li{{margin:8px 0}}ol{{padding-left:36px}}details{{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}}summary{{cursor:pointer;color:#98ccff}}pre{{color:#d4e1f0}}[hidden]{{display:none!important}}.toolbar{{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}}footer{{color:#a7bdd8;margin-top:30px}}@media(max-width:600px){{main{{padding:24px 14px}}.case,.summary,.notes{{padding:16px}}h1{{font-size:25px}}}}
 </style></head><body><main>
-<h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original strict issues are preserved by material and case. Search and expand the actual evidence-recovery entry points. A public website does not imply strict data acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
-<section class="summary"><div class="counts">{stats['issue_count']} original issues · {stats['incomplete']}/{stats['total']} records incomplete</div><p>Strict: {escape(export['status'])}; {stats['complete']} complete. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
+<h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original raw completeness issues are preserved by material and case. The fixed historical software-identity baseline changes only the CI decision, not these facts or scientific acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
+<section class="summary"><div class="counts">{stats['issue_count']} original issues · {stats['incomplete']}/{stats['total']} records with raw issues</div><p>Raw completeness: {escape(export['status'])}; CI gate: {escape(export['gate_status'])}; {stats['accepted_exception_count']} grandfathered software identity issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
 <section class="notes"><ul>{notes}</ul></section>
 <div class="toolbar"><label for="search">Search material / case ID / dimension</label><input id="search" type="search" placeholder="For example: GeTe, MoSe2, C512, 3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">Showing all {stats['total']} records</p></div>
 {''.join(cards)}
@@ -327,13 +327,13 @@ def checked_target(path: Path) -> Path:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Complete missing-evidence export; strict gate unchanged; read-only by default")
+    parser = argparse.ArgumentParser(description="Complete missing-evidence export with separate raw completeness and CI gate status; read-only by default")
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--write", action="store_true", help="Explicitly write database reports and optional output deliverables")
     mode.add_argument("--check", action="store_true", help="Verify public JSON/HTML matches the current full report byte for byte")
     parser.add_argument("--output-dir", type=Path, help="Explicit output directory; must exist and requires --write")
-    parser.add_argument("--report-output", type=Path, help="Explicitly write the original full report; success does not mean strict acceptance")
+    parser.add_argument("--report-output", type=Path, help="Explicitly write the full raw and CI-gate report; success does not mean scientific acceptance")
     args = parser.parse_args()
     if args.output_dir and not args.write:
         parser.error("--output-dir requires --write")
@@ -369,8 +369,8 @@ def main() -> int:
         if not args.write and not args.check and not args.report_output:
             print(txt, end="")
         else:
-            print(f"Missing-evidence report {'written' if args.write or args.report_output else 'checked'}: {report['stats']['issue_count']} original issues; strict status remains {report['status']}.")
-            print("This command validates schema/hash and report freshness, not strict completeness or scientific acceptance.")
+            print(f"Missing-evidence report {'written' if args.write or args.report_output else 'checked'}: {report['stats']['issue_count']} original issues retained; CI gate is {report['gate_status']}.")
+            print("This command validates schema/hash and report freshness; it does not change scientific acceptance.")
         return 0
     except (ValueError, OSError, KeyError, TypeError) as error:
         print(f"Missing-evidence export stopped: {error}")
