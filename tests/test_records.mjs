@@ -11,8 +11,9 @@ test("stage-resolved controls retain redaction provenance without exposing inter
   const html = renderMaterial(record, []);
   assert.match(html, /Stage-resolved calculation inputs/);
   assert.match(html, /View stage-input receipt/);
-  assert.match(html, /Original SHA-256/);
-  assert.match(html, new RegExp("b".repeat(64)));
+  assert.match(html, /File transformations are recorded/);
+  assert.doesNotMatch(html, /Original SHA-256/);
+  assert.doesNotMatch(html, new RegExp("b".repeat(64)));
   assert.doesNotMatch(html, /Upload incomplete|CI blocked|software missing|Archive completeness/);
 });
 
@@ -143,13 +144,13 @@ test("formal record pages keep software provenance while internal QA fields stay
     missing: ["Original input unavailable"],
     archive_completeness: { status: "incomplete", issues: ["Missing <INPUT>"] },
     method_diagnostics: [{ method: "EXX", message: "Pathology <raw spectrum>", full_raw_path_gap_ev: -1002817.14856 }],
-    software: { abacus: { commit: "a".repeat(40) }, librpa: { commit: "b".repeat(40) } },
+    software: { abacus: { commit: "a".repeat(40), source_url: "https://github.com/example/abacus" }, librpa: { commit: "b".repeat(40), source_url: "https://github.com/example/librpa" } },
   };
   const html = renderMaterial(record, []);
   const software = html.slice(html.indexOf('id="record-evidence"'));
   assert.match(software, /<h2>Software &amp; logs<\/h2>/);
-  assert.match(software, new RegExp("a".repeat(40)));
-  assert.match(software, new RegExp("b".repeat(40)));
+  assert.match(software, /Source code ↗/);
+  assert.doesNotMatch(software, /Executable SHA-256/);
   assert.doesNotMatch(html, /Archive completeness|Upload incomplete|CI blocked|Missing &lt;INPUT&gt;|Original input unavailable|SCF evidence pending|Pathology|evidence issues/);
 });
 
@@ -244,8 +245,8 @@ test("recorded software identifiers are displayed without internal missing-versi
   const record = { id: "partial-commit", material: "Si", dimension: "3d", software: { abacus: { commit: "123abcd", source_url: "https://github.com/example/code" }, librpa: { commit: "unknown" } } };
   const html = renderMaterial(record, []);
   const software = html.slice(html.indexOf('id="record-evidence"'));
-  assert.match(software, /123abcd/);
-  assert.match(software, /unknown/);
+  assert.match(software, /Calculation software/);
+  assert.doesNotMatch(software, /123abcd/);
   assert.doesNotMatch(software, /Full commit not recorded|full source commit|\/commit\/123abcd/);
 });
 
@@ -289,14 +290,14 @@ test("candidate links are not labelled as exact production bindings", () => {
   assert.equal(setRelation({ species: [{ set_id: "exact" }] }, "exact"), "Exact binding");
 });
 
-test("file rows preserve path and hash, expose view/download and label unknown originals", () => {
+test("file rows expose view/download and label unknown originals without internal hashes", () => {
   const html = renderFiles([{ path: "data/hash.orb", sha256: "abc123", display_name: "Si_NAO_abc.orb", download_name: "Si_NAO_abc.orb", name_source: "descriptive_alias", role: "nao", size_bytes: 100 }]);
   assert.match(html, /data-preview="data\/hash.orb"/);
   assert.match(html, /download="Si_NAO_abc.orb"/);
   assert.match(html, /Descriptive filename/);
-  assert.match(html, /abc123/);
+  assert.doesNotMatch(html, /abc123/);
   assert.doesNotMatch(html, />payload</);
-  assert.match(renderFiles([{ path: "data/x", label: "<script>bad</script>" }]), /&lt;script&gt;/);
+  assert.match(renderFiles([{ path: "data/<script>bad</script>.orb" }]), /&lt;script&gt;/);
 });
 
 test("nested input archive names retain stage labels", () => {

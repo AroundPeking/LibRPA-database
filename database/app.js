@@ -94,10 +94,10 @@ function renderHome() {
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
   $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files, source hashes, and linked calculations." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, software identity, and immutable evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, source hashes, radial functions, and linked calculations." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
+  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
