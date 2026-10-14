@@ -101,6 +101,6 @@ test("plot section distinguishes physical NAO/ABF and explains display scope", (
   assert.match(html, /Physical NAO/);
   assert.match(html, /Auxiliary basis/);
   assert.match(html, /without smoothing/i);
-  assert.match(html, /SHA-256 is checked before plotting/);
+  assert.match(html, /Click to load radial plots/);
   assert.match(html, /Periodic overlap, RI conditioning, EXX\/GW accuracy, and basis completeness are separate/);
 });
