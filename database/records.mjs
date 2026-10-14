@@ -132,6 +132,11 @@ export function primaryResult(record) {
   }
   if (type === "reader_conversion") {
     if (record?.associated_gw_run?.scheduler_state === "COMPLETED") {
+      const gap = record.associated_gw_run.gap;
+      const gwProp = sampledGridGap(record, "G0W0");
+      if (gap?.g0w0_available && typeof gap.g0w0_value === "number" && Number.isFinite(gap.g0w0_value)) {
+        return { label: "Sampled Γ G0W0 gap", value: gap.g0w0_value, unit: "eV", scope: gwProp?.definition || "Frontier states present in the complete QP output; not a full-spectrum finite-table result" };
+      }
       return { label: "Sampled Γ G0W0 gap", value: "Unavailable", unit: "", scope: "Frontier states 4096 and 4097 are missing from the retained QP output; no numerical gap is claimed" };
     }
     const dimension = record?.computational_scale?.matrix_rows;

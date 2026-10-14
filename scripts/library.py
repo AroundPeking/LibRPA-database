@@ -206,31 +206,46 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
             frontier = associated.get("frontier_states") if isinstance(associated, dict) else None
             gap = associated.get("gap") if isinstance(associated, dict) else None
             markers = associated.get("program_completion_markers") if isinstance(associated, dict) else None
-            if (not isinstance(associated, dict)
-                    or associated.get("scheduler_state") != "COMPLETED"
-                    or associated.get("exit_code") != "0:0"
-                    or any(not _positive_int(associated.get(field)) for field in ("elapsed_seconds", "nodes", "cpus"))
-                    or not isinstance(markers, list)
-                    or "Solve quasi-particle equation" not in markers
-                    or "libRPA finished successfully" not in markers
-                    or not isinstance(fermi, dict)
-                    or isinstance(fermi.get("value"), bool)
-                    or not isinstance(fermi.get("value"), (int, float))
-                    or not math.isfinite(fermi["value"])
-                    or fermi.get("unit") != "Ha"
-                    or not re.search(r"not .*gap", str(fermi.get("role", "")), re.I)
-                    or not isinstance(frontier, dict)
-                    or frontier.get("occupied_state") != 4096
-                    or frontier.get("unoccupied_state") != 4097
-                    or frontier.get("retained") is not False
-                    or not isinstance(gap, dict)
-                    or gap.get("ks_available") is not False
-                    or gap.get("g0w0_available") is not False
-                    or not isinstance(gap.get("reason"), str)
-                    or not gap["reason"].strip()):
+            common_ok = (isinstance(associated, dict)
+                    and associated.get("scheduler_state") == "COMPLETED"
+                    and associated.get("exit_code") == "0:0"
+                    and all(_positive_int(associated.get(field)) for field in ("elapsed_seconds", "nodes", "cpus"))
+                    and isinstance(markers, list)
+                    and "Solve quasi-particle equation" in markers
+                    and "libRPA finished successfully" in markers
+                    and isinstance(fermi, dict)
+                    and not isinstance(fermi.get("value"), bool)
+                    and isinstance(fermi.get("value"), (int, float))
+                    and math.isfinite(fermi["value"])
+                    and fermi.get("unit") == "Ha"
+                    and re.search(r"not .*gap", str(fermi.get("role", "")), re.I)
+                    and isinstance(frontier, dict)
+                    and frontier.get("occupied_state") == 4096
+                    and frontier.get("unoccupied_state") == 4097
+                    and isinstance(gap, dict)
+                    and isinstance(gap.get("reason"), str)
+                    and gap["reason"].strip())
+            frontier_retained = isinstance(frontier, dict) and frontier.get("retained") is True
+            if frontier_retained:
+                if not common_ok or frontier.get("retained") is not True:
+                    _fail(f"{label}.associated_gw_run: completed QP provenance is required")
+                for flag, val in (("ks_available", "ks_value"), ("g0w0_available", "g0w0_value")):
+                    if (not isinstance(gap.get(flag), bool) or (gap[flag] and (
+                            not isinstance(gap.get(val), (int, float)) or isinstance(gap.get(val), bool)
+                            or not math.isfinite(gap[val]) or gap.get("unit") != "eV"))):
+                        _fail(f"{label}.associated_gw_run: retained frontier requires finite eV gap values")
+            elif not common_ok or frontier.get("retained") is not False or gap.get("ks_available") is not False or gap.get("g0w0_available") is not False:
                 _fail(f"{label}.associated_gw_run: completed QP provenance and explicit unavailable-gap boundary are required")
-        if case.get("properties"):
-            _fail(f"{label}.properties: conversion-only records cannot claim scientific properties")
+            if frontier_retained and case.get("properties"):
+                allowed = all(p.get("key") == "sampled_grid_gap_ev" and p.get("unit") == "eV"
+                              and p.get("status") in {"reported", "validated", "provisional"}
+                              and isinstance(p.get("value"), (int, float)) and not isinstance(p.get("value"), bool)
+                              and math.isfinite(p["value"])
+                              for p in case["properties"])
+                if not allowed:
+                    _fail(f"{label}.properties: retained-frontier reader conversion allows only finite sampled_grid_gap_ev properties")
+            elif not frontier_retained and case.get("properties"):
+                _fail(f"{label}.properties: conversion-only records cannot claim scientific properties")
         return
 
     if record_type == "rpa_energy":

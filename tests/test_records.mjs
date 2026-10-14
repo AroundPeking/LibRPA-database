@@ -360,26 +360,24 @@ test("reader conversion is clearly separated from RPA and GW results", () => {
   assert.doesNotMatch(html, /Electronic bands|Sampled Γ G0W0 gap|fundamental gap/);
 });
 
-test("C2048 preserves completed historical Gamma-state GW evidence without inventing a gap", () => {
+test("C2048 shows verified sampled Gamma gaps from the complete QP output", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/3d/C/c2048-reader-v1-20260607/record.json", import.meta.url)));
   assert.equal(recordType(record), "reader_conversion");
-  assert.deepEqual(methodNames(record), ["GW"]);
-  assert.deepEqual(primaryResult(record), {
-    label: "Sampled Γ G0W0 gap",
-    value: "Unavailable",
-    unit: "",
-    scope: "Frontier states 4096 and 4097 are missing from the retained QP output; no numerical gap is claimed",
-  });
+  assert.deepEqual(methodNames(record), ["DFT", "GW"]);
+  const result = primaryResult(record);
+  assert.equal(result.label, "Sampled Γ G0W0 gap");
+  assert.equal(result.value, 5.74313);
+  assert.equal(result.unit, "eV");
   const html = renderMaterial(record, []);
-  assert.match(html, /Sampled Γ PBE gap[\s\S]*Unavailable/);
-  assert.match(html, /Sampled Γ G0W0 gap[\s\S]*Unavailable/);
-  assert.match(html, /Original GW output provenance/);
-  assert.doesNotMatch(html, /Historical Γ-state G0W0[\s\S]*Completed/);
+  assert.match(html, /4\.28728/);
+  assert.match(html, /5\.74313/);
+  assert.match(html, /Γ gaps verified/);
+  assert.match(html, /frontier states.*present|frontier states.*verified/i);
+  assert.match(html, /nonfinite|NaN|not.*satisfied/i);
   assert.match(html, /0\.585339 Ha[\s\S]*Fermi energy, not a gap/);
-  assert.match(html, /frontier states 4096 and 4097/);
   assert.match(html, /20861222/);
   assert.match(html, /19:46:08/);
-  assert.doesNotMatch(html, /fundamental gap|315\.02863|Sampled Γ G0W0 gap<\/span><strong[^>]*>[0-9]/);
+  assert.doesNotMatch(html, /Unavailable|fundamental gap|315\.02863/);
 });
 
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {

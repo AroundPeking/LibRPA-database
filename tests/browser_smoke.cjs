@@ -72,10 +72,10 @@ async function main() {
     await go("#/material/c2048-reader-v1-20260607");
     const c2048Text = await page.locator("#detail-view").innerText();
     check(c2048Text.includes("Reader-v1 conversion with linked GW completion audit") && c2048Text.includes("Reader-v1 states\n26624") && c2048Text.includes("Matrix rows\n26624") && c2048Text.includes("Matrix columns\n26624"), "C2048 preserves conversion scope and matrix dimensions below the gap headline");
-    check(c2048Text.includes("Sampled Γ PBE gap\nUnavailable") && c2048Text.includes("Sampled Γ G0W0 gap\nUnavailable") && !c2048Text.includes("Historical Γ-state G0W0\nCompleted"), "C2048 leads with unavailable gaps rather than completion status");
+    check(c2048Text.includes("Sampled Γ PBE gap") && c2048Text.includes("4.28728") && c2048Text.includes("5.74313") && c2048Text.includes("Γ gaps verified"), "C2048 shows verified sampled Gamma gaps from the complete QP output");
     check(c2048Text.includes("0.585339 Ha") && c2048Text.includes("Fermi energy, not a gap"), "C2048 labels the retained energy as Fermi energy rather than a gap");
-    check(c2048Text.includes("frontier states 4096 and 4097") && c2048Text.includes("19:46:08"), "C2048 explains the missing frontier rows and retained runtime");
-    check(!/fundamental gap|315\.02863|Sampled Γ G0W0 gap\n[0-9]/.test(c2048Text), "C2048 exposes no fabricated numerical gap or unrelated high-energy state");
+    check(c2048Text.includes("frontier states") && c2048Text.includes("19:46:08"), "C2048 explains the frontier states and retained runtime");
+    check(!/fundamental gap|315\.02863/.test(c2048Text), "C2048 exposes no fabricated gap or unrelated high-energy state");
     check(await page.locator("#record-bands, #record-results").count() === 0, "C2048 does not expose a fabricated band or QP-table section");
     await go("");
     await page.getByRole("button", { name: "Next page", exact: true }).click();
