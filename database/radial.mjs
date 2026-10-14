@@ -88,7 +88,7 @@ export function installRadial(view) {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const bytes = await response.arrayBuffer();
         const digest = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map(x => x.toString(16).padStart(2, "0")).join("");
-        if (digest !== file.dataset.radialSha) throw new Error("Original radial SHA-256 mismatch");
+        if (digest !== file.dataset.radialSha) throw new Error("Original radial file verification failed");
         const data = parseRadial(new TextDecoder("utf-8", { fatal: true }).decode(bytes), { allowHeaderMismatch: true });
         parsed.set(file, data);
         const mismatch = data.element !== file.closest(".radial-view").dataset.element;
