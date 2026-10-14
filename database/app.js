@@ -50,7 +50,7 @@ function materialRow(record) {
   const url = `#/material/${encodeURIComponent(record.id)}`;
   const atoms = atomCount(record);
   const primary = primaryResult(record);
-  const precision = recordType(record) === "large_system_gw" ? 5 : recordType(record) === "reader_conversion" ? 0 : 3;
+  const precision = recordType(record) === "large_system_gw" ? 5 : recordType(record) === "reader_conversion" ? 5 : 3;
   const primaryValue = primary ? `${typeof primary.value === "number" ? primary.value.toFixed(precision) : esc(primary.value)}${primary.unit ? ` <small>${esc(primary.unit)}</small>` : ""}` : '<span class="not-reported">—</span>';
   return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(recordTypeLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
