@@ -38,4 +38,13 @@
 
 ## Candidate summary minimum fields
 
-Include candidate digest, source run/job, workflow, program success evidence, parsed completeness counts, primary observable and definition, inputs, PP/NAO/auxiliary provenance, software commit or executable hash, resources, immutable file hashes, limitations, and the exact yes/no approval question.
+Include candidate digest, source run/job, workflow type, program success evidence, parsed completeness counts, primary observable and definition, inputs, PP/NAO/auxiliary provenance, software commit or executable hash, resources (cluster, nodes, CPUs, accelerators, wall time), `workflow.frontend` (abacus or fhi_aims), immutable file hashes, path sanitization status, limitations, and the exact yes/no approval question.
+
+## Path sanitization check
+
+Before proposing a candidate, scan all source files for private patterns:
+- `/Users/<username>`, `/home/<username>`, `/work<N>/<username>` — must be replaced with `/HPC/`
+- `SLURM_JOB_ID` — must be replaced with `SLURM_JOBID`
+- `ssh://`, hostnames, IP addresses — must be removed or redacted
+
+Report the sanitization status in the candidate summary. After sanitization, recompute file SHA-256 values and update the record accordingly.

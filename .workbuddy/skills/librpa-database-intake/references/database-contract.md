@@ -29,3 +29,45 @@ Every new material must preserve an immutable identity for each executing code: 
 ## Approved import plan
 
 Use plan JSON with `schema_version: 1`, `candidate_sha256`, `copies`, `json_writes`, and optional expected issues. Every update to an existing JSON target must include its pre-write `expected_sha256`; create-only JSON may use null. Use a separate approval receipt with `schema_version: 1`, `approved: true`, the exact candidate digest, and a non-empty verbatim user statement. Refuse absolute/traversal targets, symlink sources, changed source bytes, stale JSON targets, and immutable evidence collisions.
+
+## Performance and cluster fields (required since 2026-10-14)
+
+Every new calculation must record computational resources:
+
+- `cluster_label`: cluster name (e.g., `"df_dcu"`, `"df_iopcas_ghj"`)
+- `accelerators`: `{type, per_node, total}` (e.g., `{"type": "DCU", "per_node": 4, "total": 1024}`)
+- `accelerator_label`: human-readable summary (e.g., `"DCU x4/node (1024 total)"`)
+- `nodes`: node count
+- `cpus`: total CPU cores
+- `elapsed_seconds`: wall time in seconds
+- `workflow.frontend`: `"abacus"` or `"fhi_aims"`
+- `structure_identity`: SHA-256 fingerprint for same-structure comparison
+
+These appear in the detail page "Computational scale & performance" section and the result strip. The `structure_identity` hash enables same-structure comparison across different frontends/workflows.
+
+## Display layer contract
+
+The database separates data (record.json, immutable) from display (JavaScript rendering, user-facing). Technical fields kept in record.json but NOT rendered to users:
+
+- File SHA-256, Document SHA-256, Converter SHA-256, Executable SHA-256, Original SHA-256
+- Reader-v1 header numeric values
+- Internal data paths (e.g., `data/calculations/3d/C/c2048...`)
+- `archive_commit`, `archive_directory`
+- Raw 40-character commit hashes (replaced with "Source code" link)
+- `GW job_id`
+
+What IS shown to users: file names, roles, sizes, View/Download, calculation ID, collection, repository link, software name + source link, band gaps, energies, wall time, nodes, CPUs, cluster, accelerators, atoms, matrix dimensions, state counts.
+
+When building a new record, include ALL technical fields in record.json for data integrity — they just will not appear in the rendered page.
+
+## Path sanitization
+
+The `public_scan.py` CI gate rejects files containing:
+
+- `/Users/<username>` — replace with `/HPC/`
+- `/home/<username>` — replace with `/HPC/`
+- `/work<N>/<username>` — replace with `/HPC/`
+- `SLURM_JOB_ID` (with underscore) — replace with `SLURM_JOBID`
+- `ssh://` — remove or redact
+
+Use `/HPC/` as the replacement (not `/home/USER/`) because the scanner regex matches any `/home/<username>/` pattern. After sanitization, recompute SHA-256 values since file content changed.
