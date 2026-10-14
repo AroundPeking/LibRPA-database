@@ -375,8 +375,8 @@ test("C2048 shows verified sampled Gamma gaps from the complete QP output", () =
   assert.match(html, /frontier states.*present|frontier states.*verified/i);
   assert.match(html, /nonfinite|NaN|not.*satisfied/i);
   assert.match(html, /0\.585339 Ha[\s\S]*Fermi energy, not a gap/);
-  assert.match(html, /20861222/);
-  assert.match(html, /19:46:08/);
+  assert.match(html, /20959369/);
+  assert.match(html, /13:17:56/);
   assert.doesNotMatch(html, /Unavailable|fundamental gap|315\.02863/);
 });
 

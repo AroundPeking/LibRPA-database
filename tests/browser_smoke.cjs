@@ -68,13 +68,13 @@ async function main() {
     }
     const c2048 = calculations.find(item => item.id === "c2048-reader-v1-20260607");
     check(c2048?.record_type === "reader_conversion", "C2048 remains a reader-conversion provenance record");
-    check(c2048?.associated_gw_run?.job_id === "20861222" && c2048.associated_gw_run.scheduler_state === "COMPLETED", "C2048 links the completed historical GW audit");
+    check(c2048?.associated_gw_run?.job_id === "20959369" && c2048.associated_gw_run.scheduler_state === "COMPLETED", "C2048 links the completed historical GW audit");
     await go("#/material/c2048-reader-v1-20260607");
     const c2048Text = await page.locator("#detail-view").innerText();
     check(c2048Text.includes("Reader-v1 conversion with linked GW completion audit") && c2048Text.includes("Reader-v1 states\n26624") && c2048Text.includes("Matrix rows\n26624") && c2048Text.includes("Matrix columns\n26624"), "C2048 preserves conversion scope and matrix dimensions below the gap headline");
     check(c2048Text.includes("Sampled Γ PBE gap") && c2048Text.includes("4.28728") && c2048Text.includes("5.74313") && c2048Text.includes("Γ gaps verified"), "C2048 shows verified sampled Gamma gaps from the complete QP output");
     check(c2048Text.includes("0.585339 Ha") && c2048Text.includes("Fermi energy, not a gap"), "C2048 labels the retained energy as Fermi energy rather than a gap");
-    check(c2048Text.includes("frontier states") && c2048Text.includes("19:46:08"), "C2048 explains the frontier states and retained runtime");
+    check(c2048Text.includes("frontier states") && c2048Text.includes("13:17:56"), "C2048 explains the frontier states and retained runtime");
     check(!/fundamental gap|315\.02863/.test(c2048Text), "C2048 exposes no fabricated gap or unrelated high-energy state");
     check(await page.locator("#record-bands, #record-results").count() === 0, "C2048 does not expose a fabricated band or QP-table section");
     await go("");
