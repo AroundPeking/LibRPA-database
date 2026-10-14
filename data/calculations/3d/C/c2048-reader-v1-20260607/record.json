@@ -120,10 +120,10 @@
   "species": [],
   "status": "generation_only",
   "summary": {
-    "notes": "The associated Gamma/SCF-state G0W0 calculation completed. No numerical gap is shown because frontier states 4096 and 4097 were not retained.",
-    "observable": "Historical Gamma-state G0W0 completion",
-    "unit": "status",
-    "value": "Completed"
+    "notes": "The historical run printed a QP table, but the retained local excerpt omits frontier states 4096 and 4097. Recover those original rows to calculate sampled Gamma PBE and G0W0 gaps; the skipped k-path is not the gap blocker.",
+    "observable": "Sampled Gamma-state G0W0 gap",
+    "unit": "",
+    "value": "Unavailable"
   },
   "workflow": {
     "input_format": "legacy_text",

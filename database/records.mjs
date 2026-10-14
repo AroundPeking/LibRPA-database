@@ -83,6 +83,29 @@ export function recordTypeLabel(record) {
   return ({ band: "Band structure", large_system_gw: "Large-system GW", rpa_energy: "RPA energy", reader_conversion: "Reader conversion" })[recordType(record)];
 }
 
+export function workflowFrontend(record) {
+  const frontend = record?.workflow?.frontend;
+  return frontend === "fhi_aims" ? "fhi_aims" : "abacus";
+}
+
+export function frontendLabel(record) {
+  return workflowFrontend(record) === "fhi_aims" ? "FHI-aims" : "ABACUS";
+}
+
+export function structureFingerprint(record) {
+  const identity = record?.structure_identity;
+  if (!identity || typeof identity !== "object") return null;
+  if (identity.algorithm !== "cell-sites-v1") return null;
+  const sha = identity.sha256;
+  return typeof sha === "string" && /^[0-9a-f]{64}$/.test(sha) ? sha : null;
+}
+
+export function sameStructureRecords(record, allRecords) {
+  const fp = structureFingerprint(record);
+  if (!fp) return [];
+  return allRecords.filter(r => r.id !== record.id && structureFingerprint(r) === fp);
+}
+
 export function atomCount(record) {
   const value = record?.computational_scale?.atom_count;
   return Number.isInteger(value) && value > 0 ? value : null;
@@ -109,7 +132,7 @@ export function primaryResult(record) {
   }
   if (type === "reader_conversion") {
     if (record?.associated_gw_run?.scheduler_state === "COMPLETED") {
-      return { label: "Historical Γ-state G0W0 run", value: "Completed", unit: "", scope: "Precise KS/G0W0 gap unavailable: frontier states 4096 and 4097 were not retained" };
+      return { label: "Sampled Γ G0W0 gap", value: "Unavailable", unit: "", scope: "Frontier states 4096 and 4097 are missing from the retained QP output; no numerical gap is claimed" };
     }
     const dimension = record?.computational_scale?.matrix_rows;
     return Number.isInteger(dimension) && dimension > 0 ? { label: "Reader-v1 matrix dimension", value: dimension, unit: "states", scope: "Conversion evidence only; no RPA/GW observable" } : null;
@@ -127,6 +150,7 @@ export function performanceSummary(record) {
   const performance = record?.performance;
   if (!performance || typeof performance !== "object") return [];
   const values = [
+    ["Cluster", performance.cluster_label, value => typeof value === "string" && value.trim() ? value.trim() : null],
     ["Wall time", performance.wall_time_seconds, value => {
       const hours = Math.floor(value / 3600);
       const minutes = Math.floor((value % 3600) / 60);
@@ -136,8 +160,14 @@ export function performanceSummary(record) {
     ["Nodes", performance.nodes, String],
     ["MPI ranks", performance.mpi_ranks, String],
     ["OpenMP threads / rank", performance.omp_threads_per_rank, String],
+    ["Accelerators", performance.accelerators, value => Number.isInteger(value) && value > 0 ? String(value) : null],
+    ["Accelerator type", performance.accelerator_label, value => typeof value === "string" && value.trim() ? value.trim() : null],
   ];
-  return values.filter(([, value]) => Number.isInteger(value) && value > 0).map(([label, value, format]) => ({ label, value: format(value) }));
+  return values.filter(([, value, format]) => {
+    if (value == null) return false;
+    const formatted = format(value);
+    return formatted !== null && formatted !== undefined && formatted !== "";
+  }).map(([label, value, format]) => ({ label, value: format(value) }));
 }
 
 export function recordElements(record) {

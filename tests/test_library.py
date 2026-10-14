@@ -737,6 +737,65 @@ libRPA finished successfully
         self.case["workflow"]["scientific_result_available"] = True
         self.assertTrue(any("disclaim" in issue for issue in self.issues()))
 
+    def _make_rpa_energy(self):
+        librpa_in = self._input("rpa__librpa.in", b"task = rpa\nnfreq = 16\n")
+        output_data = b"RPA correlation energy\nEcRPA = -418.489041942 Ha\nlibRPA finished successfully\n"
+        result = self._add_file(self.prefix + "results/LibRPA.out", output_data, "results")
+        log = self._add_file(self.prefix + "logs/slurm.out", b"COMPLETED ExitCode 0:0\n", "logs")
+        self.case.update({
+            "record_type": "rpa_energy", "status": "gw_validated",
+            "workflow": {"task": "rpa", "frontend": "abacus"},
+            "performance": {"wall_time_seconds": 9298, "nodes": 100, "mpi_ranks": 100,
+                             "omp_threads_per_rank": 30, "evidence": [log["path"]],
+                             "cluster_label": "df_dcu", "accelerators": 100, "accelerator_label": "DCU"},
+            "files": {"inputs": self.case["files"]["inputs"] + [librpa_in],
+                      "results": [result], "logs": [log], "figures": []},
+            "properties": [
+                {"key": "rpa_correlation_energy", "category": "energetic", "label": "RPA correlation energy",
+                 "method": "RPA", "value": -418.489041942, "unit": "Ha", "status": "validated",
+                 "evidence": [result["path"]], "definition": "Total RPA correlation energy"},
+            ],
+        })
+
+    def test_rpa_energy_record_is_accepted_with_workflow_and_performance(self):
+        self._make_rpa_energy()
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_rpa_energy_requires_workflow_task_and_performance(self):
+        self._make_rpa_energy()
+        self.case["workflow"]["task"] = "gw"
+        with self.assertRaisesRegex(ValueError, "rpa_energy requires task"):
+            self.lib.validate(self.root, [self.basis], [self.case])
+        self.case["workflow"]["task"] = "rpa"
+        self.case["performance"] = None
+        with self.assertRaisesRegex(ValueError, "performance"):
+            self.lib.validate(self.root, [self.basis], [self.case])
+
+    def test_rpa_energy_requires_result_log_and_energy_property(self):
+        self._make_rpa_energy()
+        self.case["files"]["results"] = []
+        self.assertTrue(any("results" in issue for issue in self.issues()))
+        self._make_rpa_energy()
+        self.case["files"]["logs"] = []
+        self.assertTrue(any("logs" in issue for issue in self.issues()))
+        self._make_rpa_energy()
+        self.case["properties"] = []
+        self.assertTrue(any("rpa_correlation_energy" in issue for issue in self.issues()))
+
+    def test_fhi_aims_frontend_is_accepted_with_fhi_aims_software(self):
+        self._make_rpa_energy()
+        self.case["workflow"]["frontend"] = "fhi_aims"
+        self.case["software"]["fhi_aims"] = self.case["software"].pop("abacus")
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_fhi_aims_frontend_rejects_abacus_software_claim(self):
+        self._make_rpa_energy()
+        self.case["workflow"]["frontend"] = "fhi_aims"
+        with self.assertRaisesRegex(ValueError, "FHI-aims.*ABACUS"):
+            self.lib.validate(self.root, [self.basis], [self.case])
+
     def test_large_system_gw_uses_only_auxiliary_evidence_production_input(self):
         self._make_large_system_gw()
         nscf_data = b"INPUT_PARAMETERS\ncalculation nscf\nntype 1\nexx_pca_threshold 10\n"

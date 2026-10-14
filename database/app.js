@@ -135,7 +135,7 @@ function route() {
     $("#home-view").hidden = true;
     $("#detail-view").hidden = false;
     state.currentRecord = match[1] === "material" ? record : null;
-    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/">Return to materials</a></div>';
+    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/">Return to materials</a></div>';
     const back = $(".breadcrumb a");
     if (back && (match[1] === "material" ? state.mode === "materials" : state.mode === "basis")) back.href = state.returnHash;
     document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;

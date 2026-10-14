@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { readFileSync } from "node:fs";
@@ -365,19 +365,21 @@ test("C2048 preserves completed historical Gamma-state GW evidence without inven
   assert.equal(recordType(record), "reader_conversion");
   assert.deepEqual(methodNames(record), ["GW"]);
   assert.deepEqual(primaryResult(record), {
-    label: "Historical Γ-state G0W0 run",
-    value: "Completed",
+    label: "Sampled Γ G0W0 gap",
+    value: "Unavailable",
     unit: "",
-    scope: "Precise KS/G0W0 gap unavailable: frontier states 4096 and 4097 were not retained",
+    scope: "Frontier states 4096 and 4097 are missing from the retained QP output; no numerical gap is claimed",
   });
   const html = renderMaterial(record, []);
-  assert.match(html, /Historical Γ-state G0W0[\s\S]*Completed/);
-  assert.match(html, /Precise Γ gap[\s\S]*Unavailable/);
+  assert.match(html, /Sampled Γ PBE gap[\s\S]*Unavailable/);
+  assert.match(html, /Sampled Γ G0W0 gap[\s\S]*Unavailable/);
+  assert.match(html, /Original GW output provenance/);
+  assert.doesNotMatch(html, /Historical Γ-state G0W0[\s\S]*Completed/);
   assert.match(html, /0\.585339 Ha[\s\S]*Fermi energy, not a gap/);
   assert.match(html, /frontier states 4096 and 4097/);
   assert.match(html, /20861222/);
   assert.match(html, /19:46:08/);
-  assert.doesNotMatch(html, /Sampled Γ G0W0 gap|fundamental gap|315\.02863/);
+  assert.doesNotMatch(html, /fundamental gap|315\.02863|Sampled Γ G0W0 gap<\/span><strong[^>]*>[0-9]/);
 });
 
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
@@ -387,4 +389,104 @@ test("mobile calculation catalog uses semantic cards instead of an 850px table",
   assert.match(css, /content:"Primary result"/);
   assert.match(app, /\["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
   assert.match(app, /large-system GW results, and reader-format provenance/);
+});
+
+test("performance summary includes cluster and accelerator fields when present", () => {
+  const record = { performance: { wall_time_seconds: 9298, nodes: 100, mpi_ranks: 100, omp_threads_per_rank: 30, cluster_label: "df_dcu", accelerators: 100, accelerator_label: "DCU" } };
+  const summary = performanceSummary(record);
+  const labels = summary.map(item => item.label);
+  assert.ok(labels.includes("Cluster"));
+  assert.ok(labels.includes("Accelerators"));
+  assert.ok(labels.includes("Accelerator type"));
+  const cluster = summary.find(item => item.label === "Cluster");
+  assert.equal(cluster.value, "df_dcu");
+  const accel = summary.find(item => item.label === "Accelerators");
+  assert.equal(accel.value, "100");
+  const accelType = summary.find(item => item.label === "Accelerator type");
+  assert.equal(accelType.value, "DCU");
+  const wall = summary.find(item => item.label === "Wall time");
+  assert.match(wall.value, /2:34:58/);
+});
+
+test("performance summary omits empty cluster and accelerator fields", () => {
+  const record = { performance: { wall_time_seconds: 67366, nodes: 4, mpi_ranks: 4, omp_threads_per_rank: 96 } };
+  const summary = performanceSummary(record);
+  const labels = summary.map(item => item.label);
+  assert.ok(!labels.includes("Cluster"));
+  assert.ok(!labels.includes("Accelerators"));
+  assert.ok(!labels.includes("Accelerator type"));
+});
+
+test("workflow frontend defaults to abacus and resolves fhi_aims", () => {
+  assert.equal(workflowFrontend({ workflow: { frontend: "fhi_aims" } }), "fhi_aims");
+  assert.equal(workflowFrontend({ workflow: { frontend: "abacus" } }), "abacus");
+  assert.equal(workflowFrontend({ workflow: {} }), "abacus");
+  assert.equal(workflowFrontend({}), "abacus");
+  assert.equal(frontendLabel({ workflow: { frontend: "fhi_aims" } }), "FHI-aims");
+  assert.equal(frontendLabel({ workflow: { frontend: "abacus" } }), "ABACUS");
+  assert.equal(frontendLabel({}), "ABACUS");
+});
+
+test("structure fingerprint extracts validated same-record identity hash", () => {
+  const sha = "a".repeat(64);
+  assert.equal(structureFingerprint({ structure_identity: { algorithm: "cell-sites-v1", sha256: sha } }), sha);
+  assert.equal(structureFingerprint({ structure_identity: { algorithm: "other", sha256: sha } }), null);
+  assert.equal(structureFingerprint({ structure_identity: { algorithm: "cell-sites-v1", sha256: "short" } }), null);
+  assert.equal(structureFingerprint({}), null);
+});
+
+test("same-structure records are found by fingerprint and exclude self", () => {
+  const sha = "f".repeat(64);
+  const record = { id: "r1", structure_identity: { algorithm: "cell-sites-v1", sha256: sha } };
+  const peer = { id: "r2", structure_identity: { algorithm: "cell-sites-v1", sha256: sha } };
+  const other = { id: "r3", structure_identity: { algorithm: "cell-sites-v1", sha256: "e".repeat(64) } };
+  const noIdentity = { id: "r4" };
+  const peers = sameStructureRecords(record, [record, peer, other, noIdentity]);
+  assert.equal(peers.length, 1);
+  assert.equal(peers[0].id, "r2");
+  assert.equal(sameStructureRecords(noIdentity, [record, peer]).length, 0);
+});
+
+test("detail page shows frontend tag and same-structure comparison when peers exist", () => {
+  const sha = "d".repeat(64);
+  const record = {
+    id: "abacus-c2048", material: "C", formula: "C2048", dimension: "3d", status: "gw_validated",
+    workflow: { frontend: "abacus" },
+    structure_identity: { algorithm: "cell-sites-v1", sha256: sha },
+    properties: [], files: {},
+  };
+  const peer = {
+    id: "aims-c2048", material: "C", formula: "C2048", dimension: "3d", status: "gw_validated",
+    record_type: "rpa_energy",
+    workflow: { frontend: "fhi_aims", task: "rpa" },
+    structure_identity: { algorithm: "cell-sites-v1", sha256: sha },
+    properties: [{ key: "rpa_correlation_energy", value: -418.49, unit: "Ha", status: "reported" }],
+    files: {},
+  };
+  const html = renderMaterial(record, [], [record, peer]);
+  assert.match(html, /ABACUS \+ LibRPA/);
+  assert.match(html, /Same-structure calculations/);
+  assert.match(html, /aims-c2048/);
+  assert.match(html, /FHI-aims \+ LibRPA/);
+  assert.match(html, /-418\.49000/);
+});
+
+test("detail page shows ABACUS tag by default and no comparison when alone", () => {
+  const record = { id: "solo", material: "Si", dimension: "3d", status: "gw_validated", workflow: {}, properties: [], files: {} };
+  const html = renderMaterial(record, [], [record]);
+  assert.match(html, /ABACUS \+ LibRPA/);
+  assert.doesNotMatch(html, /Same-structure calculations/);
+});
+
+test("detail page software section uses dynamic frontend name", () => {
+  const record = {
+    id: "aims-test", material: "Si", dimension: "3d", status: "gw_validated",
+    workflow: { frontend: "fhi_aims" },
+    software: { fhi_aims: { commit: "a".repeat(40) }, librpa: { commit: "b".repeat(40) } },
+    properties: [], files: {},
+  };
+  const html = renderMaterial(record, [], []);
+  assert.match(html, /<h3>FHI-aims<\/h3>/);
+  assert.match(html, /<h3>LibRPA<\/h3>/);
+  assert.doesNotMatch(html, /<h3>ABACUS<\/h3>/);
 });

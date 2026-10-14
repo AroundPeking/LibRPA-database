@@ -33,9 +33,9 @@ INTERMEDIATE_PATH = re.compile(
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
 RECORD_TYPES = {"band", "large_system_gw", "rpa_energy", "reader_conversion"}
-SOFTWARE_NAMES = {"abacus", "librpa"}
+SOFTWARE_NAMES = {"abacus", "fhi_aims", "librpa"}
 SOFTWARE_IDENTITY_ISSUE = re.compile(
-    r"^software\.(abacus|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
+    r"^software\.(abacus|fhi_aims|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
 )
 HISTORICAL_SOFTWARE_EXCEPTIONS = Path("data/historical-software-identity-exceptions.json")
 
@@ -165,6 +165,21 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
                 or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
             _fail(f"{label}.auxiliary_basis.evidence: declared same-record evidence is required")
 
+    performance = case.get("performance")
+    if performance is not None:
+        fields = ("wall_time_seconds", "nodes", "mpi_ranks", "omp_threads_per_rank")
+        if not isinstance(performance, dict) or any(not _positive_int(performance.get(field)) for field in fields):
+            _fail(f"{label}.performance: positive wall time, node, rank, and thread counts are required")
+        evidence = performance.get("evidence")
+        if (not isinstance(evidence, list) or not evidence
+                or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
+            _fail(f"{label}.performance.evidence: declared same-record evidence is required")
+        for field in ("cluster_label", "accelerator_label"):
+            if field in performance and (not isinstance(performance[field], str) or not performance[field].strip()):
+                _fail(f"{label}.performance.{field}: expected a non-empty public label")
+        if "accelerators" in performance and not _positive_int(performance["accelerators"]):
+            _fail(f"{label}.performance.accelerators: expected a positive count")
+
     if record_type == "reader_conversion":
         workflow = case.get("workflow")
         scale = case.get("computational_scale")
@@ -218,6 +233,14 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
             _fail(f"{label}.properties: conversion-only records cannot claim scientific properties")
         return
 
+    if record_type == "rpa_energy":
+        workflow = case.get("workflow")
+        if (not isinstance(workflow, dict) or not isinstance(workflow.get("task"), str)
+                or workflow["task"].strip() not in {"rpa", "rpa_correlation"}):
+            _fail(f"{label}.workflow: rpa_energy requires task = rpa or rpa_correlation")
+        if performance is None:
+            _fail(f"{label}.performance: RPA energy requires recorded wall time and resources")
+        return
     if record_type != "large_system_gw":
         return
     workflow = case.get("workflow")
@@ -232,14 +255,8 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
         _fail(f"{label}.computational_scale: positive atom/AO/state counts are required")
     if scale["occupied_states"] + scale["unoccupied_states"] != scale["state_count"]:
         _fail(f"{label}.computational_scale: occupied and unoccupied counts must sum to state_count")
-    performance = case.get("performance")
-    required_performance = ("wall_time_seconds", "nodes", "mpi_ranks", "omp_threads_per_rank")
-    if not isinstance(performance, dict) or any(not _positive_int(performance.get(field)) for field in required_performance):
-        _fail(f"{label}.performance: positive wall time, node, rank, and thread counts are required")
-    evidence = performance.get("evidence")
-    if (not isinstance(evidence, list) or not evidence
-            or any(not isinstance(path, str) or path not in declared_paths for path in evidence)):
-        _fail(f"{label}.performance.evidence: declared same-record evidence is required")
+    if performance is None:
+        _fail(f"{label}.performance: large-system GW requires recorded wall time and resources")
     if not isinstance(auxiliary, dict):
         _fail(f"{label}.auxiliary_basis: large-system GW requires explicit pca_generated provenance")
 
@@ -370,7 +387,13 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             if not entry.get("scope"):
                 _fail(f"{label}.basis_candidates[{n}]: scope is required")
         software = case.get("software", {})
-        for name in ("abacus", "librpa"):
+        workflow_identity = case.get("workflow")
+        frontend = workflow_identity.get("frontend", "abacus") if isinstance(workflow_identity, dict) else "abacus"
+        if frontend not in {"abacus", "fhi_aims"}:
+            _fail(f"{label}.workflow.frontend: expected abacus or fhi_aims")
+        if frontend == "fhi_aims" and "abacus" in software:
+            _fail(f"{label}.software: FHI-aims record cannot claim ABACUS as the executing frontend")
+        for name in (frontend, "librpa"):
             app = software.get(name)
             if not isinstance(app, dict):
                 _fail(f"{label}: software.{name} must be an object")
@@ -395,13 +418,14 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                     _fail(f"{label}: publishable case contains an intermediate file")
 
         _validate_workflow_contract(case, label, declared_paths)
+        _validate_structure_identity(root, case, declared_paths)
         _validate_properties(case, label, declared_paths)
         _validate_paper_values(root, case, label)
 
         if publication.get("status") == "publishable":
             if case.get("status") != "gw_validated":
                 _fail(f"{label}: publishable case must be gw_validated")
-            for name in ("abacus", "librpa"):
+            for name in (frontend, "librpa"):
                 if not _immutable_software_identity(software[name]):
                     _fail(f"{label}: publishable case requires a full {name} commit or executable SHA-256")
             if not files.get("inputs"):
@@ -485,6 +509,114 @@ def _stru_sections(text: str) -> dict[str, list[str]]:
         elif current:
             sections[current].append(line)
     return sections
+
+
+# Conservative structure identity: identical cells and atomic positions to 1e-5 Å.
+# Distinct cell settings, origins, or periodic images remain separate until reviewed.
+_STRUCTURE_ALGORITHM = "cell-sites-v1"
+_BOHR_ANGSTROM = 0.529177210903
+
+
+def _finite_xyz(tokens: list[str]) -> tuple[float, float, float]:
+    if len(tokens) < 3:
+        _fail("structure identity: expected three coordinates")
+    try:
+        xyz = tuple(float(value) for value in tokens[:3])
+    except ValueError:
+        _fail("structure identity: invalid coordinate")
+    if not all(math.isfinite(value) for value in xyz):
+        _fail("structure identity: nonfinite coordinate")
+    return xyz
+
+
+def _cell_sites(text: str, kind: str) -> tuple[list[tuple[float, float, float]], list[tuple[str, tuple[float, float, float]]]]:
+    if kind == "STRU":
+        sections = _stru_sections(text)
+        try:
+            scale = float(sections["LATTICE_CONSTANT"][0].split()[0]) * _BOHR_ANGSTROM
+            lattice = [tuple(value * scale for value in _finite_xyz(line.split()))
+                       for line in sections["LATTICE_VECTORS"][:3]]
+            positions = sections["ATOMIC_POSITIONS"]
+            mode = positions[0].lower()
+        except (KeyError, IndexError, ValueError):
+            _fail("structure identity: STRU requires a valid cell and atomic positions")
+        if len(lattice) != 3 or not math.isfinite(scale) or scale <= 0 or mode not in {"direct", "cartesian", "cartesian_angstrom"}:
+            _fail("structure identity: unsupported STRU cell or coordinate mode")
+        sites = []
+        index = 1
+        while index < len(positions):
+            element = positions[index].split()[0]
+            if not re.fullmatch(r"[A-Z][a-z]?", element) or index + 2 >= len(positions):
+                _fail("structure identity: malformed STRU species block")
+            try:
+                count = int(positions[index + 2].split()[0])
+            except ValueError:
+                _fail("structure identity: invalid STRU atom count")
+            if count <= 0 or index + 3 + count > len(positions):
+                _fail("structure identity: incomplete STRU coordinates")
+            for line in positions[index + 3:index + 3 + count]:
+                coords = _finite_xyz(line.split())
+                if mode == "direct":
+                    coords = tuple(sum(coords[j] * lattice[j][i] for j in range(3)) for i in range(3))
+                elif mode == "cartesian":
+                    coords = tuple(value * scale for value in coords)
+                sites.append((element, coords))
+            index += 3 + count
+        return lattice, sites
+    lattice = []
+    sites = []
+    for raw in text.splitlines():
+        fields = raw.split("#", 1)[0].split()
+        if not fields:
+            continue
+        if fields[0] == "lattice_vector":
+            lattice.append(_finite_xyz(fields[1:]))
+        elif fields[0] in {"atom", "atom_frac"}:
+            if len(fields) < 5 or not re.fullmatch(r"[A-Z][a-z]?", fields[4]):
+                _fail("structure identity: malformed geometry.in atom")
+            sites.append((fields[4], fields[0], _finite_xyz(fields[1:4])))
+    if len(lattice) != 3:
+        _fail("structure identity: geometry.in requires three lattice vectors")
+    return lattice, [(element, tuple(sum(coords[j] * lattice[j][i] for j in range(3)) for i in range(3))
+                       if mode == "atom_frac" else coords) for element, mode, coords in sites]
+
+
+def _structure_fingerprint(text: str, kind: str, dimension: str) -> tuple[str, int]:
+    lattice, sites = _cell_sites(text, kind)
+    if not sites or any(not math.isfinite(value) for row in lattice for value in row):
+        _fail("structure identity: empty or nonfinite cell/sites")
+    quantize = lambda xyz: [round(value * 100000) for value in xyz]
+    payload = {"algorithm": _STRUCTURE_ALGORITHM, "dimension": dimension,
+               "lattice_angstrom_1e5": [quantize(row) for row in lattice],
+               "sites_angstrom_1e5": sorted([element, *quantize(xyz)] for element, xyz in sites)}
+    digest = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    return digest, len(sites)
+
+
+def _validate_structure_identity(root: Path, case: dict, declared_paths: set[str]) -> None:
+    identity = case.get("structure_identity")
+    if identity is None:
+        return
+    if not isinstance(identity, dict) or set(identity) != {"algorithm", "sha256", "evidence"} or identity.get("algorithm") != _STRUCTURE_ALGORITHM:
+        _fail("structure_identity: unsupported canonicalization algorithm")
+    digest = identity.get("sha256")
+    evidence = identity.get("evidence")
+    inputs = [item for item in case.get("files", {}).get("inputs", []) if item.get("path") == evidence]
+    prefix = f"data/calculations/{case.get('dimension')}/{case.get('material')}/{case.get('id')}/inputs/"
+    if (not isinstance(digest, str) or not SHA256.fullmatch(digest) or not isinstance(evidence, str)
+            or not evidence.startswith(prefix) or evidence not in declared_paths or len(inputs) != 1
+            or (root / evidence).is_symlink()):
+        _fail("structure_identity: same-record, hash-verified structure input is required")
+    item = inputs[0]
+    kind = "STRU" if _input_name(item, "STRU") else "geometry.in" if PurePosixPath(evidence).name.split("__")[-1] == "geometry.in" else None
+    if kind is None:
+        _fail("structure_identity: evidence must be an archived STRU or geometry.in")
+    actual, atom_count = _structure_fingerprint(_payload_bytes(root, item).decode("utf-8"), kind, case.get("dimension"))
+    if digest != actual:
+        _fail("structure_identity: canonical structure SHA-256 does not match the archived input")
+    scale = case.get("computational_scale")
+    if isinstance(scale, dict) and scale.get("atom_count") is not None and scale["atom_count"] != atom_count:
+        _fail("structure_identity: atom count differs from the archived input")
 
 
 def _basis_payload(data: bytes, item: dict, element: str, *, generic_auxiliary: bool = False) -> bool:
@@ -895,7 +1027,9 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         if role != "pp" and inputs["STRU"] and role not in declared_roles:
             issues.append(f"STRU: at least one production STRU must declare exact {role} payloads")
 
-    for name in ("abacus", "librpa"):
+    workflow = case.get("workflow")
+    frontend = workflow.get("frontend", "abacus") if isinstance(workflow, dict) else "abacus"
+    for name in (frontend, "librpa"):
         app = case.get("software", {}).get(name, {})
         if not _immutable_software_identity(app):
             issues.append(
@@ -929,6 +1063,25 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             issues.append("results: large-system GW requires a declared final result file")
         if not owned["logs"]:
             issues.append("logs: large-system GW requires completion and resource logs")
+    elif record_type == "rpa_energy":
+        if not owned["results"]:
+            issues.append("results: RPA energy requires a declared final result file")
+        if not owned["logs"]:
+            issues.append("logs: RPA energy requires completion and resource logs")
+        rpa_matches = []
+        for prop in case.get("properties", []):
+            value = prop.get("value")
+            evidence = prop.get("evidence", [])
+            if (prop.get("key") == "rpa_correlation_energy"
+                    and prop.get("status") in {"reported", "validated", "provisional"}
+                    and prop.get("unit") == "Ha"
+                    and not isinstance(value, bool) and isinstance(value, (int, float))
+                    and math.isfinite(value)
+                    and isinstance(evidence, list) and evidence
+                    and all(isinstance(path, str) and path in evidence_paths for path in evidence)):
+                rpa_matches.append(prop)
+        if not rpa_matches:
+            issues.append("properties: rpa_correlation_energy requires a finite Ha value with valid same-record evidence")
     else:
         methods = {}
         for item in owned["results"]:
