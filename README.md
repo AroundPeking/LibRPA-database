@@ -1,8 +1,8 @@
 # LibRPA materials database
 
-## [Open web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)
+## [Open web database](https://aroundpeking.github.io/LibRPA-database/database/)
 
-**[Browse materials](https://aroundpeking.github.io/abacus-librpa-gw-database/database/)** · **[Browse basis files](https://aroundpeking.github.io/abacus-librpa-gw-database/database/#/basis)**
+**[Browse materials](https://aroundpeking.github.io/LibRPA-database/database/)** · **[Browse basis files](https://aroundpeking.github.io/LibRPA-database/database/#/basis)**
 
 Click the link above to search materials, view calculation details, and preview or
 download archived inputs and basis files. No installation, GitHub sign-in, or
@@ -23,7 +23,7 @@ release index.
 
 ## Use
 
-Open the [live web database](https://aroundpeking.github.io/abacus-librpa-gw-database/database/) to browse without installing anything. For development, serve the repository as a static site, or read `database/data.json` directly. A record's `species` entries are exact production bindings only when the source audit proved them. `basis_candidates` are useful follow-up files whose exact production binding remains unproven. Failed and anomalous candidates stay in the database as evidence.
+Open the [live web database](https://aroundpeking.github.io/LibRPA-database/database/) to browse without installing anything. For development, serve the repository as a static site, or read `database/data.json` directly. A record's `species` entries are exact production bindings only when the source audit proved them. `basis_candidates` are useful follow-up files whose exact production binding remains unproven. Failed and anomalous candidates stay in the database as evidence.
 
 The catalog has separate Materials and Basis sets views. Search matches
 all query words across names, formulas, elements, basis links, properties,
