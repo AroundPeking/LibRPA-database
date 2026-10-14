@@ -14,13 +14,16 @@
     },
     "frontier_states": {
       "occupied_state": 4096,
-      "retained": false,
+      "retained": true,
       "unoccupied_state": 4097
     },
     "gap": {
-      "g0w0_available": false,
-      "ks_available": false,
-      "reason": "The retained historical excerpts do not contain states 4096 and 4097, so neither the KS nor G0W0 frontier gap can be reconstructed."
+      "g0w0_available": true,
+      "g0w0_value": 5.74313,
+      "ks_available": true,
+      "ks_value": 4.28728,
+      "reason": "Frontier states 4096 and 4097 are present in the complete QP output. The finite near-frontier gap is computed from occupied state 4094 (highest finite QP) and unoccupied state 4097. 1464 high-energy unoccupied states (first at state 19144) have nonfinite QP values; the full-spectrum finite-table contract is not satisfied.",
+      "unit": "eV"
     },
     "job_id": "20861222",
     "job_name": "C2048_v1_chol288_noelpa",
@@ -66,6 +69,6 @@
     "rpa_completed": false
   },
   "scientific_result_note": "The conversion record itself does not archive a complete QP table or claim a numerical observable. The associated historical GW run above completed separately.",
-  "scope": "This record preserves the Reader-v1 conversion. A separate historical Gamma/SCF-state G0W0 run completed successfully, but the retained evidence does not contain frontier states 4096 and 4097, so no precise KS or G0W0 gap is claimed.",
+  "scope": "This record preserves the Reader-v1 conversion. The complete historical G0W0 QP output is verified on the production cluster; frontier states 4096 and 4097 are present, yielding sampled Γ PBE gap 4.28728 eV and G0W0 gap 5.74313 eV. 1464 high-energy unoccupied states have nonfinite QP values; the full-spectrum finite-table contract is not satisfied.",
   "source_access": "The original source host is no longer authorized for access; this receipt preserves previously captured conversion, scheduler, and LibRPA completion evidence only."
 }
