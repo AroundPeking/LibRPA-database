@@ -1,10 +1,10 @@
 date_start=Mon Jun  8 08:35:04 CST 2026
-pwd=/work1/ghj/gw/C_supercell_gw_512_1024_20260518/C2048_abacus225_direct_v1_commonkeys_lambda10_rmesh5_20260607
-exe=/public/home/ghj/app/src/abacus-v1-commonkeys-old-libri-20260605/build-v1-commonkeys-20260605/abacus_3p
+pwd=/HPC/gw/C_supercell_gw_512_1024_20260518/C2048_abacus225_direct_v1_commonkeys_lambda10_rmesh5_20260607
+exe=/HPC/app/src/abacus-v1-commonkeys-old-libri-20260605/build-v1-commonkeys-20260605/abacus_3p
 nodes=g12r1n[07,10,14,18],g12r2n[09,11],g12r4n[08,16],g13r2n[05,07],g13r3n[12,19],g14r2n[08,10,12],g14r4n[07,18],g15r1n07,g15r4n[00,09,18],g16r1n[04,09,15],g16r2n05,g16r3n[03,07,17],h05r1n18,h05r2n[00,04,12,14],h05r3n15,h05r4n[04,10],h06r2n[06,09],h06r3n[12,16],h06r4n17,h07r2n04,h07r3n11,h07r4n[04,14],h09r1n10,h09r2n[06,08,10,13,16,18],h09r4n[00,19],h10r1n06,h10r2n[06,13],h10r4n[00,02,08],h11r1n[00,19],h11r2n[01,03,11,13],h11r3n12,h12r1n[02,10,12],h12r4n[01,11],h13r2n17,h13r3n19,h13r4n[01,06,09,11],h14r2n00,h14r3n[03,13,17],h14r4n08,h15r1n[10,14-15],h15r2n[07,17],h15r3n[15-16],h15r4n[00-01,04,14],h16r1n[04-05,16-17,19],h16r4n[02-03,05,15,18],i03r1n[00-01],i03r2n[14-15],i03r3n[05,07-08,10-11,15,17-18],i03r4n00,i04r1n[09,13-14,19],i04r2n00,i04r4n[16-17],i05r1n[05,15],i05r3n18,i05r4n[17-18],i06r1n[00-01,10-11,15-16],i06r2n[03-04,16],i06r3n14,i06r4n[07,09,11-12,19],i07r1n[01,03,08,11,13,16-17],i07r2n[06,16],i07r3n[08-09,12-13,18-19],i07r4n[01-02,05,07,11-12,15,17],i08r1n[18-19],i08r2n[01,09],i08r3n[05-06,15-16],i08r4n[05-06,15-16,18-19],i10r2n[03-04,10-11],i10r3n[11-12],j01r3n[15-16],j01r4n[12-13,15-16,18-19],j03r1n[04-05,14-15],j12r4n[08-09,12-13],k01r3n[09-10,12-13,16-17],k02r1n[13-14],k02r2n19,k02r3n00,k03r2n[01-02,11-12],k03r3n[04-05],k04r2n[03-04,13-14],k04r3n[18-19]
 cpus=30(x225)
 ABACUS_MPI=225 RANKS_PER_NODE=1
-ABACUS stat: 2026-06-05 23:32:44.000000000 +0800 330442720 /public/home/ghj/app/src/abacus-v1-commonkeys-old-libri-20260605/build-v1-commonkeys-20260605/abacus_3p
+ABACUS stat: 2026-06-05 23:32:44.000000000 +0800 330442720 /HPC/app/src/abacus-v1-commonkeys-old-libri-20260605/build-v1-commonkeys-20260605/abacus_3p
 nbands              26624
 rpa                 1
 symmetry            -1

@@ -25,22 +25,22 @@ module load compiler/rocm/dtk/25.04.3
 module load compiler/devtoolset/9.3.1
 module load mpi/hpcx/2.13.1/gcc-9.3.1-wangxh
 
-TOOL=/public/home/hbchen/app/LibRPA/260212/toolchain
+TOOL=/HPC/app/LibRPA/260212/toolchain
 INSTALL_DIR=$TOOL/install
 SETUP_DIR=$TOOL/build
 source $SETUP_DIR/setup_openblas_extern
 source $SETUP_DIR/setup_scalapack_extern
 source $SETUP_DIR/setup_cereal_extern
 
-source /public/home/hbchen/app/elpa/260611/setup_elpa
-source /public/home/hbchen/app/magma/260311/setup_magma
+source /HPC/app/elpa/260611/setup_elpa
+source /HPC/app/magma/260311/setup_magma
 
-LibDDLA_PATH=/public/home/hbchen/app/LibDDLA/260603/LibDDLA_install
+LibDDLA_PATH=/HPC/app/LibDDLA/260603/LibDDLA_install
 export CPATH=$LibDDLA_PATH/include:$CPATH
 export LIBRARY_PATH=$LibDDLA_PATH/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$LibDDLA_PATH/lib:$LD_LIBRARY_PATH
 
-LibRPA_PATH=/public/home/hbchen/app/LibRPA/260531/librpa_hip
+LibRPA_PATH=/HPC/app/LibRPA/260531/librpa_hip
 export PATH=$LibRPA_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$LibRPA_PATH/lib:$LibRPA_PATH/lib64:$LD_LIBRARY_PATH
 export LIBRARY_PATH=$LibRPA_PATH/lib:$LibRPA_PATH/lib64:$LIBRARY_PATH
@@ -68,7 +68,7 @@ echo "========================="
 echo Working directory is $PWD
 echo This job has allocated $SLURM_JOB_CPUS_PER_NODE cpu cores.
 echo This job has allocated $SLURM_NNODES nodes.
-echo Job id : $SLURM_JOB_ID
+echo Job id : $SLURM_JOBID
 echo Begin Time: `date`
 workdir=$(basename `pwd`)
 ### * * * Running the tasks * * * ###

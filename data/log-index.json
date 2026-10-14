@@ -94,13 +94,13 @@
     {
       "calculation_id": "c2048-reader-v1-20260607",
       "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stderr.log",
-      "sha256": "f0acda236a3a3f06a2d64dded2a5a7b96b61be5bc318e7e7ed532eb12c3f14aa",
+      "sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
       "label": "ABACUS SCF slurm stderr"
     },
     {
       "calculation_id": "c2048-reader-v1-20260607",
       "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stdout.log",
-      "sha256": "7502869ee96bb87f9f24e955a18daeebd8f18dc6326448000ba5381a7bef07d8",
+      "sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
       "label": "ABACUS SCF slurm stdout (job 20835425)"
     },
     {
@@ -118,13 +118,13 @@
     {
       "calculation_id": "c2048-reader-v1-20260607",
       "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stdout.log",
-      "sha256": "b903177905b87e761b04deb53c8814706b16ce7255881444e47f2cd21391307c",
+      "sha256": "db5f1d80598a3672f45d02392a39de972708679162a45a97dd34ebea29fd6386",
       "label": "G0W0 slurm stdout (job 20959369)"
     },
     {
       "calculation_id": "c2048-reader-v1-20260607",
       "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/reader_v1_conversion_log.out",
-      "sha256": "2b617c6787ed62a3df4eefcc582f5501ad782a2847b3ff9346fa323799ba4814",
+      "sha256": "fb93feea1269d2cd92739f2681c59c37c9cbb16dcc5d5a506fc39d571f88281e",
       "label": "Reader-v1 conversion log (job 21017903)"
     },
     {
@@ -136,7 +136,7 @@
     {
       "calculation_id": "c2048-reader-v1-20260607",
       "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stdout.log",
-      "sha256": "6dd023bde0111ba44c80c74d0e1fa85667a170c05f679137d59b07db5df0a956",
+      "sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
       "label": "RPA slurm stdout (job 20918572)"
     },
     {

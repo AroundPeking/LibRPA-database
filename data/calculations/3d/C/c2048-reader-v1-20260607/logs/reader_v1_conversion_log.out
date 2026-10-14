@@ -1,9 +1,9 @@
 start: Wed Jun 24 10:03:20 CST 2026
 host: g10r2n06
-pwd: /work1/ghj/gw/C_supercell_gw_512_1024_20260518/C2048_abacus225_direct_v1_commonkeys_lambda10_rmesh5_20260607
+pwd: /HPC/gw/C_supercell_gw_512_1024_20260518/C2048_abacus225_direct_v1_commonkeys_lambda10_rmesh5_20260607
 python: /public/software/apps/conda-2023.09/bin/python3.11
 Python 3.11.5
-script: /public/home/ghj/app/src/LibRPA-minyez-263bcd31-20260622/utilities/convert_legacy_KS_eigenvector.py
+script: /HPC/app/src/LibRPA-minyez-263bcd31-20260622/utilities/convert_legacy_KS_eigenvector.py
 -rw-rw-r-- 1 ghj ghj 41G Jun  8 12:28 KS_eigenvector_0.dat
 KS_eigenvector_0.dat: ASCII text
 KS_eigenvector_0.dat: wrote 1 k-point(s), backup legacy_KS_eigenvector_0.dat

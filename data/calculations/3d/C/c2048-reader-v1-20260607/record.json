@@ -121,56 +121,56 @@
       {
         "label": "ABACUS SCF slurm batch script",
         "original_name": "run_abacus_225n_v1_commonkeys.sh",
-        "original_sha256": "5d5fc390048134b4309262850c7c17da20c3749d32b32a48c6f21091392eb101",
+        "original_sha256": "8e56f80c8d65f026e00cf7d1a2e02321a4d827af74e30cea693d3e4731ce7bdb",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_run_script.sh",
         "role": "inputs",
         "scientific_role": "abacus_slurm_script",
-        "sha256": "5d5fc390048134b4309262850c7c17da20c3749d32b32a48c6f21091392eb101",
-        "size_bytes": 2364,
+        "sha256": "8e56f80c8d65f026e00cf7d1a2e02321a4d827af74e30cea693d3e4731ce7bdb",
+        "size_bytes": 2322,
         "transformation": "none"
       },
       {
         "label": "LibRPA G0W0 input",
         "original_name": "librpa.in",
-        "original_sha256": "04581eb407e36df5c02d21e337edde583c5aa51435bbacf7b9df76c2998f9f85",
+        "original_sha256": "dd4c551a72ec77f6ae1108be25a82245707a0db4d4fce622559dff28ef886ead",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_gw.in",
         "role": "inputs",
         "scientific_role": "librpa_gw_input",
-        "sha256": "04581eb407e36df5c02d21e337edde583c5aa51435bbacf7b9df76c2998f9f85",
-        "size_bytes": 1074,
+        "sha256": "dd4c551a72ec77f6ae1108be25a82245707a0db4d4fce622559dff28ef886ead",
+        "size_bytes": 1068,
         "transformation": "none"
       },
       {
         "label": "LibRPA G0W0 slurm batch script (256 DCU nodes)",
         "original_name": "cal_abacus_hip.sh",
-        "original_sha256": "ddd7c159f55cac06320511936a917befe09d23d0ccec29640eb4e790e33faaa4",
+        "original_sha256": "b3cfdb186c66bd84d1363b54697e11d109926675ed36f23d1e94df52004a1f47",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/gw_slurm_script.sh",
         "role": "inputs",
         "scientific_role": "gw_slurm_script",
-        "sha256": "ddd7c159f55cac06320511936a917befe09d23d0ccec29640eb4e790e33faaa4",
-        "size_bytes": 4254,
+        "sha256": "b3cfdb186c66bd84d1363b54697e11d109926675ed36f23d1e94df52004a1f47",
+        "size_bytes": 4178,
         "transformation": "none"
       },
       {
         "label": "LibRPA RPA input",
         "original_name": "librpa.in",
-        "original_sha256": "0d0465c039adc1dfefdc01e24533e6371cab2f0cb0b5d4be945eb5beec1d6c75",
+        "original_sha256": "be91168a8c3e40c87f8cc42ce50728c9a41cd289f808eba6badfd2f6ce70a225",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_rpa.in",
         "role": "inputs",
         "scientific_role": "librpa_rpa_input",
-        "sha256": "0d0465c039adc1dfefdc01e24533e6371cab2f0cb0b5d4be945eb5beec1d6c75",
-        "size_bytes": 583,
+        "sha256": "be91168a8c3e40c87f8cc42ce50728c9a41cd289f808eba6badfd2f6ce70a225",
+        "size_bytes": 577,
         "transformation": "none"
       },
       {
         "label": "LibRPA RPA slurm batch script (100 DCU nodes)",
         "original_name": "cal_abacus_hip.sh",
-        "original_sha256": "b49f76e830c6350cf697e57b1df1527bdabc2b4edfb96d8c4249b40d171489b7",
+        "original_sha256": "df2490b8a55b3c5ee266587df83ce0e1250b8140225568c7b869bae766ae7f82",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/rpa_slurm_script.sh",
         "role": "inputs",
         "scientific_role": "rpa_slurm_script",
-        "sha256": "b49f76e830c6350cf697e57b1df1527bdabc2b4edfb96d8c4249b40d171489b7",
-        "size_bytes": 3749,
+        "sha256": "df2490b8a55b3c5ee266587df83ce0e1250b8140225568c7b869bae766ae7f82",
+        "size_bytes": 3658,
         "transformation": "none"
       }
     ],
@@ -178,12 +178,12 @@
       {
         "label": "G0W0 slurm stdout (job 20959369)",
         "original_name": "log_C_hip",
-        "original_sha256": "b903177905b87e761b04deb53c8814706b16ce7255881444e47f2cd21391307c",
+        "original_sha256": "db5f1d80598a3672f45d02392a39de972708679162a45a97dd34ebea29fd6386",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stdout.log",
         "role": "logs",
         "scientific_role": "gw_slurm_stdout",
-        "sha256": "b903177905b87e761b04deb53c8814706b16ce7255881444e47f2cd21391307c",
-        "size_bytes": 9592,
+        "sha256": "db5f1d80598a3672f45d02392a39de972708679162a45a97dd34ebea29fd6386",
+        "size_bytes": 9152,
         "transformation": "none"
       },
       {
@@ -200,12 +200,12 @@
       {
         "label": "RPA slurm stdout (job 20918572)",
         "original_name": "log_C_hip",
-        "original_sha256": "6dd023bde0111ba44c80c74d0e1fa85667a170c05f679137d59b07db5df0a956",
+        "original_sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stdout.log",
         "role": "logs",
         "scientific_role": "rpa_slurm_stdout",
-        "sha256": "6dd023bde0111ba44c80c74d0e1fa85667a170c05f679137d59b07db5df0a956",
-        "size_bytes": 9244,
+        "sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
+        "size_bytes": 8894,
         "transformation": "none"
       },
       {
@@ -222,23 +222,23 @@
       {
         "label": "ABACUS SCF slurm stdout (job 20835425)",
         "original_name": "slurm-20835425.out",
-        "original_sha256": "7502869ee96bb87f9f24e955a18daeebd8f18dc6326448000ba5381a7bef07d8",
+        "original_sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stdout.log",
         "role": "logs",
         "scientific_role": "abacus_slurm_stdout",
-        "sha256": "7502869ee96bb87f9f24e955a18daeebd8f18dc6326448000ba5381a7bef07d8",
-        "size_bytes": 18756,
+        "sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
+        "size_bytes": 18726,
         "transformation": "none"
       },
       {
         "label": "ABACUS SCF slurm stderr",
         "original_name": "slurm-20835425.err",
-        "original_sha256": "f0acda236a3a3f06a2d64dded2a5a7b96b61be5bc318e7e7ed532eb12c3f14aa",
+        "original_sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stderr.log",
         "role": "logs",
         "scientific_role": "abacus_slurm_stderr",
-        "sha256": "f0acda236a3a3f06a2d64dded2a5a7b96b61be5bc318e7e7ed532eb12c3f14aa",
-        "size_bytes": 240,
+        "sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
+        "size_bytes": 228,
         "transformation": "none"
       },
       {
@@ -255,12 +255,12 @@
       {
         "label": "Reader-v1 conversion log (job 21017903)",
         "original_name": "convert_KS_eigenvector_v1_21017903.out",
-        "original_sha256": "2b617c6787ed62a3df4eefcc582f5501ad782a2847b3ff9346fa323799ba4814",
+        "original_sha256": "fb93feea1269d2cd92739f2681c59c37c9cbb16dcc5d5a506fc39d571f88281e",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/logs/reader_v1_conversion_log.out",
         "role": "logs",
         "scientific_role": "reader_v1_conversion_log",
-        "sha256": "2b617c6787ed62a3df4eefcc582f5501ad782a2847b3ff9346fa323799ba4814",
-        "size_bytes": 858,
+        "sha256": "fb93feea1269d2cd92739f2681c59c37c9cbb16dcc5d5a506fc39d571f88281e",
+        "size_bytes": 840,
         "transformation": "none"
       }
     ],
@@ -268,23 +268,23 @@
       {
         "label": "LibRPA G0W0 output (rank 0, 256 DCU nodes, job 20959369)",
         "original_name": "librpa_para_nprocs_256_myid_0.out",
-        "original_sha256": "ed96c310f339c2c6e7ec25f946cceee6a565ef52f1e3ecf942596cc0896730ee",
+        "original_sha256": "e33b292d4624d21d1c4f89109fbc2e195b5fd66036a2729eb71ac3b5a62ed230",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/results/gw_output_rank0.out",
         "role": "results",
         "scientific_role": "g0w0_qp_output",
-        "sha256": "ed96c310f339c2c6e7ec25f946cceee6a565ef52f1e3ecf942596cc0896730ee",
-        "size_bytes": 6804879,
+        "sha256": "e33b292d4624d21d1c4f89109fbc2e195b5fd66036a2729eb71ac3b5a62ed230",
+        "size_bytes": 6803439,
         "transformation": "none"
       },
       {
         "label": "LibRPA RPA output (rank 0, 100 DCU nodes, job 20918572)",
         "original_name": "librpa_para_nprocs_100_myid_0.out",
-        "original_sha256": "706a77e2ecfc0aabb316c2b3b8936f189577f7f44247f58be9be8c669af07e24",
+        "original_sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
         "path": "data/calculations/3d/C/c2048-reader-v1-20260607/results/rpa_output_rank0.out",
         "role": "results",
         "scientific_role": "rpa_correlation_output",
-        "sha256": "706a77e2ecfc0aabb316c2b3b8936f189577f7f44247f58be9be8c669af07e24",
-        "size_bytes": 5943290,
+        "sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
+        "size_bytes": 5942570,
         "transformation": "none"
       },
       {
