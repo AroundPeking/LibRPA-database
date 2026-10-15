@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
+import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
 import { readFileSync } from "node:fs";
 
 test("stage-resolved controls retain redaction provenance without exposing internal QA status", () => {
@@ -258,6 +259,51 @@ test("aims records show species-default binding notes without basis-library link
   assert.match(details, /own classification/);
   assert.match(details, /archived control\.in/);
 });
+
+test("gap overview route, navigation, and table are wired end to end", () => {
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  assert.match(index, /href="#\/gaps" data-nav="gaps">Gap overview</);
+  assert.match(app, /hash\.split\("\?"\)\[0\] === "#\/gaps" \? "gaps"/);
+  assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/"/);
+  assert.match(app, /renderGapOverview\(state\.calculations, state\.sort\)/);
+  assert.match(app, /records list a gap value/);
+  const table = renderGapOverview([
+    { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
+    { id: "c-rpa", material: "C", dimension: "3d", record_type: "rpa_energy", properties: [{ key: "rpa_correlation_energy", value: -1, unit: "Ha", status: "reported" }] },
+  ]);
+  assert.match(table, /PBE \/ KS<\/th>/);
+  assert.match(table, /EXX<\/th>/);
+  assert.match(table, /GW<\/th>/);
+  assert.match(table, /Si/);
+  assert.match(table, /gap-bar/);
+  assert.doesNotMatch(table, /c-rpa/);
+  assert.equal(gapOverview({ id: "x", dimension: "3d", record_type: "rpa_energy", properties: [] }), null);
+  const restricted = { id: "r", material: "R", dimension: "2d", summary: { observable: "GW raw-band frontier path gap" }, properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 1.2, unit: "eV", status: "reported" }, { category: "electronic", key: "sampled_path_gap_ev", method: "GW", value: 6.5, unit: "eV", status: "reported" }] };
+  assert.equal(gapOverview(restricted).scope, "path");
+  const sampled = { id: "s", material: "S", dimension: "3d", record_type: "large_system_gw", properties: [{ key: "sampled_grid_gap_ev", category: "electronic", method: "PBE", value: 4.2, unit: "eV", status: "validated", definition: "Γ regular grid" }] };
+  assert.deepEqual(gapOverview(sampled), { ks: 4.2, exx: null, gw: null, scope: "sampled" });
+});
+
+test("dark mode toggle is wired with persisted preference and token overrides", () => {
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
+  assert.match(index, /id="theme-toggle"/);
+  assert.match(index, /localStorage\.getItem\("theme"\)/);
+  assert.match(app, /localStorage\.setItem\("theme", next\)/);
+  assert.match(app, /document\.documentElement\.dataset\.theme === "dark" \? "light" : "dark"/);
+  assert.match(css, /html\[data-theme="dark"\]\{/);
+  assert.match(css, /--bg:#0d181d/);
+  assert.match(css, /\.search-box\[hidden\],\.search-examples\[hidden\],\.filter-panel\[hidden\]\{display:none\}/);
+  assert.match(detailsModule(), /decoding="async"/);
+  assert.match(index, /Data schema/);
+  assert.match(index, /href="\.\.\/references\/database\.md"/);
+});
+
+function detailsModule() {
+  return readFileSync(new URL("../database/details.mjs", import.meta.url), "utf8");
+}
 
 test("database branding is front-end neutral and supports ABACUS and FHI-aims workflows", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");

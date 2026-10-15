@@ -3,6 +3,7 @@ import { esc, filesOf, recordElements, methodNames, recordType, atomCount, prima
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
+import { gapOverview, renderGapOverview } from "./gaps.mjs";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
@@ -60,6 +61,10 @@ function stats() {
 
 function syncFilters() {
   const basis = state.mode === "basis";
+  const gaps = state.mode === "gaps";
+  $(".filter-panel").hidden = gaps;
+  $(".search-box").hidden = gaps;
+  $(".search-examples").hidden = gaps;
   $(".dimension-filter").hidden = basis;
   $(".software-filter").hidden = basis;
   $("#input-filter-control").hidden = basis;
@@ -68,26 +73,39 @@ function syncFilters() {
   $("#input-filter").value = state.inputs;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
   document.querySelectorAll("input[name=software]").forEach(input => { input.checked = input.value === state.software; });
-  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
-  if (!(basis ? ["element"] : ["material", "result"]).includes(state.sort)) state.sort = basis ? "element" : "material";
+  $("#sort").innerHTML = gaps ? '<option value="result">GW gap ↓</option><option value="material">Material A–Z</option>' : basis ? '<option value="element">Element A–Z</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
+  if (!(gaps ? ["result", "material"] : basis ? ["element"] : ["material", "result"]).includes(state.sort)) state.sort = gaps ? "result" : basis ? "element" : "material";
   $("#sort").value = state.sort;
 }
 
 function listHash() {
   const params = new URLSearchParams();
-  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
-  return `#/${state.mode === "basis" ? "basis" : ""}${params.size ? `?${params}` : ""}`;
+  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : state.mode === "gaps" ? "result" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
+  const prefix = state.mode === "basis" ? "#/basis" : state.mode === "gaps" ? "#/gaps" : "#/";
+  return `${prefix}${params.size ? `?${params}` : ""}`;
 }
 
 function renderHome() {
   const basis = state.mode === "basis";
+  const gaps = state.mode === "gaps";
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
-  $("#page-title").textContent = basis ? "The basis behind each result." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
+  $("#page-title").textContent = basis ? "The basis behind each result." : gaps ? "Band gaps, across materials." : "Materials, with evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Every recorded gap value in one table: PBE / KS, EXX, and GW side by side, one row per calculation, ready for cross-material comparison." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
-  $("#catalog-title").textContent = basis ? "Basis-set records" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
+  $("#catalog-title").textContent = basis ? "Basis-set records" : gaps ? "Gap overview" : "Calculation records";
+  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : gaps ? "One row per calculation that lists at least one gap value. Values are in eV and keep each record's own definition (path observable, sampled Γ, or paper reference); the bar scales to the largest GW value in the table. A dash means no value is listed." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
+  if (gaps) {
+    const rows = state.calculations.filter(record => gapOverview(record));
+    $("#result-count").textContent = `${rows.length} of ${state.calculations.length} records list a gap value`;
+    $("#empty").hidden = true;
+    $("#catalog").hidden = false;
+    $("#catalog").setAttribute("aria-busy", "false");
+    $("#catalog").innerHTML = renderGapOverview(state.calculations, state.sort);
+    document.title = `Gap overview · LibRPA`;
+    document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
+    return;
+  }
   const records = filtered();
   const pages = Math.max(1, Math.ceil(records.length / pageSize));
   state.page = Math.min(state.page, pages);
@@ -110,7 +128,7 @@ function updateFilter() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", dimension: "all", software: "all", element: "all", inputs: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
+  Object.assign(state, { query: "", dimension: "all", software: "all", element: "all", inputs: "all", sort: state.mode === "basis" ? "element" : state.mode === "gaps" ? "result" : "material", page: 1 });
   syncFilters();
   updateFilter();
 }
@@ -134,9 +152,9 @@ function route() {
     if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();
     return;
   }
-  state.mode = hash.split("?")[0] === "#/basis" ? "basis" : "materials";
+  state.mode = hash.split("?")[0] === "#/basis" ? "basis" : hash.split("?")[0] === "#/gaps" ? "gaps" : "materials";
   const params = new URLSearchParams(hash.split("?")[1] || "");
-  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
+  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : state.mode === "gaps" ? "result" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
   renderHome();
@@ -146,6 +164,16 @@ async function start() {
   installPreview($("#file-preview"));
   installRadial($("#detail-view"));
   installDetailActions($("#detail-view"), () => state.currentRecord);
+  const themeToggle = $("#theme-toggle");
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(document.documentElement.dataset.theme === "dark"));
+    themeToggle.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch { /* storage unavailable */ }
+      themeToggle.setAttribute("aria-pressed", String(next === "dark"));
+    });
+  }
   try {
     const response = await fetch("data.json", { cache: "no-cache" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -170,7 +198,7 @@ async function start() {
     });
     $("#search-examples").addEventListener("click", event => { const button = event.target.closest("[data-query]"); if (button) { state.query = button.dataset.query; $("#search").value = state.query; updateFilter(); } });
     $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
-    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });
+    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });
     window.addEventListener("hashchange", route);
     route();
   } catch (error) {
