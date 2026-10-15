@@ -27761,7 +27761,7 @@
             "label": "ABACUS structure file (C2048 diamond)",
             "original_name": "STRU",
             "original_sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
-            "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_STRU",
+            "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU",
             "role": "inputs",
             "scientific_role": "abacus_stru",
             "sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
@@ -28029,6 +28029,11 @@
         "collection": "Verified historical Reader-v1 conversion with archived G0W0 and RPA input/output files from df_dcu"
       },
       "species": [],
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "evidence": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU",
+        "sha256": "7ce93dd2503c9e5761a935d8ea3f4445f74b494eac27510ca96bbd2de36a8905"
+      },
       "summary": {
         "notes": "Input and output files are archived from df_dcu. G0W0 QP output (job 20959369, 256 DCU nodes): sampled Gamma PBE gap = 4.28728 eV, G0W0 gap = 5.74313 eV. 1464 high-energy unoccupied states have nonfinite QP values. RPA correlation energy (job 20918572, 100 DCU nodes) = -418.489 Ha. The skipped k-path is a separate limitation.",
         "observable": "Sampled Gamma-state G0W0 gap",
@@ -28045,6 +28050,260 @@
       "archive_completeness": {
         "status": "complete",
         "issues": []
+      }
+    },
+    {
+      "auxiliary_basis": {
+        "evidence": [
+          "data/calculations/3d/C/c2048-rpa-20260614/inputs/INPUT"
+        ],
+        "mode": "pca_generated",
+        "threshold": 0.0001
+      },
+      "basis_candidates": [],
+      "computational_scale": {
+        "ao_count": 26624,
+        "atom_count": 2048
+      },
+      "dimension": "3d",
+      "files": {
+        "inputs": [
+          {
+            "label": "ABACUS SCF input (INPUT)",
+            "original_name": "INPUT",
+            "original_sha256": "74fddbfc898fe1f958f691d254f191fa693d5ba2ba64f792256262247a258667",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/INPUT",
+            "role": "inputs",
+            "scientific_role": "abacus_scf_input",
+            "sha256": "74fddbfc898fe1f958f691d254f191fa693d5ba2ba64f792256262247a258667",
+            "size_bytes": 655,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS K-point file",
+            "original_name": "KPT",
+            "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/KPT",
+            "role": "inputs",
+            "scientific_role": "abacus_kpt",
+            "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+            "size_bytes": 29,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS structure file (C2048 diamond)",
+            "original_name": "STRU",
+            "original_sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/STRU",
+            "role": "inputs",
+            "scientific_role": "abacus_stru",
+            "sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
+            "size_bytes": 139622,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS production run script",
+            "original_name": "run_abacus.sh",
+            "original_sha256": "8e56f80c8d65f026e00cf7d1a2e02321a4d827af74e30cea693d3e4731ce7bdb",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/run_abacus.sh",
+            "role": "inputs",
+            "scientific_role": "abacus_run_script",
+            "sha256": "8e56f80c8d65f026e00cf7d1a2e02321a4d827af74e30cea693d3e4731ce7bdb",
+            "size_bytes": 2322,
+            "transformation": "none"
+          },
+          {
+            "label": "LibRPA RPA task input",
+            "original_name": "librpa_rpa.in",
+            "original_sha256": "be91168a8c3e40c87f8cc42ce50728c9a41cd289f808eba6badfd2f6ce70a225",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/librpa.in",
+            "role": "inputs",
+            "scientific_role": "librpa_rpa_input",
+            "sha256": "be91168a8c3e40c87f8cc42ce50728c9a41cd289f808eba6badfd2f6ce70a225",
+            "size_bytes": 577,
+            "transformation": "none"
+          },
+          {
+            "label": "LibRPA RPA slurm run script",
+            "original_name": "rpa_slurm_script.sh",
+            "original_sha256": "df2490b8a55b3c5ee266587df83ce0e1250b8140225568c7b869bae766ae7f82",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/inputs/rpa_slurm_script.sh",
+            "role": "inputs",
+            "scientific_role": "rpa_run_script",
+            "sha256": "df2490b8a55b3c5ee266587df83ce0e1250b8140225568c7b869bae766ae7f82",
+            "size_bytes": 3658,
+            "transformation": "none"
+          }
+        ],
+        "logs": [
+          {
+            "label": "RPA slurm stdout (job 20918572)",
+            "original_name": "log_C_hip",
+            "original_sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/slurm-20918572.out",
+            "role": "logs",
+            "scientific_role": "rpa_slurm_stdout",
+            "sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
+            "size_bytes": 8894,
+            "transformation": "none"
+          },
+          {
+            "label": "RPA slurm stderr",
+            "original_name": "err_C_hip",
+            "original_sha256": "4044baa48980c57b0455aa514c4c0d4cb60c72effb2a14f6fead54d776ae8c1e",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/rpa_slurm_stderr.log",
+            "role": "logs",
+            "scientific_role": "rpa_slurm_stderr",
+            "sha256": "4044baa48980c57b0455aa514c4c0d4cb60c72effb2a14f6fead54d776ae8c1e",
+            "size_bytes": 34390,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS SCF slurm stdout",
+            "original_name": "log_C_abacus",
+            "original_sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_slurm_stdout.log",
+            "role": "logs",
+            "scientific_role": "abacus_slurm_stdout",
+            "sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
+            "size_bytes": 18726,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS SCF slurm stderr",
+            "original_name": "err_C_abacus",
+            "original_sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_slurm_stderr.log",
+            "role": "logs",
+            "scientific_role": "abacus_slurm_stderr",
+            "sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
+            "size_bytes": 228,
+            "transformation": "none"
+          },
+          {
+            "label": "ABACUS SCF program stdout",
+            "original_name": "ABACUS.out",
+            "original_sha256": "6ae17a3037d0c488536aa533117ee56259963af823b4a3ab396a84f111a2bb01",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_stdout.log",
+            "role": "logs",
+            "scientific_role": "abacus_program_stdout",
+            "sha256": "6ae17a3037d0c488536aa533117ee56259963af823b4a3ab396a84f111a2bb01",
+            "size_bytes": 30302,
+            "transformation": "none"
+          }
+        ],
+        "results": [
+          {
+            "label": "LibRPA RPA output (rank 0, 100 DCU nodes, job 20918572)",
+            "original_name": "librpa_para_nprocs_100_myid_0.out",
+            "original_sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
+            "path": "data/calculations/3d/C/c2048-rpa-20260614/results/LibRPA.20918572.out",
+            "role": "results",
+            "scientific_role": "rpa_correlation_output",
+            "sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
+            "size_bytes": 5942570,
+            "transformation": "none"
+          }
+        ]
+      },
+      "formula": "C2048",
+      "id": "c2048-rpa-20260614",
+      "material": "C",
+      "missing": [
+        "The historical ABACUS and LibRPA source commit hashes were not retained.",
+        "The run's stdout summary file on the production cluster is not separately mirrored in this database; the archived rank-0 output does not print the terminal EcRPA value."
+      ],
+      "performance": {
+        "accelerator_label": "DCU x1/node (100 total)",
+        "accelerators": 100,
+        "cluster_label": "df_dcu",
+        "evidence": [
+          "data/calculations/3d/C/c2048-rpa-20260614/logs/slurm-20918572.out"
+        ],
+        "mpi_ranks": 100,
+        "nodes": 100,
+        "omp_threads_per_rank": 30,
+        "wall_time_seconds": 9298
+      },
+      "properties": [
+        {
+          "category": "energetic",
+          "definition": "Total RPA correlation energy of the C2048 diamond supercell from the completed direct-Coulomb RPA calculation (job 20918572, 100 DCU nodes). The archived rank-0 output records the completed EcRPA stage and its wall-clock timers; the terminal value was read from the run's stdout summary during the authorized read-only audit of the production cluster in October 2026 and is also preserved in the sibling conversion record's receipt (c2048-reader-v1-20260607).",
+          "evidence": [
+            "data/calculations/3d/C/c2048-rpa-20260614/results/LibRPA.20918572.out"
+          ],
+          "key": "rpa_correlation_energy",
+          "label": "RPA correlation energy",
+          "method": "RPA",
+          "status": "reported",
+          "unit": "Ha",
+          "value": -418.489041942
+        }
+      ],
+      "publication": {
+        "status": "database_only"
+      },
+      "recommendation": null,
+      "record_type": "rpa_energy",
+      "schema_version": 1,
+      "software": {
+        "abacus": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c2048-rpa-20260614/inputs/INPUT",
+            "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_stdout.log"
+          ],
+          "missing_reason": "The historical ABACUS source commit and executable hash were not retained.",
+          "source_url": "https://github.com/deepmodeling/abacus-develop"
+        },
+        "librpa": {
+          "abbreviated_commit": null,
+          "commit": null,
+          "evidence": [
+            "data/calculations/3d/C/c2048-rpa-20260614/results/LibRPA.20918572.out",
+            "data/calculations/3d/C/c2048-rpa-20260614/logs/slurm-20918572.out"
+          ],
+          "missing_reason": "The historical LibRPA source commit and executable hash were not retained; the output preserves completion markers only.",
+          "source_url": "https://github.com/AESM-Group/LibRPA"
+        }
+      },
+      "source": {
+        "collection": "Verified large-system carbon RPA calculation on df_dcu",
+        "runtime_provenance": "Same ABACUS production input directory as c2048-reader-v1-20260607; the LibRPA RPA job 20918572 (100 DCU nodes) started 2026-06-14 22:29 CST and completed 2026-06-15 01:04 CST."
+      },
+      "species": [
+        {
+          "asset_aliases": {
+            "nao": "C_gga_8au_100Ry_2s2p1d.orb",
+            "pp": "C_ONCV_PBE-1.0.upf"
+          },
+          "element": "C",
+          "linkage": "exact production PP and physical NAO; auxiliary basis generated by PCA",
+          "missing_roles": [],
+          "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
+        }
+      ],
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "evidence": "data/calculations/3d/C/c2048-rpa-20260614/inputs/STRU",
+        "sha256": "7ce93dd2503c9e5761a935d8ea3f4445f74b494eac27510ca96bbd2de36a8905"
+      },
+      "summary": {
+        "observable": "RPA correlation energy",
+        "unit": "Ha",
+        "value": -418.489041942
+      },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "rpa"
+      },
+      "archive_completeness": {
+        "status": "incomplete",
+        "issues": [
+          "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
       }
     },
     {

@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
   "policy": "grandfathered_missing_software_identity",
-  "frozen_issue_count": 46,
+  "frozen_issue_count": 48,
   "scope": "Only the exact pre-existing calculation/software pairs listed here may retain an unavailable immutable software identity. New records are never added automatically.",
+  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered.",
   "records": [
+    {"id": "c2048-rpa-20260614", "software": ["abacus", "librpa"]},
     {"id": "cuinp2se6-table-gw", "software": ["abacus", "librpa"]},
     {"id": "gate-table-gw", "software": ["abacus", "librpa"]},
     {"id": "gete-table-gw", "software": ["abacus", "librpa"]},

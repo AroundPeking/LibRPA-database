@@ -221,7 +221,7 @@ Archived files use descriptive names in the `path` field while preserving `origi
 |---|---|---|
 | `INPUT` | `inputs/abacus_INPUT` | `INPUT` |
 | `KPT` | `inputs/abacus_KPT` | `KPT` |
-| `STRU` | `inputs/abacus_STRU` | `STRU` |
+| `STRU` | `inputs/abacus_STRU` (canonical `inputs/STRU` when the record carries `structure_identity`) | `STRU` |
 | `run_abacus.sh` | `inputs/abacus_run_script.sh` | `run_abacus.sh` |
 | `librpa.in` (GW) | `inputs/librpa_gw.in` | `librpa.in` |
 | `librpa.in` (RPA) | `inputs/librpa_rpa.in` | `librpa.in` |

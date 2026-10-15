@@ -1,0 +1,30 @@
+INPUT_PARAMETERS
+pseudo_dir          ./
+orbital_dir         ./
+out_mat_xc          1
+out_chg             1
+out_mat_hs2         1
+out_mat_r           1
+
+calculation         scf
+ntype               1
+nbands              26624
+ecutwfc             60
+
+smearing_method     gaussian
+smearing_sigma      1e-4
+basis_type          lcao
+ks_solver           genelpa
+dft_functional      pbe
+rpa                 1
+symmetry            -1
+exx_separate_loop   1
+exx_pca_threshold   1e-4
+
+exx_singularity_correction massidda
+exx_ccp_rmesh_times        5
+rpa_ccp_rmesh_times        5
+exx_ewald_lambda          0.35
+exx_real_number            1
+
+out_librpa_reader_version 1

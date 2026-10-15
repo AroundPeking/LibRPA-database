@@ -140,6 +140,36 @@
       "label": "RPA slurm stdout (job 20918572)"
     },
     {
+      "calculation_id": "c2048-rpa-20260614",
+      "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_slurm_stderr.log",
+      "sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
+      "label": "ABACUS SCF slurm stderr"
+    },
+    {
+      "calculation_id": "c2048-rpa-20260614",
+      "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_slurm_stdout.log",
+      "sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
+      "label": "ABACUS SCF slurm stdout"
+    },
+    {
+      "calculation_id": "c2048-rpa-20260614",
+      "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_stdout.log",
+      "sha256": "6ae17a3037d0c488536aa533117ee56259963af823b4a3ab396a84f111a2bb01",
+      "label": "ABACUS SCF program stdout"
+    },
+    {
+      "calculation_id": "c2048-rpa-20260614",
+      "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/rpa_slurm_stderr.log",
+      "sha256": "4044baa48980c57b0455aa514c4c0d4cb60c72effb2a14f6fead54d776ae8c1e",
+      "label": "RPA slurm stderr"
+    },
+    {
+      "calculation_id": "c2048-rpa-20260614",
+      "path": "data/calculations/3d/C/c2048-rpa-20260614/logs/slurm-20918572.out",
+      "sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
+      "label": "RPA slurm stdout (job 20918572)"
+    },
+    {
       "calculation_id": "c512-gamma-g0w0-20260519",
       "path": "data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out",
       "sha256": "e2ab615d52b4d36504136148cbea630d75cdcb5d71b34c463effcc8b777c6b83",

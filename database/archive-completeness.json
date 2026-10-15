@@ -5,17 +5,17 @@
   "integrity_issues": [],
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "stats": {
-    "total": 35,
+    "total": 36,
     "complete": 4,
-    "incomplete": 31,
-    "issue_count": 46,
-    "accepted_exception_count": 46,
+    "incomplete": 32,
+    "issue_count": 48,
+    "accepted_exception_count": 48,
     "blocking_case_count": 0,
     "blocking_issue_count": 0,
     "missing_categories": {
       "software": {
-        "cases": 31,
-        "issues": 46
+        "cases": 32,
+        "issues": 48
       }
     }
   },
@@ -516,6 +516,29 @@
       "accepted_issues": [],
       "blocking_issues": [],
       "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "c2048-rpa-20260614",
+      "material": "C",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
       "blocking_categories": {}
     },
     {

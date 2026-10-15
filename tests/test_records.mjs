@@ -471,6 +471,31 @@ test("detail page shows frontend tag and same-structure comparison when peers ex
   assert.match(html, /-418\.49000/);
 });
 
+test("rpa energy detail page renders results, scale, and performance instead of band sections", () => {
+  const record = {
+    id: "c-rpa", material: "C", formula: "C2048", dimension: "3d",
+    record_type: "rpa_energy",
+    workflow: { frontend: "abacus", task: "rpa" },
+    computational_scale: { atom_count: 2048, ao_count: 26624 },
+    performance: { cluster_label: "df_dcu", wall_time_seconds: 9298, nodes: 100, mpi_ranks: 100, omp_threads_per_rank: 30, accelerators: 100, accelerator_label: "DCU x1/node (100 total)" },
+    auxiliary_basis: { mode: "pca_generated", threshold: 0.0001 },
+    structure_identity: { algorithm: "cell-sites-v1", sha256: "d".repeat(64) },
+    properties: [{ key: "rpa_correlation_energy", category: "energetic", label: "RPA correlation energy", method: "RPA", unit: "Ha", status: "reported", value: -418.489041942, evidence: ["data/calculations/3d/C/c-rpa/results/LibRPA.out"] }],
+    files: { results: [{ path: "data/calculations/3d/C/c-rpa/results/LibRPA.out" }] },
+  };
+  const html = renderMaterial(record, [], [record]);
+  assert.match(html, /RPA energy calculation/);
+  assert.match(html, /Results &amp; evidence/);
+  assert.match(html, /Computational scale &amp; performance/);
+  assert.match(html, /2048 atoms/);
+  assert.match(html, /2:34:58/);
+  assert.match(html, /DCU x1\/node \(100 total\)/);
+  assert.match(html, /-418\.489041942/);
+  assert.match(html, /Energy reported/);
+  assert.match(html, /PCA with threshold 0\.0001/);
+  assert.doesNotMatch(html, /Electronic bands|plotting reference/);
+});
+
 test("detail page shows ABACUS tag by default and no comparison when alone", () => {
   const record = { id: "solo", material: "Si", dimension: "3d", workflow: {}, properties: [], files: {} };
   const html = renderMaterial(record, [], [record]);

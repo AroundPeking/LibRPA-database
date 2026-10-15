@@ -111,7 +111,7 @@
         "label": "ABACUS structure file (C2048 diamond)",
         "original_name": "STRU",
         "original_sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
-        "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_STRU",
+        "path": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU",
         "role": "inputs",
         "scientific_role": "abacus_stru",
         "sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
@@ -379,6 +379,11 @@
     "collection": "Verified historical Reader-v1 conversion with archived G0W0 and RPA input/output files from df_dcu"
   },
   "species": [],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "evidence": "data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU",
+    "sha256": "7ce93dd2503c9e5761a935d8ea3f4445f74b494eac27510ca96bbd2de36a8905"
+  },
   "summary": {
     "notes": "Input and output files are archived from df_dcu. G0W0 QP output (job 20959369, 256 DCU nodes): sampled Gamma PBE gap = 4.28728 eV, G0W0 gap = 5.74313 eV. 1464 high-energy unoccupied states have nonfinite QP values. RPA correlation energy (job 20918572, 100 DCU nodes) = -418.489 Ha. The skipped k-path is a separate limitation.",
     "observable": "Sampled Gamma-state G0W0 gap",
