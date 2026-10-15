@@ -338,7 +338,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         for n, file_item in enumerate(item["files"]):
             _file(root, file_item, f"{label}.files[{n}]")
             roles.add(file_item.get("role"))
-        if not roles.intersection({"pp", "nao", "abf"}):
+        if not roles.intersection({"pp", "nao", "abf", "species_defaults"}):
             _fail(f"{label}: no basis payload is registered")
         publication = _publication(item, label)
         set_publications[set_id] = publication
@@ -408,7 +408,11 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             _fail(f"{label}.workflow.frontend: expected abacus or fhi_aims")
         if frontend == "fhi_aims" and "abacus" in software:
             _fail(f"{label}.software: FHI-aims record cannot claim ABACUS as the executing frontend")
-        for name in (frontend, "librpa"):
+        # 纯 FHI-aims GW 记录没有运行 LibRPA；未参与的软件不必声明。
+        identity_apps = [frontend]
+        if not (frontend == "fhi_aims" and isinstance(workflow_identity, dict) and workflow_identity.get("task") == "gw"):
+            identity_apps.append("librpa")
+        for name in identity_apps:
             app = software.get(name)
             if not isinstance(app, dict):
                 _fail(f"{label}: software.{name} must be an object")
@@ -502,7 +506,7 @@ def _payload_bytes(root: Path, item: dict, limit: int | None = None) -> bytes:
 
 def _input_name(item: dict, name: str) -> bool:
     basename = PurePosixPath(item.get("path", "")).name.split("__")[-1]
-    if name == "librpa.in":
+    if name in {"librpa.in", "control.in", "geometry.in"}:
         return basename == name
     return bool(re.fullmatch(re.escape(name) + r"(?:_(?:scf|nscf|band|band_path|path|df))?", basename))
 
@@ -520,6 +524,24 @@ def _stru_sections(text: str) -> dict[str, list[str]]:
         elif current:
             sections[current].append(line)
     return sections
+
+
+def _aims_species_blocks(text: str) -> dict[str, str]:
+    """逐字节提取 control.in 内联的 FHI-aims 物种基组块；intake 与绑定证明共用同一函数。"""
+    blocks: dict[str, str] = {}
+    lines = text.splitlines()
+    starts = [index for index, raw in enumerate(lines)
+              if re.fullmatch(r"\s*species\s+([A-Z][a-z]?)\s*", raw)]
+    for number, start in enumerate(starts):
+        element = lines[start].split()[1]
+        end = starts[number + 1] if number + 1 < len(starts) else len(lines)
+        block = lines[start:end]
+        while block and not block[-1].strip():
+            block.pop()
+        if element in blocks:
+            _fail(f"control.in species block for {element} is declared more than once")
+        blocks[element] = "\n".join(block) + "\n"
+    return blocks
 
 
 # Conservative structure identity: identical cells and atomic positions to 1e-5 Å.
@@ -633,6 +655,13 @@ def _validate_structure_identity(root: Path, case: dict, declared_paths: set[str
 def _basis_payload(data: bytes, item: dict, element: str, *, generic_auxiliary: bool = False) -> bool:
     text = data.decode("utf-8", errors="replace")
     suffix = PurePosixPath(item.get("path", "")).suffix.lower()
+    if item.get("role") == "species_defaults":
+        # FHI-aims 内联物种块必须是逐元素完整定义；角色即身份，扩展名不参与判断。
+        return bool(re.search(r"(?m)^\s*species\s+" + re.escape(element) + r"\s*$", text)
+                    and re.search(r"(?m)^\s*nucleus\s+\d+", text)
+                    and re.search(r"(?m)^\s*(?:valence|ion_occ)\s+\d", text)
+                    and re.search(r"(?m)^\s*(?:hydro|ionic|for_aux)\s", text)
+                    and re.search(r"\d", text))
     if item.get("role") == "pp":
         # 同时支持 UPF v1 文本头和 v2 XML 属性；角色/扩展名自身不是payload证据。
         header = re.search(r"<PP_HEADER\b[^>]*>(.*?)</PP_HEADER>|<PP_HEADER\b[^>]*/?>", text, re.S)
@@ -905,7 +934,17 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         return issues
 
     inputs = {}
-    for name in ("INPUT", "KPT", "STRU", "librpa.in"):
+    workflow = case.get("workflow")
+    frontend = workflow.get("frontend", "abacus") if isinstance(workflow, dict) else "abacus"
+    if frontend == "fhi_aims":
+        # FHI-aims 记录以 control.in/geometry.in 为生产输入；librpa.in 仅在
+        # LibRPA 参与执行（task 不是纯 aims GW）时才是同记录生产输入。
+        input_names = ("control.in", "geometry.in")
+        if not (isinstance(workflow, dict) and workflow.get("task") == "gw"):
+            input_names += ("librpa.in",)
+    else:
+        input_names = ("INPUT", "KPT", "STRU", "librpa.in")
+    for name in input_names:
         valid = []
         for item in owned["inputs"]:
             if not _input_name(item, name):
@@ -921,6 +960,13 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             elif name == "STRU":
                 sections = _stru_sections(text)
                 readable = bool(sections.get("ATOMIC_SPECIES") and sections.get("ATOMIC_POSITIONS"))
+            elif name == "control.in":
+                readable = bool(re.search(r"(?m)^\s*xc\s+\S+", text)
+                                and re.search(r"(?m)^\s*k_grid\s+\d", text)
+                                and re.search(r"(?m)^\s*species\s+[A-Z][a-z]?\s*$", text))
+            elif name == "geometry.in":
+                readable = bool(len(re.findall(r"(?m)^\s*lattice_vector\b", text)) == 3
+                                and re.search(r"(?m)^\s*atom(?:_frac)?\s", text))
             else:
                 readable = bool(re.search(r"(?m)^\s*task\s*=\s*\S+", text))
             if readable:
@@ -945,7 +991,12 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     auxiliary = case.get("auxiliary_basis", {})
     generated_auxiliary = (isinstance(auxiliary, dict)
                            and auxiliary.get("mode") == "pca_generated")
-    required_roles = ("pp", "nao") if generated_auxiliary else ("pp", "nao", "abf")
+    if frontend == "fhi_aims":
+        required_roles = ("species_defaults",)
+    elif generated_auxiliary:
+        required_roles = ("pp", "nao")
+    else:
+        required_roles = ("pp", "nao", "abf")
     payloads = {}
     for entry in species:
         element, set_id = entry.get("element"), entry.get("set_id")
@@ -984,63 +1035,89 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                                   generic_auxiliary=generic_auxiliary):
                 issues.append(f"species {element}: {role} payload is empty, unreadable, or does not identify its format/element")
 
-    declared_roles = set()
-    for stru_item, text in inputs["STRU"]:
-        sections = _stru_sections(text)
-        rows = [line.split() for line in sections.get("ATOMIC_SPECIES", [])]
-        order = [row[0] for row in rows if row]
-        if set(order) != actual:
-            issues.append(f"STRU {stru_item['path']}: ATOMIC_SPECIES elements do not match exact species")
-        declarations = {"pp": [row[2] if len(row) > 2 else "" for row in rows]}
-        for role, section in (("nao", "NUMERICAL_ORBITAL"), ("abf", "ABFS_ORBITAL")):
-            if section in sections:
-                declarations[role] = [line.split()[0] for line in sections[section]]
-        declared_roles.update(declarations)
-        if generated_auxiliary:
-            threshold = auxiliary.get("threshold")
-            evidence = set(auxiliary.get("evidence", []))
-            values = []
-            for input_item, input_text in inputs["INPUT"]:
-                if input_item["path"] not in evidence:
-                    continue
-                values.extend(float(value) for value in re.findall(
-                    r"(?im)^\s*exx_pca_threshold\s+(\S+)", input_text
-                ) if re.fullmatch(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][-+]?\d+)?", value))
-            if len(values) != 1 or not math.isclose(values[0], threshold, rel_tol=1e-12, abs_tol=0.0):
-                issues.append("auxiliary_basis: exx_pca_threshold must be uniquely recorded in the evidence-targeted production INPUT and match provenance")
-            if "ABFS_ORBITAL" in sections:
-                issues.append(f"STRU {stru_item['path']}: PCA-generated auxiliary provenance cannot also declare ABFS_ORBITAL")
-        for role, names in declarations.items():
-            if len(names) != len(order) or any(not name for name in names):
-                issues.append(f"STRU {stru_item['path']}: {role} declarations do not cover ATOMIC_SPECIES")
-            for element, name in zip(order, names):
-                item = payloads.get(element, {}).get(role)
-                entry = next((entry for entry in species if entry.get("element") == element), {})
-                if not item:
-                    continue
-                aliases = entry.get("asset_aliases", {})
-                proved = {aliases.get(role)} if isinstance(aliases, dict) else set()
-                # 仅原始记录的label/original_name能证明同哈希名称复用；描述性catalog别名不参与。
-                for basis in sets:
-                    if basis.get("element") != element:
+    if frontend == "fhi_aims":
+        # FHI-aims 绑定证明：geometry.in 原子标签与精确物种一致，且 control.in
+        # 内联物种块与注册 payload 逐字节同哈希；不以文件名或目录猜测。
+        for geo_item, text in inputs["geometry.in"]:
+            labels = set(re.findall(r"(?m)^\s*atom(?:_frac)?\s+\S+\s+\S+\s+\S+\s+([A-Z][a-z]?)\s*$", text))
+            if labels != actual:
+                issues.append(f"geometry.in {geo_item['path']}: atom species labels do not match exact species")
+        for element in sorted(actual):
+            item = payloads.get(element, {}).get("species_defaults")
+            if not item:
+                continue
+            payload_digest = item.get("sha256")
+            matched = False
+            for control_item, text in inputs["control.in"]:
+                blocks = _aims_species_blocks(text)
+                if (element in blocks
+                        and hashlib.sha256(blocks[element].encode("utf-8")).hexdigest() == payload_digest):
+                    matched = True
+                    break
+            if not matched:
+                issues.append(f"control.in: {element} species defaults block does not hash-match the bound species_defaults payload")
+    else:
+        declared_roles = set()
+        for stru_item, text in inputs["STRU"]:
+            sections = _stru_sections(text)
+            rows = [line.split() for line in sections.get("ATOMIC_SPECIES", [])]
+            order = [row[0] for row in rows if row]
+            if set(order) != actual:
+                issues.append(f"STRU {stru_item['path']}: ATOMIC_SPECIES elements do not match exact species")
+            declarations = {"pp": [row[2] if len(row) > 2 else "" for row in rows]}
+            for role, section in (("nao", "NUMERICAL_ORBITAL"), ("abf", "ABFS_ORBITAL")):
+                if section in sections:
+                    declarations[role] = [line.split()[0] for line in sections[section]]
+            declared_roles.update(declarations)
+            if generated_auxiliary:
+                threshold = auxiliary.get("threshold")
+                evidence = set(auxiliary.get("evidence", []))
+                values = []
+                for input_item, input_text in inputs["INPUT"]:
+                    if input_item["path"] not in evidence:
                         continue
-                    for other in basis["files"]:
-                        if other.get("role") == role and other.get("sha256") == item.get("sha256"):
-                            proved.update(other.get(field) for field in ("label", "original_name"))
-                # 可移植相对路径也可直接指向已校验的精确资产；不以basename猜测。
-                reference = PurePosixPath(name)
-                exact_path = (not reference.is_absolute()
-                              and (root / stru_item["path"]).parent.joinpath(*reference.parts).resolve()
-                              == (root / item["path"]).resolve())
-                if name not in proved and not exact_path:
-                    issues.append(f"STRU {stru_item['path']}: {element} {role} original name {name!r} is not proven for the bound payload hash")
-    for role in required_roles:
-        if role != "pp" and inputs["STRU"] and role not in declared_roles:
-            issues.append(f"STRU: at least one production STRU must declare exact {role} payloads")
+                    values.extend(float(value) for value in re.findall(
+                        r"(?im)^\s*exx_pca_threshold\s+(\S+)", input_text
+                    ) if re.fullmatch(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][-+]?\d+)?", value))
+                if len(values) != 1 or not math.isclose(values[0], threshold, rel_tol=1e-12, abs_tol=0.0):
+                    issues.append("auxiliary_basis: exx_pca_threshold must be uniquely recorded in the evidence-targeted production INPUT and match provenance")
+                if "ABFS_ORBITAL" in sections:
+                    issues.append(f"STRU {stru_item['path']}: PCA-generated auxiliary provenance cannot also declare ABFS_ORBITAL")
+            for role, names in declarations.items():
+                if len(names) != len(order) or any(not name for name in names):
+                    issues.append(f"STRU {stru_item['path']}: {role} declarations do not cover ATOMIC_SPECIES")
+                for element, name in zip(order, names):
+                    item = payloads.get(element, {}).get(role)
+                    entry = next((entry for entry in species if entry.get("element") == element), {})
+                    if not item:
+                        continue
+                    aliases = entry.get("asset_aliases", {})
+                    proved = {aliases.get(role)} if isinstance(aliases, dict) else set()
+                    # 仅原始记录的label/original_name能证明同哈希名称复用；描述性catalog别名不参与。
+                    for basis in sets:
+                        if basis.get("element") != element:
+                            continue
+                        for other in basis["files"]:
+                            if other.get("role") == role and other.get("sha256") == item.get("sha256"):
+                                proved.update(other.get(field) for field in ("label", "original_name"))
+                    # 可移植相对路径也可直接指向已校验的精确资产；不以basename猜测。
+                    reference = PurePosixPath(name)
+                    exact_path = (not reference.is_absolute()
+                                  and (root / stru_item["path"]).parent.joinpath(*reference.parts).resolve()
+                                  == (root / item["path"]).resolve())
+                    if name not in proved and not exact_path:
+                        issues.append(f"STRU {stru_item['path']}: {element} {role} original name {name!r} is not proven for the bound payload hash")
+        for role in required_roles:
+            if role != "pp" and inputs["STRU"] and role not in declared_roles:
+                issues.append(f"STRU: at least one production STRU must declare exact {role} payloads")
 
     workflow = case.get("workflow")
     frontend = workflow.get("frontend", "abacus") if isinstance(workflow, dict) else "abacus"
-    for name in (frontend, "librpa"):
+    # 纯 FHI-aims GW 记录没有运行 LibRPA；未参与的软件不做身份要求。
+    apps = [frontend]
+    if not (frontend == "fhi_aims" and isinstance(workflow, dict) and workflow.get("task") == "gw"):
+        apps.append("librpa")
+    for name in apps:
         app = case.get("software", {}).get(name, {})
         if not _immutable_software_identity(app):
             issues.append(

@@ -783,10 +783,39 @@ libRPA finished successfully
         self.case["properties"] = []
         self.assertTrue(any("rpa_correlation_energy" in issue for issue in self.issues()))
 
+    def _make_fhi_aims(self, task="g0w0_band"):
+        """把 ABACUS band fixture 换成等价完整的 FHI-aims 前端案例。"""
+        block = (
+            "  species        Si\n"
+            "    nucleus             14\n"
+            "    mass                28.0855\n"
+            "    valence      3  s   2.\n"
+            "    ion_occ      3  s   1.\n"
+            "     hydro 3 d 4.2\n"
+            "     ionic 3 s auto\n"
+            "for_aux     hydro 5 g 9.4\n")
+        payload = self._add_file(
+            "data/elements/Si/species_defaults/" + hashlib.sha256(block.encode()).hexdigest()[:12] + ".in",
+            block.encode(), "species_defaults")
+        payload["original_name"] = "Si species defaults pasted in control.in"
+        self.basis = {"id": "Si-aims-test", "element": "Si", "files": [payload]}
+        self.case["species"] = [{"element": "Si", "set_id": "Si-aims-test"}]
+        self.case["software"] = {"fhi_aims": {"commit": "c" * 40}, "librpa": {"commit": "b" * 40}}
+        self.case["workflow"] = {"frontend": "fhi_aims", "task": task}
+        control = "xc               pbe\nk_grid  8  8  8\n" + block
+        inputs = [
+            self._input("control.in", control.encode()),
+            self._input("geometry.in",
+                        b"atom_frac 0.125 0.125 0.125 Si\natom_frac 0.875 0.875 0.875 Si\n"
+                        b"lattice_vector 0.0 2.7 2.7\nlattice_vector 2.7 0.0 2.7\nlattice_vector 2.7 2.7 0.0\n"),
+        ]
+        if task != "gw":
+            inputs.append(self._input("librpa.in",
+                                      b"task = rpa\nnfreq = 16\n" if task == "rpa" else b"task = g0w0_band\nnfreq = 32\n"))
+        self.case["files"]["inputs"] = inputs
+
     def test_fhi_aims_frontend_is_accepted_with_fhi_aims_software(self):
-        self._make_rpa_energy()
-        self.case["workflow"]["frontend"] = "fhi_aims"
-        self.case["software"]["fhi_aims"] = self.case["software"].pop("abacus")
+        self._make_fhi_aims()
         self.lib.validate(self.root, [self.basis], [self.case])
         self.assertEqual(self.issues(), [])
 
@@ -795,6 +824,43 @@ libRPA finished successfully
         self.case["workflow"]["frontend"] = "fhi_aims"
         with self.assertRaisesRegex(ValueError, "FHI-aims.*ABACUS"):
             self.lib.validate(self.root, [self.basis], [self.case])
+
+    def test_fhi_aims_rpa_energy_record_is_accepted(self):
+        self._make_rpa_energy()
+        self._make_fhi_aims(task="rpa")
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_fhi_aims_pure_gw_record_requires_no_librpa_input(self):
+        self._make_fhi_aims(task="gw")
+        self.case["software"].pop("librpa")
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+        self._make_fhi_aims()
+        self.case["files"]["inputs"] = [item for item in self.case["files"]["inputs"]
+                                        if not item["path"].endswith("librpa.in")]
+        self.assertTrue(any("input librpa.in" in issue for issue in self.issues()))
+
+    def test_fhi_aims_librpa_workflow_still_requires_librpa_identity(self):
+        self._make_fhi_aims()
+        self.case["software"]["librpa"] = {"commit": None, "missing_reason": "not retained"}
+        self.assertTrue(any("software.librpa.identity" in issue for issue in self.issues()))
+
+    def test_fhi_aims_species_defaults_block_must_hash_match(self):
+        self._make_fhi_aims()
+        control = next(item for item in self.case["files"]["inputs"] if item["path"].endswith("control.in"))
+        path = self.root / control["path"]
+        path.write_bytes(path.read_bytes().replace(b"hydro 3 d 4.2", b"hydro 3 d 4.3"))
+        control["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.assertTrue(any("hash-match" in issue for issue in self.issues()))
+
+    def test_fhi_aims_geometry_labels_must_match_species(self):
+        self._make_fhi_aims()
+        geometry = next(item for item in self.case["files"]["inputs"] if item["path"].endswith("geometry.in"))
+        path = self.root / geometry["path"]
+        path.write_bytes(path.read_bytes().replace(b" Si\n", b" Ge\n", 1))
+        geometry["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        self.assertTrue(any("atom species labels" in issue for issue in self.issues()))
 
     def test_large_system_gw_uses_only_auxiliary_evidence_production_input(self):
         self._make_large_system_gw()

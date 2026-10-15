@@ -92,6 +92,12 @@ export function frontendLabel(record) {
   return workflowFrontend(record) === "fhi_aims" ? "FHI-aims" : "ABACUS";
 }
 
+export function workflowLabel(record) {
+  const frontend = workflowFrontend(record);
+  const label = frontendLabel(record);
+  return frontend === "fhi_aims" && record?.workflow?.task === "gw" ? label : `${label} + LibRPA`;
+}
+
 export function structureFingerprint(record) {
   const identity = record?.structure_identity;
   if (!identity || typeof identity !== "object") return null;

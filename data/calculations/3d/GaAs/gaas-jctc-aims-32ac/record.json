@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "id": "gaas-jctc-aims-32ac",
+  "dimension": "3d",
+  "material": "GaAs",
+  "formula": "GaAs",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "gw"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": "8e2fc2584a45c560fe8d192411ef7a108ec4f2a5",
+      "abbreviated_commit": "8e2fc2584",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/logs/aims.out"
+      ],
+      "identity_note": "Full commit resolved from the unique object matching the producer-logged prefix 8e2fc2584 in the local FHI-aims clone (upstream master unshallowed); the producer printed only the shortened ID."
+    }
+  },
+  "species": [
+    {
+      "element": "As",
+      "set_id": "As-aims-jctc-18817a11ce8c",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "Ga",
+      "set_id": "Ga-aims-jctc-dbd2230f8963",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/control.in",
+        "sha256": "35b3b53f13fc31edbc0eeabcf9cc23911679d0c951c08f760749fd79fc026b5b",
+        "size_bytes": 5807,
+        "original_sha256": "35b3b53f13fc31edbc0eeabcf9cc23911679d0c951c08f760749fd79fc026b5b",
+        "label": "FHI-aims control.in (focused rerun, n_anacon_par 32)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/geometry.in",
+        "sha256": "ab9d4b2a8a5b0b4a64a47d0ddf7344c3c89583c2aa9deff3f4dfbd970c9a3357",
+        "size_bytes": 339,
+        "original_sha256": "ab9d4b2a8a5b0b4a64a47d0ddf7344c3c89583c2aa9deff3f4dfbd970c9a3357",
+        "label": "FHI-aims geometry.in (focused rerun)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band",
+        "sha256": "b1f21d01a4b672e87079a40eb19c3f29c83d25b1fddc02048b59a5f337c24f8d",
+        "size_bytes": 301,
+        "original_sha256": "b1f21d01a4b672e87079a40eb19c3f29c83d25b1fddc02048b59a5f337c24f8d",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
+        "sha256": "6235ac30b04bfb359b7bf9097ad530e271deb1f306bd65d8343c43bbcb6b5bf6",
+        "size_bytes": 10164,
+        "original_sha256": "6235ac30b04bfb359b7bf9097ad530e271deb1f306bd65d8343c43bbcb6b5bf6",
+        "label": "FHI-aims focused rerun GW band table (single G-X segment)",
+        "scientific_role": "aims_gw_band_table",
+        "transformation": "renamed from producer file GW_band1001.out; content byte-preserved",
+        "original_name": "GW_band1001.out"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/self_energy_band.dat",
+        "sha256": "18d0d0586f69253abac6393f718a7beb7a347b9df18d681c17c7ce5c727320a2",
+        "size_bytes": 323056,
+        "original_sha256": "18d0d0586f69253abac6393f718a7beb7a347b9df18d681c17c7ce5c727320a2",
+        "label": "Focused rerun QP self-energy band data (MATLAB v4 matrix, 21x16 complex)",
+        "scientific_role": "aims_qp_self_energy_matrix",
+        "transformation": "none",
+        "original_name": "self_energy_band.dat"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/logs/aims.out",
+        "sha256": "a977c04187a66380f22c0c1c652b2dee95c4120979cae68aae226548b19266f9",
+        "size_bytes": 357174,
+        "original_sha256": "a977c04187a66380f22c0c1c652b2dee95c4120979cae68aae226548b19266f9",
+        "label": "FHI-aims focused GW rerun log (n_anacon_par 32)",
+        "scientific_role": "aims_run_log",
+        "transformation": "none",
+        "original_name": "aims.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/gw_frontier.svg",
+        "sha256": "159c3694b4cea82e65d5c4af5fa667aa73f311492d98c8db81f31c1128e19a75",
+        "size_bytes": 7990,
+        "original_sha256": "159c3694b4cea82e65d5c4af5fa667aa73f311492d98c8db81f31c1128e19a75",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/band_frontier_metadata.json",
+        "sha256": "9f69e52dd992ac2f577733c09bbd8721c27384d832583c3afcbecf43a2c8d7a8",
+        "size_bytes": 27014,
+        "original_sha256": "9f69e52dd992ac2f577733c09bbd8721c27384d832583c3afcbecf43a2c8d7a8",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "4e8d9170069c122367ceda8e0c62d9d074cc9aba6d5259f5b8e4becdd2b01c4d",
+    "evidence": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 16,
+    "n_path_kpoints": 21
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "G0W0",
+      "value": 1.29975,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "GW quasi-particle sampled native band-path gap on the fully audited inclusive-segment KPT path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data focused rerun: the GaAs Pade-16 CBM convergence issue at Gamma reported in the supporting README was addressed by increasing the number of Pade poles to 32 (periodic_gw_self_energy restart). Single G-X segment; sampled path only.",
+    "value": 1.29975,
+    "gw_gap_ev": 1.29975,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "GaAs",
+    "run_directory": "aims-32ac"
+  }
+}

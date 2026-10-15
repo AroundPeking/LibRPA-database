@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "id": "zno-jctc-aims-gw",
+  "dimension": "3d",
+  "material": "ZnO",
+  "formula": "ZnO",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "gw"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": "8e2fc2584a45c560fe8d192411ef7a108ec4f2a5",
+      "abbreviated_commit": "8e2fc2584",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out"
+      ],
+      "identity_note": "Full commit resolved from the unique object matching the producer-logged prefix 8e2fc2584 in the local FHI-aims clone (upstream master unshallowed); the producer printed only the shortened ID."
+    }
+  },
+  "species": [
+    {
+      "element": "O",
+      "set_id": "O-aims-jctc-96f253772209",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "Zn",
+      "set_id": "Zn-aims-jctc-f5d074ba39eb",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/control.in",
+        "sha256": "da8d48dbc3f97a8ccc51e3d396aff11419e3ecbd2d46bcab8c0c79e02ecb9fab",
+        "size_bytes": 6041,
+        "original_sha256": "da8d48dbc3f97a8ccc51e3d396aff11419e3ecbd2d46bcab8c0c79e02ecb9fab",
+        "label": "FHI-aims control.in (GW run)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/geometry.in",
+        "sha256": "a7d2226ebc6a9dbac285f19a10b0f4b0d7a62bd804f1c36d81ae3b934a8a00ce",
+        "size_bytes": 337,
+        "original_sha256": "a7d2226ebc6a9dbac285f19a10b0f4b0d7a62bd804f1c36d81ae3b934a8a00ce",
+        "label": "FHI-aims geometry.in (GW run)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/KPT_band",
+        "sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "size_bytes": 611,
+        "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/results/GW_band_spin_1.dat",
+        "sha256": "58d258017bd8ba497019ac05245e887b78dc87da79f34d9c2845eee602c70070",
+        "size_bytes": 322962,
+        "original_sha256": "58d258017bd8ba497019ac05245e887b78dc87da79f34d9c2845eee602c70070",
+        "label": "FHI-aims GW band table (path segments concatenated)",
+        "scientific_role": "aims_gw_band_table",
+        "transformation": "derived by concatenating the archived per-segment GW_band1001-1010.out tables in path order and renumbering the native k-point index column to a strictly increasing 1..N sequence; k-point coordinates, occupations and energies are byte-preserved per row",
+        "source_segments": [
+          {
+            "name": "GW_band1001.out",
+            "sha256": "65a8e092ef95f23065ee5bc7809bad1749e52fe397207152fec7f9e7b3614e52"
+          },
+          {
+            "name": "GW_band1002.out",
+            "sha256": "84f2c673cd5d76adcfded877dca95a6c41a12d393eb117ea4a30c11d9a67daeb"
+          },
+          {
+            "name": "GW_band1003.out",
+            "sha256": "413ca33dc1793253c86225706f3d9058c446eb033887056718c4331bb405ec42"
+          },
+          {
+            "name": "GW_band1004.out",
+            "sha256": "1772fe595c76dfbbf288704b47bbd49b50b4101b09eb9510c1db132cff8d32c4"
+          },
+          {
+            "name": "GW_band1005.out",
+            "sha256": "8cbe66088c5f2cd974835e4c5121be5839c652aaf765cdcf23dd7b9bdbe02afb"
+          },
+          {
+            "name": "GW_band1006.out",
+            "sha256": "af0a56a542f3c14e54d80bf024d663fecdaf881c7737af0165b3d385fa5a4769"
+          },
+          {
+            "name": "GW_band1007.out",
+            "sha256": "8b3227f6da914422bdff00f5429b8def4a236a3c876fd6c751a6466e85e19046"
+          },
+          {
+            "name": "GW_band1008.out",
+            "sha256": "84c0f7dd086833eccca29ffb339155c053463479b891ac99c668bda8665c9261"
+          },
+          {
+            "name": "GW_band1009.out",
+            "sha256": "ea00d52d4200dd27d9256cb7ec9d157fd1a9c5f6f0b34414d1101ac220a831ef"
+          },
+          {
+            "name": "GW_band1010.out",
+            "sha256": "94ce2311530779a1db008fdc5c9e8184daf2699f5bc2689aaaba509fa783e67e"
+          }
+        ]
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+        "sha256": "1a68f9d5fbdcf4aa683b0d27f1d44ba84cb86f23d7eb42a567fc1ec468620b64",
+        "size_bytes": 1798811,
+        "original_sha256": "1a68f9d5fbdcf4aa683b0d27f1d44ba84cb86f23d7eb42a567fc1ec468620b64",
+        "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
+        "scientific_role": "aims_qp_table",
+        "transformation": "none",
+        "original_name": "tmp"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out",
+        "sha256": "c273c2d9091a25cfe129dc5e7b923f7abb110e36d4792d2d1a9cb56685b5943a",
+        "size_bytes": 8462654,
+        "original_sha256": "c273c2d9091a25cfe129dc5e7b923f7abb110e36d4792d2d1a9cb56685b5943a",
+        "label": "FHI-aims GW band-structure run log",
+        "scientific_role": "aims_run_log",
+        "transformation": "none",
+        "original_name": "aims.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/figures/gw_frontier.svg",
+        "sha256": "af8be9fc38f3e1807042a8feba24a82756f62a7537986c0039c73f486e8d7a4a",
+        "size_bytes": 35104,
+        "original_sha256": "af8be9fc38f3e1807042a8feba24a82756f62a7537986c0039c73f486e8d7a4a",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/figures/band_frontier_metadata.json",
+        "sha256": "730a0a839e005925b9405eab1a57addb988c2b48ec055ae4fd821a39d5ed345a",
+        "size_bytes": 290711,
+        "original_sha256": "730a0a839e005925b9405eab1a57addb988c2b48ec055ae4fd821a39d5ed345a",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "d5b2a73c55808535c545a72b406e400320efd0dc8676dc476a0a36f7cbea7987",
+    "evidence": "data/calculations/3d/ZnO/zno-jctc-aims-gw/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 55,
+    "n_path_kpoints": 210
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "G0W0",
+      "value": 2.04622,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "GW quasi-particle sampled native band-path gap on the fully audited inclusive-segment KPT path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-aims-gw/results/GW_band_spin_1.dat"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data run: FHI-aims built-in GW on the sampled native band path (inclusive segments, one discontinuity jump). Sampled path only, not a global Brillouin-zone gap or convergence claim.",
+    "value": 2.04622,
+    "gw_gap_ev": 2.04622,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "ZnO",
+    "run_directory": "aims"
+  }
+}

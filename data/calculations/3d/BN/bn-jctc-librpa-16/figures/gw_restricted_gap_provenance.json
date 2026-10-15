@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "calculation_id": "bn-jctc-librpa-16",
+  "method": "finite-entry restricted path gap",
+  "occupied_band_count": 6,
+  "vbm_band": 6,
+  "cbm_band": 7,
+  "vbm_ev": -10.45993,
+  "cbm_ev": -4.03526,
+  "sampled_path_gap_ev": 6.42467,
+  "vbm_nonfinite_native_kpoint_indices": [
+    15,
+    58,
+    132,
+    156,
+    194,
+    195
+  ],
+  "cbm_nonfinite_native_kpoint_indices": [],
+  "source_result_path": "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat",
+  "note": "Occupation boundary derived from the integer occupation column; nonfinite QPE-solver entries (LibRPA v0.4.0 documented bug) are excluded from the frontier extremes and listed above (empty lists mean the analyzer windows refused for manifold-selection reasons while the boundary bands are finite)."
+}

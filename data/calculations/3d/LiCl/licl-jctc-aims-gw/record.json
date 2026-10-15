@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "id": "licl-jctc-aims-gw",
+  "dimension": "3d",
+  "material": "LiCl",
+  "formula": "LiCl",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "gw"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": "8e2fc2584a45c560fe8d192411ef7a108ec4f2a5",
+      "abbreviated_commit": "8e2fc2584",
+      "evidence": [
+        "data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out"
+      ],
+      "identity_note": "Full commit resolved from the unique object matching the producer-logged prefix 8e2fc2584 in the local FHI-aims clone (upstream master unshallowed); the producer printed only the shortened ID."
+    }
+  },
+  "species": [
+    {
+      "element": "Cl",
+      "set_id": "Cl-aims-jctc-4415a73b7e24",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "Li",
+      "set_id": "Li-aims-jctc-63dd9cbd88cb",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/control.in",
+        "sha256": "617f086f2e93e47a87a98eae6a50585cb5b3b1d118c35e66f02178f2c187d55b",
+        "size_bytes": 6780,
+        "original_sha256": "617f086f2e93e47a87a98eae6a50585cb5b3b1d118c35e66f02178f2c187d55b",
+        "label": "FHI-aims control.in (GW run)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/geometry.in",
+        "sha256": "cd9b89359a35d94327c5572c3d9fa477f73b0889c52664b1bffbb52b410f9e23",
+        "size_bytes": 311,
+        "original_sha256": "cd9b89359a35d94327c5572c3d9fa477f73b0889c52664b1bffbb52b410f9e23",
+        "label": "FHI-aims geometry.in (GW run)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/KPT_band",
+        "sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "size_bytes": 611,
+        "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/results/GW_band_spin_1.dat",
+        "sha256": "d80c90094b097b8a65effec640225b3aec69bb767adc7b49440794e7da21f3ab",
+        "size_bytes": 232242,
+        "original_sha256": "d80c90094b097b8a65effec640225b3aec69bb767adc7b49440794e7da21f3ab",
+        "label": "FHI-aims GW band table (path segments concatenated)",
+        "scientific_role": "aims_gw_band_table",
+        "transformation": "derived by concatenating the archived per-segment GW_band1001-1010.out tables in path order and renumbering the native k-point index column to a strictly increasing 1..N sequence; k-point coordinates, occupations and energies are byte-preserved per row",
+        "source_segments": [
+          {
+            "name": "GW_band1001.out",
+            "sha256": "bf210707dfe566a31c8b90107c7b3348c2a754f097aea7c5e4bfc78c079fb664"
+          },
+          {
+            "name": "GW_band1002.out",
+            "sha256": "f5fcd9052ac15072177c1d94abfc9f510e0f49d24e98c063d7a5fc70bf20b136"
+          },
+          {
+            "name": "GW_band1003.out",
+            "sha256": "fd042faa48104b9bfa357013f032358ef738ddd89ff2d9f5a525380059a28ad0"
+          },
+          {
+            "name": "GW_band1004.out",
+            "sha256": "53afb2c4fd18d34d2efa2eab430eab6a2a785be5dedc6c7e16b3bc1d05f47a88"
+          },
+          {
+            "name": "GW_band1005.out",
+            "sha256": "2c40b0fe67b8ed89b2c2f7eda0d7dffd7a0cfd097bd68bc699f38961be6af404"
+          },
+          {
+            "name": "GW_band1006.out",
+            "sha256": "46c3e1422ae4cef0b5d2ba1a65a0d78be7f04d176786be04f63bc6bee5e38193"
+          },
+          {
+            "name": "GW_band1007.out",
+            "sha256": "c1f641323e99f4eeb77dd62c87e3939e50bf97670f19d5855670f86997b08e49"
+          },
+          {
+            "name": "GW_band1008.out",
+            "sha256": "567780ffd4abae559680dd08615601cbf5d9b4c8e7255603c7a6ef3882b4d581"
+          },
+          {
+            "name": "GW_band1009.out",
+            "sha256": "3aa8fee8126beaaf67f428e64fd1c4db5e6e15911eb973e54163a5cd4dc62539"
+          },
+          {
+            "name": "GW_band1010.out",
+            "sha256": "06973128672cd8087747ffafca3f02fcf96766f4cfdd78964aca7a69db393f34"
+          }
+        ]
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+        "sha256": "57c68554fbd5d7e98a486b5dc7c8a140a415059deeb09cac7b2444ee593951d2",
+        "size_bytes": 1315483,
+        "original_sha256": "57c68554fbd5d7e98a486b5dc7c8a140a415059deeb09cac7b2444ee593951d2",
+        "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
+        "scientific_role": "aims_qp_table",
+        "transformation": "none",
+        "original_name": "tmp"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out",
+        "sha256": "1b8c6093590401d72f185800f409097adb514cfa99bd34edebd3173feb0a445d",
+        "size_bytes": 6109757,
+        "original_sha256": "1b8c6093590401d72f185800f409097adb514cfa99bd34edebd3173feb0a445d",
+        "label": "FHI-aims GW band-structure run log",
+        "scientific_role": "aims_run_log",
+        "transformation": "none",
+        "original_name": "aims.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/figures/gw_frontier.svg",
+        "sha256": "f8bccb64f1fdb07e8b6a3f9781bff59e7c93f9a10426deca41b3467e7e474e9f",
+        "size_bytes": 34576,
+        "original_sha256": "f8bccb64f1fdb07e8b6a3f9781bff59e7c93f9a10426deca41b3467e7e474e9f",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/LiCl/licl-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/figures/band_frontier_metadata.json",
+        "sha256": "609aa32439ef7bb1fb61d820b5978c72c9f7d6f771ce703678274719fe5c0218",
+        "size_bytes": 237662,
+        "original_sha256": "609aa32439ef7bb1fb61d820b5978c72c9f7d6f771ce703678274719fe5c0218",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/LiCl/licl-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "1d4b0c292e527c1acc488432b1561fbffa934ca0f38ce85b4b9271e0901a4901",
+    "evidence": "data/calculations/3d/LiCl/licl-jctc-aims-gw/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 39,
+    "n_path_kpoints": 210
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "G0W0",
+      "value": 8.8083,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "GW quasi-particle sampled native band-path gap on the fully audited inclusive-segment KPT path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/LiCl/licl-jctc-aims-gw/results/GW_band_spin_1.dat"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data run: FHI-aims built-in GW on the sampled native band path (inclusive segments, one discontinuity jump). Sampled path only, not a global Brillouin-zone gap or convergence claim.",
+    "value": 8.8083,
+    "gw_gap_ev": 8.8083,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "LiCl",
+    "run_directory": "aims"
+  }
+}

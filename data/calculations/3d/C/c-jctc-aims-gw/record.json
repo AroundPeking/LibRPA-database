@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "id": "c-jctc-aims-gw",
+  "dimension": "3d",
+  "material": "C",
+  "formula": "C",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "gw"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": null,
+      "abbreviated_commit": "b5eacca14",
+      "evidence": [
+        "data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out"
+      ],
+      "missing_reason": "The producer logged only the shortened commit b5eacca14; the full FHI-aims 241121 hash was not retained.",
+      "identity_note": "The producer logged only the shortened ID b5eacca14 (version 241121). The full commit is not recoverable: the prefix matches no object reachable from the local FHI-aims clone, and the upstream server rejects fetching a raw SHA."
+    }
+  },
+  "species": [
+    {
+      "element": "C",
+      "set_id": "C-aims-jctc-a7bda4c6390c",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/inputs/control.in",
+        "sha256": "9b42cf927af2024727e68616f18fc0fd71116030e0a37ff8119eaf511eae319b",
+        "size_bytes": 3639,
+        "original_sha256": "9b42cf927af2024727e68616f18fc0fd71116030e0a37ff8119eaf511eae319b",
+        "label": "FHI-aims control.in (GW run)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/inputs/geometry.in",
+        "sha256": "b9345822f49db5588864c085201e101df5148ec338b5204a056534ced975d275",
+        "size_bytes": 344,
+        "original_sha256": "b9345822f49db5588864c085201e101df5148ec338b5204a056534ced975d275",
+        "label": "FHI-aims geometry.in (GW run)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/inputs/KPT_band",
+        "sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "size_bytes": 611,
+        "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/results/GW_band_spin_1.dat",
+        "sha256": "3383e50f9a8c6909f342569bd231ed4322c3f63dd8d983aeb54a50faed53eaac",
+        "size_bytes": 249252,
+        "original_sha256": "3383e50f9a8c6909f342569bd231ed4322c3f63dd8d983aeb54a50faed53eaac",
+        "label": "FHI-aims GW band table (path segments concatenated)",
+        "scientific_role": "aims_gw_band_table",
+        "transformation": "derived by concatenating the archived per-segment GW_band1001-1010.out tables in path order and renumbering the native k-point index column to a strictly increasing 1..N sequence; k-point coordinates, occupations and energies are byte-preserved per row",
+        "source_segments": [
+          {
+            "name": "GW_band1001.out",
+            "sha256": "dd2642e305626afa3f92133a88b41af88749e555019fb111fe3ab8c220e77dd6"
+          },
+          {
+            "name": "GW_band1002.out",
+            "sha256": "7a4bb528607c02372d37da8c7f12e1645a4397f37e0d1d11ab2eb930f89df99e"
+          },
+          {
+            "name": "GW_band1003.out",
+            "sha256": "8e41a9013f444885b4636143d55fc4b5945d2b3a4d72b6700807420b602c4764"
+          },
+          {
+            "name": "GW_band1004.out",
+            "sha256": "43ef8e3b2445256e943218e91b4db507cfd51bac7799a7df6f9fe44b0c6830db"
+          },
+          {
+            "name": "GW_band1005.out",
+            "sha256": "19cdf6a764f5382369570ddfa249bc1831fb4353a15094e8cd0d2131fcaa98b8"
+          },
+          {
+            "name": "GW_band1006.out",
+            "sha256": "6fbd7d4203eddd70bde0799d004d4e782bde7b3b6d26deaa7d3f14296a827237"
+          },
+          {
+            "name": "GW_band1007.out",
+            "sha256": "6f5ab4a69dd7c7a9550569d7be6ad17a57f72b53bf0f46b06c6ac48939a64d26"
+          },
+          {
+            "name": "GW_band1008.out",
+            "sha256": "db31ad6717b0244f655fbb494b4444dc4ad1a85e3b6427df615d6bb0d4395203"
+          },
+          {
+            "name": "GW_band1009.out",
+            "sha256": "56e29243e7e0e8a5dfd5e01ec11ba074245818b961efe6089e58e6df41e13459"
+          },
+          {
+            "name": "GW_band1010.out",
+            "sha256": "794434a44b57cf70e79f405b72a8e0c324e46d6d92539e46938ff6f8466cd327"
+          }
+        ]
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+        "sha256": "c7cf22ba261b16dfa12f8572bfe17315ec6932beb74aff3fb6f20e6d91d0641d",
+        "size_bytes": 1406107,
+        "original_sha256": "c7cf22ba261b16dfa12f8572bfe17315ec6932beb74aff3fb6f20e6d91d0641d",
+        "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
+        "scientific_role": "aims_qp_table",
+        "transformation": "none",
+        "original_name": "tmp"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out",
+        "sha256": "e541bb2dba7fb9089078f01192c888d715cebfcfe16c954fdf56b8751a9a448f",
+        "size_bytes": 6416425,
+        "original_sha256": "b2131b31e26bc76ded5a40aa987858baba9839b2eeab6661d83c85c918b634b7",
+        "label": "FHI-aims GW band-structure run log",
+        "scientific_role": "aims_run_log",
+        "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
+        "original_name": "aims.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/figures/gw_frontier.svg",
+        "sha256": "082b9cb47043bebbe1be9f37cc3e79234eefaff58df84e2e0c6f1d4a49dcbc3c",
+        "size_bytes": 34544,
+        "original_sha256": "082b9cb47043bebbe1be9f37cc3e79234eefaff58df84e2e0c6f1d4a49dcbc3c",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/C/c-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/C/c-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c-jctc-aims-gw/figures/band_frontier_metadata.json",
+        "sha256": "7c3ebb4fa36255472ecaf5f5fc6abe9648d738ce502af475ff05d7f79032a9e1",
+        "size_bytes": 245034,
+        "original_sha256": "7c3ebb4fa36255472ecaf5f5fc6abe9648d738ce502af475ff05d7f79032a9e1",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/C/c-jctc-aims-gw/results/GW_band_spin_1.dat",
+          "data/calculations/3d/C/c-jctc-aims-gw/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "eacace338193e98e9daa364a8aba648cb08ad198fd635feed1de98efbd7694e7",
+    "evidence": "data/calculations/3d/C/c-jctc-aims-gw/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 42,
+    "n_path_kpoints": 210
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "G0W0",
+      "value": 5.82058,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "GW quasi-particle sampled native band-path gap on the fully audited inclusive-segment KPT path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/C/c-jctc-aims-gw/results/GW_band_spin_1.dat"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data run: FHI-aims built-in GW on the sampled native band path (inclusive segments, one discontinuity jump). Sampled path only, not a global Brillouin-zone gap or convergence claim.",
+    "value": 5.82058,
+    "gw_gap_ev": 5.82058,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "C",
+    "run_directory": "aims"
+  }
+}

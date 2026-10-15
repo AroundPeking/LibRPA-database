@@ -56,8 +56,8 @@ function materialRow(record) {
 }
 
 function basisRow(set) {
-  const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf"].includes(f.role));
-  const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role === "for_aux" ? "for_aux" : role.toUpperCase())}</span>`).join("");
+  const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf", "species_defaults"].includes(f.role));
+  const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role === "for_aux" || role === "species_defaults" ? role : role.toUpperCase())}</span>`).join("");
   return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td><div class="method-list">${roles}</div></td><td><span class="publication-tag">${esc(statusNames[publication(set)] || "Basis record")}</span></td><td class="basis-scope">${esc(set.validation_scope || "Recorded basis data")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
 }
 

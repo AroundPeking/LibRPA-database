@@ -1,6 +1,6 @@
 import { esc, publicPath, fileName, downloadName, sizeLabel, inputStage } from "./records.mjs";
 
-export const roleNames = { pp: "Pseudopotential", nao: "Physical NAO", abf: "Auxiliary basis", for_aux: "Orbital for ABF generation", generation_evidence: "Generation evidence" };
+export const roleNames = { pp: "Pseudopotential", nao: "Physical NAO", abf: "Auxiliary basis", for_aux: "Orbital for ABF generation", species_defaults: "FHI-aims species defaults", generation_evidence: "Generation evidence" };
 const previewable = path => !/\.(?:png|jpe?g|webp|gif|pdf|zip|gz|xz|tar|bin)$/i.test(path);
 
 export function renderFiles(files, { input = false } = {}) {

@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "id": "gan-jctc-librpa-32",
+  "dimension": "3d",
+  "material": "GaN",
+  "formula": "GaN",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "g0w0_band"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": "8e2fc2584a45c560fe8d192411ef7a108ec4f2a5",
+      "abbreviated_commit": "8e2fc2584",
+      "evidence": [
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/aims.out"
+      ],
+      "identity_note": "Full commit resolved from the unique object matching the producer-logged prefix 8e2fc2584 in the local FHI-aims clone (upstream master unshallowed); the producer printed only the shortened ID."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": "6dc9b9074704d92bad4b24264a17cc6e6456adbf",
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out"
+      ],
+      "identity_note": "The archived LibRPA.out prints the full 40-hex source hash on branch develop_backup_before_soc (v0.4.0, whose QPE-solver NaN bug is documented in the supporting-data README)."
+    }
+  },
+  "species": [
+    {
+      "element": "Ga",
+      "set_id": "Ga-aims-jctc-c482c1b92dd4",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "N",
+      "set_id": "N-aims-jctc-d2ccdb8e345c",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/control.in",
+        "sha256": "528d308f374ebb7377e08973d68aa94029083a329cb54e707fb6c7c44dcdb1a6",
+        "size_bytes": 6162,
+        "original_sha256": "528d308f374ebb7377e08973d68aa94029083a329cb54e707fb6c7c44dcdb1a6",
+        "label": "FHI-aims control.in (dataset generation, dataset/for_librpa-32)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/geometry.in",
+        "sha256": "cf8c32adc6358d42f095f9c6cffef5480b9d7663c901c067893110bbc93f9673",
+        "size_bytes": 337,
+        "original_sha256": "cf8c32adc6358d42f095f9c6cffef5480b9d7663c901c067893110bbc93f9673",
+        "label": "FHI-aims geometry.in (dataset generation, dataset/for_librpa-32)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/librpa.in",
+        "sha256": "d079de892da32be6db5724f9eef860173f198477ae27546626024f3ac8347b53",
+        "size_bytes": 160,
+        "original_sha256": "d079de892da32be6db5724f9eef860173f198477ae27546626024f3ac8347b53",
+        "label": "LibRPA g0w0_band input (32-point grid)",
+        "scientific_role": "librpa_g0w0_input",
+        "transformation": "none",
+        "original_name": "librpa.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/KPT_band",
+        "sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "size_bytes": 611,
+        "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/results/KS_band_spin_1.dat",
+        "sha256": "fa6b402b4f7a28bb7b1ccaa0f3428744b08a3d3c4ed9f6338ade365c8758e770",
+        "size_bytes": 357210,
+        "original_sha256": "fa6b402b4f7a28bb7b1ccaa0f3428744b08a3d3c4ed9f6338ade365c8758e770",
+        "label": "LibRPA KS band table (32-point grid)",
+        "scientific_role": "librpa_ks_band_table",
+        "transformation": "none",
+        "original_name": "KS_band_spin_1.dat"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/results/EXX_band_spin_1.dat",
+        "sha256": "d8337de4c2acc7034ce7c0c6514112ca992b17677c62f6c91c05c2e5ca58cbee",
+        "size_bytes": 357210,
+        "original_sha256": "d8337de4c2acc7034ce7c0c6514112ca992b17677c62f6c91c05c2e5ca58cbee",
+        "label": "LibRPA EXX band table (32-point grid)",
+        "scientific_role": "librpa_exx_band_table",
+        "transformation": "none",
+        "original_name": "EXX_band_spin_1.dat"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/results/GW_band_spin_1.dat",
+        "sha256": "186d3852d9351565d695ec274e7d13c3b932aa3bdb8705721a7d49aee68ff0bf",
+        "size_bytes": 357210,
+        "original_sha256": "186d3852d9351565d695ec274e7d13c3b932aa3bdb8705721a7d49aee68ff0bf",
+        "label": "LibRPA GW band table (32-point grid)",
+        "scientific_role": "librpa_gw_band_table",
+        "transformation": "none",
+        "original_name": "GW_band_spin_1.dat"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/aims.out",
+        "sha256": "970b3caa209d1673c9d54fc245549264026fbf909b75d2aa25cc4bc7e4fb4012",
+        "size_bytes": 267774,
+        "original_sha256": "970b3caa209d1673c9d54fc245549264026fbf909b75d2aa25cc4bc7e4fb4012",
+        "label": "FHI-aims dataset-generation SCF log",
+        "scientific_role": "aims_scf_log",
+        "transformation": "none",
+        "original_name": "aims.out"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out",
+        "sha256": "d374d81f7a39e77ec2ce9a622703ed3d639ca283d4d0138de3c05f0964d1ece2",
+        "size_bytes": 4552670,
+        "original_sha256": "6ef8f42e680085449425e9af0bfd7f0cb4fb973b84fd0890f31992b3b5745a4d",
+        "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+        "scientific_role": "librpa_run_log",
+        "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
+        "original_name": "LibRPA.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/ks_frontier.svg",
+        "sha256": "c1476389ebfa31c13bec590b5af18723274e5f96ffcd83d0335662258c4a4010",
+        "size_bytes": 35514,
+        "original_sha256": "c1476389ebfa31c13bec590b5af18723274e5f96ffcd83d0335662258c4a4010",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/exx_frontier.svg",
+        "sha256": "123e7fdb02a34cf8b2e7bb1a802d12aee15491a628f7c00a6edb79c714a960a0",
+        "size_bytes": 34579,
+        "original_sha256": "123e7fdb02a34cf8b2e7bb1a802d12aee15491a628f7c00a6edb79c714a960a0",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/gw_frontier.svg",
+        "sha256": "eb6afa2a31285b22fcb3c9fd10efe1eb836a03d0fe05044d6c1b330562bc77b1",
+        "size_bytes": 35378,
+        "original_sha256": "eb6afa2a31285b22fcb3c9fd10efe1eb836a03d0fe05044d6c1b330562bc77b1",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/band_frontier_metadata.json",
+        "sha256": "4bea6547ee4238e2e226566832379ecab6d8d26829158bc0b771d8a9768a145b",
+        "size_bytes": 887725,
+        "original_sha256": "4bea6547ee4238e2e226566832379ecab6d8d26829158bc0b771d8a9768a145b",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaN/gan-jctc-librpa-32/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "dbcc7f902bd577c157685b196c7a309afe9a66ec8e126c97f5a948682c5930ae",
+    "evidence": "data/calculations/3d/GaN/gan-jctc-librpa-32/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 55,
+    "n_path_kpoints": 210
+  },
+  "performance": {
+    "wall_time_seconds": 132631,
+    "nodes": 2,
+    "mpi_ranks": 4,
+    "omp_threads_per_rank": 48,
+    "cluster_label": "unnamed x86 cluster (c03xx compute nodes)",
+    "evidence": [
+      "data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out"
+    ]
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "PBE",
+      "value": 1.6862400000000006,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/results/KS_band_spin_1.dat",
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 9.088249999999999,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Restricted sampled path gap (GW)",
+      "method": "G0W0",
+      "value": 2.971539999999999,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "restricted sampled native band-path gap (sidecar selected-window path gap): the raw GW QP table carries the LibRPA v0.4.0 QPE-solver nonfinite outputs documented in the supporting-data README, so the ordinary gap analysis is refused; the value keeps the finite frontier entries with nonfinite k-points/states excluded and diagnosed in the archived sidecar. Not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/results/GW_band_spin_1.dat",
+        "data/calculations/3d/GaN/gan-jctc-librpa-32/figures/band_frontier_metadata.json"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data run. The raw GW QP table carries the known numerical pathology of LibRPA v0.4.0 (QPE-solver NaN, documented in the supporting-data README); the GW observable is therefore a restricted sampled-path gap. Not a universal basis recommendation.",
+    "value": 2.971539999999999,
+    "sampled_path_gap_ev": 2.971539999999999,
+    "dft_gap_ev": 1.6862400000000006,
+    "exx_gap_ev": 9.088249999999999,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "GaN",
+    "run_directory": "librpa-32",
+    "dataset_directory": "dataset/for_librpa-32"
+  }
+}

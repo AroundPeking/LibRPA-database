@@ -1,41 +1,349 @@
 {
   "schema_version": 1,
   "policy": "grandfathered_missing_software_identity",
-  "frozen_issue_count": 48,
+  "frozen_issue_count": 70,
   "scope": "Only the exact pre-existing calculation/software pairs listed here may retain an unavailable immutable software identity. New records are never added automatically.",
-  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered.",
+  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered. The JCTC 6c00618 FHI-aims pairs were added on 2026-10-15 under the database owner's standing authorization for this intake: FHI-aims 241121 logged only the abbreviated commit b5eacca14, and the full hash is not recoverable from the local clone or the upstream server.",
   "records": [
-    {"id": "c2048-rpa-20260614", "software": ["abacus", "librpa"]},
-    {"id": "cuinp2se6-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "gate-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "gete-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "in2se3-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "inse-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "mos2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "mos2_ws2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "mose2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "mote2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "phosphorene-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "snse-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "tis3-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "ws2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "wse2-table-gw", "software": ["abacus", "librpa"]},
-    {"id": "alas-paper-paper", "software": ["librpa"]},
-    {"id": "alp-paper-k8_shrink_wing", "software": ["librpa"]},
-    {"id": "alsb-paper-gw_gth_modspencer", "software": ["librpa"]},
-    {"id": "bas-paper-k8_shrink_wing", "software": ["librpa"]},
-    {"id": "bn-paper-sg15", "software": ["librpa"]},
-    {"id": "bp-paper-k8_shrink_wing", "software": ["librpa"]},
-    {"id": "c-paper-sg15_cs1e-5", "software": ["librpa"]},
-    {"id": "cao-paper-24freq", "software": ["librpa"]},
-    {"id": "cds-paper-debug", "software": ["librpa"]},
-    {"id": "gaas-paper-gw_xsoc_1e-10", "software": ["librpa"]},
-    {"id": "gan-paper-pca1e-6", "software": ["librpa"]},
-    {"id": "gap-paper-gw_shrink_chi", "software": ["librpa"]},
-    {"id": "lif-paper-jy", "software": ["librpa"]},
-    {"id": "mgo-paper-fix_gap", "software": ["librpa"]},
-    {"id": "nacl-paper-sg15", "software": ["abacus", "librpa"]},
-    {"id": "si-paper-all_kpath", "software": ["librpa"]},
-    {"id": "sic-paper-pca1e-6", "software": ["librpa"]}
+    {
+      "id": "alas-paper-paper",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "alp-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "alp-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "alp-paper-k8_shrink_wing",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "alsb-paper-gw_gth_modspencer",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "bas-paper-k8_shrink_wing",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "bn-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "bn-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "bn-paper-sg15",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "bp-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "bp-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "bp-paper-k8_shrink_wing",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "c-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "c-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "c-paper-sg15_cs1e-5",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "c2048-rpa-20260614",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "cao-paper-24freq",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "cds-paper-debug",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "cuinp2se6-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "gaas-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gaas-paper-gw_xsoc_1e-10",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "gan-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gan-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gan-paper-pca1e-6",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "gap-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gap-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gap-paper-gw_shrink_chi",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "gate-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "gete-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "in2se3-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "inse-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "lif-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "lif-paper-jy",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "mgo-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "mgo-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "mgo-paper-fix_gap",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "mos2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "mos2_ws2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "mose2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "mote2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "nacl-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "nacl-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "nacl-paper-sg15",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "phosphorene-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "si-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "si-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "si-paper-all_kpath",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "sic-jctc-aims-gw",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "sic-jctc-librpa-16",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "sic-paper-pca1e-6",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "snse-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "tis3-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "ws2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "wse2-table-gw",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    }
   ]
 }

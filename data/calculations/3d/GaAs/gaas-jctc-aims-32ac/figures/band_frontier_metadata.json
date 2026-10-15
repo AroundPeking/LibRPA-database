@@ -1,0 +1,1367 @@
+{
+  "schema_version": 2,
+  "calculation_id": "gaas-jctc-aims-32ac",
+  "energy_unit": "eV",
+  "comparison_mode": "single method, own occupied sampled-path VBM reference",
+  "note": "Sampled path only, not a global Brillouin-zone gap or numerical acceptance. Original comparison artifacts and raw sources unchanged.",
+  "source_sha256": {
+    "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat": "6235ac30b04bfb359b7bf9097ad530e271deb1f306bd65d8343c43bbcb6b5bf6",
+    "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band": "b1f21d01a4b672e87079a40eb19c3f29c83d25b1fddc02048b59a5f337c24f8d"
+  },
+  "methods": {
+    "GW": {
+      "status": "reported",
+      "gap_status": "reported",
+      "diagnostic_reasons": [],
+      "occupation_audit": {
+        "kind": "fixed_integer",
+        "scale": 1.0,
+        "full_occupation": 2,
+        "rounding_tolerance": 1e-08,
+        "evidence": []
+      },
+      "raw_audit": {
+        "raw_band_count": 16,
+        "kpoint_count": 21,
+        "occupied_band_count": 9,
+        "nonfinite_states": [],
+        "band_ranges": [
+          {
+            "raw_band_index": 1,
+            "manifold": "occupied",
+            "minimum_ev": -16.87657,
+            "maximum_ev": -16.83444
+          },
+          {
+            "raw_band_index": 2,
+            "manifold": "occupied",
+            "minimum_ev": -16.8493,
+            "maximum_ev": -16.76043
+          },
+          {
+            "raw_band_index": 3,
+            "manifold": "occupied",
+            "minimum_ev": -16.85207,
+            "maximum_ev": -16.78772
+          },
+          {
+            "raw_band_index": 4,
+            "manifold": "occupied",
+            "minimum_ev": -16.77407,
+            "maximum_ev": -16.73869
+          },
+          {
+            "raw_band_index": 5,
+            "manifold": "occupied",
+            "minimum_ev": -16.73893,
+            "maximum_ev": -16.71386
+          },
+          {
+            "raw_band_index": 6,
+            "manifold": "occupied",
+            "minimum_ev": -13.306,
+            "maximum_ev": -10.62692
+          },
+          {
+            "raw_band_index": 7,
+            "manifold": "occupied",
+            "minimum_ev": -7.27483,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 8,
+            "manifold": "occupied",
+            "minimum_ev": -3.21509,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 9,
+            "manifold": "occupied",
+            "minimum_ev": -3.21835,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 10,
+            "manifold": "empty",
+            "minimum_ev": 0.92367,
+            "maximum_ev": 2.8636
+          },
+          {
+            "raw_band_index": 11,
+            "manifold": "empty",
+            "minimum_ev": 1.84286,
+            "maximum_ev": 3.9876
+          },
+          {
+            "raw_band_index": 12,
+            "manifold": "empty",
+            "minimum_ev": 4.00414,
+            "maximum_ev": 10.5423
+          },
+          {
+            "raw_band_index": 13,
+            "manifold": "empty",
+            "minimum_ev": 3.96442,
+            "maximum_ev": 10.5554
+          },
+          {
+            "raw_band_index": 14,
+            "manifold": "empty",
+            "minimum_ev": 8.33123,
+            "maximum_ev": 11.74991
+          },
+          {
+            "raw_band_index": 15,
+            "manifold": "empty",
+            "minimum_ev": 9.57076,
+            "maximum_ev": 14.39281
+          },
+          {
+            "raw_band_index": 16,
+            "manifold": "empty",
+            "minimum_ev": 11.042,
+            "maximum_ev": 14.54106
+          }
+        ],
+        "vbm_ev": -0.37608,
+        "cbm_ev": 0.92367,
+        "sampled_path_gap_ev": 1.29975,
+        "empty_states_below_vbm": [],
+        "ordinary_gap_eligible": true
+      },
+      "declared_export_audit": {
+        "raw_band_count": 16,
+        "kpoint_count": 21,
+        "occupied_band_count": 9,
+        "nonfinite_states": [],
+        "band_ranges": [
+          {
+            "raw_band_index": 1,
+            "manifold": "occupied",
+            "minimum_ev": -16.87657,
+            "maximum_ev": -16.83444
+          },
+          {
+            "raw_band_index": 2,
+            "manifold": "occupied",
+            "minimum_ev": -16.8493,
+            "maximum_ev": -16.76043
+          },
+          {
+            "raw_band_index": 3,
+            "manifold": "occupied",
+            "minimum_ev": -16.85207,
+            "maximum_ev": -16.78772
+          },
+          {
+            "raw_band_index": 4,
+            "manifold": "occupied",
+            "minimum_ev": -16.77407,
+            "maximum_ev": -16.73869
+          },
+          {
+            "raw_band_index": 5,
+            "manifold": "occupied",
+            "minimum_ev": -16.73893,
+            "maximum_ev": -16.71386
+          },
+          {
+            "raw_band_index": 6,
+            "manifold": "occupied",
+            "minimum_ev": -13.306,
+            "maximum_ev": -10.62692
+          },
+          {
+            "raw_band_index": 7,
+            "manifold": "occupied",
+            "minimum_ev": -7.27483,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 8,
+            "manifold": "occupied",
+            "minimum_ev": -3.21509,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 9,
+            "manifold": "occupied",
+            "minimum_ev": -3.21835,
+            "maximum_ev": -0.37608
+          },
+          {
+            "raw_band_index": 10,
+            "manifold": "empty",
+            "minimum_ev": 0.92367,
+            "maximum_ev": 2.8636
+          },
+          {
+            "raw_band_index": 11,
+            "manifold": "empty",
+            "minimum_ev": 1.84286,
+            "maximum_ev": 3.9876
+          },
+          {
+            "raw_band_index": 12,
+            "manifold": "empty",
+            "minimum_ev": 4.00414,
+            "maximum_ev": 10.5423
+          },
+          {
+            "raw_band_index": 13,
+            "manifold": "empty",
+            "minimum_ev": 3.96442,
+            "maximum_ev": 10.5554
+          },
+          {
+            "raw_band_index": 14,
+            "manifold": "empty",
+            "minimum_ev": 8.33123,
+            "maximum_ev": 11.74991
+          },
+          {
+            "raw_band_index": 15,
+            "manifold": "empty",
+            "minimum_ev": 9.57076,
+            "maximum_ev": 14.39281
+          },
+          {
+            "raw_band_index": 16,
+            "manifold": "empty",
+            "minimum_ev": 11.042,
+            "maximum_ev": 14.54106
+          }
+        ],
+        "vbm_ev": -0.37608,
+        "cbm_ev": 0.92367,
+        "sampled_path_gap_ev": 1.29975,
+        "empty_states_below_vbm": [],
+        "ordinary_gap_eligible": true
+      },
+      "declared_export_band_count": 16,
+      "rejected_raw_tail_bands": [],
+      "raw_selected_occupied_bands": [
+        7,
+        8,
+        9
+      ],
+      "raw_selected_empty_bands": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "ordering": "per-k energy ranks within separately frozen occupied/empty raw windows; not character tracking; no smoothing",
+      "mapping_one_based": [
+        [
+          7,
+          8,
+          9,
+          10,
+          13,
+          11,
+          12
+        ],
+        [
+          8,
+          9,
+          7,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          13,
+          12
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          7,
+          9,
+          8,
+          10,
+          11,
+          12,
+          13
+        ]
+      ],
+      "display_energies_ev": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.29975,
+          4.3405000000000005,
+          4.3636800000000004,
+          4.38022
+        ],
+        [
+          -0.03727999999999998,
+          -0.03727999999999998,
+          -0.010699999999999987,
+          1.37464,
+          4.34211,
+          4.38979,
+          4.42713
+        ],
+        [
+          -0.42180999999999996,
+          -0.14270999999999995,
+          -0.14270999999999995,
+          1.78332,
+          4.21935,
+          4.55257,
+          4.5664
+        ],
+        [
+          -0.9361300000000001,
+          -0.30019,
+          -0.30019,
+          2.27908,
+          4.05513,
+          4.75303,
+          4.81481
+        ],
+        [
+          -1.43844,
+          -0.49047,
+          -0.49047,
+          2.73644,
+          3.85814,
+          5.06174,
+          5.08694
+        ],
+        [
+          -1.87454,
+          -0.6982600000000001,
+          -0.6982600000000001,
+          3.10054,
+          3.67852,
+          5.38063,
+          5.39335
+        ],
+        [
+          -2.30579,
+          -0.91879,
+          -0.91879,
+          3.23968,
+          3.64832,
+          5.72419,
+          5.72992
+        ],
+        [
+          -2.76623,
+          -1.14935,
+          -1.14935,
+          3.09415,
+          3.85351,
+          6.10698,
+          6.1074399999999995
+        ],
+        [
+          -3.22324,
+          -1.37942,
+          -1.37941,
+          2.89091,
+          4.02515,
+          6.50983,
+          6.50994
+        ],
+        [
+          -3.65989,
+          -1.59805,
+          -1.5980400000000001,
+          2.6965,
+          4.07705,
+          6.9218,
+          6.92187
+        ],
+        [
+          -4.07316,
+          -1.80036,
+          -1.8003399999999998,
+          2.52062,
+          3.98586,
+          7.33857,
+          7.33868
+        ],
+        [
+          -4.47269,
+          -1.98734,
+          -1.98732,
+          2.36495,
+          3.83595,
+          7.7622,
+          7.76276
+        ],
+        [
+          -4.87391,
+          -2.16051,
+          -2.16047,
+          2.2281,
+          3.61022,
+          8.19405,
+          8.195070000000001
+        ],
+        [
+          -5.25922,
+          -2.3176,
+          -2.3175,
+          2.11065,
+          3.36593,
+          8.63012,
+          8.63303
+        ],
+        [
+          -5.61334,
+          -2.4553,
+          -2.45529,
+          2.01555,
+          3.1213699999999998,
+          9.07026,
+          9.0713
+        ],
+        [
+          -5.94485,
+          -2.57211,
+          -2.57177,
+          1.94555,
+          2.88988,
+          9.49773,
+          9.49864
+        ],
+        [
+          -6.25015,
+          -2.66792,
+          -2.66724,
+          1.90182,
+          2.68199,
+          9.9099,
+          9.90991
+        ],
+        [
+          -6.51289,
+          -2.7427,
+          -2.7426,
+          1.88287,
+          2.50242,
+          10.29456,
+          10.29458
+        ],
+        [
+          -6.7185,
+          -2.79719,
+          -2.79698,
+          1.8852,
+          2.35661,
+          10.6204,
+          10.62197
+        ],
+        [
+          -6.8526,
+          -2.83033,
+          -2.82948,
+          1.89916,
+          2.25521,
+          10.8463,
+          10.84715
+        ],
+        [
+          -6.89875,
+          -2.84227,
+          -2.83901,
+          1.9054499999999999,
+          2.21894,
+          10.918379999999999,
+          10.93148
+        ]
+      ],
+      "reconstruction_verified": true,
+      "selected_energy_multisets_unchanged": true,
+      "reference": {
+        "kind": "occupied sampled path VBM",
+        "energy_ev": -0.37608,
+        "not_fermi": true
+      },
+      "y_limits_ev": [
+        -7.7902615,
+        11.8229915
+      ],
+      "unselected_intrusions": [
+        {
+          "raw_band_index": 14,
+          "manifold": "empty",
+          "minimum_ev": 8.33123,
+          "maximum_ev": 11.74991,
+          "aligned_minimum_ev": 8.70731,
+          "aligned_maximum_ev": 12.12599
+        },
+        {
+          "raw_band_index": 15,
+          "manifold": "empty",
+          "minimum_ev": 9.57076,
+          "maximum_ev": 14.39281,
+          "aligned_minimum_ev": 9.94684,
+          "aligned_maximum_ev": 14.76889
+        },
+        {
+          "raw_band_index": 16,
+          "manifold": "empty",
+          "minimum_ev": 11.042,
+          "maximum_ev": 14.54106,
+          "aligned_minimum_ev": 11.41808,
+          "aligned_maximum_ev": 14.91714
+        }
+      ],
+      "figure_status": "renderable",
+      "figure_rejection_reason": null,
+      "selected_window_path_gap_ev": 1.29975,
+      "original_frontier_admission_audit": {
+        "raw_occupied_bands": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "raw_empty_bands": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "sampled_path_gap_ev": 1.29975,
+        "note": "Original frozen 5/6-window admission evidence remains binding; reducing displayed bands to 3/4 never repairs or hides known negative-gap pathology."
+      },
+      "viewport": {
+        "kind": "method-own full selected-band viewport",
+        "formula": "padding=max(0.5,0.05*(selected_max-selected_min)); lower=min(previous_lower,selected_min-padding); upper=max(previous_upper,selected_max+padding)",
+        "selected_minimum_ev": -6.89875,
+        "selected_maximum_ev": 10.93148,
+        "padding_ev": 0.8915115,
+        "previous_near_gap_limits_ev": [
+          -2.5,
+          4.2997499999999995
+        ],
+        "selected_raw_window_frozen_before_sorting": true,
+        "selected_band_count_unchanged": true,
+        "cut_states": [],
+        "note": "The y range contains every sample of the existing frozen selection with margin. No bands are added, removed or reselected; raw mappings, references, gaps and admission decisions are unchanged."
+      },
+      "sampled_path_gap_ev": 1.29975,
+      "gap_definition": "declared finite export window path gap",
+      "diagnostic_selected_window_gap_ev": null,
+      "edge_scope": "declared finite export spectrum",
+      "vbm_endpoints": [
+        {
+          "raw_band_index": 7,
+          "kpoint_index": 1,
+          "native_kpoint_index": 1,
+          "fractional_kpoint": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x": 1.0,
+          "raw_energy_ev": -0.37608,
+          "aligned_energy_ev": 0.0,
+          "reference_energy_ev": -0.37608
+        },
+        {
+          "raw_band_index": 8,
+          "kpoint_index": 1,
+          "native_kpoint_index": 1,
+          "fractional_kpoint": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x": 1.0,
+          "raw_energy_ev": -0.37608,
+          "aligned_energy_ev": 0.0,
+          "reference_energy_ev": -0.37608
+        },
+        {
+          "raw_band_index": 9,
+          "kpoint_index": 1,
+          "native_kpoint_index": 1,
+          "fractional_kpoint": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x": 1.0,
+          "raw_energy_ev": -0.37608,
+          "aligned_energy_ev": 0.0,
+          "reference_energy_ev": -0.37608
+        }
+      ],
+      "cbm_endpoints": [
+        {
+          "raw_band_index": 10,
+          "kpoint_index": 1,
+          "native_kpoint_index": 1,
+          "fractional_kpoint": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "x": 1.0,
+          "raw_energy_ev": 0.92367,
+          "aligned_energy_ev": 1.29975,
+          "reference_energy_ev": -0.37608
+        }
+      ],
+      "native_x": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0,
+        16.0,
+        17.0,
+        18.0,
+        19.0,
+        20.0,
+        21.0
+      ],
+      "native_kpoint_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "fractional_kpoints": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.025,
+          0.0,
+          0.025
+        ],
+        [
+          0.05,
+          0.0,
+          0.05
+        ],
+        [
+          0.075,
+          0.0,
+          0.075
+        ],
+        [
+          0.1,
+          0.0,
+          0.1
+        ],
+        [
+          0.125,
+          0.0,
+          0.125
+        ],
+        [
+          0.15,
+          0.0,
+          0.15
+        ],
+        [
+          0.175,
+          0.0,
+          0.175
+        ],
+        [
+          0.2,
+          0.0,
+          0.2
+        ],
+        [
+          0.225,
+          0.0,
+          0.225
+        ],
+        [
+          0.25,
+          0.0,
+          0.25
+        ],
+        [
+          0.275,
+          0.0,
+          0.275
+        ],
+        [
+          0.3,
+          0.0,
+          0.3
+        ],
+        [
+          0.325,
+          0.0,
+          0.325
+        ],
+        [
+          0.35,
+          0.0,
+          0.35
+        ],
+        [
+          0.375,
+          0.0,
+          0.375
+        ],
+        [
+          0.4,
+          0.0,
+          0.4
+        ],
+        [
+          0.425,
+          0.0,
+          0.425
+        ],
+        [
+          0.45,
+          0.0,
+          0.45
+        ],
+        [
+          0.475,
+          0.0,
+          0.475
+        ],
+        [
+          0.5,
+          0.0,
+          0.5
+        ]
+      ],
+      "raw_occupations": [
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "nonfinite_raw_occupations": [],
+      "nonfinite_encoding": "JSON null; original raw value and source column retained in location metadata; source bytes unchanged",
+      "x_axis": "native k-point index",
+      "rejected_tail_audit": {
+        "rejected_raw_band_indices": [],
+        "finite_minimum_ev": null,
+        "finite_maximum_ev": null,
+        "nonfinite_state_count": 0,
+        "zero_state_count": 0
+      },
+      "kpath_audit": {
+        "status": "verified",
+        "ticks": [
+          {
+            "x": 1.0,
+            "label": "Γ",
+            "row_index": 1,
+            "fractional_kpoint": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "x": 21.0,
+            "label": "X",
+            "row_index": 21,
+            "fractional_kpoint": [
+              0.5,
+              0.0,
+              0.5
+            ]
+          }
+        ],
+        "kpt_sha256": "b1f21d01a4b672e87079a40eb19c3f29c83d25b1fddc02048b59a5f337c24f8d",
+        "kpath_convention": "inclusive-segments",
+        "coordinate_tolerance": 5.1e-07,
+        "max_kpt_coordinate_error": 0.0,
+        "x_axis": "native k-point index",
+        "reciprocal_metric_available": false,
+        "note": "Native sampling retained; no reciprocal-distance or inverse-angstrom claim.",
+        "source_path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band",
+        "rejected_candidates": [],
+        "header_schema": [
+          "nbasis",
+          "nbands",
+          "nspins",
+          "nkpts"
+        ],
+        "schema_evidence": "consumer read_data.cpp:2078–2089 and dataset_format.md; preprocess write_kpath_info emits nbasis, nbands, nspins, nkpts; schema evidence is not historical producer commit identification"
+      },
+      "source_result_path": "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
+      "source_result_sha256": "6235ac30b04bfb359b7bf9097ad530e271deb1f306bd65d8343c43bbcb6b5bf6"
+    }
+  },
+  "rejected": {
+    "KS": "raw archived band table absent",
+    "EXX": "raw archived band table absent"
+  }
+}

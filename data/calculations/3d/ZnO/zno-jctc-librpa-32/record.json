@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "id": "zno-jctc-librpa-32",
+  "dimension": "3d",
+  "material": "ZnO",
+  "formula": "ZnO",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "g0w0_band"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": "8e2fc2584a45c560fe8d192411ef7a108ec4f2a5",
+      "abbreviated_commit": "8e2fc2584",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/aims.out"
+      ],
+      "identity_note": "Full commit resolved from the unique object matching the producer-logged prefix 8e2fc2584 in the local FHI-aims clone (upstream master unshallowed); the producer printed only the shortened ID."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": "6dc9b9074704d92bad4b24264a17cc6e6456adbf",
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+      ],
+      "identity_note": "The archived LibRPA.out prints the full 40-hex source hash on branch develop_backup_before_soc (v0.4.0, whose QPE-solver NaN bug is documented in the supporting-data README)."
+    }
+  },
+  "species": [
+    {
+      "element": "O",
+      "set_id": "O-aims-jctc-96f253772209",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "Zn",
+      "set_id": "Zn-aims-jctc-f5d074ba39eb",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/control.in",
+        "sha256": "a534122687f8dc397fa60bcf8d2c11202cf66f6eafa9ec9deb79fe9c3020e1c9",
+        "size_bytes": 5959,
+        "original_sha256": "a534122687f8dc397fa60bcf8d2c11202cf66f6eafa9ec9deb79fe9c3020e1c9",
+        "label": "FHI-aims control.in (dataset generation, dataset)",
+        "scientific_role": "aims_control_input",
+        "transformation": "none",
+        "original_name": "control.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/geometry.in",
+        "sha256": "a7d2226ebc6a9dbac285f19a10b0f4b0d7a62bd804f1c36d81ae3b934a8a00ce",
+        "size_bytes": 337,
+        "original_sha256": "a7d2226ebc6a9dbac285f19a10b0f4b0d7a62bd804f1c36d81ae3b934a8a00ce",
+        "label": "FHI-aims geometry.in (dataset generation, dataset)",
+        "scientific_role": "aims_geometry_input",
+        "transformation": "none",
+        "original_name": "geometry.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/librpa.in",
+        "sha256": "d079de892da32be6db5724f9eef860173f198477ae27546626024f3ac8347b53",
+        "size_bytes": 160,
+        "original_sha256": "d079de892da32be6db5724f9eef860173f198477ae27546626024f3ac8347b53",
+        "label": "LibRPA g0w0_band input (32-point grid)",
+        "scientific_role": "librpa_g0w0_input",
+        "transformation": "none",
+        "original_name": "librpa.in"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+        "sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "size_bytes": 611,
+        "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "scientific_role": "aims_kpt_band_derived",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
+        "sha256": "64ab5078630b7edcab8e1910b5db3faf9ec109c34db0b14c9a9d9d18b17c7bf0",
+        "size_bytes": 357210,
+        "original_sha256": "64ab5078630b7edcab8e1910b5db3faf9ec109c34db0b14c9a9d9d18b17c7bf0",
+        "label": "LibRPA KS band table (32-point grid)",
+        "scientific_role": "librpa_ks_band_table",
+        "transformation": "none",
+        "original_name": "KS_band_spin_1.dat"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat",
+        "sha256": "29cf0d930a689aa7a85602894cc6adefdacdde9f77a2b00ba23a31ea31f90e39",
+        "size_bytes": 357210,
+        "original_sha256": "29cf0d930a689aa7a85602894cc6adefdacdde9f77a2b00ba23a31ea31f90e39",
+        "label": "LibRPA EXX band table (32-point grid)",
+        "scientific_role": "librpa_exx_band_table",
+        "transformation": "none",
+        "original_name": "EXX_band_spin_1.dat"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat",
+        "sha256": "43d56a34219bd9462efecb523acbbaa38e615225096171a1cd318506041ffd55",
+        "size_bytes": 357210,
+        "original_sha256": "43d56a34219bd9462efecb523acbbaa38e615225096171a1cd318506041ffd55",
+        "label": "LibRPA GW band table (32-point grid)",
+        "scientific_role": "librpa_gw_band_table",
+        "transformation": "none",
+        "original_name": "GW_band_spin_1.dat"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/aims.out",
+        "sha256": "180360ab9b9107d316a16f6fdb489d122d3d3f396fc1893ca012fccee08366d7",
+        "size_bytes": 268328,
+        "original_sha256": "180360ab9b9107d316a16f6fdb489d122d3d3f396fc1893ca012fccee08366d7",
+        "label": "FHI-aims dataset-generation SCF log",
+        "scientific_role": "aims_scf_log",
+        "transformation": "none",
+        "original_name": "aims.out"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out",
+        "sha256": "bf9958013d490a73c61cabe0e88854ac914c5d0807f63dbe5bc5e5a249063d69",
+        "size_bytes": 4636574,
+        "original_sha256": "12c04e6efe25a5ef748576c1d8816099baa25172ba5aa6fe3cd56b828dee0412",
+        "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+        "scientific_role": "librpa_run_log",
+        "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
+        "original_name": "LibRPA.out"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/ks_frontier.svg",
+        "sha256": "63f83935cef5685ed6101981ce160c488bc9b492ca5abfb76447b2107081b5e1",
+        "size_bytes": 35521,
+        "original_sha256": "63f83935cef5685ed6101981ce160c488bc9b492ca5abfb76447b2107081b5e1",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/exx_frontier.svg",
+        "sha256": "7064ac5c59b9aff0943777eb6356bb9558fde942eaa5d84822b291baec962f09",
+        "size_bytes": 35126,
+        "original_sha256": "7064ac5c59b9aff0943777eb6356bb9558fde942eaa5d84822b291baec962f09",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json",
+        "sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
+        "size_bytes": 587829,
+        "original_sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/gw_restricted_gap_provenance.json",
+        "sha256": "abb878ae24fcea8761555716a74179464706913535ea426d0c11c43a3cba658e",
+        "size_bytes": 767,
+        "original_sha256": "abb878ae24fcea8761555716a74179464706913535ea426d0c11c43a3cba658e",
+        "label": "GW restricted gap finite-entry provenance",
+        "transformation": "derived exclusions diagnostics for the restricted GW sampled path gap",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "secondary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "d5b2a73c55808535c545a72b406e400320efd0dc8676dc476a0a36f7cbea7987",
+    "evidence": "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 55,
+    "n_path_kpoints": 210
+  },
+  "performance": {
+    "wall_time_seconds": 171340,
+    "nodes": 4,
+    "mpi_ranks": 16,
+    "omp_threads_per_rank": 24,
+    "cluster_label": "unnamed x86 cluster (c03xx compute nodes)",
+    "evidence": [
+      "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+    ]
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "PBE",
+      "value": 0.6797199999999997,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 9.012319999999999,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "declared finite export window path gap: raw CBM(empty) minus VBM(occupied) over all declared nbands on the fully audited sampled native KPT path; explicit occupation-separated raw boundary, rejected raw tail excluded and diagnosed in sidecar. Not a global Brillouin-zone gap, convergence validation, historical producer identification, or PP recommendation.",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json"
+      ]
+    },
+    {
+      "key": "sampled_path_gap_ev",
+      "category": "electronic",
+      "label": "Restricted sampled path gap (GW)",
+      "method": "G0W0",
+      "value": 2.02215,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "restricted sampled native band-path gap (finite-entry restricted path gap): the raw GW QP table carries the LibRPA v0.4.0 QPE-solver nonfinite outputs documented in the supporting-data README, so the ordinary gap analysis is refused; the value keeps the finite frontier entries with nonfinite k-points/states excluded and diagnosed in the archived sidecar. Not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json",
+        "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/gw_restricted_gap_provenance.json"
+      ]
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "unit": "eV",
+    "notes": "Historical journal supporting-data run. The raw GW QP table carries the known numerical pathology of LibRPA v0.4.0 (QPE-solver NaN, documented in the supporting-data README); the GW observable is therefore a restricted sampled-path gap. Not a universal basis recommendation.",
+    "value": 2.02215,
+    "sampled_path_gap_ev": 2.02215,
+    "dft_gap_ev": 0.6797199999999997,
+    "exx_gap_ev": 9.012319999999999,
+    "gap_definition": "Archived sampled native band-path gap; restricted where the raw GW QP table carries nonfinite QPE-solver outputs",
+    "scientific_status": "journal_supporting_information_path_gap",
+    "scope": "Specific JCTC 6c00618 geometry, FHI-aims species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "publication": {
+    "status": "review",
+    "note": "Supporting information for JCTC manuscript jctc-6c00618 (submitted); archived from the author-provided supporting-data tar.",
+    "manuscript_id": "jctc-6c00618"
+  },
+  "source": {
+    "collection": "JCTC 6c00618 FHI-aims + LibRPA band-structure supporting data (24 materials)",
+    "tar": "jctc_6c00618_data_20261015.tar.gz",
+    "provenance_directory": "data/provenance/jctc-6c00618",
+    "material_directory": "ZnO",
+    "run_directory": "librpa-32",
+    "dataset_directory": "dataset"
+  }
+}

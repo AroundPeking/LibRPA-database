@@ -1,0 +1,7 @@
+task = g0w0_band
+input_dir = ../../aims_dataset/df_16
+nfreq = 16
+option_dielect_func = 0
+replace_w_head = true
+use_scalapack_gw_wc = t
+parallel_routing = libri

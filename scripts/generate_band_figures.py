@@ -25,7 +25,9 @@ def sha256(path: Path) -> str:
 
 
 def _kpt_nodes(path: Path) -> list[dict]:
-    lines = [line.strip() for line in path.read_text(encoding="utf-8").splitlines()
+    text = path.read_text(encoding="utf-8")
+    inclusive = bool(re.search(r"(?m)^\s*#\s*kpath_convention:\s*inclusive", text))
+    lines = [line.strip() for line in text.splitlines()
              if line.strip() and not line.lstrip().startswith("#")]
     if len(lines) < 4 or lines[0].upper() != "K_POINTS" or lines[2].lower() != "line":
         raise ValueError("only explicit fractional Line KPT paths are supported")
@@ -37,7 +39,8 @@ def _kpt_nodes(path: Path) -> list[dict]:
             raise ValueError("KPT line nodes require kx ky kz integer segment count")
         coordinates = [float(value) for value in fields[:3]]
         segment = float(fields[3])
-        if not all(math.isfinite(value) for value in coordinates) or segment != int(segment) or segment < 1:
+        floor = 0 if inclusive else 1
+        if not all(math.isfinite(value) for value in coordinates) or segment != int(segment) or segment < floor:
             raise ValueError("invalid KPT coordinate or segment sampling count")
         label = line.split("#", 1)[1].strip() if "#" in line else f"k{len(nodes)}"
         label = "Γ" if label.upper() in {"G", "GAMMA", "\\GAMMA"} else label
@@ -47,20 +50,39 @@ def _kpt_nodes(path: Path) -> list[dict]:
     return nodes
 
 
+def _inclusive_kpath_convention(kpt: Path) -> bool:
+    """FHI-aims `output band` 段含双端点；共享路径节点在原生表中重复出现。"""
+    text = kpt.read_text(encoding="utf-8", errors="replace")
+    return bool(re.search(r"(?m)^\s*#\s*kpath_convention:\s*inclusive", text))
+
+
 def audit_kpath(table: object, kpt: Path, info: Path | None = None) -> dict:
     """核验完整原生采样坐标而非将端点均匀摊开。"""
     nodes = _kpt_nodes(kpt)
+    inclusive = _inclusive_kpath_convention(kpt)
     expected, ticks = [], []
     for number, node in enumerate(nodes):
-        ticks.append({"x": None, "label": node["label"], "row_index": len(expected) + 1,
+        last = number == len(nodes) - 1
+        jump = inclusive and node["segment_points"] == 0
+        ticks.append({"x": None, "label": node["label"],
+                      "row_index": len(expected) if (inclusive and (last or jump)) else len(expected) + 1,
                       "fractional_kpoint": node["fractional_kpoint"]})
-        if number == len(nodes) - 1:
-            expected.append(node["fractional_kpoint"])
+        if last:
+            if not inclusive:
+                expected.append(node["fractional_kpoint"])
             break
         destination = nodes[number + 1]["fractional_kpoint"]
         count = node["segment_points"]
-        for index in range(count):
-            expected.append([a + (b - a) * index / count for a, b in zip(node["fractional_kpoint"], destination)])
+        if jump:
+            continue
+        if inclusive:
+            if count < 2:
+                raise ValueError("inclusive segment convention requires at least two sampled points per segment")
+            for index in range(count):
+                expected.append([a + (b - a) * index / (count - 1) for a, b in zip(node["fractional_kpoint"], destination)])
+        else:
+            for index in range(count):
+                expected.append([a + (b - a) * index / count for a, b in zip(node["fractional_kpoint"], destination)])
     if table.fractional_kpoints is None or len(expected) != len(table.x):
         raise ValueError("KPT sampling count does not match native table")
     error = max(abs(a - b) for row, source in zip(expected, table.fractional_kpoints) for a, b in zip(row, source))
@@ -69,6 +91,7 @@ def audit_kpath(table: object, kpt: Path, info: Path | None = None) -> dict:
     for tick in ticks:
         tick["x"] = table.x[tick["row_index"] - 1]
     result = {"status": "verified", "ticks": ticks, "kpt_sha256": sha256(kpt),
+              "kpath_convention": "inclusive-segments" if inclusive else "exclusive-segments",
               "coordinate_tolerance": 5.1e-7, "max_kpt_coordinate_error": error,
               "x_axis": "native k-point index", "reciprocal_metric_available": False,
               "note": "Native sampling retained; no reciprocal-distance or inverse-angstrom claim."}

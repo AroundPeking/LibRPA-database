@@ -42,6 +42,43 @@ class BandFigureTests(unittest.TestCase):
         (case / "record.json").write_text(json.dumps(record))
         return case / "record.json"
 
+    def test_inclusive_kpath_convention_with_jump_node_audits_aims_segments(self):
+        # FHI-aims `output band` 段含双端点；K|U 型断点以 count 0 跳变节点表达。
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            case = root / "data/calculations/3d/Test/incl"
+            (case / "inputs").mkdir(parents=True)
+            kpt = case / "inputs/KPT_band"
+            kpt.write_text("# kpath_convention: inclusive-segments (FHI-aims output band)\n"
+                           "K_POINTS\n4\nline\n"
+                           "0.0 0.0 0.0 3 # G\n"
+                           "0.5 0.0 0.5 0 # X\n"
+                           "0.625 0.25 0.625 3 # U\n"
+                           "0.5 0.0 0.5 1 # X\n")
+            rows = []
+            for index, (x, y, z) in enumerate([(0.0, 0.0, 0.0), (0.25, 0.0, 0.25), (0.5, 0.0, 0.5),
+                                               (0.625, 0.25, 0.625), (0.5625, 0.125, 0.5625),
+                                               (0.5, 0.0, 0.5)], 1):
+                rows.append(f"{index} {x} {y} {z} 2.0 -4.0 2.0 -1.0 0.0 3.0 0.0 5.0")
+            table_path = case / "results"
+            table_path.mkdir(parents=True)
+            (table_path / "GW_band_spin_1.dat").write_text("\n".join(rows) + "\n")
+            table = generator.plot_bands.parse_abacus_band_table(table_path / "GW_band_spin_1.dat")
+            audit = generator.audit_kpath(table, kpt)
+            self.assertEqual(audit["status"], "verified")
+            self.assertEqual(audit["kpath_convention"], "inclusive-segments")
+            self.assertEqual([tick["label"] for tick in audit["ticks"]], ["Γ", "X", "U", "X"])
+            self.assertEqual([tick["row_index"] for tick in audit["ticks"]], [1, 3, 4, 6])
+            # 无标记时同一文件必须退回互斥段语义并被拒收。
+            plain = case / "inputs/KPT_plain"
+            plain.write_text("K_POINTS\n4\nline\n"
+                             "0.0 0.0 0.0 3 # G\n"
+                             "0.5 0.0 0.5 0 # X\n"
+                             "0.625 0.25 0.625 3 # U\n"
+                             "0.5 0.0 0.5 1 # X\n")
+            with self.assertRaises(ValueError):
+                generator.audit_kpath(table, plain)
+
     def test_custom_root_explicit_write_preserves_original_and_idempotent(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -179,7 +216,7 @@ class BandFigureTests(unittest.TestCase):
                     "BP": (4, 1.28967, 7.13040), "CaO": (8, 3.55481, 14.26462),
                     "NaCl": (8, 5.08771, 13.36155)}
         for material, (occupied, ks, exx) in expected.items():
-            path = next(ROOT.glob(f"data/calculations/3d/{material}/*/record.json"))
+            path = next(ROOT.glob(f"data/calculations/3d/{material}/{material.lower()}-paper-*/record.json"))
             export_count = int((path.parent / "results/band_kpath_info").read_text().splitlines()[0].split()[1])
             for method, gap in (("KS", ks), ("EXX", exx)):
                 with self.subTest(material=material, method=method):
@@ -203,7 +240,7 @@ class BandFigureTests(unittest.TestCase):
                     self.assertAlmostEqual(analysis["sampled_path_gap_ev"], gap, places=5)
 
     def test_actual_alp_full_tail_is_preserved_diagnosed_and_never_selected(self):
-        path = next(ROOT.glob("data/calculations/3d/AlP/*/record.json"))
+        path = next(ROOT.glob("data/calculations/3d/AlP/alp-paper-*/record.json"))
         for method in generator.METHODS:
             table = generator.plot_bands.parse_abacus_band_table(path.parent / f"results/{method}_band_spin_1.dat")
             tail = generator._tail_diagnostics(table, 44)
@@ -222,7 +259,7 @@ class BandFigureTests(unittest.TestCase):
 
     def test_actual_cao_nacl_gw_negative_full_gap_keeps_fixed_low_window(self):
         for material in ("CaO", "NaCl"):
-            path = next(ROOT.glob(f"data/calculations/3d/{material}/*/record.json"))
+            path = next(ROOT.glob(f"data/calculations/3d/{material}/{material.lower()}-paper-*/record.json"))
             table = generator.plot_bands.parse_abacus_band_table(path.parent / "results/GW_band_spin_1.dat")
             contract = {"kind": "logged_raw_boundary", "occupied_band_count": 8, "evidence": ["same.log"]}
             if any(value != 0 for row in table.occupations for value in row):
@@ -268,7 +305,7 @@ class BandFigureTests(unittest.TestCase):
                 self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
         if declared:
-            self.assertEqual(declared, 49)
+            self.assertEqual(declared, 176)
 
     def test_nonpositive_selected_gap_unreferences_previous_svg_without_deleting(self):
         with tempfile.TemporaryDirectory() as tmp:
