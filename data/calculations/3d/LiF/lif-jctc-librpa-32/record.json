@@ -181,17 +181,33 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/LiF/lif-jctc-librpa-32/figures/gw_frontier.svg",
+        "sha256": "0c7ceec6bc0312366e1dd3dd31de0b275a38b372137336399bddf65c65ebac1d",
+        "size_bytes": 34585,
+        "original_sha256": "0c7ceec6bc0312366e1dd3dd31de0b275a38b372137336399bddf65c65ebac1d",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/LiF/lif-jctc-librpa-32/results/GW_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/LiF/lif-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/LiF/lif-jctc-librpa-32/figures/band_frontier_metadata.json",
-        "sha256": "623a1aa54e47e79fc33c25558fa98db40cd2a8c8e78704aad8bc9dd62c5912ab",
-        "size_bytes": 445644,
-        "original_sha256": "623a1aa54e47e79fc33c25558fa98db40cd2a8c8e78704aad8bc9dd62c5912ab",
+        "sha256": "cc3c8d8dc050f261f2bd5dce638296f39fe77e3edf7617be42010b1b0b2bf92a",
+        "size_bytes": 677776,
+        "original_sha256": "cc3c8d8dc050f261f2bd5dce638296f39fe77e3edf7617be42010b1b0b2bf92a",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/LiF/lif-jctc-librpa-32/results/KS_band_spin_1.dat",
           "data/calculations/3d/LiF/lif-jctc-librpa-32/inputs/KPT_band",
           "data/calculations/3d/LiF/lif-jctc-librpa-32/logs/librpa.out",
-          "data/calculations/3d/LiF/lif-jctc-librpa-32/results/EXX_band_spin_1.dat"
+          "data/calculations/3d/LiF/lif-jctc-librpa-32/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/LiF/lif-jctc-librpa-32/results/GW_band_spin_1.dat"
         ],
         "display_priority": "primary"
       }

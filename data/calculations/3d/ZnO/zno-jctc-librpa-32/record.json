@@ -181,17 +181,33 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/gw_frontier.svg",
+        "sha256": "c041bcb352d358b42c2dba0e2eb5e643bc188c7beb28397380321bc29bac43be",
+        "size_bytes": 35130,
+        "original_sha256": "c041bcb352d358b42c2dba0e2eb5e643bc188c7beb28397380321bc29bac43be",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json",
-        "sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
-        "size_bytes": 587829,
-        "original_sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
+        "sha256": "c59d58b97d9d8e9ae0a62e74c700e07857e2eaafb422703e710d1ea4e26d4a94",
+        "size_bytes": 883826,
+        "original_sha256": "c59d58b97d9d8e9ae0a62e74c700e07857e2eaafb422703e710d1ea4e26d4a94",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
           "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
           "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out",
-          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat"
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat"
         ],
         "display_priority": "primary"
       },

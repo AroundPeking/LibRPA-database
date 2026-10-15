@@ -155,16 +155,32 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/MgS/mgs-jctc-librpa-16/figures/gw_frontier.svg",
+        "sha256": "4523ae58df42a820dc9c2c8338eac555c483e7391ec2094f117f07eed1081ba9",
+        "size_bytes": 35331,
+        "original_sha256": "4523ae58df42a820dc9c2c8338eac555c483e7391ec2094f117f07eed1081ba9",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/GW_band_spin_1.dat",
+          "data/calculations/3d/MgS/mgs-jctc-librpa-16/inputs/KPT_band",
+          "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/MgS/mgs-jctc-librpa-16/figures/band_frontier_metadata.json",
-        "sha256": "f92756d75d3bd5c39f3481d02cdc104fed1700a5742c412ef9e491ae4fde6d43",
-        "size_bytes": 267171,
-        "original_sha256": "f92756d75d3bd5c39f3481d02cdc104fed1700a5742c412ef9e491ae4fde6d43",
+        "sha256": "038590ae800728b656412d34d2896fb4d4e594c343b2f7897ba426c999113d5f",
+        "size_bytes": 617362,
+        "original_sha256": "038590ae800728b656412d34d2896fb4d4e594c343b2f7897ba426c999113d5f",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/EXX_band_spin_1.dat",
           "data/calculations/3d/MgS/mgs-jctc-librpa-16/inputs/KPT_band",
-          "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out"
+          "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out",
+          "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/GW_band_spin_1.dat"
         ],
         "display_priority": "primary"
       }

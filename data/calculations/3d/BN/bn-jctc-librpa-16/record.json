@@ -156,16 +156,32 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_frontier.svg",
+        "sha256": "16a0ed4613bbb994b34921eddae087e0dd6d974efb681bbb7a4488aaf706abef",
+        "size_bytes": 34710,
+        "original_sha256": "16a0ed4613bbb994b34921eddae087e0dd6d974efb681bbb7a4488aaf706abef",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat",
+          "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
+          "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/BN/bn-jctc-librpa-16/figures/band_frontier_metadata.json",
-        "sha256": "e6f098b6e9c817465ab78cef9f6be89be72ad8da4b4e5b97e3eeaed0893b3e8b",
-        "size_bytes": 247515,
-        "original_sha256": "e6f098b6e9c817465ab78cef9f6be89be72ad8da4b4e5b97e3eeaed0893b3e8b",
+        "sha256": "e1b030591d9f5b8fab021407a53650b5cfd146c40e12b8af61f17579a0120ed6",
+        "size_bytes": 502460,
+        "original_sha256": "e1b030591d9f5b8fab021407a53650b5cfd146c40e12b8af61f17579a0120ed6",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/BN/bn-jctc-librpa-16/results/EXX_band_spin_1.dat",
           "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
-          "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
+          "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out",
+          "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat"
         ],
         "display_priority": "primary"
       },

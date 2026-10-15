@@ -42,6 +42,41 @@ class BandFigureTests(unittest.TestCase):
         (case / "record.json").write_text(json.dumps(record))
         return case / "record.json"
 
+    def test_nonfinite_selected_states_render_as_broken_line_diagnostic(self):
+        # QP 解矢 NaN 落在冻结窗内时仍出图：折线在非有限 k 点断开，标记 diagnostic。
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = self.fixture(root)
+            gw = path.parent / "results/GW_band_spin_1.dat"
+            rows = gw.read_text().splitlines()
+            fields = rows[1].split()
+            fields[7] = "nan"  # 第2个k点、空态raw band 2 的能量置为非有限。
+            rows[1] = " ".join(fields)
+            gw.write_text("\n".join(rows) + "\n")
+            record = json.loads(path.read_text())
+            for group in record["files"]["results"]:
+                if group["path"].endswith("GW_band_spin_1.dat"):
+                    group["sha256"] = generator.sha256(gw)
+            path.write_text(json.dumps(record))
+            report = generator.generate_record(path, root, write=True)
+            self.assertIn("GW", report["generated_methods"])
+            self.assertIn("GW", report["rejected"])
+            svg = (path.parent / "figures/gw_frontier.svg").read_text()
+            self.assertIn("nonfinite solver states drawn as line breaks", svg)
+            self.assertNotIn("nan", svg)
+            rank2 = svg.split('<path id="GW-rank-2" d="')[1].split('"')[0]
+            self.assertTrue(rank2.startswith("M"))
+            self.assertNotIn("L", rank2)
+            metadata = json.loads((path.parent / "figures/band_frontier_metadata.json").read_text())
+            analysis = metadata["methods"]["GW"]
+            self.assertEqual(analysis["figure_status"], "renderable")
+            self.assertEqual(analysis["status"], "diagnostic")
+            self.assertEqual(len(analysis["nonfinite_display_states"]), 1)
+            self.assertIn(None, analysis["display_energies_ev"][1])
+            updated = json.loads(path.read_text())
+            names = [Path(entry["path"]).name for entry in updated["files"]["figures"]]
+            self.assertIn("gw_frontier.svg", names)
+
     def test_inclusive_kpath_convention_with_jump_node_audits_aims_segments(self):
         # FHI-aims `output band` 段含双端点；K|U 型断点以 count 0 跳变节点表达。
         with tempfile.TemporaryDirectory() as tmp:
@@ -296,7 +331,7 @@ class BandFigureTests(unittest.TestCase):
                 declared += 1
                 self.assertIn(svg, references)
                 gap = analysis["selected_window_path_gap_ev"]
-                values = [v for row in analysis["display_energies_ev"] for v in row]
+                values = [v for row in analysis["display_energies_ev"] for v in row if v is not None]
                 previous = [-max(2.5, 0.5 * gap), gap + max(3, 0.5 * gap)]
                 limits, _ = generator.plot_bands.selected_band_viewport(analysis["display_energies_ev"], previous)
                 self.assertEqual(analysis["y_limits_ev"], limits)
@@ -305,7 +340,7 @@ class BandFigureTests(unittest.TestCase):
                 self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
         if declared:
-            self.assertEqual(declared, 176)
+            self.assertEqual(declared, 181)
 
     def test_nonpositive_selected_gap_unreferences_previous_svg_without_deleting(self):
         with tempfile.TemporaryDirectory() as tmp:

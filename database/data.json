@@ -29463,16 +29463,32 @@
           },
           {
             "role": "figures",
+            "path": "data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_frontier.svg",
+            "sha256": "16a0ed4613bbb994b34921eddae087e0dd6d974efb681bbb7a4488aaf706abef",
+            "size_bytes": 34710,
+            "original_sha256": "16a0ed4613bbb994b34921eddae087e0dd6d974efb681bbb7a4488aaf706abef",
+            "label": "GW occupation-separated frontier (diagnostic)",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat",
+              "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
+              "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/3d/BN/bn-jctc-librpa-16/figures/band_frontier_metadata.json",
-            "sha256": "e6f098b6e9c817465ab78cef9f6be89be72ad8da4b4e5b97e3eeaed0893b3e8b",
-            "size_bytes": 247515,
-            "original_sha256": "e6f098b6e9c817465ab78cef9f6be89be72ad8da4b4e5b97e3eeaed0893b3e8b",
+            "sha256": "e1b030591d9f5b8fab021407a53650b5cfd146c40e12b8af61f17579a0120ed6",
+            "size_bytes": 502460,
+            "original_sha256": "e1b030591d9f5b8fab021407a53650b5cfd146c40e12b8af61f17579a0120ed6",
             "label": "Frontier display mappings, raw audit and provenance",
             "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
             "source_paths": [
               "data/calculations/3d/BN/bn-jctc-librpa-16/results/EXX_band_spin_1.dat",
               "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
-              "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
+              "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out",
+              "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
           },
@@ -40506,16 +40522,32 @@
           },
           {
             "role": "figures",
+            "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-32/figures/gw_frontier.svg",
+            "sha256": "158abafd4d14f9667d7b13d441d404247574bc7707d2e46f980aef790c3a1322",
+            "size_bytes": 34804,
+            "original_sha256": "158abafd4d14f9667d7b13d441d404247574bc7707d2e46f980aef790c3a1322",
+            "label": "GW occupation-separated frontier (diagnostic)",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/GW_band_spin_1.dat",
+              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/inputs/KPT_band",
+              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-32/figures/band_frontier_metadata.json",
-            "sha256": "790a5d75e3c9ede5f9702d63aad65d9f88e4b202e06f5742b25016160023aeba",
-            "size_bytes": 367475,
-            "original_sha256": "790a5d75e3c9ede5f9702d63aad65d9f88e4b202e06f5742b25016160023aeba",
+            "sha256": "692f73afb94832f5acdbea91ac92c1f5592dd05de5c49f1be0312dacb8047676",
+            "size_bytes": 743038,
+            "original_sha256": "692f73afb94832f5acdbea91ac92c1f5592dd05de5c49f1be0312dacb8047676",
             "label": "Frontier display mappings, raw audit and provenance",
             "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
             "source_paths": [
               "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/EXX_band_spin_1.dat",
               "data/calculations/3d/GaSb/gasb-jctc-librpa-32/inputs/KPT_band",
-              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out"
+              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out",
+              "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
           },
@@ -44451,17 +44483,33 @@
           },
           {
             "role": "figures",
+            "path": "data/calculations/3d/LiF/lif-jctc-librpa-32/figures/gw_frontier.svg",
+            "sha256": "0c7ceec6bc0312366e1dd3dd31de0b275a38b372137336399bddf65c65ebac1d",
+            "size_bytes": 34585,
+            "original_sha256": "0c7ceec6bc0312366e1dd3dd31de0b275a38b372137336399bddf65c65ebac1d",
+            "label": "GW occupation-separated frontier (diagnostic)",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/LiF/lif-jctc-librpa-32/results/GW_band_spin_1.dat",
+              "data/calculations/3d/LiF/lif-jctc-librpa-32/inputs/KPT_band",
+              "data/calculations/3d/LiF/lif-jctc-librpa-32/logs/librpa.out"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/3d/LiF/lif-jctc-librpa-32/figures/band_frontier_metadata.json",
-            "sha256": "623a1aa54e47e79fc33c25558fa98db40cd2a8c8e78704aad8bc9dd62c5912ab",
-            "size_bytes": 445644,
-            "original_sha256": "623a1aa54e47e79fc33c25558fa98db40cd2a8c8e78704aad8bc9dd62c5912ab",
+            "sha256": "cc3c8d8dc050f261f2bd5dce638296f39fe77e3edf7617be42010b1b0b2bf92a",
+            "size_bytes": 677776,
+            "original_sha256": "cc3c8d8dc050f261f2bd5dce638296f39fe77e3edf7617be42010b1b0b2bf92a",
             "label": "Frontier display mappings, raw audit and provenance",
             "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
             "source_paths": [
               "data/calculations/3d/LiF/lif-jctc-librpa-32/results/KS_band_spin_1.dat",
               "data/calculations/3d/LiF/lif-jctc-librpa-32/inputs/KPT_band",
               "data/calculations/3d/LiF/lif-jctc-librpa-32/logs/librpa.out",
-              "data/calculations/3d/LiF/lif-jctc-librpa-32/results/EXX_band_spin_1.dat"
+              "data/calculations/3d/LiF/lif-jctc-librpa-32/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/LiF/lif-jctc-librpa-32/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
           }
@@ -46604,16 +46652,32 @@
           },
           {
             "role": "figures",
+            "path": "data/calculations/3d/MgS/mgs-jctc-librpa-16/figures/gw_frontier.svg",
+            "sha256": "4523ae58df42a820dc9c2c8338eac555c483e7391ec2094f117f07eed1081ba9",
+            "size_bytes": 35331,
+            "original_sha256": "4523ae58df42a820dc9c2c8338eac555c483e7391ec2094f117f07eed1081ba9",
+            "label": "GW occupation-separated frontier (diagnostic)",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/GW_band_spin_1.dat",
+              "data/calculations/3d/MgS/mgs-jctc-librpa-16/inputs/KPT_band",
+              "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/3d/MgS/mgs-jctc-librpa-16/figures/band_frontier_metadata.json",
-            "sha256": "f92756d75d3bd5c39f3481d02cdc104fed1700a5742c412ef9e491ae4fde6d43",
-            "size_bytes": 267171,
-            "original_sha256": "f92756d75d3bd5c39f3481d02cdc104fed1700a5742c412ef9e491ae4fde6d43",
+            "sha256": "038590ae800728b656412d34d2896fb4d4e594c343b2f7897ba426c999113d5f",
+            "size_bytes": 617362,
+            "original_sha256": "038590ae800728b656412d34d2896fb4d4e594c343b2f7897ba426c999113d5f",
             "label": "Frontier display mappings, raw audit and provenance",
             "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
             "source_paths": [
               "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/EXX_band_spin_1.dat",
               "data/calculations/3d/MgS/mgs-jctc-librpa-16/inputs/KPT_band",
-              "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out"
+              "data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out",
+              "data/calculations/3d/MgS/mgs-jctc-librpa-16/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
           }
@@ -52054,17 +52118,33 @@
           },
           {
             "role": "figures",
+            "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/gw_frontier.svg",
+            "sha256": "c041bcb352d358b42c2dba0e2eb5e643bc188c7beb28397380321bc29bac43be",
+            "size_bytes": 35130,
+            "original_sha256": "c041bcb352d358b42c2dba0e2eb5e643bc188c7beb28397380321bc29bac43be",
+            "label": "GW occupation-separated frontier (diagnostic)",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat",
+              "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
+              "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
             "path": "data/calculations/3d/ZnO/zno-jctc-librpa-32/figures/band_frontier_metadata.json",
-            "sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
-            "size_bytes": 587829,
-            "original_sha256": "b259c77c56ebee5d3eb1d217180a2da327d538892d2c1e23f67fb99d0d5bbdec",
+            "sha256": "c59d58b97d9d8e9ae0a62e74c700e07857e2eaafb422703e710d1ea4e26d4a94",
+            "size_bytes": 883826,
+            "original_sha256": "c59d58b97d9d8e9ae0a62e74c700e07857e2eaafb422703e710d1ea4e26d4a94",
             "label": "Frontier display mappings, raw audit and provenance",
             "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
             "source_paths": [
               "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/KS_band_spin_1.dat",
               "data/calculations/3d/ZnO/zno-jctc-librpa-32/inputs/KPT_band",
               "data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out",
-              "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat"
+              "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/ZnO/zno-jctc-librpa-32/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
           },

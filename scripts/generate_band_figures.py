@@ -242,7 +242,8 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
                                                    diagnostic_evidence=[log_entry["path"]] if occupied_count and log_entry else None,
                                                    known_pathological=(_known_pathology(record, method) or
                                                                        (method == "GW" and export_count < len(table.energies[0]))),
-                                                   declared_export_band_count=export_count)
+                                                   declared_export_band_count=export_count,
+                                                   allow_nonfinite_display=True)
             analysis["rejected_tail_audit"] = _tail_diagnostics(table, export_count)
             analysis["kpath_audit"] = path_audit
             analysis["source_result_path"] = entry["path"]

@@ -155,16 +155,32 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-32/figures/gw_frontier.svg",
+        "sha256": "158abafd4d14f9667d7b13d441d404247574bc7707d2e46f980aef790c3a1322",
+        "size_bytes": 34804,
+        "original_sha256": "158abafd4d14f9667d7b13d441d404247574bc7707d2e46f980aef790c3a1322",
+        "label": "GW occupation-separated frontier (diagnostic)",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/inputs/KPT_band",
+          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-32/figures/band_frontier_metadata.json",
-        "sha256": "790a5d75e3c9ede5f9702d63aad65d9f88e4b202e06f5742b25016160023aeba",
-        "size_bytes": 367475,
-        "original_sha256": "790a5d75e3c9ede5f9702d63aad65d9f88e4b202e06f5742b25016160023aeba",
+        "sha256": "692f73afb94832f5acdbea91ac92c1f5592dd05de5c49f1be0312dacb8047676",
+        "size_bytes": 743038,
+        "original_sha256": "692f73afb94832f5acdbea91ac92c1f5592dd05de5c49f1be0312dacb8047676",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaSb/gasb-jctc-librpa-32/inputs/KPT_band",
-          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out"
+          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out",
+          "data/calculations/3d/GaSb/gasb-jctc-librpa-32/results/GW_band_spin_1.dat"
         ],
         "display_priority": "primary"
       },

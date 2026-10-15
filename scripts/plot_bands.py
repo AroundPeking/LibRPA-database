@@ -191,7 +191,8 @@ def audit_raw_spectrum(table: BandTable, occupied: int) -> dict:
             "ordinary_gap_eligible": gap is not None and gap > 0}
 
 
-def reorder_display_manifolds(table: BandTable, occupied_bands: list[int], empty_bands: list[int]) -> tuple[list[list[float]], list[list[int]]]:
+def reorder_display_manifolds(table: BandTable, occupied_bands: list[int], empty_bands: list[int],
+                              allow_nonfinite: bool = False) -> tuple[list[list[float | None]], list[list[int]]]:
     """冻结一基raw窗后分别逐k能量排序，并验证完整重构。"""
     selected = occupied_bands + empty_bands
     width = len(table.energies[0])
@@ -200,7 +201,22 @@ def reorder_display_manifolds(table: BandTable, occupied_bands: list[int], empty
     rows, mapping = [], []
     for source in table.energies:
         if any(not math.isfinite(source[b - 1]) for b in selected):
-            raise ValueError("nonfinite selected frontier state: figure refused")
+            if not allow_nonfinite:
+                raise ValueError("nonfinite selected frontier state: figure refused")
+            # 非有限解矢状态按raw序排在各自流形末尾；渲染时折线在这些k点断开。
+            ordered = (sorted((b for b in occupied_bands if math.isfinite(source[b - 1])), key=lambda b: (source[b - 1], b))
+                       + [b for b in occupied_bands if not math.isfinite(source[b - 1])]
+                       + sorted((b for b in empty_bands if math.isfinite(source[b - 1])), key=lambda b: (source[b - 1], b))
+                       + [b for b in empty_bands if not math.isfinite(source[b - 1])])
+            values = [source[b - 1] if math.isfinite(source[b - 1]) else None for b in ordered]
+            finite_source = [source[b - 1] for b in selected if math.isfinite(source[b - 1])]
+            if sorted(value for value in values if value is not None) != sorted(finite_source) or set(ordered) != set(selected):
+                raise ValueError("display ordering changed the frozen spectrum")
+            if sum(value is None for value in values) != len(selected) - len(finite_source):
+                raise ValueError("nonfinite display count changed the frozen spectrum")
+            rows.append(values)
+            mapping.append(ordered)
+            continue
         ordered = sorted(occupied_bands, key=lambda b: (source[b - 1], b)) + sorted(empty_bands, key=lambda b: (source[b - 1], b))
         values = [source[b - 1] for b in ordered]
         if sorted(values) != sorted(source[b - 1] for b in selected) or set(ordered) != set(selected):
@@ -212,10 +228,10 @@ def reorder_display_manifolds(table: BandTable, occupied_bands: list[int], empty
     return rows, mapping
 
 
-def selected_band_viewport(energies: list[list[float]], previous_limits: list[float]) -> tuple[list[float], dict]:
+def selected_band_viewport(energies: list[list[float | None]], previous_limits: list[float]) -> tuple[list[float], dict]:
     """Show every already-selected finite sample without changing band selection."""
-    values = [value for row in energies for value in row]
-    if not values or any(not math.isfinite(value) for value in values):
+    values = [value for row in energies for value in row if value is not None and math.isfinite(value)]
+    if not values:
         raise ValueError("full selected-band viewport requires finite selected energies")
     minimum, maximum = min(values), max(values)
     padding = max(0.5, 0.05 * (maximum - minimum))
@@ -228,7 +244,8 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
                      occupation_contract: dict | None = None, occupied_window: int = 3,
                      empty_window: int = 4, known_pathological: bool = False,
                      diagnostic_evidence: list[str] | None = None,
-                     declared_export_band_count: int | None = None) -> dict:
+                     declared_export_band_count: int | None = None,
+                     allow_nonfinite_display: bool = False) -> dict:
     """全表审计与显式导出窗分离；仅有限可信导出窗允许路径gap。"""
     original = table
     width = len(table.energies[0])
@@ -258,24 +275,30 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
     rejected_tail = list(range(export_count + 1, width + 1))
     occ = list(range(max(1, occupied - occupied_window + 1), occupied + 1))
     empty = list(range(occupied + 1, min(export_count, occupied + empty_window) + 1))
-    ordered, mapping = reorder_display_manifolds(table, occ, empty)
-    reference = max(row[b - 1] for row in table.energies for b in occ)
-    selected_cbm = min(row[b - 1] for row in table.energies for b in empty)
-    aligned = [[value - reference for value in row] for row in ordered]
+    ordered, mapping = reorder_display_manifolds(table, occ, empty, allow_nonfinite=allow_nonfinite_display)
+    occupied_finite = [value for row in table.energies for b in occ if math.isfinite(value := row[b - 1])]
+    empty_finite = [value for row in table.energies for b in empty if math.isfinite(value := row[b - 1])]
+    if not occupied_finite or not empty_finite:
+        raise ValueError("selected frontier window has no finite state: figure refused")
+    reference = max(occupied_finite)
+    selected_cbm = min(empty_finite)
+    aligned = [[value - reference if value is not None else None for value in row] for row in ordered]
     selected_gap = selected_cbm - reference
     admission_occ = list(range(max(1, occupied - 4), occupied + 1))
     admission_empty = list(range(occupied + 1, min(export_count, occupied + 6) + 1))
-    admission_gap = (min(row[b - 1] for row in table.energies for b in admission_empty)
-                     - max(row[b - 1] for row in table.energies for b in admission_occ))
+    admission_occ_finite = [value for row in table.energies for b in admission_occ if math.isfinite(value := row[b - 1])]
+    admission_empty_finite = [value for row in table.energies for b in admission_empty if math.isfinite(value := row[b - 1])]
+    admission_gap = (min(admission_empty_finite) - max(admission_occ_finite)) if admission_occ_finite and admission_empty_finite else None
     figure_rejection = ("nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window"
-                        if selected_gap <= 0 or admission_gap <= 0 else None)
+                        if selected_gap <= 0 or (admission_gap is not None and admission_gap <= 0) else None)
     near_gap_limits = [-max(2.5, 0.5 * selected_gap), selected_gap + max(3.0, 0.5 * selected_gap)]
     limits, viewport_range = selected_band_viewport(aligned, near_gap_limits) if not figure_rejection else (None, {})
     viewport_cut = [{"kpoint_index": k + 1, "raw_band_index": band,
                      "aligned_energy_ev": table.energies[k][band - 1] - reference,
                      "side": "below" if table.energies[k][band - 1] - reference < limits[0] else "above"}
                     for k in range(len(table.x)) for band in occ + empty
-                    if limits and not limits[0] <= table.energies[k][band - 1] - reference <= limits[1]]
+                    if limits and math.isfinite(table.energies[k][band - 1])
+                    and not limits[0] <= table.energies[k][band - 1] - reference <= limits[1]]
     selected = set(occ + empty)
     intrusions = [{**state, "aligned_minimum_ev": state["minimum_ev"] - reference,
                   "aligned_maximum_ev": state["maximum_ev"] - reference}
@@ -290,6 +313,10 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
         reasons.append(f"raw tail bands {export_count + 1}–{width} rejected outside declared export window")
     if export_audit["nonfinite_states"]:
         reasons.append("nonfinite states in the declared export spectrum")
+    selected_bands = set(occ + empty)
+    nonfinite_display = [state for state in export_audit["nonfinite_states"] if state["raw_band_index"] in selected_bands]
+    if nonfinite_display and allow_nonfinite_display:
+        reasons.append(f"{len(nonfinite_display)} nonfinite selected frontier states rendered as line breaks")
     if not export_audit["ordinary_gap_eligible"]:
         reasons.append("declared export spectrum has no finite positive occupation-separated gap")
     if known_pathological:
@@ -309,7 +336,7 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
                              if not math.isfinite(value)]
     raw_occupations = [[value if math.isfinite(value) else None for value in row]
                        for row in original.occupations] if original.occupations is not None else None
-    return {"status": status, "gap_status": "reported" if gap_eligible else "rejected",
+    result = {"status": status, "gap_status": "reported" if gap_eligible else "rejected",
             "diagnostic_reasons": reasons, "occupation_audit": occupation_audit,
             "raw_audit": raw, "declared_export_audit": export_audit,
             "declared_export_band_count": export_count, "rejected_raw_tail_bands": rejected_tail,
@@ -341,6 +368,10 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
             "nonfinite_raw_occupations": nonfinite_occupations,
             "nonfinite_encoding": "JSON null; original raw value and source column retained in location metadata; source bytes unchanged",
             "x_axis": "native k-point index" if table.native_kpoint_indices else "native path coordinate (source units)"}
+    if nonfinite_display:
+        # 仅在确有非有限显示状态时附加，保证全有限记录的元数据字节不变。
+        result["nonfinite_display_states"] = nonfinite_display
+    return result
 
 
 METHOD_STYLE = {"KS": ("#00A6B4", "9 5"), "EXX": ("#222222", "11 4 2 4"), "GW": ("#E64B35", "")}
@@ -366,8 +397,13 @@ def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], ti
              f'<defs><clipPath id="frontier-clip"><rect x="{left}" y="{top}" width="{right-left}" height="{bottom-top}"/></clipPath></defs>']
     if analysis["status"] == "diagnostic":
         tail = analysis.get("rejected_raw_tail_bands", [])
-        warning = (f"Export-window path diagnostic — raw tail {tail[0]}–{tail[-1]} rejected"
-                   if tail else "Low-energy path diagnostic — not an accepted full-spectrum gap")
+        nonfinite_display = analysis.get("nonfinite_display_states") or []
+        if nonfinite_display:
+            warning = f"Path diagnostic — {len(nonfinite_display)} nonfinite solver states drawn as line breaks"
+        elif tail:
+            warning = f"Export-window path diagnostic — raw tail {tail[0]}–{tail[-1]} rejected"
+        else:
+            warning = "Low-energy path diagnostic — not an accepted full-spectrum gap"
         parts.append(f'<text id="diagnostic-warning" x="{left}" y="68" {font} font-size="18" fill="#755328">{warning}</text>')
     else:
         parts.append(f'<text x="{left}" y="68" {font} font-size="17" fill="#555555">Frozen occupation-separated energy-rank display</text>')
@@ -394,9 +430,16 @@ def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], ti
             parts.append(f'<line x1="{x:.3f}" y1="{y}" x2="{x:.3f}" y2="{end}" stroke="black" stroke-width="1.8"/>')
     parts.append(f'<line x1="{left}" y1="{ymap(0):.3f}" x2="{right}" y2="{ymap(0):.3f}" stroke="#888888" stroke-width="1.2"/>')
     for rank, column in enumerate(zip(*analysis["display_energies_ev"]), 1):
-        points = " ".join(f'{"M" if k == 0 else "L"}{xmap(table.x[k]):.3f},{ymap(value):.3f}' for k, value in enumerate(column))
+        points, drawing = [], False
+        for k, value in enumerate(column):
+            if value is None or not math.isfinite(value):
+                drawing = False
+                continue
+            points.append(f'{"M" if not drawing else "L"}{xmap(table.x[k]):.3f},{ymap(value):.3f}')
+            drawing = True
         dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
-        parts.append(f'<path id="{method}-rank-{rank}" d="{points}" fill="none" stroke="{color}" stroke-width="2.5"{dash_attr} clip-path="url(#frontier-clip)"/>')
+        if points:
+            parts.append(f'<path id="{method}-rank-{rank}" d="{" ".join(points)}" fill="none" stroke="{color}" stroke-width="2.5"{dash_attr} clip-path="url(#frontier-clip)"/>')
     for edge, shape in (("vbm", "circle"), ("cbm", "square")):
         seen = set()
         for number, point in enumerate(analysis[f"{edge}_endpoints"]):
