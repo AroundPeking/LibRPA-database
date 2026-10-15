@@ -1,11 +1,11 @@
 import { matchesSearch } from "./search.mjs";
-import { esc, filesOf, recordElements, methodNames, recordType, atomCount, primaryResult, workflowLabel } from "./records.mjs";
+import { esc, filesOf, recordElements, methodNames, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
 const pageSize = 20;
 const publication = set => set.publication?.status || "database_only";
 const statusNames = { database_only: "Basis record", legacy_incomplete: "Historical record", review: "Curated record", publishable: "Published set", superseded: "Previous version" };
@@ -41,7 +41,7 @@ function matchesQuery(item, isBasis = false) {
 
 function filtered() {
   if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element) && (state.status === "all" || state.status === publication(set))).sort((a, b) => (state.sort === "status" ? publication(a).localeCompare(publication(b)) : 0) || a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
-  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (primaryResult(b)?.value ?? -Infinity) - (primaryResult(a)?.value ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
+  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (primaryResult(b)?.value ?? -Infinity) - (primaryResult(a)?.value ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
 function materialRow(record) {
@@ -71,6 +71,7 @@ function stats() {
 function syncFilters() {
   const basis = state.mode === "basis";
   $(".dimension-filter").hidden = basis;
+  $(".software-filter").hidden = basis;
   $("#input-filter-control").hidden = basis;
   $("#status-filter-control").hidden = !basis;
   $("#search").value = state.query;
@@ -78,6 +79,7 @@ function syncFilters() {
   $("#input-filter").value = state.inputs;
   $("#status-filter").value = state.status;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
+  document.querySelectorAll("input[name=software]").forEach(input => { input.checked = input.value === state.software; });
   $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
   if (!(basis ? ["element", "status"] : ["material", "result"]).includes(state.sort)) state.sort = basis ? "element" : "material";
   $("#sort").value = state.sort;
@@ -85,7 +87,7 @@ function syncFilters() {
 
 function listHash() {
   const params = new URLSearchParams();
-  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
+  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
   return `#/${state.mode === "basis" ? "basis" : ""}${params.size ? `?${params}` : ""}`;
 }
 
@@ -120,7 +122,7 @@ function updateFilter() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", dimension: "all", element: "all", inputs: "all", status: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
+  Object.assign(state, { query: "", dimension: "all", software: "all", element: "all", inputs: "all", status: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
   syncFilters();
   updateFilter();
 }
@@ -146,7 +148,7 @@ function route() {
   }
   state.mode = hash.split("?")[0] === "#/basis" ? "basis" : "materials";
   const params = new URLSearchParams(hash.split("?")[1] || "");
-  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
+  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
   renderHome();
@@ -170,6 +172,7 @@ async function start() {
     $("#search").addEventListener("input", event => { state.query = event.target.value.trim(); updateFilter(); });
     for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["status-filter", "status"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
     document.querySelectorAll("input[name=dimension]").forEach(input => input.addEventListener("change", event => { state.dimension = event.target.value; updateFilter(); }));
+    document.querySelectorAll("input[name=software]").forEach(input => input.addEventListener("change", event => { state.software = event.target.value; updateFilter(); }));
     for (const id of ["reset-filters", "empty-reset"]) $(`#${id}`).addEventListener("click", resetFilters);
     $("#filter-toggle").addEventListener("click", event => {
       const button = event.currentTarget;

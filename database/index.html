@@ -7,7 +7,10 @@
   <meta name="description" content="Explore 2D and 3D LibRPA calculations from ABACUS and FHI-aims workflows, electronic bands, archived inputs, and traceable basis data.">
   <title>Materials database · LibRPA</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
-  <link rel="stylesheet" href="style.css?v=20261012-data-atlas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap">
+  <link rel="stylesheet" href="style.css?v=20261015-editorial-atlas">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,6 +46,11 @@
             <label><input type="radio" name="dimension" value="2d"><span>2D materials</span><b data-dimension-count="2d"></b></label>
             <label><input type="radio" name="dimension" value="3d"><span>3D materials</span><b data-dimension-count="3d"></b></label>
           </fieldset>
+          <fieldset class="software-filter"><legend>SOFTWARE</legend>
+            <label><input type="radio" name="software" value="all" checked><span>All software</span></label>
+            <label><input type="radio" name="software" value="abacus"><span>ABACUS workflows</span></label>
+            <label><input type="radio" name="software" value="fhi_aims"><span>FHI-aims workflows</span></label>
+          </fieldset>
           <label class="select-control" for="element-filter"><span>ELEMENT</span><select id="element-filter"><option value="all">All elements</option></select></label>
           <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Input files available</option></select></label>
           <label class="select-control" id="status-filter-control" for="status-filter" hidden><span>PUBLICATION</span><select id="status-filter"><option value="all">All states</option></select></label>
@@ -52,7 +60,7 @@
         </aside>
         <div class="catalog-content">
           <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
-          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><span class="search-tip">Material · element · method · file · commit</span></div>
+          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><span class="search-tip">Material · element · method · file · commit</span></div>
           <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gap">GW gap ↓</option></select></label></div>
           <div id="catalog" class="catalog" aria-busy="true"></div>
           <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
@@ -62,10 +70,10 @@
       </div>
     </section>
     <section id="detail-view" class="detail-view" hidden aria-live="polite"></section>
-    <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="https://github.com/AroundPeking/abacus-librpa-gw-database">Source code</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
+      <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="data.json" download>Download catalog (JSON)</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database">Source code</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
   <noscript><p class="notice">JavaScript is needed for searching. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261013-formal-release"></script>
+  <script type="module" src="app.js?v=20261015-editorial-atlas"></script>
 </body>
 </html>

@@ -219,6 +219,20 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   assert.doesNotMatch(app, /Paper-reported · Table|Original path values and differences are retained/);
 });
 
+test("software filter narrows the calculation catalog by workflow frontend", () => {
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  assert.match(index, /fieldset class="software-filter"/);
+  assert.match(index, /name="software" value="all" checked/);
+  assert.match(index, /name="software" value="abacus"/);
+  assert.match(index, /name="software" value="fhi_aims"/);
+  assert.match(app, /state\.software === "all" \|\| workflowFrontend\(record\) === state\.software/);
+  assert.match(app, /\[\"sw\", state\.software, \"all\"\]/);
+  assert.match(app, /\[\"all\", \"abacus\", \"fhi_aims\"\]\.includes\(params\.get\(\"sw\"\)\)/);
+  assert.match(app, /\$\(\"\.software-filter\"\)\.hidden = basis/);
+  assert.match(index, /Download catalog \(JSON\)/);
+});
+
 test("database branding is front-end neutral and supports ABACUS and FHI-aims workflows", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
