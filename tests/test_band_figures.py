@@ -341,8 +341,9 @@ class BandFigureTests(unittest.TestCase):
             self.assertFalse(report["gw_full_spectrum_accepted"])
             generator.generate_hbn_record(path, root, write=True)
             after = json.loads(path.read_text())
-            for field in ("status", "summary", "paper_values", "species"):
+            for field in ("summary", "paper_values", "species"):
                 self.assertEqual(after[field], before[field])
+            self.assertNotIn("status", after)
             self.assertEqual(after["software"]["librpa"], before["software"]["librpa"])
             for p, content in originals.items():
                 self.assertEqual(p.read_bytes(), content)
@@ -427,8 +428,9 @@ class BandFigureTests(unittest.TestCase):
             generator.generate_hbn_record(path, root, write=True)
             after = json.loads(path.read_text())
             current = json.loads((path.parent / "figures/hbn_frontier_audit.json").read_text())
-            for field in ("status", "summary", "paper_values", "species", "properties", "software"):
+            for field in ("summary", "paper_values", "species", "properties", "software"):
                 self.assertEqual(after[field], before[field])
+            self.assertNotIn("status", after)
             for method in generator.METHODS:
                 for field in ("mapping_one_based", "raw_selected_occupied_bands", "raw_selected_empty_bands",
                               "reference", "selected_window_path_gap_ev", "vbm_endpoints", "cbm_endpoints"):

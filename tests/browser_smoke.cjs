@@ -271,7 +271,7 @@ async function main() {
     check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
     check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("recorded k-path"), "路径结果保留其定义与范围说明");
     const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
-    check(hbn?.status === "path_diagnostic", "replacement hBN keeps its restricted scientific status");
+    check(hbn?.status === undefined && /raw-band/i.test(hbn?.summary?.observable || ""), "replacement hBN carries no record-level status and keeps its restricted path observable");
     await go("#/material/hbn-tzdp10-fgext-20261008");
     check(!/[\u3400-\u9fff]/.test(await page.locator("#detail-view").innerText()), "新hBN完整详情为英文且保留原始论文证据");
     const hbnHeadline = await page.locator(".result-primary").innerText();

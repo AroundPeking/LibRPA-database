@@ -29,7 +29,7 @@ export function filesOf(record, kind) {
 }
 
 export function restrictedGap(record) {
-  return record.status === "path_diagnostic" || /raw[- ]band|frontier|restricted/i.test(record.summary?.observable || "");
+  return /raw[- ]band|frontier|restricted/i.test(record.summary?.observable || "");
 }
 
 export function paperGap(record, method = "GW") {

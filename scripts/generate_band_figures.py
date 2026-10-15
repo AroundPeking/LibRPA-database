@@ -280,8 +280,9 @@ def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = Fals
     original = record_path.read_bytes()
     record = json.loads(original)
     if (record.get("id") != "hbn-tzdp10-fgext-20261008"
-            or record.get("dimension") != "2d" or record.get("status") != "path_diagnostic"):
-        raise ValueError("replacement hBN identity or diagnostic status mismatch")
+            or record.get("dimension") != "2d"
+            or "status" in record):
+        raise ValueError("replacement hBN identity mismatch or reintroduced record-level status")
     declared = {entry["path"]: entry for group in record["files"].values() for entry in group}
     verified = {}
 

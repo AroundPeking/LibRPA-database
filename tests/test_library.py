@@ -31,7 +31,7 @@ class LibraryTests(unittest.TestCase):
                      "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "role": "pp"}
         self.set = {"id": "Si-test", "element": "Si", "files": [self.file]}
         self.case = {"id": "si-control", "dimension": "3d", "material": "Si",
-                     "status": "path_diagnostic", "species": [{"element": "Si", "set_id": "Si-test"}],
+                     "species": [{"element": "Si", "set_id": "Si-test"}],
                      "software": {"abacus": {"commit": None}, "librpa": {"commit": None}},
                      "files": {}, "recommendation": None}
 
@@ -39,7 +39,6 @@ class LibraryTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_paper_extract_is_independent_and_hash_bound_without_certifying_upload(self):
-        import copy
         evidence = "data/calculations/3d/Si/si-control/results/paper_reported_values.json"
         paper = {"schema_version": 1, "evidence": evidence,
                  "source": {"title": "Paper", "document_sha256": "a" * 64, "pdf_page": 16, "table": "IV"},
@@ -48,13 +47,12 @@ class LibraryTests(unittest.TestCase):
                                     "scope": "Paper-reported, original path evidence separate"}
                             for method, value in (("DFT", 0.561), ("GW", 1.060))},
                  "notes": "EXX not reported in the main table"}
-        original = copy.deepcopy(self.case)
         self.case["paper_values"] = paper
         data = json.dumps({"case_id": self.case["id"], "paper_values": paper}).encode()
         item = self._add_file(evidence, data, "results")
         self.case["files"] = {"results": [item]}
         self.lib.validate(self.root, [self.set], [self.case])
-        self.assertEqual(self.case["status"], original["status"])
+        self.assertNotIn("status", self.case)
         issues = self.lib.completeness_issues(self.root, [self.set], self.case)
         self.assertTrue(any("software" in issue for issue in issues))
         self.assertTrue(any("band result" in issue for issue in issues))
@@ -184,7 +182,6 @@ class LibraryTests(unittest.TestCase):
             "status": "publishable",
             "calculation_ids": ["si-control"],
         }
-        self.case["status"] = "gw_validated"
         self.case["software"] = {
             "abacus": {"commit": "a" * 40},
             "librpa": {"commit": "b" * 40},
@@ -240,11 +237,15 @@ class LibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "redistribution"):
             self.lib.validate(self.root, [self.set], [self.case])
 
-    def test_publishable_case_requires_gw_validation_and_linked_sets(self):
-        self._make_publishable()
+    def test_record_level_status_labels_are_rejected(self):
         self.case["status"] = "gw_diagnostic"
-        with self.assertRaisesRegex(ValueError, "gw_validated"):
+        with self.assertRaisesRegex(ValueError, "status labels are removed"):
             self.lib.validate(self.root, [self.set], [self.case])
+        self.case["status"] = "gw_validated"
+        with self.assertRaisesRegex(ValueError, "status labels are removed"):
+            self.lib.validate(self.root, [self.set], [self.case])
+        del self.case["status"]
+        self.lib.validate(self.root, [self.set], [self.case])
 
     def test_generated_catalog_check_detects_stale_output(self):
         catalog = {"schema_version": 1, "basis_sets": [], "calculations": []}
@@ -276,7 +277,7 @@ class CompletenessTests(unittest.TestCase):
         }
         self.case = {
             "id": "si-control", "dimension": "3d", "material": "Si", "formula": "Si",
-            "status": "path_diagnostic", "publication": {"status": "legacy_incomplete"},
+            "publication": {"status": "legacy_incomplete"},
             "species": [{"element": "Si", "set_id": "Si-test", "asset_aliases": {
                 "pp": "test.upf", "nao": "test.orb", "abf": "test.abfs"}}],
             "software": {"abacus": {"commit": "a" * 40}, "librpa": {"commit": "b" * 40}},
@@ -330,11 +331,11 @@ class CompletenessTests(unittest.TestCase):
             "records": records,
         }))
 
-    def test_complete_diagnostic_archive_is_accepted_without_changing_status(self):
+    def test_complete_archive_is_accepted_without_record_level_status(self):
         self.lib.validate(self.root, [self.basis], [self.case])
         self.assertEqual(self.issues(), [])
         self.lib.check_completeness(self.root, [self.basis], [self.case])
-        self.assertEqual(self.case["status"], "path_diagnostic")
+        self.assertNotIn("status", self.case)
 
     def test_missing_history_and_candidates_cannot_waive_exact_species(self):
         self.case["species"] = []
@@ -512,10 +513,9 @@ class CompletenessTests(unittest.TestCase):
         entry = self.case["properties"][2]
         entry["key"] = "restricted_frontier_path_gap"
         entry["definition"] = "raw-band-2 restricted frontier path gap; not a global or complete-spectrum gap"
-        self.case["status"] = "failed"
         self.assertEqual(self.issues(), [])
         self.lib.check_completeness(self.root, [self.basis], [self.case])
-        self.assertEqual(self.case["status"], "failed")
+        self.assertNotIn("status", self.case)
         self.assertEqual(entry["key"], "restricted_frontier_path_gap")
 
     def test_figure_sources_may_include_owned_kpt_log_and_sidecar(self):
@@ -724,7 +724,7 @@ libRPA finished successfully
         item = self._add_file(self.prefix + "results/reader_v1_conversion_receipt.json", data, "results")
         item["scientific_role"] = "reader_conversion_receipt"
         self.case.update({
-            "record_type": "reader_conversion", "status": "generation_only", "properties": [],
+            "record_type": "reader_conversion", "properties": [],
             "workflow": {"task": "reader_v1_conversion", "scientific_result_available": False},
             "computational_scale": {"atom_count": 2048, "matrix_rows": 32, "matrix_columns": 32},
             "conversion": {"elapsed_seconds": 60, "converter_sha256": "a" * 64,
@@ -743,7 +743,7 @@ libRPA finished successfully
         result = self._add_file(self.prefix + "results/LibRPA.out", output_data, "results")
         log = self._add_file(self.prefix + "logs/slurm.out", b"COMPLETED ExitCode 0:0\n", "logs")
         self.case.update({
-            "record_type": "rpa_energy", "status": "gw_validated",
+            "record_type": "rpa_energy",
             "workflow": {"task": "rpa", "frontend": "abacus"},
             "performance": {"wall_time_seconds": 9298, "nodes": 100, "mpi_ranks": 100,
                              "omp_threads_per_rank": 30, "evidence": [log["path"]],

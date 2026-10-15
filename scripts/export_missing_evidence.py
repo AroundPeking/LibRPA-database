@@ -228,7 +228,7 @@ def render_text(export: dict) -> str:
     for case in export["cases"]:
         collection = case["collection"]
         lines += ["", f"=== {case['material']} | {case['dimension']} | {case['id']} ===",
-                  f"Scientific status: {case['scientific_status']}; archive: {case['status']}",
+                  f"Archive completeness: {case['status']}",
                   f"Record: {collection['record_path']}", "Original raw completeness issues (full, unmodified text)"]
         if not case["issues"]:
             lines.append("  None.")
@@ -292,8 +292,8 @@ def render_html(export: dict) -> str:
         detail = text[block_start:block_end if block_end >= 0 else len(text)]
         cards.append(f'<article class="case" data-search="{escape(heading.lower(), quote=True)}">'
                      f'<h2>{escape(case["material"])} <span>{escape(case["dimension"])}</span></h2>'
-                     f'<p class="case-id">{escape(case["id"])}</p><p>{escape(case["scientific_status"])} · '
-                     f'{escape(case["status"])} · {len(case["issues"])} original issues</p>'
+                     f'<p class="case-id">{escape(case["id"])}</p><p>{escape(case["status"])} · '
+                     f'{len(case["issues"])} original issues</p>'
                      f'<ol start="{start}">{raw}</ol>'
                      f'{"<p>No current raw completeness issues; scientific acceptance is not automatic.</p>" if not raw else ""}'
                      f'<details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>{escape(detail)}</pre></details></article>')

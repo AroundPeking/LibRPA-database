@@ -16,10 +16,6 @@ from asset_names import enrich_catalog
 
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
-STATUSES = {
-    "gw_validated", "gw_diagnostic", "path_diagnostic", "pbe_only",
-    "generation_only", "failed", "pending",
-}
 GROUPS = {"inputs", "results", "logs", "figures"}
 PRIVATE_PATH = re.compile(
     r"(?:/" + r"Users/|/" + r"home/[A-Za-z0-9_.-]+|/work[0-9]/|/scratch/|/private/var/|file:" + r"//|ssh:" + r"//)"
@@ -369,8 +365,12 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         case_publications[case_id] = publication
         if case.get("dimension") not in {"2d", "3d"}:
             _fail(f"{label}: dimension must be 2d or 3d")
-        if case.get("status") not in STATUSES:
-            _fail(f"{label}: unsupported status")
+        # Record-level scientific status labels were removed by design: the
+        # database indexes complete calculations and does not judge whether a
+        # result is correct.  A reintroduced top-level status field must fail
+        # so the classification system cannot silently come back.
+        if "status" in case:
+            _fail(f"{label}: record-level status labels are removed; scientific acceptance is out of scope")
         species = case.get("species")
         if not isinstance(species, list):
             _fail(f"{label}: species must be a list")
@@ -438,8 +438,6 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         _validate_paper_values(root, case, label)
 
         if publication.get("status") == "publishable":
-            if case.get("status") != "gw_validated":
-                _fail(f"{label}: publishable case must be gw_validated")
             for name in (frontend, "librpa"):
                 if not _immutable_software_identity(software[name]):
                     _fail(f"{label}: publishable case requires a full {name} commit or executable SHA-256")
@@ -460,8 +458,6 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                     _fail(f"{label}: linked basis set {set_id} is not publishable")
         recommendation = case.get("recommendation")
         if recommendation is not None:
-            if case.get("status") != "gw_validated":
-                _fail(f"{label}: recommendation requires a GW-validated case")
             if not recommendation.get("scope") or not recommendation.get("evidence_case_ids"):
                 _fail(f"{label}: recommendation needs a narrow scope and evidence")
             if any(ref not in all_case_ids for ref in recommendation["evidence_case_ids"]):
@@ -1250,7 +1246,7 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
         accepted_count += len(accepted)
         blocking_count += len(blocking)
         records.append({"id": case["id"], "material": case.get("material"),
-                        "dimension": case.get("dimension"), "scientific_status": case.get("status"),
+                        "dimension": case.get("dimension"),
                         "status": "incomplete" if issues else "complete",
                         "gate_status": "blocked" if blocking else "accepted",
                         "issues": issues, "accepted_issues": accepted, "blocking_issues": blocking,

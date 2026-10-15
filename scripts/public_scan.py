@@ -20,8 +20,11 @@ def main() -> int:
     args = parser.parse_args()
     failures = []
     for path in args.root.rglob("*"):
-        # The scanner and its tests contain the patterns they detect.
-        if not path.is_file() or any(part in {".git", "__pycache__"} for part in path.parts):
+        # The scanner and its tests contain the patterns they detect. The
+        # .workbuddy skill directory is internal agent tooling that documents
+        # the sanitization patterns themselves and is never published by
+        # build_site.py, so it is excluded like .git.
+        if not path.is_file() or any(part in {".git", "__pycache__", ".workbuddy"} for part in path.parts):
             continue
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".pdf", ".sqlite", ".pyc"}:
             continue

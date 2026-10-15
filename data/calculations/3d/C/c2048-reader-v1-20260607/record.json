@@ -379,7 +379,6 @@
     "collection": "Verified historical Reader-v1 conversion with archived G0W0 and RPA input/output files from df_dcu"
   },
   "species": [],
-  "status": "generation_only",
   "summary": {
     "notes": "Input and output files are archived from df_dcu. G0W0 QP output (job 20959369, 256 DCU nodes): sampled Gamma PBE gap = 4.28728 eV, G0W0 gap = 5.74313 eV. 1464 high-energy unoccupied states have nonfinite QP values. RPA correlation energy (job 20918572, 100 DCU nodes) = -418.489 Ha. The skipped k-path is a separate limitation.",
     "observable": "Sampled Gamma-state G0W0 gap",

@@ -24,7 +24,6 @@
       "id": "cuinp2se6-table-gw",
       "material": "CuInP2Se6",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -48,7 +47,6 @@
       "id": "gate-table-gw",
       "material": "GaTe",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -72,7 +70,6 @@
       "id": "gete-table-gw",
       "material": "GeTe",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -96,7 +93,6 @@
       "id": "in2se3-table-gw",
       "material": "In2Se3",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -120,7 +116,6 @@
       "id": "inse-table-gw",
       "material": "InSe",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -144,7 +139,6 @@
       "id": "mos2-table-gw",
       "material": "MoS2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -168,7 +162,6 @@
       "id": "mos2_ws2-table-gw",
       "material": "MoS2-WS2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -192,7 +185,6 @@
       "id": "mose2-table-gw",
       "material": "MoSe2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -216,7 +208,6 @@
       "id": "mote2-table-gw",
       "material": "MoTe2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -240,7 +231,6 @@
       "id": "phosphorene-table-gw",
       "material": "Phosphorene",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -264,7 +254,6 @@
       "id": "snse-table-gw",
       "material": "SnSe",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -288,7 +277,6 @@
       "id": "tis3-table-gw",
       "material": "TiS3",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -312,7 +300,6 @@
       "id": "ws2-table-gw",
       "material": "WS2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -336,7 +323,6 @@
       "id": "wse2-table-gw",
       "material": "WSe2",
       "dimension": "2d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -360,7 +346,6 @@
       "id": "hbn-tzdp10-fgext-20261008",
       "material": "hBN",
       "dimension": "2d",
-      "scientific_status": "path_diagnostic",
       "status": "complete",
       "gate_status": "accepted",
       "issues": [],
@@ -373,7 +358,6 @@
       "id": "alas-paper-paper",
       "material": "AlAs",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -394,7 +378,6 @@
       "id": "alp-paper-k8_shrink_wing",
       "material": "AlP",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -415,7 +398,6 @@
       "id": "alsb-paper-gw_gth_modspencer",
       "material": "AlSb",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -436,7 +418,6 @@
       "id": "bas-paper-k8_shrink_wing",
       "material": "BAs",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -457,7 +438,6 @@
       "id": "bn-paper-sg15",
       "material": "BN",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -478,7 +458,6 @@
       "id": "bp-paper-k8_shrink_wing",
       "material": "BP",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -499,7 +478,6 @@
       "id": "c-paper-sg15_cs1e-5",
       "material": "C",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -520,7 +498,6 @@
       "id": "c1024-gamma-g0w0-20260521",
       "material": "C",
       "dimension": "3d",
-      "scientific_status": "gw_validated",
       "status": "complete",
       "gate_status": "accepted",
       "issues": [],
@@ -533,7 +510,6 @@
       "id": "c2048-reader-v1-20260607",
       "material": "C",
       "dimension": "3d",
-      "scientific_status": "generation_only",
       "status": "complete",
       "gate_status": "accepted",
       "issues": [],
@@ -546,7 +522,6 @@
       "id": "c512-gamma-g0w0-20260519",
       "material": "C",
       "dimension": "3d",
-      "scientific_status": "gw_validated",
       "status": "complete",
       "gate_status": "accepted",
       "issues": [],
@@ -559,7 +534,6 @@
       "id": "cao-paper-24freq",
       "material": "CaO",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -580,7 +554,6 @@
       "id": "cds-paper-debug",
       "material": "CdS",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -601,7 +574,6 @@
       "id": "gaas-paper-gw_xsoc_1e-10",
       "material": "GaAs",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -622,7 +594,6 @@
       "id": "gan-paper-pca1e-6",
       "material": "GaN",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -643,7 +614,6 @@
       "id": "gap-paper-gw_shrink_chi",
       "material": "GaP",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -664,7 +634,6 @@
       "id": "lif-paper-jy",
       "material": "LiF",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -685,7 +654,6 @@
       "id": "mgo-paper-fix_gap",
       "material": "MgO",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -706,7 +674,6 @@
       "id": "nacl-paper-sg15",
       "material": "NaCl",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -730,7 +697,6 @@
       "id": "si-paper-all_kpath",
       "material": "Si",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
@@ -751,7 +717,6 @@
       "id": "sic-paper-pca1e-6",
       "material": "SiC",
       "dimension": "3d",
-      "scientific_status": "gw_diagnostic",
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [

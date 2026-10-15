@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 
 test("stage-resolved controls retain redaction provenance without exposing internal QA status", () => {
   const path = "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json";
-  const record = { id: "mote2-table-gw", material: "MoTe2", dimension: "2d", status: "gw_diagnostic", summary: {}, source: { stage_input_receipt: path }, files: { inputs: [{ path: "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/stage/librpa.in", sha256: "a".repeat(64), original_sha256: "b".repeat(64), transformation: "private server path redacted; not a rerun bundle" }] }, archive_completeness: { status: "incomplete", issues: ["software missing"] } };
+  const record = { id: "mote2-table-gw", material: "MoTe2", dimension: "2d", summary: {}, source: { stage_input_receipt: path }, files: { inputs: [{ path: "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/stage/librpa.in", sha256: "a".repeat(64), original_sha256: "b".repeat(64), transformation: "private server path redacted; not a rerun bundle" }] }, archive_completeness: { status: "incomplete", issues: ["software missing"] } };
   const html = renderMaterial(record, []);
   assert.match(html, /Stage-resolved calculation inputs/);
   assert.match(html, /View stage-input receipt/);
@@ -98,7 +98,7 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.match(html, /Source scope/);
   assert.match(html, /Restricted &lt;scope&gt;; not a certification/);
   assert.doesNotMatch(html, /Restricted <scope>/);
-  record.status = "path_diagnostic";
+  record.summary.observable = "GW raw-band frontier path gap";
   assert.equal(bandGap(record), 2.674);
   assert.equal(archivedBandGap(record), null);
   assert.equal(paperGap(record).value, 2.674);
@@ -113,7 +113,8 @@ test("paper-reported values take priority without rewriting archived gaps or dia
 
 test("new hBN shows the cited 6.94183 path-resolved headline", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json", import.meta.url)));
-  assert.equal(record.status, "path_diagnostic");
+  assert.equal(record.status, undefined);
+  assert.match(record.summary?.observable || "", /raw-band/i);
   assert.equal(bandGap(record), 6.94183);
   assert.equal(bandGap(record, "DFT"), 4.68813);
   assert.equal(archivedBandGap(record), null);
@@ -312,7 +313,7 @@ test("large-system GW renders sampled-grid results and performance without inven
   const result = "data/calculations/3d/C/c512/results/LibRPA.out";
   const log = "data/calculations/3d/C/c512/logs/slurm.out";
   const record = {
-    id: "c512", material: "C", formula: "C512", dimension: "3d", status: "gw_validated", record_type: "large_system_gw",
+    id: "c512", material: "C", formula: "C512", dimension: "3d", record_type: "large_system_gw",
     workflow: { task: "g0w0_band", sampling: "regular_grid", sampling_label: "Γ point on the regular grid", band_path_available: false, k_point_count: 1 },
     computational_scale: { atom_count: 512, ao_count: 6656, state_count: 6656, occupied_states: 1024, unoccupied_states: 5632 },
     performance: { wall_time_seconds: 67366, nodes: 4, mpi_ranks: 4, omp_threads_per_rank: 96, evidence: [log] },
@@ -342,7 +343,7 @@ test("large-system GW renders sampled-grid results and performance without inven
 test("reader conversion is clearly separated from RPA and GW results", () => {
   const receipt = "data/calculations/3d/C/c2048/results/reader_v1_conversion_receipt.json";
   const record = {
-    id: "c2048", material: "C", formula: "C2048", dimension: "3d", status: "generation_only", record_type: "reader_conversion",
+    id: "c2048", material: "C", formula: "C2048", dimension: "3d", record_type: "reader_conversion",
     workflow: { task: "reader_v1_conversion", scientific_result_available: false },
     computational_scale: { atom_count: 2048, matrix_rows: 26624, matrix_columns: 26624 },
     conversion: { elapsed_seconds: 1169, converter_sha256: "a".repeat(64), reader_header: [-12345679, 28, 1, 1, 26624, 26624], evidence: [receipt] },
@@ -449,13 +450,13 @@ test("same-structure records are found by fingerprint and exclude self", () => {
 test("detail page shows frontend tag and same-structure comparison when peers exist", () => {
   const sha = "d".repeat(64);
   const record = {
-    id: "abacus-c2048", material: "C", formula: "C2048", dimension: "3d", status: "gw_validated",
+    id: "abacus-c2048", material: "C", formula: "C2048", dimension: "3d",
     workflow: { frontend: "abacus" },
     structure_identity: { algorithm: "cell-sites-v1", sha256: sha },
     properties: [], files: {},
   };
   const peer = {
-    id: "aims-c2048", material: "C", formula: "C2048", dimension: "3d", status: "gw_validated",
+    id: "aims-c2048", material: "C", formula: "C2048", dimension: "3d",
     record_type: "rpa_energy",
     workflow: { frontend: "fhi_aims", task: "rpa" },
     structure_identity: { algorithm: "cell-sites-v1", sha256: sha },
@@ -471,7 +472,7 @@ test("detail page shows frontend tag and same-structure comparison when peers ex
 });
 
 test("detail page shows ABACUS tag by default and no comparison when alone", () => {
-  const record = { id: "solo", material: "Si", dimension: "3d", status: "gw_validated", workflow: {}, properties: [], files: {} };
+  const record = { id: "solo", material: "Si", dimension: "3d", workflow: {}, properties: [], files: {} };
   const html = renderMaterial(record, [], [record]);
   assert.match(html, /ABACUS \+ LibRPA/);
   assert.doesNotMatch(html, /Same-structure calculations/);
@@ -479,7 +480,7 @@ test("detail page shows ABACUS tag by default and no comparison when alone", () 
 
 test("detail page software section uses dynamic frontend name", () => {
   const record = {
-    id: "aims-test", material: "Si", dimension: "3d", status: "gw_validated",
+    id: "aims-test", material: "Si", dimension: "3d",
     workflow: { frontend: "fhi_aims" },
     software: { fhi_aims: { commit: "a".repeat(40) }, librpa: { commit: "b".repeat(40) } },
     properties: [], files: {},

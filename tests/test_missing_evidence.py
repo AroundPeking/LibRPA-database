@@ -24,7 +24,7 @@ class MissingEvidenceTests(unittest.TestCase):
         (self.root / "database").mkdir()
         self.case = {
             "id": "si-history", "dimension": "3d", "material": "Si", "formula": "Si",
-            "status": "gw_diagnostic", "species": [], "missing": ["Historical binding pending audit"],
+            "species": [], "missing": ["Historical binding pending audit"],
             "software": {"abacus": {"commit": None}, "librpa": {"commit": None}},
             "files": {}, "properties": [],
         }

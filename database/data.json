@@ -13362,7 +13362,6 @@
       "dimension": "2d",
       "material": "CuInP2Se6",
       "formula": "CuInP2Se6",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Cu",
@@ -13843,7 +13842,6 @@
       "dimension": "2d",
       "material": "GaTe",
       "formula": "GaTe",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ga",
@@ -14305,7 +14303,6 @@
       "dimension": "2d",
       "material": "GeTe",
       "formula": "GeTe",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ge",
@@ -14737,7 +14734,6 @@
       "dimension": "2d",
       "material": "In2Se3",
       "formula": "In2Se3",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "In",
@@ -15199,7 +15195,6 @@
       "dimension": "2d",
       "material": "InSe",
       "formula": "InSe",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "In",
@@ -15661,7 +15656,6 @@
       "dimension": "2d",
       "material": "MoS2",
       "formula": "MoS2",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Mo",
@@ -16061,7 +16055,6 @@
       "dimension": "2d",
       "material": "MoS2-WS2",
       "formula": "MoS2-WS2",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Mo",
@@ -16938,7 +16931,6 @@
           "set_id": "Se-GTH-3s3p2d-3c0cf8a33c9d"
         }
       ],
-      "status": "gw_diagnostic",
       "summary": {
         "gates": [],
         "notes": "near-gap benchmark",
@@ -16960,7 +16952,6 @@
       "dimension": "2d",
       "material": "MoTe2",
       "formula": "MoTe2",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Mo",
@@ -17396,7 +17387,6 @@
       "dimension": "2d",
       "material": "Phosphorene",
       "formula": "Phosphorene",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "P",
@@ -17791,7 +17781,6 @@
       "dimension": "2d",
       "material": "SnSe",
       "formula": "SnSe",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Se",
@@ -18236,7 +18225,6 @@
       "dimension": "2d",
       "material": "TiS3",
       "formula": "TiS3",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ti",
@@ -19110,7 +19098,6 @@
           "set_id": "S-GTH-3s3p2d-366da5091efc"
         }
       ],
-      "status": "gw_diagnostic",
       "summary": {
         "gates": [],
         "notes": "accepted near-gap benchmark",
@@ -19132,7 +19119,6 @@
       "dimension": "2d",
       "material": "WSe2",
       "formula": "WSe2",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "W",
@@ -19532,7 +19518,6 @@
       "dimension": "2d",
       "material": "hBN",
       "formula": "hBN",
-      "status": "path_diagnostic",
       "species": [
         {
           "element": "B",
@@ -24622,7 +24607,6 @@
       "dimension": "3d",
       "material": "AlAs",
       "formula": "AlAs",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Al",
@@ -25035,7 +25019,6 @@
       "dimension": "3d",
       "material": "AlP",
       "formula": "AlP",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Al",
@@ -25448,7 +25431,6 @@
       "dimension": "3d",
       "material": "AlSb",
       "formula": "AlSb",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Al",
@@ -25845,7 +25827,6 @@
       "dimension": "3d",
       "material": "BAs",
       "formula": "BAs",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "B",
@@ -26258,7 +26239,6 @@
       "dimension": "3d",
       "material": "BN",
       "formula": "BN",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "B",
@@ -26655,7 +26635,6 @@
       "dimension": "3d",
       "material": "BP",
       "formula": "BP",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "B",
@@ -27068,7 +27047,6 @@
       "dimension": "3d",
       "material": "C",
       "formula": "C",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "C",
@@ -27648,7 +27626,6 @@
           "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
         }
       ],
-      "status": "gw_validated",
       "summary": {
         "dft_gap_ev": 4.28716,
         "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
@@ -28052,7 +28029,6 @@
         "collection": "Verified historical Reader-v1 conversion with archived G0W0 and RPA input/output files from df_dcu"
       },
       "species": [],
-      "status": "generation_only",
       "summary": {
         "notes": "Input and output files are archived from df_dcu. G0W0 QP output (job 20959369, 256 DCU nodes): sampled Gamma PBE gap = 4.28728 eV, G0W0 gap = 5.74313 eV. 1464 high-energy unoccupied states have nonfinite QP values. RPA correlation energy (job 20918572, 100 DCU nodes) = -418.489 Ha. The skipped k-path is a separate limitation.",
         "observable": "Sampled Gamma-state G0W0 gap",
@@ -28271,7 +28247,6 @@
           "set_id": "C-ONCV-2s2p1d-e8085a5ff072"
         }
       ],
-      "status": "gw_validated",
       "summary": {
         "dft_gap_ev": 4.28347,
         "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
@@ -28300,7 +28275,6 @@
       "dimension": "3d",
       "material": "CaO",
       "formula": "CaO",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ca",
@@ -28697,7 +28671,6 @@
       "dimension": "3d",
       "material": "CdS",
       "formula": "CdS",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Cd",
@@ -29094,7 +29067,6 @@
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ga",
@@ -29519,7 +29491,6 @@
       "dimension": "3d",
       "material": "GaN",
       "formula": "GaN",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ga",
@@ -29916,7 +29887,6 @@
       "dimension": "3d",
       "material": "GaP",
       "formula": "GaP",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Ga",
@@ -30297,7 +30267,6 @@
       "dimension": "3d",
       "material": "LiF",
       "formula": "LiF",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Li",
@@ -30694,7 +30663,6 @@
       "dimension": "3d",
       "material": "MgO",
       "formula": "MgO",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Mg",
@@ -31091,7 +31059,6 @@
       "dimension": "3d",
       "material": "NaCl",
       "formula": "NaCl",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Na",
@@ -31506,7 +31473,6 @@
       "dimension": "3d",
       "material": "Si",
       "formula": "Si",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Si",
@@ -31892,7 +31858,6 @@
       "dimension": "3d",
       "material": "SiC",
       "formula": "SiC",
-      "status": "gw_diagnostic",
       "species": [
         {
           "element": "Si",

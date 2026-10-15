@@ -138,13 +138,13 @@ class RecoveredCaseImportTests(unittest.TestCase):
 
     def test_scientific_fields_and_existing_evidence_unchanged(self):
         expected = {
-            "gete-table-gw": ("gw_diagnostic", 1.3807),
-            "snse-table-gw": ("gw_diagnostic", 1.74577),
-            "phosphorene-table-gw": ("gw_diagnostic", 1.93526),
+            "gete-table-gw": 1.3807,
+            "snse-table-gw": 1.74577,
+            "phosphorene-table-gw": 1.93526,
         }
-        for case_id, (status, gw_value) in expected.items():
+        for case_id, gw_value in expected.items():
             _, record = load_case(case_id)
-            self.assertEqual(record["status"], status, case_id)
+            self.assertNotIn("status", record, case_id)
             gw = [p for p in record["properties"] if p.get("key") == "summary_value"]
             self.assertEqual(gw[0]["value"], gw_value, case_id)
             self.assertEqual(len(record["files"]["figures"]), 6, case_id)

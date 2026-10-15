@@ -93,18 +93,13 @@ archive basename on download. No missing input or geometry is synthesized.
 
 ## Calculation record
 
-Every calculation record has `dimension` (`2d` or `3d`), `material`, `status`,
-`software`, `summary`, `files`, and `missing`. The allowed statuses are:
-
-| Status | Meaning |
-| --- | --- |
-| `gw_validated` | The documented target observable passed the stated physical gates for this exact protocol. |
-| `gw_diagnostic` | A completed GW result is retained, but at least one physical or provenance gate is incomplete. |
-| `path_diagnostic` | A band-path or frontier diagnostic is retained; it is not a complete fundamental-gap claim. |
-| `pbe_only` | Only the PBE/KS or matching screen was accepted. |
-| `generation_only` | Atomic generation and file/radial checks only. |
-| `failed` | A recorded gate failed; keep the files for diagnosis. |
-| `pending` | Inputs or required outputs are not yet complete. |
+Every calculation record has `dimension` (`2d` or `3d`), `material`, `software`,
+`summary`, `files`, and `missing`. There is deliberately no record-level
+scientific `status` field: the database indexes complete calculations with
+their evidence and does not judge whether a result is scientifically correct.
+Correctness claims belong in the underlying papers or in per-property
+provenance (`properties[].status`), not in a record classification. The
+validator rejects a record that reintroduces a top-level `status` field.
 
 `software.abacus.commit` and `software.librpa.commit` must be full immutable
 IDs or `null`. A shortened ID may be kept as `abbreviated_commit`, together
@@ -153,8 +148,8 @@ created when the record contains no such result. Migration updates only a
 contribution or a reviewed `failed`, `validated`, or `provisional` status is
 never overwritten merely because its value matches an old summary.
 
-A record marked `path_diagnostic`, or explicitly describing a restricted
-raw-band/frontier observable, is not ranked or labelled as an ordinary GW
+A record whose `summary.observable` explicitly describes a restricted
+raw-band/frontier observable is not ranked or labelled as an ordinary GW
 band gap. Its original value and definition remain visible in the overview
 and properties, alongside the recorded failed gates or other limitations.
 

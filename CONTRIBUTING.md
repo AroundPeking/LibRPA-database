@@ -28,12 +28,12 @@ test checks remain blocking. A candidate set, descriptive alias, missing note,
 or historical allowlist must not make an incomplete record appear complete.
 
 `basis_candidates` identify follow-up candidates whose production binding is
-unproven. Use `gw_validated` only when the specified observable and physical
-gates actually passed. `gw_diagnostic`, `path_diagnostic`, `failed`, and
-`legacy_incomplete` retain their original scientific/archive statuses, but all
-records remain subject to the same complete-upload requirements. Archive
-completeness is not scientific validation, and a scientific diagnostic does
-not waive missing archive evidence.
+unproven. Calculation records carry no record-level scientific status label:
+the database indexes complete calculations with their evidence and does not
+certify whether a result is correct. Scientific claims stay with the
+underlying papers and per-property provenance (`properties[].status`).
+Archive completeness is not scientific validation, and a scientific
+limitation does not waive missing archive evidence.
 
 Current automated checks verify same-record directories, declared files,
 full SHAs, original STRU filenames, and exact role bindings. Same-record

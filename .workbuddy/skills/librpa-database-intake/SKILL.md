@@ -66,7 +66,7 @@ Every new calculation record must include:
 - `material`: element or compound name (e.g., `C`, `MoS2`)
 - `formula`: chemical formula (e.g., `C2048`, `MoS2`)
 - `dimension`: `"2d"` or `"3d"`
-- `status`: one of `gw_validated`, `gw_diagnostic`, `path_diagnostic`, `pbe_only`, `failed`, `pending`, `generation_only`
+- **NO record-level `status` field**: scientific classification labels (`gw_validated`, `gw_diagnostic`, `path_diagnostic`, `pbe_only`, `failed`, `pending`, `generation_only`) were removed on 2026-10-15; the database indexes complete calculations and does not judge scientific correctness. The validator fails any record that reintroduces a top-level `status`.
 - `record_type`: one of `band`, `large_system_gw`, `rpa_energy`, `reader_conversion`
 - `files`: object with `inputs`, `results`, `logs`, `figures` arrays (each entry has `path`, `sha256`, `size_bytes`, `role`, `label`, `original_name`, `original_sha256`, `transformation`, `scientific_role`)
 - `software`: object with `abacus` (or `fhi_aims`) and `librpa` entries, each with `commit` (40-char hex) or `executable_sha256`, and `source_url`

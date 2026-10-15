@@ -28,7 +28,7 @@ def basis(set_id="Si-test", files=None):
 
 def calculation(case_id="si-control", set_id="Si-test", aliases=None):
     return {
-        "id": case_id, "dimension": "3d", "status": "gw_validated",
+        "id": case_id, "dimension": "3d",
         "species": [{"element": "Si", "set_id": set_id, "asset_aliases": aliases or {}}],
         "software": {"abacus": {"commit": None}, "librpa": {"commit": None}},
         "files": {},
