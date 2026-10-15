@@ -21022,6 +21022,7 @@
           }
         ],
         "kpt_sha256": "937f10dc445662d35e82910f0c1c0bdc804c10a6061d73ed9a4785609774e387",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 5.2380952381136936e-08,
         "x_axis": "native k-point index",
@@ -42081,6 +42082,7 @@
           }
         ],
         "kpt_sha256": "937f10dc445662d35e82910f0c1c0bdc804c10a6061d73ed9a4785609774e387",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 5.2380952381136936e-08,
         "x_axis": "native k-point index",
@@ -47368,9 +47370,325 @@
         "energy_ev": 7.83636,
         "not_fermi": true
       },
-      "y_limits_ev": null,
-      "unselected_intrusions": [],
-      "figure_status": "rejected",
+      "y_limits_ev": [
+        -7.4231225,
+        9.283292500000002
+      ],
+      "unselected_intrusions": [
+        {
+          "raw_band_index": 18,
+          "manifold": "empty",
+          "minimum_ev": 12.07847,
+          "maximum_ev": 17.72103,
+          "aligned_minimum_ev": 4.242109999999999,
+          "aligned_maximum_ev": 9.88467
+        },
+        {
+          "raw_band_index": 19,
+          "manifold": "empty",
+          "minimum_ev": 4.97645,
+          "maximum_ev": 22.02374,
+          "aligned_minimum_ev": -2.85991,
+          "aligned_maximum_ev": 14.187380000000001
+        },
+        {
+          "raw_band_index": 20,
+          "manifold": "empty",
+          "minimum_ev": -1.57558,
+          "maximum_ev": 22.01609,
+          "aligned_minimum_ev": -9.41194,
+          "aligned_maximum_ev": 14.17973
+        },
+        {
+          "raw_band_index": 21,
+          "manifold": "empty",
+          "minimum_ev": -14.48307,
+          "maximum_ev": 21.12283,
+          "aligned_minimum_ev": -22.31943,
+          "aligned_maximum_ev": 13.286470000000001
+        },
+        {
+          "raw_band_index": 22,
+          "manifold": "empty",
+          "minimum_ev": -14.58933,
+          "maximum_ev": 22.66797,
+          "aligned_minimum_ev": -22.42569,
+          "aligned_maximum_ev": 14.831610000000001
+        },
+        {
+          "raw_band_index": 23,
+          "manifold": "empty",
+          "minimum_ev": -14.01427,
+          "maximum_ev": 25.37659,
+          "aligned_minimum_ev": -21.85063,
+          "aligned_maximum_ev": 17.54023
+        },
+        {
+          "raw_band_index": 24,
+          "manifold": "empty",
+          "minimum_ev": -56.24759,
+          "maximum_ev": 24.6512,
+          "aligned_minimum_ev": -64.08395,
+          "aligned_maximum_ev": 16.81484
+        },
+        {
+          "raw_band_index": 25,
+          "manifold": "empty",
+          "minimum_ev": -12.88511,
+          "maximum_ev": 29.8472,
+          "aligned_minimum_ev": -20.72147,
+          "aligned_maximum_ev": 22.01084
+        },
+        {
+          "raw_band_index": 26,
+          "manifold": "empty",
+          "minimum_ev": -39.85095,
+          "maximum_ev": 22.05697,
+          "aligned_minimum_ev": -47.68731,
+          "aligned_maximum_ev": 14.22061
+        },
+        {
+          "raw_band_index": 27,
+          "manifold": "empty",
+          "minimum_ev": -44.04566,
+          "maximum_ev": 23.82812,
+          "aligned_minimum_ev": -51.88202,
+          "aligned_maximum_ev": 15.99176
+        },
+        {
+          "raw_band_index": 28,
+          "manifold": "empty",
+          "minimum_ev": -46.33892,
+          "maximum_ev": 39.94018,
+          "aligned_minimum_ev": -54.17528,
+          "aligned_maximum_ev": 32.10382
+        },
+        {
+          "raw_band_index": 29,
+          "manifold": "empty",
+          "minimum_ev": -84.91578,
+          "maximum_ev": 23.3445,
+          "aligned_minimum_ev": -92.75214,
+          "aligned_maximum_ev": 15.508140000000001
+        },
+        {
+          "raw_band_index": 30,
+          "manifold": "empty",
+          "minimum_ev": -66.94039,
+          "maximum_ev": 40.53179,
+          "aligned_minimum_ev": -74.77674999999999,
+          "aligned_maximum_ev": 32.69543
+        },
+        {
+          "raw_band_index": 31,
+          "manifold": "empty",
+          "minimum_ev": -93.1681,
+          "maximum_ev": 22.84324,
+          "aligned_minimum_ev": -101.00446,
+          "aligned_maximum_ev": 15.006880000000002
+        },
+        {
+          "raw_band_index": 32,
+          "manifold": "empty",
+          "minimum_ev": -194.41435,
+          "maximum_ev": 36.07025,
+          "aligned_minimum_ev": -202.25071000000003,
+          "aligned_maximum_ev": 28.233890000000002
+        },
+        {
+          "raw_band_index": 33,
+          "manifold": "empty",
+          "minimum_ev": -252.5527,
+          "maximum_ev": 5.25424,
+          "aligned_minimum_ev": -260.38906,
+          "aligned_maximum_ev": -2.5821199999999997
+        },
+        {
+          "raw_band_index": 34,
+          "manifold": "empty",
+          "minimum_ev": -290.67373,
+          "maximum_ev": 5.51005,
+          "aligned_minimum_ev": -298.51009,
+          "aligned_maximum_ev": -2.3263100000000003
+        },
+        {
+          "raw_band_index": 42,
+          "manifold": "empty",
+          "minimum_ev": -695.90147,
+          "maximum_ev": 758.11678,
+          "aligned_minimum_ev": -703.73783,
+          "aligned_maximum_ev": 750.2804199999999
+        },
+        {
+          "raw_band_index": 44,
+          "manifold": "empty",
+          "minimum_ev": -925.91371,
+          "maximum_ev": 878.70778,
+          "aligned_minimum_ev": -933.75007,
+          "aligned_maximum_ev": 870.87142
+        },
+        {
+          "raw_band_index": 47,
+          "manifold": "empty",
+          "minimum_ev": -943.93061,
+          "maximum_ev": 996.17434,
+          "aligned_minimum_ev": -951.76697,
+          "aligned_maximum_ev": 988.33798
+        },
+        {
+          "raw_band_index": 49,
+          "manifold": "empty",
+          "minimum_ev": -1123.4829,
+          "maximum_ev": 1042.73709,
+          "aligned_minimum_ev": -1131.31926,
+          "aligned_maximum_ev": 1034.90073
+        },
+        {
+          "raw_band_index": 50,
+          "manifold": "empty",
+          "minimum_ev": -1097.27772,
+          "maximum_ev": 1211.88402,
+          "aligned_minimum_ev": -1105.11408,
+          "aligned_maximum_ev": 1204.04766
+        },
+        {
+          "raw_band_index": 51,
+          "manifold": "empty",
+          "minimum_ev": -1255.0745,
+          "maximum_ev": 1179.76075,
+          "aligned_minimum_ev": -1262.91086,
+          "aligned_maximum_ev": 1171.92439
+        },
+        {
+          "raw_band_index": 52,
+          "manifold": "empty",
+          "minimum_ev": -1267.71984,
+          "maximum_ev": 1445.99829,
+          "aligned_minimum_ev": -1275.5562,
+          "aligned_maximum_ev": 1438.16193
+        },
+        {
+          "raw_band_index": 53,
+          "manifold": "empty",
+          "minimum_ev": -1262.25983,
+          "maximum_ev": 1725.07744,
+          "aligned_minimum_ev": -1270.09619,
+          "aligned_maximum_ev": 1717.24108
+        },
+        {
+          "raw_band_index": 54,
+          "manifold": "empty",
+          "minimum_ev": -1310.32079,
+          "maximum_ev": 1577.61634,
+          "aligned_minimum_ev": -1318.15715,
+          "aligned_maximum_ev": 1569.77998
+        },
+        {
+          "raw_band_index": 55,
+          "manifold": "empty",
+          "minimum_ev": -1245.35767,
+          "maximum_ev": 1539.06298,
+          "aligned_minimum_ev": -1253.19403,
+          "aligned_maximum_ev": 1531.22662
+        },
+        {
+          "raw_band_index": 56,
+          "manifold": "empty",
+          "minimum_ev": -1148.61826,
+          "maximum_ev": 1524.29397,
+          "aligned_minimum_ev": -1156.45462,
+          "aligned_maximum_ev": 1516.45761
+        },
+        {
+          "raw_band_index": 57,
+          "manifold": "empty",
+          "minimum_ev": -901.98185,
+          "maximum_ev": 1596.28529,
+          "aligned_minimum_ev": -909.81821,
+          "aligned_maximum_ev": 1588.44893
+        },
+        {
+          "raw_band_index": 58,
+          "manifold": "empty",
+          "minimum_ev": -1089.21461,
+          "maximum_ev": 1309.02376,
+          "aligned_minimum_ev": -1097.05097,
+          "aligned_maximum_ev": 1301.1874
+        },
+        {
+          "raw_band_index": 59,
+          "manifold": "empty",
+          "minimum_ev": -1016.87078,
+          "maximum_ev": 1574.48303,
+          "aligned_minimum_ev": -1024.70714,
+          "aligned_maximum_ev": 1566.64667
+        },
+        {
+          "raw_band_index": 60,
+          "manifold": "empty",
+          "minimum_ev": -1049.39121,
+          "maximum_ev": 1067.17033,
+          "aligned_minimum_ev": -1057.22757,
+          "aligned_maximum_ev": 1059.33397
+        },
+        {
+          "raw_band_index": 61,
+          "manifold": "empty",
+          "minimum_ev": -1058.12763,
+          "maximum_ev": 1556.63868,
+          "aligned_minimum_ev": -1065.96399,
+          "aligned_maximum_ev": 1548.80232
+        },
+        {
+          "raw_band_index": 62,
+          "manifold": "empty",
+          "minimum_ev": -1251.24738,
+          "maximum_ev": 1850.61243,
+          "aligned_minimum_ev": -1259.08374,
+          "aligned_maximum_ev": 1842.77607
+        },
+        {
+          "raw_band_index": 63,
+          "manifold": "empty",
+          "minimum_ev": -953.98103,
+          "maximum_ev": 1850.74151,
+          "aligned_minimum_ev": -961.81739,
+          "aligned_maximum_ev": 1842.90515
+        },
+        {
+          "raw_band_index": 64,
+          "manifold": "empty",
+          "minimum_ev": -1285.37633,
+          "maximum_ev": 1831.83751,
+          "aligned_minimum_ev": -1293.21269,
+          "aligned_maximum_ev": 1824.00115
+        },
+        {
+          "raw_band_index": 65,
+          "manifold": "empty",
+          "minimum_ev": -1174.8534,
+          "maximum_ev": 1744.81807,
+          "aligned_minimum_ev": -1182.68976,
+          "aligned_maximum_ev": 1736.98171
+        },
+        {
+          "raw_band_index": 66,
+          "manifold": "empty",
+          "minimum_ev": -1156.68357,
+          "maximum_ev": 1748.60281,
+          "aligned_minimum_ev": -1164.51993,
+          "aligned_maximum_ev": 1740.76645
+        },
+        {
+          "raw_band_index": 67,
+          "manifold": "empty",
+          "minimum_ev": -1484.45,
+          "maximum_ev": 2014.8362,
+          "aligned_minimum_ev": -1492.28636,
+          "aligned_maximum_ev": 2006.99984
+        }
+      ],
+      "figure_status": "renderable",
       "figure_rejection_reason": "nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window",
       "selected_window_path_gap_ev": 2.2347200000000003,
       "original_frontier_admission_audit": {
@@ -47395,6 +47713,13 @@
       "viewport": {
         "kind": "method-own full selected-band viewport",
         "formula": "padding=max(0.5,0.05*(selected_max-selected_min)); lower=min(previous_lower,selected_min-padding); upper=max(previous_upper,selected_max+padding)",
+        "selected_minimum_ev": -6.66374,
+        "selected_maximum_ev": 8.52391,
+        "padding_ev": 0.7593825000000001,
+        "previous_near_gap_limits_ev": [
+          -2.5,
+          5.23472
+        ],
         "selected_raw_window_frozen_before_sorting": true,
         "selected_band_count_unchanged": true,
         "cut_states": [],
@@ -63619,6 +63944,7 @@
           }
         ],
         "kpt_sha256": "937f10dc445662d35e82910f0c1c0bdc804c10a6061d73ed9a4785609774e387",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 5.2380952381136936e-08,
         "x_axis": "native k-point index",
@@ -63643,8 +63969,7 @@
         "schema_evidence": "consumer read_data.cpp:2078–2089 and dataset_format.md; preprocess write_kpath_info emits nbasis, nbands, nspins, nkpts; schema evidence is not historical producer commit identification"
       },
       "source_result_path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/GW_band_spin_1.dat",
-      "source_result_sha256": "720e330e940064e5c7c6a6e4793c3d61106cc044ab3e04b98749360959acfbda",
-      "unreferenced_previous_svg": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/gw_frontier.svg"
+      "source_result_sha256": "720e330e940064e5c7c6a6e4793c3d61106cc044ab3e04b98749360959acfbda"
     }
   },
   "rejected": {

@@ -49,8 +49,7 @@ const formatField = value => esc(typeof value === "object" ? JSON.stringify(valu
 const figureGrid = files => `<div class="figure-grid">${files.map(file => {
   const url = publicPath(file.path);
   if (!url) return '<div class="notice warning">Figure link unavailable.</div>';
-  const diagnostic = file.scientific_status === "archived_diagnostic";
-  return `<figure><a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(url)}" alt="${esc(fileName(file))}"></a><figcaption><span>${esc(fileName(file))}${diagnostic ? '<br><strong>Diagnostic figure</strong>' : ""}</span><a href="${esc(url)}" download="${esc(downloadName(file))}">Download figure ↓</a></figcaption></figure>`;
+  return `<figure><a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(url)}" alt="${esc(fileName(file))}"></a><figcaption><span>${esc(fileName(file))}</span><a href="${esc(url)}" download="${esc(downloadName(file))}">Download figure ↓</a></figcaption></figure>`;
 }).join("")}</div>`;
 
 function softwareInfo(record) {

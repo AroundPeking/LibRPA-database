@@ -4902,9 +4902,9 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/gw_frontier.svg",
-        "sha256": "c0410b48b08a39641e72e4bf6b2bac76c3834427aece8bc0e9a95ffa1b510bbf",
-        "size_bytes": 19483,
-        "label": "hBN GW frozen frontier (diagnostic)",
+        "sha256": "a02199823cee748c3662646faf791ddedf3aa8aab5f0da5658c0f3899b497d30",
+        "size_bytes": 19442,
+        "label": "hBN GW frozen frontier",
         "transformation": "derived audited method-own frontier; original bytes unchanged",
         "source_paths": [
           "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/GW_band_spin_1.dat",
@@ -4919,8 +4919,8 @@
       {
         "role": "figures",
         "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/figures/hbn_frontier_audit.json",
-        "sha256": "0ac25ee44842d752ceb026e9e85a32fd5baac52135dd2e8513f559adacc5989a",
-        "size_bytes": 394149,
+        "sha256": "7267b753e48480b709ddaf354989144f3e753624a39c251cde89faa957275657",
+        "size_bytes": 394299,
         "label": "hBN original spectrum audit and frozen display mappings",
         "source_paths": [
           "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__KPT_nscf",

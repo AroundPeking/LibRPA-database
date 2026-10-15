@@ -191,12 +191,12 @@ test("primary figures occupy the main grid while original figures and metadata r
   assert.doesNotMatch(fallback, /class="original-figures"/);
 });
 
-test("diagnostic figures use a concise formal label", () => {
+test("figures render without advisory markers", () => {
   const record = { id: "diagnostic-figure", material: "GeTe", dimension: "2d", files: { figures: [
     { path: "data/case/exx.png", scientific_status: "archived_diagnostic" },
   ] } };
   const html = renderMaterial(record, []);
-  assert.match(html, /Diagnostic figure/);
+  assert.doesNotMatch(html, /Diagnostic figure/);
   assert.match(html, /download="exx\.png"/);
   assert.doesNotMatch(html, /not an accepted|Upload complete|CI blocked/);
 });

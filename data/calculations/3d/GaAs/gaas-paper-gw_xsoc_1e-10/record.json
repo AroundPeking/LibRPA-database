@@ -233,10 +233,26 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/gw_frontier.svg",
+        "sha256": "5bd572487bf7d5183a33c4967cd0ad566ecf21e37c4761403625e8f6892976f6",
+        "size_bytes": 33106,
+        "original_sha256": "5bd572487bf7d5183a33c4967cd0ad566ecf21e37c4761403625e8f6892976f6",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json",
-        "sha256": "51e7866c7bd4ed7aac45c0a7a5c94327034ad6cd93276ddae89629a1231a83b6",
-        "size_bytes": 1024907,
-        "original_sha256": "51e7866c7bd4ed7aac45c0a7a5c94327034ad6cd93276ddae89629a1231a83b6",
+        "sha256": "0a751fb3c954599ea670edba15d734d8219c2248b50d20c95bc2914ff5d7f544",
+        "size_bytes": 1034275,
+        "original_sha256": "0a751fb3c954599ea670edba15d734d8219c2248b50d20c95bc2914ff5d7f544",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

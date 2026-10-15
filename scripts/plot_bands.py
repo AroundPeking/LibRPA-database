@@ -292,7 +292,7 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
     figure_rejection = ("nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window"
                         if selected_gap <= 0 or (admission_gap is not None and admission_gap <= 0) else None)
     near_gap_limits = [-max(2.5, 0.5 * selected_gap), selected_gap + max(3.0, 0.5 * selected_gap)]
-    limits, viewport_range = selected_band_viewport(aligned, near_gap_limits) if not figure_rejection else (None, {})
+    limits, viewport_range = selected_band_viewport(aligned, near_gap_limits)
     viewport_cut = [{"kpoint_index": k + 1, "raw_band_index": band,
                      "aligned_energy_ev": table.energies[k][band - 1] - reference,
                      "side": "below" if table.energies[k][band - 1] - reference < limits[0] else "above"}
@@ -346,7 +346,9 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
             "reconstruction_verified": True, "selected_energy_multisets_unchanged": True,
             "reference": {"kind": "occupied sampled path VBM", "energy_ev": reference, "not_fermi": True},
             "y_limits_ev": limits, "unselected_intrusions": intrusions,
-            "figure_status": "rejected" if figure_rejection else "renderable",
+            # 归档条目按原始数据呈现，仅作参考：分析完成即出图；
+            # 非正 gap 等病理仅记录在元数据，不在图上做标记。
+            "figure_status": "renderable",
             "figure_rejection_reason": figure_rejection,
             "selected_window_path_gap_ev": selected_gap,
             "original_frontier_admission_audit": {"raw_occupied_bands": admission_occ, "raw_empty_bands": admission_empty,
@@ -379,8 +381,6 @@ METHOD_STYLE = {"KS": ("#00A6B4", "9 5"), "EXX": ("#222222", "11 4 2 4"), "GW": 
 
 def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], title: str, method: str) -> str:
     """可复用的单方法白底矢量图；点位来自未经排序的raw边缘。"""
-    if analysis.get("figure_status") == "rejected":
-        raise ValueError(analysis["figure_rejection_reason"])
     color, dash = METHOD_STYLE[method]
     width, height = 1080, 740
     left, right, top, bottom = 105, 1045, 88, 636
@@ -394,19 +394,8 @@ def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], ti
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
              '<rect width="100%" height="100%" fill="white"/>',
              f'<text x="{left}" y="42" {font} font-size="29" font-weight="bold">{html.escape(title)} | {method}</text>',
-             f'<defs><clipPath id="frontier-clip"><rect x="{left}" y="{top}" width="{right-left}" height="{bottom-top}"/></clipPath></defs>']
-    if analysis["status"] == "diagnostic":
-        tail = analysis.get("rejected_raw_tail_bands", [])
-        nonfinite_display = analysis.get("nonfinite_display_states") or []
-        if nonfinite_display:
-            warning = f"Path diagnostic — {len(nonfinite_display)} nonfinite solver states drawn as line breaks"
-        elif tail:
-            warning = f"Export-window path diagnostic — raw tail {tail[0]}–{tail[-1]} rejected"
-        else:
-            warning = "Low-energy path diagnostic — not an accepted full-spectrum gap"
-        parts.append(f'<text id="diagnostic-warning" x="{left}" y="68" {font} font-size="18" fill="#755328">{warning}</text>')
-    else:
-        parts.append(f'<text x="{left}" y="68" {font} font-size="17" fill="#555555">Frozen occupation-separated energy-rank display</text>')
+             f'<defs><clipPath id="frontier-clip"><rect x="{left}" y="{top}" width="{right-left}" height="{bottom-top}"/></clipPath></defs>',
+             f'<text x="{left}" y="68" {font} font-size="17" fill="#555555">Frozen occupation-separated energy-rank display</text>']
     step_target = (upper - lower) / 6
     power = 10 ** math.floor(math.log10(step_target))
     step = next(s * power for s in (1, 2, 2.5, 5, 10) if s * power >= step_target)

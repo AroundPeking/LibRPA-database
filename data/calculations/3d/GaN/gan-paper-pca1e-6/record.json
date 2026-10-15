@@ -218,10 +218,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/exx_frontier.svg",
-        "sha256": "6493f360199b41cc73500a7513b6b2a7448232cdc2594b85e837ba2ebc4b3ccc",
-        "size_bytes": 22099,
-        "original_sha256": "6493f360199b41cc73500a7513b6b2a7448232cdc2594b85e837ba2ebc4b3ccc",
-        "label": "EXX occupation-separated frontier (diagnostic)",
+        "sha256": "72c0eb1d91eae7b8138ba62de9f6880f1706c4f683fbdfafe2cb65c38716d8da",
+        "size_bytes": 22058,
+        "original_sha256": "72c0eb1d91eae7b8138ba62de9f6880f1706c4f683fbdfafe2cb65c38716d8da",
+        "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/GaN/gan-paper-pca1e-6/results/EXX_band_spin_1.dat",
@@ -234,10 +234,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/gw_frontier.svg",
-        "sha256": "c0591c475ca7d4c8d32144d30a4f3c5092e6f3f9faeee9c1642d1bcf6cd9e213",
-        "size_bytes": 22415,
-        "original_sha256": "c0591c475ca7d4c8d32144d30a4f3c5092e6f3f9faeee9c1642d1bcf6cd9e213",
-        "label": "GW occupation-separated frontier (diagnostic)",
+        "sha256": "800397cf0e985f0db1b14d70e8e1f715aeffc7e7ea1a7c57792b40267d60d653",
+        "size_bytes": 22374,
+        "original_sha256": "800397cf0e985f0db1b14d70e8e1f715aeffc7e7ea1a7c57792b40267d60d653",
+        "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/GaN/gan-paper-pca1e-6/results/GW_band_spin_1.dat",
@@ -250,9 +250,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/figures/band_frontier_metadata.json",
-        "sha256": "635f5a824159934ffefecbc4077a11bab232f62dee9e05d5ae2d267155c17818",
-        "size_bytes": 746991,
-        "original_sha256": "635f5a824159934ffefecbc4077a11bab232f62dee9e05d5ae2d267155c17818",
+        "sha256": "9975978b410feb3f70b722974f9f39319625832df9d77403a9a16b0a0b62e908",
+        "size_bytes": 747141,
+        "original_sha256": "9975978b410feb3f70b722974f9f39319625832df9d77403a9a16b0a0b62e908",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

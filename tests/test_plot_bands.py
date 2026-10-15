@@ -246,14 +246,17 @@ class PlotBandTests(unittest.TestCase):
         self.assertEqual(result["selected_window_path_gap_ev"], 3)
         self.assertEqual(result["sampled_path_gap_ev"], 3)
 
-    def test_nonpositive_selected_gap_refuses_render_without_repair(self):
+    def test_nonpositive_selected_gap_renders_with_metadata_rejection_note(self):
+        # 归档条目按原始数据呈现：非正 gap 照画，病理仅记录在元数据。
         table = self.make_table([[-4, -1, -2, 4], [-3, -2, 1, 5]])
         result = self.plot.analyze_frontier(table)
-        self.assertEqual(result["figure_status"], "rejected")
-        self.assertIsNone(result["y_limits_ev"])
+        self.assertEqual(result["figure_status"], "renderable")
+        self.assertIsNotNone(result["y_limits_ev"])
         self.assertEqual(result["selected_window_path_gap_ev"], -1)
-        with self.assertRaisesRegex(ValueError, "nonpositive frozen"):
-            self.plot.render_frontier_svg(table, result, [], "bad", "GW")
+        self.assertIn("nonpositive frozen", result["figure_rejection_reason"])
+        self.assertEqual(result["gap_status"], "rejected")
+        svg = self.plot.render_frontier_svg(table, result, [], "bad", "GW")
+        self.assertIn("Frozen occupation-separated energy-rank display", svg)
 
     def test_generic_interface_has_no_automatic_occupation_inference(self):
         table = self.plot.BandTable([0, 1], [[-1, 2], [-2, 3]])

@@ -20096,6 +20096,7 @@
           }
         ],
         "kpt_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.163336342344337e-17,
         "x_axis": "native k-point index",
@@ -40121,6 +40122,7 @@
           }
         ],
         "kpt_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.163336342344337e-17,
         "x_axis": "native k-point index",
@@ -45168,9 +45170,309 @@
         "energy_ev": 8.99259,
         "not_fermi": true
       },
-      "y_limits_ev": null,
-      "unselected_intrusions": [],
-      "figure_status": "rejected",
+      "y_limits_ev": [
+        -7.577741,
+        10.786340999999998
+      ],
+      "unselected_intrusions": [
+        {
+          "raw_band_index": 23,
+          "manifold": "empty",
+          "minimum_ev": 13.2107,
+          "maximum_ev": 19.72796,
+          "aligned_minimum_ev": 4.218109999999999,
+          "aligned_maximum_ev": 10.73537
+        },
+        {
+          "raw_band_index": 24,
+          "manifold": "empty",
+          "minimum_ev": 3.03029,
+          "maximum_ev": 23.31048,
+          "aligned_minimum_ev": -5.9623,
+          "aligned_maximum_ev": 14.317889999999998
+        },
+        {
+          "raw_band_index": 25,
+          "manifold": "empty",
+          "minimum_ev": 4.61769,
+          "maximum_ev": 25.44778,
+          "aligned_minimum_ev": -4.3749,
+          "aligned_maximum_ev": 16.45519
+        },
+        {
+          "raw_band_index": 26,
+          "manifold": "empty",
+          "minimum_ev": 3.46871,
+          "maximum_ev": 25.42028,
+          "aligned_minimum_ev": -5.52388,
+          "aligned_maximum_ev": 16.427690000000002
+        },
+        {
+          "raw_band_index": 27,
+          "manifold": "empty",
+          "minimum_ev": 6.96186,
+          "maximum_ev": 25.35021,
+          "aligned_minimum_ev": -2.03073,
+          "aligned_maximum_ev": 16.35762
+        },
+        {
+          "raw_band_index": 28,
+          "manifold": "empty",
+          "minimum_ev": 0.09895,
+          "maximum_ev": 26.56182,
+          "aligned_minimum_ev": -8.89364,
+          "aligned_maximum_ev": 17.56923
+        },
+        {
+          "raw_band_index": 29,
+          "manifold": "empty",
+          "minimum_ev": -4.67062,
+          "maximum_ev": 33.88224,
+          "aligned_minimum_ev": -13.66321,
+          "aligned_maximum_ev": 24.889650000000003
+        },
+        {
+          "raw_band_index": 30,
+          "manifold": "empty",
+          "minimum_ev": -9.70316,
+          "maximum_ev": 34.09487,
+          "aligned_minimum_ev": -18.69575,
+          "aligned_maximum_ev": 25.10228
+        },
+        {
+          "raw_band_index": 31,
+          "manifold": "empty",
+          "minimum_ev": 1.18428,
+          "maximum_ev": 30.89388,
+          "aligned_minimum_ev": -7.80831,
+          "aligned_maximum_ev": 21.90129
+        },
+        {
+          "raw_band_index": 32,
+          "manifold": "empty",
+          "minimum_ev": -31.54931,
+          "maximum_ev": 32.78205,
+          "aligned_minimum_ev": -40.5419,
+          "aligned_maximum_ev": 23.78946
+        },
+        {
+          "raw_band_index": 33,
+          "manifold": "empty",
+          "minimum_ev": -9.39817,
+          "maximum_ev": 28.24494,
+          "aligned_minimum_ev": -18.39076,
+          "aligned_maximum_ev": 19.25235
+        },
+        {
+          "raw_band_index": 34,
+          "manifold": "empty",
+          "minimum_ev": -30.97861,
+          "maximum_ev": 40.45826,
+          "aligned_minimum_ev": -39.971199999999996,
+          "aligned_maximum_ev": 31.465670000000003
+        },
+        {
+          "raw_band_index": 35,
+          "manifold": "empty",
+          "minimum_ev": -47.17328,
+          "maximum_ev": 44.37406,
+          "aligned_minimum_ev": -56.16587,
+          "aligned_maximum_ev": 35.38147
+        },
+        {
+          "raw_band_index": 36,
+          "manifold": "empty",
+          "minimum_ev": -22.66359,
+          "maximum_ev": 46.49972,
+          "aligned_minimum_ev": -31.65618,
+          "aligned_maximum_ev": 37.507130000000004
+        },
+        {
+          "raw_band_index": 37,
+          "manifold": "empty",
+          "minimum_ev": -54.16946,
+          "maximum_ev": 50.83476,
+          "aligned_minimum_ev": -63.16205,
+          "aligned_maximum_ev": 41.84217
+        },
+        {
+          "raw_band_index": 38,
+          "manifold": "empty",
+          "minimum_ev": -93.22383,
+          "maximum_ev": 17.32029,
+          "aligned_minimum_ev": -102.21642,
+          "aligned_maximum_ev": 8.3277
+        },
+        {
+          "raw_band_index": 39,
+          "manifold": "empty",
+          "minimum_ev": -158.5652,
+          "maximum_ev": 27.08057,
+          "aligned_minimum_ev": -167.55779,
+          "aligned_maximum_ev": 18.08798
+        },
+        {
+          "raw_band_index": 40,
+          "manifold": "empty",
+          "minimum_ev": -223.39714,
+          "maximum_ev": 27.10065,
+          "aligned_minimum_ev": -232.38973000000001,
+          "aligned_maximum_ev": 18.108060000000002
+        },
+        {
+          "raw_band_index": 41,
+          "manifold": "empty",
+          "minimum_ev": -230.17095,
+          "maximum_ev": 1.74211,
+          "aligned_minimum_ev": -239.16354,
+          "aligned_maximum_ev": -7.25048
+        },
+        {
+          "raw_band_index": 42,
+          "manifold": "empty",
+          "minimum_ev": -194.17096,
+          "maximum_ev": 226.97741,
+          "aligned_minimum_ev": -203.16355000000001,
+          "aligned_maximum_ev": 217.98481999999998
+        },
+        {
+          "raw_band_index": 50,
+          "manifold": "empty",
+          "minimum_ev": -426.58442,
+          "maximum_ev": 133.78737,
+          "aligned_minimum_ev": -435.57701000000003,
+          "aligned_maximum_ev": 124.79478
+        },
+        {
+          "raw_band_index": 51,
+          "manifold": "empty",
+          "minimum_ev": -580.4391,
+          "maximum_ev": 680.4148,
+          "aligned_minimum_ev": -589.43169,
+          "aligned_maximum_ev": 671.4222100000001
+        },
+        {
+          "raw_band_index": 53,
+          "manifold": "empty",
+          "minimum_ev": -534.20222,
+          "maximum_ev": 739.36981,
+          "aligned_minimum_ev": -543.19481,
+          "aligned_maximum_ev": 730.3772200000001
+        },
+        {
+          "raw_band_index": 54,
+          "manifold": "empty",
+          "minimum_ev": -606.67005,
+          "maximum_ev": 832.99732,
+          "aligned_minimum_ev": -615.6626399999999,
+          "aligned_maximum_ev": 824.00473
+        },
+        {
+          "raw_band_index": 55,
+          "manifold": "empty",
+          "minimum_ev": -746.16667,
+          "maximum_ev": 858.69395,
+          "aligned_minimum_ev": -755.1592599999999,
+          "aligned_maximum_ev": 849.70136
+        },
+        {
+          "raw_band_index": 56,
+          "manifold": "empty",
+          "minimum_ev": -785.54962,
+          "maximum_ev": 861.36244,
+          "aligned_minimum_ev": -794.54221,
+          "aligned_maximum_ev": 852.36985
+        },
+        {
+          "raw_band_index": 57,
+          "manifold": "empty",
+          "minimum_ev": -767.24126,
+          "maximum_ev": 1169.16676,
+          "aligned_minimum_ev": -776.23385,
+          "aligned_maximum_ev": 1160.17417
+        },
+        {
+          "raw_band_index": 58,
+          "manifold": "empty",
+          "minimum_ev": -703.70899,
+          "maximum_ev": 1048.01113,
+          "aligned_minimum_ev": -712.7015799999999,
+          "aligned_maximum_ev": 1039.01854
+        },
+        {
+          "raw_band_index": 59,
+          "manifold": "empty",
+          "minimum_ev": -525.19291,
+          "maximum_ev": 1209.06275,
+          "aligned_minimum_ev": -534.1854999999999,
+          "aligned_maximum_ev": 1200.07016
+        },
+        {
+          "raw_band_index": 60,
+          "manifold": "empty",
+          "minimum_ev": -81.12412,
+          "maximum_ev": 672.8664,
+          "aligned_minimum_ev": -90.11671000000001,
+          "aligned_maximum_ev": 663.87381
+        },
+        {
+          "raw_band_index": 61,
+          "manifold": "empty",
+          "minimum_ev": -130.93385,
+          "maximum_ev": 807.08388,
+          "aligned_minimum_ev": -139.92644,
+          "aligned_maximum_ev": 798.0912900000001
+        },
+        {
+          "raw_band_index": 62,
+          "manifold": "empty",
+          "minimum_ev": -95.10639,
+          "maximum_ev": 807.0723,
+          "aligned_minimum_ev": -104.09898000000001,
+          "aligned_maximum_ev": 798.0797100000001
+        },
+        {
+          "raw_band_index": 63,
+          "manifold": "empty",
+          "minimum_ev": -267.07116,
+          "maximum_ev": 806.39723,
+          "aligned_minimum_ev": -276.06375,
+          "aligned_maximum_ev": 797.4046400000001
+        },
+        {
+          "raw_band_index": 64,
+          "manifold": "empty",
+          "minimum_ev": -271.64889,
+          "maximum_ev": 753.77067,
+          "aligned_minimum_ev": -280.64148,
+          "aligned_maximum_ev": 744.77808
+        },
+        {
+          "raw_band_index": 65,
+          "manifold": "empty",
+          "minimum_ev": -444.31911,
+          "maximum_ev": 1143.10561,
+          "aligned_minimum_ev": -453.31170000000003,
+          "aligned_maximum_ev": 1134.11302
+        },
+        {
+          "raw_band_index": 66,
+          "manifold": "empty",
+          "minimum_ev": -361.97018,
+          "maximum_ev": 1119.96886,
+          "aligned_minimum_ev": -370.96277000000003,
+          "aligned_maximum_ev": 1110.9762699999999
+        },
+        {
+          "raw_band_index": 67,
+          "manifold": "empty",
+          "minimum_ev": -550.13655,
+          "maximum_ev": 1127.93593,
+          "aligned_minimum_ev": -559.12914,
+          "aligned_maximum_ev": 1118.94334
+        }
+      ],
+      "figure_status": "renderable",
       "figure_rejection_reason": "nonpositive frozen selected-window path gap: numerical pathology enters the near-gap window",
       "selected_window_path_gap_ev": 1.37519,
       "original_frontier_admission_audit": {
@@ -45195,6 +45497,13 @@
       "viewport": {
         "kind": "method-own full selected-band viewport",
         "formula": "padding=max(0.5,0.05*(selected_max-selected_min)); lower=min(previous_lower,selected_min-padding); upper=max(previous_upper,selected_max+padding)",
+        "selected_minimum_ev": -6.74301,
+        "selected_maximum_ev": 9.951609999999999,
+        "padding_ev": 0.8347310000000001,
+        "previous_near_gap_limits_ev": [
+          -2.5,
+          4.37519
+        ],
         "selected_raw_window_frozen_before_sorting": true,
         "selected_band_count_unchanged": true,
         "cut_states": [],
@@ -60673,6 +60982,7 @@
           }
         ],
         "kpt_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.163336342344337e-17,
         "x_axis": "native k-point index",
@@ -60697,8 +61007,7 @@
         "schema_evidence": "consumer read_data.cpp:2078–2089 and dataset_format.md; preprocess write_kpath_info emits nbasis, nbands, nspins, nkpts; schema evidence is not historical producer commit identification"
       },
       "source_result_path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat",
-      "source_result_sha256": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60",
-      "unreferenced_previous_svg": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/gw_frontier.svg"
+      "source_result_sha256": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60"
     }
   },
   "rejected": {

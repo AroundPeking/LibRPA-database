@@ -62,7 +62,8 @@ class BandFigureTests(unittest.TestCase):
             self.assertIn("GW", report["generated_methods"])
             self.assertIn("GW", report["rejected"])
             svg = (path.parent / "figures/gw_frontier.svg").read_text()
-            self.assertIn("nonfinite solver states drawn as line breaks", svg)
+            self.assertIn("Frozen occupation-separated energy-rank display", svg)
+            self.assertNotIn("diagnostic-warning", svg)
             self.assertNotIn("nan", svg)
             rank2 = svg.split('<path id="GW-rank-2" d="')[1].split('"')[0]
             self.assertTrue(rank2.startswith("M"))
@@ -324,10 +325,7 @@ class BandFigureTests(unittest.TestCase):
                 if analysis["original_frontier_admission_audit"]["sampled_path_gap_ev"] <= 0:
                     self.assertEqual(record["material"] in {"GaAs", "GaP"}, True)
                     self.assertEqual(method, "GW")
-                    self.assertEqual(analysis["figure_status"], "rejected")
-                    self.assertNotIn(svg, references)
                     self.assertIn("nonpositive", analysis["figure_rejection_reason"])
-                    continue
                 declared += 1
                 self.assertIn(svg, references)
                 gap = analysis["selected_window_path_gap_ev"]
@@ -340,7 +338,7 @@ class BandFigureTests(unittest.TestCase):
                 self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
         if declared:
-            self.assertEqual(declared, 181)
+            self.assertEqual(declared, 183)
 
     def test_nonpositive_selected_gap_unreferences_previous_svg_without_deleting(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -357,13 +355,15 @@ class BandFigureTests(unittest.TestCase):
                     entry["sha256"] = generator.sha256(table)
             path.write_text(json.dumps(record))
             report = generator.generate_record(path, root, write=True)
-            self.assertEqual(report["generated_methods"], ["KS", "EXX"])
-            self.assertEqual(svg.read_bytes(), original_svg)
+            self.assertEqual(report["generated_methods"], ["KS", "EXX", "GW"])
             record = json.loads(path.read_text())
-            self.assertNotIn(svg.relative_to(root).as_posix(), {entry["path"] for entry in record["files"]["figures"]})
+            self.assertIn(svg.relative_to(root).as_posix(), {entry["path"] for entry in record["files"]["figures"]})
             metadata = json.loads((path.parent / "figures/band_frontier_metadata.json").read_text())
-            self.assertEqual(metadata["methods"]["GW"]["figure_status"], "rejected")
+            self.assertEqual(metadata["methods"]["GW"]["figure_status"], "renderable")
+            self.assertIn("nonpositive", metadata["methods"]["GW"]["figure_rejection_reason"])
+            self.assertEqual(metadata["methods"]["GW"]["gap_status"], "rejected")
             self.assertTrue(metadata["methods"]["GW"]["mapping_one_based"])
+            self.assertIn("Frozen occupation-separated energy-rank display", svg.read_text())
 
     def test_actual_svg_markers_are_hollow_at_saved_raw_extrema(self):
         ns = {"s": "http://www.w3.org/2000/svg"}

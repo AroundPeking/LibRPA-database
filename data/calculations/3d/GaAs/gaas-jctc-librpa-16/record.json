@@ -182,10 +182,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/GaAs/gaas-jctc-librpa-16/figures/gw_frontier.svg",
-        "sha256": "d40e99d174bde449f475d988e73f79a90a68d2482b2b69dcfb73bce10c531f4b",
-        "size_bytes": 34825,
-        "original_sha256": "d40e99d174bde449f475d988e73f79a90a68d2482b2b69dcfb73bce10c531f4b",
-        "label": "GW occupation-separated frontier (diagnostic)",
+        "sha256": "ac5f7965af9e71fbccedadf93548e710863a39a266e22f051e2cd283f9e7538c",
+        "size_bytes": 34784,
+        "original_sha256": "ac5f7965af9e71fbccedadf93548e710863a39a266e22f051e2cd283f9e7538c",
+        "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/GaAs/gaas-jctc-librpa-16/results/GW_band_spin_1.dat",

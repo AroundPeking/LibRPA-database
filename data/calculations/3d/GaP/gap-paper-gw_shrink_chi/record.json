@@ -233,10 +233,26 @@
       },
       {
         "role": "figures",
+        "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/gw_frontier.svg",
+        "sha256": "9cace71cca3e7f2b5455a1515da96d29b850092212c7eece8165433f7bfcbc81",
+        "size_bytes": 33632,
+        "original_sha256": "9cace71cca3e7f2b5455a1515da96d29b850092212c7eece8165433f7bfcbc81",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/inputs/KPT_nscf",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/results/band_kpath_info",
+          "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
         "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/figures/band_frontier_metadata.json",
-        "sha256": "30a25a490c6fa9e833620b77c3d6a2a310c1240beca172ea6594d65be462127d",
-        "size_bytes": 1064513,
-        "original_sha256": "30a25a490c6fa9e833620b77c3d6a2a310c1240beca172ea6594d65be462127d",
+        "sha256": "67068a4965438df0d97ec61e049b32ef11a8ec440fda130f6f9f97794aba7996",
+        "size_bytes": 1074323,
+        "original_sha256": "67068a4965438df0d97ec61e049b32ef11a8ec440fda130f6f9f97794aba7996",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

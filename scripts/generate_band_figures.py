@@ -255,16 +255,13 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
             if analysis["status"] != "reported":
                 report["rejected"][method] = "; ".join(analysis["diagnostic_reasons"])
             output = record_path.parent / "figures" / f"{method.lower()}_frontier.svg"
-            if analysis["figure_status"] == "rejected":
-                analysis["unreferenced_previous_svg"] = output.relative_to(root).as_posix()
-                continue
             report["generated_methods"].append(method)
             if write:
                 output.parent.mkdir(parents=True, exist_ok=True)
                 svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], record.get("material", record["id"]), method)
                 if not output.exists() or output.read_text(encoding="utf-8") != svg:
                     output.write_text(svg, encoding="utf-8")
-                generated.append(_file_entry(output, root, f"{method} occupation-separated frontier" + (" (diagnostic)" if analysis["status"] == "diagnostic" else ""), sources))
+                generated.append(_file_entry(output, root, f"{method} occupation-separated frontier", sources))
         except (ValueError, OSError) as exc:
             report["rejected"][method] = str(exc)
     sidecar = record_path.parent / "figures/band_frontier_metadata.json"
@@ -285,10 +282,8 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
         _write_json(sidecar, metadata)
         generated.append(_file_entry(sidecar, root, "Frontier display mappings, raw audit and provenance", all_sources))
         new_paths = {entry["path"] for entry in generated}
-        rejected_svg_paths = {analysis["unreferenced_previous_svg"] for analysis in metadata["methods"].values()
-                              if analysis["figure_status"] == "rejected"}
         retained = [entry for entry in record["files"].get("figures", [])
-                    if entry["path"] not in new_paths | rejected_svg_paths]
+                    if entry["path"] not in new_paths]
         for entry in retained:
             if Path(entry["path"]).name in {"band_comparison.svg", "band_comparison.json"}:
                 entry["display_priority"] = "secondary"
@@ -393,7 +388,7 @@ def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = Fals
         relative = output.relative_to(root).as_posix()
         writes[relative] = svg
         generated.append({"role": "figures", "path": relative, "sha256": hashlib.sha256(svg).hexdigest(),
-                          "size_bytes": len(svg), "label": f"hBN {method} frozen frontier" + (" (diagnostic)" if method == "GW" else ""),
+                          "size_bytes": len(svg), "label": f"hBN {method} frozen frontier",
                           "transformation": "derived audited method-own frontier; original bytes unchanged",
                           "source_paths": sources, "display_priority": "primary",
                           "scientific_status": "archived_diagnostic" if method == "GW" else "sampled_path_only"})

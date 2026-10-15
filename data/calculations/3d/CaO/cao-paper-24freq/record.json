@@ -232,10 +232,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/gw_frontier.svg",
-        "sha256": "11a81cd3a6ca18aa257478871362c87be5d3b04d8bc92212efdcd87358a6d712",
-        "size_bytes": 18765,
-        "original_sha256": "11a81cd3a6ca18aa257478871362c87be5d3b04d8bc92212efdcd87358a6d712",
-        "label": "GW occupation-separated frontier (diagnostic)",
+        "sha256": "6fcc6af02e59c7c5ebf8ec61ec987f29cc95a6ef12a02bd52677979765d426b8",
+        "size_bytes": 18724,
+        "original_sha256": "6fcc6af02e59c7c5ebf8ec61ec987f29cc95a6ef12a02bd52677979765d426b8",
+        "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/CaO/cao-paper-24freq/results/GW_band_spin_1.dat",
@@ -248,9 +248,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/CaO/cao-paper-24freq/figures/band_frontier_metadata.json",
-        "sha256": "9301852958785ee04035a9935160d47b95477a9e37d7cf05322806b15fe14d81",
-        "size_bytes": 440540,
-        "original_sha256": "9301852958785ee04035a9935160d47b95477a9e37d7cf05322806b15fe14d81",
+        "sha256": "24f046de97b61b33aaae16dbe8280a8bade54cdb7ea938e67adca1ae2c004729",
+        "size_bytes": 440690,
+        "original_sha256": "24f046de97b61b33aaae16dbe8280a8bade54cdb7ea938e67adca1ae2c004729",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

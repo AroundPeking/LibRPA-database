@@ -247,10 +247,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg",
-        "sha256": "98f52b078e2ff0b87c1e3ff766fd0a0c806de78e029f3c079c916694109256fb",
-        "size_bytes": 21862,
-        "original_sha256": "98f52b078e2ff0b87c1e3ff766fd0a0c806de78e029f3c079c916694109256fb",
-        "label": "GW occupation-separated frontier (diagnostic)",
+        "sha256": "28c6a08f7637be919fee93b95c369e98862bc9f754a06c01cc5f1d0cc3547ccf",
+        "size_bytes": 21821,
+        "original_sha256": "28c6a08f7637be919fee93b95c369e98862bc9f754a06c01cc5f1d0cc3547ccf",
+        "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat",
@@ -263,9 +263,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json",
-        "sha256": "31f4bb8ffa974b307644ea90a14e13a3bea5ae320fdfc8d2f2518b03b53e9c53",
-        "size_bytes": 483953,
-        "original_sha256": "31f4bb8ffa974b307644ea90a14e13a3bea5ae320fdfc8d2f2518b03b53e9c53",
+        "sha256": "7a0d3fb0059ac8d94954b8a6b931cb481fc79fd47816adb0714770dacf6a4727",
+        "size_bytes": 484103,
+        "original_sha256": "7a0d3fb0059ac8d94954b8a6b931cb481fc79fd47816adb0714770dacf6a4727",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [

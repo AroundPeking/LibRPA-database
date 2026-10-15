@@ -7416,6 +7416,7 @@
           }
         ],
         "kpt_sha256": "805dbfef78571add79440e7ef63f3d3e2e30575795f10ed46d78fef5340eb335",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.44733334048486e-08,
         "x_axis": "native k-point index",
@@ -14849,6 +14850,7 @@
           }
         ],
         "kpt_sha256": "805dbfef78571add79440e7ef63f3d3e2e30575795f10ed46d78fef5340eb335",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.44733334048486e-08,
         "x_axis": "native k-point index",
@@ -22877,6 +22879,7 @@
           }
         ],
         "kpt_sha256": "805dbfef78571add79440e7ef63f3d3e2e30575795f10ed46d78fef5340eb335",
+        "kpath_convention": "exclusive-segments",
         "coordinate_tolerance": 5.1e-07,
         "max_kpt_coordinate_error": 4.44733334048486e-08,
         "x_axis": "native k-point index",

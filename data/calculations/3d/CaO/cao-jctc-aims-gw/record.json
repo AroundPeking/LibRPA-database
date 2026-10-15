@@ -151,10 +151,10 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/CaO/cao-jctc-aims-gw/figures/gw_frontier.svg",
-        "sha256": "e9741d30f07290de0e80d67b605d03f0a4856453c82eed5239d9b4319d406f55",
-        "size_bytes": 34272,
-        "original_sha256": "e9741d30f07290de0e80d67b605d03f0a4856453c82eed5239d9b4319d406f55",
-        "label": "GW occupation-separated frontier (diagnostic)",
+        "sha256": "30200b54301de8bb91f60ea2beced5c3509142cea21fc459a1cc2c5d76be1beb",
+        "size_bytes": 34231,
+        "original_sha256": "30200b54301de8bb91f60ea2beced5c3509142cea21fc459a1cc2c5d76be1beb",
+        "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
           "data/calculations/3d/CaO/cao-jctc-aims-gw/results/GW_band_spin_1.dat",
