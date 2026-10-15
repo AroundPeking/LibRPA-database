@@ -47,7 +47,8 @@ repository root and open `http://127.0.0.1:8765/database/`. The catalog uses
 Open a calculation and choose **View inputs** or **Input files**. Every archived
 input has a read-only text preview and a download link; nested calculation
 stages retain their archive names to avoid overwriting same-named files. The
-current archive has input files for **all 34 scientific calculation records** (297 files); the separate C2048 reader-conversion provenance record intentionally contains no calculation input bundle.
+current archive has input files for **all 35 records** (305 files), including
+the C2048 reader-conversion record's 8 archived input files.
 Nine records include **89 partial stage controls**, with stage-input receipts
 and explicit incomplete-run warnings; these attachments do not certify a full
 production chain, exact basis linkage, or a self-contained rerun bundle.
@@ -75,8 +76,10 @@ Hash-addressed storage is intentional and unchanged. The generated catalog
 adds `display_name`, `download_name`, `name_source`, and `original_names`:
 recorded labels or exact calculation aliases are preferred. Otherwise a unique
 `element_family_role_short-hash.ext` descriptive alias is displayed with an
-explicit original-name-missing warning. The immutable path and full SHA-256
-remain visible for every file; aliases do not invent original filenames.
+explicit original-name-missing warning. Immutable paths and full SHA-256
+values remain recorded in each record's data for integrity verification; the
+web pages show readable filenames and sizes, and aliases do not invent
+original filenames.
 
 ### Deploy with GitHub Pages
 
