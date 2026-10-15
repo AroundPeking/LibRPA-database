@@ -5,11 +5,9 @@ import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", status: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
 const pageSize = 20;
-const publication = set => set.publication?.status || "database_only";
-const statusNames = { database_only: "Basis record", legacy_incomplete: "Historical record", review: "Curated record", publishable: "Published set", superseded: "Previous version" };
-const gapText = value => value === null ? '<span class="not-reported" title="Not reported">—</span>' : value.toFixed(3);
+const gapText = value => value === null ? '<span class="not-reported">—</span>' : value.toFixed(3);
 let bySet = new Map();
 let elements = [];
 let corpus = new Map();
@@ -23,14 +21,6 @@ function buildIndexes() {
     corpus.set(record.id, { record, basis: [...ids].map(id => bySet.get(id)).filter(Boolean) });
     for (const id of ids) { if (!linked.has(id)) linked.set(id, []); linked.get(id).push(record); }
   }
-  for (const set of state.sets) {
-    const records = new Map((linked.get(set.id) || []).map(r => [r.id, r]));
-    for (const id of set.publication?.calculation_ids || []) {
-      const record = state.calculations.find(r => r.id === id);
-      if (record) records.set(id, record);
-    }
-    linked.set(set.id, [...records.values()]);
-  }
 }
 
 function matchesQuery(item, isBasis = false) {
@@ -40,7 +30,7 @@ function matchesQuery(item, isBasis = false) {
 }
 
 function filtered() {
-  if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element) && (state.status === "all" || state.status === publication(set))).sort((a, b) => (state.sort === "status" ? publication(a).localeCompare(publication(b)) : 0) || a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
+  if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element)).sort((a, b) => a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
   return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (primaryResult(b)?.value ?? -Infinity) - (primaryResult(a)?.value ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
@@ -56,9 +46,9 @@ function materialRow(record) {
 }
 
 function basisRow(set) {
-  const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf", "species_defaults"].includes(f.role));
-  const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role === "for_aux" || role === "species_defaults" ? role : role.toUpperCase())}</span>`).join("");
-  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td><div class="method-list">${roles}</div></td><td><span class="publication-tag">${esc(statusNames[publication(set)] || "Basis record")}</span></td><td class="basis-scope">${esc(set.validation_scope || "Recorded basis data")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
+  const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf"].includes(f.role));
+  const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role.toUpperCase())}</span>`).join("");
+  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td><div class="method-list">${roles}</div></td><td class="basis-scope">${esc(set.validation_scope || "Recorded basis data")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
 }
 
 function stats() {
@@ -73,21 +63,19 @@ function syncFilters() {
   $(".dimension-filter").hidden = basis;
   $(".software-filter").hidden = basis;
   $("#input-filter-control").hidden = basis;
-  $("#status-filter-control").hidden = !basis;
   $("#search").value = state.query;
   $("#element-filter").value = state.element;
   $("#input-filter").value = state.inputs;
-  $("#status-filter").value = state.status;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
   document.querySelectorAll("input[name=software]").forEach(input => { input.checked = input.value === state.software; });
-  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option><option value="status">Publication state</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
-  if (!(basis ? ["element", "status"] : ["material", "result"]).includes(state.sort)) state.sort = basis ? "element" : "material";
+  $("#sort").innerHTML = basis ? '<option value="element">Element A–Z</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
+  if (!(basis ? ["element"] : ["material", "result"]).includes(state.sort)) state.sort = basis ? "element" : "material";
   $("#sort").value = state.sort;
 }
 
 function listHash() {
   const params = new URLSearchParams();
-  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["status", state.status, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
+  for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
   return `#/${state.mode === "basis" ? "basis" : ""}${params.size ? `?${params}` : ""}`;
 }
 
@@ -108,7 +96,7 @@ function renderHome() {
   $("#empty").hidden = records.length > 0;
   $("#catalog").hidden = !records.length;
   $("#catalog").setAttribute("aria-busy", "false");
-  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""];
+  const headings = basis ? ["Element / family", "Assets", "Recorded scope", "Linked", ""] : ["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""];
   $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and evidence-linked electronic-structure results"}</caption><thead><tr>${headings.map(heading => `<th scope="col">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
   document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
@@ -122,7 +110,7 @@ function updateFilter() {
 }
 
 function resetFilters() {
-  Object.assign(state, { query: "", dimension: "all", software: "all", element: "all", inputs: "all", status: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
+  Object.assign(state, { query: "", dimension: "all", software: "all", element: "all", inputs: "all", sort: state.mode === "basis" ? "element" : "material", page: 1 });
   syncFilters();
   updateFilter();
 }
@@ -148,7 +136,7 @@ function route() {
   }
   state.mode = hash.split("?")[0] === "#/basis" ? "basis" : "materials";
   const params = new URLSearchParams(hash.split("?")[1] || "");
-  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", status: params.get("status") || "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
+  Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
   renderHome();
@@ -168,9 +156,8 @@ async function start() {
     buildIndexes();
     stats();
     $("#element-filter").innerHTML = '<option value="all">All elements</option>' + elements.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");
-    $("#status-filter").innerHTML = '<option value="all">All record types</option>' + [...new Set(state.sets.map(publication))].sort().map(s => `<option value="${esc(s)}">${esc(statusNames[s] || "Basis record")}</option>`).join("");
     $("#search").addEventListener("input", event => { state.query = event.target.value.trim(); updateFilter(); });
-    for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["status-filter", "status"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
+    for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
     document.querySelectorAll("input[name=dimension]").forEach(input => input.addEventListener("change", event => { state.dimension = event.target.value; updateFilter(); }));
     document.querySelectorAll("input[name=software]").forEach(input => input.addEventListener("change", event => { state.software = event.target.value; updateFilter(); }));
     for (const id of ["reset-filters", "empty-reset"]) $(`#${id}`).addEventListener("click", resetFilters);

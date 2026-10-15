@@ -20,12 +20,6 @@ GROUPS = {"inputs", "results", "logs", "figures"}
 PRIVATE_PATH = re.compile(
     r"(?:/" + r"Users/|/" + r"home/[A-Za-z0-9_.-]+|/work[0-9]/|/scratch/|/private/var/|file:" + r"//|ssh:" + r"//)"
 )
-PUBLICATION_STATES = {"database_only", "review", "publishable", "superseded", "legacy_incomplete"}
-INTERMEDIATE_PATH = re.compile(
-    r"(?:^|/)(?:tmp|temp|scratch|restart|intermediate|out_wfc|out_chg)(?:/|$)|"
-    r"(?:\.tmp|\.part|\.bak|\.wfc|\.cube)$",
-    re.IGNORECASE,
-)
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
 RECORD_TYPES = {"band", "large_system_gw", "rpa_energy", "reader_conversion"}
@@ -59,31 +53,6 @@ def _file(root: Path, item: dict, label: str) -> None:
         actual = hashlib.file_digest(stream, "sha256").hexdigest()
     if digest != actual:
         _fail(f"{label}: SHA-256 mismatch ({digest} != {actual})")
-
-
-def _publication(item: dict, label: str) -> dict:
-    value = item.get("publication", {})
-    if value is None:
-        value = {}
-    if not isinstance(value, dict):
-        _fail(f"{label}.publication: expected an object")
-    status = value.get("status", "database_only")
-    if status not in PUBLICATION_STATES:
-        _fail(f"{label}.publication.status: unsupported status {status!r}")
-    return value
-
-
-def _require_public_source(item: dict, label: str) -> None:
-    source = item.get("source")
-    if not isinstance(source, dict):
-        _fail(f"{label}: publishable basis requires source metadata")
-    url = source.get("url")
-    if not isinstance(url, str) or not re.match(r"^https?://\S+$", url):
-        _fail(f"{label}: publishable basis requires a public source URL")
-    if not isinstance(source.get("license"), str) or not source["license"].strip():
-        _fail(f"{label}: publishable basis requires a license")
-    if source.get("redistribution") != "permitted":
-        _fail(f"{label}: redistribution must be explicitly permitted")
 
 
 def _json_value(value: object) -> bool:
@@ -323,7 +292,6 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                 check_private_paths(nested, f"{label}[{index}]")
 
     by_id = {}
-    set_publications = {}
     for index, item in enumerate(sets):
         label = f"sets[{index}]"
         check_private_paths(item, label)
@@ -340,20 +308,10 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             roles.add(file_item.get("role"))
         if not roles.intersection({"pp", "nao", "abf", "species_defaults"}):
             _fail(f"{label}: no basis payload is registered")
-        publication = _publication(item, label)
-        set_publications[set_id] = publication
-        if publication.get("status") == "publishable":
-            if not {"pp", "nao", "abf"}.issubset(roles):
-                _fail(f"{label}: publishable basis requires PP, physical NAO, and ABF files")
-            _require_public_source(item, label)
-            linked_cases = publication.get("calculation_ids")
-            if not isinstance(linked_cases, list) or not linked_cases:
-                _fail(f"{label}: publishable basis requires linked calculations")
         by_id[set_id] = item
 
     all_case_ids = {case.get("id") for case in cases if isinstance(case.get("id"), str)}
     case_ids = set()
-    case_publications = {}
     for index, case in enumerate(cases):
         label = f"cases[{index}]"
         check_private_paths(case, label)
@@ -361,8 +319,6 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         if not isinstance(case_id, str) or not case_id or case_id in case_ids:
             _fail(f"{label}: missing or duplicate id")
         case_ids.add(case_id)
-        publication = _publication(case, label)
-        case_publications[case_id] = publication
         if case.get("dimension") not in {"2d", "3d"}:
             _fail(f"{label}: dimension must be 2d or 3d")
         # Record-level scientific status labels were removed by design: the
@@ -433,49 +389,18 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             for n, file_item in enumerate(values):
                 _file(root, file_item, f"{label}.files.{group}[{n}]")
                 declared_paths.add(file_item["path"])
-                if publication.get("status") == "publishable" and INTERMEDIATE_PATH.search(file_item["path"]):
-                    _fail(f"{label}: publishable case contains an intermediate file")
 
         _validate_workflow_contract(case, label, declared_paths)
         _validate_structure_identity(root, case, declared_paths)
         _validate_properties(case, label, declared_paths)
         _validate_paper_values(root, case, label)
 
-        if publication.get("status") == "publishable":
-            for name in (frontend, "librpa"):
-                if not _immutable_software_identity(software[name]):
-                    _fail(f"{label}: publishable case requires a full {name} commit or executable SHA-256")
-            if not files.get("inputs"):
-                _fail(f"{label}: publishable case requires at least one input file")
-            if not files.get("results"):
-                _fail(f"{label}: publishable case requires at least one final result file")
-            linked_sets = publication.get("basis_set_ids")
-            if not isinstance(linked_sets, list) or not linked_sets:
-                _fail(f"{label}: publishable case requires linked basis sets")
-            exact_sets = {entry.get("set_id") for entry in species if entry.get("set_id")}
-            if not set(linked_sets).issubset(exact_sets):
-                _fail(f"{label}: publishable basis links must match exact species bindings")
-            for set_id in linked_sets:
-                if set_id not in by_id:
-                    _fail(f"{label}: unknown publishable basis set {set_id}")
-                if set_publications[set_id].get("status") != "publishable":
-                    _fail(f"{label}: linked basis set {set_id} is not publishable")
         recommendation = case.get("recommendation")
         if recommendation is not None:
             if not recommendation.get("scope") or not recommendation.get("evidence_case_ids"):
                 _fail(f"{label}: recommendation needs a narrow scope and evidence")
             if any(ref not in all_case_ids for ref in recommendation["evidence_case_ids"]):
                 _fail(f"{label}: recommendation references an unknown case")
-
-    for set_id, publication in set_publications.items():
-        if publication.get("status") != "publishable":
-            continue
-        for case_id in publication["calculation_ids"]:
-            if case_id not in case_publications:
-                _fail(f"basis set {set_id}: unknown linked calculation {case_id}")
-            case_publication = case_publications[case_id]
-            if case_publication.get("status") != "publishable" or set_id not in case_publication.get("basis_set_ids", []):
-                _fail(f"basis set {set_id}: calculation link is not reciprocal")
 
 
 
@@ -1367,6 +1292,18 @@ def load_records(root: Path) -> tuple[list[dict], list[dict]]:
     return sets, cases
 
 
+def _is_aims_species_defaults(item: dict) -> bool:
+    """FHI-aims 物种默认基（species_defaults 角色）是 aims 自身的分级体系
+    （如 intermediate_gw）；注册表与哈希绑定校验照旧使用它们，但它们不进入
+    公共基组库目录——公共目录只收录 ABACUS 的赝势/物理轨道/辅助基记录。"""
+    return any(file_item.get("role") == "species_defaults" for file_item in item.get("files", []))
+
+
+def _public_entry(item: dict) -> dict:
+    """publication 字段随可发布性概念一并从公共目录移除；归档注册表原样保留。"""
+    return {key: value for key, value in item.items() if key != "publication"}
+
+
 def build_catalog(root: Path) -> dict:
     sets, cases = load_records(root)
     validate(root, sets, cases)
@@ -1379,8 +1316,8 @@ def build_catalog(root: Path) -> dict:
         }})
     return enrich_catalog({
         "schema_version": 1,
-        "basis_sets": sets,
-        "calculations": catalog_cases,
+        "basis_sets": [_public_entry(item) for item in sets if not _is_aims_species_defaults(item)],
+        "calculations": [_public_entry(case) for case in catalog_cases],
     })
 
 

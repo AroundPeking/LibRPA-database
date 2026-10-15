@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic log ownership and publishable basis indexes."""
+"""Build the deterministic log ownership index."""
 
 from __future__ import annotations
 
@@ -70,26 +70,6 @@ def build_log_index(root: Path, cases: list[dict]) -> dict:
     }
 
 
-def build_release_index(sets: list[dict]) -> dict:
-    entries = []
-    for item in sets:
-        publication = item.get("publication") or {}
-        if publication.get("status") != "publishable":
-            continue
-        files = [
-            {"role": file_item["role"], "path": file_item["path"], "sha256": file_item["sha256"]}
-            for file_item in item["files"]
-            if file_item.get("role") in {"pp", "nao", "for_aux", "abf"}
-        ]
-        entries.append({
-            "set_id": item["id"],
-            "element": item["element"],
-            "calculation_ids": sorted(publication["calculation_ids"]),
-            "files": sorted(files, key=lambda file_item: (file_item["role"], file_item["path"])),
-        })
-    return {"schema_version": 1, "sets": sorted(entries, key=lambda entry: entry["set_id"])}
-
-
 def _json_bytes(value: dict) -> bytes:
     return (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
 
@@ -98,7 +78,6 @@ def update_indexes(root: Path, write: bool) -> None:
     catalog = build_catalog(root)
     indexes = {
         "data/log-index.json": build_log_index(root, catalog["calculations"]),
-        "data/release-index.json": build_release_index(catalog["basis_sets"]),
     }
     for relative, expected in indexes.items():
         target = root / relative
@@ -108,8 +87,7 @@ def update_indexes(root: Path, write: bool) -> None:
             target.write_bytes(content)
         elif not target.is_file() or target.read_bytes() != content:
             raise ValueError(f"{relative} is missing or stale; run scripts/build_indexes.py --write")
-    print(f"indexes OK: {len(indexes['data/log-index.json']['entries'])} logs, "
-          f"{len(indexes['data/release-index.json']['sets'])} publishable basis sets")
+    print(f"indexes OK: {len(indexes['data/log-index.json']['entries'])} logs")
 
 
 def main() -> int:

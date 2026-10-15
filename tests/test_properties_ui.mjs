@@ -12,7 +12,7 @@ test("provides the initial scientific and performance property categories", () =
   ]);
 });
 
-test("renders a numeric property with method, unit, status, and evidence", () => {
+test("renders a numeric property with method, unit, and evidence", () => {
   const property = {
     category: "electronic", key: "band_gap", label: "Band gap", method: "G0W0",
     value: 2.14, unit: "eV", status: "reported", evidence: ["data/case/GW_bands.dat"],
@@ -22,8 +22,9 @@ test("renders a numeric property with method, unit, status, and evidence", () =>
   assert.match(panel, /G0W0/);
   assert.match(panel, /2\.14/);
   assert.match(panel, /eV/);
-  assert.match(panel, /reported/i);
   assert.match(panel, /\.\.\/data\/case\/GW_bands\.dat/);
+  assert.doesNotMatch(panel, />Status<|property-status/);
+  assert.doesNotMatch(panel, /Reported|Validated|Computed/);
 });
 
 test("adds contributed categories and escapes their displayed labels", () => {
@@ -34,13 +35,13 @@ test("adds contributed categories and escapes their displayed labels", () => {
 
 test("shows an empty topology category without inventing a value", () => {
   const panel = renderPropertyPanel([], "topological");
-  assert.match(panel, /No results reported/);
+  assert.match(panel, /No values recorded/);
   assert.match(panel, /CONTRIBUTING\.md/);
   assert.doesNotMatch(panel, /\b(?:0|1|2)\b/);
 });
 
 test("internal failed properties are omitted from the formal database view", () => {
   const panel = renderPropertyPanel([{ category: "electronic", label: "Internal gate", method: "GW", status: "failed", value: null }], "electronic");
-  assert.match(panel, /No results reported/);
+  assert.match(panel, /No values recorded/);
   assert.doesNotMatch(panel, /Internal gate|Failed/);
 });

@@ -225,7 +225,8 @@ required by strict upload checks or remove completeness blockers. The old hBN
 record does not use values from the new-basis table row.
 
 The generated log index is a bijection: every retained file under a case's
-`logs/` directory must appear exactly once in `data/log-index.json`. A basis
-set enters `data/release-index.json` only when both the set and its linked case
-are explicitly `publishable`; the basis-skill mirror then validates those
-same IDs and hashes before accepting a copy.
+`logs/` directory must appear exactly once in `data/log-index.json`. The
+public basis library catalogues ABACUS basis records only; FHI-aims species
+defaults (FHI-aims' own tier classification) stay in the per-element set
+registries as byte-exact binding evidence and are inlined in each
+calculation's archived `control.in`.

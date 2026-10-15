@@ -26,10 +26,17 @@ data/
 database/data.json
 ```
 
-The generated `data/log-index.json` records one owner for each retained log;
-`data/release-index.json` is the machine-readable list of directly mirrored
-sets. Rebuild both with `python3 scripts/build_indexes.py --write` and use
-`--check` in CI.
+The generated `data/log-index.json` records one owner for each retained log.
+Rebuild it with `python3 scripts/build_indexes.py --write` and use `--check`
+in CI.
+
+The public basis library in `database/data.json` catalogues ABACUS basis
+records only: pseudopotentials, physical numerical orbitals, and auxiliary
+basis functions. FHI-aims species defaults (FHI-aims' own tier
+classification, for example `intermediate_gw`) remain in the per-element
+set registries as byte-exact binding evidence for FHI-aims calculations;
+they are inlined in each calculation's archived `control.in` and are not
+published as basis-library records.
 
 `set.json` binds one element's PP, physical NAO, optional auxiliary-generation
 orbital, and ABF. It may also contain portable generation evidence. A
@@ -172,7 +179,7 @@ missing-evidence-report checks. The homepage, each record, and
 `database/missing-evidence.html` disclose unresolved evidence. Strict
 `--check-completeness` remains blocking, without historical waivers; a
 successful Pages deployment does not establish complete-upload or scientific
-acceptance, and does not make a basis set eligible for the release index.
+acceptance, and does not change what the public basis library catalogues.
 
 Band displays preserve the original frozen selections and mappings: 3 occupied
 and 4 empty bands for 3D, the original 4/4 for the new hBN record, and the exact

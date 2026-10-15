@@ -12,14 +12,10 @@ This repository is an open data archive for LibRPA materials calculations. It ca
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
-The current snapshot contains 123 immutable basis-set records covering 27 elements and 35 records (15 two-dimensional calculations and 20 three-dimensional calculation or conversion records). These are historical and diagnostic records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
+The current snapshot contains 109 calculation records across 2D and 3D (band, large-system GW, RPA-energy, and reader-conversion records) and a public basis library of 123 ABACUS pseudopotential / physical-orbital / auxiliary-basis records. FHI-aims species defaults are kept as per-calculation binding evidence inlined in each archived `control.in`, not as basis-library entries. These are historical and reference records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.
 
 The generated [`data/log-index.json`](data/log-index.json) gives every retained
-log exactly one calculation owner. [`data/release-index.json`](data/release-index.json)
-contains only basis sets explicitly marked `publishable`; it is currently
-empty because the imported historical records still lack complete public
-release evidence. The companion basis-skill repository mirrors only this
-release index.
+log exactly one calculation owner.
 
 ## Use
 

@@ -1,4 +1,4 @@
-"""Regressions for deterministic calculation and basis release indexes."""
+"""Regressions for the deterministic calculation log index."""
 
 import importlib.util
 import hashlib
@@ -57,16 +57,6 @@ class IndexBuilderTests(unittest.TestCase):
         orphan.write_text("unindexed\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "not indexed"):
             self.builder.build_log_index(self.root, [self.case])
-
-    def test_release_index_contains_only_explicitly_publishable_sets(self):
-        sets = [
-            {"id": "Si-pending", "element": "Si", "files": [], "publication": {"status": "review"}},
-            {"id": "Si-release", "element": "Si", "files": [{"role": "pp", "path": "pp.upf", "sha256": "b" * 64}],
-             "publication": {"status": "publishable", "calculation_ids": ["si-control"]}},
-        ]
-        result = self.builder.build_release_index(sets)
-        self.assertEqual([entry["set_id"] for entry in result["sets"]], ["Si-release"])
-        self.assertEqual(result["sets"][0]["calculation_ids"], ["si-control"])
 
 
 if __name__ == "__main__":

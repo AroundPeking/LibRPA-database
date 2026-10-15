@@ -15,7 +15,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT_FILES = {"index.html", ".nojekyll", "README.md", "CONTRIBUTING.md", "LICENSE"}
 REFERENCE_FILES = {"references/database.md", "references/plotting.md"}
-INDEX_FILES = {"data/log-index.json", "data/release-index.json"}
+INDEX_FILES = {"data/log-index.json"}
 INTERNAL_WEB_FILES = {"database/archive-completeness.json", "database/missing-evidence.html"}
 WEB_SUFFIXES = {".html", ".css", ".js", ".mjs", ".json"}
 STATIC_DIRS = {"database", "references", "assets", "images", "fonts"}

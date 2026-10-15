@@ -46,7 +46,6 @@ class SiteBuildTests(unittest.TestCase):
         self.write_json("data/elements/Si/sets/Si-test/set.json", self.basis)
         self.write_json("data/calculations/3d/Si/si-test/record.json", self.case)
         self.write_json("data/log-index.json", {"entries": self.case["files"]["logs"]})
-        self.write_json("data/release-index.json", {"sets": []})
 
     def write(self, relative, content):
         path = self.root / relative
@@ -71,7 +70,7 @@ class SiteBuildTests(unittest.TestCase):
         expected = {
             "index.html", "database/index.html", "database/style.css", "database/app.js", "database/search.mjs",
             "database/assets/background.svg", "database/data.json", "README.md", "CONTRIBUTING.md", "LICENSE",
-            "references/database.md", "data/log-index.json", "data/release-index.json",
+            "references/database.md", "data/log-index.json",
             "data/elements/Si/sets/Si-test/set.json", "data/calculations/3d/Si/si-test/record.json",
             self.basis["files"][0]["path"], self.case["files"]["results"][0]["path"], self.case["files"]["logs"][0]["path"],
         }

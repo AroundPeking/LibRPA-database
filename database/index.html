@@ -53,7 +53,6 @@
           </fieldset>
           <label class="select-control" for="element-filter"><span>ELEMENT</span><select id="element-filter"><option value="all">All elements</option></select></label>
           <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Input files available</option></select></label>
-          <label class="select-control" id="status-filter-control" for="status-filter" hidden><span>PUBLICATION</span><select id="status-filter"><option value="all">All states</option></select></label>
           <div class="filter-note"><span class="note-marker" aria-hidden="true">i</span><p>Each calculation links its numerical results, inputs, basis data, and code provenance.</p></div>
           <a class="sidebar-link" href="https://github.com/AroundPeking/abacus-librpa-gw-basis-skill">Basis selection guide <span aria-hidden="true">↗</span></a>
           </div>
@@ -64,7 +63,7 @@
           <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gap">GW gap ↓</option></select></label></div>
           <div id="catalog" class="catalog" aria-busy="true"></div>
           <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
-          <p class="catalog-footnote" id="catalog-footnote">One row per calculation. Gaps are in eV and may describe the archived k-path, not the global fundamental gap. A dash means not reported; open a record for its definition and evidence.</p>
+          <p class="catalog-footnote" id="catalog-footnote">One row per calculation. Gaps are in eV and may describe the archived k-path, not the global fundamental gap. A dash means no value is listed; open a record for its definition and evidence.</p>
           <div id="load-error" class="notice warning" role="alert" hidden></div>
         </div>
       </div>

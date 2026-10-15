@@ -233,6 +233,32 @@ test("software filter narrows the calculation catalog by workflow frontend", () 
   assert.match(index, /Download catalog \(JSON\)/);
 });
 
+test("basis library catalogues ABACUS assets only, without publication labels", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  const details = readFileSync(new URL("../database/details.mjs", import.meta.url), "utf8");
+  assert.ok(catalog.basis_sets.length > 0);
+  for (const set of catalog.basis_sets) {
+    assert.ok(set.files.some(file => ["pp", "nao", "for_aux", "abf"].includes(file.role)), `${set.id} payload`);
+    assert.ok(!set.files.some(file => file.role === "species_defaults"), `${set.id} species defaults leaked`);
+    assert.equal(set.publication, undefined, `${set.id} publication leaked`);
+  }
+  for (const record of catalog.calculations) assert.equal(record.publication, undefined, `${record.id} publication leaked`);
+  assert.doesNotMatch(app, /publication-tag|statusNames|status-filter/);
+  assert.doesNotMatch(details, /publication-tag|Published set|Published basis set/);
+  assert.doesNotMatch(index, /status-filter|PUBLICATION/);
+  assert.match(app, /\["Element \/ family", "Assets", "Recorded scope", "Linked", ""\]/);
+});
+
+test("aims records show species-default binding notes without basis-library links", () => {
+  const details = readFileSync(new URL("../database/details.mjs", import.meta.url), "utf8");
+  assert.match(details, /FHI-aims species defaults/);
+  assert.match(details, /intermediate_gw/);
+  assert.match(details, /own classification/);
+  assert.match(details, /archived control\.in/);
+});
+
 test("database branding is front-end neutral and supports ABACUS and FHI-aims workflows", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
@@ -506,7 +532,7 @@ test("rpa energy detail page renders results, scale, and performance instead of 
   assert.match(html, /2:34:58/);
   assert.match(html, /DCU x1\/node \(100 total\)/);
   assert.match(html, /-418\.489041942/);
-  assert.match(html, /Energy reported/);
+  assert.match(html, /RPA energy/);
   assert.match(html, /PCA with threshold 0\.0001/);
   assert.doesNotMatch(html, /Electronic bands|plotting reference/);
 });

@@ -167,33 +167,21 @@ class LibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "private path"):
             self.lib.validate(self.root, [self.set], [self.case])
 
-    def _make_publishable(self):
-        self.set["files"] = [
-            self.file,
-            self._add_file("elements/Si/orbitals/test.orb", b"physical nao\n", "nao"),
-            self._add_file("elements/Si/auxiliary/test.abfs", b"auxiliary basis\n", "abf"),
-        ]
-        self.set["source"] = {
-            "url": "https://example.org/si-basis",
-            "license": "CC0-1.0",
-            "redistribution": "permitted",
-        }
-        self.set["publication"] = {
-            "status": "publishable",
-            "calculation_ids": ["si-control"],
-        }
-        self.case["software"] = {
-            "abacus": {"commit": "a" * 40},
-            "librpa": {"commit": "b" * 40},
-        }
-        self.case["files"] = {
-            "inputs": [self._add_file("calculations/si/INPUT", b"input\n", "inputs")],
-            "results": [self._add_file("calculations/si/GW_band.dat", b"bands\n", "results")],
-        }
-        self.case["publication"] = {
-            "status": "publishable",
-            "basis_set_ids": ["Si-test"],
-        }
+    def test_build_catalog_publishes_only_abacus_basis_records(self):
+        sets_dir = self.root / "data/elements/Si/sets"
+        sets_dir.mkdir(parents=True)
+        abacus = dict(self.set, publication={"status": "database_only"})
+        (sets_dir / "Si-test").mkdir()
+        (sets_dir / "Si-test" / "set.json").write_text(json.dumps(abacus), encoding="utf-8")
+        aims = {"id": "Si-aims", "element": "Si",
+                "files": [dict(self.file, role="species_defaults")],
+                "publication": {"status": "database_only"}}
+        (sets_dir / "Si-aims").mkdir()
+        (sets_dir / "Si-aims" / "set.json").write_text(json.dumps(aims), encoding="utf-8")
+        catalog = self.lib.build_catalog(self.root)
+        self.assertEqual([item["id"] for item in catalog["basis_sets"]], ["Si-test"])
+        self.assertTrue(all("publication" not in item for item in catalog["basis_sets"]))
+        self.assertTrue(all("publication" not in item for item in catalog["calculations"]))
 
     def _add_file(self, relative_path, contents, role):
         path = self.root / relative_path
@@ -204,38 +192,6 @@ class LibraryTests(unittest.TestCase):
             "sha256": hashlib.sha256(contents).hexdigest(),
             "role": role,
         }
-
-    def test_complete_publishable_case_and_basis_are_accepted(self):
-        self._make_publishable()
-        self.lib.validate(self.root, [self.set], [self.case])
-
-    def test_publishable_case_requires_exact_immutable_software_identity(self):
-        self._make_publishable()
-        self.case["software"]["librpa"]["commit"] = None
-        with self.assertRaisesRegex(ValueError, "publishable.*commit or executable SHA-256"):
-            self.lib.validate(self.root, [self.set], [self.case])
-        self.case["software"]["librpa"]["executable_sha256"] = "c" * 64
-        self.lib.validate(self.root, [self.set], [self.case])
-
-    def test_publishable_case_requires_inputs_and_final_results(self):
-        self._make_publishable()
-        self.case["files"]["inputs"] = []
-        with self.assertRaisesRegex(ValueError, "publishable.*input"):
-            self.lib.validate(self.root, [self.set], [self.case])
-
-    def test_publishable_case_rejects_intermediate_files(self):
-        self._make_publishable()
-        self.case["files"]["results"].append(
-            self._add_file("calculations/si/restart/WFC_restart.wfc", b"scratch\n", "results")
-        )
-        with self.assertRaisesRegex(ValueError, "intermediate"):
-            self.lib.validate(self.root, [self.set], [self.case])
-
-    def test_publishable_basis_requires_explicit_redistribution_terms(self):
-        self._make_publishable()
-        self.set["source"]["redistribution"] = "unknown"
-        with self.assertRaisesRegex(ValueError, "redistribution"):
-            self.lib.validate(self.root, [self.set], [self.case])
 
     def test_record_level_status_labels_are_rejected(self):
         self.case["status"] = "gw_diagnostic"
@@ -277,7 +233,6 @@ class CompletenessTests(unittest.TestCase):
         }
         self.case = {
             "id": "si-control", "dimension": "3d", "material": "Si", "formula": "Si",
-            "publication": {"status": "legacy_incomplete"},
             "species": [{"element": "Si", "set_id": "Si-test", "asset_aliases": {
                 "pp": "test.upf", "nao": "test.orb", "abf": "test.abfs"}}],
             "software": {"abacus": {"commit": "a" * 40}, "librpa": {"commit": "b" * 40}},

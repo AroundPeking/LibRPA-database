@@ -11,12 +11,6 @@ const initialCategories = [
   { slug: "other", label: "Other" },
 ];
 
-const statusLabels = {
-  reported: "Reported",
-  validated: "Validated",
-  provisional: "Computed",
-};
-
 const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 }[char]));
@@ -62,11 +56,11 @@ export function renderPropertyTabs(properties = [], selectedCategory = "electron
 export function renderPropertyPanel(properties = [], selectedCategory = "electronic") {
   const rows = properties.filter(property => property?.category === selectedCategory && property.status !== "failed");
   if (!rows.length) {
-    return '<div class="property-empty"><p>No results reported</p><a href="../CONTRIBUTING.md">Contribute a property</a></div>';
+    return '<div class="property-empty"><p>No values recorded</p><a href="../CONTRIBUTING.md">Contribute a property</a></div>';
   }
-  return `<div class="property-table-wrap"><table class="property-table"><thead><tr><th>Property</th><th>Method</th><th>Value</th><th>Status</th><th>Evidence</th></tr></thead><tbody>${rows.map(property => {
+  return `<div class="property-table-wrap"><table class="property-table"><thead><tr><th>Property</th><th>Method</th><th>Value</th><th>Evidence</th></tr></thead><tbody>${rows.map(property => {
     const definition = property.definition ? `<span class="property-definition">${escapeHtml(property.definition)}</span>` : "";
     const value = displayValue(property.value);
-    return `<tr><th scope="row"><span>${escapeHtml(property.label)}</span>${definition}</th><td>${escapeHtml(property.method)}</td><td><span class="property-value">${escapeHtml(value)}</span>${property.unit ? `<span class="property-unit">${escapeHtml(property.unit)}</span>` : ""}</td><td><span class="property-status ${escapeHtml(property.status)}">${escapeHtml(statusLabels[property.status] || property.status || "Unclassified")}</span></td><td class="property-evidence">${evidenceLinks(property.evidence)}</td></tr>`;
+    return `<tr><th scope="row"><span>${escapeHtml(property.label)}</span>${definition}</th><td>${escapeHtml(property.method)}</td><td><span class="property-value">${escapeHtml(value)}</span>${property.unit ? `<span class="property-unit">${escapeHtml(property.unit)}</span>` : ""}</td><td class="property-evidence">${evidenceLinks(property.evidence)}</td></tr>`;
   }).join("")}</tbody></table></div>`;
 }
