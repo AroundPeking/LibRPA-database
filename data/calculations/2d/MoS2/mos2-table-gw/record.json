@@ -297,6 +297,11 @@
       }
     ]
   },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "7c4dca3b383e3f44d65f84d0d0c0188f03fff179f91a9e8a9df331298349d497",
+    "evidence": "data/calculations/2d/MoS2/mos2-table-gw/inputs/STRU"
+  },
   "recommendation": null,
   "missing": [
     "Full per-case ABACUS/LibRPA commits pending source-case audit"
@@ -377,16 +382,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aK\u2013K\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       },
       "GW": {
         "value": 2.37339,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aK\u2013K\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       }
     },
-    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。 MoS2其他EXX收敛系列的6.25292 eV不是本case的主表值，不替换本case归档EXX。"
+    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002 MoS2\u5176\u4ed6EXX\u6536\u655b\u7cfb\u5217\u76846.25292 eV\u4e0d\u662f\u672ccase\u7684\u4e3b\u8868\u503c\uff0c\u4e0d\u66ff\u6362\u672ccase\u5f52\u6863EXX\u3002"
   }
 }

@@ -114,6 +114,16 @@ with a note that the full identity was not recorded. A full ID resolved from a
 unique local object is still marked as historical resolution when the original
 log printed only a prefix.
 
+A record that archives an unambiguous structure input (`STRU` for ABACUS,
+`geometry.in` for FHI-aims) carries `structure_identity`: a digest over the
+canonicalized cell and atomic sites (`cell-sites-v1`, 1e-5 Angstrom grid),
+pointing at that archived input as evidence. Two records with the same digest
+used the same structure and the site compares them directly. Records that
+cover the same material with the other frontend but a different structure
+(independently relaxed or differently sized cells) are shown as cross-frontend
+reference points instead, and are never presented as identical-structure
+comparisons.
+
 ## Extensible calculated properties
 
 Put each result that should be searchable and displayed on a material detail

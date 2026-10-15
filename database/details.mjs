@@ -1,4 +1,4 @@
-import { esc, publicPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, primaryResult } from "./records.mjs";
+import { esc, publicPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
 import { renderFiles } from "./files.mjs";
 import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs } from "./properties.mjs";
@@ -96,6 +96,17 @@ function sameStructureNotice(record, allRecords) {
   return `<div class="notice same-structure"><strong>Same-structure calculations</strong><p>This structure has ${peers.length === 1 ? "1 other" : `${peers.length} other`} independent calculation${peers.length > 1 ? "s" : ""} in the database, using a different workflow or frontend. Compare results directly:</p><div class="compare-list">${rows}</div></div>`;
 }
 
+function crossFrontendNotice(record, allRecords) {
+  const peers = crossFrontendRecords(record, allRecords);
+  if (!peers.length) return "";
+  const rows = peers.map(peer => {
+    const result = primaryResult(peer);
+    const value = result ? `${typeof result.value === "number" ? result.value.toFixed(5) : esc(result.value)} <small>${esc(result.unit)}</small>` : "—";
+    return `<div class="compare-row"><a href="${materialLink(peer)}"><strong>${esc(peer.material)}</strong><span>${esc(peer.id)} · ${esc(recordTypeLabel(peer))}</span></a><span class="compare-frontend">${esc(workflowLabel(peer))}</span><span class="compare-result">${value}</span></div>`;
+  }).join("");
+  return `<div class="notice cross-frontend"><strong>Same material across frontends</strong><p>This material is also covered by ${peers.length === 1 ? "1 other record from" : `${peers.length} other records from`} the ${esc(frontendLabel(peers[0]))} frontend. Those runs set their structures independently, so the values are cross-frontend reference points, not identical-structure comparisons:</p><div class="compare-list">${rows}</div></div>`;
+}
+
 function sourceInfo(record) {
   const source = record.source || {};
   const safeRepository = /^https:\/\/github\.com\/[^\s]+$/.test(source.repository || "");
@@ -123,7 +134,7 @@ export function renderMaterial(record, sets, allRecords = []) {
   const readerConversion = type === "reader_conversion";
   const validationState = readerConversion ? (record.associated_gw_run?.scheduler_state === "COMPLETED" ? "Reader-format provenance with linked GW completion audit" : "Reader-format provenance record") : largeSystem ? "Large-system GW calculation" : type === "rpa_energy" ? "RPA energy calculation" : "GW calculation";
   const scopedObservable = limited && record.summary?.value != null ? `<div class="notice"><strong>${esc(record.summary.observable)}</strong><p>Path-resolved selected-state observable. ${paperGap(record) ? "The database displays the referenced path value with its recorded definition." : "The numerical result remains available in the associated data files."}</p></div>` : "";
-  const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
+  const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${crossFrontendNotice(record, allRecords)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
   const structureHtml = structure.length ? `<p class="section-intro">Structure files attached to this calculation. Files from different calculation stages remain separately identified.</p>${renderFiles(structure, { input: true })}` : '<div class="empty-panel"><h3>Structure data</h3><p>This record presents the calculation results and attached provenance files; no separate STRU, CIF, or equivalent structure file is listed.</p></div>';
   const bandsHtml = `<p class="section-intro">Figure style and data contracts: <a href="../references/plotting.md">plotting reference</a> · <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/scripts/generate_band_figures.py" target="_blank" rel="noopener">reusable band-figure script ↗</a>. Each method uses its own occupied path VBM. The y range shows the full extent of the selected curves without adding bands.</p>${mainFigures.length ? `${figureGrid(mainFigures)}<p class="definition-note">Band figures follow the recorded k-path; refer to the definition and scope in Overview.</p>` : '<p class="empty-panel">Numerical result files are listed below.</p>'}${originalFigures.length ? `<details class="original-figures"><summary>Additional source figures · ${originalFigures.length}</summary>${figureGrid(originalFigures)}</details>` : ""}<h3 class="subheading">Numerical result files</h3>${renderFiles(results)}${figureAttachments.length ? `<h3 class="subheading">Figure source &amp; metadata</h3>${renderFiles(figureAttachments)}` : ""}`;
   const sampledPbe = sampledGridGap(record, "PBE");

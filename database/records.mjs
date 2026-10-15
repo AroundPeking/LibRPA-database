@@ -112,6 +112,13 @@ export function sameStructureRecords(record, allRecords) {
   return allRecords.filter(r => r.id !== record.id && structureFingerprint(r) === fp);
 }
 
+export function crossFrontendRecords(record, allRecords) {
+  const frontend = workflowFrontend(record);
+  const linked = new Set(sameStructureRecords(record, allRecords).map(peer => peer.id));
+  return allRecords.filter(other => other.id !== record.id && other.material === record.material
+    && workflowFrontend(other) !== frontend && !linked.has(other.id));
+}
+
 export function atomCount(record) {
   const value = record?.computational_scale?.atom_count;
   return Number.isInteger(value) && value > 0 ? value : null;

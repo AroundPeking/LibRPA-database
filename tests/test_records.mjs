@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
@@ -534,6 +534,48 @@ test("same-structure records are found by fingerprint and exclude self", () => {
   assert.equal(sameStructureRecords(noIdentity, [record, peer]).length, 0);
 });
 
+test("cross-frontend records pair same material across frontends, excluding fingerprint-linked peers", () => {
+  const sharedSha = "a".repeat(64);
+  const record = { id: "si-paper", material: "Si", workflow: { frontend: "abacus" }, structure_identity: { algorithm: "cell-sites-v1", sha256: sharedSha } };
+  const linkedPeer = { id: "si-jctc-exact", material: "Si", workflow: { frontend: "fhi_aims" }, structure_identity: { algorithm: "cell-sites-v1", sha256: sharedSha } };
+  const relaxedPeer = { id: "si-jctc", material: "Si", workflow: { frontend: "fhi_aims" }, structure_identity: { algorithm: "cell-sites-v1", sha256: "b".repeat(64) } };
+  const sameFrontend = { id: "si-paper-2", material: "Si", workflow: { frontend: "abacus" } };
+  const otherMaterial = { id: "gaas-jctc", material: "GaAs", workflow: { frontend: "fhi_aims" } };
+  const peers = crossFrontendRecords(record, [record, linkedPeer, relaxedPeer, sameFrontend, otherMaterial]);
+  assert.equal(peers.length, 1);
+  assert.equal(peers[0].id, "si-jctc");
+  const reverse = crossFrontendRecords(relaxedPeer, [record, linkedPeer, relaxedPeer, sameFrontend, otherMaterial]);
+  assert.deepEqual(reverse.map(peer => peer.id), ["si-paper", "si-paper-2"]);
+});
+
+test("detail page shows cross-frontend same-material comparison with a structure caveat", () => {
+  const record = {
+    id: "si-paper-all-kpath", material: "Si", formula: "Si", dimension: "3d",
+    record_type: "band",
+    workflow: { frontend: "abacus", task: "gw" },
+    structure_identity: { algorithm: "cell-sites-v1", sha256: "a".repeat(64) },
+    properties: [{ key: "band_gap", category: "electronic", method: "GW", unit: "eV", status: "reported", value: 1.2 }],
+    files: {},
+  };
+  const peer = {
+    id: "si-jctc-aims-gw", material: "Si", formula: "Si", dimension: "3d",
+    record_type: "band",
+    workflow: { frontend: "fhi_aims", task: "gw" },
+    structure_identity: { algorithm: "cell-sites-v1", sha256: "b".repeat(64) },
+    properties: [{ key: "band_gap", category: "electronic", method: "GW", unit: "eV", status: "reported", value: 1.24 }],
+    files: {},
+  };
+  const html = renderMaterial(record, [], [record, peer]);
+  assert.match(html, /Same material across frontends/);
+  assert.match(html, /the FHI-aims frontend/);
+  assert.match(html, /not identical-structure comparisons/);
+  assert.match(html, /si-jctc-aims-gw · Band structure/);
+  assert.doesNotMatch(html, /Same-structure calculations/);
+  const aimsHtml = renderMaterial(peer, [], [record, peer]);
+  assert.match(aimsHtml, /the ABACUS frontend/);
+  assert.match(aimsHtml, /si-paper-all-kpath/);
+});
+
 test("detail page shows frontend tag and same-structure comparison when peers exist", () => {
   const sha = "d".repeat(64);
   const record = {
@@ -556,6 +598,7 @@ test("detail page shows frontend tag and same-structure comparison when peers ex
   assert.match(html, /aims-c2048/);
   assert.match(html, /FHI-aims \+ LibRPA/);
   assert.match(html, /-418\.49000/);
+  assert.doesNotMatch(html, /Same material across frontends/);
 });
 
 test("rpa energy detail page renders results, scale, and performance instead of band sections", () => {

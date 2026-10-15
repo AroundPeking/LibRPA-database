@@ -327,6 +327,11 @@
       }
     ]
   },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "b4978529d63137f0badc701e35d0d165426f91e2f3d2f4aaabaded43ae7969e9",
+    "evidence": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU"
+  },
   "recommendation": null,
   "missing": [
     "Full per-case ABACUS/LibRPA commits pending source-case audit"
@@ -379,7 +384,7 @@
       "value": -1898024.7638299998,
       "unit": "eV",
       "status": "provisional",
-      "definition": "Restricted raw-band frontier path gap: full raw path CBM − VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
+      "definition": "Restricted raw-band frontier path gap: full raw path CBM \u2212 VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
       "scope": "Sampled path; provisional pathological diagnostic, not an accepted gap.",
       "evidence": [
         "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat"
@@ -422,16 +427,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1asampled path\uff1bprovisional/path\u8bca\u65ad\uff0c\u4e0d\u5347\u7ea7\u4e3aaccepted benchmark\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       },
       "GW": {
         "value": 1.74577,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1asampled path\uff1bprovisional/path\u8bca\u65ad\uff0c\u4e0d\u5347\u7ea7\u4e3aaccepted benchmark\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       }
     },
-    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
   }
 }

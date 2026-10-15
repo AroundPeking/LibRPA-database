@@ -339,6 +339,11 @@
       }
     ]
   },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "7b213de52fefb973615691b7ad3d3fba5607355d73b8c4292f90d5035ed10b34",
+    "evidence": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU"
+  },
   "recommendation": null,
   "missing": [
     "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -416,16 +421,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE Γ–K → GW Γ–Q；应用路径诊断，AA′六原子异双层；3D论文Fig.10同一结果按三位小数报告。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aPBE \u0393\u2013K \u2192 GW \u0393\u2013Q\uff1b\u5e94\u7528\u8def\u5f84\u8bca\u65ad\uff0cAA\u2032\u516d\u539f\u5b50\u5f02\u53cc\u5c42\uff1b3D\u8bba\u6587Fig.10\u540c\u4e00\u7ed3\u679c\u6309\u4e09\u4f4d\u5c0f\u6570\u62a5\u544a\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       },
       "GW": {
         "value": 1.8658,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE Γ–K → GW Γ–Q；应用路径诊断，AA′六原子异双层；3D论文Fig.10同一结果按三位小数报告。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
+        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aPBE \u0393\u2013K \u2192 GW \u0393\u2013Q\uff1b\u5e94\u7528\u8def\u5f84\u8bca\u65ad\uff0cAA\u2032\u516d\u539f\u5b50\u5f02\u53cc\u5c42\uff1b3D\u8bba\u6587Fig.10\u540c\u4e00\u7ed3\u679c\u6309\u4e09\u4f4d\u5c0f\u6570\u62a5\u544a\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
       }
     },
-    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
   }
 }

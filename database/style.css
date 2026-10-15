@@ -207,14 +207,14 @@ main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0;
 .notice.warning strong { color: var(--warning); }
 .notice ul { padding-left: 18px; margin-bottom: 0; }
 .notice li { margin-top: 5px; }
-.notice.same-structure .compare-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
-.notice.same-structure .compare-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); }
-.notice.same-structure .compare-row a { min-height: 44px; display: flex; flex-direction: column; }
-.notice.same-structure .compare-row a strong { font-size: 14px; color: var(--ink); }
-.notice.same-structure .compare-row a span { font-size: 12px; color: var(--muted); }
-.notice.same-structure .compare-frontend { font-size: 12px; color: var(--accent); border: 1px solid var(--line); border-radius: 3px; padding: 2px 7px; }
-.notice.same-structure .compare-result { font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; margin-left: auto; }
-.notice.same-structure .compare-result small { font-size: 12px; color: var(--muted); }
+.notice.same-structure .compare-list, .notice.cross-frontend .compare-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.notice.same-structure .compare-row, .notice.cross-frontend .compare-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); }
+.notice.same-structure .compare-row a, .notice.cross-frontend .compare-row a { min-height: 44px; display: flex; flex-direction: column; }
+.notice.same-structure .compare-row a strong, .notice.cross-frontend .compare-row a strong { font-size: 14px; color: var(--ink); }
+.notice.same-structure .compare-row a span, .notice.cross-frontend .compare-row a span { font-size: 12px; color: var(--muted); }
+.notice.same-structure .compare-frontend, .notice.cross-frontend .compare-frontend { font-size: 12px; color: var(--accent); border: 1px solid var(--line); border-radius: 3px; padding: 2px 7px; }
+.notice.same-structure .compare-result, .notice.cross-frontend .compare-result { font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; margin-left: auto; }
+.notice.same-structure .compare-result small, .notice.cross-frontend .compare-result small { font-size: 12px; color: var(--muted); }
 .frontend-tag { font-size: 12px; color: var(--accent); border: 1px solid var(--line); border-radius: 3px; padding: 3px 7px; }
 .file-list { border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
 .file-row { display: flex; align-items: flex-start; gap: 18px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
@@ -621,12 +621,12 @@ main{width:min(1460px,calc(100% - 72px));padding-top:26px}
 .notice strong{color:#176774;font-size:13px;font-weight:650}
 .notice.warning{background:#faf3e6;border-color:#e4d2b4;border-left-color:#b08b4f;color:#786549}
 .notice.warning strong{color:#845a20}
-.notice.same-structure .compare-row{background:var(--tint);border-color:var(--line);border-radius:10px}
-.notice.same-structure .compare-row a strong{color:var(--text-strong)}
-.notice.same-structure .compare-row a span{color:var(--text-faint)}
-.notice.same-structure .compare-frontend{color:var(--accent-deep);border-color:var(--line)}
-.notice.same-structure .compare-result{color:var(--heading)}
-.notice.same-structure .compare-result small{color:var(--text-faint)}
+.notice.same-structure .compare-row,.notice.cross-frontend .compare-row{background:var(--tint);border-color:var(--line);border-radius:10px}
+.notice.same-structure .compare-row a strong,.notice.cross-frontend .compare-row a strong{color:var(--text-strong)}
+.notice.same-structure .compare-row a span,.notice.cross-frontend .compare-row a span{color:var(--text-faint)}
+.notice.same-structure .compare-frontend,.notice.cross-frontend .compare-frontend{color:var(--accent-deep);border-color:var(--line)}
+.notice.same-structure .compare-result,.notice.cross-frontend .compare-result{color:var(--heading)}
+.notice.same-structure .compare-result small,.notice.cross-frontend .compare-result small{color:var(--text-faint)}
 .file-list{background:var(--panel);border-color:var(--line);border-radius:10px;overflow:hidden}
 .file-row{padding:15px 17px;border-color:var(--line);gap:20px;transition:background-color .13s ease}
 .file-row:hover{background:var(--raised)}

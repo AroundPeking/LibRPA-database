@@ -286,6 +286,11 @@
       }
     ]
   },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "1c0ea5ba4be5c05ed66debfccc7694e2529a0cfb8ea64966b8e22321a512c427",
+    "evidence": "data/calculations/3d/C/c-paper-sg15_cs1e-5/inputs/STRU"
+  },
   "recommendation": null,
   "missing": [
     "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -364,16 +369,16 @@
         "unit": "eV",
         "precision": 3,
         "column": "PBE / ABACUS",
-        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+        "scope": "\u8bba\u6587Table IV\u7684ABACUS PBE\u548cABACUS+LibRPA G0W0@PBE\u4e3b\u5217\uff1b\u4e0d\u662fFHI-aims\u53c2\u8003\u5217\uff0c\u4e5f\u4e0d\u66ff\u4ee3\u5f52\u6863path\u8c31\u6216\u8bc1\u660e\u5176\u5168\u8c31\u9a8c\u6536\u3002"
       },
       "GW": {
         "value": 5.549,
         "unit": "eV",
         "precision": 3,
         "column": "G0W0@PBE / ABACUS+LibRPA",
-        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
+        "scope": "\u8bba\u6587Table IV\u7684ABACUS PBE\u548cABACUS+LibRPA G0W0@PBE\u4e3b\u5217\uff1b\u4e0d\u662fFHI-aims\u53c2\u8003\u5217\uff0c\u4e5f\u4e0d\u66ff\u4ee3\u5f52\u6863path\u8c31\u6216\u8bc1\u660e\u5176\u5168\u8c31\u9a8c\u6536\u3002"
       }
     },
-    "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
+    "notes": "\u8bba\u6587Table IV\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
   }
 }

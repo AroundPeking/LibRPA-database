@@ -13628,6 +13628,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "cb974a48f1b965313f630dcb254bd87cd05bea789fcf302f3abcf43d7fa0d996",
+        "evidence": "data/calculations/2d/CuInP2Se6/cuinp2se6-table-gw/inputs/recovered/0bfc422bd721/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -14089,6 +14094,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "4ccdf2de56f429d5b7feb02fa0405a1a642ab79445e99afe35c37e2b7f4ad4cd",
+        "evidence": "data/calculations/2d/GaTe/gate-table-gw/inputs/recovered/8ce60b5932f4/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -14501,6 +14511,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "7be61985b572ba5de9c3d5aedc43976ac3346e5906b5780db211a4df33f42542",
+        "evidence": "data/calculations/2d/GeTe/gete-table-gw/inputs/recovered/scf/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -14981,6 +14996,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "d558feff72c58958ce3ab3935352e674ae717a214e91079a3cd412d236600bb1",
+        "evidence": "data/calculations/2d/In2Se3/in2se3-table-gw/inputs/recovered/68910c682785/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -15442,6 +15462,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "25aa66fd50cc03682094961e43ab8bb495f8b36d6d1de8701f43b30e15d9df40",
+        "evidence": "data/calculations/2d/InSe/inse-table-gw/inputs/recovered/dee5bce09bf6/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -15837,6 +15862,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "7c4dca3b383e3f44d65f84d0d0c0188f03fff179f91a9e8a9df331298349d497",
+        "evidence": "data/calculations/2d/MoS2/mos2-table-gw/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -16275,6 +16305,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "7b213de52fefb973615691b7ad3d3fba5607355d73b8c4292f90d5035ed10b34",
+        "evidence": "data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/inputs/recovered/23fb18a26bee/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -17170,6 +17205,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "1e3a27f5b9b7bf5c8373a2f1c48ddde1edef7101abe4292cf121f897d3081691",
+        "evidence": "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/a9314a2d7fbb/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -17565,6 +17605,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "12074943730e22115106f065ce83caa1b0d0b46667ff54a0ffa1f74137cc6723",
+        "evidence": "data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -17989,6 +18034,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "b4978529d63137f0badc701e35d0d165426f91e2f3d2f4aaabaded43ae7969e9",
+        "evidence": "data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -18456,6 +18506,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "178fb69c73d29b234bbf1732e38b3bacfc1edb5774facdac3ab9161ba8b6ccf9",
+        "evidence": "data/calculations/2d/TiS3/tis3-table-gw/inputs/recovered/20f55412a54c/STRU"
+      },
       "recommendation": null,
       "missing": [
         "Exact production STRU/PP/NAO/ABF link pending source-case audit",
@@ -18850,6 +18905,11 @@
             "transformation": "none"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "66d4a1634e5ce1b9f9a5f1952184242b31c8681bd9bbc4ec1b967902fb505066",
+        "evidence": "data/calculations/2d/WS2/ws2-table-gw/inputs/recovered/9345cb0081be/STRU"
       },
       "formula": "WS2",
       "id": "ws2-table-gw",
@@ -19297,6 +19357,11 @@
             "method": "GW"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "998d55d690e6609bea543638509fa32ea845160b1a18f5d369f611a0e4e944b3",
+        "evidence": "data/calculations/2d/WSe2/wse2-table-gw/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -24403,6 +24468,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "dc860eb293417e56b4a101bec206af852be16d52add07619d98db824765245c1",
+        "evidence": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/inputs/calculation__STRU"
+      },
       "recommendation": null,
       "missing": [],
       "source": {
@@ -25556,6 +25626,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "3f575862b68c36b4fe2db322a6f85ce9a1f9529126d140e63d5ca3097a0e80c0",
+        "evidence": "data/calculations/3d/AlAs/alas-paper-paper/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -26724,6 +26799,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "9eb064919571a3f2c6398d65ab73e589177ec4aea1efe279c18773fb2c31b45c",
+        "evidence": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -27123,6 +27203,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "21e8685098cbe74b0987e73c126221c7812b1f4fdcfe035d46051406a8c04a82",
+        "evidence": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -27531,6 +27616,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "a5990d5beb25ae8bef6dd33c07ad00a068973234797666eca67bfeb2769bf808",
+        "evidence": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -28703,6 +28793,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "596324ff1574d338922c943749f275d7c3d20a5c05cd14516228436b8985c5ee",
+        "evidence": "data/calculations/3d/BN/bn-paper-sg15/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -29868,6 +29963,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "d80209b15d349c437c3d6cdfb7e43c151d68fc8806527ec2917d44989b821348",
+        "evidence": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -30996,6 +31096,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "1c0ea5ba4be5c05ed66debfccc7694e2529a0cfb8ea64966b8e22321a512c427",
+        "evidence": "data/calculations/3d/C/c-paper-sg15_cs1e-5/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -31197,6 +31302,11 @@
             "transformation": "private build paths redacted; complete QP table and successful completion retained"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "09dd6e3c25cab9ac02ebcae73dcce5011024191bc4811c2f521df7c2998fbb14",
+        "evidence": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/inputs/STRU"
       },
       "formula": "C1024",
       "id": "c1024-gamma-g0w0-20260521",
@@ -32068,6 +32178,11 @@
             "transformation": "private build paths redacted; complete QP table and successful completion retained"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "741a8c3d810fe5c90d583fe8e8d6341269641473255a03f871eecf95db7dd3e9",
+        "evidence": "data/calculations/3d/C/c512-gamma-g0w0-20260519/inputs/STRU"
       },
       "formula": "C512",
       "id": "c512-gamma-g0w0-20260519",
@@ -33241,6 +33356,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "dc89116643684ace9665e7bb9ad3e42e59033dda51749a0f5ccc095b79c442a8",
+        "evidence": "data/calculations/3d/CaO/cao-paper-24freq/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -34398,6 +34518,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "343a50ed665f74ed7cbb37c90d99b7200bc3a8c8596631a3f2846fdccb911914",
+        "evidence": "data/calculations/3d/CdS/cds-paper-debug/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -35831,6 +35956,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "2636fc2151fbdb4767029a56289944f6b5d6b1d0b08779a0837fddb3a32ac685",
+        "evidence": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/STRU"
+      },
       "recommendation": null,
       "basis_comparison": {
         "scope": "Codex session comparison of historical GaAs basis or occupied-window variants; values are diagnostic and are not a universal ranking.",
@@ -37071,6 +37201,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "0b1e281660d56eb4559663690de18fee6e3ca285f2bdec08a0a4913db7dfa59b",
+        "evidence": "data/calculations/3d/GaN/gan-paper-pca1e-6/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -38223,6 +38358,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "f9c4854944c515c53c77606a85380a14a63c04c51870958d9837b6a07f182823",
+        "evidence": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -43282,6 +43422,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "22a398403c5a48ad7aa528db9e92d0a69f57258bee9851decc370f0e785d0719",
+        "evidence": "data/calculations/3d/LiF/lif-paper-jy/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -44518,6 +44663,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "902d0d62cf0198f4001d914bde87cb73e568cd293cb777cc0c684afa5d4b12dd",
+        "evidence": "data/calculations/3d/MgO/mgo-paper-fix_gap/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -46444,6 +46594,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "4703d9c79b731ca3b41c52b02f994d262838d523dc92429405de5659adf32a27",
+        "evidence": "data/calculations/3d/NaCl/nacl-paper-sg15/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
@@ -48419,6 +48574,11 @@
           }
         ]
       },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "dbff475ee5eb86b2fe14176b362c3e64cf33724742aca1326709bd49b3e04c79",
+        "evidence": "data/calculations/3d/Si/si-paper-all_kpath/inputs/STRU"
+      },
       "recommendation": null,
       "missing": [
         "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
@@ -49571,6 +49731,11 @@
             "display_priority": "secondary"
           }
         ]
+      },
+      "structure_identity": {
+        "algorithm": "cell-sites-v1",
+        "sha256": "4ec5d6ea31fd80e35d65da7559966e6a17ed43eb4abb729854789dbbb5a2f9a2",
+        "evidence": "data/calculations/3d/SiC/sic-paper-pca1e-6/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
