@@ -263,11 +263,14 @@ test("aims records show species-default binding notes without basis-library link
 test("gap overview route, navigation, and table are wired end to end", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   assert.match(index, /href="#\/gaps" data-nav="gaps">Gap overview</);
   assert.match(app, /hash\.split\("\?"\)\[0\] === "#\/gaps" \? "gaps"/);
   assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/"/);
   assert.match(app, /renderGapOverview\(state\.calculations, state\.sort\)/);
   assert.match(app, /records list a gap value/);
+  assert.match(css, /\.browser-layout:has\(>\.filter-panel\[hidden\]\)\{grid-template-columns:minmax\(0,1fr\)\}/);
+  assert.match(css, /\.gw-line\{display:flex/);
   const table = renderGapOverview([
     { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
     { id: "c-rpa", material: "C", dimension: "3d", record_type: "rpa_energy", properties: [{ key: "rpa_correlation_energy", value: -1, unit: "Ha", status: "reported" }] },
@@ -318,8 +321,8 @@ test("header and favicon share a small editable SVG brand mark", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const logo = readFileSync(new URL("../database/logo.svg", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
-  assert.match(index, /rel="icon"[^>]*href="logo\.svg"/);
-  assert.match(index, /class="brand-mark"[^>]*src="logo\.svg"[^>]*alt=""[^>]*aria-hidden="true"/);
+  assert.match(index, /rel="icon"[^>]*href="logo\.svg(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /class="brand-mark"[^>]*src="logo\.svg(?:\?v=[a-z0-9-]+)?"[^>]*alt=""[^>]*aria-hidden="true"/);
   assert.doesNotMatch(index, /data:image\/svg\+xml/);
   assert.match(logo, /viewBox="0 0 48 48"/);
   for (const id of ["lattice", "conduction-band", "valence-band"]) assert.match(logo, new RegExp(`id="${id}"`));
