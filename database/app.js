@@ -1,5 +1,5 @@
 import { matchesSearch } from "./search.mjs";
-import { esc, filesOf, recordElements, methodNames, recordType, recordTypeLabel, atomCount, primaryResult } from "./records.mjs";
+import { esc, filesOf, recordElements, methodNames, recordType, atomCount, primaryResult, workflowLabel } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
@@ -52,7 +52,7 @@ function materialRow(record) {
   const primary = primaryResult(record);
   const precision = recordType(record) === "large_system_gw" ? 5 : recordType(record) === "reader_conversion" ? 5 : 3;
   const primaryValue = primary ? `${typeof primary.value === "number" ? primary.value.toFixed(precision) : esc(primary.value)}${primary.unit ? ` <small>${esc(primary.unit)}</small>` : ""}` : '<span class="not-reported">—</span>';
-  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(recordTypeLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
+  return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(workflowLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
 
 function basisRow(set) {
@@ -106,7 +106,7 @@ function renderHome() {
   $("#empty").hidden = records.length > 0;
   $("#catalog").hidden = !records.length;
   $("#catalog").setAttribute("aria-busy", "false");
-  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""];
+  const headings = basis ? ["Element / family", "Assets", "Record type", "Recorded scope", "Linked", ""] : ["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""];
   $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and evidence-linked electronic-structure results"}</caption><thead><tr>${headings.map(heading => `<th scope="col">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
   document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));

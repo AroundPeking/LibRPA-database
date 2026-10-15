@@ -387,7 +387,8 @@ test("mobile calculation catalog uses semantic cards instead of an 850px table",
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   assert.match(css, /\.catalog-table:not\(\.basis-table\)\{display:block;min-width:0/);
   assert.match(css, /content:"Primary result"/);
-  assert.match(app, /\["Material", "Record type", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
+  assert.match(app, /\["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
+  assert.match(app, /<td><span class="record-type-tag">\$\{esc\(workflowLabel\(record\)\)\}<\/span><\/td>/);
   assert.match(app, /large-system GW results, and reader-format provenance/);
 });
 
