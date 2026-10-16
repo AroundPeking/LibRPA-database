@@ -1305,23 +1305,38 @@ def _public_entry(item: dict) -> dict:
 
 
 SPIN_ORBIT_INPUT = re.compile(r"(?im)^[ \t]*lspinorb[ \t]+1\b")
+SPIN_POLARIZED_INPUT = re.compile(r"(?im)^[ \t]*nspin[ \t]+2\b")
+AIMS_COLLINEAR_SPIN = re.compile(r"(?im)^[ \t]*spin[ \t]+collinear\b")
 
 
-def _spin_orbit_enabled(root: Path, case: dict) -> bool:
-    """目录级 SOC 标注只认归档输入文件里的显式开关：
-    ABACUS INPUT 的 lspinorb 1，或 FHI-aims control.in 的 include_spin_orbit。
-    noncolin/nspin 只描述非共线磁性通道，不等于 SOC，不触发标注。"""
+def _declared_input_texts(root: Path, case: dict) -> list[str]:
+    texts = []
     for entry in (case.get("files") or {}).get("inputs", []):
         path = root / str(entry.get("path", ""))
         if not path.is_file():
             continue
         try:
-            text = path.read_text(encoding="utf-8", errors="replace")
+            texts.append(path.read_text(encoding="utf-8", errors="replace"))
         except OSError:
             continue
-        if SPIN_ORBIT_INPUT.search(text) or "include_spin_orbit" in text:
-            return True
-    return False
+    return texts
+
+
+def _spin_orbit_enabled(root: Path, case: dict) -> bool:
+    """目录级 SOC 标注只认归档输入文件里的显式开关：
+    ABACUS INPUT 的 lspinorb 1，或 FHI-aims control.in 的 include_spin_orbit。
+    noncolin/nspin 只描述磁性通道设置，不等于 SOC，不触发标注。"""
+    return any(SPIN_ORBIT_INPUT.search(text) or "include_spin_orbit" in text
+               for text in _declared_input_texts(root, case))
+
+
+def _spin_polarized_enabled(root: Path, case: dict) -> bool:
+    """目录级自旋极化标注只认共线双通道的显式开关：
+    ABACUS INPUT 的 nspin 2，或 FHI-aims control.in 的 spin collinear。
+    非共线/spinor 设置（noncolin、nspin 4、spin noncollinear）不触发本标注；
+    开了 SOC 的 spinor 记录由 spin_orbit 标注覆盖。"""
+    return any(SPIN_POLARIZED_INPUT.search(text) or AIMS_COLLINEAR_SPIN.search(text)
+               for text in _declared_input_texts(root, case))
 
 
 def build_catalog(root: Path) -> dict:
@@ -1330,7 +1345,10 @@ def build_catalog(root: Path) -> dict:
     catalog_cases = []
     for case in cases:
         issues = completeness_issues(root, sets, case)
-        catalog_cases.append({**case, "spin_orbit": _spin_orbit_enabled(root, case), "archive_completeness": {
+        catalog_cases.append({**case,
+                              "spin_orbit": _spin_orbit_enabled(root, case),
+                              "spin_polarized": _spin_polarized_enabled(root, case),
+                              "archive_completeness": {
             "status": "incomplete" if issues else "complete",
             "issues": issues,
         }})

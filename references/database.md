@@ -114,13 +114,17 @@ with a note that the full identity was not recorded. A full ID resolved from a
 unique local object is still marked as historical resolution when the original
 log printed only a prefix.
 
-The public catalog adds a derived `spin_orbit` flag per calculation (not part
-of the record schema): the catalog build marks a record `true` only when an
-archived input file explicitly enables spin-orbit coupling — `lspinorb 1` in
-an ABACUS `INPUT`, or `include_spin_orbit` in an FHI-aims `control.in`.
-Noncollinear or spin-polarized channel settings alone (`noncolin`, `nspin`,
-`spin collinear`) do not enable the mark. The site shows a SOC label in the
-methods list of matching records.
+The public catalog adds derived spin-setting flags per calculation (not part
+of the record schema): `spin_orbit` and `spin_polarized`. The catalog build
+marks `spin_orbit` true only when an archived input file explicitly enables
+spin-orbit coupling — `lspinorb 1` in an ABACUS `INPUT`, or
+`include_spin_orbit` in an FHI-aims `control.in` — and marks `spin_polarized`
+true only for explicit collinear two-channel settings — `nspin 2` in an
+ABACUS `INPUT`, or `spin collinear` in an FHI-aims `control.in`.
+Noncollinear or spinor channel settings alone (`noncolin`, `nspin 4`,
+`spin noncollinear`) enable neither mark; a spinor SOC run is covered by
+`spin_orbit`. The site shows SOC and SPIN labels in the methods list of
+matching records.
 
 A record that archives an unambiguous structure input (`STRU` for ABACUS,
 `geometry.in` for FHI-aims) carries `structure_identity`: a digest over the

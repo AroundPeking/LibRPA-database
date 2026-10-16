@@ -79,6 +79,10 @@ export function socTag(record) {
   return record?.spin_orbit === true ? '<span class="method-tag method-soc">SOC</span>' : "";
 }
 
+export function spinPolTag(record) {
+  return record?.spin_polarized === true ? '<span class="method-tag method-spin">SPIN</span>' : "";
+}
+
 export function recordType(record) {
   return ["band", "large_system_gw", "rpa_energy", "reader_conversion"].includes(record?.record_type) ? record.record_type : "band";
 }

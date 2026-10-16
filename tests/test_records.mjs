@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, socTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, socTag, spinPolTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
@@ -660,13 +660,29 @@ test("SOC label renders only for records whose catalog entry enables spin-orbit 
   assert.doesNotMatch(renderMaterial(plainRecord, []), /method-soc/);
 });
 
-test("catalog spin_orbit flags mark exactly the records with explicit SOC input switches", () => {
+test("SPIN label renders only for records whose catalog entry enables collinear two-channel spin", () => {
+  assert.equal(spinPolTag({ spin_polarized: true }), '<span class="method-tag method-spin">SPIN</span>');
+  assert.equal(spinPolTag({ spin_polarized: false }), "");
+  assert.equal(spinPolTag({}), "");
+  assert.equal(spinPolTag(null), "");
+  const spinRecord = { id: "afm", material: "NiO", dimension: "3d", workflow: {}, properties: [], files: {}, spin_polarized: true };
+  assert.match(renderMaterial(spinRecord, []), /method-spin">SPIN/);
+  assert.doesNotMatch(renderMaterial(spinRecord, []), /method-soc/);
+  const plainRecord = { id: "plain", material: "NiO", dimension: "3d", workflow: {}, properties: [], files: {}, spin_polarized: false };
+  assert.doesNotMatch(renderMaterial(plainRecord, []), /method-spin/);
+});
+
+test("catalog spin-setting flags mark exactly the records with explicit input switches", () => {
   const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
   const socIds = catalog.calculations.filter(record => record.spin_orbit === true).map(record => record.id);
   assert.deepEqual(socIds, ["gaas-abacus-gw-soc-32freq"]);
+  const spinIds = catalog.calculations.filter(record => record.spin_polarized === true).map(record => record.id);
+  assert.deepEqual(spinIds, ["nio-aims-gw-int"]);
   for (const record of catalog.calculations) {
     const html = renderMaterial(record, catalog.basis_sets);
     if (record.spin_orbit === true) assert.match(html, /method-soc">SOC/, record.id);
     else assert.doesNotMatch(html, /method-soc/, record.id);
+    if (record.spin_polarized === true) assert.match(html, /method-spin">SPIN/, record.id);
+    else assert.doesNotMatch(html, /method-spin/, record.id);
   }
 });

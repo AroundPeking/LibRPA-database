@@ -210,6 +210,42 @@ class LibraryTests(unittest.TestCase):
             self.root, {"files": {"inputs": [{"path": "calculations/missing/inputs/INPUT"}]}}))
         self.assertFalse(self.lib._spin_orbit_enabled(self.root, {}))
 
+    def test_spin_polarized_flag_marks_only_collinear_two_channel_switches(self):
+        def case_with_input(name, text):
+            relative = f"calculations/{name}/inputs/INPUT"
+            item = self._add_file(relative, text.encode(), "inputs")
+            case = json.loads(json.dumps(self.case))
+            case["files"] = {"inputs": [item]}
+            return case
+
+        self.assertTrue(self.lib._spin_polarized_enabled(
+            self.root, case_with_input("pol-on", "INPUT_PARAMETERS\nnspin\t\t2\n")))
+        self.assertFalse(self.lib._spin_polarized_enabled(
+            self.root, case_with_input("pol-off", "INPUT_PARAMETERS\nnspin 1\n")))
+        self.assertFalse(self.lib._spin_polarized_enabled(
+            self.root, case_with_input("pol-spinor", "INPUT_PARAMETERS\nnoncolin 1\nlspinorb 1\n")))
+        self.assertFalse(self.lib._spin_polarized_enabled(
+            self.root, case_with_input("pol-absent", "INPUT_PARAMETERS\nnbands 67\n")))
+        self.assertFalse(self.lib._spin_polarized_enabled(
+            self.root, case_with_input("pol-commented", "INPUT_PARAMETERS\n# nspin 2\n")))
+
+        collinear_item = self._add_file("calculations/aims-afm/inputs/control.in",
+                                        b"spin             collinear\n", "inputs")
+        collinear_case = json.loads(json.dumps(self.case))
+        collinear_case["files"] = {"inputs": [collinear_item]}
+        self.assertTrue(self.lib._spin_polarized_enabled(self.root, collinear_case))
+        self.assertFalse(self.lib._spin_orbit_enabled(self.root, collinear_case))
+
+        spinor_item = self._add_file("calculations/aims-noncollinear/inputs/control.in",
+                                     b"spin noncollinear\n", "inputs")
+        spinor_case = json.loads(json.dumps(self.case))
+        spinor_case["files"] = {"inputs": [spinor_item]}
+        self.assertFalse(self.lib._spin_polarized_enabled(self.root, spinor_case))
+
+        self.assertFalse(self.lib._spin_polarized_enabled(
+            self.root, {"files": {"inputs": [{"path": "calculations/missing/inputs/INPUT"}]}}))
+        self.assertFalse(self.lib._spin_polarized_enabled(self.root, {}))
+
     def _add_file(self, relative_path, contents, role):
         path = self.root / relative_path
         path.parent.mkdir(parents=True, exist_ok=True)

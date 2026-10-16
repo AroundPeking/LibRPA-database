@@ -92,6 +92,14 @@ async function main() {
     await page.waitForSelector(".detail-tags");
     check(await page.locator(".detail-tags .method-soc").count() === 1, "detail page shows the SOC label");
     await go("");
+    await page.locator("#search").fill("nio-aims-gw-int");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of"), "NiO record id search isolates one record");
+    check(await page.locator(".material-row .method-spin").count() === 1, "materials list shows the SPIN label on the NiO record");
+    check(await page.locator(".material-row .method-soc").count() === 0, "NiO is spin-polarized without SOC");
+    await go("#/material/nio-aims-gw-int");
+    await page.waitForSelector(".detail-tags");
+    check(await page.locator(".detail-tags .method-spin").count() === 1, "detail page shows the SPIN label");
+    await go("");
     await page.locator("#search").fill("Si");
     await go("#/material/si-paper-all_kpath");
     await page.waitForSelector("#record-inputs");
