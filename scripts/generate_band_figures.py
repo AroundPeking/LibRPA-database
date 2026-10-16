@@ -225,21 +225,27 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
                 sources.append(log_entry["path"])
             contract = None
             exported_occupations = [row[:export_count] for row in table.occupations]
+            kpoint_count = len(table.x)
+            nonzero = [value for row in exported_occupations for value in row if abs(value) > 1e-8]
+            uniform_weighted = bool(nonzero) and all(
+                any(abs(value * kpoint_count - full) <= kpoint_count * 5.1e-6 for full in (1.0, 2.0))
+                for value in nonzero)
+            if occupied_count is None and allow_weighted_occupations and header and uniform_weighted:
+                row_counts = {sum(1 for value in row if abs(value) > 1e-8) for row in exported_occupations}
+                if len(row_counts) == 1:
+                    occupied_count = next(iter(row_counts))
             if occupied_count is not None and all(math.isfinite(value) and abs(value) <= 1e-8
                                                   for row in exported_occupations for value in row):
                 contract = {"kind": "logged_raw_boundary", "occupied_band_count": occupied_count,
                             "evidence": [log_entry["path"]],
                             "definition": "explicit same-log unique Bands of occupation fixes the prefix raw occupied/empty boundary; all-zero export occupations are retained, not guessed as physical empty states"}
-            if allow_weighted_occupations and occupied_count is not None and header and contract is None:
-                nonzero = [value for row in exported_occupations for value in row if abs(value) > 1e-8]
-                kpoint_count = len(table.x)
-                if nonzero and all(
-                        any(abs(value * kpoint_count - full) <= kpoint_count * 5.1e-6 for full in (1.0, 2.0))
-                        for value in nonzero):
-                    contract = {"kind": "uniform_k_weighted", "kpoint_count": kpoint_count,
-                                "occupied_band_count": occupied_count,
-                                "evidence": [log_entry["path"], info_entry["path"]],
-                                "definition": "explicit archive contract: full occupied value is 2/nk (spin-degenerate) or 1/nk (spinor channel) rounded to five decimals; independently logged occupied-band count agrees"}
+            if allow_weighted_occupations and occupied_count is not None and header and contract is None and uniform_weighted:
+                contract = {"kind": "uniform_k_weighted", "kpoint_count": kpoint_count,
+                            "occupied_band_count": occupied_count,
+                            "evidence": ([log_entry["path"]] if log_entry else [entry["path"]]) + [info_entry["path"]],
+                            "definition": ("explicit archive contract: full occupied value is 2/nk (spin-degenerate) or 1/nk (spinor channel) rounded to five decimals; independently logged occupied-band count agrees"
+                                           if log_entry else
+                                           "explicit archive contract: full occupied value is 2/nk (spin-degenerate) or 1/nk (spinor channel) rounded to five decimals; the constant uniform-weight prefix count itself fixes the occupied-band boundary")}
             analysis = plot_bands.analyze_frontier(table, occupied_count=occupied_count,
                                                    occupation_contract=contract,
                                                    diagnostic_evidence=[log_entry["path"]] if occupied_count and log_entry else None,

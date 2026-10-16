@@ -1,9 +1,0 @@
-Begin Time: Wed Jun 4 16:02:02 CST 2025
-Working directory is /HPC/gw/ZnO/gw/sg15
-This job runs on the following nodes:
-[redacted node list]
-This job has allocated 32(x2) cpu cores.
-cpus per task: 32, this should be OMP_NUM_THREADS: 32
-Info: Local MPI proc number: 1,OpenMP thread number: 32,Total thread number: 32,Local thread limit: 52
-Info: Local MPI proc number: 1,OpenMP thread number: 32,Total thread number: 32,Local thread limit: 52
-End Time: Wed Jun 4 21:14:18 CST 2025

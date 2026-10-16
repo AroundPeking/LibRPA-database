@@ -1,0 +1,285 @@
+{
+  "path": "W-L-Lambda-Gamma-Delta-X-Z-W-K",
+  "alignment": "each calculation shifted by its own Gamma-point VBM",
+  "path_coordinate": "normalized cumulative Euclidean distance in fractional coordinates",
+  "method_boundary": "ABACUS SG15 pseudopotential/NAO/ABFS versus archived FHI-aims all-electron basis; the comparison does not isolate basis or pseudopotential effects",
+  "plotted_bands": {
+    "abacus_1_based": [
+      6,
+      16
+    ],
+    "aims_1_based": [
+      2,
+      12
+    ]
+  },
+  "abacus": {
+    "job_id": 2487982,
+    "scheduler_state": "FAILED 1:0",
+    "scheduler_elapsed": "09:51:33",
+    "librpa_success_marker": true,
+    "post_run_gate_message": "GW_band_spin_1.dat contains NaN or Inf",
+    "g0w0_cpu_s": 1257197.9457,
+    "g0w0_wall_s": 35465.8389,
+    "path_points": 161,
+    "gamma_row_1_based": 61,
+    "gamma_vbm_eV": 8.89423,
+    "gamma_cbm_eV": 10.81576,
+    "gamma_direct_gap_eV": 1.9215299999999989,
+    "gamma_valence_triplet_spread_meV": 0.23999999999979593,
+    "fundamental_gap_eV": 1.9215299999999989,
+    "vbm_row_band_1_based": [
+      61,
+      11
+    ],
+    "vbm_k_fractional": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cbm_row_band_1_based": [
+      61,
+      14
+    ],
+    "cbm_k_fractional": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "tables": {
+      "KS": {
+        "shape": [
+          161,
+          66
+        ],
+        "finite": 10626,
+        "nan": 0,
+        "inf": 0,
+        "all_bands_finite": true,
+        "bands_1_to_18_finite": true,
+        "nonfinite_locations": []
+      },
+      "EXX": {
+        "shape": [
+          161,
+          66
+        ],
+        "finite": 10626,
+        "nan": 0,
+        "inf": 0,
+        "all_bands_finite": true,
+        "bands_1_to_18_finite": true,
+        "nonfinite_locations": []
+      },
+      "GW": {
+        "shape": [
+          161,
+          66
+        ],
+        "finite": 10593,
+        "nan": 33,
+        "inf": 0,
+        "all_bands_finite": false,
+        "bands_1_to_18_finite": true,
+        "nonfinite_locations": [
+          {
+            "row": 39,
+            "band": 61,
+            "kind": "nan"
+          },
+          {
+            "row": 51,
+            "band": 65,
+            "kind": "nan"
+          },
+          {
+            "row": 53,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 53,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 54,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 54,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 55,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 55,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 56,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 56,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 57,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 57,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 58,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 58,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 59,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 59,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 60,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 60,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 60,
+            "band": 65,
+            "kind": "nan"
+          },
+          {
+            "row": 61,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 61,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 61,
+            "band": 65,
+            "kind": "nan"
+          },
+          {
+            "row": 62,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 62,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 63,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 63,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 71,
+            "band": 63,
+            "kind": "nan"
+          },
+          {
+            "row": 71,
+            "band": 64,
+            "kind": "nan"
+          },
+          {
+            "row": 84,
+            "band": 60,
+            "kind": "nan"
+          },
+          {
+            "row": 84,
+            "band": 66,
+            "kind": "nan"
+          },
+          {
+            "row": 159,
+            "band": 24,
+            "kind": "nan"
+          },
+          {
+            "row": 160,
+            "band": 24,
+            "kind": "nan"
+          },
+          {
+            "row": 161,
+            "band": 24,
+            "kind": "nan"
+          }
+        ]
+      }
+    }
+  },
+  "aims": {
+    "archive_date": "2025-07-22",
+    "path_points": 73,
+    "gamma_row_1_based": 28,
+    "gamma_vbm_eV": -1.15644,
+    "gamma_cbm_eV": 1.06111,
+    "gamma_direct_gap_eV": 2.21755,
+    "gamma_valence_triplet_spread_meV": 0.0,
+    "fundamental_gap_eV": 2.1359500000000002,
+    "vbm_row_band_1_based": [
+      29,
+      7
+    ],
+    "vbm_k_fractional": [
+      0.0,
+      0.0277778,
+      0.0277778
+    ],
+    "cbm_row_band_1_based": [
+      27,
+      10
+    ],
+    "cbm_k_fractional": [
+      0.0277778,
+      0.0277778,
+      0.0277778
+    ],
+    "all_values_finite": true,
+    "source_mesh_status": "archive attribution only; control.in, aims main output, and LibRPA log are not retained"
+  },
+  "gamma_gap_difference_abacus_minus_aims_eV": -0.2960200000000013
+}

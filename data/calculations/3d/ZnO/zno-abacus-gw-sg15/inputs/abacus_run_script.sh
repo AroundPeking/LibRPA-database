@@ -1,40 +1,49 @@
 #!/bin/bash
-#SBATCH -p formal-6226R
-#SBATCH -N 4
-##SBATCH --nodelist=cn399
-#SBATCH --cpus-per-task=32
+#SBATCH -p 48cp1,48cp2,48cp3
+#SBATCH -N 1
 #SBATCH --ntasks-per-node=1
-#SBATCH -J ZnO
-#SBATCH --mem=256000
-##SBATCH --dependency=afterok:528530
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=190000
+#SBATCH --time=06:00:00
+#SBATCH -J zno_sg15_k8_fig2_band
 
-#ABACUS_test=~/software/abacus-build/bin/abacus
-abacus_work=/HPC/app/abacus/mpi_full_Coul/abacus-develop-enable_soc/build/abacus
-librpa_work='/HPC/app/librpa/merge/wing/LibRPA/build/chi0_main.exe'
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+set -euo pipefail
+module load cmake/3.31.7
+module load oneapi/2024.2
+export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
+export MKL_NUM_THREADS=1
+ulimit -s unlimited
 
-echo Begin Time: `date`
-echo Working directory is $PWD
-echo This job runs on the following nodes:
-echo $SLURM_JOB_NODELIST
-echo This job has allocated $SLURM_JOB_CPUS_PER_NODE cpu cores.
-echo cpus per task: $SLURM_CPUS_PER_TASK, this should be OMP_NUM_THREADS: $OMP_NUM_THREADS
+ABACUS_EXEC=/HPC/app/abacus/abacus-stru-units-20260723/build/abacus_3p.stru-units
+EXPECTED_BINARY_SHA=102309d9d93bc0e43bd3bd203d98f113c360f4493b3c66fb2f304ca8d81286c5
+SOURCE_ROOT=/HPC/gw/ZnO/sg15_k8_sym_shrink_20260730
+PRODUCER=${SOURCE_ROOT}/producer_scf
+PYTHON=/HPC/app/miniconda3/envs/pyatb/bin/python
 
-#cp KPT_scf KPT
-#cp INPUT_scf INPUT
-#mpirun -np 2 $abacus_work >> abacus.${SLURM_JOBID}.out
-cp -a OUT.ABACUS/vxc_out.dat vxc_out
-cp OUT.ABACUS/data-rR-sparse.csr OUT.ABACUS/data-pR-sparse_SPIN0.csr
-seq 1 512 >> stru_out
-awk 'NR==1{v=$2/2; printf "2\n0.000000     0.000000     0.000000  1\n%.6f     %.6f     %.6f  1\n", v, v, v; exit}' stru_out | sed '6r /dev/stdin' stru_out > temp && mv temp stru_out
-sh perform.sh
+cd "${SLURM_SUBMIT_DIR}"
+test "$(sha256sum "${ABACUS_EXEC}" | awk '{print $1}')" = "${EXPECTED_BINARY_SHA}"
+grep -q 'Finish Time' "${PRODUCER}/OUT.ABACUS/running_scf.log"
+test -s "${PRODUCER}/OUT.ABACUS/ABACUS-CHARGE-DENSITY.restart"
+test ! -e OUT.ABACUS
+mkdir OUT.ABACUS
+ln -s "$(readlink -f "${PRODUCER}/OUT.ABACUS/ABACUS-CHARGE-DENSITY.restart")" \
+    OUT.ABACUS/ABACUS-CHARGE-DENSITY.restart
+mpirun -np 1 "${ABACUS_EXEC}" > "abacus.${SLURM_JOBID}.out" 2>&1
 
-cp KPT_nscf KPT
-cp INPUT_nscf INPUT
-mpirun -np 1 $abacus_work >> nscf.${SLURM_JOBID}.out
-python preprocess_abacus_for_librpa_band.py
-
-OMP_NUM_THREADS=32 mpirun -np 4 $librpa_work >> LibRPA.${SLURM_JOBID}.out
-
-
-echo End Time: `date`
+grep -q 'Finish Time' OUT.ABACUS/running_nscf.log
+grep -Eq 'Total[[:space:]]+Time' OUT.ABACUS/running_nscf.log
+test -s OUT.ABACUS/vxc_out.dat
+"${PYTHON}" preprocess_abacus_for_librpa_band.py
+test "$(find . -maxdepth 1 -name 'band_KS_eigenvalue_k_*.txt' | wc -l)" -eq 161
+test "$(find . -maxdepth 1 -name 'band_KS_eigenvector_k_*.txt' | wc -l)" -eq 161
+test "$(find . -maxdepth 1 -name 'band_vxc_k_*.txt' | wc -l)" -eq 161
+test -s band_kpath_info
+awk 'NR == 1 { exit !($4 == 161) }' band_kpath_info
+{
+    echo "end=$(date --iso-8601=seconds)"
+    echo "source_mesh=8x8x8"
+    echo "reused_producer=${PRODUCER}"
+    echo "path=W-L-Lambda-Gamma-Delta-X-Z-W-K"
+    echo "band_kpoints=161"
+    sha256sum "${ABACUS_EXEC}" INPUT KPT STRU band_kpath_info OUT.ABACUS/vxc_out.dat
+} > provenance.txt

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "policy": "grandfathered_missing_software_identity",
-  "frozen_issue_count": 75,
+  "frozen_issue_count": 74,
   "scope": "Only the exact pre-existing calculation/software pairs listed here may retain an unavailable immutable software identity. New records are never added automatically.",
-  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered. The JCTC 6c00618 FHI-aims pairs were added on 2026-10-15 under the database owner's standing authorization for this intake: FHI-aims 241121 logged only the abbreviated commit b5eacca14, and the full hash is not recoverable from the local clone or the upstream server. The bi2se3-abacus-gw-dzp/librpa, zno-abacus-gw-sg15/abacus, zno-abacus-gw-sg15/librpa, nio-aims-gw-int/fhi_aims and gaas-abacus-gw-soc-32freq/librpa pairs were added on 2026-10-16 with the database owner's explicit approval after the intake summary presented the candidate digests and the missing-identity evidence: intake approved as \"\u5168\u90e8\u6536\u5f55\uff084 \u4e2a\uff09(Recommended)\" and the five software-identity exception pairs explicitly authorized as \"\u6388\u6743 5 \u5bf9\u65b0\u589e\u8c41\u514d (Recommended)\".",
+  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered. The JCTC 6c00618 FHI-aims pairs were added on 2026-10-15 under the database owner's standing authorization for this intake: FHI-aims 241121 logged only the abbreviated commit b5eacca14, and the full hash is not recoverable from the local clone or the upstream server. The bi2se3-abacus-gw-dzp/librpa, zno-abacus-gw-sg15/abacus, zno-abacus-gw-sg15/librpa, nio-aims-gw-int/fhi_aims and gaas-abacus-gw-soc-32freq/librpa pairs were added on 2026-10-16 with the database owner's explicit approval after the intake summary presented the candidate digests and the missing-identity evidence: intake approved as \"全部收录（4 个）(Recommended)\" and the five software-identity exception pairs explicitly authorized as \"授权 5 对新增豁免 (Recommended)\".\n2026-10-16 owner-directed evidence replacement for zno-abacus-gw-sg15 (sg15_k8_fig2_path_20260802 run): the librpa gap retired because the full LibRPA executable SHA-256 9955a025e7b8df3245089e213a182beabbe4107f69c0a6d25f6f76564e6bdab2 is now archived; the abacus gap remains (producer log printed 'Commit: unknown'). Owner directive recorded verbatim with the local path redacted: “数据库里面abacus+librpa的条目换成[本地 brief 目录]这里面算出来的abacus+librpa的结果，这是正确的，看还能不能找到原始文件，进行替换网站上现有的”. Baseline 75 -> 74.\n",
   "records": [
     {
       "id": "alas-paper-paper",
@@ -354,8 +354,7 @@
     {
       "id": "zno-abacus-gw-sg15",
       "software": [
-        "abacus",
-        "librpa"
+        "abacus"
       ]
     },
     {

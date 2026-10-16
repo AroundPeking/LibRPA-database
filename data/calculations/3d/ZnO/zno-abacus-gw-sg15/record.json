@@ -1,35 +1,20 @@
 {
   "schema_version": 1,
   "id": "zno-abacus-gw-sg15",
-  "dimension": "3d",
   "material": "ZnO",
   "formula": "ZnO",
+  "dimension": "3d",
   "record_type": "band",
   "workflow": {
     "frontend": "abacus",
     "task": "gw"
   },
-  "software": {
-    "abacus": {
-      "source_url": "https://github.com/AroundPeking/abacus-develop",
-      "commit": null,
-      "abbreviated_commit": null,
-      "evidence": [
-        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out"
-      ],
-      "missing_reason": "The producer ABACUS log printed 'Commit: unknown'; no hash or executable SHA was retained.",
-      "identity_note": "ABACUS build identity was not recorded by the producer."
-    },
-    "librpa": {
-      "source_url": "https://github.com/AESM-Group/LibRPA",
-      "commit": null,
-      "abbreviated_commit": null,
-      "evidence": [
-        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
-      ],
-      "missing_reason": "The producer log printed an empty source Git reference; the HPC source tree is no longer accessible.",
-      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
-    }
+  "source": {
+    "collection": "ZnO cut-Coulomb EXX diagnostic (zno_cut_coulomb_exx_diagnostic)",
+    "provenance_directory": "data/provenance/zno-diagnostic-replacement-20261016",
+    "material_directory": "ZnO",
+    "run_directory": "sg15_k8_fig2_path_20260802",
+    "replaces": "KS HPC GW backup run (compute_backup_review_20260514_ks_iopcas_ghj ZnO/gw/sg15, 121-point path) superseded by owner directive on 2026-10-16"
   },
   "species": [
     {
@@ -55,44 +40,147 @@
       "linkage": "matched case assets"
     }
   ],
+  "basis_candidates": [],
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/deepmodeling/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out"
+      ],
+      "missing_reason": "The producer ABACUS log (v3.9.0.25) printed 'Commit: unknown'; no hash or executable SHA was retained.",
+      "identity_note": "ABACUS build identity was not recorded by the producer."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "executable_sha256": "9955a025e7b8df3245089e213a182beabbe4107f69c0a6d25f6f76564e6bdab2",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
+      ],
+      "identity_note": "LibRPA executable SHA-256 recorded from the retained producer provenance (chi0_main.exe.kgrid-canonical-v1, LibRPA-zno-exx-fullmatrix build); the source commit was not printed by the producer."
+    }
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 66,
+    "n_path_kpoints": 161
+  },
+  "nodes": 4,
+  "cpus": 160,
+  "elapsed_seconds": 35466,
+  "cluster_label": "Xeon Platinum 8163 x2",
+  "accelerators": null,
+  "accelerator_label": null,
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "f5d9e30ee44cb5c5a140ebebc15e5bd357b2421dd6797ae28603163968c437be",
+    "evidence": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU"
+  },
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 1.92153,
+    "unit": "eV",
+    "gw_gap_ev": 1.92153,
+    "exx_gap_ev": 8.57826,
+    "dft_gap_ev": 0.73254,
+    "gap_definition": "Producer-accepted analysis of the 161-point W-L-Lambda-Gamma-Delta-X-Z-W-K path: G0W0 Gamma-point direct gap (valence-triplet top band 11 at 8.89423 eV, conduction band 14 at 10.81576 eV, both path edges at Gamma); diagonal-EXX minimum local gap 8.57826 eV at path point 64 on the Gamma-Delta segment with the Gamma-point local EXX gap 9.76976 eV; PBE path gap 0.73254 eV with edges at Gamma.",
+    "notes": "df HPC path-only continuation of the validated SG15 8x8x8 source-mesh workflow (ABACUS band NSCF job 2487981 then LibRPA g0w0_band job 2487982, full-Coulomb EXX, nfreq 16, 66 bands with ABFS_ORBITAL pca1e-6) on the zincblende 2-atom primitive cell, spin-unpolarized; exported band tables carry uniform 2/161 k-weighted occupations for the 13 occupied bands (Z_val 20+6 over two spins). The scheduler marked the GW job FAILED on a post-run NaN gate, while LibRPA itself printed 'libRPA finished successfully' and the GW table is finite for bands 1-18; 33 higher-band NaN entries are retained and excluded from band-edge claims. A k12 mesh check differs by about 48.4 meV, so the gap is inside a small grid-change window but not all-numerical-parameter converged. Replaces the earlier 121-point KS HPC backup run per owner directive.",
+    "gates": [],
+    "scope": "Specific 3D geometry, SG15 v1.0 PP/NAO/ABF, k8 source mesh, 161-point path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 0.73254,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/summary.json"
+      ],
+      "definition": "PBE path gap on the 161-point W-L-Lambda-Gamma-Delta-X-Z-W-K path; valence and conduction path edges both at Gamma (direct).",
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 8.57826,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/summary.json"
+      ],
+      "definition": "Minimum local (same-k) diagonal-EXX gap along the 161-point path, at path point 64 on the Gamma-Delta segment: lowest conduction band minus the local top of the occupied 11-13 manifold. The Gamma-point local EXX gap is 9.76976 eV and the path-resolved global VBM-CBM separation is 9.18724 eV (indirect); the exchange correction moves the path minimum off Gamma, matching the VASP qualitative conclusion in the source brief.",
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 1.92153,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat",
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/summary.json"
+      ],
+      "definition": "G0W0 Gamma-point direct gap: valence-triplet top (band 11, 8.89423 eV) and conduction band 14 (10.81576 eV) both at Gamma, so this is also the path fundamental; derived from finite bands 1-18 only.",
+      "source_summary_key": "gw_gap_ev"
+    }
+  ],
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit.",
+    "GW high bands 19-66 contain 33 retained NaN entries; low-energy claims are bounded to the finite bands 1-18."
+  ],
+  "recommendation": null,
   "files": {
     "inputs": [
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT",
-        "sha256": "c131b2e546e21c1e22c5af5fd8427a704e985a090f413ce39555586b6aff73de",
-        "size_bytes": 642,
-        "original_sha256": "c58cf57e19571c3d9103dd5eeb58afb9d423650ecc385cd55e6614e42f61c07d",
+        "sha256": "2e8c2f914463dc305759ee2710529b3b31365ff47278887fffe4872e5bbe3792",
+        "size_bytes": 579,
+        "original_sha256": "2e8c2f914463dc305759ee2710529b3b31365ff47278887fffe4872e5bbe3792",
         "label": "INPUT",
         "original_name": "INPUT",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "none"
       },
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_scf",
-        "sha256": "f1aafac78845ae1f8eb47a76dda4da67178e2688d3ac5a80d1ee2a3582ebc3f5",
-        "size_bytes": 708,
-        "original_sha256": "9bee2e4934af3573f0ce97825ce084301a804bc2d17bddff31228052fd6bcb09",
+        "sha256": "b38c80ba86ed726e76ddddbb7e679a95caf5c0304e502ea001a14411d2f3fc8b",
+        "size_bytes": 956,
+        "original_sha256": "b38c80ba86ed726e76ddddbb7e679a95caf5c0304e502ea001a14411d2f3fc8b",
         "label": "INPUT_scf",
         "original_name": "INPUT_scf",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "none"
       },
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_nscf",
-        "sha256": "c131b2e546e21c1e22c5af5fd8427a704e985a090f413ce39555586b6aff73de",
-        "size_bytes": 642,
-        "original_sha256": "c58cf57e19571c3d9103dd5eeb58afb9d423650ecc385cd55e6614e42f61c07d",
+        "sha256": "2e8c2f914463dc305759ee2710529b3b31365ff47278887fffe4872e5bbe3792",
+        "size_bytes": 579,
+        "original_sha256": "2e8c2f914463dc305759ee2710529b3b31365ff47278887fffe4872e5bbe3792",
         "label": "INPUT_nscf",
         "original_name": "INPUT_nscf",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "none"
       },
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT",
-        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
-        "size_bytes": 261,
-        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "sha256": "4b66ce3493134086160a38213dde4969ad1f074171af5c579893ea586cf029f1",
+        "size_bytes": 353,
+        "original_sha256": "4b66ce3493134086160a38213dde4969ad1f074171af5c579893ea586cf029f1",
         "label": "KPT",
         "original_name": "KPT",
         "transformation": "none"
@@ -110,9 +198,9 @@
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
-        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
-        "size_bytes": 261,
-        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "sha256": "4b66ce3493134086160a38213dde4969ad1f074171af5c579893ea586cf029f1",
+        "size_bytes": 353,
+        "original_sha256": "4b66ce3493134086160a38213dde4969ad1f074171af5c579893ea586cf029f1",
         "label": "KPT_nscf",
         "original_name": "KPT_nscf",
         "transformation": "none"
@@ -120,9 +208,9 @@
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU",
-        "sha256": "91bd10607c142d8a8b3faeffa817384474e9880cbad691593583d58e76621842",
-        "size_bytes": 420,
-        "original_sha256": "91bd10607c142d8a8b3faeffa817384474e9880cbad691593583d58e76621842",
+        "sha256": "ddacb9e5855417bffce7ba1545813ade47b8699cac46dbd895a743409f2db289",
+        "size_bytes": 423,
+        "original_sha256": "ddacb9e5855417bffce7ba1545813ade47b8699cac46dbd895a743409f2db289",
         "label": "STRU",
         "original_name": "STRU",
         "transformation": "none"
@@ -130,31 +218,41 @@
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/librpa.in",
-        "sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
-        "size_bytes": 196,
-        "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "sha256": "81d3195c57703b81d67c122721a4c29fa2150d0f1b6c152b911b5e84757eeaac",
+        "size_bytes": 1099,
+        "original_sha256": "4986fee16559b3427b3530dc97cd7ef2b47d7d219fb071f43d5a000eaa8835d9",
         "label": "librpa.in",
         "original_name": "librpa.in",
-        "transformation": "none"
+        "transformation": "private server path redacted"
       },
       {
         "role": "inputs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/abacus_run_script.sh",
-        "sha256": "7723400dd91637b8bdf205f620319c3a25b21203a1093d01ea956117b2f822a8",
-        "size_bytes": 1374,
-        "original_sha256": "0162a7acee0b9f563d13f5defd8661ef1cd39c2e1856112b3faa83fbdcdb3174",
+        "sha256": "3f1037a82c28cccbf077b1c88ec44b900a7ae08550e2eefc3e3135805b580294",
+        "size_bytes": 1909,
+        "original_sha256": "1449a944b4892b9ba82727bfd24cb0aadbbb6c1b40986de9d907b27e8d572345",
         "label": "abacus_run_script.sh",
         "original_name": "run_abacus.sh",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private server path redacted"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/setup_and_submit.sh",
+        "sha256": "089bca9ce2767667af6960ae32aacee8ef5841a5e9448ab6328e92c6deb81297",
+        "size_bytes": 1553,
+        "original_sha256": "98f9aa16b880c2e75232ebf855f66dffe1cda6b75ca89285bcb2e1b7c6721eb0",
+        "label": "setup_and_submit.sh",
+        "original_name": "setup_and_submit.sh",
+        "transformation": "private server path redacted"
       }
     ],
     "results": [
       {
         "role": "results",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
-        "sha256": "3f6ffe0d9bc9136544dcd19c7359502c3399087f33e19096e3469297caf15141",
-        "size_bytes": 245751,
-        "original_sha256": "3f6ffe0d9bc9136544dcd19c7359502c3399087f33e19096e3469297caf15141",
+        "sha256": "298d45df6781b87b7e225322a8f831752fa23bcfb495eea5c8a99cfd1d8cce94",
+        "size_bytes": 326991,
+        "original_sha256": "298d45df6781b87b7e225322a8f831752fa23bcfb495eea5c8a99cfd1d8cce94",
         "label": "KS_band_spin_1.dat",
         "original_name": "KS_band_spin_1.dat",
         "transformation": "none"
@@ -162,9 +260,9 @@
       {
         "role": "results",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
-        "sha256": "3062ef920334f686b1cf46cbfa18ff904c2ed12f7b54e272eb80c90e7c68360b",
-        "size_bytes": 245751,
-        "original_sha256": "3062ef920334f686b1cf46cbfa18ff904c2ed12f7b54e272eb80c90e7c68360b",
+        "sha256": "062f08db89218f793646d4d275a168e321af70586301ef22e22dbcd82f355063",
+        "size_bytes": 326991,
+        "original_sha256": "062f08db89218f793646d4d275a168e321af70586301ef22e22dbcd82f355063",
         "label": "EXX_band_spin_1.dat",
         "original_name": "EXX_band_spin_1.dat",
         "transformation": "none"
@@ -172,9 +270,9 @@
       {
         "role": "results",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat",
-        "sha256": "e8daed07f1e8566237efd514b535870b8a1f87900ce6145babf5552032979b12",
-        "size_bytes": 245751,
-        "original_sha256": "e8daed07f1e8566237efd514b535870b8a1f87900ce6145babf5552032979b12",
+        "sha256": "8bf06524660ce6294bda3a5902c11841927d82929869242cb43be1be6a4e8b95",
+        "size_bytes": 326991,
+        "original_sha256": "8bf06524660ce6294bda3a5902c11841927d82929869242cb43be1be6a4e8b95",
         "label": "GW_band_spin_1.dat",
         "original_name": "GW_band_spin_1.dat",
         "transformation": "none"
@@ -182,11 +280,21 @@
       {
         "role": "results",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
-        "sha256": "43bd5ef9a9fa76296b46b1ccc1c807e094e67921c55e3d8fb86f98317c828d4e",
-        "size_bytes": 6680,
-        "original_sha256": "43bd5ef9a9fa76296b46b1ccc1c807e094e67921c55e3d8fb86f98317c828d4e",
+        "sha256": "b6d77387c4ede486c2c9a7ed43a3f346c4e33f4cff20ba0c6064fd83722b4964",
+        "size_bytes": 8880,
+        "original_sha256": "b6d77387c4ede486c2c9a7ed43a3f346c4e33f4cff20ba0c6064fd83722b4964",
         "label": "band_kpath_info",
         "original_name": "band_kpath_info",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/summary.json",
+        "sha256": "57ca75a0ffbcc0a41eebf577a726bc0059766053ba03075262ec561592e20ae7",
+        "size_bytes": 6081,
+        "original_sha256": "57ca75a0ffbcc0a41eebf577a726bc0059766053ba03075262ec561592e20ae7",
+        "label": "summary.json",
+        "original_name": "summary.json",
         "transformation": "none"
       }
     ],
@@ -194,51 +302,51 @@
       {
         "role": "logs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out",
-        "sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
-        "size_bytes": 13523,
-        "original_sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
+        "sha256": "2e4faabdb63a98064425026b3cb16f6f2c671424e634a2fa83fc9f03dd9e1b85",
+        "size_bytes": 5227,
+        "original_sha256": "2e4faabdb63a98064425026b3cb16f6f2c671424e634a2fa83fc9f03dd9e1b85",
         "label": "abacus.out",
-        "original_name": "abacus.731558.out",
+        "original_name": "abacus.2487981.out",
         "transformation": "none"
       },
       {
         "role": "logs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
-        "sha256": "63705a2e18a3c600d1f37edfff85cd8fbbd15e03fdb4237595eb17ef7e5d6c27",
-        "size_bytes": 5268123,
-        "original_sha256": "b77b7c1035b225eba70ed3f5f990d0e9375c8ee386af98b9e847016699159f97",
+        "sha256": "08f657a0951a49837505db50a4eed38e9ea06cec3f4b4df364802330d95be6b6",
+        "size_bytes": 5271656,
+        "original_sha256": "40385ca9fc235bd8fa6d49539d2cd5b530742ad305564c07a4e1853bc5518b42",
         "label": "librpa.out",
-        "original_name": "LibRPA.731933.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
-      },
-      {
-        "role": "logs",
-        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log",
-        "sha256": "7b5921057813c4b37947032a248332601efc8d76fc0fe21141426c17b1b24b4b",
-        "size_bytes": 479,
-        "original_sha256": "5b8eea02eaab058073c680b83f52afe3272913f04c33298a9c14d6b328b55cd8",
-        "label": "abacus_slurm_stdout.log",
-        "original_name": "slurm-731558.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "original_name": "LibRPA.2487982.out",
+        "transformation": "private server path redacted"
       },
       {
         "role": "logs",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log",
-        "sha256": "cffd1da3e9a2db79805cb960f384e48c65bba8dd35b70253213a65daf25fc864",
-        "size_bytes": 10397,
-        "original_sha256": "61d79c86b6ddd07a965bd11da955d1b0930dde04283a641d298665febc0603ce",
+        "sha256": "ea356728c41725a377f2604e5cf6d7cdbebffdb1a09f10bf2dcbe4eac9561b3e",
+        "size_bytes": 39,
+        "original_sha256": "ea356728c41725a377f2604e5cf6d7cdbebffdb1a09f10bf2dcbe4eac9561b3e",
         "label": "gw_slurm_stdout.log",
-        "original_name": "slurm-731933.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "original_name": "slurm-2487982.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/submitted_jobs.txt",
+        "sha256": "0958467e05fa05b58ea8737c7935fa3207236710cea26406f937bf9534f081b3",
+        "size_bytes": 29,
+        "original_sha256": "0958467e05fa05b58ea8737c7935fa3207236710cea26406f937bf9534f081b3",
+        "label": "submitted_jobs.txt",
+        "original_name": "submitted_jobs.txt",
+        "transformation": "none"
       }
     ],
     "figures": [
       {
         "role": "figures",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/ks_frontier.svg",
-        "sha256": "f67804ad165314e2fa9d6d770165208191c1d5f4126c8729bdec7890f5b3c5b4",
-        "size_bytes": 22552,
-        "original_sha256": "f67804ad165314e2fa9d6d770165208191c1d5f4126c8729bdec7890f5b3c5b4",
+        "sha256": "70660d48f390d91fc61784e6ae5fa59d759228d65f1255fc2aa17a7c8956858f",
+        "size_bytes": 28093,
+        "original_sha256": "70660d48f390d91fc61784e6ae5fa59d759228d65f1255fc2aa17a7c8956858f",
         "label": "KS occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -252,9 +360,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/exx_frontier.svg",
-        "sha256": "04ae9b9a22a3f821ffab7d688eded719eb3c91e409f68a0a3c2788df949fabb4",
-        "size_bytes": 22058,
-        "original_sha256": "04ae9b9a22a3f821ffab7d688eded719eb3c91e409f68a0a3c2788df949fabb4",
+        "sha256": "87c8c58ee1b52d0e1485f0dcceca473ebcca5ea98578fc3d3cf6300fff51b7a6",
+        "size_bytes": 27598,
+        "original_sha256": "87c8c58ee1b52d0e1485f0dcceca473ebcca5ea98578fc3d3cf6300fff51b7a6",
         "label": "EXX occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -268,9 +376,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/gw_frontier.svg",
-        "sha256": "3a27286c0840c4fca862a3a3014cc374be32052e1b95cc98973ac55181b00171",
-        "size_bytes": 22374,
-        "original_sha256": "3a27286c0840c4fca862a3a3014cc374be32052e1b95cc98973ac55181b00171",
+        "sha256": "506fbaa2d25a5a93c067bb2985113e7105bd6e65de1ce2574df9106d6405841d",
+        "size_bytes": 27915,
+        "original_sha256": "506fbaa2d25a5a93c067bb2985113e7105bd6e65de1ce2574df9106d6405841d",
         "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -284,9 +392,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/band_frontier_metadata.json",
-        "sha256": "3d71c2ce529af58c36b035220feee284ff6d3b73d56f67606e9b218e7fee63d3",
-        "size_bytes": 641922,
-        "original_sha256": "3d71c2ce529af58c36b035220feee284ff6d3b73d56f67606e9b218e7fee63d3",
+        "sha256": "86ac91b1b5a3d26b923cd25523c522ebf9a3c0fe66a0ad00d706149b1650b1f4",
+        "size_bytes": 862416,
+        "original_sha256": "86ac91b1b5a3d26b923cd25523c522ebf9a3c0fe66a0ad00d706149b1650b1f4",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -300,85 +408,5 @@
         "display_priority": "primary"
       }
     ]
-  },
-  "structure_identity": {
-    "algorithm": "cell-sites-v1",
-    "sha256": "f5d9e30ee44cb5c5a140ebebc15e5bd357b2421dd6797ae28603163968c437be",
-    "evidence": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU"
-  },
-  "computational_scale": {
-    "atom_count": 2,
-    "n_bands": 66,
-    "n_path_kpoints": 121
-  },
-  "properties": [
-    {
-      "key": "band_gap",
-      "category": "electronic",
-      "label": "Band gap",
-      "method": "PBE",
-      "value": 0.73254,
-      "unit": "eV",
-      "status": "reported",
-      "evidence": [
-        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat"
-      ],
-      "source_summary_key": "dft_gap_ev"
-    },
-    {
-      "key": "band_gap",
-      "category": "electronic",
-      "label": "Band gap",
-      "method": "EXX",
-      "value": 9.20462,
-      "unit": "eV",
-      "status": "reported",
-      "evidence": [
-        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat"
-      ],
-      "source_summary_key": "exx_gap_ev"
-    },
-    {
-      "key": "band_gap",
-      "category": "electronic",
-      "label": "Band gap",
-      "method": "G0W0",
-      "value": 1.6164,
-      "unit": "eV",
-      "status": "reported",
-      "evidence": [
-        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat"
-      ],
-      "source_summary_key": "gw_gap_ev"
-    }
-  ],
-  "basis_candidates": [],
-  "recommendation": null,
-  "missing": [
-    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
-  ],
-  "summary": {
-    "observable": "G0W0 gap",
-    "value": 1.6164,
-    "unit": "eV",
-    "notes": "Historical KS HPC backup run: ABACUS LCAO SG15-ONCV scf/nscf plus LibRPA G0W0 on the zincblende 2-atom primitive cell (a = 4.584 A, spin-unpolarized); the exported band table carries all-zero occupations, so the occupied/empty boundary follows the LibRPA log's 'Bands of occupation: 13' (Z_val 20+6 over two spins).",
-    "gw_gap_ev": 1.6164,
-    "exx_gap_ev": 9.20462,
-    "dft_gap_ev": 0.73254,
-    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
-    "scientific_status": "historical_reference_bounded_gap_comparison",
-    "scope": "Specific archived geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
-  },
-  "cluster_label": "formal-6226R",
-  "accelerators": null,
-  "nodes": 9,
-  "cpus": 288,
-  "elapsed_seconds": 18723,
-  "accelerator_label": null,
-  "source": {
-    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
-    "provenance_directory": "data/provenance/backup-20261016",
-    "material_directory": "ZnO",
-    "run_directory": "ZnO/gw/sg15"
   }
 }

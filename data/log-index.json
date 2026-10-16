@@ -1162,26 +1162,26 @@
     {
       "calculation_id": "zno-abacus-gw-sg15",
       "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out",
-      "sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
+      "sha256": "2e4faabdb63a98064425026b3cb16f6f2c671424e634a2fa83fc9f03dd9e1b85",
       "label": "abacus.out"
     },
     {
       "calculation_id": "zno-abacus-gw-sg15",
-      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log",
-      "sha256": "7b5921057813c4b37947032a248332601efc8d76fc0fe21141426c17b1b24b4b",
-      "label": "abacus_slurm_stdout.log"
-    },
-    {
-      "calculation_id": "zno-abacus-gw-sg15",
       "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log",
-      "sha256": "cffd1da3e9a2db79805cb960f384e48c65bba8dd35b70253213a65daf25fc864",
+      "sha256": "ea356728c41725a377f2604e5cf6d7cdbebffdb1a09f10bf2dcbe4eac9561b3e",
       "label": "gw_slurm_stdout.log"
     },
     {
       "calculation_id": "zno-abacus-gw-sg15",
       "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
-      "sha256": "63705a2e18a3c600d1f37edfff85cd8fbbd15e03fdb4237595eb17ef7e5d6c27",
+      "sha256": "08f657a0951a49837505db50a4eed38e9ea06cec3f4b4df364802330d95be6b6",
       "label": "librpa.out"
+    },
+    {
+      "calculation_id": "zno-abacus-gw-sg15",
+      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/submitted_jobs.txt",
+      "sha256": "0958467e05fa05b58ea8737c7935fa3207236710cea26406f937bf9534f081b3",
+      "label": "submitted_jobs.txt"
     },
     {
       "calculation_id": "zno-jctc-aims-gw",

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "action": "replace-record-evidence",
+  "record": "zno-abacus-gw-sg15",
+  "approval": {
+    "directive": "数据库里面abacus+librpa的条目换成[本地 brief 目录 zno_exx_gw_gamma_efficiency_brief_20260830]这里面算出来的abacus+librpa的结果，这是正确的，看还能不能找到原始文件，进行替换网站上现有的",
+    "redaction_note": "owner message quoted verbatim; the local absolute path is replaced by a bracketed placeholder because archived files must not carry local paths",
+    "date": "2026-10-16"
+  },
+  "source_digest_recipe": "SHA-256 over sorted lines 'path-relative-to-source-roots|file-sha256|size-bytes' joined with newline plus trailing newline",
+  "source_digest": "17000a84ac287dc4b5710f6329536aec45ef6d0327720c3a8a4df257639e083e",
+  "source_roots": {
+    "diagnostic": "zno_cut_coulomb_exx_diagnostic (inputs/sg15_k8_fig2_path_20260802, data/zno_sg15_k8_fig2_path_20260802)",
+    "brief": "zno_exx_gw_gamma_efficiency_brief_20260830 (sections/04_abacus_librpa.tex)"
+  },
+  "runs": {
+    "abacus_band_nscf": {
+      "job_id": 2487981,
+      "scheduler_state": "COMPLETED 0:0",
+      "elapsed": "00:00:29"
+    },
+    "librpa_g0w0_band": {
+      "job_id": 2487982,
+      "scheduler_state": "FAILED 1:0 (post-run NaN gate)",
+      "librpa_success_marker": true,
+      "wall_s": 35465.84,
+      "cpu_s": 1257197.95
+    }
+  },
+  "gap_changes": {
+    "pbe_eV": {
+      "old": 0.73254,
+      "new": 0.73254
+    },
+    "exx_eV": {
+      "old": 9.20462,
+      "new": 8.57826,
+      "definition": "minimum local diagonal-EXX gap at path point 64 (Gamma-Delta); Gamma local 9.76976 eV; path-resolved global 9.18724 eV"
+    },
+    "gw_eV": {
+      "old": 1.6164,
+      "new": 1.92153,
+      "definition": "Gamma-point direct gap, also the path fundamental"
+    }
+  },
+  "band_path": {
+    "old": "121-point KS backup path starting at Gamma",
+    "new": "161-point W-L-Lambda-Gamma-Delta-X-Z-W-K, 20 intervals per segment"
+  },
+  "structure_identity": {
+    "sha256": "f5d9e30ee44cb5c5a140ebebc15e5bd357b2421dd6797ae28603163968c437be",
+    "note": "unchanged; both STRU inputs describe the same zincblende 2-atom primitive cell"
+  },
+  "basis_binding": {
+    "note": "existing sets Zn-ks-backup-gw-264a08e95623 / O-ks-backup-gw-0451062ba5e3 retained: the diagnostic package's NAO and ABFS files are byte-identical to the registered assets, and the SG15 v1.0 pseudopotentials used via the reused producer match the registered Zn_ONCV_PBE-1.0.upf / O_ONCV_PBE-1.0.upf payloads (hashes cb86317885a0..., 8e871106df46... confirmed across the diagnostic project's staged copies)"
+  },
+  "software_identity": {
+    "librpa": "executable SHA-256 archived; exception pair retired",
+    "abacus": "producer log printed 'Commit: unknown'; exception pair retained",
+    "exception_pairs": "75 -> 74"
+  },
+  "removed_old_files": [
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_nscf",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_scf",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_scf",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/abacus_run_script.sh",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/librpa.in",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/band_frontier_metadata.json",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/exx_frontier.svg",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/gw_frontier.svg",
+    "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/ks_frontier.svg"
+  ],
+  "installed_original_names": {
+    "INPUT": "INPUT",
+    "INPUT_scf": "INPUT_scf",
+    "INPUT_nscf": "INPUT_nscf",
+    "KPT": "KPT",
+    "KPT_scf": "KPT_scf",
+    "KPT_nscf": "KPT_nscf",
+    "STRU": "STRU",
+    "librpa.in": "librpa.in",
+    "abacus_run_script.sh": "run_abacus.sh",
+    "setup_and_submit.sh": "setup_and_submit.sh",
+    "KS_band_spin_1.dat": "KS_band_spin_1.dat",
+    "EXX_band_spin_1.dat": "EXX_band_spin_1.dat",
+    "GW_band_spin_1.dat": "GW_band_spin_1.dat",
+    "band_kpath_info": "band_kpath_info",
+    "summary.json": "summary.json",
+    "abacus.out": "abacus.2487981.out",
+    "librpa.out": "LibRPA.2487982.out",
+    "gw_slurm_stdout.log": "slurm-2487982.out",
+    "submitted_jobs.txt": "submitted_jobs.txt"
+  }
+}
