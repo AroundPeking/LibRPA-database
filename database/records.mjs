@@ -68,11 +68,21 @@ export function archivedBandGap(record, method = "GW") {
   return null;
 }
 
+const MEAN_FIELD_FUNCTIONALS = ["PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"];
+
 export function methodNames(record) {
   const corpus = [...filesOf(record, "results"), ...filesOf(record, "logs")].map(f => `${f.label || ""} ${f.path?.split("/").at(-1)}`).join(" ");
-  const props = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed").map(p => p.method).join(" ");
+  const active = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed");
+  const props = active.map(p => p.method).join(" ");
   const associated = record.associated_gw_run?.scheduler_state === "COMPLETED" ? record.associated_gw_run.task || "G0W0" : "";
-  return ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBE|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : method === "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props} ${associated}`));
+  const methods = ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBEsol|PBE|SCAN|HSE|LDA|GGA|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : method === "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props} ${associated}`));
+  const functional = new Set(active.map(p => p.method).filter(method => MEAN_FIELD_FUNCTIONALS.includes(method)));
+  return methods.map(method => method === "DFT" && functional.size === 1 ? [...functional][0] : method);
+}
+
+export function methodTag(method) {
+  const tagClass = MEAN_FIELD_FUNCTIONALS.includes(method) ? "dft" : method.toLowerCase();
+  return `<span class="method-tag method-${tagClass}">${method}</span>`;
 }
 
 export function socTag(record) {

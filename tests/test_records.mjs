@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, socTag, spinPolTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, methodTag, socTag, spinPolTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
@@ -398,6 +398,19 @@ test("methods can come from contributed properties without inventing a figure", 
   assert.deepEqual(methodNames({ properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["GW"]);
 });
 
+test("method chips show the recorded mean-field functional instead of generic DFT", () => {
+  const pbe = { category: "electronic", method: "PBE", status: "reported" };
+  assert.deepEqual(methodNames({ properties: [pbe, { category: "electronic", method: "G0W0", status: "reported" }] }), ["PBE", "GW"]);
+  assert.deepEqual(methodNames({ properties: [{ ...pbe, status: "failed" }, { category: "electronic", method: "G0W0", status: "reported" }] }), ["GW"]);
+  const lda = { category: "electronic", method: "LDA", status: "reported" };
+  assert.deepEqual(methodNames({ properties: [lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["LDA", "GW"]);
+  assert.deepEqual(methodNames({ properties: [pbe, lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["DFT", "GW"], "two functionals keep the generic label");
+  assert.equal(methodTag("PBE"), '<span class="method-tag method-dft">PBE</span>');
+  assert.equal(methodTag("LDA"), '<span class="method-tag method-dft">LDA</span>');
+  assert.equal(methodTag("EXX"), '<span class="method-tag method-exx">EXX</span>');
+  assert.equal(methodTag("GW"), '<span class="method-tag method-gw">GW</span>');
+});
+
 test("large-system GW renders sampled-grid results and performance without inventing bands", () => {
   const result = "data/calculations/3d/C/c512/results/LibRPA.out";
   const log = "data/calculations/3d/C/c512/logs/slurm.out";
@@ -454,7 +467,7 @@ test("reader conversion is clearly separated from RPA and GW results", () => {
 test("C2048 shows verified sampled Gamma gaps from the complete QP output", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/3d/C/c2048-reader-v1-20260607/record.json", import.meta.url)));
   assert.equal(recordType(record), "reader_conversion");
-  assert.deepEqual(methodNames(record), ["DFT", "GW"]);
+  assert.deepEqual(methodNames(record), ["PBE", "GW"]);
   const result = primaryResult(record);
   assert.equal(result.label, "Sampled Γ G0W0 gap");
   assert.equal(result.value, 5.74313);
@@ -685,4 +698,16 @@ test("catalog spin-setting flags mark exactly the records with explicit input sw
     if (record.spin_polarized === true) assert.match(html, /method-spin">SPIN/, record.id);
     else assert.doesNotMatch(html, /method-spin/, record.id);
   }
+});
+
+test("catalog method chips keep the method-dft class for every mean-field functional", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  for (const record of catalog.calculations) {
+    const html = renderMaterial(record, catalog.basis_sets);
+    assert.doesNotMatch(html, /method-(?:pbe|lda|gga|pbesol|scan|hse)\b/, record.id);
+    for (const text of [...html.matchAll(/method-tag method-dft">([^<]+)</g)].map(match => match[1])) {
+      assert.ok(["DFT", "PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"].includes(text), `${record.id}: unexpected chip text ${text}`);
+    }
+  }
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 49);
 });

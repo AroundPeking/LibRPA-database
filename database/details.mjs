@@ -1,4 +1,4 @@
-import { esc, publicPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
+import { esc, publicPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, methodTag, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
 import { renderFiles } from "./files.mjs";
 import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs } from "./properties.mjs";
@@ -44,7 +44,7 @@ const materialLink = record => `#/material/${encodeURIComponent(record.id)}`;
 const basisLink = set => `#/basis/${encodeURIComponent(set.id)}`;
 const section = (id, number, title, body, open = false, badge = "") => `<details class="detail-section" id="${id}" ${open ? "open" : ""}><summary><span class="section-number">${number}</span><h2>${title}</h2>${badge ? `<span class="section-badge">${badge}</span>` : ""}<span class="expand-mark" aria-hidden="true">+</span></summary><div class="section-body">${body}</div></details>`;
 const jump = (id, title) => `<button type="button" data-section="${id}">${title}</button>`;
-const chips = methods => methods.map(method => `<span class="method-tag method-${method.toLowerCase()}">${method}</span>`).join("");
+const chips = methods => methods.map(methodTag).join("");
 const formatField = value => esc(typeof value === "object" ? JSON.stringify(value) : value ?? "—");
 const figureGrid = files => `<div class="figure-grid">${files.map(file => {
   const url = publicPath(file.path);

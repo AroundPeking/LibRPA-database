@@ -88,9 +88,11 @@ async function main() {
     await page.locator("#search").fill("gaas-abacus-gw-soc-32freq");
     check((await page.locator("#result-count").innerText()).startsWith("1 of"), "record id search isolates one record");
     check(await page.locator(".material-row .method-soc").count() === 1, "materials list shows the SOC label on the GaAs SOC record");
+    check((await page.locator(".material-row .method-dft").first().innerText()) === "PBE", "materials list shows the recorded functional instead of generic DFT");
     await go("#/material/gaas-abacus-gw-soc-32freq");
     await page.waitForSelector(".detail-tags");
     check(await page.locator(".detail-tags .method-soc").count() === 1, "detail page shows the SOC label");
+    check(await page.locator(".detail-tags .method-dft").count() === 1 && (await page.locator(".detail-tags .method-dft").innerText()) === "PBE", "detail page method chip carries the functional name");
     await go("");
     await page.locator("#search").fill("nio-aims-gw-int");
     check((await page.locator("#result-count").innerText()).startsWith("1 of"), "NiO record id search isolates one record");
@@ -141,10 +143,14 @@ async function main() {
       check(await page.locator("#file-preview .preview-path").textContent() === file.path, `${description}：预览对应真实路径`);
       await page.keyboard.press("Escape");
       await page.locator("#file-preview").waitFor({ state: "hidden" });
-      console.error("[smoke] download:", description);
-      const pendingDownload = page.waitForEvent("download", { timeout: 60000 });
-      await row.getByRole("link", { name: /Download/ }).click();
-      const downloaded = await pendingDownload;
+      let downloaded = null;
+      for (let attempt = 1; attempt <= 3 && !downloaded; attempt++) {
+        console.error("[smoke] download:", description, attempt > 1 ? `(retry ${attempt})` : "");
+        const pendingDownload = page.waitForEvent("download", { timeout: attempt === 3 ? 60000 : 20000 });
+        await row.getByRole("link", { name: /Download/ }).click();
+        try { downloaded = await pendingDownload; }
+        catch (error) { if (attempt === 3) throw error; }
+      }
       check(downloaded.suggestedFilename() === expectedName, `${description}：下载保留计算文件名`);
       const saved = await downloaded.path();
       check(saved && createHash("sha256").update(fs.readFileSync(saved)).digest("hex") === file.sha256, `${description}：原生下载字节一致`);

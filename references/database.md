@@ -124,7 +124,10 @@ ABACUS `INPUT`, or `spin collinear` in an FHI-aims `control.in`.
 Noncollinear or spinor channel settings alone (`noncolin`, `nspin 4`,
 `spin noncollinear`) enable neither mark; a spinor SOC run is covered by
 `spin_orbit`. The site shows SOC and SPIN labels in the methods list of
-matching records.
+matching records. The methods list also names the concrete mean-field
+functional (for example `PBE`) instead of the generic `DFT` label whenever
+the record carries exactly one known functional among its electronic
+properties; ambiguous or unrecorded functionals keep the `DFT` label.
 
 A record that archives an unambiguous structure input (`STRU` for ABACUS,
 `geometry.in` for FHI-aims) carries `structure_identity`: a digest over the

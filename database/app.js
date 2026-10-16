@@ -1,5 +1,5 @@
 import { matchesSearch } from "./search.mjs";
-import { esc, filesOf, recordElements, methodNames, socTag, spinPolTag, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
+import { esc, filesOf, recordElements, methodNames, methodTag, socTag, spinPolTag, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
@@ -37,7 +37,7 @@ function filtered() {
 
 function materialRow(record) {
   const count = filesOf(record, "inputs").length;
-  const methods = methodNames(record).map(method => `<span class="method-tag method-${method.toLowerCase()}">${method}</span>`).join("") + spinPolTag(record) + socTag(record) || '<span class="not-reported">—</span>';
+  const methods = methodNames(record).map(methodTag).join("") + spinPolTag(record) + socTag(record) || '<span class="not-reported">—</span>';
   const url = `#/material/${encodeURIComponent(record.id)}`;
   const atoms = atomCount(record);
   const primary = primaryResult(record);
