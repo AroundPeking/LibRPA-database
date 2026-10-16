@@ -8,14 +8,14 @@
     "total": 113,
     "complete": 55,
     "incomplete": 58,
-    "issue_count": 75,
-    "accepted_exception_count": 75,
+    "issue_count": 74,
+    "accepted_exception_count": 74,
     "blocking_case_count": 0,
     "blocking_issue_count": 0,
     "missing_categories": {
       "software": {
         "cases": 58,
-        "issues": 75
+        "issues": 74
       }
     }
   },
@@ -1803,18 +1803,15 @@
       "status": "incomplete",
       "gate_status": "accepted",
       "issues": [
-        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
-        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required"
       ],
       "accepted_issues": [
-        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
-        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required"
       ],
       "blocking_issues": [],
       "missing_categories": {
         "software": [
-          "software.abacus.identity: full immutable commit or executable SHA-256 is required",
-          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+          "software.abacus.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
       "blocking_categories": {}

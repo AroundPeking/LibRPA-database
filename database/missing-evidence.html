@@ -4,7 +4,7 @@
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 80px}h1{font-size:30px;line-height:1.3;margin:0 0 16px}h2{font-size:22px;margin:0}h2 span{font-size:14px;color:#a9c0df}.summary,.case,.notes{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}.summary{border-color:#cfa85e}.counts{font-size:22px;color:#ffd68b}.muted,.case-id{color:#bed0e5}.case-id{overflow-wrap:anywhere;margin:6px 0}input{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}input:focus{outline:2px solid #78bafa;outline-offset:2px}label{display:block;margin-bottom:8px}code,pre{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}li{margin:8px 0}ol{padding-left:36px}details{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}summary{cursor:pointer;color:#98ccff}pre{color:#d4e1f0}[hidden]{display:none!important}.toolbar{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}footer{color:#a7bdd8;margin-top:30px}@media(max-width:600px){main{padding:24px 14px}.case,.summary,.notes{padding:16px}h1{font-size:25px}}
 </style></head><body><main>
 <h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original raw completeness issues are preserved by material and case. The fixed historical software-identity baseline changes only the CI decision, not these facts or scientific acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
-<section class="summary"><div class="counts">75 original issues · 58/113 records with raw issues</div><p>Raw completeness: blocked; CI gate: complete; 75 grandfathered software identity issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
+<section class="summary"><div class="counts">74 original issues · 58/113 records with raw issues</div><p>Raw completeness: blocked; CI gate: complete; 74 grandfathered software identity issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
 <section class="notes"><ul><li>Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.</li><li>Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.</li><li>Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.</li><li>Raw upload completeness, the fixed historical software-identity acceptance baseline, a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.</li></ul></section>
 <div class="toolbar"><label for="search">Search material / case ID / dimension</label><input id="search" type="search" placeholder="For example: GeTe, MoSe2, C512, 3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">Showing all 113 records</p></div>
 <article class="case" data-search="cuinp2se6 · 2d · cuinp2se6-table-gw"><h2>CuInP2Se6 <span>2d</span></h2><p class="case-id">cuinp2se6-table-gw</p><p>incomplete · 2 original issues</p><ol start="1"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CuInP2Se6 | 2d | cuinp2se6-table-gw ===
@@ -1611,12 +1611,11 @@ Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-paper-pca1e-6/logs/abacus.out
   data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-abacus-gw-sg15"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-abacus-gw-sg15</p><p>incomplete · 2 original issues</p><ol start="74"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-abacus-gw-sg15 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-abacus-gw-sg15"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-abacus-gw-sg15</p><p>incomplete · 1 original issues</p><ol start="74"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-abacus-gw-sg15 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/ZnO/zno-abacus-gw-sg15/record.json
 Original raw completeness issues (full, unmodified text)
   [074] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [075] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -1625,21 +1624,13 @@ Stages to cross-check: SCF/DF/NSCF (ABACUS)
   - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
   - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
   - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
-LibRPA immutable identity to close: software.librpa.identity
-The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
-Stages to cross-check: EXX/GW (LibRPA)
-  - The full immutable source commit for the historical stage or the SHA-256 of the exact executable; never use the current HEAD, a branch name, or a short token as a substitute.
-  - The version/commit token, launch time, and actual launch command from the original log of that stage.
-  - source_commit.txt or an equivalent source-identity receipt recording the historical source tree and its clean/dirty state.
-  - The historical build manifest, CMakeCache, or build receipt, bound to the SHA-256 of the executable actually run.
-  - A launch/job receipt binding the executable hash, input manifest, and spectrum-output hash from the same run.
 Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out
   data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out
-  data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log
   data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log
+  data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/submitted_jobs.txt
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-aims-gw"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-aims-gw"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1648,7 +1639,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-16"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-16"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1658,7 +1649,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-32"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-32"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1668,7 +1659,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-aims-gw"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-aims-gw"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1677,7 +1668,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnS/zns-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-16"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-16"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1687,7 +1678,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnS/zns-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-32"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-32"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
