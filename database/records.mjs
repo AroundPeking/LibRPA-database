@@ -75,7 +75,7 @@ export function methodNames(record) {
   const active = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed");
   const props = active.map(p => p.method).join(" ");
   const associated = record.associated_gw_run?.scheduler_state === "COMPLETED" ? record.associated_gw_run.task || "G0W0" : "";
-  const methods = ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBEsol|PBE|SCAN|HSE|LDA|GGA|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : method === "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props} ${associated}`));
+  const methods = ["DFT", "EXX", "GW"].filter(method => new RegExp(method === "DFT" ? "(?:^|[^a-z])(?:KS|PBEsol|PBE|SCAN|HSE|LDA|GGA|DFT)(?:[^a-z]|$)" : method === "GW" ? "(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)" : "(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(`${corpus} ${props} ${associated}`));
   const functional = new Set(active.map(p => p.method).filter(method => MEAN_FIELD_FUNCTIONALS.includes(method)));
   return methods.map(method => method === "DFT" && functional.size === 1 ? [...functional][0] : method);
 }

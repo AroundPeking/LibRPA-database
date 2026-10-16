@@ -405,6 +405,7 @@ test("method chips show the recorded mean-field functional instead of generic DF
   const lda = { category: "electronic", method: "LDA", status: "reported" };
   assert.deepEqual(methodNames({ properties: [lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["LDA", "GW"]);
   assert.deepEqual(methodNames({ properties: [pbe, lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["DFT", "GW"], "two functionals keep the generic label");
+  assert.deepEqual(methodNames({ properties: [{ category: "electronic", method: "EXX", status: "reported" }] }), ["EXX"], "the EXX branch must match the EXX pattern, not a literal");
   assert.equal(methodTag("PBE"), '<span class="method-tag method-dft">PBE</span>');
   assert.equal(methodTag("LDA"), '<span class="method-tag method-dft">LDA</span>');
   assert.equal(methodTag("EXX"), '<span class="method-tag method-exx">EXX</span>');
@@ -710,4 +711,5 @@ test("catalog method chips keep the method-dft class for every mean-field functi
     }
   }
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 49);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 84);
 });
