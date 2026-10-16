@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "id": "zno-abacus-gw-sg15",
+  "dimension": "3d",
+  "material": "ZnO",
+  "formula": "ZnO",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "abacus",
+    "task": "gw"
+  },
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out"
+      ],
+      "missing_reason": "The producer ABACUS log printed 'Commit: unknown'; no hash or executable SHA was retained.",
+      "identity_note": "ABACUS build identity was not recorded by the producer."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
+      ],
+      "missing_reason": "The producer log printed an empty source Git reference; the HPC source tree is no longer accessible.",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "species": [
+    {
+      "element": "Zn",
+      "set_id": "Zn-ks-backup-gw-264a08e95623",
+      "asset_aliases": {
+        "pp": "Zn_ONCV_PBE-1.0.upf",
+        "nao": "Zn_gga_10au_100Ry_6s3p3d2f.orb",
+        "abf": "Zn_6s3p3d2f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "O",
+      "set_id": "O-ks-backup-gw-0451062ba5e3",
+      "asset_aliases": {
+        "pp": "O_ONCV_PBE-1.0.upf",
+        "nao": "O_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "O_3s3p2d1f1g_pca1e-6.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT",
+        "sha256": "c131b2e546e21c1e22c5af5fd8427a704e985a090f413ce39555586b6aff73de",
+        "size_bytes": 642,
+        "original_sha256": "c58cf57e19571c3d9103dd5eeb58afb9d423650ecc385cd55e6614e42f61c07d",
+        "label": "INPUT",
+        "original_name": "INPUT",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_scf",
+        "sha256": "f1aafac78845ae1f8eb47a76dda4da67178e2688d3ac5a80d1ee2a3582ebc3f5",
+        "size_bytes": 708,
+        "original_sha256": "9bee2e4934af3573f0ce97825ce084301a804bc2d17bddff31228052fd6bcb09",
+        "label": "INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/INPUT_nscf",
+        "sha256": "c131b2e546e21c1e22c5af5fd8427a704e985a090f413ce39555586b6aff73de",
+        "size_bytes": 642,
+        "original_sha256": "c58cf57e19571c3d9103dd5eeb58afb9d423650ecc385cd55e6614e42f61c07d",
+        "label": "INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT",
+        "original_name": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+        "sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "size_bytes": 261,
+        "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
+        "label": "KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU",
+        "sha256": "91bd10607c142d8a8b3faeffa817384474e9880cbad691593583d58e76621842",
+        "size_bytes": 420,
+        "original_sha256": "91bd10607c142d8a8b3faeffa817384474e9880cbad691593583d58e76621842",
+        "label": "STRU",
+        "original_name": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/librpa.in",
+        "sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "size_bytes": 196,
+        "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
+        "label": "librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/abacus_run_script.sh",
+        "sha256": "7723400dd91637b8bdf205f620319c3a25b21203a1093d01ea956117b2f822a8",
+        "size_bytes": 1374,
+        "original_sha256": "0162a7acee0b9f563d13f5defd8661ef1cd39c2e1856112b3faa83fbdcdb3174",
+        "label": "abacus_run_script.sh",
+        "original_name": "run_abacus.sh",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
+        "sha256": "3f6ffe0d9bc9136544dcd19c7359502c3399087f33e19096e3469297caf15141",
+        "size_bytes": 245751,
+        "original_sha256": "3f6ffe0d9bc9136544dcd19c7359502c3399087f33e19096e3469297caf15141",
+        "label": "KS_band_spin_1.dat",
+        "original_name": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
+        "sha256": "3062ef920334f686b1cf46cbfa18ff904c2ed12f7b54e272eb80c90e7c68360b",
+        "size_bytes": 245751,
+        "original_sha256": "3062ef920334f686b1cf46cbfa18ff904c2ed12f7b54e272eb80c90e7c68360b",
+        "label": "EXX_band_spin_1.dat",
+        "original_name": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat",
+        "sha256": "e8daed07f1e8566237efd514b535870b8a1f87900ce6145babf5552032979b12",
+        "size_bytes": 245751,
+        "original_sha256": "e8daed07f1e8566237efd514b535870b8a1f87900ce6145babf5552032979b12",
+        "label": "GW_band_spin_1.dat",
+        "original_name": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+        "sha256": "43bd5ef9a9fa76296b46b1ccc1c807e094e67921c55e3d8fb86f98317c828d4e",
+        "size_bytes": 6680,
+        "original_sha256": "43bd5ef9a9fa76296b46b1ccc1c807e094e67921c55e3d8fb86f98317c828d4e",
+        "label": "band_kpath_info",
+        "original_name": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out",
+        "sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
+        "size_bytes": 13523,
+        "original_sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
+        "label": "abacus.out",
+        "original_name": "abacus.731558.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+        "sha256": "63705a2e18a3c600d1f37edfff85cd8fbbd15e03fdb4237595eb17ef7e5d6c27",
+        "size_bytes": 5268123,
+        "original_sha256": "b77b7c1035b225eba70ed3f5f990d0e9375c8ee386af98b9e847016699159f97",
+        "label": "librpa.out",
+        "original_name": "LibRPA.731933.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log",
+        "sha256": "7b5921057813c4b37947032a248332601efc8d76fc0fe21141426c17b1b24b4b",
+        "size_bytes": 479,
+        "original_sha256": "5b8eea02eaab058073c680b83f52afe3272913f04c33298a9c14d6b328b55cd8",
+        "label": "abacus_slurm_stdout.log",
+        "original_name": "slurm-731558.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log",
+        "sha256": "cffd1da3e9a2db79805cb960f384e48c65bba8dd35b70253213a65daf25fc864",
+        "size_bytes": 10397,
+        "original_sha256": "61d79c86b6ddd07a965bd11da955d1b0930dde04283a641d298665febc0603ce",
+        "label": "gw_slurm_stdout.log",
+        "original_name": "slurm-731933.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/ks_frontier.svg",
+        "sha256": "f67804ad165314e2fa9d6d770165208191c1d5f4126c8729bdec7890f5b3c5b4",
+        "size_bytes": 22552,
+        "original_sha256": "f67804ad165314e2fa9d6d770165208191c1d5f4126c8729bdec7890f5b3c5b4",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/exx_frontier.svg",
+        "sha256": "04ae9b9a22a3f821ffab7d688eded719eb3c91e409f68a0a3c2788df949fabb4",
+        "size_bytes": 22058,
+        "original_sha256": "04ae9b9a22a3f821ffab7d688eded719eb3c91e409f68a0a3c2788df949fabb4",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/gw_frontier.svg",
+        "sha256": "3a27286c0840c4fca862a3a3014cc374be32052e1b95cc98973ac55181b00171",
+        "size_bytes": 22374,
+        "original_sha256": "3a27286c0840c4fca862a3a3014cc374be32052e1b95cc98973ac55181b00171",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/figures/band_frontier_metadata.json",
+        "sha256": "3d71c2ce529af58c36b035220feee284ff6d3b73d56f67606e9b218e7fee63d3",
+        "size_bytes": 641922,
+        "original_sha256": "3d71c2ce529af58c36b035220feee284ff6d3b73d56f67606e9b218e7fee63d3",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/KPT_nscf",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/band_kpath_info",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "f5d9e30ee44cb5c5a140ebebc15e5bd357b2421dd6797ae28603163968c437be",
+    "evidence": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/inputs/STRU"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 66,
+    "n_path_kpoints": 121
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 0.73254,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 9.20462,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 1.6164,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/ZnO/zno-abacus-gw-sg15/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 1.6164,
+    "unit": "eV",
+    "notes": "Historical KS HPC backup run: ABACUS LCAO SG15-ONCV scf/nscf plus LibRPA G0W0 on the zincblende 2-atom primitive cell (a = 4.584 A, spin-unpolarized); the exported band table carries all-zero occupations, so the occupied/empty boundary follows the LibRPA log's 'Bands of occupation: 13' (Z_val 20+6 over two spins).",
+    "gw_gap_ev": 1.6164,
+    "exx_gap_ev": 9.20462,
+    "dft_gap_ev": 0.73254,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific archived geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "cluster_label": "formal-6226R",
+  "accelerators": null,
+  "nodes": 9,
+  "cpus": 288,
+  "elapsed_seconds": 18723,
+  "accelerator_label": null,
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "provenance_directory": "data/provenance/backup-20261016",
+    "material_directory": "ZnO",
+    "run_directory": "ZnO/gw/sg15"
+  }
+}

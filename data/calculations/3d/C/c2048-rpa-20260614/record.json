@@ -150,6 +150,19 @@
         "size_bytes": 5942570,
         "transformation": "none"
       }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c2048-rpa-20260614/figures/band_frontier_metadata.json",
+        "sha256": "e8d25ea57f0c811fa2f52fa96d0291ad9c09f4675d0bf2793c17fb7ee8bb348f",
+        "size_bytes": 509,
+        "original_sha256": "e8d25ea57f0c811fa2f52fa96d0291ad9c09f4675d0bf2793c17fb7ee8bb348f",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [],
+        "display_priority": "primary"
+      }
     ]
   },
   "formula": "C2048",

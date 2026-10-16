@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "id": "nio-aims-gw-int",
+  "dimension": "3d",
+  "material": "NiO",
+  "formula": "NiO",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "fhi_aims",
+    "task": "gw"
+  },
+  "software": {
+    "fhi_aims": {
+      "source_url": "https://fhi-aims.org",
+      "commit": null,
+      "abbreviated_commit": "6bb66facb",
+      "evidence": [
+        "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log"
+      ],
+      "missing_reason": "The producer logged only the shortened commit 6bb66facb for version 241109; the full FHI-aims hash was not retained and the upstream server is not publicly fetchable by raw SHA.",
+      "identity_note": "FHI-aims 241109 printed a 9-hex commit prefix; no full hash or executable SHA is recoverable from the archived evidence."
+    }
+  },
+  "species": [
+    {
+      "element": "Ni",
+      "set_id": "Ni-ks-backup-gw-f60edfde7cc3",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    },
+    {
+      "element": "O",
+      "set_id": "O-ks-backup-gw-96f253772209",
+      "missing_roles": [],
+      "linkage": "byte-exact control.in inline species block hash-matched to the registered species_defaults payload"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/inputs/control.in",
+        "sha256": "ae9c73d5a882f548c3722a2b14de18f94c18f86f7e96df75078650233de671f9",
+        "size_bytes": 5940,
+        "original_sha256": "ae9c73d5a882f548c3722a2b14de18f94c18f86f7e96df75078650233de671f9",
+        "label": "control.in",
+        "original_name": "control.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in",
+        "sha256": "1425cd70103bea48feb55297c83f8aa188db79ba742d6bb68c76d6f3a983f477",
+        "size_bytes": 671,
+        "original_sha256": "1425cd70103bea48feb55297c83f8aa188db79ba742d6bb68c76d6f3a983f477",
+        "label": "geometry.in",
+        "original_name": "geometry.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band",
+        "sha256": "43427c61ff3a77e1bba18d975e636053f8f228b1310588c9dfb0ff32dbf19cc8",
+        "size_bytes": 456,
+        "original_sha256": "43427c61ff3a77e1bba18d975e636053f8f228b1310588c9dfb0ff32dbf19cc8",
+        "label": "Derived band-path KPT (inclusive segments)",
+        "original_name": "control.in output band section",
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/inputs/aims_run_script.sh",
+        "sha256": "8f683677d425850576df627c89c7a8ace9650efa46963dff092762ab235e2c6f",
+        "size_bytes": 780,
+        "original_sha256": "dd4be841aa2cc15b017febb6eaa9d68e54fd8ec01042c6cd18eb9b3163f61f40",
+        "label": "aims_run_script.sh",
+        "original_name": "run_aims.sh",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat",
+        "sha256": "335ee0c9e9a4c1ea0c0f672846466341e2e74591bcf05941129b9a571836ec5e",
+        "size_bytes": 81468,
+        "original_sha256": "335ee0c9e9a4c1ea0c0f672846466341e2e74591bcf05941129b9a571836ec5e",
+        "label": "EXX_band_spin_1.dat",
+        "original_name": "EXX_band1001-1006.out (merged)",
+        "transformation": "concatenated verbatim per-segment native tables with renumbered k indices (inclusive-segments convention)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2001.out",
+        "sha256": "831a7bc554ed7e2ea979aaced6b69eaf439d4efd09538daacc34d4712cc6496e",
+        "size_bytes": 13566,
+        "original_sha256": "831a7bc554ed7e2ea979aaced6b69eaf439d4efd09538daacc34d4712cc6496e",
+        "label": "EXX_band2001.out",
+        "original_name": "EXX_band2001.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2002.out",
+        "sha256": "246827704a6f14dc0b5b7a0013b3cf9b5ea2676f4b3489786c03bb73db0887af",
+        "size_bytes": 13566,
+        "original_sha256": "246827704a6f14dc0b5b7a0013b3cf9b5ea2676f4b3489786c03bb73db0887af",
+        "label": "EXX_band2002.out",
+        "original_name": "EXX_band2002.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2003.out",
+        "sha256": "0f23498ff50eacfed0f18f5c54b9bc452619e4df0565fc9a7398a4835a76537b",
+        "size_bytes": 13566,
+        "original_sha256": "0f23498ff50eacfed0f18f5c54b9bc452619e4df0565fc9a7398a4835a76537b",
+        "label": "EXX_band2003.out",
+        "original_name": "EXX_band2003.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2004.out",
+        "sha256": "abf8590909191fa05a35e517158d5c16faa775a9bb32036f016aeb1875c12349",
+        "size_bytes": 13566,
+        "original_sha256": "abf8590909191fa05a35e517158d5c16faa775a9bb32036f016aeb1875c12349",
+        "label": "EXX_band2004.out",
+        "original_name": "EXX_band2004.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2005.out",
+        "sha256": "429cdacb3c12f11c95848c3ffcc6f72ed26701235b43ccebc1640c32ded20e78",
+        "size_bytes": 13566,
+        "original_sha256": "429cdacb3c12f11c95848c3ffcc6f72ed26701235b43ccebc1640c32ded20e78",
+        "label": "EXX_band2005.out",
+        "original_name": "EXX_band2005.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2006.out",
+        "sha256": "d66bafe447129a19aa53a6b00be2c9e876278f449a1d5eadc790be4d9a497715",
+        "size_bytes": 13566,
+        "original_sha256": "d66bafe447129a19aa53a6b00be2c9e876278f449a1d5eadc790be4d9a497715",
+        "label": "EXX_band2006.out",
+        "original_name": "EXX_band2006.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat",
+        "sha256": "6db9fcf7534433ced003b208951c645c3dad0c8e07143cc8235009e8427d5596",
+        "size_bytes": 81468,
+        "original_sha256": "6db9fcf7534433ced003b208951c645c3dad0c8e07143cc8235009e8427d5596",
+        "label": "GW_band_spin_1.dat",
+        "original_name": "GW_band1001-1006.out (merged)",
+        "transformation": "concatenated verbatim per-segment native tables with renumbered k indices (inclusive-segments convention)"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2001.out",
+        "sha256": "cb320caa38f4c7bdbf05cc1aa9edbe0e3ac8350b5b022be3af41090e9763895c",
+        "size_bytes": 13566,
+        "original_sha256": "cb320caa38f4c7bdbf05cc1aa9edbe0e3ac8350b5b022be3af41090e9763895c",
+        "label": "GW_band2001.out",
+        "original_name": "GW_band2001.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2002.out",
+        "sha256": "34733bcfa42bcedc7d5ad19b27de1fcb80b0f7e00f0df9b700e40d81b12d1dc5",
+        "size_bytes": 13566,
+        "original_sha256": "34733bcfa42bcedc7d5ad19b27de1fcb80b0f7e00f0df9b700e40d81b12d1dc5",
+        "label": "GW_band2002.out",
+        "original_name": "GW_band2002.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2003.out",
+        "sha256": "6ea5470ef024e3cf9d777a849188cd6fadf8c289815ec0bee1e63efa59859cda",
+        "size_bytes": 13566,
+        "original_sha256": "6ea5470ef024e3cf9d777a849188cd6fadf8c289815ec0bee1e63efa59859cda",
+        "label": "GW_band2003.out",
+        "original_name": "GW_band2003.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2004.out",
+        "sha256": "d5f0f20cf96675e3e5e684fe02d8317e5f3d594527062a674f5d85bc49c1f9ba",
+        "size_bytes": 13566,
+        "original_sha256": "d5f0f20cf96675e3e5e684fe02d8317e5f3d594527062a674f5d85bc49c1f9ba",
+        "label": "GW_band2004.out",
+        "original_name": "GW_band2004.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2005.out",
+        "sha256": "a6352e7f7813110ede8613ab9f0cc036e1b1ca9daadc0c088191576cdf923d69",
+        "size_bytes": 13566,
+        "original_sha256": "a6352e7f7813110ede8613ab9f0cc036e1b1ca9daadc0c088191576cdf923d69",
+        "label": "GW_band2005.out",
+        "original_name": "GW_band2005.out",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2006.out",
+        "sha256": "469528a1a28f838e30c72414a38f87d9d4120371afdddfa732945e8d2aac5d96",
+        "size_bytes": 13566,
+        "original_sha256": "469528a1a28f838e30c72414a38f87d9d4120371afdddfa732945e8d2aac5d96",
+        "label": "GW_band2006.out",
+        "original_name": "GW_band2006.out",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
+        "sha256": "35b0eacc2dc7df7e6bed6d472d237f202a932bd17e2582fbe866538a479dc9b4",
+        "size_bytes": 21572492,
+        "original_sha256": "35b0eacc2dc7df7e6bed6d472d237f202a932bd17e2582fbe866538a479dc9b4",
+        "label": "aims_731944_stdout.log",
+        "original_name": "aims.731944.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log",
+        "sha256": "b18eafcd48575c3bd576c2a537cd327320ec47ecf4c346c583511af5a4e1d959",
+        "size_bytes": 30502,
+        "original_sha256": "2e4eedbc747f08a4687f96e160c67d39de46501d1d718bbd49791345fcc68e87",
+        "label": "aims_731944_slurm_stdout.log",
+        "original_name": "slurm-731944.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
+        "sha256": "4ccea660791dcbfc57fd5a875736d82de3ac20210df9da119d96a9a6dcfd864f",
+        "size_bytes": 21369988,
+        "original_sha256": "4ccea660791dcbfc57fd5a875736d82de3ac20210df9da119d96a9a6dcfd864f",
+        "label": "aims_735178_stdout.log",
+        "original_name": "aims.735178.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log",
+        "sha256": "4a59808cad154fe4f082504be461ad691985eebff2493aeec95d31c01e94c561",
+        "size_bytes": 463,
+        "original_sha256": "ea9af4d07ba435e57be85b21fe3eeca6324b32ae4bb6535ac9fa4c35ea197ee7",
+        "label": "aims_735178_slurm_stdout.log",
+        "original_name": "slurm-735178.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
+        "sha256": "8d87cad8a40c51aed3025f61b95ca2efda59540700ba5f3aa9a6419db3b52be1",
+        "size_bytes": 21583765,
+        "original_sha256": "8d87cad8a40c51aed3025f61b95ca2efda59540700ba5f3aa9a6419db3b52be1",
+        "label": "aims_736421_stdout.log",
+        "original_name": "aims.736421.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log",
+        "sha256": "2f2fa14ecf023ff245cd9a0159b033423c1994cf8ad8c74eebc7746f3936305d",
+        "size_bytes": 464,
+        "original_sha256": "ea1bb25898f3513abe81cf91ab8fb3eee0003dcb11089de6279d4be8e417f6d1",
+        "label": "aims_736421_slurm_stdout.log",
+        "original_name": "slurm-736421.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
+        "sha256": "1048def288f4be20e50c5e1fedb61ac139388536e3d62e4059eef0a7a9d612ca",
+        "size_bytes": 23917367,
+        "original_sha256": "1048def288f4be20e50c5e1fedb61ac139388536e3d62e4059eef0a7a9d612ca",
+        "label": "aims_740569_stdout.log",
+        "original_name": "aims.740569.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log",
+        "sha256": "b8dbf0023b281169d9e3bacd3399b00f522b1303091aa38fddfbf484535ceb38",
+        "size_bytes": 269,
+        "original_sha256": "f2e1ac82520ddb65561a095551d0e1ae0d803751629446bfe6ebb88211ae9733",
+        "label": "aims_740569_slurm_stdout.log",
+        "original_name": "slurm-740569.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/figures/exx_frontier.svg",
+        "sha256": "ab3d717ebfccb33b894679e1a9e16665e145c7b0bcb16a610aac5b610a8bd2b8",
+        "size_bytes": 23996,
+        "original_sha256": "ab3d717ebfccb33b894679e1a9e16665e145c7b0bcb16a610aac5b610a8bd2b8",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/figures/gw_frontier.svg",
+        "sha256": "921910d8883a93ac3c7cff092c0e499ea79453c2d5b7c82cf6e8956d3171dd66",
+        "size_bytes": 22416,
+        "original_sha256": "921910d8883a93ac3c7cff092c0e499ea79453c2d5b7c82cf6e8956d3171dd66",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat",
+          "data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/NiO/nio-aims-gw-int/figures/band_frontier_metadata.json",
+        "sha256": "a6c712299559aa4b8c998c1b663fb02a0ca47a4d6564702289ce2ebc104176b8",
+        "size_bytes": 225596,
+        "original_sha256": "a6c712299559aa4b8c998c1b663fb02a0ca47a4d6564702289ce2ebc104176b8",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band",
+          "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "dc6dcd9097fa677574274221dde0965b11f3612cd88f0e7a52d23830afb632ce",
+    "evidence": "data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in"
+  },
+  "computational_scale": {
+    "atom_count": 4,
+    "n_bands": 22,
+    "n_path_kpoints": 126
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "EXX",
+      "value": 14.40432,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "aims native EXX/GW quasi-particle sampled band-path gap on the archived 126-point collinear spin-polarized path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Sampled path band gap",
+      "method": "G0W0",
+      "value": 1.81713,
+      "unit": "eV",
+      "status": "reported",
+      "definition": "aims native EXX/GW quasi-particle sampled band-path gap on the archived 126-point collinear spin-polarized path. Sampled path only, not a global Brillouin-zone gap, convergence validation, or basis recommendation.",
+      "evidence": [
+        "data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [
+    "No KS/PBE band table was archived by the producer (EXX/GW tables only).",
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "summary": {
+    "observable": "G0W0 band gap (sampled path)",
+    "value": 1.81713,
+    "unit": "eV",
+    "notes": "Historical KS HPC backup run: FHI-aims built-in GW (qpe_calc gw_expt, intermediate tier) on the sampled 126-point path of the antiferromagnetic rocksalt-rhombohedral 4-atom cell, collinear spin-polarized. The first spin channel is archived as a merged table and the second as verbatim per-segment native tables; their frontier gaps agree to below 1e-6 eV. The band-path KPT is derived from the archived control.in output band definitions. Sampled path only, not a global Brillouin-zone gap or convergence claim.",
+    "gw_gap_ev": 1.81713,
+    "exx_gap_ev": 14.40432,
+    "gap_definition": "Archived sampled native band-path gap; restricted to the archived geometry, species defaults, k/path and numerical settings.",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific archived geometry, species defaults, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "cluster_label": "formal-6226R",
+  "accelerators": null,
+  "nodes": null,
+  "cpus": 288,
+  "elapsed_seconds": null,
+  "accelerator_label": null,
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "provenance_directory": "data/provenance/backup-20261016",
+    "material_directory": "NiO",
+    "run_directory": "NiO/gw/aims/int"
+  }
+}

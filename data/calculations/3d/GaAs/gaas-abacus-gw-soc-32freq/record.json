@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "id": "gaas-abacus-gw-soc-32freq",
+  "dimension": "3d",
+  "material": "GaAs",
+  "formula": "GaAs",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "abacus",
+    "task": "gw"
+  },
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus.out"
+      ],
+      "identity_note": "Full commit resolved from the unique deepmodeling/abacus-develop object matching the producer-logged prefix 1dd0199 (committer date identical to the logged build date); the same resolution is already recorded for the gaas-paper-gw_xsoc records."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
+      ],
+      "missing_reason": "The producer log printed an empty source Git reference; the HPC source tree is no longer accessible.",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "species": [
+    {
+      "element": "Ga",
+      "set_id": "Ga-ks-backup-gw-3b5929407485",
+      "asset_aliases": {
+        "pp": "Ga.upf",
+        "nao": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
+        "abf": "Ga_str_6s6p4d2f1g_1e-4.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "As",
+      "set_id": "As-ks-backup-gw-cf724fe48e41",
+      "asset_aliases": {
+        "pp": "As.upf",
+        "nao": "As_gga_8au_100Ry_3s3p2d.orb",
+        "abf": "As_str_3s3p2d2f1g_1e-4.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT",
+        "sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
+        "size_bytes": 613,
+        "original_sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
+        "label": "INPUT",
+        "original_name": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_scf",
+        "sha256": "f75063125d89c11360f5f1470ece46607fcf9568e9e9beb127f70b2934e37a27",
+        "size_bytes": 732,
+        "original_sha256": "f75063125d89c11360f5f1470ece46607fcf9568e9e9beb127f70b2934e37a27",
+        "label": "INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_nscf",
+        "sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
+        "size_bytes": 613,
+        "original_sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
+        "label": "INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT",
+        "sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "size_bytes": 453,
+        "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "label": "KPT",
+        "original_name": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+        "sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "size_bytes": 453,
+        "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
+        "label": "KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/STRU",
+        "sha256": "45cc5b1996875a18483e7ad0624e68565caf5ff735d5ed9ff5d90338d65ce200",
+        "size_bytes": 403,
+        "original_sha256": "45cc5b1996875a18483e7ad0624e68565caf5ff735d5ed9ff5d90338d65ce200",
+        "label": "STRU",
+        "original_name": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/librpa.in",
+        "sha256": "2def263916481d2ad819bea44dfbdc9a367c5ee0d8c0019c8d6e622d033486d7",
+        "size_bytes": 493,
+        "original_sha256": "2def263916481d2ad819bea44dfbdc9a367c5ee0d8c0019c8d6e622d033486d7",
+        "label": "librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/abacus_run_script.sh",
+        "sha256": "f48b237eff7d94df38fcdbefc79a0238fc323b7d01831c24499310cda6a6a216",
+        "size_bytes": 1086,
+        "original_sha256": "5c894955d7769cf0bcfb92159d0a8cf64b31a19bb06412c351965ecb018ebe38",
+        "label": "abacus_run_script.sh",
+        "original_name": "run_abacus.sh",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat",
+        "sha256": "ae10400d078c524f8ad9501b0fa3b447da558cfa69187c0b6876556c2c8ee70f",
+        "size_bytes": 975051,
+        "original_sha256": "ae10400d078c524f8ad9501b0fa3b447da558cfa69187c0b6876556c2c8ee70f",
+        "label": "KS_band_spin_1.dat",
+        "original_name": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat",
+        "sha256": "27aaf1a293f5f1866a1f030df2db79954b8c51d34c97d4eda460222d5fb92108",
+        "size_bytes": 975051,
+        "original_sha256": "27aaf1a293f5f1866a1f030df2db79954b8c51d34c97d4eda460222d5fb92108",
+        "label": "EXX_band_spin_1.dat",
+        "original_name": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat",
+        "sha256": "255fe642c1b47c29a6c3bfc8cbfd063768b16d180b68dd033bfb3190dbe1be4e",
+        "size_bytes": 975051,
+        "original_sha256": "255fe642c1b47c29a6c3bfc8cbfd063768b16d180b68dd033bfb3190dbe1be4e",
+        "label": "GW_band_spin_1.dat",
+        "original_name": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+        "sha256": "7af4819a05aa7b52711698f2d25790150777e8003f0d0258c76af89e7d6e8758",
+        "size_bytes": 11080,
+        "original_sha256": "7af4819a05aa7b52711698f2d25790150777e8003f0d0258c76af89e7d6e8758",
+        "label": "band_kpath_info",
+        "original_name": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus.out",
+        "sha256": "4058b84ffdb78a6b3df06fd0b696aeb9583be758283a9bf96be39ef621a52733",
+        "size_bytes": 57066,
+        "original_sha256": "4058b84ffdb78a6b3df06fd0b696aeb9583be758283a9bf96be39ef621a52733",
+        "label": "abacus.out",
+        "original_name": "abacus.859292.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out",
+        "sha256": "66277ae06f36039b391009638a545556333a9d7341b5e6820f7265def611853d",
+        "size_bytes": 12019437,
+        "original_sha256": "f383b1ee82f2aa04de65f1f8e9328aa36db5fc28690f6a377ac6796b83c2fe6a",
+        "label": "librpa.out",
+        "original_name": "LibRPA.859318.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_slurm_stdout.log",
+        "sha256": "6641b10a5f6f01174bc808c6a9416aa41ecffa4222eb70e659408816fb87aa00",
+        "size_bytes": 1051,
+        "original_sha256": "e7fa8424fbafa2d67a0885f2503f7312736897176cbdaedbf9bca54592b50797",
+        "label": "abacus_slurm_stdout.log",
+        "original_name": "slurm-859292.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_nscf_slurm_stdout.log",
+        "sha256": "3acf4c317568e402287c4a3bf97f6a92eaa34c04cebfbcc087a289a24d61f379",
+        "size_bytes": 481,
+        "original_sha256": "55ff152bbefd8d53a2cf29e85a6d97cc1231df40e2ce668a1c2d85eaac35c1cf",
+        "label": "abacus_nscf_slurm_stdout.log",
+        "original_name": "slurm-859299.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/gw_slurm_stdout.log",
+        "sha256": "79e8fc4553dc41ae29056cc73b0c732ed9c87a4c7e19b73df60d23ea0c1c7aa8",
+        "size_bytes": 283,
+        "original_sha256": "594c1df2eb888179b7acf8919bea9adaf8766de3a7d81d32455ddada4bd291cb",
+        "label": "gw_slurm_stdout.log",
+        "original_name": "slurm-859318.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/ks_frontier.svg",
+        "sha256": "0960243dd3bbb65dcde2cfd7195d55ee675281bc6b632825ddfaec2d18cd0472",
+        "size_bytes": 34396,
+        "original_sha256": "0960243dd3bbb65dcde2cfd7195d55ee675281bc6b632825ddfaec2d18cd0472",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/exx_frontier.svg",
+        "sha256": "bb4c5eaf43bdf4dfa3dc89cdcd78388fdb016579be13feaa75f4bd1b9ada6e1c",
+        "size_bytes": 33121,
+        "original_sha256": "bb4c5eaf43bdf4dfa3dc89cdcd78388fdb016579be13feaa75f4bd1b9ada6e1c",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/gw_frontier.svg",
+        "sha256": "478ea62280368c62c291ace2ac707df0f899cc774124360c9b3853f5a9eba578",
+        "size_bytes": 33109,
+        "original_sha256": "478ea62280368c62c291ace2ac707df0f899cc774124360c9b3853f5a9eba578",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/band_frontier_metadata.json",
+        "sha256": "0d6d9e123da4ea0e5d0adacb769cba4e73351b090687a4b764798f5beb74bd21",
+        "size_bytes": 2024637,
+        "original_sha256": "0d6d9e123da4ea0e5d0adacb769cba4e73351b090687a4b764798f5beb74bd21",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "2636fc2151fbdb4767029a56289944f6b5d6b1d0b08779a0837fddb3a32ac685",
+    "evidence": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/STRU"
+  },
+  "computational_scale": {
+    "atom_count": 2,
+    "n_bands": 160,
+    "n_path_kpoints": 201
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 0.41574,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 5.2222,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 1.38921,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 1.38921,
+    "unit": "eV",
+    "notes": "Historical KS HPC backup run: ABACUS noncollinear spin-orbit-coupled LCAO (lspinorb 1, 160 spinor bands = 80 NAO x 2) scf/nscf plus LibRPA G0W0 with 32 frequency points on the experimental zincblende lattice (a = 5.654 A); structure fingerprint identical to gaas-paper-gw_xsoc_1e-10 (same cell and sites, independently chosen 8au_100Ry basis).",
+    "gw_gap_ev": 1.38921,
+    "exx_gap_ev": 5.2222,
+    "dft_gap_ev": 0.41574,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific archived geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "cluster_label": "formal-6226R",
+  "accelerators": null,
+  "nodes": 4,
+  "cpus": 128,
+  "elapsed_seconds": 10414,
+  "accelerator_label": null,
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "provenance_directory": "data/provenance/backup-20261016",
+    "material_directory": "GaAs",
+    "run_directory": "GaAs/soc_32freq_pack"
+  }
+}

@@ -83,7 +83,19 @@
   },
   "dimension": "3d",
   "files": {
-    "figures": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c2048-reader-v1-20260607/figures/band_frontier_metadata.json",
+        "sha256": "bbb2d4af08c535332c2f3d1c175ef878feca94867644475e47a0a5b2eff566a6",
+        "size_bytes": 515,
+        "original_sha256": "bbb2d4af08c535332c2f3d1c175ef878feca94867644475e47a0a5b2eff566a6",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [],
+        "display_priority": "primary"
+      }
+    ],
     "inputs": [
       {
         "label": "ABACUS SCF input (INPUT)",

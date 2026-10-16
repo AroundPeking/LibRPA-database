@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "Bi-ks-backup-gw-9acd8c913951",
+  "element": "Bi",
+  "family": "KS HPC backup production basis (SG15/ONCV PP + NAO + PCA ABF)",
+  "validation_scope": "Used by bi2se3-abacus-gw-dzp; see case-specific gates.",
+  "notes": "Basis files archived from the producer's run directory; content-addressed.",
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "case_id": "bi2se3-abacus-gw-dzp"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Bi/pseudopotentials/fa9500114e4bcdcf9c5b74182c42b7012f7012d6176622b2ca7daf05085c70d5.upf",
+      "sha256": "fa9500114e4bcdcf9c5b74182c42b7012f7012d6176622b2ca7daf05085c70d5",
+      "size_bytes": 442935,
+      "original_sha256": "fa9500114e4bcdcf9c5b74182c42b7012f7012d6176622b2ca7daf05085c70d5",
+      "label": "Bi.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Bi/orbitals/a407796660f1d0b3c51f2da38697edb73dfcfcfd6912bf30606e7b7893f8cdaa.orb",
+      "sha256": "a407796660f1d0b3c51f2da38697edb73dfcfcfd6912bf30606e7b7893f8cdaa",
+      "size_bytes": 187546,
+      "original_sha256": "a407796660f1d0b3c51f2da38697edb73dfcfcfd6912bf30606e7b7893f8cdaa",
+      "label": "Bi_gga_10au_130Ry_3s3p2d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Bi/auxiliary/226999e6a73a2a4e5850e677d4604df6ea7182b3631362d996653464c6d19fdd.abfs",
+      "sha256": "226999e6a73a2a4e5850e677d4604df6ea7182b3631362d996653464c6d19fdd",
+      "size_bytes": 1515091,
+      "original_sha256": "226999e6a73a2a4e5850e677d4604df6ea7182b3631362d996653464c6d19fdd",
+      "label": "Bi_4s4p3d2f2g_1e-4.abfs",
+      "transformation": "none"
+    }
+  ],
+  "used_by": []
+}

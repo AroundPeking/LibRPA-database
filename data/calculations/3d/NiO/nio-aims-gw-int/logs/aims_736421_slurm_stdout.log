@@ -1,0 +1,9 @@
+Begin Time is Tue Jun 10 20:40:47 CST 2025
+Directory is /HPC/gw/NiO/gw/aims
+This job runs on the following nodes:
+[redacted node list]
+This job has allocated 32(x9) cpu cores.
+cpus per task: 1, this should be OMP_NUM_THREADS: 1
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 736421.0 ON cn308 CANCELLED AT 2025-06-14T18:54:30 ***
+slurmstepd: error: *** JOB 736421 ON cn308 CANCELLED AT 2025-06-14T18:54:30 ***

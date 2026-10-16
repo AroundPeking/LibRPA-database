@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "policy": "grandfathered_missing_software_identity",
-  "frozen_issue_count": 70,
+  "frozen_issue_count": 75,
   "scope": "Only the exact pre-existing calculation/software pairs listed here may retain an unavailable immutable software identity. New records are never added automatically.",
-  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered. The JCTC 6c00618 FHI-aims pairs were added on 2026-10-15 under the database owner's standing authorization for this intake: FHI-aims 241121 logged only the abbreviated commit b5eacca14, and the full hash is not recoverable from the local clone or the upstream server.",
+  "notes": "The c2048-rpa-20260614 pair was added on 2026-10-15 with the database owner's explicit approval: the historical ABACUS and LibRPA identities for the C2048 RPA run were not retained and cannot be recovered. The JCTC 6c00618 FHI-aims pairs were added on 2026-10-15 under the database owner's standing authorization for this intake: FHI-aims 241121 logged only the abbreviated commit b5eacca14, and the full hash is not recoverable from the local clone or the upstream server. The bi2se3-abacus-gw-dzp/librpa, zno-abacus-gw-sg15/abacus, zno-abacus-gw-sg15/librpa, nio-aims-gw-int/fhi_aims and gaas-abacus-gw-soc-32freq/librpa pairs were added on 2026-10-16 with the database owner's explicit approval after the intake summary presented the candidate digests and the missing-identity evidence: intake approved as \"\u5168\u90e8\u6536\u5f55\uff084 \u4e2a\uff09(Recommended)\" and the five software-identity exception pairs explicitly authorized as \"\u6388\u6743 5 \u5bf9\u65b0\u589e\u8c41\u514d (Recommended)\".",
   "records": [
     {
       "id": "alas-paper-paper",
@@ -342,6 +342,31 @@
       "id": "wse2-table-gw",
       "software": [
         "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "bi2se3-abacus-gw-dzp",
+      "software": [
+        "librpa"
+      ]
+    },
+    {
+      "id": "zno-abacus-gw-sg15",
+      "software": [
+        "abacus",
+        "librpa"
+      ]
+    },
+    {
+      "id": "nio-aims-gw-int",
+      "software": [
+        "fhi_aims"
+      ]
+    },
+    {
+      "id": "gaas-abacus-gw-soc-32freq",
+      "software": [
         "librpa"
       ]
     }

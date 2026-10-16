@@ -5,17 +5,17 @@
   "integrity_issues": [],
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "stats": {
-    "total": 109,
+    "total": 113,
     "complete": 55,
-    "incomplete": 54,
-    "issue_count": 70,
-    "accepted_exception_count": 70,
+    "incomplete": 58,
+    "issue_count": 75,
+    "accepted_exception_count": 75,
     "blocking_case_count": 0,
     "blocking_issue_count": 0,
     "missing_categories": {
       "software": {
-        "cases": 54,
-        "issues": 70
+        "cases": 58,
+        "issues": 75
       }
     }
   },
@@ -667,6 +667,26 @@
       "blocking_categories": {}
     },
     {
+      "id": "bi2se3-abacus-gw-dzp",
+      "material": "Bi2Se3",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
       "id": "c-jctc-aims-gw",
       "material": "C",
       "dimension": "3d",
@@ -892,6 +912,26 @@
     {
       "id": "cds-paper-debug",
       "material": "CdS",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gaas-abacus-gw-soc-32freq",
+      "material": "GaAs",
       "dimension": "3d",
       "status": "incomplete",
       "gate_status": "accepted",
@@ -1593,6 +1633,26 @@
       "blocking_categories": {}
     },
     {
+      "id": "nio-aims-gw-int",
+      "material": "NiO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
       "id": "si-jctc-aims-gw",
       "material": "Si",
       "dimension": "3d",
@@ -1731,6 +1791,29 @@
       "blocking_issues": [],
       "missing_categories": {
         "software": [
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "zno-abacus-gw-sg15",
+      "material": "ZnO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required",
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.abacus.identity: full immutable commit or executable SHA-256 is required",
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },

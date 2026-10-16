@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "calculation_id": "c2048-reader-v1-20260607",
+  "energy_unit": "eV",
+  "comparison_mode": "single method, own occupied sampled-path VBM reference",
+  "note": "Sampled path only, not a global Brillouin-zone gap or numerical acceptance. Original comparison artifacts and raw sources unchanged.",
+  "source_sha256": {},
+  "methods": {},
+  "rejected": {
+    "KS": "raw archived band table absent",
+    "EXX": "raw archived band table absent",
+    "GW": "raw archived band table absent"
+  }
+}

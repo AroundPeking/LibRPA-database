@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "Zn-ks-backup-gw-264a08e95623",
+  "element": "Zn",
+  "family": "KS HPC backup production basis (SG15/ONCV PP + NAO + PCA ABF)",
+  "validation_scope": "Used by zno-abacus-gw-sg15; see case-specific gates.",
+  "notes": "Basis files archived from the producer's run directory; content-addressed.",
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "case_id": "zno-abacus-gw-sg15"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Zn/pseudopotentials/cb86317885a005368bc104cd1ad62113a5f3c9cd3fb791fc9b9902a7fd71cbb0.upf",
+      "sha256": "cb86317885a005368bc104cd1ad62113a5f3c9cd3fb791fc9b9902a7fd71cbb0",
+      "size_bytes": 115337,
+      "original_sha256": "cb86317885a005368bc104cd1ad62113a5f3c9cd3fb791fc9b9902a7fd71cbb0",
+      "label": "Zn_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Zn/orbitals/d4eb1961983aa6a3947e1a6b1e9df1dfc657f97fda7a3795ad3aba6ea177a417.orb",
+      "sha256": "d4eb1961983aa6a3947e1a6b1e9df1dfc657f97fda7a3795ad3aba6ea177a417",
+      "size_bytes": 320533,
+      "original_sha256": "d4eb1961983aa6a3947e1a6b1e9df1dfc657f97fda7a3795ad3aba6ea177a417",
+      "label": "Zn_gga_10au_100Ry_6s3p3d2f.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/Zn/auxiliary/e85a10826002ae3f902ba5f7344a68a6abf1ea42c47f4b69712d21c9c29a73e2.abfs",
+      "sha256": "e85a10826002ae3f902ba5f7344a68a6abf1ea42c47f4b69712d21c9c29a73e2",
+      "size_bytes": 2057998,
+      "original_sha256": "e85a10826002ae3f902ba5f7344a68a6abf1ea42c47f4b69712d21c9c29a73e2",
+      "label": "Zn_6s3p3d2f1g_pca1e-6.abfs",
+      "transformation": "none"
+    }
+  ],
+  "used_by": []
+}

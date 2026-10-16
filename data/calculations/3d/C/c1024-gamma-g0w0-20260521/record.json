@@ -21,7 +21,19 @@
   },
   "dimension": "3d",
   "files": {
-    "figures": [],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/C/c1024-gamma-g0w0-20260521/figures/band_frontier_metadata.json",
+        "sha256": "a2a64c7fe2ed28583b9e5e1e117b4c5d468f08cb9b2d7b5e3e2836817443d1b4",
+        "size_bytes": 516,
+        "original_sha256": "a2a64c7fe2ed28583b9e5e1e117b4c5d468f08cb9b2d7b5e3e2836817443d1b4",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [],
+        "display_priority": "primary"
+      }
+    ],
     "inputs": [
       {
         "label": "INPUT",
@@ -131,12 +143,12 @@
   "properties": [
     {
       "category": "electronic",
-      "definition": "Sampled \u0393 regular-grid occupied-to-unoccupied gap from e_mf; not a global fundamental gap.",
+      "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_mf; not a global fundamental gap.",
       "evidence": [
         "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
       ],
       "key": "sampled_grid_gap_ev",
-      "label": "Sampled \u0393 PBE gap",
+      "label": "Sampled Γ PBE gap",
       "method": "PBE",
       "status": "validated",
       "unit": "eV",
@@ -144,12 +156,12 @@
     },
     {
       "category": "electronic",
-      "definition": "Sampled \u0393 regular-grid occupied-to-unoccupied gap from e_qp; not a global fundamental gap.",
+      "definition": "Sampled Γ regular-grid occupied-to-unoccupied gap from e_qp; not a global fundamental gap.",
       "evidence": [
         "data/calculations/3d/C/c1024-gamma-g0w0-20260521/results/LibRPA.1827023.out"
       ],
       "key": "sampled_grid_gap_ev",
-      "label": "Sampled \u0393 G0W0 gap",
+      "label": "Sampled Γ G0W0 gap",
       "method": "G0W0",
       "status": "validated",
       "unit": "eV",
@@ -205,11 +217,11 @@
   ],
   "summary": {
     "dft_gap_ev": 4.28716,
-    "gap_definition": "Occupied-to-unoccupied energy difference within the complete \u0393-point QP table on the recorded regular grid; not a global fundamental gap.",
+    "gap_definition": "Occupied-to-unoccupied energy difference within the complete Γ-point QP table on the recorded regular grid; not a global fundamental gap.",
     "gw_gap_ev": 6.2216,
-    "observable": "Sampled \u0393 G0W0 gap",
+    "observable": "Sampled Γ G0W0 gap",
     "scientific_status": "completed_finite_qp_table",
-    "scope": "Immutable 1024-atom carbon supercell run with one sampled \u0393 point and no band-path result.",
+    "scope": "Immutable 1024-atom carbon supercell run with one sampled Γ point and no band-path result.",
     "unit": "eV",
     "value": 6.2216
   },
@@ -217,7 +229,7 @@
     "band_path_available": false,
     "k_point_count": 1,
     "sampling": "regular_grid",
-    "sampling_label": "Sampled \u0393 point on the regular grid",
+    "sampling_label": "Sampled Γ point on the regular grid",
     "task": "G0W0@PBE quasiparticle calculation"
   }
 }

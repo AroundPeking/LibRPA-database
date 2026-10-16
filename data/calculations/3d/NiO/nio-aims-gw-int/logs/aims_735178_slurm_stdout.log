@@ -1,0 +1,9 @@
+Begin Time is Mon Jun 9 14:37:30 CST 2025
+Directory is /HPC/gw/NiO/gw/aims
+This job runs on the following nodes:
+[redacted node list]
+This job has allocated 32(x4) cpu cores.
+cpus per task: 1, this should be OMP_NUM_THREADS: 1
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 735178.0 ON cn352 CANCELLED AT 2025-06-10T20:39:24 ***
+slurmstepd: error: *** JOB 735178 ON cn352 CANCELLED AT 2025-06-10T20:39:24 ***

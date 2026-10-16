@@ -262,9 +262,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/figures/band_frontier_metadata.json",
-        "sha256": "03c72629a9dfe15621a5321a52ef720f1ffc31b8b1c0e6bfc40825c5284c86c0",
-        "size_bytes": 136289,
-        "original_sha256": "03c72629a9dfe15621a5321a52ef720f1ffc31b8b1c0e6bfc40825c5284c86c0",
+        "sha256": "b0d0c8e58480c2636e9c379e036b28dfd017064bf2ffde3534209dda707eabdb",
+        "size_bytes": 136439,
+        "original_sha256": "b0d0c8e58480c2636e9c379e036b28dfd017064bf2ffde3534209dda707eabdb",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -396,16 +396,16 @@
         "unit": "eV",
         "precision": 3,
         "column": "PBE / ABACUS",
-        "scope": "\u8bba\u6587Table IV\u7684ABACUS PBE\u548cABACUS+LibRPA G0W0@PBE\u4e3b\u5217\uff1b\u4e0d\u662fFHI-aims\u53c2\u8003\u5217\uff0c\u4e5f\u4e0d\u66ff\u4ee3\u5f52\u6863path\u8c31\u6216\u8bc1\u660e\u5176\u5168\u8c31\u9a8c\u6536\u3002"
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
       },
       "GW": {
         "value": 1.762,
         "unit": "eV",
         "precision": 3,
         "column": "G0W0@PBE / ABACUS+LibRPA",
-        "scope": "\u8bba\u6587Table IV\u7684ABACUS PBE\u548cABACUS+LibRPA G0W0@PBE\u4e3b\u5217\uff1b\u4e0d\u662fFHI-aims\u53c2\u8003\u5217\uff0c\u4e5f\u4e0d\u66ff\u4ee3\u5f52\u6863path\u8c31\u6216\u8bc1\u660e\u5176\u5168\u8c31\u9a8c\u6536\u3002"
+        "scope": "论文Table IV的ABACUS PBE和ABACUS+LibRPA G0W0@PBE主列；不是FHI-aims参考列，也不替代归档path谱或证明其全谱验收。"
       }
     },
-    "notes": "\u8bba\u6587Table IV\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
+    "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
   }
 }

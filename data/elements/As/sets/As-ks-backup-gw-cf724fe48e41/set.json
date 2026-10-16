@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "As-ks-backup-gw-cf724fe48e41",
+  "element": "As",
+  "family": "KS HPC backup production basis (SG15/ONCV PP + NAO + PCA ABF)",
+  "validation_scope": "Used by gaas-abacus-gw-soc-32freq; see case-specific gates.",
+  "notes": "Basis files archived from the producer's run directory; content-addressed.",
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "case_id": "gaas-abacus-gw-soc-32freq"
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/As/pseudopotentials/74e21823d94edd4762de345811a3ce82f282f2768debef657399a61cfae3c7a2.upf",
+      "sha256": "74e21823d94edd4762de345811a3ce82f282f2768debef657399a61cfae3c7a2",
+      "size_bytes": 313941,
+      "original_sha256": "74e21823d94edd4762de345811a3ce82f282f2768debef657399a61cfae3c7a2",
+      "label": "As.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/As/orbitals/e982eab124d9d0e1615167609c39b8c80a52d316bd51e7607ab1b8e08a505448.orb",
+      "sha256": "e982eab124d9d0e1615167609c39b8c80a52d316bd51e7607ab1b8e08a505448",
+      "size_bytes": 146416,
+      "original_sha256": "e982eab124d9d0e1615167609c39b8c80a52d316bd51e7607ab1b8e08a505448",
+      "label": "As_gga_8au_100Ry_3s3p2d.orb",
+      "transformation": "none"
+    },
+    {
+      "role": "abf",
+      "path": "data/elements/As/auxiliary/eaff838978a4d938adcfb2f6651806e24d8308aa8765ef1b1c042618012396df.abfs",
+      "sha256": "eaff838978a4d938adcfb2f6651806e24d8308aa8765ef1b1c042618012396df",
+      "size_bytes": 1185748,
+      "original_sha256": "eaff838978a4d938adcfb2f6651806e24d8308aa8765ef1b1c042618012396df",
+      "label": "As_str_3s3p2d2f1g_1e-4.abfs",
+      "transformation": "none"
+    }
+  ],
+  "used_by": []
+}

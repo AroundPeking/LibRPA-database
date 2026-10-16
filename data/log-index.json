@@ -110,6 +110,24 @@
       "label": "librpa.out"
     },
     {
+      "calculation_id": "bi2se3-abacus-gw-dzp",
+      "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/abacus.out",
+      "sha256": "8d59a164adb31418324938bede96135771ad67d4b02c48dd8698cc9b5e83f86a",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "bi2se3-abacus-gw-dzp",
+      "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/gw_slurm_stdout.log",
+      "sha256": "e793b5d402fd63922ec4b21ea9dd2daf75e1b7fde89df9fe2dbdcd78b53b0f08",
+      "label": "gw_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "bi2se3-abacus-gw-dzp",
+      "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
+      "sha256": "563fccbee4d2cb7a3d32dadf323172206d1d98c2c435867e6ab075344b8c7301",
+      "label": "librpa.out"
+    },
+    {
       "calculation_id": "bn-jctc-aims-gw",
       "path": "data/calculations/3d/BN/bn-jctc-aims-gw/logs/aims.out",
       "sha256": "75a43dab6e97f91696280927c1e32a921e20814fd01524dc310d4ac25028d904",
@@ -407,6 +425,36 @@
       "calculation_id": "cds-paper-debug",
       "path": "data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out",
       "sha256": "ba51dafc0507573078ca59347107c78c1f8b9d0c4d1e4c6226503a21cc59118d",
+      "label": "librpa.out"
+    },
+    {
+      "calculation_id": "gaas-abacus-gw-soc-32freq",
+      "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus.out",
+      "sha256": "4058b84ffdb78a6b3df06fd0b696aeb9583be758283a9bf96be39ef621a52733",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "gaas-abacus-gw-soc-32freq",
+      "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_nscf_slurm_stdout.log",
+      "sha256": "3acf4c317568e402287c4a3bf97f6a92eaa34c04cebfbcc087a289a24d61f379",
+      "label": "abacus_nscf_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "gaas-abacus-gw-soc-32freq",
+      "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_slurm_stdout.log",
+      "sha256": "6641b10a5f6f01174bc808c6a9416aa41ecffa4222eb70e659408816fb87aa00",
+      "label": "abacus_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "gaas-abacus-gw-soc-32freq",
+      "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/gw_slurm_stdout.log",
+      "sha256": "79e8fc4553dc41ae29056cc73b0c732ed9c87a4c7e19b73df60d23ea0c1c7aa8",
+      "label": "gw_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "gaas-abacus-gw-soc-32freq",
+      "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out",
+      "sha256": "66277ae06f36039b391009638a545556333a9d7341b5e6820f7265def611853d",
       "label": "librpa.out"
     },
     {
@@ -968,6 +1016,54 @@
       "label": "LibRPA g0w0_band run log (32-point frequency grid)"
     },
     {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log",
+      "sha256": "b18eafcd48575c3bd576c2a537cd327320ec47ecf4c346c583511af5a4e1d959",
+      "label": "aims_731944_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
+      "sha256": "35b0eacc2dc7df7e6bed6d472d237f202a932bd17e2582fbe866538a479dc9b4",
+      "label": "aims_731944_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log",
+      "sha256": "4a59808cad154fe4f082504be461ad691985eebff2493aeec95d31c01e94c561",
+      "label": "aims_735178_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
+      "sha256": "4ccea660791dcbfc57fd5a875736d82de3ac20210df9da119d96a9a6dcfd864f",
+      "label": "aims_735178_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log",
+      "sha256": "2f2fa14ecf023ff245cd9a0159b033423c1994cf8ad8c74eebc7746f3936305d",
+      "label": "aims_736421_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
+      "sha256": "8d87cad8a40c51aed3025f61b95ca2efda59540700ba5f3aa9a6419db3b52be1",
+      "label": "aims_736421_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log",
+      "sha256": "b8dbf0023b281169d9e3bacd3399b00f522b1303091aa38fddfbf484535ceb38",
+      "label": "aims_740569_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "nio-aims-gw-int",
+      "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
+      "sha256": "1048def288f4be20e50c5e1fedb61ac139388536e3d62e4059eef0a7a9d612ca",
+      "label": "aims_740569_stdout.log"
+    },
+    {
       "calculation_id": "si-jctc-aims-gw",
       "path": "data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out",
       "sha256": "b9e848438adbddaf0dcb19b8d8ee13c1c44c3bdc4c20cd66cb4f9a143c867a73",
@@ -1062,6 +1158,30 @@
       "path": "data/calculations/2d/WS2/ws2-table-gw/logs/abacus.825549.out",
       "sha256": "47179a5e662b1042e9814c88cde71cb5ec7478d04d75dc10ff90dccec43fcf06",
       "label": "ABACUS production log"
+    },
+    {
+      "calculation_id": "zno-abacus-gw-sg15",
+      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus.out",
+      "sha256": "6a89ef2d2d3436aadc52ad81155ea9e6a2be1c37d97f55e2e521c42ff6828bee",
+      "label": "abacus.out"
+    },
+    {
+      "calculation_id": "zno-abacus-gw-sg15",
+      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/abacus_slurm_stdout.log",
+      "sha256": "7b5921057813c4b37947032a248332601efc8d76fc0fe21141426c17b1b24b4b",
+      "label": "abacus_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "zno-abacus-gw-sg15",
+      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log",
+      "sha256": "cffd1da3e9a2db79805cb960f384e48c65bba8dd35b70253213a65daf25fc864",
+      "label": "gw_slurm_stdout.log"
+    },
+    {
+      "calculation_id": "zno-abacus-gw-sg15",
+      "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+      "sha256": "63705a2e18a3c600d1f37edfff85cd8fbbd15e03fdb4237595eb17ef7e5d6c27",
+      "label": "librpa.out"
     },
     {
       "calculation_id": "zno-jctc-aims-gw",

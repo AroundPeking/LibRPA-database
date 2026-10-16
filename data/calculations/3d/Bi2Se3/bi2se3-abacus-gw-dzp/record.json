@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "id": "bi2se3-abacus-gw-dzp",
+  "dimension": "3d",
+  "material": "Bi2Se3",
+  "formula": "Bi2Se3",
+  "record_type": "band",
+  "workflow": {
+    "frontend": "abacus",
+    "task": "gw"
+  },
+  "software": {
+    "abacus": {
+      "source_url": "https://github.com/AroundPeking/abacus-develop",
+      "commit": "1dd0199a0fe5070c6bc440653bfe7a7f002ed380",
+      "abbreviated_commit": "1dd0199",
+      "evidence": [
+        "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/abacus.out"
+      ],
+      "identity_note": "Full commit resolved from the unique deepmodeling/abacus-develop object matching the producer-logged prefix 1dd0199 (committer date identical to the logged build date); the same resolution is already recorded for the gaas-paper-gw_xsoc records."
+    },
+    "librpa": {
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "commit": null,
+      "abbreviated_commit": null,
+      "evidence": [
+        "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
+      ],
+      "missing_reason": "The producer log printed an empty source Git reference; the HPC source tree is no longer accessible.",
+      "identity_note": "The historical LibRPA output did not retain a usable full source commit or executable SHA."
+    }
+  },
+  "species": [
+    {
+      "element": "Bi",
+      "set_id": "Bi-ks-backup-gw-9acd8c913951",
+      "asset_aliases": {
+        "pp": "Bi.upf",
+        "nao": "Bi_gga_10au_130Ry_3s3p2d.orb",
+        "abf": "Bi_4s4p3d2f2g_1e-4.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    },
+    {
+      "element": "Se",
+      "set_id": "Se-ks-backup-gw-5dd237c8eefd",
+      "asset_aliases": {
+        "pp": "Se.upf",
+        "nao": "Se_gga_10au_110Ry_3s3p2d.orb",
+        "abf": "Se_4s4p3d2f2g_1e-4.abfs"
+      },
+      "missing_roles": [],
+      "linkage": "matched case assets"
+    }
+  ],
+  "files": {
+    "inputs": [
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/INPUT",
+        "sha256": "c46269cb7252a4ea979441434478fb24642074d7a7ff01b53062e6789401adaf",
+        "size_bytes": 634,
+        "original_sha256": "c46269cb7252a4ea979441434478fb24642074d7a7ff01b53062e6789401adaf",
+        "label": "INPUT",
+        "original_name": "INPUT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/INPUT_scf",
+        "sha256": "68e85ce78e89f00ff79f03fd5dd3c50791562c9bb359277dc4e3927f426bc4d6",
+        "size_bytes": 732,
+        "original_sha256": "68e85ce78e89f00ff79f03fd5dd3c50791562c9bb359277dc4e3927f426bc4d6",
+        "label": "INPUT_scf",
+        "original_name": "INPUT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/INPUT_nscf",
+        "sha256": "c46269cb7252a4ea979441434478fb24642074d7a7ff01b53062e6789401adaf",
+        "size_bytes": 634,
+        "original_sha256": "c46269cb7252a4ea979441434478fb24642074d7a7ff01b53062e6789401adaf",
+        "label": "INPUT_nscf",
+        "original_name": "INPUT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT",
+        "sha256": "7f3752720596dcfb0bbeeb612fb0b5e405230b4d0602dd135f3f8fc4ac350189",
+        "size_bytes": 380,
+        "original_sha256": "7f3752720596dcfb0bbeeb612fb0b5e405230b4d0602dd135f3f8fc4ac350189",
+        "label": "KPT",
+        "original_name": "KPT",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_scf",
+        "sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "size_bytes": 29,
+        "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
+        "label": "KPT_scf",
+        "original_name": "KPT_scf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_nscf",
+        "sha256": "7f3752720596dcfb0bbeeb612fb0b5e405230b4d0602dd135f3f8fc4ac350189",
+        "size_bytes": 380,
+        "original_sha256": "7f3752720596dcfb0bbeeb612fb0b5e405230b4d0602dd135f3f8fc4ac350189",
+        "label": "KPT_nscf",
+        "original_name": "KPT_nscf",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/STRU",
+        "sha256": "e53f8328669d007f3ffb62ac4bfdd0b3a159971d59e2ae831b12b2c3e8a915f4",
+        "size_bytes": 753,
+        "original_sha256": "e53f8328669d007f3ffb62ac4bfdd0b3a159971d59e2ae831b12b2c3e8a915f4",
+        "label": "STRU",
+        "original_name": "STRU",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/librpa.in",
+        "sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+        "size_bytes": 217,
+        "original_sha256": "3e4bb394cb0c75104da0b9f94548d135aaf8927d8efbe18d712fd371acde5102",
+        "label": "librpa.in",
+        "original_name": "librpa.in",
+        "transformation": "none"
+      },
+      {
+        "role": "inputs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/abacus_run_script.sh",
+        "sha256": "961a03458d6b5d30cd74c0449712987122068b597ed0e3c5a95b9ce160f1196d",
+        "size_bytes": 1074,
+        "original_sha256": "f035afa3fa92c3b01acd810e1a66d87d2ff080086dd7c6805fd9d5dc8f8513fb",
+        "label": "abacus_run_script.sh",
+        "original_name": "run_abacus.sh",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "results": [
+      {
+        "role": "results",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/KS_band_spin_1.dat",
+        "sha256": "92139dd9d59f82d2a02f80539fb2b315a41e0332ea0ad350d6d11f77d9954c3c",
+        "size_bytes": 338451,
+        "original_sha256": "92139dd9d59f82d2a02f80539fb2b315a41e0332ea0ad350d6d11f77d9954c3c",
+        "label": "KS_band_spin_1.dat",
+        "original_name": "KS_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/EXX_band_spin_1.dat",
+        "sha256": "bd2821a849af37a8ad8c740db4ca8a56d70785746268f9d51e95a41a132aa081",
+        "size_bytes": 338451,
+        "original_sha256": "bd2821a849af37a8ad8c740db4ca8a56d70785746268f9d51e95a41a132aa081",
+        "label": "EXX_band_spin_1.dat",
+        "original_name": "EXX_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/GW_band_spin_1.dat",
+        "sha256": "be7e53702c2750aaf64f8cdc52d95b2dab6aa63e0deb6074ee8f01fa3fce1ff1",
+        "size_bytes": 338451,
+        "original_sha256": "be7e53702c2750aaf64f8cdc52d95b2dab6aa63e0deb6074ee8f01fa3fce1ff1",
+        "label": "GW_band_spin_1.dat",
+        "original_name": "GW_band_spin_1.dat",
+        "transformation": "none"
+      },
+      {
+        "role": "results",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/band_kpath_info",
+        "sha256": "3bd0719db7f5e60f8ab4e7cf211a4c26098ef0c5c25c26a107e0a29d4be19a91",
+        "size_bytes": 5580,
+        "original_sha256": "3bd0719db7f5e60f8ab4e7cf211a4c26098ef0c5c25c26a107e0a29d4be19a91",
+        "label": "band_kpath_info",
+        "original_name": "band_kpath_info",
+        "transformation": "none"
+      }
+    ],
+    "logs": [
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/abacus.out",
+        "sha256": "8d59a164adb31418324938bede96135771ad67d4b02c48dd8698cc9b5e83f86a",
+        "size_bytes": 39831,
+        "original_sha256": "8d59a164adb31418324938bede96135771ad67d4b02c48dd8698cc9b5e83f86a",
+        "label": "abacus.out",
+        "original_name": "abacus.831496.out",
+        "transformation": "none"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
+        "sha256": "563fccbee4d2cb7a3d32dadf323172206d1d98c2c435867e6ab075344b8c7301",
+        "size_bytes": 8148853,
+        "original_sha256": "1c74c4d12a03ec7313977c025581ee3c8f87e98eb193e1b447c6b5f6ebb1166c",
+        "label": "librpa.out",
+        "original_name": "LibRPA.831496.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      },
+      {
+        "role": "logs",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/gw_slurm_stdout.log",
+        "sha256": "e793b5d402fd63922ec4b21ea9dd2daf75e1b7fde89df9fe2dbdcd78b53b0f08",
+        "size_bytes": 10515,
+        "original_sha256": "6b7055de4b39d4748d7bb11708adedf7b8b48c68f3bc6cce67895b0707982e69",
+        "label": "gw_slurm_stdout.log",
+        "original_name": "slurm-831496.out",
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+      }
+    ],
+    "figures": [
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/figures/ks_frontier.svg",
+        "sha256": "c5185a2222c48ac994dd6768a249333ca34a10361d8bf8260c9db9684ebe1286",
+        "size_bytes": 18529,
+        "original_sha256": "c5185a2222c48ac994dd6768a249333ca34a10361d8bf8260c9db9684ebe1286",
+        "label": "KS occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/KS_band_spin_1.dat",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_nscf",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/band_kpath_info",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/figures/exx_frontier.svg",
+        "sha256": "7bad594cb6e5719c0bf2851d4ed6d97ae4344cf8593abe1520f76d3fde5db183",
+        "size_bytes": 20026,
+        "original_sha256": "7bad594cb6e5719c0bf2851d4ed6d97ae4344cf8593abe1520f76d3fde5db183",
+        "label": "EXX occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_nscf",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/band_kpath_info",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/figures/gw_frontier.svg",
+        "sha256": "03301ce274064fc072716cb853e4d080bb336ebe6ccf2721ec3dca788aadedaf",
+        "size_bytes": 18345,
+        "original_sha256": "03301ce274064fc072716cb853e4d080bb336ebe6ccf2721ec3dca788aadedaf",
+        "label": "GW occupation-separated frontier",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/GW_band_spin_1.dat",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_nscf",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/band_kpath_info",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
+        ],
+        "display_priority": "primary"
+      },
+      {
+        "role": "figures",
+        "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/figures/band_frontier_metadata.json",
+        "sha256": "dcbc225db1255cb60f7db7d5f96dd83a93a88b628b809d2ab88df7903c734f28",
+        "size_bytes": 834732,
+        "original_sha256": "dcbc225db1255cb60f7db7d5f96dd83a93a88b628b809d2ab88df7903c734f28",
+        "label": "Frontier display mappings, raw audit and provenance",
+        "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+        "source_paths": [
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/KS_band_spin_1.dat",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/KPT_nscf",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/band_kpath_info",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/EXX_band_spin_1.dat",
+          "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/GW_band_spin_1.dat"
+        ],
+        "display_priority": "primary"
+      }
+    ]
+  },
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "98d53e6ceb82ecc64ca60defbdcaa9d729d037f5795796231505f6f7b07776fc",
+    "evidence": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/inputs/STRU"
+  },
+  "computational_scale": {
+    "atom_count": 5,
+    "n_bands": 110,
+    "n_path_kpoints": 101
+  },
+  "properties": [
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "PBE",
+      "value": 0.14874,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/KS_band_spin_1.dat"
+      ],
+      "source_summary_key": "dft_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "EXX",
+      "value": 2.25717,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/EXX_band_spin_1.dat"
+      ],
+      "source_summary_key": "exx_gap_ev"
+    },
+    {
+      "key": "band_gap",
+      "category": "electronic",
+      "label": "Band gap",
+      "method": "G0W0",
+      "value": 0.25166,
+      "unit": "eV",
+      "status": "reported",
+      "evidence": [
+        "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/results/GW_band_spin_1.dat"
+      ],
+      "source_summary_key": "gw_gap_ev"
+    }
+  ],
+  "basis_candidates": [],
+  "recommendation": null,
+  "missing": [
+    "All-band, empty-state, transferability and current-version acceptance were not established by this audit."
+  ],
+  "summary": {
+    "observable": "G0W0 gap",
+    "value": 0.25166,
+    "unit": "eV",
+    "notes": "Historical KS HPC backup run: ABACUS LCAO DZP-basis scf/nscf plus LibRPA G0W0 on the bulk Bi2Se3 rhombohedral 5-atom cell (spin-unpolarized, no SOC), 16 MPI ranks x 32 OpenMP threads on the formal-6226R partition.",
+    "gw_gap_ev": 0.25166,
+    "exx_gap_ev": 2.25717,
+    "dft_gap_ev": 0.14874,
+    "gap_definition": "LibRPA final printed GW bandgap, historical selected band-path calculation; not a universal PP/NAO accuracy claim",
+    "scientific_status": "historical_reference_bounded_gap_comparison",
+    "scope": "Specific archived geometry, PP/NAO/ABF, k/path and numerical settings. All-band, empty-state, transferability and current-version acceptance not established by this audit."
+  },
+  "cluster_label": "formal-6226R",
+  "accelerators": null,
+  "nodes": 16,
+  "cpus": 512,
+  "elapsed_seconds": 16183,
+  "accelerator_label": null,
+  "source": {
+    "collection": "KS HPC GW backup (compute_backup_review_20260514_ks_iopcas_ghj)",
+    "provenance_directory": "data/provenance/backup-20261016",
+    "material_directory": "Bi2Se3",
+    "run_directory": "Bi2Se3/dojov4-fr/gw_dzp"
+  }
+}

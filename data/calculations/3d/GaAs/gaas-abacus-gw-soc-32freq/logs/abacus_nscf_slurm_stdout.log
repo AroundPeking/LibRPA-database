@@ -1,0 +1,9 @@
+Begin Time: Wed Jan 28 09:36:16 CST 2026
+Working directory is /HPC/gw/GaAs/soc_32freq_pack
+This job runs on the following nodes:
+[redacted node list]
+This job has allocated 32(x4) cpu cores.
+cpus per task: 32, this should be OMP_NUM_THREADS: 32
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 859299.0 ON cn246 CANCELLED AT 2026-01-28T11:23:19 ***
+slurmstepd: error: *** JOB 859299 ON cn246 CANCELLED AT 2026-01-28T11:23:19 ***
