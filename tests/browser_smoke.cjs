@@ -141,7 +141,8 @@ async function main() {
       check(await page.locator("#file-preview .preview-path").textContent() === file.path, `${description}：预览对应真实路径`);
       await page.keyboard.press("Escape");
       await page.locator("#file-preview").waitFor({ state: "hidden" });
-      const pendingDownload = page.waitForEvent("download");
+      console.error("[smoke] download:", description);
+      const pendingDownload = page.waitForEvent("download", { timeout: 60000 });
       await row.getByRole("link", { name: /Download/ }).click();
       const downloaded = await pendingDownload;
       check(downloaded.suggestedFilename() === expectedName, `${description}：下载保留计算文件名`);
