@@ -183,6 +183,33 @@ class LibraryTests(unittest.TestCase):
         self.assertTrue(all("publication" not in item for item in catalog["basis_sets"]))
         self.assertTrue(all("publication" not in item for item in catalog["calculations"]))
 
+    def test_spin_orbit_flag_requires_explicit_archived_input_switch(self):
+        def case_with_input(name, text):
+            relative = f"calculations/{name}/inputs/INPUT"
+            item = self._add_file(relative, text.encode(), "inputs")
+            case = json.loads(json.dumps(self.case))
+            case["files"] = {"inputs": [item]}
+            return case
+
+        self.assertTrue(self.lib._spin_orbit_enabled(
+            self.root, case_with_input("soc-on", "INPUT_PARAMETERS\nlspinorb\t\t1\n")))
+        self.assertFalse(self.lib._spin_orbit_enabled(
+            self.root, case_with_input("soc-off", "INPUT_PARAMETERS\nnoncolin 0\nlspinorb 0\nnspin 1\n")))
+        self.assertFalse(self.lib._spin_orbit_enabled(
+            self.root, case_with_input("soc-absent", "INPUT_PARAMETERS\nnbands 67\n")))
+        self.assertFalse(self.lib._spin_orbit_enabled(
+            self.root, case_with_input("soc-commented", "INPUT_PARAMETERS\n# lspinorb 1\n")))
+
+        aims_item = self._add_file("calculations/aims-soc/inputs/control.in",
+                                   b"spin noncollinear\ninclude_spin_orbit\n", "inputs")
+        aims_case = json.loads(json.dumps(self.case))
+        aims_case["files"] = {"inputs": [aims_item]}
+        self.assertTrue(self.lib._spin_orbit_enabled(self.root, aims_case))
+
+        self.assertFalse(self.lib._spin_orbit_enabled(
+            self.root, {"files": {"inputs": [{"path": "calculations/missing/inputs/INPUT"}]}}))
+        self.assertFalse(self.lib._spin_orbit_enabled(self.root, {}))
+
     def _add_file(self, relative_path, contents, role):
         path = self.root / relative_path
         path.parent.mkdir(parents=True, exist_ok=True)

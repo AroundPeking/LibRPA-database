@@ -1304,13 +1304,33 @@ def _public_entry(item: dict) -> dict:
     return {key: value for key, value in item.items() if key != "publication"}
 
 
+SPIN_ORBIT_INPUT = re.compile(r"(?im)^[ \t]*lspinorb[ \t]+1\b")
+
+
+def _spin_orbit_enabled(root: Path, case: dict) -> bool:
+    """目录级 SOC 标注只认归档输入文件里的显式开关：
+    ABACUS INPUT 的 lspinorb 1，或 FHI-aims control.in 的 include_spin_orbit。
+    noncolin/nspin 只描述非共线磁性通道，不等于 SOC，不触发标注。"""
+    for entry in (case.get("files") or {}).get("inputs", []):
+        path = root / str(entry.get("path", ""))
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        if SPIN_ORBIT_INPUT.search(text) or "include_spin_orbit" in text:
+            return True
+    return False
+
+
 def build_catalog(root: Path) -> dict:
     sets, cases = load_records(root)
     validate(root, sets, cases)
     catalog_cases = []
     for case in cases:
         issues = completeness_issues(root, sets, case)
-        catalog_cases.append({**case, "archive_completeness": {
+        catalog_cases.append({**case, "spin_orbit": _spin_orbit_enabled(root, case), "archive_completeness": {
             "status": "incomplete" if issues else "complete",
             "issues": issues,
         }})

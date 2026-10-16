@@ -114,6 +114,14 @@ with a note that the full identity was not recorded. A full ID resolved from a
 unique local object is still marked as historical resolution when the original
 log printed only a prefix.
 
+The public catalog adds a derived `spin_orbit` flag per calculation (not part
+of the record schema): the catalog build marks a record `true` only when an
+archived input file explicitly enables spin-orbit coupling — `lspinorb 1` in
+an ABACUS `INPUT`, or `include_spin_orbit` in an FHI-aims `control.in`.
+Noncollinear or spin-polarized channel settings alone (`noncolin`, `nspin`,
+`spin collinear`) do not enable the mark. The site shows a SOC label in the
+methods list of matching records.
+
 A record that archives an unambiguous structure input (`STRU` for ABACUS,
 `geometry.in` for FHI-aims) carries `structure_identity`: a digest over the
 canonicalized cell and atomic sites (`cell-sites-v1`, 1e-5 Angstrom grid),

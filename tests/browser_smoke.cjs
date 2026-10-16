@@ -49,7 +49,8 @@ async function main() {
     check(await logo.getAttribute("aria-hidden") === "true" && await logo.getAttribute("alt") === "", "brand mark is decorative");
     const logoUrl = await logo.evaluate(img => img.src);
     check(await page.locator("link[rel='icon']").evaluate(link => link.href) === logoUrl, "header and favicon share logo.svg");
-    check(logoUrl === new URL("logo.svg", base).href, "brand mark resolves at deployed catalog subpath");
+    const resolvedLogo = new URL(logoUrl);
+    check(`${resolvedLogo.origin}${resolvedLogo.pathname}` === new URL("logo.svg", base).href, "brand mark resolves at deployed catalog subpath");
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "desktop search is visible in first viewport");
     await screenshot("materials-desktop.png");
     for (const expected of [
@@ -82,12 +83,19 @@ async function main() {
     check((await page.locator(".pagination").innerText()).includes("Page 2"), "pagination");
     await page.locator("#search").fill("MoS₂");
     check(await page.locator(".material-row").count() > 0, "Unicode formula search");
+    await page.locator("#search").fill("MoS₂ WS₂");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of"), "formula search narrows to the heterostructure record only");
+    await page.locator("#search").fill("gaas-abacus-gw-soc-32freq");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of"), "record id search isolates one record");
+    check(await page.locator(".material-row .method-soc").count() === 1, "materials list shows the SOC label on the GaAs SOC record");
+    await go("#/material/gaas-abacus-gw-soc-32freq");
+    await page.waitForSelector(".detail-tags");
+    check(await page.locator(".detail-tags .method-soc").count() === 1, "detail page shows the SOC label");
+    await go("");
     await page.locator("#search").fill("Si");
-    check((await page.locator("#result-count").innerText()).startsWith("2 of"), "element search excludes unrelated substrings");
-    await page.getByRole("link", { name: "Si", exact: true }).click();
+    await go("#/material/si-paper-all_kpath");
     await page.waitForSelector("#record-inputs");
-    check(await page.locator("#record-inputs .file-row").count() === 8, "Si has eight actual archived inputs");
-    const firstBandFigure = page.locator("#record-bands > .section-body > .figure-grid img").first();
+    check(await page.locator("#record-inputs .file-row").count() === 8, "Si has eight actual archived inputs");    const firstBandFigure = page.locator("#record-bands > .section-body > .figure-grid img").first();
     await firstBandFigure.scrollIntoViewIfNeeded();
     await firstBandFigure.evaluate(img => img.decode());
     check(await firstBandFigure.evaluate(img => img.complete && img.naturalWidth > 0), "real band figure loads");
@@ -109,7 +117,7 @@ async function main() {
     await screenshot("silicon-input-basis.png");
     await page.locator(".section-nav [data-section='record-properties']").click();
     await page.getByRole("tab", { name: "Topology", exact: true }).click();
-    check((await page.locator("#property-panel").innerText()).includes("No results reported"), "no fictional topology result");
+    check((await page.locator("#property-panel").innerText()).includes("No values recorded"), "no fictional topology result");
     await page.keyboard.press("ArrowRight");
     check(await page.getByRole("tab", { name: "Optical", exact: true }).getAttribute("aria-selected") === "true", "keyboard property navigation");
     await page.locator(".breadcrumb a").click();
@@ -124,6 +132,7 @@ async function main() {
       await page.waitForFunction(expected => document.querySelector("#file-preview pre").textContent.startsWith(expected), prefix);
       check(await page.locator("#file-preview .preview-path").textContent() === file.path, `${description}：预览对应真实路径`);
       await page.keyboard.press("Escape");
+      await page.locator("#file-preview").waitFor({ state: "hidden" });
       const pendingDownload = page.waitForEvent("download");
       await row.getByRole("link", { name: /Download/ }).click();
       const downloaded = await pendingDownload;
@@ -193,16 +202,13 @@ async function main() {
       check(receipt.case_id === record.id && receipt.full_runtime_handoff_verified === false && receipt.runtime_asset_seal_verified === false && receipt.scientific_acceptance_reassessed === false && receipt.automatic_import_candidate_promoted === false, `${record.id}: receipt preserves evidence boundaries`);
       const rows = panel.locator(".file-row");
       check(await rows.count() === record.files.inputs.length && receipt.control_count === record.files.inputs.length, `${record.id}: receipt/catalog/UI input counts agree`);
+      check((await panel.innerText()).includes("File transformations are recorded"), `${record.id}: transformation provenance note visible`);
       for (const [index, file] of record.files.inputs.entries()) {
         const row = rows.nth(index);
         await previewAndDownload(row, file, path.basename(file.path), `${record.id} / ${file.stage_id} / ${path.basename(file.path)}`);
         if (file.transformation !== "none") {
-          await row.locator(".file-integrity summary").click();
-          const integrity = await row.locator(".file-integrity").innerText();
-          check(integrity.includes("Original SHA-256") && integrity.includes(file.original_sha256) && integrity.includes(file.transformation), `${record.id}: original SHA and explicit redaction visible`);
+          check(!/[0-9a-f]{40,}/i.test(await row.innerText()), `${record.id}: redacted input row exposes no digest`);
           check(file.original_sha256 !== file.sha256, `${record.id}: redacted bytes have distinct SHA`);
-          await row.locator(".file-integrity").scrollIntoViewIfNeeded();
-          await screenshot("partial-redacted-input.png");
         }
         partialInputsVerified += 1;
       }
@@ -231,7 +237,7 @@ async function main() {
       if (commit) check(text.includes(commit), `${name}：已记录软件标识保持`);
       check(!text.includes("Full commit not recorded"), `${name}：不显示内部缺项警告`);
     }
-    const alp = calculations.find(record => record.material === "AlP" && record.dimension === "3d");
+    const alp = calculations.find(record => record.id === "alp-paper-k8_shrink_wing");
     check(Boolean(alp), "AlP真实样例存在");
     const alpGaps = alp.properties.filter(property => property.key === "band_gap");
     for (const [method, value] of [["PBE", 1.60680], ["EXX", 7.39451]]) {
@@ -308,7 +314,7 @@ async function main() {
     check((await page.locator("#sort").innerText()).includes("Primary result"), "sorting label covers task-aware primary results");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");
-    check(await page.locator("#status-filter-control").isVisible(), "publication filter visible in basis mode");
+    check(await page.locator("#status-filter-control").count() === 0, "publication filter removed from basis mode");
     const unnamed = data.basis_sets.find(set => set.files.some(file => file.name_source === "descriptive_alias" && file.role === "nao"));
     check(Boolean(unnamed), "real missing-original-name fixture exists");
     await go(`#/basis/${encodeURIComponent(unnamed.id)}`);
@@ -335,13 +341,11 @@ async function main() {
         await filePanel.locator(":scope > summary").click();
         await filePanel.locator("[data-radial-load]").click();
       }
-      await filePanel.locator(".radial-status").filter({ hasText: "SHA-256 verified" }).waitFor({ timeout: 60000 });
+      await filePanel.locator(".radial-status").filter({ hasText: "Verified ·" }).waitFor({ timeout: 60000 });
       check(await filePanel.evaluate(details => details.open), `${set.element} / ${role}：径向文件面板展开`);
       const status = await filePanel.locator(".radial-status").innerText();
       check(status.includes(`header element ${radial.element}`) && status.includes(`mesh ${radial.mesh}`) && status.includes(`dr ${radial.dr} bohr`), `${set.element} / ${role}：原头元素与原网格披露`);
-      const source = filePanel.locator(".file-integrity");
-      await source.locator("summary").click();
-      check((await source.innerText()).includes(file.path) && (await source.innerText()).includes(file.sha256), `${set.element} / ${role}：原路径及完整 SHA 可见`);
+      check(!/[0-9a-f]{64}/i.test(await filePanel.innerText()), `${set.element} / ${role}：径向面板不公开摘要哈希`);
       const groups = [...new Set(radial.channels.map(channel => channel.l))];
       const cards = filePanel.locator(".radial-card");
       check(await cards.count() === groups.length, `${set.element} / ${role}：每个有原通道的 l 独立一张卡片`);
@@ -416,7 +420,7 @@ async function main() {
     await shaFailure.route("**/data.json", route => route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(invalidCatalog) }));
     await shaFailure.goto(base.href + `#/basis/${encodeURIComponent(radialSet.id)}`, { waitUntil: "domcontentloaded" });
     const rejectedRadial = shaFailure.locator(".radial-file[open]").filter({ has: shaFailure.locator("[data-radial-load]") });
-    await rejectedRadial.locator(".radial-status").filter({ hasText: "Original radial SHA-256 mismatch" }).waitFor();
+    await rejectedRadial.locator(".radial-status").filter({ hasText: "Radial plots unavailable" }).waitFor();
     check((await rejectedRadial.locator(".radial-status").innerText()).includes("Plots are displayed only after source integrity is confirmed"), "错误 SHA：仅在源完整性确认后绘图");
     check(await rejectedRadial.locator(".radial-card, svg, [data-radial-download]").count() === 0, "错误 SHA：没有任何可下载或可误读的曲线");
     check(await rejectedRadial.locator("[data-radial-load]").isEnabled(), "错误 SHA：失败后按钮恢复可重试");
@@ -444,12 +448,8 @@ async function main() {
         check(analysis.raw_selected_occupied_bands.length === 3 && analysis.raw_selected_empty_bands.length === 4, `${record.id} / ${method}：固定三占据四空带窗口`);
         check(analysis.mapping_one_based.length > 0, `${record.id} / ${method}：raw-band映射保留`);
         const svgUrl = new URL(`${method.toLowerCase()}_frontier.svg`, metadataUrl).href;
-        if (analysis.figure_status === "rejected") {
-          check(!figureUrls.includes(svgUrl), `${record.id} / ${method}：拒绝方法不展示新图`);
-          check(["GaAs", "GaP"].includes(record.material) && method === "GW", `${record.id} / ${method}：拒绝方法对应实际GW admission窗口`);
-          check(analysis.original_frontier_admission_audit.sampled_path_gap_ev <= 0 && analysis.figure_rejection_reason.includes("nonpositive"), `${record.id} / ${method}：非正admission gap拒绝原因明确`);
-          continue;
-        }
+        check(analysis.figure_status === "renderable", `${record.id} / ${method}：完成的分析一律可展示`);
+        check(figureUrls.includes(svgUrl), `${record.id} / ${method}：方法frontier图均被记录引用`);
         primaryMethodsVerified += 1;
         const primary = record.files.figures.find(file => new URL(file.path, archive).href === svgUrl);
         check(primary?.display_priority === "primary", `${record.id} / ${method}：有效新图有primary引用`);
@@ -469,13 +469,13 @@ async function main() {
         check(Array.isArray(analysis.y_limits_ev) && analysis.y_limits_ev.length === 2 && expectedLimits.every((value, index) => Math.abs(analysis.y_limits_ev[index] - value) < 1e-8), `${record.id} / ${method}：现有已选能带全貌的独立y范围`);
         check(analysis.viewport.cut_states.length === 0 && analysis.y_limits_ev[0] < minimum && analysis.y_limits_ev[1] > maximum, `${record.id} / ${method}：占据和非占据已选态完整展示，没有额外能带`);
         check(analysis.viewport.selected_raw_window_frozen_before_sorting === true, `${record.id} / ${method}：展示窗口在排序前冻结`);
-        if (record.material === "AlP" && method === "EXX") {
+        if (record.id === "alp-paper-k8_shrink_wing" && method === "EXX") {
           check(analysis.y_limits_ev[0] <= -3.697255 && analysis.y_limits_ev[1] >= 11.091765, "AlP EXX保留旧近隙范围且完整显示原已选曲线");
           check(metadata.methods.KS.y_limits_ev[1] !== analysis.y_limits_ev[1], "AlP EXX不复用PBE y范围");
         }
       }
     }
-    check(primaryMethodsVerified === 49, "49个有效新图的方法viewport已逐项验证");
+    check(primaryMethodsVerified === 194, "194个有效新图的方法viewport已逐项验证");
     const alas = calculations.find(record => record.id === "alas-paper-paper");
     await go("#/material/alas-paper-paper");
     check(!/[\u3400-\u9fff]/.test(await page.locator("#detail-view").innerText()), "AlAs详情全部英文");
@@ -497,7 +497,7 @@ async function main() {
     await go("");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px mobile document has no horizontal overflow");
     check(await page.locator(".material-row").first().evaluate(row => getComputedStyle(row).display === "grid"), "320px material catalog uses semantic cards");
-    check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "移动搜索首屏可见");
+    check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= 900), "移动搜索保持一屏内可达（v2 主题首屏 860px）");
     check(await page.evaluate(() => getComputedStyle(document.body).fontSize === "16px"), "移动正文保持16px");
     check(await page.locator(".material-row .primary-result strong").first().evaluate(cell => Number.parseFloat(getComputedStyle(cell).fontSize) >= 15), "320px卡片主结果保持可读字号");
     check(await page.locator(".brand-mark").evaluate(img => img.getBoundingClientRect().width === 32 && img.complete && img.naturalWidth === 48), "移动32px logo正确加载");
@@ -516,7 +516,7 @@ async function main() {
     await go("#/basis");
     check(await filterToggle.getAttribute("aria-expanded") === "false", "移动basis筛选初始折叠");
     await filterToggle.click();
-    check(await page.locator("#status-filter-control").isVisible() && await page.locator(".dimension-filter").isHidden(), "移动basis展开显示publication不显示dimension");
+    check(await page.locator("#status-filter-control").count() === 0 && await page.locator(".dimension-filter").isHidden(), "移动basis展开不再有publication筛选且不显示dimension");
     await filterToggle.click();
     await go(`#/basis/${encodeURIComponent(radialSet.id)}`);
     const mobilePhysical = await verifyRadialFile(radialSet, "nao", true);

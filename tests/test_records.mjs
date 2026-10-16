@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, socTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
@@ -647,4 +647,26 @@ test("detail page software section uses dynamic frontend name", () => {
   assert.match(html, /<h3>FHI-aims<\/h3>/);
   assert.match(html, /<h3>LibRPA<\/h3>/);
   assert.doesNotMatch(html, /<h3>ABACUS<\/h3>/);
+});
+
+test("SOC label renders only for records whose catalog entry enables spin-orbit coupling", () => {
+  assert.equal(socTag({ spin_orbit: true }), '<span class="method-tag method-soc">SOC</span>');
+  assert.equal(socTag({ spin_orbit: false }), "");
+  assert.equal(socTag({}), "");
+  assert.equal(socTag(null), "");
+  const socRecord = { id: "soc", material: "GaAs", dimension: "3d", workflow: {}, properties: [], files: {}, spin_orbit: true };
+  assert.match(renderMaterial(socRecord, []), /method-soc">SOC/);
+  const plainRecord = { id: "plain", material: "GaAs", dimension: "3d", workflow: {}, properties: [], files: {}, spin_orbit: false };
+  assert.doesNotMatch(renderMaterial(plainRecord, []), /method-soc/);
+});
+
+test("catalog spin_orbit flags mark exactly the records with explicit SOC input switches", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const socIds = catalog.calculations.filter(record => record.spin_orbit === true).map(record => record.id);
+  assert.deepEqual(socIds, ["gaas-abacus-gw-soc-32freq"]);
+  for (const record of catalog.calculations) {
+    const html = renderMaterial(record, catalog.basis_sets);
+    if (record.spin_orbit === true) assert.match(html, /method-soc">SOC/, record.id);
+    else assert.doesNotMatch(html, /method-soc/, record.id);
+  }
 });
