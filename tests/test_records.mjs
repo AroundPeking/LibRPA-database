@@ -295,6 +295,16 @@ test("landing entry page introduces the database and routes the catalog to #/mat
   assert.match(css, /#landing-stats\{display:grid;grid-template-columns:repeat\(4/);
   assert.match(app, /classList\.toggle\("cover-mode", !\$\("#landing-view"\)\.hidden && window\.scrollY < window\.innerHeight \* \.5\)/);
   assert.match(app, /\$\("#landing-intro"\)\.scrollIntoView\(\{ behavior: "smooth", block: "start" \}\)/);
+  const cover = readFileSync(new URL("../database/cover.mjs", import.meta.url), "utf8");
+  assert.match(app, /import \{ installCoverEffects, replayCoverEntrance \} from "\.\/cover\.mjs(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(app, /installCoverEffects\(\$\("#landing-cover"\)\)/);
+  assert.match(app, /replayCoverEntrance\(\$\("#landing-cover"\)\)/);
+  assert.match(cover, /prefers-reduced-motion: reduce/);
+  assert.match(cover, /playbackRate/);
+  assert.match(cover, /cover-fly-clone/);
+  assert.match(cover, /preventDefault/);
+  assert.match(cover, /a\[href="#\/materials"\]/);
+  assert.match(css, /\.cover-fly-clone\{position:fixed/);
 });
 
 test("gap overview route, navigation, and table are wired end to end", () => {

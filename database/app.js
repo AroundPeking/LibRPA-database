@@ -4,6 +4,7 @@ import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
+import { installCoverEffects, replayCoverEntrance } from "./cover.mjs?v=20261017-motion-v16";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
@@ -103,6 +104,7 @@ function renderLanding() {
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", "false"));
   window.scrollTo(0, 0);
   document.body.classList.add("cover-mode");
+  replayCoverEntrance($("#landing-cover"));
 }
 
 function renderHome() {
@@ -233,6 +235,7 @@ async function start() {
     $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
     document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#file-preview").open) { const landingVisible = !$("#landing-view").hidden; if (landingVisible || (!$("#home-view").hidden && !$(".search-box").hidden)) { event.preventDefault(); (landingVisible ? $("#landing-search-input") : $("#search")).focus(); } } });
     window.addEventListener("hashchange", route);
+    installCoverEffects($("#landing-cover"));
     route();
   } catch (error) {
     $("#landing-view").hidden = true;

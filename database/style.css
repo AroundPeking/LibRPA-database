@@ -501,6 +501,7 @@ body.cover-mode .site-header{transform:translateY(-100%);visibility:hidden;trans
 .cover-emblem{display:block;background:#fff;border-radius:var(--r-card);padding:30px;box-shadow:var(--shadow-2),0 0 0 1px rgba(11,19,43,.12),0 30px 80px -30px rgba(22,139,150,.45);transition:transform .25s ease,box-shadow .25s ease}
 .cover-emblem:hover{transform:translateY(-4px) scale(1.015);box-shadow:var(--shadow-2),0 0 0 1px rgba(11,19,43,.12),0 34px 96px -28px rgba(22,139,150,.7)}
 .landing-emblem{display:block;width:230px;height:auto}
+.cover-fly-clone{position:fixed;z-index:200;pointer-events:none;will-change:transform,opacity;margin:0}
 .cover h1{font-family:var(--font-display);font-size:clamp(30px,3.4vw,44px);font-weight:600;letter-spacing:-.015em;line-height:1.12;margin:0;color:var(--heading)}
 .cover-lede{max-width:680px;font-size:16px;line-height:1.7;color:var(--muted);margin:0}
 .cover-actions{display:flex;justify-content:center}
