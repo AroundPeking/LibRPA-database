@@ -139,7 +139,7 @@ function createScene(canvas, cover) {
   let W = 1, H = 1, DPR = 1, cx = 0, cy = 0, coreR = 180;
   let parts = [], bubbles = [], rings = [], sparks = [];
   let running = false, raf = 0, lastRing = -2.6, lastT = 0, nowSec = 0;
-  let px = .5, py = .5, vx = .5, vy = .5;
+  let px = .5, py = .5, vx = .5, vy = .5, parX = 0, parY = 0;
 
   const sprite = document.createElement("canvas");
   sprite.width = sprite.height = 64;
@@ -152,6 +152,13 @@ function createScene(canvas, cover) {
   sctx.fillRect(0, 0, 64, 64);
 
   const rand = (a, b) => a + Math.random() * (b - a);
+
+  // screening rings live anywhere: the emblem emits the periodic ones, taps
+  // emit ripples from the tapped point
+  const makeRing = (x, y, r0, born, manual) => ({
+    born, hit: new Set(), manual: !!manual, ox: x, oy: y, r0,
+    maxR: Math.max(Math.hypot(x, y), Math.hypot(W - x, y), Math.hypot(x, H - y), Math.hypot(W - x, H - y))
+  });
 
   const layout = () => {
     DPR = Math.min(2, window.devicePixelRatio || 1);
@@ -288,26 +295,27 @@ function createScene(canvas, cover) {
     ctx.clearRect(0, 0, W, H);
     vx += (px - vx) * .06;
     vy += (py - vy) * .06;
-    ctx.translate((vx - .5) * -22, (vy - .5) * -16);
+    parX = (vx - .5) * -22;
+    parY = (vy - .5) * -16;
+    ctx.translate(parX, parY);
 
     physics(dt);
 
     // expanding screening rings: the wavefront shoves bubbles outward
     if (t - lastRing > 2.6 && !reduced) {
-      rings.push({ born: t, hit: new Set() });
+      rings.push(makeRing(cx, cy, coreR, t));
       lastRing = t;
     }
-    const maxR = Math.hypot(W, H) / 2;
     rings = rings.filter(ring => {
-      const R = coreR + (t - ring.born) * 85;
-      if (R > maxR) return false;
-      const energy = Math.max(0, 1 - (R - coreR) / (maxR - coreR));
+      const R = ring.r0 + (t - ring.born) * (ring.manual ? 110 : 85);
+      if (R > ring.maxR) return false;
+      const energy = Math.max(0, 1 - (R - ring.r0) / (ring.maxR - ring.r0));
       for (const b of bubbles) {
         if (ring.hit.has(b.id)) continue;
-        const d = Math.hypot(b.x - cx, b.y - cy);
+        const d = Math.hypot(b.x - ring.ox, b.y - ring.oy);
         if (Math.abs(d - R) < 30) {
           ring.hit.add(b.id);
-          const nx = (b.x - cx) / (d || 1), ny = (b.y - cy) / (d || 1);
+          const nx = (b.x - ring.ox) / (d || 1), ny = (b.y - ring.oy) / (d || 1);
           const shove = (ring.manual ? 84 : 62) * Math.max(.25, energy);
           b.vx += nx * shove;
           b.vy += ny * shove;
@@ -316,7 +324,7 @@ function createScene(canvas, cover) {
         }
       }
       ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.arc(ring.ox, ring.oy, R, 0, Math.PI * 2);
       ctx.strokeStyle = col((ring.manual ? .32 : .22) * energy);
       ctx.lineWidth = 1.2;
       ctx.stroke();
@@ -387,18 +395,19 @@ function createScene(canvas, cover) {
     px = Math.min(1, Math.max(0, (event.clientX - box.left) / box.width));
     py = Math.min(1, Math.max(0, (event.clientY - box.top) / box.height));
   });
-  // tapping the cover background fires a screening ring from the emblem
+  // tapping the cover background fires a screening ring at the tapped point
   cover.addEventListener("click", event => {
     if (reduced) return;
     if (event.target && event.target.closest && event.target.closest("a, button")) return;
     if (!rings.some(ring => ring.manual && nowSec - ring.born < .12)) {
-      rings.push({ born: nowSec, hit: new Set(), manual: true });
-      lastRing = Math.max(lastRing, nowSec);
+      const box = cover.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      rings.push(makeRing(event.clientX - box.left - parX, event.clientY - box.top - parY, 14, nowSec, true));
     }
   });
   document.addEventListener("visibilitychange", kick);
   if (reduced) {
-    rings.push({ born: 0, hit: new Set() }, { born: -1.4, hit: new Set() });
+    rings.push(makeRing(cx, cy, coreR, 0), makeRing(cx, cy, coreR, -1.4));
     draw(2600);
   } else {
     kick();

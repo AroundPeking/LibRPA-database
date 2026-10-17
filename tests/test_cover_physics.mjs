@@ -65,25 +65,30 @@ const step = t => {
 startCoverCanvas(cover);
 for (let t = 16.7; t <= 6900; t += 16.7) step(t);
 
-// A click landing on a link (emblem / enter button) must not emit a ring.
-handlers.click.forEach(fn => fn({ target: { closest: () => ({}) } }));
-step(6916.7);
-assert.ok(!frames[frames.length - 1].some(([, , r]) => r >= 200 && r < 240), "link clicks do not fire rings");
+// Tap point inside the emblem's core exclusion zone: bubbles never center
+// within ~288px of the cover center, so arcs centered at the tap point can
+// only be the tap ripple, never a bubble.
+const TAPX = 600, TAPY = 500;
+const atTap = ([x, y]) => Math.hypot(x - TAPX, y - TAPY) < 3;
 
-// A background click fires a manual ring from the emblem (auto rings born at
-// 0/2.6/5.2s are all beyond r=350 here, and the click delays the next auto
-// ring to t>=9.5s, so a fresh arc near r=210 can only be the manual one).
-handlers.click.forEach(fn => fn({ target: { closest: () => null } }));
+// A click landing on a link (emblem / enter button) must not emit a ripple.
+handlers.click.forEach(fn => fn({ clientX: TAPX, clientY: TAPY, target: { closest: () => ({}) } }));
+step(6916.7);
+assert.ok(!frames[frames.length - 1].some(arc => arc[3] === "stroke" && atTap(arc)), "link clicks do not fire ripples");
+
+// A background click fires a manual ripple centered on the tapped point
+// (expanding at 110px/s from r0=14, so r stays well under 150 in the window).
+handlers.click.forEach(fn => fn({ clientX: TAPX, clientY: TAPY, target: { closest: () => null } }));
 let manualRing = false;
 for (let t = 6933.4; t <= 10000; t += 16.7) {
   step(t);
-  if (t <= 7600 && frames[frames.length - 1].some(([, , r]) => r >= 200 && r < 260)) manualRing = true;
+  if (t <= 7600 && frames[frames.length - 1].some(arc => arc[3] === "stroke" && atTap(arc) && arc[2] > 8 && arc[2] < 160)) manualRing = true;
 }
-assert.ok(manualRing, "background click fires a screening ring from the emblem");
+assert.ok(manualRing, "background click fires a ripple at the tapped point");
 
 // Each frame draws N bubble rings (r 52-94) plus screening-ring circles
 // (r >= 210), so r < 150 isolates the bubbles.
-const bubbleFrames = frames.map(arcs => arcs.filter(([, , r, op]) => r < 150 && op === "stroke"));
+const bubbleFrames = frames.map(arcs => arcs.filter(([, , r, op], i) => r < 150 && op === "stroke" && !atTap(arcs[i])));
 for (const arcs of bubbleFrames) assert.equal(arcs.length, N, "all bubbles drawn every frame");
 
 const first = bubbleFrames[10].map(([x, y]) => [x, y]);

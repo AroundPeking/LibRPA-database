@@ -288,7 +288,8 @@ test("landing entry is a single-screen showcase cover that routes to #/materials
   assert.match(css, /\.cover\{[^}]*height:100vh;height:100svh/);
   assert.match(css, /\.cover-canvas\{position:absolute;inset:0/);
   assert.match(css, /body\.cover-mode \.site-footer\{display:none\}/);
-  assert.match(css, /\.cover-emblem\{[^}]*background:#fff;/);
+  assert.match(css, /\.cover-emblem\{[^}]*background:rgba\(255,255,255,\.9\);[^}]*backdrop-filter:blur\(9px\)/);
+  assert.match(css, /\.cover-stage-wrap::before\{[^}]*radial-gradient/);
   assert.match(css, /body\.cover-mode \.site-header\{position:fixed;[^}]*transform:translateY\(-100%\)/);
   assert.match(css, /@keyframes orbit-spin\{[\s\S]*?rotate\(360deg\)/);
   assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.landing-emblem\{width:180px\}/);
@@ -308,7 +309,7 @@ test("landing entry is a single-screen showcase cover that routes to #/materials
   assert.match(cover, /setLineDash/);
   assert.match(cover, /overlap/);
   assert.match(cover, /b\.flash/);
-  assert.match(cover, /manual: true/);
+  assert.match(cover, /makeRing\(event\.clientX - box\.left - parX, event\.clientY - box\.top - parY, 14, nowSec, true\)/);
   assert.match(cover, /dataset\.theme === "light"/);
   assert.match(cover, /visibilitychange/);
   assert.match(css, /\.cover-fly-clone\{position:fixed/);

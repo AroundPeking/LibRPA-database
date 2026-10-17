@@ -51,7 +51,7 @@ async function main() {
     check(Math.abs((emblemBox.x + emblemBox.width / 2) - 1440 / 2) < 40 && Math.abs((emblemBox.y + emblemBox.height / 2) - 1050 / 2) < 160, "徽章位于屏幕正中心（视觉焦点）");
     const landingEmblemUrl = await landingEmblem.evaluate(img => img.src);
     check(new URL(landingEmblemUrl).pathname === new URL("logo-emblem.png", base).pathname, "封面徽章解析到部署子路径");
-    check(await landingEmblem.evaluate(img => { const tile = getComputedStyle(img.parentElement); return tile.backgroundColor === "rgb(255, 255, 255)" && tile.borderRadius !== "0px" && tile.padding !== "0px"; }), "封面徽章坐在白色圆角瓷砖上（预览同款展示）");
+    check(await landingEmblem.evaluate(img => { const tile = getComputedStyle(img.parentElement); return tile.backgroundColor === "rgba(255, 255, 255, 0.9)" && tile.borderRadius !== "0px" && tile.padding !== "0px" && tile.backdropFilter !== "none"; }), "封面徽章坐在白色圆角瓷砖上（预览同款展示）");
     check(await page.locator("#landing-view h1").evaluate(h => h.classList.contains("sr-only") && h.textContent === "LibRPA materials database"), "标语已去除，仅保留屏幕阅读器标题");
     check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data; let lit = 0; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) lit++; return lit > 500; }), "GW/RPA 电子海动效正在 canvas 上绘制（电子+泡泡环+屏蔽波纹）");
     check(await page.locator(".cover-orbit").evaluate(orbit => { const anims = orbit.getAnimations(); return anims.length === 1 && anims[0].playbackRate === 1 && getComputedStyle(orbit).borderRadius === "50%"; }), "徽章外圈极化星环由 WAAPI 驱动常速旋转（RPA 轨道动画）");
