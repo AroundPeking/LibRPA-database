@@ -35,6 +35,7 @@ async function main() {
     const screenshot = async name => { if (output) await page.screenshot({ path: path.join(output, name), fullPage: false }); };
     await go("");
     await page.waitForSelector("#landing-view:not([hidden])");
+    await page.waitForSelector("#landing-stats strong");
     check(await page.locator("#landing-view").isVisible(), "根路由进入落地介绍页而非直接数据列表");
     check(await page.locator("#home-view").isHidden(), "落地页隐藏目录外壳");
     const landingEmblem = page.locator(".landing-emblem");
@@ -549,6 +550,7 @@ async function main() {
     await screenshot("cao-gw-bands.png");
     await page.setViewportSize({ width: 320, height: 844 });
     await go("");
+    await page.waitForSelector("#landing-stats strong");
     check(await page.locator("#landing-view").isVisible(), "320px 根路由仍是落地页");
     const mobileEmblem = page.locator(".landing-emblem");
     await mobileEmblem.evaluate(img => img.decode());
