@@ -83,6 +83,9 @@ export function methodNames(record) {
   if (declared || new RegExp("(?:^|[^a-z])(?:KS|PBEsol|PBE|SCAN|HSE|LDA|GGA|DFT)(?:[^a-z]|$)", "i").test(evidence)) methods.push(functional || "DFT");
   if (new RegExp("(?:^|[^a-z])EXX(?:[^a-z]|$)", "i").test(evidence)) methods.push("EXX");
   if (new RegExp("(?:^|[^a-z])(?:GW|G0W0)(?:[^a-z]|$)", "i").test(evidence)) methods.push("GW");
+  // RPA is the headline method for RPA-energy records; the property can sit
+  // outside the "electronic" category, so check the full property list
+  if (recordType(record) === "rpa_energy" || (record.properties || []).some(p => p.method === "RPA" && p.status !== "failed")) methods.push("RPA");
   return methods;
 }
 

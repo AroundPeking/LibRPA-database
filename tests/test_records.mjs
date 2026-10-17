@@ -782,6 +782,10 @@ test("catalog method chips keep the method-dft class for every mean-field functi
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 113);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("DFT")).length, 0);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 84);
+  const rpaChips = catalog.calculations.filter(record => methodNames(record).includes("RPA"));
+  assert.equal(rpaChips.length, 1);
+  assert.equal(rpaChips[0].id, "c2048-rpa-20260614");
+  assert.deepEqual(methodNames(rpaChips[0]), ["PBE", "RPA"]);
 });
 
 test("catalog search is field-scoped with whole-word method keywords", async () => {

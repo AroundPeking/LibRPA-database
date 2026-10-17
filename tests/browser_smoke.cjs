@@ -156,6 +156,13 @@ async function main() {
     check((await page.locator("#result-count").innerText()).startsWith("1 of") && await page.locator(".material-row .method-spin").count() === 1, "method search spin isolates the NiO SPIN record");
     await page.locator("#search").fill("zz..zz!?");
     check((await page.locator("#result-count").innerText()).startsWith("0 of") && await page.locator("#empty").isVisible(), "nonsense and punctuation-heavy queries show zero of 113 with the empty panel");
+    await page.locator("#search").fill("rpa");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of") && await page.locator(".material-row .method-rpa").count() === 1, "method search rpa isolates the C2048 RPA-energy record");
+    await go("#/material/c2048-rpa-20260614");
+    await page.waitForSelector(".detail-tags");
+    check(await page.locator(".detail-tags .method-rpa").count() === 1 && (await page.locator(".detail-tags .method-rpa").innerText()) === "RPA", "RPA-energy record shows the RPA method chip");
+    await go("#/materials");
+    await page.waitForSelector(".material-row");
     await page.locator("#search").fill("gaas-abacus-gw-soc-32freq");
     await go("#/material/gaas-abacus-gw-soc-32freq");
     await page.waitForSelector(".detail-tags");
