@@ -150,6 +150,12 @@ async function main() {
     await page.locator("#search").fill("nio-aims-gw-int");
     check((await page.locator("#result-count").innerText()).startsWith("1 of"), "record id search isolates the aims NiO record");
     check((await page.locator(".material-row .method-dft").first().innerText()) === "PBE", "input-declared functional lights the chip without a PBE-labeled property");
+    await page.locator("#search").fill("soc");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of") && await page.locator(".material-row .method-soc").count() === 1, "method search soc isolates the GaAs SOC record");
+    await page.locator("#search").fill("spin");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of") && await page.locator(".material-row .method-spin").count() === 1, "method search spin isolates the NiO SPIN record");
+    await page.locator("#search").fill("zz..zz!?");
+    check((await page.locator("#result-count").innerText()).startsWith("0 of") && await page.locator("#empty").isVisible(), "nonsense and punctuation-heavy queries show zero of 113 with the empty panel");
     await page.locator("#search").fill("gaas-abacus-gw-soc-32freq");
     await go("#/material/gaas-abacus-gw-soc-32freq");
     await page.waitForSelector(".detail-tags");

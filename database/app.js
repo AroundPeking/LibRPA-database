@@ -1,10 +1,10 @@
-import { matchesSearch } from "./search.mjs";
+import { matchesSearch, materialSearchText, basisSearchText } from "./search.mjs";
 import { esc, filesOf, recordElements, methodNames, methodTag, socTag, spinPolTag, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
 import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
-import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261017-ripple-v20";
+import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261017-search-v21";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
@@ -28,7 +28,7 @@ function buildIndexes() {
 function matchesQuery(item, isBasis = false) {
   const exactElement = elements.find(element => element.toLowerCase() === state.query.toLowerCase());
   if (exactElement) return isBasis ? item.element === exactElement : recordElements(item).includes(exactElement);
-  return matchesSearch(isBasis ? { set: item, calculations: linked.get(item.id) } : corpus.get(item.id), state.query);
+  return matchesSearch(isBasis ? basisSearchText(item, linked.get(item.id)) : materialSearchText(item, corpus.get(item.id)?.basis), state.query);
 }
 
 function filtered() {

@@ -7,20 +7,20 @@
   <meta name="description" content="A first-principles GW and RPA materials database: quasiparticle gaps, band structures, and RPA energies from ABACUS and FHI-aims workflows, with archived inputs, exact basis files, and software provenance.">
   <title>LibRPA materials database</title>
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261017-ripple-v20">
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261017-ripple-v20">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261017-ripple-v20">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261017-search-v21">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261017-search-v21">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261017-search-v21">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261017-ripple-v20">
+  <link rel="stylesheet" href="style.css?v=20261017-search-v21">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#/" aria-label="LibRPA materials database home">
-        <img class="brand-mark" src="logo-mark.png?v=20261017-ripple-v20" width="320" height="286" alt="" aria-hidden="true">
+        <img class="brand-mark" src="logo-mark.png?v=20261017-search-v21" width="320" height="286" alt="" aria-hidden="true">
         <span>LibRPA<small>MATERIALS DATABASE</small></span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
@@ -44,7 +44,7 @@
           <h1 class="sr-only" id="landing-title">LibRPA materials database</h1>
           <div class="cover-stage-wrap">
             <div class="cover-orbit" aria-hidden="true"></div>
-            <a class="cover-emblem" href="#/materials" aria-label="Enter the materials database"><img class="landing-emblem" src="logo-emblem.png?v=20261017-ripple-v20" width="540" height="681" alt="LibRPA emblem: a layered crystal cube with gold and cyan facets, wrapped by a polarization ring"></a>
+            <a class="cover-emblem" href="#/materials" aria-label="Enter the materials database"><img class="landing-emblem" src="logo-emblem.png?v=20261017-search-v21" width="540" height="681" alt="LibRPA emblem: a layered crystal cube with gold and cyan facets, wrapped by a polarization ring"></a>
           </div>
           <div class="cover-actions"><a class="primary-button" href="#/materials">Enter the database <span aria-hidden="true">→</span></a></div>
         </div>
@@ -81,7 +81,7 @@
         </aside>
         <div class="catalog-content">
           <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
-          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><span class="search-tip">Material · element · method · file · commit</span></div>
+          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><button type="button" data-query="SOC">SOC</button><span class="search-tip">Material · element · method · ID · commit</span></div>
           <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gap">GW gap ↓</option></select></label></div>
           <div id="catalog" class="catalog" aria-busy="true"></div>
           <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
@@ -95,6 +95,6 @@
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
   <noscript><p class="notice">JavaScript is needed for searching and browsing the catalog. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261017-ripple-v20"></script>
+  <script type="module" src="app.js?v=20261017-search-v21"></script>
 </body>
 </html>

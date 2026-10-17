@@ -783,3 +783,29 @@ test("catalog method chips keep the method-dft class for every mean-field functi
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("DFT")).length, 0);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 84);
 });
+
+test("catalog search is field-scoped with whole-word method keywords", async () => {
+  const { matchesSearch, materialSearchText, basisSearchText } = await import("../database/search.mjs");
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const bySet = new Map(catalog.basis_sets.map(set => [set.id, set]));
+  const linked = new Map();
+  const text = record => {
+    const ids = new Set([...(record.species || []), ...(record.basis_candidates || [])].map(s => s.set_id).filter(Boolean));
+    for (const id of ids) { if (!linked.has(id)) linked.set(id, []); linked.get(id).push(record); }
+    return materialSearchText(record, [...ids].map(id => bySet.get(id)).filter(Boolean));
+  };
+  const texts = new Map(catalog.calculations.map(record => [record.id, text(record)]));
+  const hits = query => catalog.calculations.filter(record => matchesSearch(texts.get(record.id), query));
+  assert.equal(hits("soc").length, 1);
+  assert.equal(hits("soc")[0].material, "GaAs");
+  assert.equal(hits("spin").length, 1);
+  assert.equal(hits("spin")[0].material, "NiO");
+  assert.equal(hits("GW SOC").length, 1);
+  assert.equal(hits("gw").length, catalog.calculations.filter(record => methodNames(record).includes("GW")).length);
+  assert.equal(hits("exx").length, catalog.calculations.filter(record => methodNames(record).includes("EXX")).length);
+  assert.equal(hits("zzzzqq").length, 0, "absent strings match nothing");
+  assert.equal(hits("!! \u2026 ??").length, 0, "punctuation-only queries match nothing");
+  for (const record of catalog.calculations.slice(0, 12)) assert.ok(matchesSearch(texts.get(record.id), record.id), `${record.id} matches its own id`);
+  const gaasBasis = catalog.basis_sets.filter(set => matchesSearch(basisSearchText(set, linked.get(set.id) || []), "GaAs"));
+  assert.ok(gaasBasis.length > 0, "basis search reaches linked materials");
+});
