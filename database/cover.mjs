@@ -138,7 +138,7 @@ function createScene(canvas, cover) {
   const wrap = cover.querySelector(".cover-stage-wrap");
   let W = 1, H = 1, DPR = 1, cx = 0, cy = 0, coreR = 180;
   let parts = [], bubbles = [], rings = [], sparks = [];
-  let running = false, raf = 0, lastRing = -2.6, lastT = 0;
+  let running = false, raf = 0, lastRing = -2.6, lastT = 0, nowSec = 0;
   let px = .5, py = .5, vx = .5, vy = .5;
 
   const sprite = document.createElement("canvas");
@@ -173,7 +173,7 @@ function createScene(canvas, cover) {
       s: rand(7, 18), tw: rand(.5, 1.6), ph: rand(0, Math.PI * 2)
     }));
     const span = Math.min(W, H);
-    const n = W < 700 ? 3 : 4;
+    const n = W < 700 ? 4 : 7;
     bubbles = Array.from({ length: n }, (_, i) => {
       const ang = rand(0, Math.PI * 2) + i * (Math.PI * 2 / n);
       const dist = rand(.34, .44) * span;
@@ -213,30 +213,6 @@ function createScene(canvas, cover) {
       b.vx *= damp;
       b.vy *= damp;
     }
-    for (let i = 0; i < bubbles.length; i++) {
-      for (let j = i + 1; j < bubbles.length; j++) {
-        const a = bubbles[i], c = bubbles[j];
-        const dx = c.x - a.x, dy = c.y - a.y;
-        const dist = Math.hypot(dx, dy) || 1;
-        const overlap = a.r + c.r - dist;
-        if (overlap > 0) {
-          const nx = dx / dist, ny = dy / dist;
-          const ma = a.r * a.r, mc = c.r * c.r, total = ma + mc;
-          a.x -= nx * overlap * (mc / total); a.y -= ny * overlap * (mc / total);
-          c.x += nx * overlap * (ma / total); c.y += ny * overlap * (ma / total);
-          const rv = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
-          if (rv < 0) {
-            const imp = -1.7 * rv / (1 / ma + 1 / mc);
-            a.vx -= imp * nx / ma; a.vy -= imp * ny / ma;
-            c.vx += imp * nx / mc; c.vy += imp * ny / mc;
-            a.flash = Math.min(1, a.flash + .5);
-            c.flash = Math.min(1, c.flash + .5);
-            const mx = (a.x + c.x) / 2, my = (a.y + c.y) / 2;
-            spawnSparks(mx, my, nx, ny, 2);
-          }
-        }
-      }
-    }
     for (const b of bubbles) {
       const dx = b.x - cx, dy = b.y - cy;
       const dist = Math.hypot(dx, dy) || 1;
@@ -257,6 +233,35 @@ function createScene(canvas, cover) {
       else if (b.x > W - m) { b.x = W - m; b.vx = -Math.abs(b.vx) * .8; }
       if (b.y < m) { b.y = m; b.vy = Math.abs(b.vy) * .8; }
       else if (b.y > H - m) { b.y = H - m; b.vy = -Math.abs(b.vy) * .8; }
+    }
+    // pairwise separation runs last so core/wall clamps cannot override it
+    for (let iter = 0; iter < 2; iter++) {
+      for (let i = 0; i < bubbles.length; i++) {
+        for (let j = i + 1; j < bubbles.length; j++) {
+          const a = bubbles[i], c = bubbles[j];
+          const dx = c.x - a.x, dy = c.y - a.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          const overlap = a.r + c.r - dist;
+          if (overlap > 0) {
+            const nx = dx / dist, ny = dy / dist;
+            const ma = a.r * a.r, mc = c.r * c.r, total = ma + mc;
+            a.x -= nx * overlap * (mc / total); a.y -= ny * overlap * (mc / total);
+            c.x += nx * overlap * (ma / total); c.y += ny * overlap * (ma / total);
+            const rv = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
+            if (rv < 0) {
+              const imp = -1.7 * rv / (1 / ma + 1 / mc);
+              a.vx -= imp * nx / ma; a.vy -= imp * ny / ma;
+              c.vx += imp * nx / mc; c.vy += imp * ny / mc;
+              a.flash = Math.min(1, a.flash + .5);
+              c.flash = Math.min(1, c.flash + .5);
+              const mx = (a.x + c.x) / 2, my = (a.y + c.y) / 2;
+              spawnSparks(mx, my, nx, ny, 2);
+            }
+          }
+        }
+      }
+    }
+    for (const b of bubbles) {
       const sp = Math.hypot(b.vx, b.vy);
       if (sp > 150) { b.vx *= 150 / sp; b.vy *= 150 / sp; }
       b.x += b.vx * dt;
@@ -273,6 +278,7 @@ function createScene(canvas, cover) {
 
   const draw = now => {
     const t = now / 1000;
+    nowSec = t;
     const dt = Math.min(.05, Math.max(.001, (now - lastT) / 1000));
     lastT = now;
     const light = document.documentElement.dataset.theme === "light";
@@ -302,15 +308,16 @@ function createScene(canvas, cover) {
         if (Math.abs(d - R) < 30) {
           ring.hit.add(b.id);
           const nx = (b.x - cx) / (d || 1), ny = (b.y - cy) / (d || 1);
-          b.vx += nx * 62 * Math.max(.25, energy);
-          b.vy += ny * 62 * Math.max(.25, energy);
+          const shove = (ring.manual ? 84 : 62) * Math.max(.25, energy);
+          b.vx += nx * shove;
+          b.vy += ny * shove;
           b.flash = 1;
           spawnSparks(b.x - nx * b.r, b.y - ny * b.r, nx, ny, 3);
         }
       }
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.strokeStyle = col(.22 * energy);
+      ctx.strokeStyle = col((ring.manual ? .32 : .22) * energy);
       ctx.lineWidth = 1.2;
       ctx.stroke();
       return true;
@@ -320,6 +327,15 @@ function createScene(canvas, cover) {
     for (const b of bubbles) {
       const r = b.r * (1 + Math.sin(t * b.breath + b.brPh) * .08);
       const g = r * 2.2 * (1 + b.flash * .5);
+      const fill = (light ? .06 : .09) + b.flash * (light ? .16 : .24);
+      const shell = ctx.createRadialGradient(b.x, b.y, r * .3, b.x, b.y, r);
+      shell.addColorStop(0, col(0));
+      shell.addColorStop(.72, col(fill * .45));
+      shell.addColorStop(1, col(fill));
+      ctx.fillStyle = shell;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, r, 0, Math.PI * 2);
+      ctx.fill();
       ctx.globalAlpha = (light ? .08 : .13) + b.flash * (light ? .18 : .3);
       ctx.drawImage(sprite, b.x - g / 2, b.y - g / 2, g, g);
       ctx.globalAlpha = 1;
@@ -358,7 +374,7 @@ function createScene(canvas, cover) {
     raf = requestAnimationFrame(loop);
   };
   const kick = () => {
-    if (running || document.hidden || !landing.isConnected || landing.hidden) return;
+    if (reduced || running || document.hidden || !landing.isConnected || landing.hidden) return;
     running = true;
     raf = requestAnimationFrame(loop);
   };
@@ -370,6 +386,15 @@ function createScene(canvas, cover) {
     if (!box.width || !box.height) return;
     px = Math.min(1, Math.max(0, (event.clientX - box.left) / box.width));
     py = Math.min(1, Math.max(0, (event.clientY - box.top) / box.height));
+  });
+  // tapping the cover background fires a screening ring from the emblem
+  cover.addEventListener("click", event => {
+    if (reduced) return;
+    if (event.target && event.target.closest && event.target.closest("a, button")) return;
+    if (!rings.some(ring => ring.manual && nowSec - ring.born < .12)) {
+      rings.push({ born: nowSec, hit: new Set(), manual: true });
+      lastRing = Math.max(lastRing, nowSec);
+    }
   });
   document.addEventListener("visibilitychange", kick);
   if (reduced) {

@@ -308,6 +308,7 @@ test("landing entry is a single-screen showcase cover that routes to #/materials
   assert.match(cover, /setLineDash/);
   assert.match(cover, /overlap/);
   assert.match(cover, /b\.flash/);
+  assert.match(cover, /manual: true/);
   assert.match(cover, /dataset\.theme === "light"/);
   assert.match(cover, /visibilitychange/);
   assert.match(css, /\.cover-fly-clone\{position:fixed/);
