@@ -38,8 +38,8 @@ code { font-size: max(12px, .86em); overflow-wrap: anywhere; }
 .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
 .header-inner { width: min(1392px, calc(100% - 80px)); min-height: 86px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 13px; color: var(--ink); font-size: 16px; font-weight: 650; letter-spacing: -.015em; }
-.brand-mark { display: block; flex-shrink: 0; height: 48px; width: auto; transition: filter .2s ease; }
-.brand:hover .brand-mark { filter: drop-shadow(0 2px 8px rgba(0, 229, 255, .35)); }
+.brand-mark { display: block; flex-shrink: 0; height: 52px; width: auto; padding: 4px; background: #fff; border-radius: 12px; box-shadow: 0 0 0 1px rgba(11, 19, 43, .16); transition: filter .2s ease; }
+.brand:hover .brand-mark { filter: drop-shadow(0 2px 10px rgba(0, 229, 255, .4)); }
 .brand b { color: var(--accent); font-weight: 400; margin: 0 3px; }
 .brand small { display: block; margin-top: 1px; color: var(--subtle); letter-spacing: .17em; font-size: 12px; font-weight: 500; }
 .main-nav { display: flex; align-items: center; gap: 32px; height: 86px; }
@@ -340,7 +340,7 @@ dialog pre { max-height: 55vh; overflow: auto; margin: 16px 24px; padding: 18px;
   main { padding-top: 20px; }
   .header-inner { min-height: 74px; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
   .brand { font-size: 16px; gap: 8px; }
-  .brand-mark { height: 32px; }
+  .brand-mark { height: 36px; padding: 3px; border-radius: 9px; }
   .brand small { font-size: 12px; letter-spacing: .07em; }
   .main-nav { width: 100%; gap: 24px; height: 44px; }
   .main-nav a { font-size: 14px; }
@@ -454,7 +454,7 @@ button:disabled{opacity:.45}
 .site-header{position:sticky;top:0;z-index:40;background:var(--header-veil);backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid var(--line);box-shadow:var(--shadow-1)}
 .header-inner{width:min(1460px,calc(100% - 72px));min-height:78px;gap:26px}
 .brand{font-size:24px;letter-spacing:-.01em;gap:12px;color:var(--heading)}
-.brand-mark{height:48px}
+.brand-mark{height:52px}
 .brand b{color:var(--accent)}
 .brand small{font-size:12px;letter-spacing:.16em;margin-top:4px;color:var(--text-faint);font-family:inherit}
 .main-nav{height:78px;gap:10px}
@@ -794,7 +794,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun{display:none}
   main{padding-top:18px}
   .header-inner{min-height:70px;padding-top:15px;flex-wrap:wrap;gap:12px}
     .brand{font-size:20px;gap:9px}
-  .brand-mark{height:32px}
+  .brand-mark{height:36px;padding:3px;border-radius:9px}
   .brand small{font-size:12px;letter-spacing:.11em}
   .main-nav{height:49px;width:100%;gap:18px}
   .main-nav a{font-size:14px;padding:0 11px}

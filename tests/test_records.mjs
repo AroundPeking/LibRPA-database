@@ -317,26 +317,26 @@ test("database branding is front-end neutral and supports ABACUS and FHI-aims wo
   assert.doesNotMatch(app, / · ABACUS \+ LibRPA/);
 });
 
-test("header uses the emblem brand mark with vector icon links", () => {
+test("header shows the Plan A render on a white tile with vector icon links", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const icon = readFileSync(new URL("../database/favicon.svg", import.meta.url), "utf8");
-  const mark = readFileSync(new URL("../database/logo-mark.svg", import.meta.url), "utf8");
+  const mark = readFileSync(new URL("../database/logo-mark.png", import.meta.url));
   assert.doesNotMatch(index, /data:image\/svg\+xml/);
-  assert.doesNotMatch(index, /logo\.svg|logo-navbar/);
+  assert.doesNotMatch(index, /logo\.svg|logo-navbar|logo-mark\.svg/);
   assert.match(index, /rel="icon"[^>]*type="image\/svg\+xml"[^>]*href="favicon\.svg(?:\?v=[a-z0-9-]+)?"/);
   assert.match(index, /rel="alternate icon"[^>]*href="favicon-32x32\.png(?:\?v=[a-z0-9-]+)?"/);
   assert.match(index, /rel="apple-touch-icon"[^>]*href="apple-touch-icon\.png(?:\?v=[a-z0-9-]+)?"/);
-  assert.match(index, /class="brand-mark"[^>]*src="logo-mark\.svg(?:\?v=[a-z0-9-]+)?"[^>]*alt=""[^>]*aria-hidden="true"/);
+  assert.match(index, /class="brand-mark"[^>]*src="logo-mark\.png(?:\?v=[a-z0-9-]+)?"[^>]*alt=""[^>]*aria-hidden="true"/);
   assert.match(index, /<span>LibRPA<small>MATERIALS DATABASE<\/small><\/span>/);
-  assert.match(mark, /viewBox="56 60 308 222"/);
-  assert.match(mark, /url\(#hexGrad\)/);
-  assert.match(mark, /url\(#cyanFacet\)/);
-  for (const svg of [icon, mark]) assert.doesNotMatch(svg, /<text\b|<image\b|<script\b|href="https?:/);
+  assert.equal(mark.readUInt32BE(16), 320, "mark PNG width");
+  assert.equal(mark.readUInt32BE(20), 286, "mark PNG height");
+  assert.doesNotMatch(icon, /<text\b|<image\b|<script\b|href="https?:/);
   assert.match(icon, /viewBox="0 0 64 64"/);
-  assert.throws(() => readFileSync(new URL("../database/logo.svg", import.meta.url)), "old single mark retired");
-  assert.throws(() => readFileSync(new URL("../database/logo-navbar-light.svg", import.meta.url)), "navbar text pair retired");
-  assert.match(css, /\.brand-mark \{[^}]*height: 48px/);
+  for (const retired of ["logo.svg", "logo-navbar-light.svg", "logo-mark.svg"]) {
+    assert.throws(() => readFileSync(new URL(`../database/${retired}`, import.meta.url)), `${retired} retired`);
+  }
+  assert.match(css, /\.brand-mark \{[^}]*background: #fff;[^}]*border-radius: 12px/);
   assert.match(css, /\.brand:hover \.brand-mark \{[^}]*drop-shadow/);
 });
 
