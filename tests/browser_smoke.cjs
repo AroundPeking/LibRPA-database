@@ -53,7 +53,7 @@ async function main() {
     check(new URL(landingEmblemUrl).pathname === new URL("logo-emblem.png", base).pathname, "封面徽章解析到部署子路径");
     check(await landingEmblem.evaluate(img => { const tile = getComputedStyle(img.parentElement); return tile.backgroundColor === "rgb(255, 255, 255)" && tile.borderRadius !== "0px" && tile.padding !== "0px"; }), "封面徽章坐在白色圆角瓷砖上（预览同款展示）");
     check(await page.locator("#landing-view h1").evaluate(h => h.classList.contains("sr-only") && h.textContent === "LibRPA materials database"), "标语已去除，仅保留屏幕阅读器标题");
-    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const w = Math.floor(canvas.width / 2 - 90), h = Math.floor(canvas.height / 2 - 90); const data = ctx.getImageData(w, h, 180, 180).data; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) return true; return false; }), "GW/RPA 电子海动效正在 canvas 上绘制（波纹线穿过中心）");
+    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data; let lit = 0; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) lit++; return lit > 500; }), "GW/RPA 电子海动效正在 canvas 上绘制（电子+泡泡环+屏蔽波纹）");
     check(await page.locator(".cover-orbit").evaluate(orbit => { const anims = orbit.getAnimations(); return anims.length === 1 && anims[0].playbackRate === 1 && getComputedStyle(orbit).borderRadius === "50%"; }), "徽章外圈极化星环由 WAAPI 驱动常速旋转（RPA 轨道动画）");
     const landingText = await page.locator("#landing-view").innerText();
     check(!/Public preview|strict archive validation|evidence issues|Website publication is not scientific acceptance|Archive only|CI blocked/i.test(landingText), "封面不暴露内部审计或草稿文案");
@@ -583,7 +583,7 @@ async function main() {
     check(await mobileEmblem.evaluate(img => img.getBoundingClientRect().width <= 200), "移动端徽章缩进封面尺寸");
     check(await mobileEmblem.evaluate(img => Math.abs((img.getBoundingClientRect().x + img.getBoundingClientRect().width / 2) - innerWidth / 2) < 40), "移动端徽章水平居中");
     check(await page.locator(".cover-actions .primary-button").evaluate(button => button.getBoundingClientRect().top < 900), "移动端封面主按钮一屏内可达");
-    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const w = Math.floor(canvas.width / 2 - 70), h = Math.floor(canvas.height / 2 - 70); const data = ctx.getImageData(w, h, 140, 140).data; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) return true; return false; }), "移动端电子海动效同样在绘制");
+    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data; let lit = 0; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) lit++; return lit > 500; }), "移动端电子海动效同样在绘制");
     check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px 封面无横向溢出");
     await screenshot("landing-mobile.png");
     await go("#/materials");

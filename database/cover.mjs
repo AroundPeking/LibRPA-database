@@ -118,10 +118,10 @@ async function enterWithFlight(event) {
 
 // ---------------------------------------------------------------------------
 // GW/RPA electron sea: a canvas scene behind the cover emblem.
-// Layers: drifting electrons (additive glow), polarization bubbles (dashed
-// loops with a running electron-hole arc), wavy screened-interaction lines
-// from the emblem to each bubble, and expanding screening rings. Purely
-// decorative; reduced-motion visitors get one static frame.
+// Electrons drift as additive-glow particles. Polarization bubbles are soft
+// bodies: the screening rings expanding from the emblem knock them outward,
+// and bubbles that touch each other repel — flashes and sparks mark the hits.
+// Purely decorative; reduced-motion visitors get one static frame.
 let canvasState = null;
 
 export function startCoverCanvas(cover) {
@@ -137,7 +137,7 @@ function createScene(canvas, cover) {
   const landing = cover.closest("#landing-view") || cover;
   const wrap = cover.querySelector(".cover-stage-wrap");
   let W = 1, H = 1, DPR = 1, cx = 0, cy = 0, coreR = 180;
-  let parts = [], bubbles = [], rings = [];
+  let parts = [], bubbles = [], rings = [], sparks = [];
   let running = false, raf = 0, lastRing = -2.6, lastT = 0;
   let px = .5, py = .5, vx = .5, vy = .5;
 
@@ -165,110 +165,180 @@ function createScene(canvas, cover) {
     const stage = wrap ? wrap.getBoundingClientRect() : box;
     cx = stage.left - box.left + stage.width / 2;
     cy = stage.top - box.top + stage.height / 2;
-    coreR = Math.max(120, stage.width / 2 + 12);
+    coreR = Math.max(96, stage.width / 2 + 10);
     const count = Math.max(40, Math.min(150, Math.round(W * H / 11000)));
     parts = Array.from({ length: count }, () => ({
       x: rand(0, W), y: rand(0, H),
       vx: rand(-9, 9), vy: rand(-9, 9),
       s: rand(7, 18), tw: rand(.5, 1.6), ph: rand(0, Math.PI * 2)
     }));
+    const span = Math.min(W, H);
     const n = W < 700 ? 3 : 4;
     bubbles = Array.from({ length: n }, (_, i) => {
       const ang = rand(0, Math.PI * 2) + i * (Math.PI * 2 / n);
-      const dist = rand(.3, .46) * Math.min(W, H);
+      const dist = rand(.34, .44) * span;
       return {
-        ax: cx + Math.cos(ang) * dist, ay: cy + Math.sin(ang) * dist,
-        drift: rand(0, Math.PI * 2), driftR: rand(14, 34),
-        r: rand(40, 92), breath: rand(.6, 1.4), brPh: rand(0, Math.PI * 2),
-        spin: rand(.25, .6) * (Math.random() < .5 ? -1 : 1), arc: rand(0, Math.PI * 2),
-        arcSpeed: rand(.5, 1.1) * (Math.random() < .5 ? -1 : 1), wobPh: rand(0, Math.PI * 2)
+        id: i,
+        x: cx + Math.cos(ang) * dist, y: cy + Math.sin(ang) * dist,
+        vx: rand(-14, 14), vy: rand(-14, 14),
+        r: Math.max(22, rand(.05, .09) * span),
+        breath: rand(.6, 1.4), brPh: rand(0, Math.PI * 2),
+        spin: rand(.25, .6) * (Math.random() < .5 ? -1 : 1),
+        flash: 0
       };
     });
     rings = [];
+    sparks = [];
   };
 
-  const wavy = (x1, y1, x2, y2, phase, amp, color, alpha) => {
-    const dx = x2 - x1, dy = y2 - y1;
-    const len = Math.hypot(dx, dy) || 1;
-    const nx = -dy / len, ny = dx / len;
-    ctx.beginPath();
-    const steps = 26;
-    for (let i = 0; i <= steps; i++) {
-      const t = i / steps;
-      const taper = Math.sin(t * Math.PI);
-      const off = Math.sin(t * Math.PI * 3 + phase) * amp * taper;
-      const x = x1 + dx * t + nx * off;
-      const y = y1 + dy * t + ny * off;
-      if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+  const spawnSparks = (x, y, nx, ny, count) => {
+    if (sparks.length > 40) return;
+    for (let i = 0; i < count; i++) {
+      const spread = rand(-.9, .9);
+      const speed = rand(28, 90);
+      sparks.push({
+        x, y,
+        vx: (nx * Math.cos(spread) - ny * Math.sin(spread)) * speed,
+        vy: (nx * Math.sin(spread) + ny * Math.cos(spread)) * speed,
+        life: 1, s: rand(5, 10)
+      });
     }
-    ctx.strokeStyle = color(alpha);
-    ctx.lineWidth = 1.4;
-    ctx.stroke();
+  };
+
+  const physics = (dt) => {
+    const damp = Math.exp(-1.05 * dt);
+    for (const b of bubbles) {
+      b.vx += (Math.random() - .5) * 26 * dt;
+      b.vy += (Math.random() - .5) * 26 * dt;
+      b.vx *= damp;
+      b.vy *= damp;
+    }
+    for (let i = 0; i < bubbles.length; i++) {
+      for (let j = i + 1; j < bubbles.length; j++) {
+        const a = bubbles[i], c = bubbles[j];
+        const dx = c.x - a.x, dy = c.y - a.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const overlap = a.r + c.r - dist;
+        if (overlap > 0) {
+          const nx = dx / dist, ny = dy / dist;
+          const ma = a.r * a.r, mc = c.r * c.r, total = ma + mc;
+          a.x -= nx * overlap * (mc / total); a.y -= ny * overlap * (mc / total);
+          c.x += nx * overlap * (ma / total); c.y += ny * overlap * (ma / total);
+          const rv = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
+          if (rv < 0) {
+            const imp = -1.7 * rv / (1 / ma + 1 / mc);
+            a.vx -= imp * nx / ma; a.vy -= imp * ny / ma;
+            c.vx += imp * nx / mc; c.vy += imp * ny / mc;
+            a.flash = Math.min(1, a.flash + .5);
+            c.flash = Math.min(1, c.flash + .5);
+            const mx = (a.x + c.x) / 2, my = (a.y + c.y) / 2;
+            spawnSparks(mx, my, nx, ny, 2);
+          }
+        }
+      }
+    }
+    for (const b of bubbles) {
+      const dx = b.x - cx, dy = b.y - cy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const min = coreR + b.r + 26;
+      if (dist < min) {
+        const nx = dx / dist, ny = dy / dist;
+        b.x = cx + nx * min;
+        b.y = cy + ny * min;
+        const vn = b.vx * nx + b.vy * ny;
+        if (vn < 0) {
+          b.vx -= 1.6 * vn * nx;
+          b.vy -= 1.6 * vn * ny;
+          b.flash = Math.min(1, b.flash + .35);
+        }
+      }
+      const m = b.r + 26;
+      if (b.x < m) { b.x = m; b.vx = Math.abs(b.vx) * .8; }
+      else if (b.x > W - m) { b.x = W - m; b.vx = -Math.abs(b.vx) * .8; }
+      if (b.y < m) { b.y = m; b.vy = Math.abs(b.vy) * .8; }
+      else if (b.y > H - m) { b.y = H - m; b.vy = -Math.abs(b.vy) * .8; }
+      const sp = Math.hypot(b.vx, b.vy);
+      if (sp > 150) { b.vx *= 150 / sp; b.vy *= 150 / sp; }
+      b.x += b.vx * dt;
+      b.y += b.vy * dt;
+      b.flash *= Math.exp(-2.6 * dt);
+    }
+    for (const spark of sparks) {
+      spark.x += spark.vx * dt;
+      spark.y += spark.vy * dt;
+      spark.life -= dt / .6;
+    }
+    sparks = sparks.filter(spark => spark.life > 0);
   };
 
   const draw = now => {
     const t = now / 1000;
+    const dt = Math.min(.05, Math.max(.001, (now - lastT) / 1000));
+    lastT = now;
     const light = document.documentElement.dataset.theme === "light";
     const hue = light ? "12,106,117" : "111,214,225";
-    const col = a => `rgba(${hue},${a})`;
+    const col = a => `rgba(${hue},${Math.min(1, a)})`;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     ctx.clearRect(0, 0, W, H);
     vx += (px - vx) * .06;
     vy += (py - vy) * .06;
-    const ox = (vx - .5) * -22, oy = (vy - .5) * -16;
-    ctx.translate(ox, oy);
+    ctx.translate((vx - .5) * -22, (vy - .5) * -16);
 
-    // expanding screening rings from the emblem
+    physics(dt);
+
+    // expanding screening rings: the wavefront shoves bubbles outward
     if (t - lastRing > 2.6 && !reduced) {
-      rings.push({ born: t });
+      rings.push({ born: t, hit: new Set() });
       lastRing = t;
     }
     const maxR = Math.hypot(W, H) / 2;
     rings = rings.filter(ring => {
-      const r = coreR + (t - ring.born) * 85;
-      if (r > maxR) return false;
+      const R = coreR + (t - ring.born) * 85;
+      if (R > maxR) return false;
+      const energy = Math.max(0, 1 - (R - coreR) / (maxR - coreR));
+      for (const b of bubbles) {
+        if (ring.hit.has(b.id)) continue;
+        const d = Math.hypot(b.x - cx, b.y - cy);
+        if (Math.abs(d - R) < 30) {
+          ring.hit.add(b.id);
+          const nx = (b.x - cx) / (d || 1), ny = (b.y - cy) / (d || 1);
+          b.vx += nx * 62 * Math.max(.25, energy);
+          b.vy += ny * 62 * Math.max(.25, energy);
+          b.flash = 1;
+          spawnSparks(b.x - nx * b.r, b.y - ny * b.r, nx, ny, 3);
+        }
+      }
       ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.strokeStyle = col(.2 * (1 - (r - coreR) / (maxR - coreR)));
+      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.strokeStyle = col(.22 * energy);
       ctx.lineWidth = 1.2;
       ctx.stroke();
       return true;
     });
 
-    // wavy screened-interaction lines: emblem -> each polarization bubble
+    // polarization bubbles: breathing dashed loops that flash when struck
     for (const b of bubbles) {
-      const bx = b.ax + Math.cos(t * .12 + b.drift) * b.driftR;
-      const by = b.ay + Math.sin(t * .09 + b.drift) * b.driftR;
-      b.bx = bx; b.by = by;
-      wavy(cx, cy, bx, by, t * .8 + b.wobPh, 7 + Math.sin(t * b.breath + b.brPh) * 4, col, light ? .22 : .3);
-    }
-
-    // polarization bubbles (RPA ring diagrams)
-    for (const b of bubbles) {
-      const r = b.r * (1 + Math.sin(t * b.breath + b.brPh) * .09);
+      const r = b.r * (1 + Math.sin(t * b.breath + b.brPh) * .08);
+      const g = r * 2.2 * (1 + b.flash * .5);
+      ctx.globalAlpha = (light ? .08 : .13) + b.flash * (light ? .18 : .3);
+      ctx.drawImage(sprite, b.x - g / 2, b.y - g / 2, g, g);
+      ctx.globalAlpha = 1;
       ctx.beginPath();
-      ctx.arc(b.bx, b.by, r, 0, Math.PI * 2);
+      ctx.arc(b.x, b.y, r, 0, Math.PI * 2);
       ctx.setLineDash([3, 11]);
       ctx.lineDashOffset = -t * 22 * b.spin;
-      ctx.strokeStyle = col(light ? .3 : .4);
-      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = col((light ? .3 : .42) + b.flash * .4);
+      ctx.lineWidth = 1.2 + b.flash * 1.2;
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.beginPath();
-      ctx.arc(b.bx, b.by, r, b.arc, b.arc + .95);
-      b.arc += b.arcSpeed * .016;
-      ctx.strokeStyle = col(light ? .55 : .8);
-      ctx.lineWidth = 2.2;
-      ctx.lineCap = "round";
-      ctx.stroke();
-      const g = r * 2.4;
-      ctx.globalAlpha = light ? .1 : .16;
-      ctx.drawImage(sprite, b.bx - g / 2, b.by - g / 2, g, g);
-      ctx.globalAlpha = 1;
     }
 
-    // electrons
+    // electrons and collision sparks
     ctx.globalCompositeOperation = light ? "source-over" : "lighter";
+    for (const spark of sparks) {
+      ctx.globalAlpha = spark.life * (light ? .6 : .9);
+      ctx.drawImage(sprite, spark.x - spark.s / 2, spark.y - spark.s / 2, spark.s, spark.s);
+    }
     for (const p of parts) {
       p.x += p.vx * .016;
       p.y += p.vy * .016;
@@ -285,7 +355,6 @@ function createScene(canvas, cover) {
   const loop = now => {
     if (document.hidden || !landing.isConnected || landing.hidden) { running = false; return; }
     draw(now);
-    lastT = now;
     raf = requestAnimationFrame(loop);
   };
   const kick = () => {
@@ -304,7 +373,7 @@ function createScene(canvas, cover) {
   });
   document.addEventListener("visibilitychange", kick);
   if (reduced) {
-    rings.push({ born: 0 }, { born: -1.4 });
+    rings.push({ born: 0, hit: new Set() }, { born: -1.4, hit: new Set() });
     draw(2600);
   } else {
     kick();

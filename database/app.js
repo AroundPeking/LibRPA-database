@@ -4,7 +4,7 @@ import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
-import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261017-wow-v17";
+import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261017-physics-v18";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
