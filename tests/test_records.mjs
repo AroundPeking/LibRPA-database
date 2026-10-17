@@ -311,24 +311,34 @@ function detailsModule() {
 test("database branding is front-end neutral and supports ABACUS and FHI-aims workflows", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
-  assert.match(index, /<span>LibRPA<small>MATERIALS DATABASE<\/small><\/span>/);
+  assert.match(index, /class="brand"[^>]*aria-label="LibRPA materials database home"/);
   assert.match(index, /ABACUS and FHI-aims workflows/);
   assert.doesNotMatch(index, /ABACUS <b>\+<\/b> LibRPA|Materials database · ABACUS/);
   assert.doesNotMatch(app, / · ABACUS \+ LibRPA/);
 });
 
-test("header and favicon share a small editable SVG brand mark", () => {
+test("header uses the themed navbar logo pair and vector icon links", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
-  const logo = readFileSync(new URL("../database/logo.svg", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
-  assert.match(index, /rel="icon"[^>]*href="logo\.svg(?:\?v=[a-z0-9-]+)?"/);
-  assert.match(index, /class="brand-mark"[^>]*src="logo\.svg(?:\?v=[a-z0-9-]+)?"[^>]*alt=""[^>]*aria-hidden="true"/);
+  const icon = readFileSync(new URL("../database/favicon.svg", import.meta.url), "utf8");
+  const light = readFileSync(new URL("../database/logo-navbar-light.svg", import.meta.url), "utf8");
+  const dark = readFileSync(new URL("../database/logo-navbar-dark.svg", import.meta.url), "utf8");
   assert.doesNotMatch(index, /data:image\/svg\+xml/);
-  assert.match(logo, /viewBox="0 0 48 48"/);
-  for (const id of ["lattice", "conduction-band", "valence-band"]) assert.match(logo, new RegExp(`id="${id}"`));
-  assert.doesNotMatch(logo, /<text\b|<image\b|<script\b/);
-  assert.match(css, /\.brand-mark \{[^}]*width: 48px; height: 48px/);
-  assert.match(css, /\.brand-mark \{[^}]*width: 32px; height: 32px/);
+  assert.doesNotMatch(index, /logo\.svg/);
+  assert.match(index, /rel="icon"[^>]*type="image\/svg\+xml"[^>]*href="favicon\.svg(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /rel="alternate icon"[^>]*href="favicon-32x32\.png(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /rel="apple-touch-icon"[^>]*href="apple-touch-icon\.png(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /class="brand-logo brand-logo-light"[^>]*src="logo-navbar-light\.svg(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /class="brand-logo brand-logo-dark"[^>]*src="logo-navbar-dark\.svg(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(icon, /viewBox="0 0 64 64"/);
+  for (const navbar of [light, dark]) {
+    assert.match(navbar, /viewBox="0 0 280 56"/);
+    assert.doesNotMatch(navbar, /<script\b|<image\b|data:image|href="https?:/);
+  }
+  assert.doesNotMatch(icon, /<text\b|<image\b|<script\b/);
+  assert.throws(() => readFileSync(new URL("../database/logo.svg", import.meta.url)), "old single mark retired");
+  assert.match(css, /\.brand-logo \{[^}]*height: 40px/);
+  assert.match(css, /html\[data-theme="dark"\] \.brand-logo-dark \{ display: block; \}/);
 });
 
 test("recorded software identifiers are displayed without internal missing-version warnings", () => {

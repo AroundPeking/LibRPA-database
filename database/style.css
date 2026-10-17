@@ -37,10 +37,11 @@ code { font-size: max(12px, .86em); overflow-wrap: anywhere; }
 .skip-link:focus { top: 12px; }
 .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
 .header-inner { width: min(1392px, calc(100% - 80px)); min-height: 86px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 13px; color: var(--ink); font-size: 16px; font-weight: 650; letter-spacing: -.015em; }
-.brand-mark { display: block; flex-shrink: 0; width: 48px; height: 48px; }
-.brand b { color: var(--accent); font-weight: 400; margin: 0 3px; }
-.brand small { display: block; margin-top: 1px; color: var(--subtle); letter-spacing: .17em; font-size: 12px; font-weight: 500; }
+.brand { display: flex; align-items: center; }
+.brand-logo { display: block; flex-shrink: 0; height: 40px; width: auto; }
+.brand-logo-dark { display: none; }
+html[data-theme="dark"] .brand-logo-light { display: none; }
+html[data-theme="dark"] .brand-logo-dark { display: block; }
 .main-nav { display: flex; align-items: center; gap: 32px; height: 86px; }
 .main-nav a { height: 100%; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); border-bottom: 2px solid transparent; }
 .main-nav a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); }
@@ -338,9 +339,7 @@ dialog pre { max-height: 55vh; overflow: auto; margin: 16px 24px; padding: 18px;
   main, .header-inner { width: calc(100% - 32px); }
   main { padding-top: 20px; }
   .header-inner { min-height: 74px; gap: 12px; flex-wrap: wrap; padding-top: 14px; }
-  .brand { font-size: 16px; gap: 8px; }
-  .brand-mark { width: 32px; height: 32px; }
-  .brand small { font-size: 12px; letter-spacing: .07em; }
+  .brand-logo { height: 32px; }
   .main-nav { width: 100%; gap: 24px; height: 44px; }
   .main-nav a { font-size: 14px; }
   .main-nav .external-nav { display: none; }
@@ -452,10 +451,8 @@ button:disabled{opacity:.45}
 /* ---------- Header ---------- */
 .site-header{position:sticky;top:0;z-index:40;background:var(--header-veil);backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid var(--line);box-shadow:var(--shadow-1)}
 .header-inner{width:min(1460px,calc(100% - 72px));min-height:78px;gap:26px}
-.brand{font-size:24px;letter-spacing:-.01em;gap:12px;color:var(--heading)}
-.brand-mark{width:48px;height:48px;border-radius:10px;box-shadow:0 0 0 1px var(--line)}
-.brand b{color:var(--accent)}
-.brand small{font-size:12px;letter-spacing:.16em;margin-top:4px;color:var(--text-faint);font-family:inherit}
+.brand{align-items:center}
+.brand-logo{height:40px}
 .main-nav{height:78px;gap:10px}
 .main-nav a{font-size:14px;color:var(--text-body);min-height:44px;padding:0 15px;border-radius:999px;border-bottom:2px solid transparent;transition:color .15s ease,background-color .15s ease}
 .main-nav a[aria-current="page"]{color:var(--accent-deep);border-bottom-color:transparent;background:var(--tint-strong);font-weight:600}
@@ -792,9 +789,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun{display:none}
   main,.header-inner{width:calc(100% - 28px)}
   main{padding-top:18px}
   .header-inner{min-height:70px;padding-top:15px;flex-wrap:wrap;gap:12px}
-  .brand{font-size:20px;gap:9px}
-  .brand-mark{width:32px;height:32px}
-  .brand small{font-size:12px;letter-spacing:.11em}
+    .brand-logo{height:32px}
   .main-nav{height:49px;width:100%;gap:18px}
   .main-nav a{font-size:14px;padding:0 11px}
   .main-nav .external-nav{display:none}
@@ -925,7 +920,6 @@ html[data-theme="dark"] body{background:var(--bg)}
 html[data-theme="dark"] ::selection{background:#155263;color:#e8f6f8}
 html[data-theme="dark"] ::-webkit-scrollbar-thumb{background:#2c4650;border-color:var(--bg)}
 html[data-theme="dark"] .site-header{background:var(--header-veil)}
-html[data-theme="dark"] .brand-mark{box-shadow:0 0 0 1px #2b4550}
 html[data-theme="dark"] .method-dft{background:#1c3242;color:#9cc3e8}
 html[data-theme="dark"] .method-exx{background:#292740;color:#c3abe4}
 html[data-theme="dark"] .method-gw{background:#15393c;color:#6fd0ce}

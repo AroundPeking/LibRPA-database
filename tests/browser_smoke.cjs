@@ -43,14 +43,19 @@ async function main() {
     check(await page.locator("#catalog img").count() === 0, "no list figure previews");
     check(await page.locator("#status-filter-control").isHidden(), "basis-only filter is hidden");
     check((await page.locator("#result-count").innerText()).includes(`${calculations.length} of ${calculations.length}`), "inventory count");
-    const logo = page.locator(".brand-mark");
-    await logo.evaluate(img => img.decode());
-    check(await logo.evaluate(img => img.complete && img.naturalWidth === 48), "external SVG brand mark loads");
-    check(await logo.getAttribute("aria-hidden") === "true" && await logo.getAttribute("alt") === "", "brand mark is decorative");
-    const logoUrl = await logo.evaluate(img => img.src);
-    check(await page.locator("link[rel='icon']").evaluate(link => link.href) === logoUrl, "header and favicon share logo.svg");
-    const resolvedLogo = new URL(logoUrl);
-    check(`${resolvedLogo.origin}${resolvedLogo.pathname}` === new URL("logo.svg", base).href, "brand mark resolves at deployed catalog subpath");
+    const lightLogo = page.locator(".brand-logo-light");
+    const darkLogo = page.locator(".brand-logo-dark");
+    await lightLogo.evaluate(img => img.decode());
+    await darkLogo.evaluate(img => img.decode());
+    check(await lightLogo.evaluate(img => img.complete && img.naturalWidth === 280), "navbar light logo loads");
+    check(await darkLogo.evaluate(img => img.complete && img.naturalWidth === 280), "navbar dark logo loads");
+    check(await darkLogo.isVisible() && !(await lightLogo.isVisible()), "dark color scheme shows the dark logo variant");
+    await page.locator("#theme-toggle").click();
+    check(await lightLogo.isVisible() && !(await darkLogo.isVisible()), "theme toggle swaps to the light logo variant");
+    await page.locator("#theme-toggle").click();
+    check(await darkLogo.isVisible(), "theme toggle returns to the dark logo variant");
+    check(await page.locator("link[rel='icon']").evaluate(link => new URL(link.href).pathname) === new URL("favicon.svg", base).pathname, "favicon is the vector icon at the catalog subpath");
+    check(await page.locator("link[rel='apple-touch-icon']").evaluate(link => new URL(link.href).pathname) === new URL("apple-touch-icon.png", base).pathname, "apple-touch-icon is linked at the catalog subpath");
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "desktop search is visible in first viewport");
     await screenshot("materials-desktop.png");
     for (const expected of [
@@ -519,7 +524,8 @@ async function main() {
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= 900), "移动搜索保持一屏内可达（v2 主题首屏 860px）");
     check(await page.evaluate(() => getComputedStyle(document.body).fontSize === "16px"), "移动正文保持16px");
     check(await page.locator(".material-row .primary-result strong").first().evaluate(cell => Number.parseFloat(getComputedStyle(cell).fontSize) >= 15), "320px卡片主结果保持可读字号");
-    check(await page.locator(".brand-mark").evaluate(img => img.getBoundingClientRect().width === 32 && img.complete && img.naturalWidth === 48), "移动32px logo正确加载");
+    const mobileLogo = page.locator(".brand-logo:visible");
+    check(await mobileLogo.evaluate(img => img.getBoundingClientRect().height === 32 && img.complete && img.naturalWidth === 280), "移动32px logo正确加载");
     const filterToggle = page.locator("#filter-toggle");
     check(await filterToggle.isVisible() && await filterToggle.getAttribute("aria-expanded") === "false", "移动filter-toggle默认折叠");
     check(await page.locator("#element-filter").isHidden(), "折叠筛选不占首屏");
