@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="56 60 308 222" width="308" height="222">
+  <defs>
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="goldFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="cyanFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <path d="M 82,226 A 148,54 0 0,1 338,118" transform="rotate(-26 210 172)" fill="none" stroke="#0284C7" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
+  <g stroke="#FFFFFF" stroke-width="3.5" stroke-linejoin="round">
+    <polygon points="210,68 300,120 210,172 120,120" fill="#0F172A"/>
+    <polygon points="120,120 210,172 210,202 120,150" fill="url(#goldFacet)"/>
+    <polygon points="120,155 210,207 210,237 120,185" fill="url(#goldFacet)"/>
+    <polygon points="120,190 210,242 210,274 120,222" fill="url(#goldFacet)"/>
+    <polygon points="300,120 210,172 210,202 300,150" fill="url(#cyanFacet)"/>
+    <polygon points="300,155 210,207 210,237 300,185" fill="url(#cyanFacet)"/>
+    <polygon points="300,190 210,242 210,274 300,222" fill="url(#cyanFacet)"/>
+  </g>
+  <g transform="rotate(-26 210 172)">
+    <path d="M 358,172 A 148,54 0 0,1 62,172" fill="none" stroke="url(#hexGrad)" stroke-width="13" stroke-linecap="round" filter="url(#cyanGlow)"/>
+    <circle cx="62" cy="172" r="13" fill="#00E5FF" stroke="#0F172A" stroke-width="4"/>
+    <circle cx="62" cy="172" r="5" fill="#FFFFFF"/>
+    <circle cx="358" cy="172" r="13" fill="#00E5FF" stroke="#0F172A" stroke-width="4"/>
+    <circle cx="358" cy="172" r="5" fill="#FFFFFF"/>
+  </g>
+</svg>

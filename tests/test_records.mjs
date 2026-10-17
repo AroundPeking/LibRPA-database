@@ -317,28 +317,27 @@ test("database branding is front-end neutral and supports ABACUS and FHI-aims wo
   assert.doesNotMatch(app, / · ABACUS \+ LibRPA/);
 });
 
-test("header uses the themed navbar logo pair and vector icon links", () => {
+test("header uses the emblem brand mark with vector icon links", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const icon = readFileSync(new URL("../database/favicon.svg", import.meta.url), "utf8");
-  const light = readFileSync(new URL("../database/logo-navbar-light.svg", import.meta.url), "utf8");
-  const dark = readFileSync(new URL("../database/logo-navbar-dark.svg", import.meta.url), "utf8");
+  const mark = readFileSync(new URL("../database/logo-mark.svg", import.meta.url), "utf8");
   assert.doesNotMatch(index, /data:image\/svg\+xml/);
-  assert.doesNotMatch(index, /logo\.svg/);
+  assert.doesNotMatch(index, /logo\.svg|logo-navbar/);
   assert.match(index, /rel="icon"[^>]*type="image\/svg\+xml"[^>]*href="favicon\.svg(?:\?v=[a-z0-9-]+)?"/);
   assert.match(index, /rel="alternate icon"[^>]*href="favicon-32x32\.png(?:\?v=[a-z0-9-]+)?"/);
   assert.match(index, /rel="apple-touch-icon"[^>]*href="apple-touch-icon\.png(?:\?v=[a-z0-9-]+)?"/);
-  assert.match(index, /class="brand-logo brand-logo-light"[^>]*src="logo-navbar-light\.svg(?:\?v=[a-z0-9-]+)?"/);
-  assert.match(index, /class="brand-logo brand-logo-dark"[^>]*src="logo-navbar-dark\.svg(?:\?v=[a-z0-9-]+)?"/);
+  assert.match(index, /class="brand-mark"[^>]*src="logo-mark\.svg(?:\?v=[a-z0-9-]+)?"[^>]*alt=""[^>]*aria-hidden="true"/);
+  assert.match(index, /<span>LibRPA<small>MATERIALS DATABASE<\/small><\/span>/);
+  assert.match(mark, /viewBox="56 60 308 222"/);
+  assert.match(mark, /url\(#hexGrad\)/);
+  assert.match(mark, /url\(#cyanFacet\)/);
+  for (const svg of [icon, mark]) assert.doesNotMatch(svg, /<text\b|<image\b|<script\b|href="https?:/);
   assert.match(icon, /viewBox="0 0 64 64"/);
-  for (const navbar of [light, dark]) {
-    assert.match(navbar, /viewBox="0 0 280 56"/);
-    assert.doesNotMatch(navbar, /<script\b|<image\b|data:image|href="https?:/);
-  }
-  assert.doesNotMatch(icon, /<text\b|<image\b|<script\b/);
   assert.throws(() => readFileSync(new URL("../database/logo.svg", import.meta.url)), "old single mark retired");
-  assert.match(css, /\.brand-logo \{[^}]*height: 40px/);
-  assert.match(css, /html\[data-theme="dark"\] \.brand-logo-dark \{ display: block; \}/);
+  assert.throws(() => readFileSync(new URL("../database/logo-navbar-light.svg", import.meta.url)), "navbar text pair retired");
+  assert.match(css, /\.brand-mark \{[^}]*height: 48px/);
+  assert.match(css, /\.brand:hover \.brand-mark \{[^}]*drop-shadow/);
 });
 
 test("recorded software identifiers are displayed without internal missing-version warnings", () => {
