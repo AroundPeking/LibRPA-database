@@ -4,7 +4,7 @@ import { installPreview } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
-import { installCoverEffects, replayCoverEntrance } from "./cover.mjs?v=20261017-motion-v16";
+import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261017-wow-v17";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
@@ -90,21 +90,12 @@ function renderLanding() {
   $("#landing-view").hidden = false;
   $("#home-view").hidden = true;
   $("#detail-view").hidden = true;
-  const distinct = {
-    materials: new Set(state.calculations.map(record => record.material)).size,
-    d3: state.calculations.filter(record => record.dimension === "3d").length,
-    d2: state.calculations.filter(record => record.dimension === "2d").length,
-    soc: state.calculations.filter(record => record.spin_orbit === true).length,
-    spin: state.calculations.filter(record => record.spin_polarized === true).length,
-    inputs: state.calculations.filter(record => filesOf(record, "inputs").length > 0).length
-  };
-  $("#landing-stats").innerHTML = [[state.calculations.length, "Calculation records"], [distinct.materials, "Distinct materials"], [elements.length, "Elements covered"], [state.sets.length, "Basis-set records"]].map(([value, label], i) => `<div><span class="stat-index">0${i + 1}</span><strong>${value}</strong><span>${label}</span></div>`).join("");
-  $("#landing-coverage").textContent = `${distinct.d3} 3D · ${distinct.d2} 2D · ${distinct.soc} with spin–orbit coupling · ${distinct.spin} spin-polarized · ${distinct.inputs} with archived input files`;
   document.title = "LibRPA materials database";
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", "false"));
   window.scrollTo(0, 0);
   document.body.classList.add("cover-mode");
   replayCoverEntrance($("#landing-cover"));
+  startCoverCanvas($("#landing-cover"));
 }
 
 function renderHome() {
@@ -224,16 +215,9 @@ async function start() {
       button.innerHTML = `${expanded ? "Hide" : "Show"} filters <span aria-hidden="true">${expanded ? "−" : "+"}</span>`;
       $(".filter-panel").classList.toggle("filters-expanded", expanded);
     });
-    window.addEventListener("scroll", () => { document.body.classList.toggle("cover-mode", !$("#landing-view").hidden && window.scrollY < window.innerHeight * .5); }, { passive: true });
-    $("#cover-scroll").addEventListener("click", () => { $("#landing-intro").scrollIntoView({ behavior: "smooth", block: "start" }); });
-    $("#landing-search").addEventListener("submit", event => {
-      event.preventDefault();
-      const value = $("#landing-search-input").value.trim();
-      location.hash = `#/materials${value ? `?q=${encodeURIComponent(value)}` : ""}`;
-    });
     $("#search-examples").addEventListener("click", event => { const button = event.target.closest("[data-query]"); if (button) { state.query = button.dataset.query; $("#search").value = state.query; updateFilter(); } });
     $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
-    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#file-preview").open) { const landingVisible = !$("#landing-view").hidden; if (landingVisible || (!$("#home-view").hidden && !$(".search-box").hidden)) { event.preventDefault(); (landingVisible ? $("#landing-search-input") : $("#search")).focus(); } } });
+    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });
     window.addEventListener("hashchange", route);
     installCoverEffects($("#landing-cover"));
     route();
