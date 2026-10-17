@@ -115,19 +115,25 @@ unique local object is still marked as historical resolution when the original
 log printed only a prefix.
 
 The public catalog adds derived spin-setting flags per calculation (not part
-of the record schema): `spin_orbit` and `spin_polarized`. The catalog build
-marks `spin_orbit` true only when an archived input file explicitly enables
-spin-orbit coupling — `lspinorb 1` in an ABACUS `INPUT`, or
-`include_spin_orbit` in an FHI-aims `control.in` — and marks `spin_polarized`
-true only for explicit collinear two-channel settings — `nspin 2` in an
-ABACUS `INPUT`, or `spin collinear` in an FHI-aims `control.in`.
+of the record schema): `spin_orbit`, `spin_polarized`, and `functional`. The
+catalog build marks `spin_orbit` true only when an archived input file
+explicitly enables spin-orbit coupling — `lspinorb 1` in an ABACUS `INPUT`,
+or `include_spin_orbit` in an FHI-aims `control.in` — and marks
+`spin_polarized` true only for explicit collinear two-channel settings —
+`nspin 2` in an ABACUS `INPUT`, or `spin collinear` in an FHI-aims
+`control.in`. `functional` is likewise derived only from archived control
+files — the `xc`/`dft_functional` line of an ABACUS `INPUT` series or the
+`xc` line of an FHI-aims `control.in` — and is set only when every declared
+control file agrees on one known functional.
 Noncollinear or spinor channel settings alone (`noncolin`, `nspin 4`,
 `spin noncollinear`) enable neither mark; a spinor SOC run is covered by
 `spin_orbit`. The site shows SOC and SPIN labels in the methods list of
 matching records. The methods list also names the concrete mean-field
-functional (for example `PBE`) instead of the generic `DFT` label whenever
-the record carries exactly one known functional among its electronic
-properties; ambiguous or unrecorded functionals keep the `DFT` label.
+functional (for example `PBE`) instead of the generic `DFT` label, taking
+the archived declaration first and a unique functional among the electronic
+properties as fallback; ambiguous or unrecorded functionals keep the `DFT`
+label. New intakes therefore get all of these labels automatically whenever
+they archive the real control files and the explicit switches the run used.
 
 A record that archives an unambiguous structure input (`STRU` for ABACUS,
 `geometry.in` for FHI-aims) carries `structure_identity`: a digest over the

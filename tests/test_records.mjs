@@ -405,6 +405,10 @@ test("method chips show the recorded mean-field functional instead of generic DF
   const lda = { category: "electronic", method: "LDA", status: "reported" };
   assert.deepEqual(methodNames({ properties: [lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["LDA", "GW"]);
   assert.deepEqual(methodNames({ properties: [pbe, lda, { category: "electronic", method: "G0W0", status: "reported" }] }), ["DFT", "GW"], "two functionals keep the generic label");
+  assert.deepEqual(methodNames({ functional: "PBE", properties: [] }), ["PBE"], "a declared functional lights the chip without any property");
+  assert.deepEqual(methodNames({ functional: "HSE", properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["HSE", "GW"]);
+  assert.deepEqual(methodNames({ functional: "PBE", properties: [{ category: "electronic", method: "LDA", status: "reported" }] }), ["PBE"], "the archived declaration wins over a disagreeing property label");
+  assert.deepEqual(methodNames({ functional: "PW91", properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["GW"], "unknown declared tokens are ignored");
   assert.deepEqual(methodNames({ properties: [{ category: "electronic", method: "EXX", status: "reported" }] }), ["EXX"], "the EXX branch must match the EXX pattern, not a literal");
   assert.equal(methodTag("PBE"), '<span class="method-tag method-dft">PBE</span>');
   assert.equal(methodTag("LDA"), '<span class="method-tag method-dft">LDA</span>');
@@ -710,6 +714,8 @@ test("catalog method chips keep the method-dft class for every mean-field functi
       assert.ok(["DFT", "PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"].includes(text), `${record.id}: unexpected chip text ${text}`);
     }
   }
-  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 49);
+  assert.equal(catalog.calculations.filter(record => record.functional === "PBE").length, 112);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 113);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("DFT")).length, 0);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 84);
 });

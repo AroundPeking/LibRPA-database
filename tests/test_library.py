@@ -246,6 +246,48 @@ class LibraryTests(unittest.TestCase):
             self.root, {"files": {"inputs": [{"path": "calculations/missing/inputs/INPUT"}]}}))
         self.assertFalse(self.lib._spin_polarized_enabled(self.root, {}))
 
+    def test_functional_flag_requires_consistent_declared_control_lines(self):
+        def case_with_input(name, text):
+            relative = f"calculations/{name}/inputs/INPUT"
+            item = self._add_file(relative, text.encode(), "inputs")
+            case = json.loads(json.dumps(self.case))
+            case["files"] = {"inputs": [item]}
+            return case
+
+        self.assertEqual(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-pbe", "INPUT_PARAMETERS\nxc\t\tpbe\n")), "PBE")
+        self.assertEqual(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-dft_functional", "INPUT_PARAMETERS\ndft_functional  pbe\n")), "PBE")
+        self.assertEqual(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-lda", "INPUT_PARAMETERS\nxc lda\n")), "LDA")
+        self.assertIsNone(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-unknown", "INPUT_PARAMETERS\nxc bp86\n")))
+        self.assertIsNone(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-absent", "INPUT_PARAMETERS\nnbands 67\n")))
+        self.assertIsNone(self.lib._mean_field_functional(
+            self.root, case_with_input("fn-commented", "INPUT_PARAMETERS\n# xc pbe\n")))
+
+        conflicting = case_with_input("fn-conflict", "INPUT_PARAMETERS\nxc pbe\n")
+        second = self._add_file("calculations/fn-conflict/inputs/INPUT_nscf",
+                                 b"INPUT_PARAMETERS\nxc hse\n", "inputs")
+        conflicting["files"]["inputs"].append(second)
+        self.assertIsNone(self.lib._mean_field_functional(self.root, conflicting))
+
+        stray = self._add_file("calculations/fn-stray/inputs/KPT", b"xc pbe\n", "inputs")
+        stray_case = json.loads(json.dumps(self.case))
+        stray_case["files"] = {"inputs": [stray]}
+        self.assertIsNone(self.lib._mean_field_functional(self.root, stray_case))
+
+        aims_item = self._add_file("calculations/aims-fn/inputs/control.in",
+                                   b"xc               pbe\n", "inputs")
+        aims_case = json.loads(json.dumps(self.case))
+        aims_case["files"] = {"inputs": [aims_item]}
+        self.assertEqual(self.lib._mean_field_functional(self.root, aims_case), "PBE")
+
+        self.assertIsNone(self.lib._mean_field_functional(
+            self.root, {"files": {"inputs": [{"path": "calculations/missing/inputs/INPUT"}]}}))
+        self.assertIsNone(self.lib._mean_field_functional(self.root, {}))
+
     def _add_file(self, relative_path, contents, role):
         path = self.root / relative_path
         path.parent.mkdir(parents=True, exist_ok=True)

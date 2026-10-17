@@ -89,6 +89,10 @@ async function main() {
     check((await page.locator("#result-count").innerText()).startsWith("1 of"), "record id search isolates one record");
     check(await page.locator(".material-row .method-soc").count() === 1, "materials list shows the SOC label on the GaAs SOC record");
     check((await page.locator(".material-row .method-dft").first().innerText()) === "PBE", "materials list shows the recorded functional instead of generic DFT");
+    await page.locator("#search").fill("nio-aims-gw-int");
+    check((await page.locator("#result-count").innerText()).startsWith("1 of"), "record id search isolates the aims NiO record");
+    check((await page.locator(".material-row .method-dft").first().innerText()) === "PBE", "input-declared functional lights the chip without a PBE-labeled property");
+    await page.locator("#search").fill("gaas-abacus-gw-soc-32freq");
     await go("#/material/gaas-abacus-gw-soc-32freq");
     await page.waitForSelector(".detail-tags");
     check(await page.locator(".detail-tags .method-soc").count() === 1, "detail page shows the SOC label");

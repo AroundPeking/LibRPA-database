@@ -118,6 +118,17 @@ What IS shown to users:
 
 When building a new record, include ALL technical fields in record.json (SHA-256, paths, headers, etc.) for data integrity — they just won't appear in the rendered page.
 
+## Method labels derived from archived inputs (owner standing rule 2026-10-17)
+
+Every new record must light up the method labels it qualifies for — SOC, SPIN, the concrete mean-field functional (e.g. PBE), EXX, GW — and all of them are derived automatically by the catalog build, so the intake duty is to archive the evidence they read:
+
+- `spin_orbit` — archive the real ABACUS `INPUT` with `lspinorb 1`, or aims `control.in` with `include_spin_orbit`.
+- `spin_polarized` — ABACUS `INPUT` with `nspin 2`, or aims `control.in` with `spin collinear`.
+- `functional` — the `xc`/`dft_functional` line in the archived ABACUS `INPUT` series, or `xc` in aims `control.in`; all archived control files must agree on one known functional (pbe/lda/gga/pbesol/scan/hse). The chip falls back to a unique functional among electronic properties, then to generic DFT — never guess.
+- EXX/GW chips — record the properties and result tables under their real method names (`EXX`, `G0W0`); also give the DFT-level property `method: "PBE"` (the actual functional), not a generic `KS`/`DFT`.
+
+Sanitized or paraphrased control files are NOT valid label evidence — only the archived declared inputs count. After intake, update the catalog (`library.py --write-catalog`) and refresh the pinned expectations in `tests/test_records.mjs` (spin flag lists, functional/EXX/GW chip counts) and `tests/test_library.py` if the derivation rules change.
+
 ## Generated files to update after data changes
 
 After adding or modifying any calculation data:

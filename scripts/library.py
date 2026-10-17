@@ -1307,6 +1307,33 @@ def _public_entry(item: dict) -> dict:
 SPIN_ORBIT_INPUT = re.compile(r"(?im)^[ \t]*lspinorb[ \t]+1\b")
 SPIN_POLARIZED_INPUT = re.compile(r"(?im)^[ \t]*nspin[ \t]+2\b")
 AIMS_COLLINEAR_SPIN = re.compile(r"(?im)^[ \t]*spin[ \t]+collinear\b")
+ABACUS_FUNCTIONAL_INPUT = re.compile(r"(?im)^[ \t]*(?:xc|dft_functional)[ \t]+([A-Za-z0-9_.-]+)")
+AIMS_FUNCTIONAL_INPUT = re.compile(r"(?im)^[ \t]*xc[ \t]+([A-Za-z0-9_.-]+)")
+FUNCTIONAL_NAMES = {"pbe": "PBE", "lda": "LDA", "gga": "GGA", "pbesol": "PBEsol", "scan": "SCAN", "hse": "HSE"}
+ABACUS_CONTROL_NAMES = re.compile(r"INPUT(?:_(?:scf|nscf|band|band_path|path|df))?")
+
+
+def _mean_field_functional(root: Path, case: dict) -> str | None:
+    """目录级泛函标注只认归档控制文件里的显式声明：
+    ABACUS INPUT 系列的 xc/dft_functional 行，或 FHI-aims control.in 的 xc 行。
+    多个控制文件声明一致才返回规范名；未知 token 或相互冲突返回 None，
+    前端回退到属性 method 或泛型 DFT，绝不猜。"""
+    found = set()
+    for entry in (case.get("files") or {}).get("inputs", []):
+        name = PurePosixPath(str(entry.get("path", ""))).name.split("__")[-1]
+        if not (ABACUS_CONTROL_NAMES.fullmatch(name) or name == "control.in"):
+            continue
+        path = root / str(entry.get("path", ""))
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        pattern = AIMS_FUNCTIONAL_INPUT if name == "control.in" else ABACUS_FUNCTIONAL_INPUT
+        found.update(match.group(1).lower() for match in pattern.finditer(text))
+    canonical = {FUNCTIONAL_NAMES.get(value) for value in found} - {None}
+    return canonical.pop() if len(canonical) == 1 else None
 
 
 def _declared_input_texts(root: Path, case: dict) -> list[str]:
@@ -1348,6 +1375,7 @@ def build_catalog(root: Path) -> dict:
         catalog_cases.append({**case,
                               "spin_orbit": _spin_orbit_enabled(root, case),
                               "spin_polarized": _spin_polarized_enabled(root, case),
+                              "functional": _mean_field_functional(root, case),
                               "archive_completeness": {
             "status": "incomplete" if issues else "complete",
             "issues": issues,
