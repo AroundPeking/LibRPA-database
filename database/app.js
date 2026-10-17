@@ -102,6 +102,7 @@ function renderLanding() {
   document.title = "LibRPA materials database";
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", "false"));
   window.scrollTo(0, 0);
+  document.body.classList.add("cover-mode");
 }
 
 function renderHome() {
@@ -110,6 +111,7 @@ function renderHome() {
   $("#landing-view").hidden = true;
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
+  document.body.classList.remove("cover-mode");
   $("#page-title").textContent = basis ? "The basis behind each result." : gaps ? "Band gaps, across materials." : "Materials, with evidence.";
   $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Every recorded gap value in one table: PBE / KS, EXX, and GW side by side, one row per calculation, ready for cross-material comparison." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
@@ -163,6 +165,7 @@ function route() {
     $("#landing-view").hidden = true;
     $("#home-view").hidden = true;
     $("#detail-view").hidden = false;
+    document.body.classList.remove("cover-mode");
     state.currentRecord = match[1] === "material" ? record : null;
     $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
     const back = $(".breadcrumb a");
@@ -219,6 +222,8 @@ async function start() {
       button.innerHTML = `${expanded ? "Hide" : "Show"} filters <span aria-hidden="true">${expanded ? "−" : "+"}</span>`;
       $(".filter-panel").classList.toggle("filters-expanded", expanded);
     });
+    window.addEventListener("scroll", () => { document.body.classList.toggle("cover-mode", !$("#landing-view").hidden && window.scrollY < window.innerHeight * .5); }, { passive: true });
+    $("#cover-scroll").addEventListener("click", () => { $("#landing-intro").scrollIntoView({ behavior: "smooth", block: "start" }); });
     $("#landing-search").addEventListener("submit", event => {
       event.preventDefault();
       const value = $("#landing-search-input").value.trim();

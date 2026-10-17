@@ -268,12 +268,16 @@ test("landing entry page introduces the database and routes the catalog to #/mat
   const emblem = readFileSync(new URL("../database/logo-emblem.png", import.meta.url));
   assert.match(index, /<section id="landing-view" aria-labelledby="landing-title">/);
   assert.match(index, /<section id="home-view" hidden aria-labelledby="page-title">/);
+  assert.match(index, /<div class="cover" id="landing-cover">/);
+  assert.match(index, /<div class="landing-intro" id="landing-intro">/);
+  assert.match(index, /class="cover-emblem" href="#\/materials" aria-label="Enter the materials database"/);
   assert.match(index, /class="landing-emblem" src="logo-emblem\.png\?v=[a-z0-9-]+" width="540" height="681"/);
   assert.match(index, /href="#\/materials" data-nav="materials">Materials</);
   assert.doesNotMatch(index, /href="#\/" data-nav/);
-  assert.match(index, /class="primary-button" href="#\/materials">Browse the materials</);
-  assert.match(index, /href="#\/gaps">Compare band gaps</);
-  assert.match(index, /href="#\/basis">Open the basis library</);
+  assert.match(index, /class="primary-button" href="#\/materials">Enter the database/);
+  assert.match(index, /href="#\/gaps">Gap overview</);
+  assert.match(index, /href="#\/basis">Basis library</);
+  assert.match(index, /id="cover-scroll"/);
   assert.match(index, /id="landing-search" role="search"/);
   assert.equal(emblem.readUInt32BE(16), 540);
   assert.equal(emblem.readUInt32BE(20), 681);
@@ -283,10 +287,14 @@ test("landing entry page introduces the database and routes the catalog to #/mat
   assert.match(app, /#\/materials\$\{value \? `\?q=\$\{encodeURIComponent\(value\)\}` : ""\}/);
   assert.match(app, /returnHash: "#\/materials" }/);
   assert.match(details, /href="#\/materials">Materials</);
-  assert.match(css, /\.landing-stage\{[^}]*background:#fff;/);
-  assert.match(css, /\.landing-hero\{display:flex;align-items:center/);
-  assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.landing-hero\{flex-direction:column/);
+  assert.match(css, /\.cover\{[^}]*min-height:100vh;min-height:100svh/);
+  assert.match(css, /\.cover-emblem\{[^}]*background:#fff;/);
+  assert.match(css, /body\.cover-mode \.site-header\{transform:translateY\(-100%\)/);
+  assert.match(css, /@keyframes orbit-spin\{[\s\S]*?rotate\(360deg\)/);
+  assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.landing-emblem\{width:180px\}/);
   assert.match(css, /#landing-stats\{display:grid;grid-template-columns:repeat\(4/);
+  assert.match(app, /classList\.toggle\("cover-mode", !\$\("#landing-view"\)\.hidden && window\.scrollY < window\.innerHeight \* \.5\)/);
+  assert.match(app, /\$\("#landing-intro"\)\.scrollIntoView\(\{ behavior: "smooth", block: "start" \}\)/);
 });
 
 test("gap overview route, navigation, and table are wired end to end", () => {
