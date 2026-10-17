@@ -1,0 +1,433 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-08,
+    "evidence": [
+      "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 54
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__INPUT",
+        "sha256": "5eed4513f2e8480cf0ce20cd4edba154b9a4f58376b8958028ecfe8dc7c38d8e",
+        "size_bytes": 2246,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST response input (Li2 molecule)",
+        "original_name": "INPUT",
+        "original_sha256": "af067bc452f50b04ed9ba51a5f839ad0fff5403bd7d563df4520a78af36eecdb",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Li2 molecule, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__STRU",
+        "sha256": "c67354e871991a663d1cfc4e6da043f49075f89508aece756f3fc02a3a1b811f",
+        "size_bytes": 327,
+        "role": "inputs",
+        "label": "ABACUS structure file (Li2 molecule)",
+        "original_name": "STRU",
+        "original_sha256": "c67354e871991a663d1cfc4e6da043f49075f89508aece756f3fc02a3a1b811f",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__INPUT",
+        "sha256": "a366d591772e0ef45a3214fcb313013c024dab52021f7e270769dcc7aa364102",
+        "size_bytes": 2422,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST response input (Li reference atom)",
+        "original_name": "INPUT",
+        "original_sha256": "6b40f50a7980023c816e37ad8f1d0365de06973a9cf70de6ca3f773c1b0c02cd",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Li atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__STRU",
+        "sha256": "28e2c7ecda703c74567a20cc89b7edb8b962ea817567d17b73fbba70de4ffb3b",
+        "size_bytes": 285,
+        "role": "inputs",
+        "label": "ABACUS structure file (Li atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "28e2c7ecda703c74567a20cc89b7edb8b962ea817567d17b73fbba70de4ffb3b",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_response_slurm_script.sh",
+        "sha256": "caa42cf99f3fd5e07647b8719a2bda0540973048cb83d8db2cf498a3267fe4ee",
+        "size_bytes": 9409,
+        "role": "inputs",
+        "label": "Li-grid full response production slurm script (36 nodes, 1 rank/node, 40 OpenMP threads)",
+        "original_name": "run_response_g2_full.slurm",
+        "original_sha256": "8662fe2feb0ec654790bc3e9eb7686300c141d5e21b059bb3e96835a9fb99466",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_case_contract.sh",
+        "sha256": "69990edd04b84f0aaa99bcb84a5482d1b85aacd705dc8e5c98649297501f3b0b",
+        "size_bytes": 996,
+        "role": "inputs",
+        "label": "Campaign case contract (g2 full32 grid definitions)",
+        "original_name": "case_contract_g2.sh",
+        "original_sha256": "39e9d15661daff9fabb895bbe7f665e569e053703a9edba8f5034c6c5539c90a",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_case_contract"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_sternheimer_chi0.dat",
+        "sha256": "ae610b10406f960961955095fc9b02dc37590b2fc30de26513e450b4330bf20c",
+        "size_bytes": 7154,
+        "role": "results",
+        "label": "ABACUS Delta-ST response report (Li2 molecule, job 3332454)",
+        "original_name": "STERNHEIMER_CHI0.dat",
+        "original_sha256": "7afa48d4fde8fe227a8ff262e9a685ac7ab5d26907b39d082f48cc10a4806e0a",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_response_report"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_fixed_frequency_grid.dat",
+        "sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
+        "size_bytes": 1836,
+        "role": "results",
+        "label": "Fixed frequency grid (Li2 molecule)",
+        "original_name": "fixed_frequency_grid.dat",
+        "original_sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
+        "transformation": "none",
+        "scientific_role": "rpa_frequency_grid"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_sternheimer_chi0.dat",
+        "sha256": "42980b05a52bcda3bdb0dec0f0e00b5bc5a783a6e9db3992fe6ac287addda09a",
+        "size_bytes": 7262,
+        "role": "results",
+        "label": "ABACUS Delta-ST response report (Li atom, job 3332455)",
+        "original_name": "STERNHEIMER_CHI0.dat",
+        "original_sha256": "f3b5386febe880d42340437f8209e9070d412b33211c0049a7cc33b1e0d1d8e9",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_response_report"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_fixed_frequency_grid.dat",
+        "sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
+        "size_bytes": 1836,
+        "role": "results",
+        "label": "Fixed frequency grid (Li atom)",
+        "original_name": "fixed_frequency_grid.dat",
+        "original_sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
+        "transformation": "none",
+        "scientific_role": "rpa_frequency_grid"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json",
+        "sha256": "648289c4f3fd84fe657c82c8845a22c3394fd3cc084362a0681ca9daa2bb99c8",
+        "size_bytes": 117605,
+        "role": "results",
+        "label": "Li2 molecule RPA energy analysis (full32 grid 160^3)",
+        "original_name": "li2_mol_g2_full.json",
+        "original_sha256": "1c38d6cd9204a9e55f8aed099cb591073ac111c3b8c3651daf70fca66c5ff550",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_energy_evaluation_result"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json",
+        "sha256": "5723c18b480e29a920b9c0abbf10f57c0ecfde8907dc52733fe7b16e0cb7a742",
+        "size_bytes": 117097,
+        "role": "results",
+        "label": "Li atom RPA energy analysis (full32 grid 144^3)",
+        "original_name": "li_atom_g2_full.json",
+        "original_sha256": "accf8584782da33dd2683fffdf89764f5ad6dbae844d30814729111a42e90ad7",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_energy_evaluation_result"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/compute_st_ecrpa.py",
+        "sha256": "00565e95abe47e877291e67f92687049ced8256329f7fcaa3cee794b1608450f",
+        "size_bytes": 11421,
+        "role": "results",
+        "label": "Archived campaign EcRPA evaluation script (numpy eigenvalue sum)",
+        "original_name": "compute_st_ecrpa.py",
+        "original_sha256": "00565e95abe47e877291e67f92687049ced8256329f7fcaa3cee794b1608450f",
+        "transformation": "none",
+        "scientific_role": "rpa_trace_log_evaluation"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/analyze_response.py",
+        "sha256": "678b33b1ea4f705e2ab52159773402bc813a538980beeda02f895b5d6e41084f",
+        "size_bytes": 7054,
+        "role": "results",
+        "label": "Archived campaign response analysis script",
+        "original_name": "analyze_response.py",
+        "original_sha256": "678b33b1ea4f705e2ab52159773402bc813a538980beeda02f895b5d6e41084f",
+        "transformation": "none",
+        "scientific_role": "rpa_trace_log_evaluation"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/campaign_readme.md",
+        "sha256": "2b1364673c900d3af39935bacf6709f1f85c58405d71c6be377658bdc95b8ce1",
+        "size_bytes": 23417,
+        "role": "results",
+        "label": "Li-grid campaign protocol and completion notes (g2 full32 results)",
+        "original_name": "README.md",
+        "original_sha256": "2b1364673c900d3af39935bacf6709f1f85c58405d71c6be377658bdc95b8ce1",
+        "transformation": "none",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+        "sha256": "6a3a77a7eac4560ab34883888b11a6d17d7fca7e34a2d17eb103c9c3f6980e80",
+        "size_bytes": 16560,
+        "role": "logs",
+        "label": "Response job result summary (Li2 molecule, job 3332454)",
+        "original_name": "RESULT_SUMMARY.txt",
+        "original_sha256": "0374cd1e14bcef203cbda06cca1018ce40a79b28df10c2e29d3688db52a73e16",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_summary"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
+        "sha256": "861c4317ac9343da7a4b6260ed31988e37cd56f38975625445f6219848965fe1",
+        "size_bytes": 1782,
+        "role": "logs",
+        "label": "Response job run provenance (Li2 molecule, job 3332454)",
+        "original_name": "RUN_PROVENANCE.txt",
+        "original_sha256": "743df98f67cd1af7d0f864df57f02a6ead2982041d2bc48f2bbcce8f83050628",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_provenance"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
+        "sha256": "8f6fa58ebe31bc7e7c047fdd0507f47cb9aa2c3bd4af78758fc30dbd6cfb0f4f",
+        "size_bytes": 5653,
+        "role": "logs",
+        "label": "ABACUS program stdout (Li2 molecule, job 3332454)",
+        "original_name": "abacus.out",
+        "original_sha256": "8f6fa58ebe31bc7e7c047fdd0507f47cb9aa2c3bd4af78758fc30dbd6cfb0f4f",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_result_summary.txt",
+        "sha256": "93c90004cc889ec0ea6ceb3dd123706ac4ffc891a51944507a35a58b004da300",
+        "size_bytes": 16740,
+        "role": "logs",
+        "label": "Response job result summary (Li atom, job 3332455)",
+        "original_name": "RESULT_SUMMARY.txt",
+        "original_sha256": "8f38a7cf18e4827523afb73cbd660b5fc48b5eefade6cd5576d987f6d7459285",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_summary"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt",
+        "sha256": "a715c76c09b138a239e6a281a8bce5fc666a163f2548259fd280ec68ff270fd5",
+        "size_bytes": 1783,
+        "role": "logs",
+        "label": "Response job run provenance (Li atom, job 3332455)",
+        "original_name": "RUN_PROVENANCE.txt",
+        "original_sha256": "246fb62164013eb95d78606a1e9bd036679b01b1ce108b9581491638097d3baf",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_provenance"
+      },
+      {
+        "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log",
+        "sha256": "8a71fc1bda04308e20c9d05b3ed71233400bbfcaea314f5e5a7a58a3c8a891e7",
+        "size_bytes": 13770,
+        "role": "logs",
+        "label": "ABACUS program stdout (Li atom, job 3332455)",
+        "original_name": "abacus.out",
+        "original_sha256": "8a71fc1bda04308e20c9d05b3ed71233400bbfcaea314f5e5a7a58a3c8a891e7",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "Li2",
+  "id": "li2-delta-st-rpa-20260913",
+  "material": "Li2",
+  "missing": [
+    "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
+    "The EcRPA evaluation ran through the archived campaign script compute_st_ecrpa.py rather than a LibRPA binary; no LibRPA executable identity exists for this chain.",
+    "Production-cluster directory names are redacted to /HPC in the archived provenance files.",
+    "The accepted Li2 row is the full32 finite-grid endpoint; basis and box convergence gates were not passed for this chain and the historical PBE basis gate remains failed/not-retested in the campaign ledger."
+  ],
+  "properties": [
+    {
+      "key": "rpa_dissociation_energy",
+      "label": "RPA dissociation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "kcal/mol",
+      "status": "reported",
+      "value": 18.944866542590045,
+      "definition": "D_RPA = 2 E_RPA(Li) - E_RPA(Li2) at the production sqrt-Coulomb threshold of the accepted full32 finite-grid endpoint (Li2 160^3, Li 144^3), evaluated from the archived Delta-ST response matrices by the archived eigenvalue-sum campaign script.",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json",
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_correlation_dissociation_energy",
+      "label": "RPA correlation dissociation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "kcal/mol",
+      "status": "reported",
+      "value": 15.022349029485985,
+      "definition": "Dc = 2 Ec(Li) - Ec(Li2) under the same protocol.",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json",
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "Li2 molecule RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.2362163505469108,
+      "definition": "RPA correlation energy of the Li2 molecule from the 32-frequency Delta-ST chain on the 160^3 full32 grid.",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "Li2 molecule RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -14.952510765641273,
+      "definition": "E0 + EcRPA of the Li2 molecule at the same endpoint.",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "atom_Li_rpa_correlation_energy",
+      "label": "Li atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.10613835676839217,
+      "definition": "RPA correlation energy of the isolated Li reference atom (integer occupations, 144^3 grid).",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "atom_Li_rpa_total_energy",
+      "label": "Li atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -7.461160099541547,
+      "definition": "E0 + EcRPA of the isolated Li reference atom.",
+      "evidence": [
+        "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "fee8bbff0b7e0962d6ac350b2ca4bd2c18eda7a5",
+      "executable_sha256": "b32e9459ddc65dae9274bf6368292bb039a7553a80893b2aba7b1e4df83058f0",
+      "abbreviated_commit": "fee8bbff",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": null,
+      "executable_sha256": null,
+      "abbreviated_commit": null,
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "missing_reason": "No LibRPA executable participated: the molecular EcRPA values were evaluated by the archived campaign script compute_st_ecrpa.py (numpy eigenvalue sum) from the ABACUS Delta-ST response matrices."
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer Li-grid molecular RPA campaign (2026-09-08/13)",
+    "runtime_provenance": "ABACUS Delta-ST response jobs 3332454 (Li2 molecule) and 3332455 (Li atom) on the df_iopcas cluster; molecule wall time 11:03:12 on the 36-node response lane."
+  },
+  "species": [
+    {
+      "element": "Li",
+      "set_id": "Li-GTH-q3-8s3p2d-f6a1efcc66b7",
+      "asset_aliases": {
+        "pp": "Li_GTH_PBE_q3_nosoc_gclog400.upf",
+        "nao": "Li_gga_10au_100Ry_8s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "b83a6834f5c5cd4be6a1eab61490ef4b5098f96ab1ccdc2f82dae06c5cc81755",
+    "evidence": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__STRU"
+  },
+  "summary": {
+    "observable": "RPA dissociation energy",
+    "value": 18.944866542590045,
+    "unit": "kcal/mol"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer",
+    "rpa_evaluation": "archived_campaign_script"
+  },
+  "performance": {
+    "cluster_label": "df_iopcas",
+    "wall_time_seconds": 39792,
+    "nodes": 36,
+    "mpi_ranks": 36,
+    "omp_threads_per_rank": 40,
+    "evidence": [
+      "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+      "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_response_slurm_script.sh",
+      "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/campaign_readme.md"
+    ]
+  }
+}

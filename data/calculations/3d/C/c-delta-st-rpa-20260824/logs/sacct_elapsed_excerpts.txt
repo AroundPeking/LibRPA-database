@@ -1,0 +1,29 @@
+Slurm sacct elapsed-time record of the accepted C 30^3 Delta-ST production chain
+==============================================================================
+Source: live sacct output captured during the production campaign's interactive cluster monitoring (2026-08-24 and 2026-08-30), preserved in the campaign engineering log and reproduced here verbatim; no field was modified.
+Column layout: JobIDRaw|JobName|State|ExitCode|Elapsed|Timelimit|NNodes.
+
+Response stage of the 30^3 endpoint (q7 pilot plus one job per remaining canonical q;
+slowest task = q7 pilot 21728230 at 05:35:21 on 48 nodes):
+21728230|c8_g30_pilot|COMPLETED|0:0|05:35:21|1-00:00:00|48
+21728233|c8_g30_q|COMPLETED|0:0|02:23:33|1-00:00:00|48
+21731735|c8_g30_q|COMPLETED|0:0|02:20:58|1-00:00:00|48
+21731737|c8_g30_q|COMPLETED|0:0|05:15:01|1-00:00:00|48
+21731818|c8_g30_q|COMPLETED|0:0|03:48:44|1-00:00:00|48
+21731820|c8_g30_q|COMPLETED|0:0|03:28:41|1-00:00:00|48
+21731880|c8_g30_q|COMPLETED|0:0|05:26:21|1-00:00:00|48
+21731901|c8_g30_q|COMPLETED|0:0|03:27:49|1-00:00:00|48
+21732046|c8_g30_q|COMPLETED|0:0|03:25:14|1-00:00:00|48
+21732118|c8_g30_q|COMPLETED|0:0|05:21:41|1-00:00:00|48
+21732149|c8_g30_q|COMPLETED|0:0|05:22:14|1-00:00:00|48
+21732164|c8_g30_q|COMPLETED|0:0|03:27:02|1-00:00:00|48
+21733697|c8_g30_q|COMPLETED|0:0|05:01:46|1-00:00:00|48
+
+Head/wing input and LibRPA q-averaged postprocessing of the same endpoint
+(final energy job 21728235):
+21728234|c8_g30_hw|COMPLETED|0:0|00:01:01|04:00:00|1
+21728235|c8_g30_lr|COMPLETED|0:0|00:09:25|04:00:00|1
+
+Response layout: 48 nodes per task, 1 MPI rank per node, 30 OpenMP threads per rank
+(12 GreenX frequencies x 4 k-point groups), as fixed by the archived runtime gate
+release (kpoint_groups=4) and confirmed by the sacct NNodes column.

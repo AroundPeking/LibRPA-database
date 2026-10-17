@@ -711,6 +711,26 @@ test("rpa energy detail page renders results, scale, and performance instead of 
   assert.doesNotMatch(html, /Electronic bands|plotting reference/);
 });
 
+test("delta-sternheimer records headline the assembled binding energy with atom references", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const si = catalog.calculations.find(record => record.id === "si-delta-st-rpa-20260824");
+  const siHtml = renderMaterial(si, catalog.basis_sets, catalog.calculations);
+  assert.match(siHtml, /ABACUS Delta-Sternheimer \+ LibRPA/);
+  assert.match(siHtml, /Observable<\/span><strong>RPA cohesive energy/);
+  assert.match(siHtml, /4\.434928194566 <small>eV\/atom<\/small>/);
+  assert.match(siHtml, /Delta-ST RPA energy/);
+  assert.match(siHtml, /E_coh/);
+  assert.match(siHtml, /method-tag method-delta-st">Delta-ST/);
+  assert.doesNotMatch(siHtml, /whole supercell/, "the generic supercell notice is replaced by the Delta-ST campaign notice");
+  assert.ok(siHtml.includes('aria-labelledby="property-tab-energetic"'), "energetic-only records open the Properties section on the Energetics tab");
+  const h2 = catalog.calculations.find(record => record.id === "h2-delta-st-rpa-20260906");
+  const h2Html = renderMaterial(h2, catalog.basis_sets, catalog.calculations);
+  assert.match(h2Html, /Observable<\/span><strong>RPA dissociation energy/);
+  assert.match(h2Html, /107\.89952437928254 <small>kcal\/mol<\/small>/);
+  assert.match(h2Html, /evaluated from the archived Delta-Sternheimer response matrices/);
+  assert.match(h2Html, /ABACUS Delta-Sternheimer(?![^<]*\+ LibRPA)/, "script-evaluated molecule records do not claim a LibRPA run");
+});
+
 test("detail page shows ABACUS tag by default and no comparison when alone", () => {
   const record = { id: "solo", material: "Si", dimension: "3d", workflow: {}, properties: [], files: {} };
   const html = renderMaterial(record, [], [record]);
@@ -759,7 +779,11 @@ test("catalog spin-setting flags mark exactly the records with explicit input sw
   const socIds = catalog.calculations.filter(record => record.spin_orbit === true).map(record => record.id);
   assert.deepEqual(socIds, ["gaas-abacus-gw-soc-32freq"]);
   const spinIds = catalog.calculations.filter(record => record.spin_polarized === true).map(record => record.id);
-  assert.deepEqual(spinIds, ["nio-aims-gw-int"]);
+  assert.deepEqual(spinIds, [
+    "c-delta-st-rpa-20260824", "h2-delta-st-rpa-20260906", "li2-delta-st-rpa-20260913",
+    "lih-molecule-delta-st-rpa-20260913", "lih-solid-delta-st-rpa-20260831", "mgo-delta-st-rpa-20260829",
+    "n2-delta-st-rpa-20260913", "nio-aims-gw-int", "si-delta-st-rpa-20260824", "sic-delta-st-rpa-20260829",
+  ]);
   for (const record of catalog.calculations) {
     const html = renderMaterial(record, catalog.basis_sets);
     if (record.spin_orbit === true) assert.match(html, /method-soc">SOC/, record.id);
@@ -778,14 +802,22 @@ test("catalog method chips keep the method-dft class for every mean-field functi
       assert.ok(["DFT", "PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"].includes(text), `${record.id}: unexpected chip text ${text}`);
     }
   }
-  assert.equal(catalog.calculations.filter(record => record.functional === "PBE").length, 112);
-  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 113);
+  assert.equal(catalog.calculations.filter(record => record.functional === "PBE").length, 121);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 122);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("DFT")).length, 0);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 84);
   const rpaChips = catalog.calculations.filter(record => methodNames(record).includes("RPA"));
-  assert.equal(rpaChips.length, 1);
-  assert.equal(rpaChips[0].id, "c2048-rpa-20260614");
-  assert.deepEqual(methodNames(rpaChips[0]), ["PBE", "RPA"]);
+  assert.equal(rpaChips.length, 10);
+  const c2048 = rpaChips.find(record => record.id === "c2048-rpa-20260614");
+  assert.deepEqual(methodNames(c2048), ["PBE", "RPA"]);
+  const deltaStChips = catalog.calculations.filter(record => methodNames(record).includes("Delta-ST"));
+  assert.equal(deltaStChips.length, 9);
+  for (const record of deltaStChips) {
+    assert.ok(methodNames(record).includes("RPA"), `${record.id}: Delta-ST records also carry the RPA chip`);
+    assert.ok(methodNames(record).includes("PBE"), `${record.id}: Delta-ST records keep the mean-field chip`);
+    assert.match(renderMaterial(record, catalog.basis_sets), /method-tag method-delta-st">Delta-ST/, record.id);
+  }
+  assert.equal(methodTag("Delta-ST"), '<span class="method-tag method-delta-st">Delta-ST</span>');
 });
 
 test("catalog search is field-scoped with whole-word method keywords", async () => {
@@ -802,11 +834,17 @@ test("catalog search is field-scoped with whole-word method keywords", async () 
   const hits = query => catalog.calculations.filter(record => matchesSearch(texts.get(record.id), query));
   assert.equal(hits("soc").length, 1);
   assert.equal(hits("soc")[0].material, "GaAs");
-  assert.equal(hits("spin").length, 1);
-  assert.equal(hits("spin")[0].material, "NiO");
+  assert.equal(hits("spin").length, 10);
+  assert.ok(hits("spin").some(record => record.material === "NiO"), "the NiO spin record is still found");
   assert.equal(hits("GW SOC").length, 1);
   assert.equal(hits("gw").length, catalog.calculations.filter(record => methodNames(record).includes("GW")).length);
   assert.equal(hits("exx").length, catalog.calculations.filter(record => methodNames(record).includes("EXX")).length);
+  assert.equal(hits("rpa").length, catalog.calculations.filter(record => methodNames(record).includes("RPA")).length);
+  for (const query of ["delta", "sternheimer", "delta-st", "Delta-Sternheimer"]) {
+    const deltaStIds = hits(query).map(record => record.id);
+    assert.equal(deltaStIds.length, 9, query);
+    assert.ok(deltaStIds.every(id => id.includes("delta-st")), `${query}: only Delta-ST records match`);
+  }
   assert.equal(hits("zzzzqq").length, 0, "absent strings match nothing");
   assert.equal(hits("!! \u2026 ??").length, 0, "punctuation-only queries match nothing");
   for (const record of catalog.calculations.slice(0, 12)) assert.ok(matchesSearch(texts.get(record.id), record.id), `${record.id} matches its own id`);

@@ -86,6 +86,9 @@ export function methodNames(record) {
   // RPA is the headline method for RPA-energy records; the property can sit
   // outside the "electronic" category, so check the full property list
   if (recordType(record) === "rpa_energy" || (record.properties || []).some(p => p.method === "RPA" && p.status !== "failed")) methods.push("RPA");
+  // Delta-Sternheimer response chain: declared by the workflow marker, not
+  // by property methods (the energies are still RPA observables)
+  if (record?.workflow?.response === "delta_sternheimer") methods.push("Delta-ST");
   return methods;
 }
 
@@ -122,7 +125,14 @@ export function frontendLabel(record) {
 export function workflowLabel(record) {
   const frontend = workflowFrontend(record);
   const label = frontendLabel(record);
-  return frontend === "fhi_aims" && record?.workflow?.task === "gw" ? label : `${label} + LibRPA`;
+  if (frontend === "fhi_aims" && record?.workflow?.task === "gw") return label;
+  // Delta-Sternheimer chains: molecules are evaluated by the archived
+  // campaign script (no LibRPA executable); solids end in LibRPA q-averaging
+  if (record?.workflow?.response === "delta_sternheimer") {
+    return record?.workflow?.rpa_evaluation === "archived_campaign_script"
+      ? `${label} Delta-Sternheimer` : `${label} Delta-Sternheimer + LibRPA`;
+  }
+  return `${label} + LibRPA`;
 }
 
 export function structureFingerprint(record) {
@@ -167,8 +177,14 @@ export function primaryResult(record) {
     return property ? { label: "Sampled Γ G0W0 gap", value: property.value, unit: property.unit, scope: property.definition || "Regular-grid Γ-point observable" } : null;
   }
   if (type === "rpa_energy") {
-    const property = finiteProperty(record, item => item.key === "rpa_correlation_energy");
-    return property ? { label: property.label || "RPA correlation energy", value: property.value, unit: property.unit, scope: property.definition || "" } : null;
+    // headline the binding observable when the chain reports one: molecule
+    // dissociation first (full RPA, then correlation-only), then solid
+    // cohesive energy, falling back to the bare correlation energy
+    for (const key of ["rpa_dissociation_energy", "rpa_correlation_dissociation_energy", "rpa_cohesive_energy", "rpa_correlation_energy"]) {
+      const property = finiteProperty(record, item => item.key === key);
+      if (property) return { label: property.label || "RPA correlation energy", value: property.value, unit: property.unit, scope: property.definition || "" };
+    }
+    return null;
   }
   if (type === "reader_conversion") {
     if (record?.associated_gw_run?.scheduler_state === "COMPLETED") {

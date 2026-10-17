@@ -1,0 +1,117 @@
+# ABACUS Sternheimer chi0 output for LibRPA
+analytic_ao_source /HPC/sternheimer_tests/molecular_isolated_ri_20260906/analytic_ao_lih_mol.dat
+analytic_ao_reconstruction_error 1.602317172948378e-13
+analytic_ao_coupling_unit Hartree
+status success
+RPA_ABFS_PREORTH mode=onsite_coulomb threshold=0.01 input_expanded_size=495 output_expanded_size=495
+RPA_ABFS_PREORTH_CHANNEL type=0 l=0 input_count=32 output_count=32 rejected_indices=none minimum_residual_norm=0.01152276841835809 maximum_identity_error=1.342647180739289e-13
+RPA_ABFS_PREORTH_CHANNEL type=0 l=1 input_count=24 output_count=24 rejected_indices=none minimum_residual_norm=0.06477483995544886 maximum_identity_error=2.431388423929093e-14
+RPA_ABFS_PREORTH_CHANNEL type=0 l=2 input_count=21 output_count=21 rejected_indices=none minimum_residual_norm=0.1420022316694883 maximum_identity_error=1.454392162258955e-14
+RPA_ABFS_PREORTH_CHANNEL type=0 l=3 input_count=6 output_count=6 rejected_indices=none minimum_residual_norm=0.6685696032512598 maximum_identity_error=2.664535259100376e-15
+RPA_ABFS_PREORTH_CHANNEL type=0 l=4 input_count=3 output_count=3 rejected_indices=none minimum_residual_norm=0.8280749059190913 maximum_identity_error=3.774758283725532e-15
+RPA_ABFS_PREORTH_CHANNEL type=1 l=0 input_count=17 output_count=17 rejected_indices=none minimum_residual_norm=0.01230560117369861 maximum_identity_error=1.109213847919511e-13
+RPA_ABFS_PREORTH_CHANNEL type=1 l=1 input_count=17 output_count=17 rejected_indices=none minimum_residual_norm=0.02223654683565246 maximum_identity_error=5.073719222536965e-14
+RPA_ABFS_PREORTH_CHANNEL type=1 l=2 input_count=16 output_count=16 rejected_indices=none minimum_residual_norm=0.05533412502184498 maximum_identity_error=2.808864252301646e-14
+RPA_ABFS_PREORTH_CHANNEL type=1 l=3 input_count=6 output_count=6 rejected_indices=none minimum_residual_norm=0.4622056147427666 maximum_identity_error=4.329869796038111e-15
+RPA_ABFS_PREORTH_CHANNEL type=1 l=4 input_count=3 output_count=3 rejected_indices=none minimum_residual_norm=0.82045464732928 maximum_identity_error=1.221245327087672e-15
+format librpa_v1
+data_files 32
+index_file v1_sternheimer_chi0_index.dat
+grid 160 160 160 size 4096000 dV 0.007481999080642524
+nfreq 32
+frequency_grid_source file
+frequency_grid_file fixed_frequency_grid.dat
+transition_window_Ha 0.1022870190118804 11.85780453239565
+sternheimer_frequency_mpi yes
+sternheimer_channel_mpi yes
+sternheimer_mpi_layout global_equation
+equation_owner_formula occupied_frequency_channel_modulo
+frequency_group_size 36
+sternheimer_channel_threads 1
+mpi_ranks 36
+frequency_rank_shift 1
+rank_local_equations_min 880
+rank_local_equations_max 880
+rank_local_iterations_min 4846
+rank_local_iterations_max 5031
+progress_file_pattern STERNHEIMER_CHI0_PROGRESS_rank*.dat
+ifrequency omega_Ha weight_Ha omega_Ry data_file
+1 0.0004817133044664 0.0009693528765811 0.0009634266089328 v1_sternheimer_chi0_iq_1_ifreq_1_rank0.dat
+2 0.0014810186233472 0.0010416469084687 0.0029620372466944 v1_sternheimer_chi0_iq_1_ifreq_2_rank0.dat
+3 0.0025912008511036 0.0011927525249697 0.0051824017022072 v1_sternheimer_chi0_iq_1_ifreq_3_rank0.dat
+4 0.0038972069274983 0.0014361742451282 0.0077944138549966 v1_sternheimer_chi0_iq_1_ifreq_4_rank0.dat
+5 0.0055014101653474 0.0017935094239006 0.0110028203306948 v1_sternheimer_chi0_iq_1_ifreq_5_rank0.dat
+6 0.0075326048913474 0.0022964136908874 0.0150652097826948 v1_sternheimer_chi0_iq_1_ifreq_6_rank0.dat
+7 0.0101574913811747 0.0029896577423798 0.0203149827623494 v1_sternheimer_chi0_iq_1_ifreq_7_rank0.dat
+8 0.0135958835490678 0.0039355769330256 0.0271917670981356 v1_sternheimer_chi0_iq_1_ifreq_8_rank0.dat
+9 0.018141245131997 0.0052203722559861 0.036282490263994 v1_sternheimer_chi0_iq_1_ifreq_9_rank0.dat
+10 0.0241887288529548 0.0069629539505755 0.0483774577059096 v1_sternheimer_chi0_iq_1_ifreq_10_rank0.dat
+11 0.0322737346464342 0.009327336242018799 0.06454746929286841 v1_sternheimer_chi0_iq_1_ifreq_11_rank0.dat
+12 0.0431252193407678 0.012540032449828 0.0862504386815356 v1_sternheimer_chi0_iq_1_ifreq_12_rank0.dat
+13 0.0577397342918293 0.0169145271504986 0.1154794685836586 v1_sternheimer_chi0_iq_1_ifreq_13_rank0.dat
+14 0.07748466902488391 0.0228858077891189 0.1549693380497678 v1_sternheimer_chi0_iq_1_ifreq_14_rank0.dat
+15 0.1042427789462942 0.0310592563654205 0.2084855578925884 v1_sternheimer_chi0_iq_1_ifreq_15_rank0.dat
+16 0.1406152800168321 0.0422801343197669 0.2812305600336642 v1_sternheimer_chi0_iq_1_ifreq_16_rank0.dat
+17 0.1902083611792342 0.0577327516193956 0.3804167223584684 v1_sternheimer_chi0_iq_1_ifreq_17_rank0.dat
+18 0.2580390499722459 0.0790826910940927 0.5160780999444918 v1_sternheimer_chi0_iq_1_ifreq_18_rank0.dat
+19 0.3511127688197335 0.1086819935560557 0.702225537639467 v1_sternheimer_chi0_iq_1_ifreq_19_rank0.dat
+20 0.4792495656072839 0.1498675003400737 0.9584991312145678 v1_sternheimer_chi0_iq_1_ifreq_20_rank0.dat
+21 0.6562739625268998 0.2073995884393773 1.3125479250538 v1_sternheimer_chi0_iq_1_ifreq_21_rank0.dat
+22 0.9017442329166494 0.2881189191752441 1.803488465833299 v1_sternheimer_chi0_iq_1_ifreq_22_rank0.dat
+23 1.243500858100468 0.4019586892902247 2.487001716200936 v1_sternheimer_chi0_iq_1_ifreq_23_rank0.dat
+24 1.721508383594929 0.5635823403201371 3.443016767189858 v1_sternheimer_chi0_iq_1_ifreq_24_rank0.dat
+25 2.393873295857544 0.7952451320606362 4.787746591715088 v1_sternheimer_chi0_iq_1_ifreq_25_rank0.dat
+26 3.346891619883255 1.132377850200462 6.69378323976651 v1_sternheimer_chi0_iq_1_ifreq_26_rank0.dat
+27 4.713576591982894 1.636088839571986 9.427153183965789 v1_sternheimer_chi0_iq_1_ifreq_27_rank0.dat
+28 6.712872923228 2.425712020567464 13.425745846456 v1_sternheimer_chi0_iq_1_ifreq_28_rank0.dat
+29 9.748008193883191 3.778519185721093 19.49601638776638 v1_sternheimer_chi0_iq_1_ifreq_29_rank0.dat
+30 14.70872430547153 6.505483392066173 29.41744861094305 v1_sternheimer_chi0_iq_1_ifreq_30_rank0.dat
+31 24.20524609333286 13.93417133593197 48.41049218666572 v1_sternheimer_chi0_iq_1_ifreq_31_rank0.dat
+32 51.2742140555802 53.26374471812294 102.5484281111604 v1_sternheimer_chi0_iq_1_ifreq_32_rank0.dat
+pca_threshold 1e-08
+ccp_rmesh_times 1
+solver_tolerance 1e-06
+sternheimer_zero_order_source lcao_ks
+sternheimer_lcao_virtual_source ks_bands
+analytic_ao_coupling yes
+sternheimer_molecular_coulomb isolated_ri
+molecular_coulomb_tail isolated_charge_multipole
+analytic_ao_reconstruction_max_relative_error 1.602317172948378e-13
+analytic_ao_contract rhs_and_left_projection
+analytic_ao_qspace re_solved_grid_rhs
+analytic_ao_residual hybrid_ao_qspace_equations
+sternheimer_lcao_unoccupied_bands_per_spin 48
+sternheimer_response_records 1
+sternheimer_response_spin_channels 1
+sternheimer_response_spin_channel 1
+sternheimer_response_local_k_index 1
+sternheimer_response_global_k_index 1
+sternheimer_response_kpoint 0 0 0
+sternheimer_response_kweight 2
+occupied_bands 2
+occupied_bands_per_spin 2
+occupied_projector_dimension 2
+occupied_projector_dimensions_per_spin 2
+abfs_channels 495
+abfs_source product_pca
+sternheimer_delta yes
+sternheimer_grid_diagnostics yes
+sternheimer_fd_order 8
+sternheimer_preconditioner fd_spectral
+sternheimer_preconditioner_regularization_Ry 0
+sternheimer_component_reconstruction_error_max 2.667353934877735e-16
+sternheimer_component_file_pattern v1_sternheimer_component_{sos,pulay,qspace}_iq_<iq>_ifreq_<ifreq>_rank<rank>.dat
+sternheimer_grid_matrix_file_pattern STERNHEIMER_DELTA_GRID_MATRICES_spin_<spin>.dat
+sternheimer_perturbation_file_pattern STERNHEIMER_DELTA_PERTURBATION_spin_<spin>.dat
+sternheimer_perturbation_unit Rydberg
+sternheimer_delta_backend reference_value_gradient
+sternheimer_delta_max_states 0
+sternheimer_delta_norm_tol 1e-10
+sternheimer_delta_spin 1 virtual_states 48 accepted_candidates 48 discarded_candidates 2
+sternheimer_delta_virtual_states 48
+sternheimer_delta_accepted_candidates 48
+sternheimer_delta_discarded_candidates 2
+solved_equations 31680
+all_converged yes
+max_solver_relative_residual 9.997598611511153e-07
+max_equation_residual_norm 8.210668856693458e-07

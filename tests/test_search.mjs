@@ -24,6 +24,9 @@ test("method keywords match whole words, other tokens stay substrings", () => {
   assert.equal(matchesSearch("gaas soc pbe exx gw", "soc"), true);
   assert.equal(matchesSearch("nio spin", "spin"), true);
   assert.equal(matchesSearch("silicene", "si"), true, "element-like tokens keep substring matching");
+  assert.equal(matchesSearch("si abacus delta-sternheimer lib rpa", "delta-st"), true, "the hyphenated Delta-ST query finds Delta-Sternheimer labels");
+  assert.equal(matchesSearch("si abacus delta-sternheimer lib rpa", "sternheimer"), true);
+  assert.equal(matchesSearch("si abacus gw", "delta"), false, "delta stays a whole-word method keyword");
 });
 
 test("basis records can match terms from their linked calculations", () => {

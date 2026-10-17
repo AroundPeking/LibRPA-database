@@ -1,0 +1,454 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-08,
+    "evidence": [
+      "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 46
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule__INPUT",
+        "sha256": "2c5c7d84dce5a2e461ee0daf27cd7ec7cc6437890cdededabf28e5e766db7f3a",
+        "size_bytes": 2189,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST response input (H2 molecule)",
+        "original_name": "INPUT",
+        "original_sha256": "b0beefcda50e5b63eedf8dc637f125e313595dc0015a73304a7c9afde89760b6",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (H2 molecule, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule__STRU",
+        "sha256": "19742d767fbcb2459a3129ba3dddc66c60782276d17b28e0b13176de37030ef5",
+        "size_bytes": 323,
+        "role": "inputs",
+        "label": "ABACUS structure file (H2 molecule)",
+        "original_name": "STRU",
+        "original_sha256": "19742d767fbcb2459a3129ba3dddc66c60782276d17b28e0b13176de37030ef5",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/h_atom__INPUT",
+        "sha256": "91fc825f3944ae3490cd24185dcfb2f6c72bc825a7bdc64af6dbf48f69e084d5",
+        "size_bytes": 2359,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST response input (H reference atom)",
+        "original_name": "INPUT",
+        "original_sha256": "acda4f3635efa1aa66e18b54133eac2dd4634fd259ac82c42b0488f14b687d27",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/h_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (H atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/h_atom__STRU",
+        "sha256": "aa513390dcfdc45e5d13a280883a2aef1da731e2ed06631ac99ab00991be5720",
+        "size_bytes": 282,
+        "role": "inputs",
+        "label": "ABACUS structure file (H atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "aa513390dcfdc45e5d13a280883a2aef1da731e2ed06631ac99ab00991be5720",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule_response_slurm_script.sh",
+        "sha256": "40b53e78d8fb5794fde7a52fb44a1c29663f5616d41c9c5dcce77475ca755e76",
+        "size_bytes": 9401,
+        "role": "inputs",
+        "label": "Molecular response production slurm script (36 nodes, 1 rank/node, 40 OpenMP threads)",
+        "original_name": "run_response_v2.slurm",
+        "original_sha256": "5b6e35967fb4bf3158fbddfb30fbbf8981c9b4336bec2df41b8e28a39db84838",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule_case_contract.sh",
+        "sha256": "20c0e2782284937ee21e13635fa2ee8a12196955cf0cda78c1bfc0f48cfcdd71",
+        "size_bytes": 4293,
+        "role": "inputs",
+        "label": "Campaign case contract (per-case producer and grid definitions)",
+        "original_name": "case_contract.sh",
+        "original_sha256": "934a77594c372ea1892890e003e0647612089ef494af6c6b8b3b6d3cf15ffc71",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_case_contract"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_sternheimer_chi0.dat",
+        "sha256": "87e4485aab75f5af389afcae0e2359a9ac44df21f6f80ff7a1d2e7aa0cf00083",
+        "size_bytes": 6800,
+        "role": "results",
+        "label": "ABACUS Delta-ST response report (H2 molecule, job 3267688)",
+        "original_name": "STERNHEIMER_CHI0.dat",
+        "original_sha256": "d7de166d33f2e0d3842c065eac106288c530055e3857dee2c3cf4249897f06cf",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_response_report"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_fixed_frequency_grid.dat",
+        "sha256": "cb519f66bba3423d284becc8d374e443ffb289c7f8b40e725652da998fb517b0",
+        "size_bytes": 1824,
+        "role": "results",
+        "label": "Fixed frequency grid (H2 molecule)",
+        "original_name": "fixed_frequency_grid.dat",
+        "original_sha256": "cb519f66bba3423d284becc8d374e443ffb289c7f8b40e725652da998fb517b0",
+        "transformation": "none",
+        "scientific_role": "rpa_frequency_grid"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/h_atom_sternheimer_chi0.dat",
+        "sha256": "f769a7a2e2527c3af14cfac77d75d6a12dc68a11d751389ee774cea536190c45",
+        "size_bytes": 6801,
+        "role": "results",
+        "label": "ABACUS Delta-ST response report (H atom, job 3267690)",
+        "original_name": "STERNHEIMER_CHI0.dat",
+        "original_sha256": "9d38f998490782b8cf39c12d0d8bc9b2f5c526636f048b420b02e788ded8dfc0",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_response_report"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/h_atom_fixed_frequency_grid.dat",
+        "sha256": "cb519f66bba3423d284becc8d374e443ffb289c7f8b40e725652da998fb517b0",
+        "size_bytes": 1824,
+        "role": "results",
+        "label": "Fixed frequency grid (H atom)",
+        "original_name": "fixed_frequency_grid.dat",
+        "original_sha256": "cb519f66bba3423d284becc8d374e443ffb289c7f8b40e725652da998fb517b0",
+        "transformation": "none",
+        "scientific_role": "rpa_frequency_grid"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_rpa_analysis.json",
+        "sha256": "2d6d5b101e873cfbbee447e48438d8b4db21a5bf123bae68b92d5100b046380f",
+        "size_bytes": 117851,
+        "role": "results",
+        "label": "H2 molecule RPA energy analysis (32 frequencies, 164 auxiliary functions)",
+        "original_name": "h2_full.json",
+        "original_sha256": "db6481bf707fe53d0581f0664108144352dc3d49c4ab421070c94b7369ea9655",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_energy_evaluation_result"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/atom_rpa_analysis.json",
+        "sha256": "c654b392737f6850bb69f81002e3811480c193f171e9799ac646d65e8f05e1ee",
+        "size_bytes": 117078,
+        "role": "results",
+        "label": "H atom RPA energy analysis",
+        "original_name": "h_full.json",
+        "original_sha256": "54c501fb0c93ec49cc4c1530912215dd340a093ccb5cf60ca4789d5aab87c9fc",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_energy_evaluation_result"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/compute_st_ecrpa.py",
+        "sha256": "00565e95abe47e877291e67f92687049ced8256329f7fcaa3cee794b1608450f",
+        "size_bytes": 11421,
+        "role": "results",
+        "label": "Archived campaign EcRPA evaluation script (numpy eigenvalue sum)",
+        "original_name": "compute_st_ecrpa.py",
+        "original_sha256": "00565e95abe47e877291e67f92687049ced8256329f7fcaa3cee794b1608450f",
+        "transformation": "none",
+        "scientific_role": "rpa_trace_log_evaluation"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/analyze_response.py",
+        "sha256": "678b33b1ea4f705e2ab52159773402bc813a538980beeda02f895b5d6e41084f",
+        "size_bytes": 7054,
+        "role": "results",
+        "label": "Archived campaign response analysis script",
+        "original_name": "analyze_response.py",
+        "original_sha256": "678b33b1ea4f705e2ab52159773402bc813a538980beeda02f895b5d6e41084f",
+        "transformation": "none",
+        "scientific_role": "rpa_trace_log_evaluation"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/campaign_readme.md",
+        "sha256": "1b85a47758e6980950e8ce89c40bbb5fdbaf890f05d7a679eb501f040cce09ca",
+        "size_bytes": 13753,
+        "role": "results",
+        "label": "Molecular isolated-RI campaign protocol and completion notes",
+        "original_name": "README.md",
+        "original_sha256": "1b85a47758e6980950e8ce89c40bbb5fdbaf890f05d7a679eb501f040cce09ca",
+        "transformation": "none",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_result_summary.txt",
+        "sha256": "1f58238048bbb340e581fa3adccd35bdcdf4d545d3cce64153af0d37886e6750",
+        "size_bytes": 16588,
+        "role": "logs",
+        "label": "Response job result summary (H2 molecule, job 3267688)",
+        "original_name": "RESULT_SUMMARY.txt",
+        "original_sha256": "1869971289abaae41b5984ab6c766776e69dd821aa151e128e99437a69d5955a",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_summary"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_run_provenance.txt",
+        "sha256": "3b44d4853ba60288c78442dbb6dc8183b68a1ab0be04f7cd569b96d6103e71c5",
+        "size_bytes": 1625,
+        "role": "logs",
+        "label": "Response job run provenance (H2 molecule, job 3267688)",
+        "original_name": "RUN_PROVENANCE.txt",
+        "original_sha256": "c459d90491e8cb0af66f5f52f0b3e82332f20e4433ccfc83ad110cff568da1aa",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_provenance"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_abacus_stdout.log",
+        "sha256": "2a9cc31b6ba6c8afdec8d24c90d59a84d73a0445cfaa0bb04a95f6158f3fd0ba",
+        "size_bytes": 6237,
+        "role": "logs",
+        "label": "ABACUS program stdout (H2 molecule, job 3267688)",
+        "original_name": "abacus.out",
+        "original_sha256": "2a9cc31b6ba6c8afdec8d24c90d59a84d73a0445cfaa0bb04a95f6158f3fd0ba",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_producer_result_summary.txt",
+        "sha256": "51187a5ebd5015d305bccc6e0d3e19ec6e792b178f971fef9376d355a5c927de",
+        "size_bytes": 1916,
+        "role": "logs",
+        "label": "Producer job result summary (H2 molecule)",
+        "original_name": "PRODUCER_RESULT_SUMMARY.txt",
+        "original_sha256": "51187a5ebd5015d305bccc6e0d3e19ec6e792b178f971fef9376d355a5c927de",
+        "transformation": "none",
+        "scientific_role": "rpa_producer_summary"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_result_summary.txt",
+        "sha256": "3e1a36cafff5de310f470243c9d9fc0095cd2c20ae40f9a041134c62119b2064",
+        "size_bytes": 16585,
+        "role": "logs",
+        "label": "Response job result summary (H atom, job 3267690)",
+        "original_name": "RESULT_SUMMARY.txt",
+        "original_sha256": "d960b60886b0c57584fe0e50d24a56b016c1f12d5df0b433eb256289ff65d80d",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_summary"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_run_provenance.txt",
+        "sha256": "56bd0c8c6f9023ca5e51eceb4968c8a97cd59320aec672c63e191a93426847c6",
+        "size_bytes": 1624,
+        "role": "logs",
+        "label": "Response job run provenance (H atom, job 3267690)",
+        "original_name": "RUN_PROVENANCE.txt",
+        "original_sha256": "9741da7774862a724f457082d29252524289309789c889d100ec2c4acbd40cfa",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_provenance"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_abacus_stdout.log",
+        "sha256": "794c28b5510d344786bc74a5b4a4869aca022f01233f71bc30060869c1963513",
+        "size_bytes": 5149,
+        "role": "logs",
+        "label": "ABACUS program stdout (H atom, job 3267690)",
+        "original_name": "abacus.out",
+        "original_sha256": "794c28b5510d344786bc74a5b4a4869aca022f01233f71bc30060869c1963513",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_producer_result_summary.txt",
+        "sha256": "5cfd98eb49e5a5be6e10d03f94c810dff76359ac950eb80ecfcc2fb152bc0271",
+        "size_bytes": 1916,
+        "role": "logs",
+        "label": "Producer job result summary (H atom)",
+        "original_name": "PRODUCER_RESULT_SUMMARY.txt",
+        "original_sha256": "5cfd98eb49e5a5be6e10d03f94c810dff76359ac950eb80ecfcc2fb152bc0271",
+        "transformation": "none",
+        "scientific_role": "rpa_producer_summary"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "H2",
+  "id": "h2-delta-st-rpa-20260906",
+  "material": "H2",
+  "missing": [
+    "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
+    "The EcRPA evaluation ran through the archived campaign script compute_st_ecrpa.py rather than a LibRPA binary; no LibRPA executable identity exists for this chain.",
+    "Production-cluster directory names are redacted to /HPC in the archived provenance files."
+  ],
+  "properties": [
+    {
+      "key": "rpa_dissociation_energy",
+      "label": "RPA dissociation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "kcal/mol",
+      "status": "reported",
+      "value": 107.89952437928254,
+      "definition": "D_RPA = 2 E_RPA(H) - E_RPA(H2) at the production sqrt-Coulomb threshold, evaluated from the archived Delta-Sternheimer response matrices by the archived eigenvalue-sum campaign script; 1 Ha = 627.5094740631 kcal/mol.",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_rpa_analysis.json",
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_correlation_dissociation_energy",
+      "label": "RPA correlation dissociation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "kcal/mol",
+      "status": "reported",
+      "value": 24.32400441305625,
+      "definition": "Dc = 2 Ec(H) - Ec(H2), the correlation-only part of the dissociation energy under the same protocol.",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_rpa_analysis.json",
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "H2 molecule RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.07878605897127035,
+      "definition": "RPA correlation energy of the H2 molecule from the 32-frequency isolated-RI analytic-AO Delta-ST chain.",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "H2 molecule RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -1.209455333419348,
+      "definition": "E0 + EcRPA of the H2 molecule at the same endpoint.",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/molecule_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "atom_H_rpa_correlation_energy",
+      "label": "H atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.020011645284724832,
+      "definition": "RPA correlation energy of the isolated H reference atom (integer occupations).",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/atom_rpa_analysis.json"
+      ]
+    },
+    {
+      "key": "atom_H_rpa_total_energy",
+      "label": "H atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.5187532481238978,
+      "definition": "E0 + EcRPA of the isolated H reference atom.",
+      "evidence": [
+        "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/atom_rpa_analysis.json"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "fee8bbff0b7e0962d6ac350b2ca4bd2c18eda7a5",
+      "executable_sha256": "b32e9459ddc65dae9274bf6368292bb039a7553a80893b2aba7b1e4df83058f0",
+      "abbreviated_commit": "fee8bbff",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": null,
+      "executable_sha256": null,
+      "abbreviated_commit": null,
+      "source_url": "https://github.com/AESM-Group/LibRPA",
+      "missing_reason": "No LibRPA executable participated: the molecular EcRPA values were evaluated by the archived campaign script compute_st_ecrpa.py (numpy eigenvalue sum) from the ABACUS Delta-ST response matrices."
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer molecular RPA campaign (isolated-RI analytic AO, 2026-09-06)",
+    "runtime_provenance": "ABACUS Delta-ST response jobs 3267688 (H2 molecule) and 3267690 (H atom) on the df_iopcas cluster; molecule wall time 11:19.96 on the 36-node response lane."
+  },
+  "species": [
+    {
+      "element": "H",
+      "set_id": "H-GTH-q1-4s3p2d-c0cd75c3b862",
+      "asset_aliases": {
+        "pp": "H_GTH_PBE_q1_nosoc_gclog400.upf",
+        "nao": "H_gga_10au_100Ry_4s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "3a42e30e1ebc1c57fabe18e275f8e929659d13be9c9d8c25d3ed5a7496ef70cb",
+    "evidence": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule__STRU"
+  },
+  "summary": {
+    "observable": "RPA dissociation energy",
+    "value": 107.89952437928254,
+    "unit": "kcal/mol"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer",
+    "rpa_evaluation": "archived_campaign_script"
+  },
+  "performance": {
+    "cluster_label": "df_iopcas",
+    "wall_time_seconds": 680,
+    "nodes": 36,
+    "mpi_ranks": 36,
+    "omp_threads_per_rank": 40,
+    "evidence": [
+      "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_result_summary.txt",
+      "data/calculations/3d/H2/h2-delta-st-rpa-20260906/inputs/molecule_response_slurm_script.sh",
+      "data/calculations/3d/H2/h2-delta-st-rpa-20260906/results/campaign_readme.md"
+    ]
+  }
+}

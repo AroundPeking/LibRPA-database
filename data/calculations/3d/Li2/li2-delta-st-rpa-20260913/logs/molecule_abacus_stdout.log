@@ -1,0 +1,106 @@
+                                                                                     
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Sun Sep 13 00:58:45 2026
+ MAKE THE DIR         : OUT.li2_mol_LIMITS_ANALYTIC_AO_TAIL_full_FD8/
+ RUNNING WITH DEVICE  : CPU / Intel(R) Xeon(R) Gold 6138 CPU @ 2.00GHz (x72)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 1 for Li: [He] 2s1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 160 * 160 * 160
+ UNIFORM GRID DIM(BIG): 32 * 32 * 32
+ DONE(0.349974   SEC) : SETUP UNITCELL
+ DONE(0.388005   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       1               36          1440        54          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Li      8s3p2d-10au     27          2           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.516478   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.879587   SEC) : CHARGE
+ DONE(0.883296   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.962348   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -4.02464974e+02   0.00000000e+00   2.8233e-01   0.31
+ GE2     -4.02321443e+02   1.43530809e-01   2.1394e-01   0.11
+ GE3     -4.02378249e+02  -5.68056254e-02   6.7414e-02   0.09
+ GE4     -4.02381752e+02  -3.50306205e-03   6.1366e-02   0.07
+ GE5     -4.02386555e+02  -4.80352592e-03   2.9928e-02   0.06
+ GE6     -4.02389524e+02  -2.96869995e-03   1.8332e-02   0.06
+ GE7     -4.02391971e+02  -2.44758409e-03   1.0786e-02   0.07
+ GE8     -4.02392661e+02  -6.89767379e-04   4.1000e-03   0.07
+ GE9     -4.02392703e+02  -4.14339127e-05   1.8234e-03   1.31
+ GE10    -4.02392806e+02  -1.03131408e-04   1.2421e-03   0.28
+ GE11    -4.02392813e+02  -7.06602750e-06   3.5207e-04   0.08
+ GE12    -4.02392821e+02  -8.62973540e-06   2.4234e-04   0.09
+ GE13    -4.02392822e+02  -6.13536718e-07   7.2819e-05   0.07
+ GE14    -4.02392823e+02  -5.21697295e-07   5.4651e-05   2.14
+ GE15    -4.02392823e+02  -2.91637357e-08   1.9292e-05   0.39
+ GE16    -4.02392823e+02  -5.21602312e-08   9.3906e-06   1.38
+ GE17    -4.02392823e+02  -6.49612618e-09   5.2181e-06   1.18
+ GE18    -4.02392823e+02   1.33860068e-09   1.2526e-06   0.24
+ GE19    -4.02392823e+02   5.75608442e-09   1.0527e-06   0.09
+ GE20    -4.02392823e+02   9.59927450e-10   3.3454e-07   0.08
+ GE21    -4.02392823e+02   1.34377275e-11   8.5395e-08   0.07
+ GE22    -4.02392823e+02  -6.42884087e-12   6.4123e-08   0.08
+ GE23    -4.02392823e+02   5.51043503e-12   4.1937e-08   0.12
+ GE24    -4.02392823e+02   2.99690326e-12   2.1786e-08   0.07
+ GE25    -4.02392823e+02  -3.52861191e-12   1.8423e-08   0.07
+ GE26    -4.02392823e+02  -1.20842873e-12   6.8220e-09   0.07
+ GE27    -4.02392823e+02  -7.25057241e-13   4.3883e-09   0.06
+ GE28    -4.02392823e+02   6.28382942e-13   3.4945e-09   0.17
+ GE29    -4.02392823e+02   2.56186892e-12   1.2047e-09   1.63
+ GE30    -4.02392823e+02   0.00000000e+00   9.6275e-10   0.08
+ GE31    -4.02392823e+02  -2.41685747e-13   1.3550e-10   0.06
+ GE32    -4.02392823e+02  -1.88514883e-12   5.1778e-11   3.28
+Use rpa_ccp_rmesh_times=1 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 0.317672 s
+rpa_pca_threshold: 1e-08
+rpa_ccp_rmesh_times: 1
+rpa_lcao_exx(Ha): -3.465101240166128
+etxc(Ha): -3.536470311087396
+etot(Ha): -14.787658181596111
+Etot_without_rpa(Ha): -14.716289110674843
+
+TIME STATISTICS
+-----------------------------------------------------------------
+   CLASS_NAME        NAME       TIME/s   CALLS    AVG/s   PER/%  
+-----------------------------------------------------------------
+                 total         39787.81 1807     22.02    100.00 
+ Driver          atomic_world  39787.81 1        39787.81 100.00 
+ Relax_Driver    relax_driver  39786.92 1        39786.92 100.00 
+ ESolver_KS      runner        39786.92 1        39786.92 100.00 
+ ESolver_KS_LCAO after_scf     39772.82 1        39772.82 99.96  
+ ModuleIO        ctrl_scf_lcao 39772.61 1        39772.61 99.96  
+-----------------------------------------------------------------
+
+
+ START  Time  : Sun Sep 13 00:58:45 2026
+ FINISH Time  : Sun Sep 13 12:01:53 2026
+ TOTAL  Time  : 39788
+ SEE INFORMATION IN : OUT.li2_mol_LIMITS_ANALYTIC_AO_TAIL_full_FD8/

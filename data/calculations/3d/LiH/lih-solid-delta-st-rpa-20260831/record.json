@@ -1,0 +1,361 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-06,
+    "evidence": [
+      "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 21
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid__INPUT",
+        "sha256": "a99ea57e8e370540131417c6863c6cf7bf22b5eabec6c7e896fbfc430ec985b2",
+        "size_bytes": 1250,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST solid production input (rendered, 24^3 endpoint)",
+        "original_name": "INPUT",
+        "original_sha256": null,
+        "transformation": "rendered production INPUT: the archived campaign reference INPUT with the deterministic set_input_key patches of the archived response driver applied at the accepted endpoint; per-q suffix and sternheimer_q_index varied across the canonical-q array tasks exactly as documented in that driver",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid_reference__INPUT",
+        "sha256": "99fd07274d47f99794ec9fcd720130cb2a6498e55d2bd44d4642f153167e8509",
+        "size_bytes": 1235,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST campaign reference input (LiH solid)",
+        "original_name": "INPUT",
+        "original_sha256": "99fd07274d47f99794ec9fcd720130cb2a6498e55d2bd44d4642f153167e8509",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid__KPT",
+        "sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (LiH rocksalt primitive cell, 4x4x4)",
+        "original_name": "KPT",
+        "original_sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid__STRU",
+        "sha256": "6aae180a72e3ce5f9b8eab3182b6c6d0d13f5982d2c121bfc81724e5d99e6ef8",
+        "size_bytes": 351,
+        "role": "inputs",
+        "label": "ABACUS structure file (LiH rocksalt primitive cell)",
+        "original_name": "STRU",
+        "original_sha256": "6aae180a72e3ce5f9b8eab3182b6c6d0d13f5982d2c121bfc81724e5d99e6ef8",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/li_atom__INPUT",
+        "sha256": "ca97f8bf045a0b2bd3b9b19c0009383d0fb1be2436cb8afe824c3a9917c55090",
+        "size_bytes": 1533,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (Li atom)",
+        "original_name": "INPUT",
+        "original_sha256": "ca97f8bf045a0b2bd3b9b19c0009383d0fb1be2436cb8afe824c3a9917c55090",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/li_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Li atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/li_atom__STRU",
+        "sha256": "ee5f6dfa51a82e1dfe709862d453f1eecdd505943efef3356428ac76f1022be6",
+        "size_bytes": 246,
+        "role": "inputs",
+        "label": "ABACUS structure file (Li atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "ee5f6dfa51a82e1dfe709862d453f1eecdd505943efef3356428ac76f1022be6",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/h_atom__INPUT",
+        "sha256": "bddf46af4dd585939f2501e3f52b7fba6aae791d2a5b4e0c812c949748fb98a2",
+        "size_bytes": 1525,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (H atom)",
+        "original_name": "INPUT",
+        "original_sha256": "bddf46af4dd585939f2501e3f52b7fba6aae791d2a5b4e0c812c949748fb98a2",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/h_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (H atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/h_atom__STRU",
+        "sha256": "2e6c7c3803f669f6ba49948a8edd43d715e1389ab4324a3f00d7d28e63425ad1",
+        "size_bytes": 243,
+        "role": "inputs",
+        "label": "ABACUS structure file (H atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "2e6c7c3803f669f6ba49948a8edd43d715e1389ab4324a3f00d7d28e63425ad1",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid_response_slurm_script.sh",
+        "sha256": "845f2d27ff4b018546f7ecf7ee96c00ba000d388345e30480cfb7bf57084c278",
+        "size_bytes": 7281,
+        "role": "inputs",
+        "label": "LiH solid Delta-ST q-array slurm script",
+        "original_name": "run_lih_solid_fd8_q_20260831.slurm",
+        "original_sha256": "b8c69af51f1276e04f13e7b16922665c1f6dff4540ef55ff73e76febbe0d970b",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/atom_response_slurm_script.sh",
+        "sha256": "c8bdf1c5d4b1380d651922b4babe112f3a433481e08dbb813961c6cb5bad8e6b",
+        "size_bytes": 10195,
+        "role": "inputs",
+        "label": "LiH atom Delta-ST response slurm script",
+        "original_name": "run_lih_atom_fd8_20260831.slurm",
+        "original_sha256": "793d7b3beac94a932ec4b0a4a7fc81344d8e1f48b16d582668825458e7b43cd3",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid_librpa_qavg_slurm_script.sh",
+        "sha256": "e73305cb8ccd02be254f7810c4c26b7a879c931bc99dac362571db46e3536807",
+        "size_bytes": 8738,
+        "role": "inputs",
+        "label": "LiH solid LibRPA q-averaged postprocessing slurm script",
+        "original_name": "run_lih_solid_librpa_qavg_fd8_20260831.slurm",
+        "original_sha256": "4041834430710517bcc3ecb16346bbaf0da395aafbcf10311d500bd8dcaa9ffb",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_script"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/librpa.in",
+        "sha256": "3c76297b6cf23e26995e375c6ede672ea239e0ee034655e6ac017bd0e59c670c",
+        "size_bytes": 662,
+        "role": "inputs",
+        "label": "LibRPA Delta-ST sternheimer_rpa task input",
+        "original_name": "librpa.in",
+        "original_sha256": null,
+        "transformation": "rendered verbatim from the archived production slurm heredoc (run_*_librpa_qavg*.slurm) with the private input_dir path rewritten to ./input/; all task keywords and their order unchanged",
+        "scientific_role": "librpa_rpa_input"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/results/solid_campaign_protocol.txt",
+        "sha256": "ccc32179fad53e4e5b0f1afa934109953acd93f57048cdb56429e669b04a0d9b",
+        "size_bytes": 753,
+        "role": "results",
+        "label": "LiH solid campaign protocol (FD8, 30 Ry, 24^3 grid, 16 frequencies, PCA 1e-6)",
+        "original_name": "PROTOCOL.txt",
+        "original_sha256": "ccc32179fad53e4e5b0f1afa934109953acd93f57048cdb56429e669b04a0d9b",
+        "transformation": "none",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt",
+        "sha256": "a5d5b9290d3a949bbca4cade62bfaba4a494fac4a1145c799419be34ca5b3adc",
+        "size_bytes": 1715,
+        "role": "logs",
+        "label": "LiH cohesive-energy chain result summary (solid, Li atom, H atom)",
+        "original_name": "LIH_COHESIVE_RESULT_SUMMARY.txt",
+        "original_sha256": "a5d5b9290d3a949bbca4cade62bfaba4a494fac4a1145c799419be34ca5b3adc",
+        "transformation": "none",
+        "scientific_role": "rpa_run_summary"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "LiH",
+  "id": "lih-solid-delta-st-rpa-20260831",
+  "material": "LiH",
+  "missing": [
+    "The per-q job outputs and GRID_RESULT_SUMMARY files remain on the production cluster; the archived campaign result summary carries the accepted chain values and job identifiers.",
+    "No single-job wall-clock time is mirrored for the accepted chain, so no performance block is claimed."
+  ],
+  "properties": [
+    {
+      "key": "rpa_cohesive_energy",
+      "label": "RPA cohesive energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "eV/atom",
+      "status": "reported",
+      "value": 2.386754008235,
+      "definition": "E_coh = (E_atom(Li) + E_atom(H) - E_solid_RPA)/2 per atom of the LiH rocksalt primitive cell, from the FD8 solid chain (30 Ry, 24^3 grid, 16 frequencies, 4x4x4 k/q, full Coulomb, analytic q-averaged head/wing) and the FD8 integer-occupation Li and H atom references.",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "LiH solid RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.1614310510093,
+      "definition": "RPA correlation energy of the two-atom LiH primitive cell from the q-averaged Delta-ST response (13 canonical q, 24^3 grid, 16 frequencies).",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "LiH solid RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -7.828246875154825,
+      "definition": "E0 + EcRPA of the two-atom LiH primitive cell at the same endpoint.",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "atom_Li_rpa_correlation_energy",
+      "label": "Li atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.08795279727945,
+      "definition": "RPA correlation energy of the isolated Li reference atom (integer occupations).",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "atom_Li_rpa_total_energy",
+      "label": "Li atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -7.133858062012552,
+      "definition": "E0 + EcRPA of the isolated Li reference atom.",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "atom_H_rpa_correlation_energy",
+      "label": "H atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.0197295379314,
+      "definition": "RPA correlation energy of the isolated H reference atom (integer occupations).",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    },
+    {
+      "key": "atom_H_rpa_total_energy",
+      "label": "H atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.51896562913692,
+      "definition": "E0 + EcRPA of the isolated H reference atom.",
+      "evidence": [
+        "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "6a20b643bbc976e4a50f772eac6a97ed8d86bd04",
+      "executable_sha256": "27c7593091f2f29ad438c4055c95a612fcbdb6c1a53faf547971de680d0ca1e0",
+      "abbreviated_commit": "6a20b643",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": "6e49b04f1190da2b197fe5c63a10d68b3433af67",
+      "executable_sha256": "65d7718783deadb176f60f789c5080cbf513ac1ee0c447271fc6eafc7b45c4d3",
+      "abbreviated_commit": "6e49b04f",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer LiH solid cohesive-energy campaign (2026-08-31)",
+    "runtime_provenance": "LiH solid q-array jobs 21819962/21819985 with head/wing 21820247 and LibRPA q-averaged postprocessing 21820324 on df_dcu; Li atom jobs 21819213/21819579 and H atom jobs 21818997/21819009."
+  },
+  "species": [
+    {
+      "element": "Li",
+      "set_id": "Li-ONCV-6s2p-9412c96687e6",
+      "asset_aliases": {
+        "pp": "Li_ONCV_PBE-1.0.upf",
+        "nao": "Li_gga_10au_100Ry_6s2p.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    },
+    {
+      "element": "H",
+      "set_id": "H-ONCV-3s2p-5fc68cde84ce",
+      "asset_aliases": {
+        "pp": "H_ONCV_PBE-1.0.upf",
+        "nao": "H_gga_10au_100Ry_3s2p.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "080c88bfd0643c291003eba7f453e1c1e08814d6c8be4509307e3bbdd5fccc0d",
+    "evidence": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/inputs/solid__STRU"
+  },
+  "summary": {
+    "observable": "RPA cohesive energy",
+    "value": 2.386754008235,
+    "unit": "eV/atom"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer"
+  }
+}

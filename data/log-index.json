@@ -212,6 +212,18 @@
       "label": "librpa.out"
     },
     {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
+      "sha256": "69cb9efb9a465ec3e37b0f34de27d4ae97459c46f510f266912ff28c4fb636a2",
+      "label": "Slurm sacct elapsed-time excerpts for the accepted 30^3 production chain"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_runtime_gate_release.txt",
+      "sha256": "d8566bd1322587a0b51505ad704fc6c79b48abf2b6cb8c4a0ace934c9423a372",
+      "label": "C grid campaign runtime gate release record"
+    },
+    {
       "calculation_id": "c-jctc-aims-gw",
       "path": "data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out",
       "sha256": "e541bb2dba7fb9089078f01192c888d715cebfcfe16c954fdf56b8751a9a448f",
@@ -620,6 +632,54 @@
       "label": "LibRPA g0w0_band run log (32-point frequency grid)"
     },
     {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_abacus_stdout.log",
+      "sha256": "794c28b5510d344786bc74a5b4a4869aca022f01233f71bc30060869c1963513",
+      "label": "ABACUS program stdout (H atom, job 3267690)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_producer_result_summary.txt",
+      "sha256": "5cfd98eb49e5a5be6e10d03f94c810dff76359ac950eb80ecfcc2fb152bc0271",
+      "label": "Producer job result summary (H atom)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_result_summary.txt",
+      "sha256": "3e1a36cafff5de310f470243c9d9fc0095cd2c20ae40f9a041134c62119b2064",
+      "label": "Response job result summary (H atom, job 3267690)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_run_provenance.txt",
+      "sha256": "56bd0c8c6f9023ca5e51eceb4968c8a97cd59320aec672c63e191a93426847c6",
+      "label": "Response job run provenance (H atom, job 3267690)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_abacus_stdout.log",
+      "sha256": "2a9cc31b6ba6c8afdec8d24c90d59a84d73a0445cfaa0bb04a95f6158f3fd0ba",
+      "label": "ABACUS program stdout (H2 molecule, job 3267688)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_producer_result_summary.txt",
+      "sha256": "51187a5ebd5015d305bccc6e0d3e19ec6e792b178f971fef9376d355a5c927de",
+      "label": "Producer job result summary (H2 molecule)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_result_summary.txt",
+      "sha256": "1f58238048bbb340e581fa3adccd35bdcdf4d545d3cce64153af0d37886e6750",
+      "label": "Response job result summary (H2 molecule, job 3267688)"
+    },
+    {
+      "calculation_id": "h2-delta-st-rpa-20260906",
+      "path": "data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/molecule_run_provenance.txt",
+      "sha256": "3b44d4853ba60288c78442dbb6dc8183b68a1ab0be04f7cd569b96d6103e71c5",
+      "label": "Response job run provenance (H2 molecule, job 3267688)"
+    },
+    {
       "calculation_id": "hbn-tzdp10-fgext-20261008",
       "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__OUT.ABACUS__running_scf.log",
       "sha256": "65b92feb5197f4d2aee35d2ebd8fdc5742dd64c0eb958e9bc937361f13751485",
@@ -788,6 +848,42 @@
       "label": "LibRPA g0w0_band run log (32-point frequency grid)"
     },
     {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log",
+      "sha256": "8a71fc1bda04308e20c9d05b3ed71233400bbfcaea314f5e5a7a58a3c8a891e7",
+      "label": "ABACUS program stdout (Li atom, job 3332455)"
+    },
+    {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_result_summary.txt",
+      "sha256": "93c90004cc889ec0ea6ceb3dd123706ac4ffc891a51944507a35a58b004da300",
+      "label": "Response job result summary (Li atom, job 3332455)"
+    },
+    {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt",
+      "sha256": "a715c76c09b138a239e6a281a8bce5fc666a163f2548259fd280ec68ff270fd5",
+      "label": "Response job run provenance (Li atom, job 3332455)"
+    },
+    {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
+      "sha256": "8f6fa58ebe31bc7e7c047fdd0507f47cb9aa2c3bd4af78758fc30dbd6cfb0f4f",
+      "label": "ABACUS program stdout (Li2 molecule, job 3332454)"
+    },
+    {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+      "sha256": "6a3a77a7eac4560ab34883888b11a6d17d7fca7e34a2d17eb103c9c3f6980e80",
+      "label": "Response job result summary (Li2 molecule, job 3332454)"
+    },
+    {
+      "calculation_id": "li2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
+      "sha256": "861c4317ac9343da7a4b6260ed31988e37cd56f38975625445f6219848965fe1",
+      "label": "Response job run provenance (Li2 molecule, job 3332454)"
+    },
+    {
       "calculation_id": "licl-jctc-aims-gw",
       "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out",
       "sha256": "1b8c6093590401d72f185800f409097adb514cfa99bd34edebd3173feb0a445d",
@@ -858,6 +954,84 @@
       "path": "data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out",
       "sha256": "3d585699b32f6d941f2eb6f521e7dcf4cc48018e1918bb22ee8e68f701e028c6",
       "label": "librpa.out"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/h_atom_abacus_stdout.log",
+      "sha256": "f5a75ae6121079045e5d7df13879f0388ff13120e8d01c2cbaed9ab111ea01ca",
+      "label": "ABACUS program stdout (H atom (paper-grid rebuild), job 3336378)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/h_atom_producer_result_summary.txt",
+      "sha256": "fb3f3a62be8b4db9bc447f183dbf527d069e8447ca65f2ad5202e3b6b565846f",
+      "label": "Producer job result summary (H atom (paper-grid rebuild))"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/h_atom_result_summary.txt",
+      "sha256": "cb9301dc2b50ec6b7c2d6f8856e57c4fa7055aeb4ba2a319ba64c86183b195c4",
+      "label": "Response job result summary (H atom (paper-grid rebuild), job 3336378)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/h_atom_run_provenance.txt",
+      "sha256": "04d167a218ca33d6cdea671ae68983c78dcd424d4b5eda89cb894140059bf7da",
+      "label": "Response job run provenance (H atom (paper-grid rebuild), job 3336378)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log",
+      "sha256": "8a71fc1bda04308e20c9d05b3ed71233400bbfcaea314f5e5a7a58a3c8a891e7",
+      "label": "ABACUS program stdout (Li atom (reused), job 3332455)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/li_atom_result_summary.txt",
+      "sha256": "93c90004cc889ec0ea6ceb3dd123706ac4ffc891a51944507a35a58b004da300",
+      "label": "Response job result summary (Li atom (reused), job 3332455)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt",
+      "sha256": "a715c76c09b138a239e6a281a8bce5fc666a163f2548259fd280ec68ff270fd5",
+      "label": "Response job run provenance (Li atom (reused), job 3332455)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
+      "sha256": "68487532efd33854235cec849079d26051b26b352ba6e256165ae6bee5689542",
+      "label": "ABACUS program stdout (LiH molecule, job 3336380)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/molecule_producer_result_summary.txt",
+      "sha256": "9249fd627464ebd642f299fc13aa229a90becb18676e70aea3a86e014a329e6a",
+      "label": "Producer job result summary (LiH molecule)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+      "sha256": "6db58732fee6e192f258da4db7ddabc2651a70d5aa8a5e748c53999723e8b457",
+      "label": "Response job result summary (LiH molecule, job 3336380)"
+    },
+    {
+      "calculation_id": "lih-molecule-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
+      "sha256": "5cdab738fe97306601a81ff08ca1c7331376d57726de0f207da684587066595c",
+      "label": "Response job run provenance (LiH molecule, job 3336380)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt",
+      "sha256": "a5d5b9290d3a949bbca4cade62bfaba4a494fac4a1145c799419be34ca5b3adc",
+      "label": "LiH cohesive-energy chain result summary (solid, Li atom, H atom)"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt",
+      "sha256": "7df62be639669f72cfc98cb0333d55556a3cb874fd8ccfdd641e941f22153f70",
+      "label": "Screening campaign protocol, completion gates, and pinned binaries"
     },
     {
       "calculation_id": "mgo-jctc-aims-gw",
@@ -942,6 +1116,54 @@
       "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/abacus.828005.out",
       "sha256": "4781822bd4b2285d5f1555787cd04b5f45b234e5495f193bf486000cc90a4dff",
       "label": "ABACUS production log"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
+      "sha256": "5ee6cd26965c2939b2a451b1739892ceefcbab074c132ea161d06be5459e7f7b",
+      "label": "ABACUS program stdout (N2 molecule, job 3336374)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/molecule_producer_result_summary.txt",
+      "sha256": "10e47f9bc4b1e8f4eeb2381ea4aedcff8590bccf9be437e2808c1bda44db7c0f",
+      "label": "Producer job result summary (N2 molecule)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+      "sha256": "5c544dcad022c611eb8c8932ba04b0ddc50d8a607fe228a444a805e710f47229",
+      "label": "Response job result summary (N2 molecule, job 3336374)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
+      "sha256": "03352f2c3ce79c5b7f5215239035107c0bb6efd22e8be8ed9b89da123904d7fd",
+      "label": "Response job run provenance (N2 molecule, job 3336374)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/n_atom_abacus_stdout.log",
+      "sha256": "1bd35a0d5b7c578050c6781e381ade1cf2f0b433d3972ca4023e558a397988d4",
+      "label": "ABACUS program stdout (N atom, job 3336376)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/n_atom_producer_result_summary.txt",
+      "sha256": "641967e905991f647803020ce5f82b9b226d8efe4a3fb3564c0cbd74fb1e2a22",
+      "label": "Producer job result summary (N atom)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/n_atom_result_summary.txt",
+      "sha256": "838d184d4962014832dc4e05c92ebc10cc7c1cc08d04be67be7ee22989aac285",
+      "label": "Response job result summary (N atom, job 3336376)"
+    },
+    {
+      "calculation_id": "n2-delta-st-rpa-20260913",
+      "path": "data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/n_atom_run_provenance.txt",
+      "sha256": "68fb6899c360a23a7670df536ce31aade7ee0d2779fd92886584808e0185eb65",
+      "label": "Response job run provenance (N atom, job 3336376)"
     },
     {
       "calculation_id": "nacl-jctc-aims-gw",
@@ -1064,6 +1286,18 @@
       "label": "aims_740569_stdout.log"
     },
     {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
+      "sha256": "126a4c83b023e082fee347224ebf76910d162be6cbee0e9d7d94f032c337fe90",
+      "label": "Slurm sacct elapsed-time excerpts for the accepted 35^3 production chain"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_abacus_artifact_acceptance.txt",
+      "sha256": "56993e7a2a8295948a2b94b8ecd9ac5e5ea65b4d5ee348dd04fa4671d42a7d33",
+      "label": "Si grid campaign ABACUS artifact acceptance record"
+    },
+    {
       "calculation_id": "si-jctc-aims-gw",
       "path": "data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out",
       "sha256": "b9e848438adbddaf0dcb19b8d8ee13c1c44c3bdc4c20cd66cb4f9a143c867a73",
@@ -1104,6 +1338,12 @@
       "path": "data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out",
       "sha256": "1653704f04fb840984511b5e8a7842c9a5725cebdd91155a4a4b3d942b8aee22",
       "label": "librpa.out"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt",
+      "sha256": "7df62be639669f72cfc98cb0333d55556a3cb874fd8ccfdd641e941f22153f70",
+      "label": "Screening campaign protocol, completion gates, and pinned binaries"
     },
     {
       "calculation_id": "sic-jctc-aims-gw",

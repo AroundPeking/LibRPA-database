@@ -1,0 +1,348 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-06,
+    "evidence": [
+      "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 44
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid__INPUT",
+        "sha256": "6c4cdcf319fe4eb7b30e269550823d0124fb1bcdee5b36d9c0451cf43549d18a",
+        "size_bytes": 1255,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST solid production input (rendered, 30^3 endpoint)",
+        "original_name": "INPUT",
+        "original_sha256": null,
+        "transformation": "rendered production INPUT: the archived campaign reference INPUT with the deterministic set_input_key patches of the archived response driver applied at the accepted endpoint; per-q suffix and sternheimer_q_index varied across the canonical-q array tasks exactly as documented in that driver",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid_reference__INPUT",
+        "sha256": "1aa32d2dbd554ab7d65b4c693d4f2bc930198672324940035dd7d7f195233957",
+        "size_bytes": 1233,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST campaign reference input (C solid)",
+        "original_name": "INPUT",
+        "original_sha256": "1aa32d2dbd554ab7d65b4c693d4f2bc930198672324940035dd7d7f195233957",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid__KPT",
+        "sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (C diamond primitive cell, 4x4x4)",
+        "original_name": "KPT",
+        "original_sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid__STRU",
+        "sha256": "504d14fe2400dc49e9d7778d4eaee2228e43af39fb75dbde939bf96b31d728c5",
+        "size_bytes": 288,
+        "role": "inputs",
+        "label": "ABACUS structure file (C diamond primitive cell, a = 3.570 A)",
+        "original_name": "STRU",
+        "original_sha256": "504d14fe2400dc49e9d7778d4eaee2228e43af39fb75dbde939bf96b31d728c5",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/c_atom__INPUT",
+        "sha256": "4d721ba7625d9086847b5baa17264b14784fdb1ed4aec6f2fadf500bba16fac7",
+        "size_bytes": 1302,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (C atom)",
+        "original_name": "INPUT",
+        "original_sha256": "4d721ba7625d9086847b5baa17264b14784fdb1ed4aec6f2fadf500bba16fac7",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/c_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (C atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/c_atom__STRU",
+        "sha256": "975ce66eae603d8adbc1c9989d2c36e7d650f709336ab30bf9b35faa8fcf205a",
+        "size_bytes": 296,
+        "role": "inputs",
+        "label": "ABACUS structure file (C atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "975ce66eae603d8adbc1c9989d2c36e7d650f709336ab30bf9b35faa8fcf205a",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid_response_slurm_script.sh",
+        "sha256": "60ebc86c1fc669122e8193942a95ec341197ceef5e01a7090457fb3673073915",
+        "size_bytes": 8774,
+        "role": "inputs",
+        "label": "C solid Delta-ST response production slurm script (48 nodes/q in production: 12 frequencies x 4 k-point groups, 1 rank/node, 30 OpenMP threads)",
+        "original_name": "run_c_grid_fd8_response_work1.slurm",
+        "original_sha256": "df368affbebfed270aa1a54f0177c471066ee22a6f454b6783cd47697cb6b496",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid_librpa_qavg_slurm_script.sh",
+        "sha256": "492ac5c751e7b4e525725e2c65e80deb944ddf251b5ecaae1d7ddfd9055e9a87",
+        "size_bytes": 8168,
+        "role": "inputs",
+        "label": "C solid LibRPA q-averaged postprocessing slurm script",
+        "original_name": "run_c_grid_fd8_librpa_qavg_work1.slurm",
+        "original_sha256": "6e796208a223362160b4214f784e744e6f25715ef65261698cbb9c21e247ba4c",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_script"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/c_atom_regression_slurm_script.sh",
+        "sha256": "ac711f153b30b12196396de72df77180aa6ec5571fb46bc7ddf8c51fdec91a31",
+        "size_bytes": 4660,
+        "role": "inputs",
+        "label": "C atom regression slurm script under the grid-campaign build",
+        "original_name": "regress_c_atom_e5ef_work1.slurm",
+        "original_sha256": "d5dbbc4ca220d770891afed1b807d8a2fedf1112c62fbfa4fa3466d0cabdbf11",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/librpa.in",
+        "sha256": "5d5cb8bd8b09814921f139d547bc8795bd72c5fdd7658b99f21c8881b6cf6091",
+        "size_bytes": 662,
+        "role": "inputs",
+        "label": "LibRPA Delta-ST sternheimer_rpa task input",
+        "original_name": "librpa.in",
+        "original_sha256": null,
+        "transformation": "rendered verbatim from the archived production slurm heredoc (run_*_librpa_qavg*.slurm) with the private input_dir path rewritten to ./input/; all task keywords and their order unchanged",
+        "scientific_role": "librpa_rpa_input"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv",
+        "sha256": "3003e1144cb19c3605b79010513ac815e02851d3d25b6eb6372262ea51abef34",
+        "size_bytes": 2317,
+        "role": "results",
+        "label": "Accepted Si/C cohesive-energy comparison table (paper benchmark source)",
+        "original_name": "si_c_delta_st_fd8_cohesive_comparison_20260824.csv",
+        "original_sha256": "ee896ba7e4731857c543a58495ed214471c43fe7b1c49eeece22595dcf082c57",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/results/solid_grid_convergence.csv",
+        "sha256": "d280e059db1df33da3dd0df642902418513cc2b8b8f5e1738b981c9ef969f2b1",
+        "size_bytes": 2463,
+        "role": "results",
+        "label": "C solid FD8 grid convergence table (15/20/24/30 grids, job 21728235 endpoint)",
+        "original_name": "si_c_delta_st_fd8_grid_convergence_20260824.csv",
+        "original_sha256": "bb874e1c4498d2e40b66b2a597b39cd985ecceb1fce65b58c1ea7b0f21aaeb84",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/results/c_atom_final_campaign.csv",
+        "sha256": "d4f621203bc77024ad02c127d5d89255499cda707f3de797413cc2676a21d0b7",
+        "size_bytes": 1380,
+        "role": "results",
+        "label": "C atom final campaign table (job 21662288, 20 A box, 135^3 grid)",
+        "original_name": "c_delta_st_final_20260819.csv",
+        "original_sha256": "93c9c7d87c3a8eb164582704ac63148bcc2d016ca9c686624f5c1457c375290b",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/results/solid_formal_protocol.txt",
+        "sha256": "b688b407685857ebb77228844a0a1788410b0d1fe97bda7b4fbc506b60d0363a",
+        "size_bytes": 672,
+        "role": "results",
+        "label": "C grid campaign formal protocol (45 Ry, 12 frequencies, PCA 1e-6, qavg head/wing)",
+        "original_name": "FORMAL_PROTOCOL.txt",
+        "original_sha256": "afa14133d97f22e00d70e269104c166ea1ae484546082c8825ada48bdd5beabb",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_runtime_gate_release.txt",
+        "sha256": "d8566bd1322587a0b51505ad704fc6c79b48abf2b6cb8c4a0ace934c9423a372",
+        "size_bytes": 701,
+        "role": "logs",
+        "label": "C grid campaign runtime gate release record",
+        "original_name": "RUNTIME_GATE_RELEASE_20260823.txt",
+        "original_sha256": "f35d4c8865fe7fd61862fa3381d182950dc76e0c49f3cba008bbb02eb75055b3",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_runtime_gate"
+      },
+      {
+        "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
+        "sha256": "69cb9efb9a465ec3e37b0f34de27d4ae97459c46f510f266912ff28c4fb636a2",
+        "size_bytes": 1766,
+        "role": "logs",
+        "label": "Slurm sacct elapsed-time excerpts for the accepted 30^3 production chain",
+        "original_name": "sacct_elapsed_excerpts.txt",
+        "original_sha256": null,
+        "transformation": "verbatim excerpts of live Slurm sacct output captured during the campaign's cluster monitoring; assembled into one file without modifying any field",
+        "scientific_role": "slurm_sacct_elapsed_log"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "C2",
+  "id": "c-delta-st-rpa-20260824",
+  "material": "C",
+  "missing": [
+    "The C atom reference chain (job 21662288) ran under the earlier unified ABACUS build 556aa49f074746909b9c02c862ac2faa08c145ed (SHA-256 6663de9c4857cf7d012aae06d06572ae5bbc79ca5236ac80d057d325175b1366); the archived software identity covers the solid production chain of the accepted endpoint.",
+    "The per-q GRID_RESULT_SUMMARY files remain on the production cluster; the archived campaign CSVs carry the accepted values and job identifiers.",
+    "The performance block records the slowest canonical-q response task of the accepted endpoint (the q7 pilot, 05:35:21 on 48 nodes) together with the head/wing and LibRPA q-averaged postprocessing walls, from sacct output captured live during the campaign and archived as a verbatim excerpt; no single wall clock exists for the full multi-q chain."
+  ],
+  "properties": [
+    {
+      "key": "rpa_cohesive_energy",
+      "label": "RPA cohesive energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "eV/atom",
+      "status": "reported",
+      "value": 6.90232601171,
+      "definition": "E_coh = (2 E_atom - E_solid_RPA)/2 per C atom of the diamond primitive cell at a = 3.570 A, from the accepted 30^3 FD8 grid endpoint (job 21728235) and the FD8 Gamma-only C atom reference (job 21662288).",
+      "evidence": [
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv",
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/c_atom_final_campaign.csv"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "C solid RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.5185451356691,
+      "definition": "RPA correlation energy of the two-atom diamond primitive cell from the q-averaged Delta-ST response (13 canonical q, analytic head/wing, 12 GreenX frequencies, 30^3 grid).",
+      "evidence": [
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "C solid RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -11.549635000718574,
+      "definition": "E0 + EcRPA of the two-atom diamond primitive cell at the same endpoint.",
+      "evidence": [
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
+      ]
+    },
+    {
+      "key": "atom_C_rpa_correlation_energy",
+      "label": "C atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.1916529948348,
+      "definition": "RPA correlation energy of the isolated C reference atom (20 A box, 135^3 grid, integer occupations, 16 frequencies).",
+      "evidence": [
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/c_atom_final_campaign.csv"
+      ]
+    },
+    {
+      "key": "atom_C_rpa_total_energy",
+      "label": "C atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -5.521161697993565,
+      "definition": "E0 + EcRPA of the isolated C reference atom.",
+      "evidence": [
+        "data/calculations/3d/C/c-delta-st-rpa-20260824/results/c_atom_final_campaign.csv"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "e5ef955dbc5b06f59a9d335348cb05634cd9d1d3",
+      "executable_sha256": "c1eb5003b374f97980ef1423260cfbb483f95b17ee290681182e640bdfa7a8b1",
+      "abbreviated_commit": "e5ef955d",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": "998eeb9c6191ff0c2731622fcc4a5c9d5a2e53c8",
+      "executable_sha256": "6023c1b28df9fa3d24bbd55cd71ed0bd7731e474f67e3e8dc7e7de4300535436",
+      "abbreviated_commit": "998eeb9c",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer C diamond grid-convergence campaign (2026-08-23/24)",
+    "runtime_provenance": "Accepted 30^3 grid endpoint from LibRPA q-averaged job 21728235 on df_dcu; the response stage ran the q7 pilot (21728230) plus the remaining canonical-q jobs on 48 nodes each (12 frequencies x 4 k-point groups, 1 rank/node, 30 OpenMP threads); C atom reference from unified-campaign job 21662288."
+  },
+  "species": [
+    {
+      "element": "C",
+      "set_id": "C-ONCV-3s3p2d-cad0101f0a64",
+      "asset_aliases": {
+        "pp": "C_ONCV_PBE-1.0.upf",
+        "nao": "C_gga_8au_100Ry_3s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "5caebb39c3af5ac39714c6b8651d48cffa9ba6f82a43385b9f6300296e736d74",
+    "evidence": "data/calculations/3d/C/c-delta-st-rpa-20260824/inputs/solid__STRU"
+  },
+  "summary": {
+    "observable": "RPA cohesive energy",
+    "value": 6.90232601171,
+    "unit": "eV/atom"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer"
+  },
+  "performance": {
+    "cluster_label": "df_dcu",
+    "wall_time_seconds": 20321,
+    "nodes": 48,
+    "mpi_ranks": 48,
+    "omp_threads_per_rank": 30,
+    "evidence": [
+      "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt"
+    ]
+  }
+}

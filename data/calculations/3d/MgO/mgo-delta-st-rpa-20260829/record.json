@@ -1,0 +1,320 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-06,
+    "evidence": [
+      "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 47
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid__INPUT",
+        "sha256": "33c1194b38bccd53deba214a563d439f4b6ab9212618dd9c8d0c224ef7a5737d",
+        "size_bytes": 1257,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST solid production input (rendered screening endpoint)",
+        "original_name": "INPUT",
+        "original_sha256": null,
+        "transformation": "rendered production INPUT: the archived campaign reference INPUT with the deterministic set_input_key patches of the archived response driver applied at the accepted endpoint; per-q suffix and sternheimer_q_index varied across the canonical-q array tasks exactly as documented in that driver",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid_reference__INPUT",
+        "sha256": "7e311cfda2ed72b52c08ba1116c48b2f5c930d5a6c92232c38a7c636fa9ac5ec",
+        "size_bytes": 1235,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST campaign reference input (MgO solid)",
+        "original_name": "INPUT",
+        "original_sha256": "7e311cfda2ed72b52c08ba1116c48b2f5c930d5a6c92232c38a7c636fa9ac5ec",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid__KPT",
+        "sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (MgO rocksalt primitive cell, 4x4x4)",
+        "original_name": "KPT",
+        "original_sha256": "1ad281c0f88e2f4269b222db91fc59e3365188569a96e8629b57c8f65b0613e7",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid__STRU",
+        "sha256": "8468dddb2706fa3bc2e204da555eca95b9cb4e1295c578ebcc5fb9a02697c275",
+        "size_bytes": 358,
+        "role": "inputs",
+        "label": "ABACUS structure file (MgO rocksalt primitive cell, a = 4.189 A)",
+        "original_name": "STRU",
+        "original_sha256": "8468dddb2706fa3bc2e204da555eca95b9cb4e1295c578ebcc5fb9a02697c275",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/mg_atom__INPUT",
+        "sha256": "5f07d57e911c11b6d6ec3e40ece5b028ddb1920adf240c7f0512d21bfbe3a858",
+        "size_bytes": 1234,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (Mg atom)",
+        "original_name": "INPUT",
+        "original_sha256": "5f07d57e911c11b6d6ec3e40ece5b028ddb1920adf240c7f0512d21bfbe3a858",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/mg_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Mg atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/mg_atom__STRU",
+        "sha256": "30f7b15f7e3983b35d6a3f587e40d0bce35c33bda6bbb5bae8a9d4a63112fd99",
+        "size_bytes": 293,
+        "role": "inputs",
+        "label": "ABACUS structure file (Mg atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "30f7b15f7e3983b35d6a3f587e40d0bce35c33bda6bbb5bae8a9d4a63112fd99",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/o_atom__INPUT",
+        "sha256": "ee645d340210f95493f328402ccdbec18631cd689ceba81d8a58f98a01847123",
+        "size_bytes": 1302,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (O atom)",
+        "original_name": "INPUT",
+        "original_sha256": "ee645d340210f95493f328402ccdbec18631cd689ceba81d8a58f98a01847123",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/o_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (O atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/o_atom__STRU",
+        "sha256": "f0ad2ccaca5500c09884e28c4e4b0758d9318cdc2013db65d5a50f9427768162",
+        "size_bytes": 297,
+        "role": "inputs",
+        "label": "ABACUS structure file (O atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "f0ad2ccaca5500c09884e28c4e4b0758d9318cdc2013db65d5a50f9427768162",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid_response_slurm_script.sh",
+        "sha256": "e1134ce0f4fb36eed4efbea22754cb76503a3ceda06fdfa37afc559f65ca4e6c",
+        "size_bytes": 6766,
+        "role": "inputs",
+        "label": "Screening solid Delta-ST q-array slurm script (16 nodes/q, 30 OpenMP threads)",
+        "original_name": "run_solid_fd8_q.slurm",
+        "original_sha256": "9472ed9d8a72124f7351c7d12a2b1c997c81e0bc458f609078ec8fa2f8591788",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/atom_response_slurm_script.sh",
+        "sha256": "27fae79b8f5366e5035f3667d7a42304d9eab355d681c1ccd278c58ab1747c8d",
+        "size_bytes": 10182,
+        "role": "inputs",
+        "label": "Screening atom Delta-ST response slurm script",
+        "original_name": "run_atom_fd8.slurm",
+        "original_sha256": "03dad98541546b71d5657901e362d89afb1a5a662d160b74f4b0165e5aafcea9",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid_librpa_qavg_slurm_script.sh",
+        "sha256": "9825d01b2f365cefc9bbc1dd4f05bd5161ce017dbed9c711d249975f012b276b",
+        "size_bytes": 8542,
+        "role": "inputs",
+        "label": "Screening solid LibRPA q-averaged postprocessing slurm script",
+        "original_name": "run_solid_librpa_qavg_fd8.slurm",
+        "original_sha256": "e36391e89b1676507f4be512089ca92b399781aaf7a2011604de5f9edcbefb59",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_script"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/librpa.in",
+        "sha256": "3c76297b6cf23e26995e375c6ede672ea239e0ee034655e6ac017bd0e59c670c",
+        "size_bytes": 662,
+        "role": "inputs",
+        "label": "LibRPA Delta-ST sternheimer_rpa task input",
+        "original_name": "librpa.in",
+        "original_sha256": null,
+        "transformation": "rendered verbatim from the archived production slurm heredoc (run_*_librpa_qavg*.slurm) with the private input_dir path rewritten to ./input/; all task keywords and their order unchanged",
+        "scientific_role": "librpa_rpa_input"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/results/solid_fd8_screening_resources.csv",
+        "sha256": "025016101f0a54766fd3389663d5fe9a53f9bd61adedbe13c44a9a544e1b3e39",
+        "size_bytes": 1009,
+        "role": "results",
+        "label": "SiC/Ge/MgO conservative FD8 screening resource and energy table",
+        "original_name": "solid_fd8_screening_resources_20260829.csv",
+        "original_sha256": "025016101f0a54766fd3389663d5fe9a53f9bd61adedbe13c44a9a544e1b3e39",
+        "transformation": "none",
+        "scientific_role": "campaign_result_table"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt",
+        "sha256": "7df62be639669f72cfc98cb0333d55556a3cb874fd8ccfdd641e941f22153f70",
+        "size_bytes": 1815,
+        "role": "logs",
+        "label": "Screening campaign protocol, completion gates, and pinned binaries",
+        "original_name": "README.md",
+        "original_sha256": "7df62be639669f72cfc98cb0333d55556a3cb874fd8ccfdd641e941f22153f70",
+        "transformation": "none",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "MgO",
+  "id": "mgo-delta-st-rpa-20260829",
+  "material": "MgO",
+  "missing": [
+    "The per-atom Mg and O reference totals of the reused exact-FD8 atom campaign are not mirrored as numeric files; only the combined cohesive energy is archived. The archived Mg/O atom INPUT/KPT/STRU are the production reference inputs of that campaign.",
+    "The per-q GRID_RESULT_SUMMARY and RUN_PROVENANCE files remain on the production cluster; the archived screening table carries the accepted values.",
+    "The performance block records the slowest canonical-q response task (8.8114 h) from the archived campaign resource summary; no single wall clock exists for the full 13-q array."
+  ],
+  "properties": [
+    {
+      "key": "rpa_cohesive_energy",
+      "label": "RPA cohesive energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "eV/atom",
+      "status": "provisional",
+      "value": 4.9835055521,
+      "definition": "E_coh = (E_atom(Mg) + E_atom(O) - E_solid_RPA)/2 per atom of the MgO rocksalt primitive cell at a = 4.189 A, from the conservative 20^3 FD8 screening point (30 Ry, 16 frequencies, 4x4x4 k/q, full Coulomb, analytic q-averaged head/wing) with the Mg and O atom references reused from the exact-FD8 atom campaign. Conservative screening point, not independently converged for this material.",
+      "evidence": [
+        "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/results/solid_fd8_screening_resources.csv"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "MgO solid RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "provisional",
+      "value": -0.8657980638606,
+      "definition": "RPA correlation energy of the two-atom MgO primitive cell from the q-averaged Delta-ST response (13 canonical q, 20^3 grid, 16 frequencies).",
+      "evidence": [
+        "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/results/solid_fd8_screening_resources.csv"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "MgO solid RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "provisional",
+      "value": -70.67122331238392,
+      "definition": "E0 + EcRPA of the two-atom MgO primitive cell at the same screening endpoint.",
+      "evidence": [
+        "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/results/solid_fd8_screening_resources.csv"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "192a49e0ff78487480ac8ddd2cc83c196ec0f73d",
+      "executable_sha256": "86b5232b75f8be8a682ca45fefa6cc799719e42757004611cd091eacf11dfa21",
+      "abbreviated_commit": "192a49e0",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": "6e49b04f1190da2b197fe5c63a10d68b3433af67",
+      "executable_sha256": "65d7718783deadb176f60f789c5080cbf513ac1ee0c447271fc6eafc7b45c4d3",
+      "abbreviated_commit": "6e49b04f",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer conservative FD8 screening of MgO (2026-08-25/29)",
+    "runtime_provenance": "Screening q-array and postprocessing on df_dcu (16 nodes/q, 1 rank/node, 30 OpenMP threads); the slowest canonical-q response task took 8.8114 h and the full chain consumed 957.65 useful node-hours."
+  },
+  "species": [
+    {
+      "element": "Mg",
+      "set_id": "Mg-ONCV-6s3p2d-15710c0228c0",
+      "asset_aliases": {
+        "pp": "Mg_ONCV_PBE-1.0.upf",
+        "nao": "Mg_gga_10au_100Ry_6s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    },
+    {
+      "element": "O",
+      "set_id": "O-ONCV-3s3p2d-130f3255b93c",
+      "asset_aliases": {
+        "pp": "O_ONCV_PBE-1.0.upf",
+        "nao": "O_gga_10au_100Ry_3s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "78ab19c190263efa5cc4630a60215b2dea517ff21b1f6df731e4ec0bb2dd8ff9",
+    "evidence": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/inputs/solid__STRU"
+  },
+  "summary": {
+    "observable": "RPA cohesive energy",
+    "value": 4.9835055521,
+    "unit": "eV/atom"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer"
+  },
+  "performance": {
+    "cluster_label": "df_dcu",
+    "wall_time_seconds": 31721,
+    "nodes": 16,
+    "mpi_ranks": 16,
+    "omp_threads_per_rank": 30,
+    "evidence": [
+      "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/results/solid_fd8_screening_resources.csv"
+    ]
+  }
+}

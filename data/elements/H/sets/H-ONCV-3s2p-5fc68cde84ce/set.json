@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "H-ONCV-3s2p-5fc68cde84ce",
+  "element": "H",
+  "family": "ONCV PBE + 3s2p physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "9 atomic orbitals per H atom (3s + 2p); payload of the LiH solid campaign.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/H/pseudopotentials/3f5deaaf57ff09d87da2c2c186eb1654d174fe385c9edc265036b3c8869286ef.upf",
+      "sha256": "3f5deaaf57ff09d87da2c2c186eb1654d174fe385c9edc265036b3c8869286ef",
+      "size_bytes": 64828,
+      "original_name": "H_ONCV_PBE-1.0.upf",
+      "original_sha256": "3f5deaaf57ff09d87da2c2c186eb1654d174fe385c9edc265036b3c8869286ef",
+      "label": "H_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/H/orbitals/5fc68cde84cec4c82f3185cfa0a1660c46c4eadd075199eb027659b4732335ed.orb",
+      "sha256": "5fc68cde84cec4c82f3185cfa0a1660c46c4eadd075199eb027659b4732335ed",
+      "size_bytes": 114034,
+      "original_name": "H_gga_10au_100Ry_3s2p.orb",
+      "original_sha256": "5fc68cde84cec4c82f3185cfa0a1660c46c4eadd075199eb027659b4732335ed",
+      "label": "H_gga_10au_100Ry_3s2p.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 1.0,
+        "counts": {
+          "S": 3,
+          "P": 2
+        },
+        "basis_dimension": 9
+      }
+    }
+  ],
+  "used_by": [
+    "lih-solid-delta-st-rpa-20260831"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

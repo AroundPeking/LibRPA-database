@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "Si-ONCV-3s3p2d-9e991e921b25",
+  "element": "Si",
+  "family": "ONCV PBE + 3s3p2d physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "22 atomic orbitals per Si atom (3s + 3p + 2d); payload of the Si and SiC solid campaigns.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Si/pseudopotentials/481a5fae1167fd712d4e8e2e4df33f8bfc1e7d2abbc0565290d39fbba9dccb41.upf",
+      "sha256": "481a5fae1167fd712d4e8e2e4df33f8bfc1e7d2abbc0565290d39fbba9dccb41",
+      "size_bytes": 90021,
+      "original_name": "Si_ONCV_PBE-1.0.upf",
+      "original_sha256": "481a5fae1167fd712d4e8e2e4df33f8bfc1e7d2abbc0565290d39fbba9dccb41",
+      "label": "Si_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Si/orbitals/9e991e921b2544e3f57e0c87b8a1ea0525f0b4e9e1940b109b0adc40e6b51548.orb",
+      "sha256": "9e991e921b2544e3f57e0c87b8a1ea0525f0b4e9e1940b109b0adc40e6b51548",
+      "size_bytes": 147311,
+      "original_name": "Si_gga_8au_100Ry_3s3p2d.orb",
+      "original_sha256": "9e991e921b2544e3f57e0c87b8a1ea0525f0b4e9e1940b109b0adc40e6b51548",
+      "label": "Si_gga_8au_100Ry_3s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
+    }
+  ],
+  "used_by": [
+    "si-delta-st-rpa-20260824",
+    "sic-delta-st-rpa-20260829"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

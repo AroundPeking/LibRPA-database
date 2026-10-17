@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "Li-GTH-q3-8s3p2d-f6a1efcc66b7",
+  "element": "Li",
+  "family": "GTH PBE q3 + 8s3p2d physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "27 atomic orbitals per Li atom (8s + 3p + 2d); genuine 8s3p2d basis of the Li2 and LiH molecular chains.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Li/pseudopotentials/51fd5e0a71c7c8d1cfcc4a4379a7ffd925eacc22f530c4e96389a96760ce95d7.upf",
+      "sha256": "51fd5e0a71c7c8d1cfcc4a4379a7ffd925eacc22f530c4e96389a96760ce95d7",
+      "size_bytes": 50458,
+      "original_name": "Li_GTH_PBE_q3_nosoc_gclog400.upf",
+      "original_sha256": "51fd5e0a71c7c8d1cfcc4a4379a7ffd925eacc22f530c4e96389a96760ce95d7",
+      "label": "Li_GTH_PBE_q3_nosoc_gclog400.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Li/orbitals/f6a1efcc66b7f488d6d60728bed49beb9816c7078f6f99c41902b06df9104840.orb",
+      "sha256": "f6a1efcc66b7f488d6d60728bed49beb9816c7078f6f99c41902b06df9104840",
+      "size_bytes": 297610,
+      "original_name": "Li_gga_10au_100Ry_8s3p2d.orb",
+      "original_sha256": "f6a1efcc66b7f488d6d60728bed49beb9816c7078f6f99c41902b06df9104840",
+      "label": "Li_gga_10au_100Ry_8s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 8,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 27
+      }
+    }
+  ],
+  "used_by": [
+    "li2-delta-st-rpa-20260913",
+    "lih-molecule-delta-st-rpa-20260913"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

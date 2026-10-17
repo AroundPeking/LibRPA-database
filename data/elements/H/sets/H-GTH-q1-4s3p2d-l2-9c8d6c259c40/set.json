@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "H-GTH-q1-4s3p2d-l2-9c8d6c259c40",
+  "element": "H",
+  "family": "GTH PBE q1 + 4s3p2d physical NAO (paper-grid rebuild)",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "23 atomic orbitals per H atom; the 2026-09-13 paper-grid rebuild used by the LiH molecule chain and its H atom. Same production filename as the 2026-09-06 build, different payload.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/H/pseudopotentials/8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d.upf",
+      "sha256": "8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d",
+      "size_bytes": 42087,
+      "original_name": "H_GTH_PBE_q1_nosoc_gclog400.upf",
+      "original_sha256": "8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d",
+      "label": "H_GTH_PBE_q1_nosoc_gclog400.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/H/orbitals/9c8d6c259c40ba739cbc3deaedb8a44ffcfb95e7c5ca0973e62b8f54892111d6.orb",
+      "sha256": "9c8d6c259c40ba739cbc3deaedb8a44ffcfb95e7c5ca0973e62b8f54892111d6",
+      "size_bytes": 206147,
+      "original_name": "H_gga_10au_100Ry_4s3p2d.orb",
+      "original_sha256": "9c8d6c259c40ba739cbc3deaedb8a44ffcfb95e7c5ca0973e62b8f54892111d6",
+      "label": "H_gga_10au_100Ry_4s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 4,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 23
+      }
+    }
+  ],
+  "used_by": [
+    "lih-molecule-delta-st-rpa-20260913"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

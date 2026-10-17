@@ -40,7 +40,7 @@ export function basisSearchText(set, calculations = []) {
 
 // method keywords match whole words only, so "soc" finds the SOC-labelled
 // records instead of every id like "..._xsoc_1e-10"
-const METHOD_KEYWORDS = new Set(["soc", "spin", "gw", "exx", "pbe", "dft", "rpa"]);
+const METHOD_KEYWORDS = new Set(["soc", "spin", "gw", "exx", "pbe", "dft", "rpa", "delta", "sternheimer"]);
 
 export function matchesSearch(text, query) {
   const raw = String(query ?? "");

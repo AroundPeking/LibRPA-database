@@ -128,6 +128,7 @@ main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0;
 .method-soc { color: #f2c98a; background: #3a2f1c; }
 .method-spin { color: #f0b8cc; background: #3d2430; }
 .method-rpa { color: #b8e49a; background: #2a3a1e; }
+.method-delta-st { color: #9adcf0; background: #1d3346; }
 .asset-role { font: 12px "SFMono-Regular", Consolas, monospace; color: var(--muted); border: 1px solid var(--line); padding: 3px 4px; border-radius: 3px; }
 .not-reported { color: var(--subtle); }
 .availability { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; }
@@ -569,6 +570,7 @@ body.cover-mode .site-footer{display:none}
 .method-exx{background:#f1eef8;color:#695084}
 .method-gw{background:#e2f1ef;color:var(--teal-deep)}
 .method-rpa{background:#edf6e2;color:#3f6b2a}
+.method-delta-st{background:#e3f2f8;color:#2c5f77}
 .method-soc{background:#fdf3e3;color:#8a5d13}
 .method-spin{background:#fbe4ec;color:#7c3a4d}
 .asset-role{background:var(--tint);border-color:var(--line);color:var(--text-soft);border-radius:6px}

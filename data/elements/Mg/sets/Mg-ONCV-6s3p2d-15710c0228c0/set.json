@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "Mg-ONCV-6s3p2d-15710c0228c0",
+  "element": "Mg",
+  "family": "ONCV PBE + 6s3p2d physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "25 atomic orbitals per Mg atom (6s + 3p + 2d); payload of the MgO screening campaign.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Mg/pseudopotentials/47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee.upf",
+      "sha256": "47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee",
+      "size_bytes": 90002,
+      "original_name": "Mg_ONCV_PBE-1.0.upf",
+      "original_sha256": "47fde7095f84f5e5a20972c18583ea9117b8bd2d541d31fd22e0aeb33229aeee",
+      "label": "Mg_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Mg/orbitals/15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734.orb",
+      "sha256": "15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734",
+      "size_bytes": 253098,
+      "original_name": "Mg_gga_10au_100Ry_6s3p2d.orb",
+      "original_sha256": "15710c0228c048acf63560df827e77ba46f9d8e387f455ce5f58a8831f995734",
+      "label": "Mg_gga_10au_100Ry_6s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2.0,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 25
+      }
+    }
+  ],
+  "used_by": [
+    "mgo-delta-st-rpa-20260829"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

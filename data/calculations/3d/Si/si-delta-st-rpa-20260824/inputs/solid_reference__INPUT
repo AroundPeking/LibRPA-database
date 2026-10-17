@@ -1,0 +1,36 @@
+INPUT_PARAMETERS
+suffix                         SI2_DST_NF6_E20_Q1
+calculation                    scf
+ntype                          1
+nbands                         44
+nspin                          1
+basis_type                     lcao
+ecutwfc                        20
+lcao_ecut                      100
+ks_solver                      genelpa
+dft_functional                 pbe
+symmetry                       1
+kpar                           4
+pseudo_dir                     ./
+orbital_dir                    ./
+scf_thr                        1e-8
+scf_nmax                       100
+mixing_type                    broyden
+mixing_beta                    0.3
+smearing_method                fixed
+out_chg                        0
+out_wfc_lcao                   0
+rpa                            1
+out_librpa_reader_version      1
+exx_pca_threshold              1e-4
+exx_singularity_correction     massidda
+exx_ccp_rmesh_times            1
+rpa_ccp_rmesh_times            1
+out_sternheimer_librpa         1
+sternheimer_nfreq              6
+sternheimer_frequency_mpi      1
+sternheimer_q_index            1
+sternheimer_delta              1
+sternheimer_delta_max_states   0
+sternheimer_delta_norm_tol     1e-10
+

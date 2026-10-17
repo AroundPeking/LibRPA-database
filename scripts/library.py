@@ -120,8 +120,8 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
 
     auxiliary = case.get("auxiliary_basis")
     if auxiliary is not None:
-        if not isinstance(auxiliary, dict) or auxiliary.get("mode") != "pca_generated":
-            _fail(f"{label}.auxiliary_basis: only explicit pca_generated provenance is supported")
+        if not isinstance(auxiliary, dict) or auxiliary.get("mode") not in ("pca_generated", "prebuilt_abfs_pca"):
+            _fail(f"{label}.auxiliary_basis: only explicit pca_generated or prebuilt_abfs_pca provenance is supported")
         threshold = auxiliary.get("threshold")
         if isinstance(threshold, bool) or not isinstance(threshold, (int, float)) or not math.isfinite(threshold) or threshold <= 0:
             _fail(f"{label}.auxiliary_basis.threshold: a positive finite threshold is required")
@@ -219,7 +219,14 @@ def _validate_workflow_contract(case: dict, label: str, declared_paths: set[str]
                 or workflow["task"].strip() not in {"rpa", "rpa_correlation"}):
             _fail(f"{label}.workflow: rpa_energy requires task = rpa or rpa_correlation")
         if performance is None:
-            _fail(f"{label}.performance: RPA energy requires recorded wall time and resources")
+            script_evaluated = workflow.get("rpa_evaluation") == "archived_campaign_script"
+            delta_sternheimer = workflow.get("response") == "delta_sternheimer"
+            wall_gap_documented = any(isinstance(note, str) and "wall" in note.lower()
+                                      for note in case.get("missing", []))
+            if not ((script_evaluated or delta_sternheimer) and wall_gap_documented):
+                _fail(f"{label}.performance: RPA energy requires recorded wall time and resources "
+                      "(script-evaluated or Delta-Sternheimer records may omit it only with a "
+                      "documented wall-clock gap)")
         return
     if record_type != "large_system_gw":
         return
@@ -365,8 +372,12 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         if frontend == "fhi_aims" and "abacus" in software:
             _fail(f"{label}.software: FHI-aims record cannot claim ABACUS as the executing frontend")
         # 纯 FHI-aims GW 记录没有运行 LibRPA；未参与的软件不必声明。
+        # 脚本评估的分子 Delta-ST 记录的 EcRPA 由归档 campaign 脚本计算，同样
+        # 没有 LibRPA 可执行文件参与（completeness 强制归档该评估脚本）。
+        script_evaluated = (frontend == "abacus" and isinstance(workflow_identity, dict)
+                            and workflow_identity.get("rpa_evaluation") == "archived_campaign_script")
         identity_apps = [frontend]
-        if not (frontend == "fhi_aims" and isinstance(workflow_identity, dict) and workflow_identity.get("task") == "gw"):
+        if not (frontend == "fhi_aims" and isinstance(workflow_identity, dict) and workflow_identity.get("task") == "gw") and not script_evaluated:
             identity_apps.append("librpa")
         for name in identity_apps:
             app = software.get(name)
@@ -869,6 +880,9 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             input_names += ("librpa.in",)
     else:
         input_names = ("INPUT", "KPT", "STRU", "librpa.in")
+        # 脚本评估记录没有 LibRPA 任务输入；其 EcRPA 由归档脚本后处理得出。
+        if isinstance(workflow, dict) and workflow.get("rpa_evaluation") == "archived_campaign_script":
+            input_names = ("INPUT", "KPT", "STRU")
     for name in input_names:
         valid = []
         for item in owned["inputs"]:
@@ -900,6 +914,11 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             issues.append(f"input {name}: missing readable declared production input in this calculation")
         inputs[name] = valid
 
+    if isinstance(workflow, dict) and workflow.get("rpa_evaluation") == "archived_campaign_script":
+        if not any(item.get("scientific_role") == "rpa_trace_log_evaluation"
+                   for item in owned["results"] + owned["logs"]):
+            issues.append("results: script-evaluated RPA records must archive the campaign evaluation script (scientific_role rpa_trace_log_evaluation)")
+
     species = case.get("species", [])
     actual = {entry.get("element") for entry in species}
     required = _formula_elements(case.get("formula") if case.get("formula") is not None else case.get("material"))
@@ -916,9 +935,11 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     auxiliary = case.get("auxiliary_basis", {})
     generated_auxiliary = (isinstance(auxiliary, dict)
                            and auxiliary.get("mode") == "pca_generated")
+    prebuilt_auxiliary = (isinstance(auxiliary, dict)
+                          and auxiliary.get("mode") == "prebuilt_abfs_pca")
     if frontend == "fhi_aims":
         required_roles = ("species_defaults",)
-    elif generated_auxiliary:
+    elif generated_auxiliary or prebuilt_auxiliary:
         required_roles = ("pp", "nao")
     else:
         required_roles = ("pp", "nao", "abf")
@@ -987,7 +1008,11 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             sections = _stru_sections(text)
             rows = [line.split() for line in sections.get("ATOMIC_SPECIES", [])]
             order = [row[0] for row in rows if row]
-            if set(order) != actual:
+            atom_reference = stru_item.get("scientific_role") == "abacus_stru_atom_reference"
+            if atom_reference:
+                if len(order) != 1 or set(order) - actual:
+                    issues.append(f"STRU {stru_item['path']}: atom-reference species must be one element of the exact species")
+            elif set(order) != actual:
                 issues.append(f"STRU {stru_item['path']}: ATOMIC_SPECIES elements do not match exact species")
             declarations = {"pp": [row[2] if len(row) > 2 else "" for row in rows]}
             for role, section in (("nao", "NUMERICAL_ORBITAL"), ("abf", "ABFS_ORBITAL")):
@@ -1008,6 +1033,9 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                     issues.append("auxiliary_basis: exx_pca_threshold must be uniquely recorded in the evidence-targeted production INPUT and match provenance")
                 if "ABFS_ORBITAL" in sections:
                     issues.append(f"STRU {stru_item['path']}: PCA-generated auxiliary provenance cannot also declare ABFS_ORBITAL")
+            if prebuilt_auxiliary:
+                if "abf" not in declarations:
+                    issues.append(f"STRU {stru_item['path']}: prebuilt ABFS auxiliary provenance requires ABFS_ORBITAL declarations")
             for role, names in declarations.items():
                 if len(names) != len(order) or any(not name for name in names):
                     issues.append(f"STRU {stru_item['path']}: {role} declarations do not cover ATOMIC_SPECIES")
@@ -1036,11 +1064,25 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
             if role != "pp" and inputs["STRU"] and role not in declared_roles:
                 issues.append(f"STRU: at least one production STRU must declare exact {role} payloads")
 
+        if prebuilt_auxiliary:
+            evidence = set(auxiliary.get("evidence", []))
+            preorth_pinned = False
+            for input_item, input_text in inputs["INPUT"]:
+                if input_item["path"] not in evidence:
+                    continue
+                if re.search(r"(?m)^\s*rpa_abfs_preorth\s+\S+", input_text):
+                    preorth_pinned = True
+            if not preorth_pinned:
+                issues.append("auxiliary_basis: prebuilt ABFS provenance requires the evidence-targeted production INPUT to pin rpa_abfs_preorth")
+
     workflow = case.get("workflow")
     frontend = workflow.get("frontend", "abacus") if isinstance(workflow, dict) else "abacus"
     # 纯 FHI-aims GW 记录没有运行 LibRPA；未参与的软件不做身份要求。
+    # 脚本评估的分子 Delta-ST 记录同样没有 LibRPA 可执行文件身份。
+    script_evaluated = (frontend == "abacus" and isinstance(workflow, dict)
+                        and workflow.get("rpa_evaluation") == "archived_campaign_script")
     apps = [frontend]
-    if not (frontend == "fhi_aims" and isinstance(workflow, dict) and workflow.get("task") == "gw"):
+    if not (frontend == "fhi_aims" and isinstance(workflow, dict) and workflow.get("task") == "gw") and not script_evaluated:
         apps.append("librpa")
     for name in apps:
         app = case.get("software", {}).get(name, {})

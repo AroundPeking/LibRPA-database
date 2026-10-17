@@ -1,0 +1,337 @@
+{
+  "auxiliary_basis": {
+    "mode": "pca_generated",
+    "threshold": 1e-06,
+    "evidence": [
+      "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__INPUT"
+    ]
+  },
+  "basis_candidates": [],
+  "computational_scale": {
+    "atom_count": 2,
+    "ao_count": 44
+  },
+  "dimension": "3d",
+  "files": {
+    "inputs": [
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__INPUT",
+        "sha256": "a40dc8a6482bae815fea374e083fa16ad42b1fc4a05847eb12b6062c11716516",
+        "size_bytes": 1268,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST solid production input (rendered, 35^3 endpoint)",
+        "original_name": "INPUT",
+        "original_sha256": null,
+        "transformation": "rendered production INPUT: the archived campaign reference INPUT with the deterministic set_input_key patches of the archived response driver applied at the accepted endpoint; per-q suffix and sternheimer_q_index varied across the canonical-q array tasks exactly as documented in that driver",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_reference__INPUT",
+        "sha256": "7ac5d6fce411633be8576ebcd47e2383d360a134dc14878e67576da4d26c9b02",
+        "size_bytes": 1207,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST campaign reference input (Si solid)",
+        "original_name": "INPUT",
+        "original_sha256": "7ac5d6fce411633be8576ebcd47e2383d360a134dc14878e67576da4d26c9b02",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__KPT",
+        "sha256": "b10c3b71999cda281d5d9d9559c8d629347bfcf8dd11d76b0bbd81aa2872e67b",
+        "size_bytes": 30,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Si diamond primitive cell, 4x4x4)",
+        "original_name": "KPT",
+        "original_sha256": "b10c3b71999cda281d5d9d9559c8d629347bfcf8dd11d76b0bbd81aa2872e67b",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__STRU",
+        "sha256": "16852add83275a2154bc28190b327d8cef30aef5181d76d79d29ab488756296f",
+        "size_bytes": 293,
+        "role": "inputs",
+        "label": "ABACUS structure file (Si diamond primitive cell, a = 5.400 A)",
+        "original_name": "STRU",
+        "original_sha256": "16852add83275a2154bc28190b327d8cef30aef5181d76d79d29ab488756296f",
+        "transformation": "none",
+        "scientific_role": "abacus_stru"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__INPUT",
+        "sha256": "00eabd753606a2d243be3e4fe36ca9571852add13a278c685c9f3c73fccc4ca5",
+        "size_bytes": 1303,
+        "role": "inputs",
+        "label": "ABACUS Delta-ST atom reference input (Si atom)",
+        "original_name": "INPUT",
+        "original_sha256": "00eabd753606a2d243be3e4fe36ca9571852add13a278c685c9f3c73fccc4ca5",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__KPT",
+        "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "size_bytes": 29,
+        "role": "inputs",
+        "label": "ABACUS K-point file (Si atom, Gamma-only)",
+        "original_name": "KPT",
+        "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
+        "transformation": "none",
+        "scientific_role": "abacus_scf_input"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__STRU",
+        "sha256": "c9003add598a7301907922ed4bf8ef26b2f6b6796dce3724ea32de094e2f2658",
+        "size_bytes": 279,
+        "role": "inputs",
+        "label": "ABACUS structure file (Si atom in a 20 A box)",
+        "original_name": "STRU",
+        "original_sha256": "c9003add598a7301907922ed4bf8ef26b2f6b6796dce3724ea32de094e2f2658",
+        "transformation": "none",
+        "scientific_role": "abacus_stru_atom_reference"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_response_slurm_script.sh",
+        "sha256": "2bcccb6ac810ff267643b0da0fa93fd2d0e5d5f4f12f8074f1e5643930b08528",
+        "size_bytes": 8737,
+        "role": "inputs",
+        "label": "Si solid Delta-ST response production slurm script (48 nodes/q in production: 12 frequencies x 4 k-point groups, 1 rank/node, 30 OpenMP threads)",
+        "original_name": "run_si_grid_fd8_response_work1.slurm",
+        "original_sha256": "4175d16eb6e7cdf33862eba040124651109ac0dddd75987e6b588144787252ad",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "abacus_run_script"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_librpa_qavg_slurm_script.sh",
+        "sha256": "9121ece2dea6c06e6ab6703e4b0e05bf1ae00027ce2e02960de7af0d3c2f1a1a",
+        "size_bytes": 8106,
+        "role": "inputs",
+        "label": "Si solid LibRPA q-averaged postprocessing slurm script",
+        "original_name": "run_si_grid_fd8_librpa_qavg_work1.slurm",
+        "original_sha256": "0bcc6a8738a0d6e7302832a97ef5b3e6813bb0f880f4aac0af31617c6e915b2a",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "rpa_run_script"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/librpa.in",
+        "sha256": "5d5cb8bd8b09814921f139d547bc8795bd72c5fdd7658b99f21c8881b6cf6091",
+        "size_bytes": 662,
+        "role": "inputs",
+        "label": "LibRPA Delta-ST sternheimer_rpa task input",
+        "original_name": "librpa.in",
+        "original_sha256": null,
+        "transformation": "rendered verbatim from the archived production slurm heredoc (run_*_librpa_qavg*.slurm) with the private input_dir path rewritten to ./input/; all task keywords and their order unchanged",
+        "scientific_role": "librpa_rpa_input"
+      }
+    ],
+    "results": [
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv",
+        "sha256": "3003e1144cb19c3605b79010513ac815e02851d3d25b6eb6372262ea51abef34",
+        "size_bytes": 2317,
+        "role": "results",
+        "label": "Accepted Si/C cohesive-energy comparison table (paper benchmark source)",
+        "original_name": "si_c_delta_st_fd8_cohesive_comparison_20260824.csv",
+        "original_sha256": "ee896ba7e4731857c543a58495ed214471c43fe7b1c49eeece22595dcf082c57",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv",
+        "sha256": "d280e059db1df33da3dd0df642902418513cc2b8b8f5e1738b981c9ef969f2b1",
+        "size_bytes": 2463,
+        "role": "results",
+        "label": "Si solid FD8 grid convergence table (15/24/30/35 grids, job 21745245 endpoint)",
+        "original_name": "si_c_delta_st_fd8_grid_convergence_20260824.csv",
+        "original_sha256": "bb874e1c4498d2e40b66b2a597b39cd985ecceb1fce65b58c1ea7b0f21aaeb84",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv",
+        "sha256": "0da8dfce47bc03f020332cf180f2d0ce6f7ec33ac1e910e553770ae7cdaaf115",
+        "size_bytes": 2691,
+        "role": "results",
+        "label": "Si atom/solid parameter convergence table (accepted atom endpoint, PCA 1e-6)",
+        "original_name": "si_delta_st_convergence_20260812.csv",
+        "original_sha256": "0da8dfce47bc03f020332cf180f2d0ce6f7ec33ac1e910e553770ae7cdaaf115",
+        "transformation": "none",
+        "scientific_role": "campaign_result_table"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_formal_protocol.txt",
+        "sha256": "0f0f09cbcce51dff416fae69bb8c222f19166d88dc301cf8134e949f47fbca4b",
+        "size_bytes": 655,
+        "role": "results",
+        "label": "Si grid campaign formal protocol (40 Ry, 12 frequencies, PCA 1e-6, qavg head/wing)",
+        "original_name": "FORMAL_PROTOCOL.txt",
+        "original_sha256": "42eaf3828fba7792d36e0bc9b15b248eb055e54e48851129d4c5b1e102c552da",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_protocol"
+      }
+    ],
+    "logs": [
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_abacus_artifact_acceptance.txt",
+        "sha256": "56993e7a2a8295948a2b94b8ecd9ac5e5ea65b4d5ee348dd04fa4671d42a7d33",
+        "size_bytes": 858,
+        "role": "logs",
+        "label": "Si grid campaign ABACUS artifact acceptance record",
+        "original_name": "ABACUS_ARTIFACT_ACCEPTANCE.txt",
+        "original_sha256": "5a0c2d032c8463a40cd3232b6227ef11a2d3a33873508f9aa3f16484340a1dad",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "campaign_runtime_gate"
+      },
+      {
+        "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
+        "sha256": "126a4c83b023e082fee347224ebf76910d162be6cbee0e9d7d94f032c337fe90",
+        "size_bytes": 1699,
+        "role": "logs",
+        "label": "Slurm sacct elapsed-time excerpts for the accepted 35^3 production chain",
+        "original_name": "sacct_elapsed_excerpts.txt",
+        "original_sha256": null,
+        "transformation": "verbatim excerpts of live Slurm sacct output captured during the campaign's cluster monitoring; assembled into one file without modifying any field",
+        "scientific_role": "slurm_sacct_elapsed_log"
+      }
+    ],
+    "figures": []
+  },
+  "formula": "Si2",
+  "id": "si-delta-st-rpa-20260824",
+  "material": "Si",
+  "missing": [
+    "The ABACUS executable identity of the 2026-08-12 Si atom reference campaign was not retained locally; the accepted atom endpoint is preserved in the archived campaign CSV. The solid production chain identity is archived in full.",
+    "The per-q GRID_RESULT_SUMMARY files remain on the production cluster; the archived campaign CSVs carry the accepted values and job identifiers.",
+    "The performance block records the slowest canonical-q response job of the accepted endpoint (21736094, 10:11:17 on 48 nodes) together with the head/wing and LibRPA q-averaged postprocessing walls, from sacct output captured live during the campaign and archived as a verbatim excerpt; no single wall clock exists for the full multi-q chain."
+  ],
+  "properties": [
+    {
+      "key": "rpa_cohesive_energy",
+      "label": "RPA cohesive energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "eV/atom",
+      "status": "reported",
+      "value": 4.434928194566,
+      "definition": "E_coh = (2 E_atom - E_solid_RPA)/2 per Si atom of the diamond primitive cell at a = 5.400 A, from the accepted 35^3 FD8 confirmation endpoint (job 21745245; the 15/24/30^3 curve points are archived in the same grid-convergence table) and the FD8 Gamma-only Si atom reference.",
+      "evidence": [
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv",
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
+      ]
+    },
+    {
+      "key": "rpa_correlation_energy",
+      "label": "Si solid RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.4480020118325,
+      "definition": "RPA correlation energy of the two-atom diamond primitive cell from the q-averaged Delta-ST response (13 canonical q, analytic head/wing, 12 GreenX frequencies, 35^3 grid).",
+      "evidence": [
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
+      ]
+    },
+    {
+      "key": "rpa_total_energy",
+      "label": "Si solid RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -8.036741350671578,
+      "definition": "E0 + EcRPA of the two-atom diamond primitive cell at the same endpoint.",
+      "evidence": [
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
+      ]
+    },
+    {
+      "key": "atom_Si_rpa_correlation_energy",
+      "label": "Si atom RPA correlation energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -0.1672105873514,
+      "definition": "RPA correlation energy of the isolated Si reference atom (Gamma-only, integer occupations, 12 frequencies, PCA 1e-6).",
+      "evidence": [
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv"
+      ]
+    },
+    {
+      "key": "atom_Si_rpa_total_energy",
+      "label": "Si atom RPA total energy",
+      "category": "energetic",
+      "method": "RPA",
+      "unit": "Ha",
+      "status": "reported",
+      "value": -3.855390070287799,
+      "definition": "E0 + EcRPA of the isolated Si reference atom.",
+      "evidence": [
+        "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv"
+      ]
+    }
+  ],
+  "publication": {
+    "status": "database_only"
+  },
+  "recommendation": null,
+  "record_type": "rpa_energy",
+  "schema_version": 1,
+  "software": {
+    "abacus": {
+      "commit": "e5ef955dbc5b06f59a9d335348cb05634cd9d1d3",
+      "executable_sha256": "c1eb5003b374f97980ef1423260cfbb483f95b17ee290681182e640bdfa7a8b1",
+      "abbreviated_commit": "e5ef955d",
+      "source_url": "https://github.com/AroundPeking/abacus-develop"
+    },
+    "librpa": {
+      "commit": "998eeb9c6191ff0c2731622fcc4a5c9d5a2e53c8",
+      "executable_sha256": "6023c1b28df9fa3d24bbd55cd71ed0bd7731e474f67e3e8dc7e7de4300535436",
+      "abbreviated_commit": "998eeb9c",
+      "source_url": "https://github.com/AESM-Group/LibRPA"
+    }
+  },
+  "source": {
+    "collection": "Delta-Sternheimer Si diamond grid-convergence campaign (2026-08-23/24)",
+    "runtime_provenance": "Accepted 35^3 confirmation endpoint from LibRPA q-averaged job 21745245 on df_dcu (head/wing input job 21745243); the response stage ran the q pilot plus standalone canonical-q jobs on 48 nodes each (12 frequencies x 4 k-point groups, 1 rank/node, 30 OpenMP threads); Si atom reference from the 2026-08-12 campaign."
+  },
+  "species": [
+    {
+      "element": "Si",
+      "set_id": "Si-ONCV-3s3p2d-9e991e921b25",
+      "asset_aliases": {
+        "pp": "Si_ONCV_PBE-1.0.upf",
+        "nao": "Si_gga_8au_100Ry_3s3p2d.orb"
+      },
+      "linkage": "exact production PP and physical NAO; auxiliary basis generated in-run by PCA",
+      "missing_roles": []
+    }
+  ],
+  "structure_identity": {
+    "algorithm": "cell-sites-v1",
+    "sha256": "d383596eb36a6a39be53ca7fda35ee088e599faa97daabdaad593691086ff623",
+    "evidence": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__STRU"
+  },
+  "summary": {
+    "observable": "RPA cohesive energy",
+    "value": 4.434928194566,
+    "unit": "eV/atom"
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "rpa",
+    "response": "delta_sternheimer"
+  },
+  "performance": {
+    "cluster_label": "df_dcu",
+    "wall_time_seconds": 36677,
+    "nodes": 48,
+    "mpi_ranks": 48,
+    "omp_threads_per_rank": 30,
+    "evidence": [
+      "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt"
+    ]
+  }
+}

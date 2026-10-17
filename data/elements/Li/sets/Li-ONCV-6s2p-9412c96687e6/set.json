@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "Li-ONCV-6s2p-9412c96687e6",
+  "element": "Li",
+  "family": "ONCV PBE + 6s2p physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "12 atomic orbitals per Li atom (6s + 2p); payload of the LiH solid campaign.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/Li/pseudopotentials/ca3d1f1d598deb7949829506da9df3ad1e323073681399d4f7b1bfff3b689d0a.upf",
+      "sha256": "ca3d1f1d598deb7949829506da9df3ad1e323073681399d4f7b1bfff3b689d0a",
+      "size_bytes": 89964,
+      "original_name": "Li_ONCV_PBE-1.0.upf",
+      "original_sha256": "ca3d1f1d598deb7949829506da9df3ad1e323073681399d4f7b1bfff3b689d0a",
+      "label": "Li_ONCV_PBE-1.0.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/Li/orbitals/9412c96687e67a365076701e73af0dab7251a6e90b814ff402be13a298e555fc.orb",
+      "sha256": "9412c96687e67a365076701e73af0dab7251a6e90b814ff402be13a298e555fc",
+      "size_bytes": 183841,
+      "original_name": "Li_gga_10au_100Ry_6s2p.orb",
+      "original_sha256": "9412c96687e67a365076701e73af0dab7251a6e90b814ff402be13a298e555fc",
+      "label": "Li_gga_10au_100Ry_6s2p.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 1.0,
+        "counts": {
+          "S": 6,
+          "P": 2
+        },
+        "basis_dimension": 12
+      }
+    }
+  ],
+  "used_by": [
+    "lih-solid-delta-st-rpa-20260831"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}

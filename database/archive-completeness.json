@@ -5,8 +5,8 @@
   "integrity_issues": [],
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "stats": {
-    "total": 113,
-    "complete": 55,
+    "total": 122,
+    "complete": 64,
     "incomplete": 58,
     "issue_count": 74,
     "accepted_exception_count": 74,
@@ -687,6 +687,18 @@
       "blocking_categories": {}
     },
     {
+      "id": "c-delta-st-rpa-20260824",
+      "material": "C",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "c-jctc-aims-gw",
       "material": "C",
       "dimension": "3d",
@@ -1206,6 +1218,18 @@
       "blocking_categories": {}
     },
     {
+      "id": "h2-delta-st-rpa-20260906",
+      "material": "H2",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "inp-jctc-aims-gw",
       "material": "InP",
       "dimension": "3d",
@@ -1304,6 +1328,18 @@
     {
       "id": "kf-jctc-librpa-32",
       "material": "KF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "li2-delta-st-rpa-20260913",
+      "material": "Li2",
       "dimension": "3d",
       "status": "complete",
       "gate_status": "accepted",
@@ -1414,6 +1450,42 @@
       "blocking_categories": {}
     },
     {
+      "id": "lih-molecule-delta-st-rpa-20260913",
+      "material": "LiH",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "lih-solid-delta-st-rpa-20260831",
+      "material": "LiH",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgo-delta-st-rpa-20260829",
+      "material": "MgO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "mgo-jctc-aims-gw",
       "material": "MgO",
       "dimension": "3d",
@@ -1512,6 +1584,18 @@
     {
       "id": "mgs-jctc-librpa-32",
       "material": "MgS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "n2-delta-st-rpa-20260913",
+      "material": "N2",
       "dimension": "3d",
       "status": "complete",
       "gate_status": "accepted",
@@ -1653,6 +1737,18 @@
       "blocking_categories": {}
     },
     {
+      "id": "si-delta-st-rpa-20260824",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "si-jctc-aims-gw",
       "material": "Si",
       "dimension": "3d",
@@ -1722,6 +1818,18 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "sic-delta-st-rpa-20260829",
+      "material": "SiC",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {

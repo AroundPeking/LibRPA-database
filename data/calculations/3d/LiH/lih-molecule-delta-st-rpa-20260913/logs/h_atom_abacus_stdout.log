@@ -1,0 +1,81 @@
+                                                                                     
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Sun Sep 13 16:18:14 2026
+ MAKE THE DIR         : OUT.h_lmax2_atom_LIMITS_ANALYTIC_AO_TAIL_full_FD8/
+ RUNNING WITH DEVICE  : CPU / Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz (x24)
+ UNIFORM GRID DIM     : 144 * 144 * 144
+ UNIFORM GRID DIM(BIG): 36 * 36 * 36
+ DONE(0.354392   SEC) : SETUP UNITCELL
+ DONE(0.52459    SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 2       2               12          576         23          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ H       4s3p2d-10au     23          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.569617   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.800715   SEC) : CHARGE
+ DONE(0.808129   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(1.00846    SEC) : INIT SCF
+ ITER      TMAG       AMAG        ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1      1.00e+00   1.00e+00  -1.35912087e+01   0.00000000e+00   9.2488e-02   0.46
+ GE2      1.00e+00   1.00e+00  -1.35886002e+01   2.60844594e-03   6.0855e-02   0.17
+ GE3      1.00e+00   1.00e+00  -1.35889696e+01  -3.69313105e-04   1.6075e-03   0.15
+ GE4      1.00e+00   1.00e+00  -1.35889680e+01   1.53133341e-06   1.8433e-03   0.15
+ GE5      1.00e+00   1.00e+00  -1.35889683e+01  -2.65376492e-07   2.1820e-04   0.15
+ GE6      1.00e+00   1.00e+00  -1.35889683e+01   5.97514536e-09   8.8828e-05   0.15
+ GE7      1.00e+00   1.00e+00  -1.35889683e+01  -9.07162920e-10   4.5504e-07   0.16
+ GE8      1.00e+00   1.00e+00  -1.35889683e+01   6.97867594e-13   1.1907e-07   0.47
+ GE9      1.00e+00   1.00e+00  -1.35889683e+01   4.38055416e-14   5.9024e-09   0.28
+ GE10     1.00e+00   1.00e+00  -1.35889683e+01  -4.83371494e-14   8.8605e-10   0.19
+ GE11     1.00e+00   1.00e+00  -1.35889683e+01  -4.83371494e-14   5.0576e-11   2.74
+Use rpa_ccp_rmesh_times=1 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 0.0109553 s
+rpa_pca_threshold: 1e-08
+rpa_ccp_rmesh_times: 1
+rpa_lcao_exx(Ha): -0.306367863850917
+etxc(Ha): -0.306963732833387
+etot(Ha): -0.499385194455782
+Etot_without_rpa(Ha): -0.498789325473313
+
+TIME STATISTICS
+-------------------------------------------------------------------
+   CLASS_NAME          NAME        TIME/s   CALLS    AVG/s  PER/%  
+-------------------------------------------------------------------
+                 total             6091.29 912      6.68    100.00 
+ Driver          atomic_world      6091.29 1        6091.29 100.00 
+ Relax_Driver    relax_driver      6090.47 1        6090.47 99.99  
+ ESolver_KS      runner            6090.47 1        6090.47 99.99  
+ ESolver_KS_LCAO after_scf         6085.20 1        6085.20 99.90  
+ ModuleIO        ctrl_scf_lcao     6085.18 1        6085.18 99.90  
+ RPA_LRI         postSCF           79.85   1        79.85   1.31   
+ Matrix_Orbs21   init_radial_table 64.75   4        16.19   1.06   
+ LRI_CV          set_orbitals      65.71   2        32.85   1.08   
+-------------------------------------------------------------------
+
+
+ START  Time  : Sun Sep 13 16:18:14 2026
+ FINISH Time  : Sun Sep 13 17:59:45 2026
+ TOTAL  Time  : 6091
+ SEE INFORMATION IN : OUT.h_lmax2_atom_LIMITS_ANALYTIC_AO_TAIL_full_FD8/

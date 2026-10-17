@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "H-GTH-q1-4s3p2d-c0cd75c3b862",
+  "element": "H",
+  "family": "GTH PBE q1 + 4s3p2d physical NAO",
+  "validation_scope": "Exact production PP and physical NAO payload preserved from the approved Delta-Sternheimer RPA runs; the product auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+  "notes": "23 atomic orbitals per H atom (4s + 3p + 2d); payload of the 2026-09-06 H2 campaign.",
+  "source": {
+    "collection": "Delta-Sternheimer RPA intake 2026-10-17 (approved by the owner instruction recorded in scripts/intake_delta_st_rpa_20261017.py)",
+    "approval_candidate_sha256": [
+      "a903bb84865fecaa1bb639a0dda045e5ce186740da741abd6f4e02294d365211"
+    ]
+  },
+  "files": [
+    {
+      "role": "pp",
+      "path": "data/elements/H/pseudopotentials/8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d.upf",
+      "sha256": "8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d",
+      "size_bytes": 42087,
+      "original_name": "H_GTH_PBE_q1_nosoc_gclog400.upf",
+      "original_sha256": "8695ac1e38068c261a028ba6411d83edf37da13432d3616923eef2301d66b22d",
+      "label": "H_GTH_PBE_q1_nosoc_gclog400.upf",
+      "transformation": "none"
+    },
+    {
+      "role": "nao",
+      "path": "data/elements/H/orbitals/c0cd75c3b8629e067b1b002479c99880d4e631af59710fbaa4d316cbc8e3a03f.orb",
+      "sha256": "c0cd75c3b8629e067b1b002479c99880d4e631af59710fbaa4d316cbc8e3a03f",
+      "size_bytes": 159110,
+      "original_name": "H_gga_10au_100Ry_4s3p2d.orb",
+      "original_sha256": "c0cd75c3b8629e067b1b002479c99880d4e631af59710fbaa4d316cbc8e3a03f",
+      "label": "H_gga_10au_100Ry_4s3p2d.orb",
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 1.0,
+        "counts": {
+          "S": 4,
+          "P": 3
+        },
+        "basis_dimension": 13
+      }
+    }
+  ],
+  "used_by": [
+    "h2-delta-st-rpa-20260906"
+  ],
+  "publication": {
+    "status": "database_only"
+  }
+}
