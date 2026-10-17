@@ -6,7 +6,7 @@ import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/" };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
 const pageSize = 20;
 const gapText = value => value === null ? '<span class="not-reported">—</span>' : value.toFixed(3);
 let bySet = new Map();
@@ -81,13 +81,33 @@ function syncFilters() {
 function listHash() {
   const params = new URLSearchParams();
   for (const [key, value, fallback] of [["q", state.query, ""], ["dim", state.dimension, "all"], ["sw", state.software, "all"], ["element", state.element, "all"], ["inputs", state.inputs, "all"], ["sort", state.sort, state.mode === "basis" ? "element" : state.mode === "gaps" ? "result" : "material"], ["page", state.page, 1]]) if (value !== fallback) params.set(key, value);
-  const prefix = state.mode === "basis" ? "#/basis" : state.mode === "gaps" ? "#/gaps" : "#/";
+  const prefix = state.mode === "basis" ? "#/basis" : state.mode === "gaps" ? "#/gaps" : "#/materials";
   return `${prefix}${params.size ? `?${params}` : ""}`;
+}
+
+function renderLanding() {
+  $("#landing-view").hidden = false;
+  $("#home-view").hidden = true;
+  $("#detail-view").hidden = true;
+  const distinct = {
+    materials: new Set(state.calculations.map(record => record.material)).size,
+    d3: state.calculations.filter(record => record.dimension === "3d").length,
+    d2: state.calculations.filter(record => record.dimension === "2d").length,
+    soc: state.calculations.filter(record => record.spin_orbit === true).length,
+    spin: state.calculations.filter(record => record.spin_polarized === true).length,
+    inputs: state.calculations.filter(record => filesOf(record, "inputs").length > 0).length
+  };
+  $("#landing-stats").innerHTML = [[state.calculations.length, "Calculation records"], [distinct.materials, "Distinct materials"], [elements.length, "Elements covered"], [state.sets.length, "Basis-set records"]].map(([value, label], i) => `<div><span class="stat-index">0${i + 1}</span><strong>${value}</strong><span>${label}</span></div>`).join("");
+  $("#landing-coverage").textContent = `${distinct.d3} 3D · ${distinct.d2} 2D · ${distinct.soc} with spin–orbit coupling · ${distinct.spin} spin-polarized · ${distinct.inputs} with archived input files`;
+  document.title = "LibRPA materials database";
+  document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", "false"));
+  window.scrollTo(0, 0);
 }
 
 function renderHome() {
   const basis = state.mode === "basis";
   const gaps = state.mode === "gaps";
+  $("#landing-view").hidden = true;
   $("#home-view").hidden = false;
   $("#detail-view").hidden = true;
   $("#page-title").textContent = basis ? "The basis behind each result." : gaps ? "Band gaps, across materials." : "Materials, with evidence.";
@@ -140,10 +160,11 @@ function route() {
     let id;
     try { id = decodeURIComponent(match[2]); } catch { id = null; }
     const record = (match[1] === "material" ? state.calculations : state.sets).find(r => r.id === id);
+    $("#landing-view").hidden = true;
     $("#home-view").hidden = true;
     $("#detail-view").hidden = false;
     state.currentRecord = match[1] === "material" ? record : null;
-    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/">Return to materials</a></div>';
+    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
     const back = $(".breadcrumb a");
     if (back && (match[1] === "material" ? state.mode === "materials" : state.mode === "basis")) back.href = state.returnHash;
     document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;
@@ -152,8 +173,10 @@ function route() {
     if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();
     return;
   }
-  state.mode = hash.split("?")[0] === "#/basis" ? "basis" : hash.split("?")[0] === "#/gaps" ? "gaps" : "materials";
+  const path = hash.split("?")[0];
   const params = new URLSearchParams(hash.split("?")[1] || "");
+  if ((path === "#/" || path === "#" || path === "") && !params.size) { renderLanding(); return; }
+  state.mode = path === "#/basis" ? "basis" : path === "#/gaps" ? "gaps" : "materials";
   Object.assign(state, { query: params.get("q") || "", dimension: ["2d", "3d"].includes(params.get("dim")) ? params.get("dim") : "all", software: ["all", "abacus", "fhi_aims"].includes(params.get("sw")) ? params.get("sw") : "all", element: elements.includes(params.get("element")) ? params.get("element") : "all", inputs: ["available", "missing"].includes(params.get("inputs")) ? params.get("inputs") : "all", sort: params.get("sort") || (state.mode === "basis" ? "element" : state.mode === "gaps" ? "result" : "material"), page: Math.max(1, Number.parseInt(params.get("page"), 10) || 1) });
   state.returnHash = hash;
   syncFilters();
@@ -196,12 +219,19 @@ async function start() {
       button.innerHTML = `${expanded ? "Hide" : "Show"} filters <span aria-hidden="true">${expanded ? "−" : "+"}</span>`;
       $(".filter-panel").classList.toggle("filters-expanded", expanded);
     });
+    $("#landing-search").addEventListener("submit", event => {
+      event.preventDefault();
+      const value = $("#landing-search-input").value.trim();
+      location.hash = `#/materials${value ? `?q=${encodeURIComponent(value)}` : ""}`;
+    });
     $("#search-examples").addEventListener("click", event => { const button = event.target.closest("[data-query]"); if (button) { state.query = button.dataset.query; $("#search").value = state.query; updateFilter(); } });
     $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
-    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });
+    document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#file-preview").open) { const landingVisible = !$("#landing-view").hidden; if (landingVisible || (!$("#home-view").hidden && !$(".search-box").hidden)) { event.preventDefault(); (landingVisible ? $("#landing-search-input") : $("#search")).focus(); } } });
     window.addEventListener("hashchange", route);
     route();
   } catch (error) {
+    $("#landing-view").hidden = true;
+    $("#home-view").hidden = false;
     $("#result-count").textContent = "Catalog unavailable";
     $("#catalog").setAttribute("aria-busy", "false");
     $("#load-error").hidden = false;

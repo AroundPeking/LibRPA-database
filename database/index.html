@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Explore 2D and 3D LibRPA calculations from ABACUS and FHI-aims workflows, electronic bands, archived inputs, and traceable basis data.">
-  <title>Materials database · LibRPA</title>
+  <meta name="description" content="A first-principles GW and RPA materials database: quasiparticle gaps, band structures, and RPA energies with archived inputs, exact basis files, and software provenance.">
+  <title>LibRPA materials database</title>
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261017-logo-v13">
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261017-logo-v13">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261017-logo-v13">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261017-home-v14">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261017-home-v14">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261017-home-v14">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261017-logo-v13">
+  <link rel="stylesheet" href="style.css?v=20261017-home-v14">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#/" aria-label="LibRPA materials database home">
-        <img class="brand-mark" src="logo-mark.png?v=20261017-logo-v13" width="320" height="286" alt="" aria-hidden="true">
+        <img class="brand-mark" src="logo-mark.png?v=20261017-home-v14" width="320" height="286" alt="" aria-hidden="true">
         <span>LibRPA<small>MATERIALS DATABASE</small></span>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#/" data-nav="materials">Materials</a>
+        <a href="#/materials" data-nav="materials">Materials</a>
         <a href="#/gaps" data-nav="gaps">Gap overview</a>
         <a href="#/basis" data-nav="basis">Basis library</a>
         <a href="../references/database.md" class="external-nav">Data schema <span aria-hidden="true">↗</span></a>
@@ -37,7 +37,41 @@
     </div>
   </header>
   <main id="main">
-    <section id="home-view" aria-labelledby="page-title">
+    <section id="landing-view" aria-labelledby="landing-title">
+      <div class="landing-hero">
+        <div class="landing-stage"><img class="landing-emblem" src="logo-emblem.png?v=20261017-home-v14" width="540" height="681" alt="LibRPA emblem: a layered crystal cube with gold and cyan facets, wrapped by a polarization ring"></div>
+        <div class="landing-copy">
+          <p class="kicker">FIRST-PRINCIPLES GW &amp; RPA · OPEN ARCHIVE</p>
+          <h1 id="landing-title">Every number keeps its evidence.</h1>
+          <p class="landing-lede">This database collects first-principles GW and RPA calculations for 2D and 3D materials, produced with ABACUS and FHI-aims workflows through the LibRPA library. Quasiparticle gaps, band structures, and RPA energies stay linked to the original inputs, the exact basis files, and the software provenance behind each run.</p>
+          <div class="landing-actions"><a class="primary-button" href="#/materials">Browse the materials</a><a class="outline-button" href="#/gaps">Compare band gaps</a><a class="outline-button" href="#/basis">Open the basis library</a></div>
+          <form class="landing-search" id="landing-search" role="search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="landing-search-input">Search the database</label><input id="landing-search-input" type="search" autocomplete="off" placeholder="Search a material, formula, or element — MoS₂, Si, hBN…"></form>
+        </div>
+      </div>
+      <div class="stats" id="landing-stats" aria-label="Database inventory"></div>
+      <p class="landing-coverage" id="landing-coverage"></p>
+      <div class="landing-features">
+        <article><h2>Original inputs, archived</h2><p>Every calculation keeps the control files it ran with — previewable in the browser and downloadable as the original bytes.</p></article>
+        <article><h2>Exact basis files</h2><p>Pseudopotentials, numerical atomic orbitals, and the auxiliary functions LibRPA consumes, recorded per element and linked to the runs that used them.</p></article>
+        <article><h2>Comparable gap columns</h2><p>Mean-field, exact-exchange, and GW values sit side by side, each keeping its recorded definition — path observable, sampled point, or published reference.</p></article>
+        <article><h2>Software provenance</h2><p>Which frontend produced the mean field, which LibRPA run corrected it, and the archived configuration evidence behind every number.</p></article>
+      </div>
+      <div class="landing-methods">
+        <h2>How to read the records</h2>
+        <div class="landing-chip-list">
+          <div class="landing-chip-row"><span class="method-tag method-dft">PBE</span><span>The mean-field functional used by the calculation, read from its archived inputs.</span></div>
+          <div class="landing-chip-row"><span class="method-tag method-exx">EXX</span><span>Exact-exchange runs at the same structure, for comparison against the mean field.</span></div>
+          <div class="landing-chip-row"><span class="method-tag method-gw">GW</span><span>Quasiparticle corrections computed with LibRPA on top of the mean field.</span></div>
+          <div class="landing-chip-row"><span class="method-tag method-soc">SOC</span><span>Spin–orbit coupling was enabled in the archived inputs.</span></div>
+          <div class="landing-chip-row"><span class="method-tag method-spin">SPIN</span><span>The calculation was spin-polarized.</span></div>
+        </div>
+      </div>
+      <div class="landing-cta">
+        <div><h2>Contribute a calculation</h2><p>The archive grows through contributed runs. Read the guide, prepare the evidence, and submit a record.</p></div>
+        <a class="outline-button" href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing guide <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section id="home-view" hidden aria-labelledby="page-title">
       <div class="intro">
         <div class="intro-text"><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Materials, with evidence.</h1><p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.</p></div>
         <div class="intro-aside">
@@ -81,7 +115,7 @@
       <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="data.json" download>Download catalog (JSON)</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database">Source code</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
-  <noscript><p class="notice">JavaScript is needed for searching. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261017-logo-v13"></script>
+  <noscript><style>#landing-stats, .landing-coverage { display: none; }</style><p class="notice">JavaScript is needed for searching and browsing the catalog. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
+  <script type="module" src="app.js?v=20261017-home-v14"></script>
 </body>
 </html>

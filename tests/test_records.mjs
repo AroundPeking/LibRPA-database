@@ -260,13 +260,42 @@ test("aims records show species-default binding notes without basis-library link
   assert.match(details, /archived control\.in/);
 });
 
+test("landing entry page introduces the database and routes the catalog to #/materials", () => {
+  const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
+  const details = readFileSync(new URL("../database/details.mjs", import.meta.url), "utf8");
+  const emblem = readFileSync(new URL("../database/logo-emblem.png", import.meta.url));
+  assert.match(index, /<section id="landing-view" aria-labelledby="landing-title">/);
+  assert.match(index, /<section id="home-view" hidden aria-labelledby="page-title">/);
+  assert.match(index, /class="landing-emblem" src="logo-emblem\.png\?v=[a-z0-9-]+" width="540" height="681"/);
+  assert.match(index, /href="#\/materials" data-nav="materials">Materials</);
+  assert.doesNotMatch(index, /href="#\/" data-nav/);
+  assert.match(index, /class="primary-button" href="#\/materials">Browse the materials</);
+  assert.match(index, /href="#\/gaps">Compare band gaps</);
+  assert.match(index, /href="#\/basis">Open the basis library</);
+  assert.match(index, /id="landing-search" role="search"/);
+  assert.equal(emblem.readUInt32BE(16), 540);
+  assert.equal(emblem.readUInt32BE(20), 681);
+  assert.match(app, /function renderLanding\(\) \{/);
+  assert.match(app, /\(path === "#\/" \|\| path === "#" \|\| path === ""\) && !params\.size\) \{ renderLanding\(\); return; \}/);
+  assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
+  assert.match(app, /#\/materials\$\{value \? `\?q=\$\{encodeURIComponent\(value\)\}` : ""\}/);
+  assert.match(app, /returnHash: "#\/materials" }/);
+  assert.match(details, /href="#\/materials">Materials</);
+  assert.match(css, /\.landing-stage\{[^}]*background:#fff;/);
+  assert.match(css, /\.landing-hero\{display:flex;align-items:center/);
+  assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.landing-hero\{flex-direction:column/);
+  assert.match(css, /#landing-stats\{display:grid;grid-template-columns:repeat\(4/);
+});
+
 test("gap overview route, navigation, and table are wired end to end", () => {
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   assert.match(index, /href="#\/gaps" data-nav="gaps">Gap overview</);
-  assert.match(app, /hash\.split\("\?"\)\[0\] === "#\/gaps" \? "gaps"/);
-  assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/"/);
+  assert.match(app, /path === "#\/gaps" \? "gaps"/);
+  assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
   assert.match(app, /renderGapOverview\(state\.calculations, state\.sort\)/);
   assert.match(app, /records list a gap value/);
   assert.match(css, /\.browser-layout:has\(>\.filter-panel\[hidden\]\)\{grid-template-columns:minmax\(0,1fr\)\}/);
