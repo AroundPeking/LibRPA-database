@@ -193,6 +193,17 @@
         "original_sha256": "a5d5b9290d3a949bbca4cade62bfaba4a494fac4a1145c799419be34ca5b3adc",
         "transformation": "none",
         "scientific_role": "rpa_run_summary"
+      },
+      {
+        "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/sacct_elapsed_excerpts.txt",
+        "sha256": "a5f6a583c8e060222d154d1566ed06a4997054c7db266aededaf52d88435ba31",
+        "size_bytes": 2118,
+        "role": "logs",
+        "label": "Slurm sacct elapsed-time excerpts for the accepted LiH rocksalt chain",
+        "original_name": "sacct_elapsed_excerpts.txt",
+        "original_sha256": null,
+        "transformation": "verbatim capture of live Slurm sacct output queried on 2026-10-18; assembled into one file without modifying any field",
+        "scientific_role": "slurm_sacct_elapsed_log"
       }
     ],
     "figures": []
@@ -200,9 +211,18 @@
   "formula": "LiH",
   "id": "lih-solid-delta-st-rpa-20260831",
   "material": "LiH",
+  "performance": {
+    "cluster_label": "df_dcu",
+    "wall_time_seconds": 746,
+    "nodes": 16,
+    "mpi_ranks": 16,
+    "omp_threads_per_rank": 30,
+    "evidence": [
+      "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/sacct_elapsed_excerpts.txt"
+    ]
+  },
   "missing": [
-    "The per-q job outputs and GRID_RESULT_SUMMARY files remain on the production cluster; the archived campaign result summary carries the accepted chain values and job identifiers.",
-    "No single-job wall-clock time is mirrored for the accepted chain, so no performance block is claimed."
+    "The per-q job outputs and GRID_RESULT_SUMMARY files remain on the production cluster; the archived campaign result summary carries the accepted chain values and job identifiers."
   ],
   "properties": [
     {

@@ -1028,6 +1028,12 @@
       "label": "LiH cohesive-energy chain result summary (solid, Li atom, H atom)"
     },
     {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/sacct_elapsed_excerpts.txt",
+      "sha256": "a5f6a583c8e060222d154d1566ed06a4997054c7db266aededaf52d88435ba31",
+      "label": "Slurm sacct elapsed-time excerpts for the accepted LiH rocksalt chain"
+    },
+    {
       "calculation_id": "mgo-delta-st-rpa-20260829",
       "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt",
       "sha256": "7df62be639669f72cfc98cb0333d55556a3cb874fd8ccfdd641e941f22153f70",

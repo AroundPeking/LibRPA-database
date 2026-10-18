@@ -5,17 +5,17 @@
   "integrity_issues": [],
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "stats": {
-    "total": 36,
-    "complete": 4,
-    "incomplete": 32,
-    "issue_count": 48,
-    "accepted_exception_count": 48,
+    "total": 122,
+    "complete": 64,
+    "incomplete": 58,
+    "issue_count": 74,
+    "accepted_exception_count": 74,
     "blocking_case_count": 0,
     "blocking_issue_count": 0,
     "missing_categories": {
       "software": {
-        "cases": 32,
-        "issues": 48
+        "cases": 58,
+        "issues": 74
       }
     }
   },
@@ -355,6 +355,42 @@
       "blocking_categories": {}
     },
     {
+      "id": "alas-jctc-aims-gw",
+      "material": "AlAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "alas-jctc-librpa-16",
+      "material": "AlAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "alas-jctc-librpa-32",
+      "material": "AlAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "alas-paper-paper",
       "material": "AlAs",
       "dimension": "3d",
@@ -372,6 +408,58 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "alp-jctc-aims-gw",
+      "material": "AlP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "alp-jctc-librpa-16",
+      "material": "AlP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "alp-jctc-librpa-32",
+      "material": "AlP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -435,6 +523,58 @@
       "blocking_categories": {}
     },
     {
+      "id": "bn-jctc-aims-gw",
+      "material": "BN",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "bn-jctc-librpa-16",
+      "material": "BN",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "bn-jctc-librpa-32",
+      "material": "BN",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "bn-paper-sg15",
       "material": "BN",
       "dimension": "3d",
@@ -455,6 +595,58 @@
       "blocking_categories": {}
     },
     {
+      "id": "bp-jctc-aims-gw",
+      "material": "BP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "bp-jctc-librpa-16",
+      "material": "BP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "bp-jctc-librpa-32",
+      "material": "BP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "bp-paper-k8_shrink_wing",
       "material": "BP",
       "dimension": "3d",
@@ -472,6 +664,90 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "bi2se3-abacus-gw-dzp",
+      "material": "Bi2Se3",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "c-delta-st-rpa-20260824",
+      "material": "C",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "c-jctc-aims-gw",
+      "material": "C",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "c-jctc-librpa-16",
+      "material": "C",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "c-jctc-librpa-32",
+      "material": "C",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -554,6 +830,42 @@
       "blocking_categories": {}
     },
     {
+      "id": "cao-jctc-aims-gw",
+      "material": "CaO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "cao-jctc-librpa-16",
+      "material": "CaO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "cao-jctc-librpa-32",
+      "material": "CaO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "cao-paper-24freq",
       "material": "CaO",
       "dimension": "3d",
@@ -571,6 +883,42 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "cds-jctc-aims-gw",
+      "material": "CdS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "cds-jctc-librpa-16",
+      "material": "CdS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "cds-jctc-librpa-32",
+      "material": "CdS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -594,6 +942,82 @@
       "blocking_categories": {}
     },
     {
+      "id": "gaas-abacus-gw-soc-32freq",
+      "material": "GaAs",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.librpa.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gaas-jctc-aims-32ac",
+      "material": "GaAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "gaas-jctc-aims-gw",
+      "material": "GaAs",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gaas-jctc-librpa-16",
+      "material": "GaAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "gaas-jctc-librpa-32",
+      "material": "GaAs",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "gaas-paper-gw_xsoc_1e-10",
       "material": "GaAs",
       "dimension": "3d",
@@ -611,6 +1035,58 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gan-jctc-aims-gw",
+      "material": "GaN",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gan-jctc-librpa-16",
+      "material": "GaN",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gan-jctc-librpa-32",
+      "material": "GaN",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -634,6 +1110,58 @@
       "blocking_categories": {}
     },
     {
+      "id": "gap-jctc-aims-gw",
+      "material": "GaP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gap-jctc-librpa-16",
+      "material": "GaP",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gap-jctc-librpa-32",
+      "material": "GaP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "gap-paper-gw_shrink_chi",
       "material": "GaP",
       "dimension": "3d",
@@ -651,6 +1179,254 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "gasb-jctc-aims-gw",
+      "material": "GaSb",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "gasb-jctc-librpa-16",
+      "material": "GaSb",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "gasb-jctc-librpa-32",
+      "material": "GaSb",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "h2-delta-st-rpa-20260906",
+      "material": "H2",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "inp-jctc-aims-gw",
+      "material": "InP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "inp-jctc-librpa-16",
+      "material": "InP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "inp-jctc-librpa-32",
+      "material": "InP",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kcl-jctc-aims-gw",
+      "material": "KCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kcl-jctc-librpa-16",
+      "material": "KCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kcl-jctc-librpa-32",
+      "material": "KCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kf-jctc-aims-gw",
+      "material": "KF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kf-jctc-librpa-16",
+      "material": "KF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "kf-jctc-librpa-32",
+      "material": "KF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "li2-delta-st-rpa-20260913",
+      "material": "Li2",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "licl-jctc-aims-gw",
+      "material": "LiCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "licl-jctc-librpa-16",
+      "material": "LiCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "licl-jctc-librpa-32",
+      "material": "LiCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "lif-jctc-aims-gw",
+      "material": "LiF",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "lif-jctc-librpa-16",
+      "material": "LiF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "lif-jctc-librpa-32",
+      "material": "LiF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -674,6 +1450,94 @@
       "blocking_categories": {}
     },
     {
+      "id": "lih-molecule-delta-st-rpa-20260913",
+      "material": "LiH",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "lih-solid-delta-st-rpa-20260831",
+      "material": "LiH",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgo-delta-st-rpa-20260829",
+      "material": "MgO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgo-jctc-aims-gw",
+      "material": "MgO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgo-jctc-librpa-16",
+      "material": "MgO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgo-jctc-librpa-32",
+      "material": "MgO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "mgo-paper-fix_gap",
       "material": "MgO",
       "dimension": "3d",
@@ -691,6 +1555,106 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgs-jctc-aims-gw",
+      "material": "MgS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgs-jctc-librpa-16",
+      "material": "MgS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "mgs-jctc-librpa-32",
+      "material": "MgS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "n2-delta-st-rpa-20260913",
+      "material": "N2",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "nacl-jctc-aims-gw",
+      "material": "NaCl",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "nacl-jctc-librpa-16",
+      "material": "NaCl",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "nacl-jctc-librpa-32",
+      "material": "NaCl",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -717,6 +1681,126 @@
       "blocking_categories": {}
     },
     {
+      "id": "naf-jctc-aims-gw",
+      "material": "NaF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "naf-jctc-librpa-16",
+      "material": "NaF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "naf-jctc-librpa-32",
+      "material": "NaF",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "nio-aims-gw-int",
+      "material": "NiO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "si-delta-st-rpa-20260824",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "si-jctc-aims-gw",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "si-jctc-librpa-16",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "si-jctc-librpa-32",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "si-paper-all_kpath",
       "material": "Si",
       "dimension": "3d",
@@ -737,6 +1821,70 @@
       "blocking_categories": {}
     },
     {
+      "id": "sic-delta-st-rpa-20260829",
+      "material": "SiC",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "sic-jctc-aims-gw",
+      "material": "SiC",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "sic-jctc-librpa-16",
+      "material": "SiC",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.fhi_aims.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "sic-jctc-librpa-32",
+      "material": "SiC",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
       "id": "sic-paper-pca1e-6",
       "material": "SiC",
       "dimension": "3d",
@@ -754,6 +1902,98 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "zno-abacus-gw-sg15",
+      "material": "ZnO",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "accepted",
+      "issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "accepted_issues": [
+        "software.abacus.identity: full immutable commit or executable SHA-256 is required"
+      ],
+      "blocking_issues": [],
+      "missing_categories": {
+        "software": [
+          "software.abacus.identity: full immutable commit or executable SHA-256 is required"
+        ]
+      },
+      "blocking_categories": {}
+    },
+    {
+      "id": "zno-jctc-aims-gw",
+      "material": "ZnO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "zno-jctc-librpa-16",
+      "material": "ZnO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "zno-jctc-librpa-32",
+      "material": "ZnO",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "zns-jctc-aims-gw",
+      "material": "ZnS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "zns-jctc-librpa-16",
+      "material": "ZnS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "zns-jctc-librpa-32",
+      "material": "ZnS",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     }
   ]

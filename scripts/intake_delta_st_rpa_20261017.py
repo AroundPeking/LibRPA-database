@@ -1097,7 +1097,7 @@ def specs() -> list[dict]:
                                       "OpenMP threads); C atom reference from unified-campaign "
                                       "job 21662288."},
         workflow=SOLID_WORKFLOW,
-        performance={"cluster_label": "df_dcu", "wall_time_seconds": 20321, "nodes": 48,
+        performance={"cluster_label": "df_dcu", "wall_time_seconds": 20121, "nodes": 48,
                      "mpi_ranks": 48, "omp_threads_per_rank": 30,
                      "evidence": [f"{c_root}/logs/sacct_elapsed_excerpts.txt"]},
         missing=[
@@ -1453,6 +1453,48 @@ def specs() -> list[dict]:
     # LiH solid
     lihs_root = "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831"
     lihs_sum = [f"{lihs_root}/logs/lih_cohesive_result_summary.txt"]
+    lih_sacct_excerpt = "\n".join([
+        "Slurm sacct elapsed-time record of the accepted LiH rocksalt Delta-ST production chain",
+        "=" * 87,
+        "Source: live Slurm sacct output queried on the production cluster on 2026-10-18 after the "
+        "accepted chain",
+        "completed, reproduced here verbatim; no field was modified. Sub-step rows (batch/extern and "
+        "hydra bootstrap",
+        "proxies) are omitted.",
+        "Column layout: JobIDRaw|JobName|State|ExitCode|Elapsed|Timelimit|NNodes.",
+        "",
+        "Atom reference stages (Delta-ST response and LibRPA q-averaged postprocessing):",
+        "21818997|lih_atom_fd8|COMPLETED|0:0|00:05:09|1-00:00:00|16",
+        "21819009|lih_atom_lr|COMPLETED|0:0|00:00:05|01:00:00|1",
+        "21819213|lih_atom_fd8|COMPLETED|0:0|00:12:46|1-00:00:00|32",
+        "21819579|lih_atom_lr|COMPLETED|0:0|00:00:06|01:00:00|1",
+        "",
+        "Response stage of the solid endpoint (q1 pilot plus one job per remaining canonical q;",
+        "slowest task = 21820014 at 00:12:26 on 16 nodes):",
+        "21819962|lih_fd8_q|COMPLETED|0:0|00:04:46|1-00:00:00|16",
+        "21819986|lih_fd8_q|COMPLETED|0:0|00:08:04|1-00:00:00|16",
+        "21819987|lih_fd8_q|COMPLETED|0:0|00:06:13|1-00:00:00|16",
+        "21819988|lih_fd8_q|COMPLETED|0:0|00:08:03|1-00:00:00|16",
+        "21819989|lih_fd8_q|COMPLETED|0:0|00:11:02|1-00:00:00|16",
+        "21819990|lih_fd8_q|COMPLETED|0:0|00:07:41|1-00:00:00|16",
+        "21819991|lih_fd8_q|COMPLETED|0:0|00:06:08|1-00:00:00|16",
+        "21819992|lih_fd8_q|COMPLETED|0:0|00:05:46|1-00:00:00|16",
+        "21820013|lih_fd8_q|COMPLETED|0:0|00:08:24|1-00:00:00|16",
+        "21820014|lih_fd8_q|COMPLETED|0:0|00:12:26|1-00:00:00|16",
+        "21820015|lih_fd8_q|COMPLETED|0:0|00:08:15|1-00:00:00|16",
+        "21820019|lih_fd8_q|COMPLETED|0:0|00:07:33|1-00:00:00|16",
+        "21819985|lih_fd8_q|COMPLETED|0:0|00:04:54|1-00:00:00|16",
+        "",
+        "Head/wing input and LibRPA q-averaged postprocessing of the same endpoint:",
+        "21820247|lih_fd8_hw|COMPLETED|0:0|00:00:41|04:00:00|1",
+        "21820324|lih_fd8_lr|COMPLETED|0:0|00:03:11|04:00:00|1",
+        "",
+        "Response layout: 16 nodes per task, 1 MPI rank per node, 30 OpenMP threads per rank",
+        "(16 GreenX frequencies, k-point group count 1), as fixed by the archived production",
+        "input suffix LIH_FD8_Q7 and confirmed by the sacct NNodes column (16 nodes x 30 CPUs",
+        "per node = 480 CPUs).",
+        "",
+    ])
     ecoh = 2.386754008235
     s_e0, s_ec, s_tot = -7.666815824145525, -0.1614310510093, -7.8282468751548251
     li_e0, li_ec, li_tot = -7.045905264733102, -0.08795279727945, -7.133858062012552
@@ -1512,6 +1554,12 @@ def specs() -> list[dict]:
              "src": LIH / "LIH_COHESIVE_RESULT_SUMMARY.txt",
              "label": "LiH cohesive-energy chain result summary (solid, Li atom, H atom)",
              "original_name": "LIH_COHESIVE_RESULT_SUMMARY.txt", "scientific_role": "rpa_run_summary"},
+            {"target": "sacct_elapsed_excerpts.txt", "content": lih_sacct_excerpt,
+             "label": "Slurm sacct elapsed-time excerpts for the accepted LiH rocksalt chain",
+             "original_name": "sacct_elapsed_excerpts.txt",
+             "scientific_role": "slurm_sacct_elapsed_log",
+             "transformation": "verbatim capture of live Slurm sacct output queried on 2026-10-18; "
+                               "assembled into one file without modifying any field"},
         ],
         properties=[
             prop("rpa_cohesive_energy", "RPA cohesive energy", "eV/atom", ecoh,
@@ -1551,12 +1599,13 @@ def specs() -> list[dict]:
                                       "df_dcu; Li atom jobs 21819213/21819579 and H atom jobs "
                                       "21818997/21819009."},
         workflow=SOLID_WORKFLOW,
+        performance={"cluster_label": "df_dcu", "wall_time_seconds": 746, "nodes": 16,
+                     "mpi_ranks": 16, "omp_threads_per_rank": 30,
+                     "evidence": [f"{lihs_root}/logs/sacct_elapsed_excerpts.txt"]},
         missing=[
             "The per-q job outputs and GRID_RESULT_SUMMARY files remain on the production "
             "cluster; the archived campaign result summary carries the accepted chain values and "
             "job identifiers.",
-            "No single-job wall-clock time is mirrored for the accepted chain, so no performance "
-            "block is claimed.",
         ],
     ))
     return records
