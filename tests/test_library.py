@@ -1059,5 +1059,178 @@ libRPA finished successfully
             self.assertNotIn("|| true", text)
 
 
+class ReferencedTierTests(unittest.TestCase):
+    """外部对象存储档：字节离开仓库后，记录保持身份与完整性锚点。"""
+
+    EXTERNAL = "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-control/logs/librpa.out"
+    BACKUP = "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-control/logs/librpa.out"
+
+    @classmethod
+    def setUpClass(cls):
+        script = ROOT / "scripts/library.py"
+        sys.path.insert(0, str(script.parent))
+        spec = importlib.util.spec_from_file_location("library", script)
+        cls.lib = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.lib)
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        payload = self.root / "elements/Si/pseudopotentials/test.upf"
+        payload.parent.mkdir(parents=True)
+        payload.write_bytes(b"scientific payload\n")
+        basis_file = {"path": payload.relative_to(self.root).as_posix(),
+                      "sha256": hashlib.sha256(payload.read_bytes()).hexdigest(), "role": "pp"}
+        self.set = {"id": "Si-test", "element": "Si", "files": [basis_file]}
+        self.case = {"id": "si-control", "dimension": "3d", "material": "Si",
+                     "species": [{"element": "Si", "set_id": "Si-test"}],
+                     "software": {"abacus": {"commit": None}, "librpa": {"commit": None}},
+                     "files": {}, "recommendation": None}
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _referenced_entry(self, **overrides):
+        entry = {"path": "data/calculations/3d/Si/si-control/logs/librpa.out",
+                 "sha256": "a" * 64, "size_bytes": 9000000, "role": "log",
+                 "tier": "referenced", "external_url": self.EXTERNAL,
+                 "external_url_backup": self.BACKUP}
+        entry.update(overrides)
+        return entry
+
+    def test_referenced_log_passes_validation_without_local_bytes(self):
+        self.case["files"] = {"logs": [self._referenced_entry()]}
+        self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_referenced_tier_requires_positive_size(self):
+        self.case["files"] = {"logs": [self._referenced_entry(size_bytes=0)]}
+        with self.assertRaisesRegex(ValueError, "positive integer size_bytes"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_referenced_tier_requires_https_dotted_host(self):
+        for url in ("http://huggingface.co/datasets/x/resolve/main/a",
+                    "https://localhost/datasets/x/resolve/main/a",
+                    "ftp://example.com/a", "https://exa mple.com/a", None, 5):
+            self.case["files"] = {"logs": [self._referenced_entry(external_url=url)]}
+            with self.assertRaisesRegex(ValueError, "https external_url"):
+                self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_referenced_backup_url_must_be_https(self):
+        self.case["files"] = {"logs": [self._referenced_entry(external_url_backup="http://mirror.example/a")]}
+        with self.assertRaisesRegex(ValueError, "external_url_backup"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_unknown_tier_values_are_rejected(self):
+        self.case["files"] = {"logs": [self._referenced_entry(tier="remote")]}
+        with self.assertRaisesRegex(ValueError, "unsupported tier"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_inputs_must_keep_local_bytes(self):
+        entry = self._referenced_entry(
+            path="data/calculations/3d/Si/si-control/inputs/librpa.in")
+        self.case["files"] = {"inputs": [entry]}
+        with self.assertRaisesRegex(ValueError, "only supported for calculation results, logs, and figures"):
+            self.lib.validate(self.root, [self.set], [self.case])
+
+    def test_basis_payloads_must_keep_local_bytes(self):
+        remote = self.root / "remote.abfs"
+        remote.write_bytes(b"external bytes\n")
+        entry = {"path": remote.relative_to(self.root).as_posix(),
+                 "sha256": hashlib.sha256(remote.read_bytes()).hexdigest(), "role": "abf",
+                 "size_bytes": 17, "tier": "referenced", "external_url": self.EXTERNAL}
+        remote.unlink()
+        broken = {"id": "Si-remote", "element": "Si", "files": [entry]}
+        with self.assertRaisesRegex(ValueError, "only supported for calculation results, logs, and figures"):
+            self.lib.validate(self.root, [broken], [self.case])
+
+    def test_referenced_files_cannot_serve_as_local_byte_evidence(self):
+        # validate() 只要求证据路径已声明；completeness 是上传门禁，
+        # 它要求证据字节本地可读，所以 referenced 证据在那里被拒绝。
+        entry = self._referenced_entry()
+        self.case["files"] = {"logs": [entry]}
+        self.case["performance"] = {
+            "cluster_label": "cluster", "wall_time_seconds": 100, "nodes": 1,
+            "mpi_ranks": 1, "omp_threads_per_rank": 1, "evidence": [entry["path"]],
+        }
+        self.lib.validate(self.root, [self.set], [self.case])
+        issues = self.lib.completeness_issues(self.root, [self.set], self.case)
+        self.assertTrue(any("performance.evidence" in issue for issue in issues), issues)
+
+    def test_log_index_accepts_referenced_entries_without_local_bytes(self):
+        from build_indexes import _portable_file
+        entry = self._referenced_entry()
+        self.assertIsNone(_portable_file(self.root, entry, "si-control.files.logs"))
+        local = self.root / "data/calculations/3d/Si/si-control/logs/librpa.out"
+        local.parent.mkdir(parents=True)
+        local.write_bytes(b"local copy still present\n")
+        plain = {"path": entry["path"],
+                 "sha256": hashlib.sha256(local.read_bytes()).hexdigest()}
+        self.assertIsNotNone(_portable_file(self.root, plain, "si-control.files.logs"))
+
+
+class ExternalizeScriptTests(unittest.TestCase):
+    """externalize_files.py 的转换回路：plan → stage → apply → unapply。"""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        self.record_dir = self.root / "data/calculations/3d/Si/si-control"
+        log = self.record_dir / "logs/librpa.out"
+        log.parent.mkdir(parents=True)
+        log.write_bytes(b" LibRPA workflow log " * 50000)
+        digest = hashlib.sha256(log.read_bytes()).hexdigest()
+        self.repo_relative = log.relative_to(self.root).as_posix()
+        self.record_path = self.record_dir / "record.json"
+        self.record = {"id": "si-control", "dimension": "3d", "material": "Si",
+                       "files": {"logs": [{"path": self.repo_relative, "sha256": digest,
+                                            "size_bytes": log.stat().st_size}]}}
+        self.original_bytes = (json.dumps(self.record, ensure_ascii=False, indent=2) + "\n").encode()
+        self.record_path.write_bytes(self.original_bytes)
+        self.script = ROOT / "scripts/externalize_files.py"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _run(self, *arguments):
+        result = subprocess.run([sys.executable, str(self.script), "--root", str(self.root), *arguments],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        return result.stdout
+
+    def test_plan_stage_apply_unapply_round_trip(self):
+        plan_path = self.root / "plan.json"
+        self._run("plan", "--paths", self.repo_relative, "-o", str(plan_path))
+        plan = json.loads(plan_path.read_text())
+        self.assertEqual(len(plan), 1)
+        self.assertEqual(plan[0]["group"], "logs")
+        staging = self.root / "staging"
+        self._run("stage", "--plan", str(plan_path), "--dest", str(staging))
+        staged = staging / self.repo_relative
+        self.assertTrue(staged.is_file())
+        self.assertEqual(hashlib.sha256(staged.read_bytes()).hexdigest(), plan[0]["sha256"])
+        self._run("apply", "--plan", str(plan_path),
+                  "--url-base", "https://huggingface.co/datasets/AroundPeking/LibRPA-database",
+                  "--backup-base", "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database")
+        converted = json.loads(self.record_path.read_text())
+        entry = converted["files"]["logs"][0]
+        self.assertEqual(entry["tier"], "referenced")
+        self.assertEqual(entry["external_url"],
+                         "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative)
+        self.assertEqual(entry["external_url_backup"],
+                         "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative)
+        self.assertEqual(entry["sha256"], plan[0]["sha256"])
+        self._run("unapply", "--paths", self.repo_relative)
+        self.assertEqual(self.record_path.read_bytes(), self.original_bytes)
+
+    def test_apply_rejects_non_https_url_base(self):
+        plan_path = self.root / "plan.json"
+        self._run("plan", "--paths", self.repo_relative, "-o", str(plan_path))
+        result = subprocess.run([sys.executable, str(self.script), "--root", str(self.root), "apply",
+                                 "--plan", str(plan_path), "--url-base", "http://127.0.0.1:8766"],
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("https", result.stderr)
+
+
 if __name__ == "__main__":
     unittest.main()

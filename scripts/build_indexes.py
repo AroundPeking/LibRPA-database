@@ -11,7 +11,7 @@ from pathlib import Path, PurePosixPath
 from library import build_catalog
 
 
-def _portable_file(root: Path, item: dict, label: str) -> Path:
+def _portable_file(root: Path, item: dict, label: str) -> Path | None:
     path_text = item.get("path")
     path = PurePosixPath(path_text) if isinstance(path_text, str) else None
     if path is None or path.is_absolute() or ".." in path.parts:
@@ -21,6 +21,10 @@ def _portable_file(root: Path, item: dict, label: str) -> Path:
         full.relative_to(root.resolve())
     except ValueError as exc:
         raise ValueError(f"{label}: path escapes repository") from exc
+    if item.get("tier") == "referenced":
+        # 字节在外部对象存储：sha256 已由 library.py 的记录校验约束格式，
+        # 由上传/verify 流程逐字节核对；本地索引只登记所有权与路径。
+        return None
     if not full.is_file():
         raise ValueError(f"{label}: referenced log is missing")
     digest = hashlib.sha256(full.read_bytes()).hexdigest()
@@ -53,6 +57,7 @@ def build_log_index(root: Path, cases: list[dict]) -> dict:
                 "path": path,
                 "sha256": item["sha256"],
                 "label": item.get("label") or PurePosixPath(path).name,
+                **({"tier": "referenced"} if item.get("tier") == "referenced" else {}),
             })
 
     logs_root = root / "data/calculations"

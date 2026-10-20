@@ -245,6 +245,31 @@ class SiteBuildTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIsNone(json.loads((self.output / "build-info.json").read_text())["source_commit"])
 
+    def test_referenced_tier_payloads_stay_out_of_the_publish_tree(self):
+        url = "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-test/logs/run.log"
+        entry = dict(self.case["files"]["logs"][0], tier="referenced", external_url=url,
+                     external_url_backup="https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-test/logs/run.log",
+                     size_bytes=16)
+        self.case["files"]["logs"] = [entry]
+        self.case["properties"] = [{"key": "band_gap", "category": "electronic", "label": "Gap",
+                                    "method": "GW", "unit": "eV", "status": "reported",
+                                    "value": 1.0, "evidence": [entry["path"]]}]
+        self.sync_catalog()
+        self.write_json("data/calculations/3d/Si/si-test/record.json", self.case)
+        self.write_json("data/log-index.json", {"entries": [dict(entry, calculation_id="si-test")]})
+        SITE.build_site(self.root, self.output, "c" * 40)
+        self.assertFalse((self.output / entry["path"]).exists())
+        self.assertTrue((self.output / "database/data.json").exists())
+
+    def test_referenced_tier_requires_https_direct_url(self):
+        entry = dict(self.case["files"]["logs"][0], tier="referenced",
+                     external_url="http://127.0.0.1:8766/data/calculations/3d/Si/si-test/logs/run.log",
+                     size_bytes=16)
+        self.case["files"]["logs"] = [entry]
+        self.sync_catalog()
+        with self.assertRaisesRegex(ValueError, "https"):
+            SITE.build_site(self.root, self.output, "d" * 40)
+
 
 if __name__ == "__main__":
     unittest.main()

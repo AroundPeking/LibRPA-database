@@ -58,6 +58,20 @@ class IndexBuilderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "not indexed"):
             self.builder.build_log_index(self.root, [self.case])
 
+    def test_referenced_logs_are_indexed_without_local_bytes(self):
+        (self.root / self.log_path).unlink()
+        remote = dict(self.log, tier="referenced",
+                      external_url="https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.log_path)
+        case = {"id": "si-control", "files": {"logs": [remote]}}
+        result = self.builder.build_log_index(self.root, [case])
+        self.assertEqual(result["entries"], [{
+            "calculation_id": "si-control",
+            "path": self.log_path,
+            "sha256": remote["sha256"],
+            "label": "librpa.out",
+            "tier": "referenced",
+        }])
+
 
 if __name__ == "__main__":
     unittest.main()

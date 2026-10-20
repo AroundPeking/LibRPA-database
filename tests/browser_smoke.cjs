@@ -672,6 +672,54 @@ async function main() {
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "unknown ID handled");
     await go("#/material/%E0%A4%A");
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "malformed URL handled");
+    const referencedFiles = calculations.flatMap(record =>
+      ["results", "logs", "figures"].flatMap(group => (record.files?.[group] || [])
+        .filter(file => file.tier === "referenced")
+        .map(file => ({ record, group, file }))));
+    const externalFixtures = process.env.EXTERNAL_FIXTURE_DIR;
+    if (referencedFiles.length) {
+      await page.setViewportSize({ width: 1440, height: 1050 });
+    }
+    if (referencedFiles.length && externalFixtures) {
+      // Rehearsal stand-in for the external object store: fulfill dataset
+      // resolve URLs from a local fixture tree keyed by repository path.
+      await context.route(/https:\/\/[^/]+\/datasets\/[^/]+\/[^/]+\/resolve\/main\//, async route => {
+        const url = new URL(route.request().url());
+        const repoRelative = decodeURIComponent(url.pathname.split("/resolve/main/")[1] || "");
+        const local = path.join(externalFixtures, repoRelative);
+        try {
+          await route.fulfill({ status: 200, body: fs.readFileSync(local),
+            headers: { "content-type": "application/octet-stream", "access-control-allow-origin": "*" } });
+        } catch {
+          await route.abort();
+        }
+      });
+    }
+    for (const { record, group, file } of referencedFiles.slice(0, 3)) {
+      await go(`#/material/${encodeURIComponent(record.id)}`);
+      const section = group === "logs" ? "record-evidence" : group === "figures" ? "record-bands" : "record-results";
+      await page.locator(`.section-nav [data-section='${section}']`).click();
+      await page.waitForSelector(`#${section} .file-row`);
+      const row = page.locator(`#${section} .file-row`)
+        .filter({ has: page.locator(`a.download-link[href="${file.external_url}"]`) })
+        .first();
+      check(await row.count() === 1, `${record.id}：referenced 文件行按外部直链定位`);
+      check((await row.innerText()).includes("External archive"), `${record.id}：外部档案标注可见`);
+      const downloadHref = await row.locator("a.download-link").first().getAttribute("href");
+      check(downloadHref === file.external_url, `${record.id}：下载直链指向外部存储`);
+      if (file.external_url_backup) {
+        check(await row.locator("a.mirror-link").count() === 1
+          && (await row.locator("a.mirror-link").getAttribute("href")) === file.external_url_backup, `${record.id}：备用镜像直链渲染`);
+      }
+      check(!/\.\.\/data\//.test(await row.locator("a.download-link").first().getAttribute("href") || ""), `${record.id}：不再回退到本地 Pages 路径`);
+      if (externalFixtures && /\.(?:out|log|txt|dat)$/i.test(file.path)) {
+        await row.getByRole("button", { name: "View", exact: true }).click();
+        await page.waitForFunction(() => (document.querySelector("#file-preview pre")?.textContent || "").length > 0, null, { timeout: 15000 });
+        check(await page.locator("#file-preview").isVisible(), `${record.id}：外部文件预览对话框打开`);
+        check((await page.locator("#file-preview .preview-path").innerText()).includes(file.path), `${record.id}：预览保留仓库路径身份`);
+        await page.keyboard.press("Escape");
+      }
+    }
     const failure = await context.newPage();
     failure.on("pageerror", error => errors.push(error.message));
     await failure.route("**/data.json", route => route.fulfill({ status: 503, body: "Unavailable" }));
@@ -679,7 +727,7 @@ async function main() {
     await failure.waitForSelector("#load-error:not([hidden])");
     check((await failure.locator("#load-error").innerText()).includes("503"), "catalog network errors shown honestly");
     check(errors.length === 0, `browser errors: ${errors.join("; ")}`);
-    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputs.length, radial_files_verified: radialFilesVerified, radial_channels_verified: radialChannelsVerified, browser_errors: errors }, null, 2));
+    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputs.length, radial_files_verified: radialFilesVerified, radial_channels_verified: radialChannelsVerified, referenced_files_verified: referencedFiles.length, browser_errors: errors }, null, 2));
   } finally {
     await browser.close();
   }

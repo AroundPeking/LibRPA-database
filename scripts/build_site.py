@@ -128,11 +128,12 @@ def json_references(value):
     if isinstance(value, dict):
         for key, nested in value.items():
             if key == "path":
-                yield nested, value.get("sha256")
+                # referenced 档：path 仅为身份标识，字节在外部对象存储。
+                yield nested, value.get("sha256"), value.get("tier") == "referenced"
             elif key == "evidence" and isinstance(nested, list):
                 for entry in nested:
                     if isinstance(entry, str):
-                        yield entry, None
+                        yield entry, None, False
             yield from json_references(nested)
     elif isinstance(value, list):
         for nested in value:
@@ -143,6 +144,9 @@ def collect_files(root: Path) -> dict[str, str | None]:
     """先完整验证发布依赖，返回相对路径及可用的原始SHA-256。"""
     files = {}
     metadata = []
+    # referenced 档字节在外部对象存储；这些路径不进入发布树，
+    # 元数据引用（含纯路径形式的 evidence 清单）一律放行。
+    referenced_paths = set()
 
     def add(relative, digest=None):
         relative = repository_path(relative).as_posix()
@@ -190,6 +194,19 @@ def collect_files(root: Path) -> dict[str, str | None]:
                 relative = repository_path(entry["path"])
                 if relative.parts[:2] not in {("data", "elements"), ("data", "calculations")}:
                     raise ValueError(f"catalog 文件必须位于 data/elements 或 data/calculations: {relative}")
+                if entry.get("tier") == "referenced":
+                    # referenced 档字节存放在外部对象存储，不进入 Pages 发布树；
+                    # 发布门禁只允许 https 直链离开仓库。
+                    url = entry.get("external_url")
+                    if not isinstance(url, str) or not url.startswith("https://") or any(ch.isspace() for ch in url):
+                        raise ValueError(f"referenced 档必须是 https 直链: {relative}")
+                    backup = entry.get("external_url_backup")
+                    if backup is not None and (not isinstance(backup, str) or not backup.startswith("https://") or any(ch.isspace() for ch in backup)):
+                        raise ValueError(f"referenced 档备用直链必须是 https: {relative}")
+                    referenced_paths.add(relative.as_posix())
+                    continue
+                if entry.get("tier") is not None:
+                    raise ValueError(f"不支持的存储档: {relative}")
                 add(relative.as_posix(), entry.get("sha256"))
             if key == "basis_sets":
                 parts = ("data", "elements", item["element"], "sets", item["id"], "set.json")
@@ -214,7 +231,9 @@ def collect_files(root: Path) -> dict[str, str | None]:
             if path.suffix.lower() == ".json":
                 value = load_json(root, relative)
                 metadata.append(value)
-                for target, digest in json_references(value):
+                for target, digest, referenced in json_references(value):
+                    if referenced:
+                        continue
                     target_path = repository_path(target)
                     if (target_path.parts[0] in STATIC_DIRS
                             and target_path.suffix.lower() in ASSET_SUFFIXES):
@@ -237,8 +256,15 @@ def collect_files(root: Path) -> dict[str, str | None]:
                     raise ValueError(f"引用未发布的文件: {relative}: {target}")
 
     for value in metadata:
-        for relative, digest in json_references(value):
+        for relative, digest, referenced in json_references(value):
+            if referenced:
+                # 外部存储直链字节不进入发布树，路径只作为身份登记。
+                continue
             relative = repository_path(relative).as_posix()
+            if relative in referenced_paths:
+                # 属性/性能 evidence 以纯路径引用 referenced 档时同样放行；
+                # 前端经 files 索引解析为外部直链。
+                continue
             if relative not in files:
                 raise ValueError(f"JSON 引用未发布的文件: {relative}")
             add(relative, digest)

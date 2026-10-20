@@ -9,6 +9,35 @@ export function publicPath(path) {
   return "../" + parts.map(encodeURIComponent).join("/");
 }
 
+// Referenced-tier files keep their repository path as identity but serve
+// bytes from an external object store; the validator only admits https URLs,
+// so an external_url that survives validation is safe to link directly.
+const HTTPS_URL = /^https:\/\/[^\s]+$/;
+export function fileUrl(file) {
+  if (file && typeof file.external_url === "string" && HTTPS_URL.test(file.external_url)) return file.external_url;
+  return publicPath(file?.path);
+}
+
+export function fileMirrorUrl(file) {
+  return file && typeof file.external_url_backup === "string" && HTTPS_URL.test(file.external_url_backup) ? file.external_url_backup : null;
+}
+
+export function isExternalFile(file) {
+  return fileUrl(file) !== publicPath(file?.path);
+}
+
+// Path-keyed lookup across every record-owned file group, so plain path
+// references (property evidence) can resolve the referenced-tier entry.
+export function filesByPath(record) {
+  const index = new Map();
+  for (const group of ["inputs", "results", "logs", "figures"]) {
+    for (const file of Array.isArray(record?.files?.[group]) ? record.files[group] : []) {
+      if (typeof file?.path === "string") index.set(file.path, file);
+    }
+  }
+  return index;
+}
+
 export function safeFilename(name) {
   return typeof name === "string" && name === name.trim() && name && !/[\\/<>:"|?*\u0000-\u001f\u007f]/.test(name) && !name.includes("..") ? name : null;
 }

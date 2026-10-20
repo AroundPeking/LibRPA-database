@@ -234,6 +234,7 @@ main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0;
 .file-actions .text-button { font-size: 12px; }
 .file-actions a { display: inline-flex; align-items: center; min-height: 44px; }
 .file-actions .download-link { color: var(--accent); }
+.file-actions .mirror-link { color: var(--subtle); }
 .file-integrity { margin-top: 7px; color: var(--subtle); font-size: 12px; }
 .file-integrity > summary { min-height: 44px; padding: 12px 0; list-style-position: inside; }
 .file-integrity code { display: block; padding: 7px 8px; margin: 6px 0; font-size: 12px; line-height: 1.7; background: var(--bg); color: var(--muted); border-radius: 3px; }
@@ -667,6 +668,7 @@ body.cover-mode .site-footer{display:none}
 .file-actions{gap:18px;font-size:13px}
 .file-actions .text-button{font-size:13px}
 .file-actions .download-link{color:var(--teal-deep)}
+.file-actions .mirror-link{color:var(--text-faint)}
 .file-integrity{color:var(--text-faint)}
 .file-integrity code{background:var(--tint);border:1px solid var(--line);color:var(--text-body);border-radius:6px;font-size:12px}
 .binding-heading h3{font-size:18px;font-weight:650;color:var(--text-strong)}

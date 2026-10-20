@@ -1,4 +1,4 @@
-import { esc, publicPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, methodTag, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
+import { esc, publicPath, fileUrl, filesByPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, methodTag, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
 import { renderFiles } from "./files.mjs";
 import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs, getPropertyCategories } from "./properties.mjs";
@@ -47,7 +47,7 @@ const jump = (id, title) => `<button type="button" data-section="${id}">${title}
 const chips = methods => methods.map(methodTag).join("");
 const formatField = value => esc(typeof value === "object" ? JSON.stringify(value) : value ?? "—");
 const figureGrid = files => `<div class="figure-grid">${files.map(file => {
-  const url = publicPath(file.path);
+  const url = fileUrl(file);
   if (!url) return '<div class="notice warning">Figure link unavailable.</div>';
   return `<figure><a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="${esc(url)}" alt="${esc(fileName(file))}"></a><figcaption><span>${esc(fileName(file))}</span><a href="${esc(url)}" download="${esc(downloadName(file))}">Download figure ↓</a></figcaption></figure>`;
 }).join("")}</div>`;
@@ -157,7 +157,8 @@ export function renderMaterial(record, sets, allRecords = []) {
   const performance = performanceSummary(record);
   const scaleHtml = `<p class="section-intro">Recorded system size and execution resources for this immutable run.</p><div class="metric-grid"><div><span>Atoms</span><strong>${esc(atomCount(record) ?? "—")}</strong></div><div><span>Atomic orbitals</span><strong>${esc(record.computational_scale?.ao_count ?? "—")}</strong></div>${performance.map(item => `<div><span>${esc(item.label)}</span><strong>${esc(item.value)}</strong></div>`).join("")}</div>${record.auxiliary_basis?.mode === "pca_generated" ? `<p class="definition-note"><strong>Auxiliary basis</strong> Generated from NAO products by PCA with threshold ${esc(record.auxiliary_basis.threshold)}. No explicit .abfs payload is claimed for this run.</p>` : ""}`;
   const propertyDefault = getPropertyCategories(visibleProperties).find(category => visibleProperties.some(property => property?.category === category.slug))?.slug ?? "electronic";
-  const propsHtml = `<p class="section-intro">Evidence-linked properties. Empty categories are available for future contributions, not zero-valued results.</p><div class="property-tabs" role="tablist" aria-label="Property categories">${renderPropertyTabs(visibleProperties, propertyDefault)}</div><div class="property-panel" id="property-panel" role="tabpanel" tabindex="0" aria-labelledby="property-tab-${esc(propertyDefault)}">${renderPropertyPanel(visibleProperties, propertyDefault)}</div>`;
+  const propertyFiles = filesByPath(record);
+  const propsHtml = `<p class="section-intro">Evidence-linked properties. Empty categories are available for future contributions, not zero-valued results.</p><div class="property-tabs" role="tablist" aria-label="Property categories">${renderPropertyTabs(visibleProperties, propertyDefault)}</div><div class="property-panel" id="property-panel" role="tabpanel" tabindex="0" aria-labelledby="property-tab-${esc(propertyDefault)}">${renderPropertyPanel(visibleProperties, propertyDefault, propertyFiles)}</div>`;
   const partialInputNotice = record.source?.stage_input_receipt ? `<div class="notice"><strong>Stage-resolved calculation inputs</strong><p>Controls are organized by their original calculation stage. File transformations are recorded in the accompanying receipt.</p><a href="${esc(publicPath(record.source.stage_input_receipt))}" target="_blank" rel="noopener">View stage-input receipt ↗</a>${record.source.producer_assets_receipt ? `<p>PP/NAO/ABF names are documented separately from the original STRU and producer manifests.</p><a href="${esc(publicPath(record.source.producer_assets_receipt))}" target="_blank" rel="noopener">View producer-assets receipt ↗</a>` : ""}</div>` : "";
   const inputsHtml = inputs.length ? `${partialInputNotice}<div class="notice"><strong>${inputs.length} calculation input files</strong><p>These files belong to <code>${esc(record.id)}</code>. Associated PP / NAO / auxiliary data are linked in the Basis section.</p></div>${renderFiles(inputs, { input: true })}` : '<div class="notice"><strong>Calculation results</strong><p>Numerical results and provenance are available in the other sections of this record.</p></div>';
   const evidenceHtml = `<p class="section-intro">Software and calculation logs associated with this record.</p><div class="software-grid">${softwareInfo(record)}</div><h3 class="subheading">Logs</h3>${renderFiles(logs)}`;
@@ -205,7 +206,7 @@ export function installDetailActions(view, getRecord) {
     const panel = view.querySelector("#property-panel");
     view.querySelectorAll(".property-tab").forEach(button => { button.setAttribute("aria-selected", String(button === tab)); button.tabIndex = button === tab ? 0 : -1; });
     panel.setAttribute("aria-labelledby", tab.id);
-    panel.innerHTML = renderPropertyPanel(getRecord()?.properties || [], tab.dataset.category);
+    panel.innerHTML = renderPropertyPanel(getRecord()?.properties || [], tab.dataset.category, filesByPath(getRecord()));
   }
   view.addEventListener("keydown", event => {
     if (!event.target.closest(".property-tab") || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;

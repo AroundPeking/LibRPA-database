@@ -23,6 +23,12 @@ PRIVATE_PATH = re.compile(
 PROPERTY_CATEGORY = re.compile(r"^[a-z][a-z0-9_]*$")
 PROPERTY_STATUSES = {"reported", "validated", "provisional", "failed"}
 RECORD_TYPES = {"band", "large_system_gw", "rpa_energy", "reader_conversion"}
+# 外部存储直链必须是 https，主机名含点（排除裸 localhost），且不含空白或控制字符。
+EXTERNAL_URL = re.compile(
+    r"^https://[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?"
+    r"(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])*)+"
+    r"(?::[0-9]{1,5})?(?:/[^\s#]*)?(?:\?[^\s#]*)?(?:#[^\s]*)?$"
+)
 SOFTWARE_NAMES = {"abacus", "fhi_aims", "librpa"}
 SOFTWARE_IDENTITY_ISSUE = re.compile(
     r"^software\.(abacus|fhi_aims|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
@@ -34,11 +40,42 @@ def _fail(message: str) -> None:
     raise ValueError(message)
 
 
-def _file(root: Path, item: dict, label: str) -> None:
+def _validate_referenced(item: dict, label: str) -> None:
+    """referenced 档：字节存放在外部对象存储，仓库只保留身份与直链。
+
+    完整性锚点是声明的 sha256/size_bytes：上传脚本在上传前逐字节核对，
+    verify 子命令在上线门禁前对外部字节再次核对；本验证器只负责约束
+    直链格式，避免把不可达或非 https 的地址写进公共记录。
+    """
+    size = item.get("size_bytes")
+    if isinstance(size, bool) or not isinstance(size, int) or size <= 0:
+        _fail(f"{label}: referenced tier requires a positive integer size_bytes")
+    url = item.get("external_url")
+    if not isinstance(url, str) or not EXTERNAL_URL.fullmatch(url):
+        _fail(f"{label}: referenced tier requires an https external_url with a dotted host")
+    backup = item.get("external_url_backup")
+    if backup is not None and (not isinstance(backup, str) or not EXTERNAL_URL.fullmatch(backup)):
+        _fail(f"{label}: external_url_backup must be an https URL with a dotted host")
+
+
+def _file(root: Path, item: dict, label: str, *, allow_referenced: bool = False) -> None:
     path_text = item.get("path")
     path = PurePosixPath(path_text) if isinstance(path_text, str) else None
     if path is None or path.is_absolute() or ".." in path.parts:
         _fail(f"{label}: expected a portable repository path")
+    digest = item.get("sha256")
+    if not isinstance(digest, str) or not SHA256.fullmatch(digest):
+        _fail(f"{label}: expected lowercase SHA-256")
+    tier = item.get("tier")
+    if tier is not None and tier != "referenced":
+        _fail(f"{label}: unsupported tier {tier!r}")
+    if tier == "referenced":
+        # 结构输入、基组载荷和物种绑定必须保持本地可读字节；
+        # 仅计算记录自有的 results/logs/figures 文件可外部化。
+        if not allow_referenced:
+            _fail(f"{label}: the referenced tier is only supported for calculation results, logs, and figures")
+        _validate_referenced(item, label)
+        return
     full = root.joinpath(*path.parts).resolve()
     try:
         full.relative_to(root.resolve())
@@ -46,9 +83,6 @@ def _file(root: Path, item: dict, label: str) -> None:
         _fail(f"{label}: file is missing or escapes the repository")
     if not full.is_file():
         _fail(f"{label}: file is missing or escapes the repository")
-    digest = item.get("sha256")
-    if not isinstance(digest, str) or not SHA256.fullmatch(digest):
-        _fail(f"{label}: expected lowercase SHA-256")
     with full.open("rb") as stream:
         actual = hashlib.file_digest(stream, "sha256").hexdigest()
     if digest != actual:
@@ -398,7 +432,8 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
             if not isinstance(values, list):
                 _fail(f"{label}: files.{group} must be a list")
             for n, file_item in enumerate(values):
-                _file(root, file_item, f"{label}.files.{group}[{n}]")
+                _file(root, file_item, f"{label}.files.{group}[{n}]",
+                      allow_referenced=group != "inputs")
                 declared_paths.add(file_item["path"])
 
         _validate_workflow_contract(case, label, declared_paths)
@@ -825,6 +860,7 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
     owned = {}
     case_directory = root / prefix
     evidence_paths = set()
+    referenced_paths = set()
     for group in sorted(GROUPS):
         owned[group] = []
         for item in groups.get(group, []):
@@ -834,11 +870,18 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                 issues.append(f"files.{group}: {path} must belong to the same calculation directory")
                 continue
             try:
-                _file(root, item, f"files.{group}: {path}")
+                _file(root, item, f"files.{group}: {path}",
+                      allow_referenced=group != "inputs")
             except ValueError as exc:
                 issues.append(str(exc))
                 continue
             owned[group].append(item)
+            if item.get("tier") == "referenced":
+                # 能带图的 source_paths 溯源允许引用 referenced 档：字节有
+                # 声明 SHA-256 锚点且外部可下载复核，推导关系保持可验证。
+                referenced_paths.add(path)
+            # referenced 档的字节不在仓库内，不能充当需要本地核对的
+            # performance/auxiliary/属性证据；这类证据必须保持本地归档。
             if _payload_bytes(root, item, 1):
                 evidence_paths.add(path)
 
@@ -1150,7 +1193,8 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
         if not methods:
             issues.append("results: at least one actual KS/PBE/DFT, EXX, or GW band result is required")
         band_paths = set().union(*methods.values()) if methods else set()
-        if not any(_band_figure(_payload_bytes(root, item), item, band_paths, evidence_paths)
+        if not any(_band_figure(_payload_bytes(root, item), item, band_paths,
+                                evidence_paths | referenced_paths)
                    for item in owned["figures"]):
             issues.append("figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required")
 

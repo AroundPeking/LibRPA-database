@@ -1,7 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileName, downloadName, setRelation, methodNames, methodTag, socTag, spinPolTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
+import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileUrl, fileMirrorUrl, filesByPath, fileName, downloadName, setRelation, methodNames, methodTag, socTag, spinPolTag, inputStage, recordType, atomCount, primaryResult, performanceSummary, workflowFrontend, frontendLabel, structureFingerprint, sameStructureRecords, crossFrontendRecords } from "../database/records.mjs";
 import { renderFiles } from "../database/files.mjs";
+import { renderPropertyPanel } from "../database/properties.mjs";
 import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
 import { readFileSync } from "node:fs";
@@ -452,6 +453,39 @@ test("file rows expose view/download and label unknown originals without interna
   assert.doesNotMatch(html, /abc123/);
   assert.doesNotMatch(html, />payload</);
   assert.match(renderFiles([{ path: "data/<script>bad</script>.orb" }]), /&lt;script&gt;/);
+});
+
+test("referenced-tier file rows link the external archive with a mirror and keep the path as identity", () => {
+  const external = "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out";
+  const mirror = "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out";
+  const html = renderFiles([{ path: "data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out", sha256: "f".repeat(64), size_bytes: 10300000, tier: "referenced", external_url: external, external_url_backup: mirror, label: "aims.out", scientific_role: "aims_run_log" }]);
+  assert.match(html, new RegExp(`href="${external.replace(/\?/g, "\\\\?")}"`));
+  assert.match(html, new RegExp(`href="${mirror.replace(/\?/g, "\\\\?")}"`));
+  assert.match(html, /Mirror/);
+  assert.match(html, /External archive/);
+  assert.equal((html.match(/download-link/g) || []).length, 2);
+  assert.doesNotMatch(html, /\.\.\/data\/calculations/);
+  const view = html.match(/data-preview-url="([^"]+)"/);
+  assert.equal(view?.[1], external);
+  assert.match(html, /data-preview="data\/calculations\/3d\/CdS\/cds-jctc-aims-gw\/logs\/aims\.out"/);
+});
+
+test("fileUrl prefers https external URLs and falls back to the repository path", () => {
+  assert.equal(fileUrl({ path: "data/a.orb", external_url: "https://huggingface.co/datasets/x/resolve/main/data/a.orb" }), "https://huggingface.co/datasets/x/resolve/main/data/a.orb");
+  assert.equal(fileUrl({ path: "data/a.orb" }), "../data/a.orb");
+  assert.equal(fileUrl({ path: "data/a.orb", external_url: "http://insecure.example/a.orb" }), "../data/a.orb");
+  assert.equal(fileMirrorUrl({ external_url_backup: "https://hf-mirror.com/datasets/x/resolve/main/data/a.orb" }), "https://hf-mirror.com/datasets/x/resolve/main/data/a.orb");
+  assert.equal(fileMirrorUrl({}), null);
+});
+
+test("property evidence resolves referenced-tier entries through the record files index", () => {
+  const path = "data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out";
+  const external = "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out";
+  const record = { properties: [{ category: "electronic", key: "gap", label: "Gap", method: "GW", unit: "eV", status: "reported", value: 1, evidence: [path] }], files: { logs: [{ path, tier: "referenced", external_url: external, sha256: "a".repeat(64), size_bytes: 10 }] } };
+  const html = renderPropertyPanel(record.properties, "electronic", filesByPath(record));
+  assert.match(html, new RegExp(`href="${external.replace(/\?/g, "\\\\?")}"`));
+  assert.doesNotMatch(html, /\.\.\/data\/calculations/);
+  assert.match(renderPropertyPanel(record.properties, "electronic", filesByPath(record)), /aims\.out/);
 });
 
 test("nested input archive names retain stage labels", () => {

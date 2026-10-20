@@ -1,4 +1,4 @@
-import { publicPath } from "./records.mjs";
+import { publicPath, fileUrl } from "./records.mjs";
 
 const initialCategories = [
   { slug: "electronic", label: "Electronic structure" },
@@ -26,11 +26,14 @@ function displayValue(value) {
   return result === undefined ? "—" : result;
 }
 
-function evidenceLinks(evidence) {
+// Evidence entries are plain repository paths; when the referenced file
+// lives in the external archive, the record's files index supplies the
+// direct URL so the link keeps resolving after the bytes leave Pages.
+function evidenceLinks(evidence, filesIndex) {
   return (evidence || []).map(path => {
     const file = String(path);
     const name = file.split("/").at(-1);
-    const url = publicPath(file);
+    const url = fileUrl(filesIndex?.get(file)) ?? publicPath(file);
     return url ? `<a href="${escapeHtml(url)}" title="${escapeHtml(file)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>` : '<span class="muted">Evidence link unavailable</span>';
   }).join(", ") || '<span class="muted">—</span>';
 }
@@ -53,7 +56,7 @@ export function renderPropertyTabs(properties = [], selectedCategory = "electron
   }).join("");
 }
 
-export function renderPropertyPanel(properties = [], selectedCategory = "electronic") {
+export function renderPropertyPanel(properties = [], selectedCategory = "electronic", filesIndex = new Map()) {
   const rows = properties.filter(property => property?.category === selectedCategory && property.status !== "failed");
   if (!rows.length) {
     return '<div class="property-empty"><p>No values recorded</p><a href="../CONTRIBUTING.md">Contribute a property</a></div>';
@@ -61,6 +64,6 @@ export function renderPropertyPanel(properties = [], selectedCategory = "electro
   return `<div class="property-table-wrap"><table class="property-table"><thead><tr><th>Property</th><th>Method</th><th>Value</th><th>Evidence</th></tr></thead><tbody>${rows.map(property => {
     const definition = property.definition ? `<span class="property-definition">${escapeHtml(property.definition)}</span>` : "";
     const value = displayValue(property.value);
-    return `<tr><th scope="row"><span>${escapeHtml(property.label)}</span>${definition}</th><td>${escapeHtml(property.method)}</td><td><span class="property-value">${escapeHtml(value)}</span>${property.unit ? `<span class="property-unit">${escapeHtml(property.unit)}</span>` : ""}</td><td class="property-evidence">${evidenceLinks(property.evidence)}</td></tr>`;
+    return `<tr><th scope="row"><span>${escapeHtml(property.label)}</span>${definition}</th><td>${escapeHtml(property.method)}</td><td><span class="property-value">${escapeHtml(value)}</span>${property.unit ? `<span class="property-unit">${escapeHtml(property.unit)}</span>` : ""}</td><td class="property-evidence">${evidenceLinks(property.evidence, filesIndex)}</td></tr>`;
   }).join("")}</tbody></table></div>`;
 }

@@ -145,6 +145,26 @@ cover the same material with the other frontend but a different structure
 reference points instead, and are never presented as identical-structure
 comparisons.
 
+### Referenced storage tier
+
+Files that are too large for GitHub Pages can move to an external object
+store while the record keeps the repository path as identity. Such a
+`files.results` / `files.logs` / `files.figures` entry carries
+`tier: "referenced"`, a positive `size_bytes`, and direct `external_url` /
+`external_url_backup` links (both must be `https`). The declared `sha256`
+and byte size remain the integrity anchor: the upload tooling verifies the
+bytes before upload, and `scripts/externalize_files.py verify` re-downloads
+and re-checks every URL before local copies may be removed. Calculation
+inputs, basis-set payloads, and species bindings always keep local bytes —
+structure identity and basis readability are validated from the repository
+itself — and `performance`/`auxiliary_basis`/property evidence that the
+completeness gate must read locally cannot point at a referenced file. Band
+figures may cite a referenced file in `source_paths`: the derivation stays
+verifiable through the declared hash and the public link. The published
+site renders referenced rows with an explicit external-archive note, a
+primary download link, and a mirror link; text previews stream the first
+64 KB from the external store.
+
 ## Extensible calculated properties
 
 Put each result that should be searchable and displayed on a material detail
