@@ -720,6 +720,48 @@ async function main() {
         await page.keyboard.press("Escape");
       }
     }
+    // The mainland-without-VPN case: the primary archive is unreachable and
+    // the preview must fall back to the mirror instead of failing. The mirror
+    // itself is fulfilled with the real bytes because this test host reaches
+    // hf-mirror through a tunnel, where the mirror answers with a redirect
+    // that browsers cannot read cross-origin.
+    const offlineTarget = referencedFiles.find(item => item.file.external_url_backup && /\.(?:out|log|txt)$/i.test(item.file.path));
+    if (process.env.LIVE_EXTERNAL && !externalFixtures && offlineTarget) {
+      // Fetch a small head of the real file through the page because the
+      // API request context does not inherit the system proxy on this host.
+      const mirrorB64 = await page.evaluate(async url => {
+        const response = await fetch(url, { headers: { range: "bytes=0-131071" }, referrerPolicy: "no-referrer" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        let text = "";
+        for (let offset = 0; offset < bytes.length; offset += 8192) {
+          text += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+        }
+        return btoa(text);
+      }, offlineTarget.file.external_url);
+      const mirrorBytes = Buffer.from(mirrorB64, "base64");
+      const offline = await browser.newContext({ viewport: { width: 1440, height: 1050 }, colorScheme: "dark" });
+      await offline.route(/https:\/\/huggingface\.co\//, route => route.abort());
+      await offline.route(offlineTarget.file.external_url_backup, route => route.fulfill({
+        status: 200, body: mirrorBytes,
+        headers: { "access-control-allow-origin": "*", "content-type": "application/octet-stream" },
+      }));
+      const offPage = await offline.newPage();
+      offPage.on("pageerror", error => errors.push(error.message));
+      await offPage.goto(base.href + `#/material/${encodeURIComponent(offlineTarget.record.id)}`, { waitUntil: "domcontentloaded" });
+      await offPage.waitForSelector(".section-nav [data-section='record-evidence']", { timeout: 60000 });
+      await offPage.locator(".section-nav [data-section='record-evidence']").click();
+      await offPage.waitForSelector("#record-evidence .file-row");
+      const offRow = offPage.locator("#record-evidence .file-row")
+        .filter({ has: offPage.locator(`a.download-link[href="${offlineTarget.file.external_url}"]`) }).first();
+      await offRow.getByRole("button", { name: "View", exact: true }).click();
+      await offPage.waitForFunction(() => (document.querySelector("#file-preview pre")?.textContent || "").length > 100, null, { timeout: 60000 });
+      check((await offPage.locator("#file-preview .preview-status").innerText()).includes("mirror archive"),
+        `${offlineTarget.record.id}：主站不可达时预览自动回退镜像`);
+      check(await offPage.locator("#file-preview .preview-download").getAttribute("href") === offlineTarget.file.external_url_backup,
+        `${offlineTarget.record.id}：回退后预览下载按钮指向镜像`);
+      await offline.close();
+    }
     const failure = await context.newPage();
     failure.on("pageerror", error => errors.push(error.message));
     await failure.route("**/data.json", route => route.fulfill({ status: 503, body: "Unavailable" }));

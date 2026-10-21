@@ -163,7 +163,11 @@ figures may cite a referenced file in `source_paths`: the derivation stays
 verifiable through the declared hash and the public link. The published
 site renders referenced rows with an explicit external-archive note, a
 primary download link, and a mirror link; text previews stream the first
-64 KB from the external store.
+64 KB from the external store. When the primary archive is unreachable
+(for example on networks that cannot route to it), the preview retries
+through the mirror and says so. External links and preview requests are
+sent without a Referer: the mirror answers referrer-bearing requests
+with an anti-hotlink HTML page instead of the file.
 
 ## Extensible calculated properties
 

@@ -15,18 +15,40 @@ export function renderFiles(files, { input = false } = {}) {
       <div class="file-info"><strong>${esc(fileName(file))}</strong><span>${esc(input ? inputStage(file) : roleNames[file.role] || file.role || "Data file")} <span aria-hidden="true">·</span> ${esc(sizeLabel(file.size_bytes))}</span>
       ${alias ? '<span class="name-note">Descriptive filename</span>' : file.name_source === "calculation_alias" ? '<span class="name-note">Calculation filename</span>' : ""}${external ? '<span class="name-note">External archive · integrity by SHA-256</span>' : ""}
       </div>
-      <div class="file-actions">${previewable(file.path) ? `<button type="button" class="text-button" data-preview="${esc(file.path)}" data-preview-url="${esc(url)}" data-name="${esc(fileName(file))}" data-download="${esc(downloadName(file))}">View</button>` : `<a href="${esc(url)}" target="_blank" rel="noopener">Open</a>`}<a class="download-link" href="${esc(url)}" download="${esc(downloadName(file))}">Download <span aria-hidden="true">↓</span></a>${mirror ? `<a class="download-link mirror-link" href="${esc(mirror)}" download="${esc(downloadName(file))}">Mirror <span aria-hidden="true">↗</span></a>` : ""}</div>
+      <div class="file-actions">${previewable(file.path) ? `<button type="button" class="text-button" data-preview="${esc(file.path)}" data-preview-url="${esc(url)}"${mirror ? ` data-preview-fallback="${esc(mirror)}"` : ""} data-name="${esc(fileName(file))}" data-download="${esc(downloadName(file))}">View</button>` : `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Open</a>`}<a class="download-link" href="${esc(url)}" rel="noreferrer" download="${esc(downloadName(file))}">Download <span aria-hidden="true">↓</span></a>${mirror ? `<a class="download-link mirror-link" href="${esc(mirror)}" rel="noreferrer" download="${esc(downloadName(file))}">Mirror <span aria-hidden="true">↗</span></a>` : ""}</div>
     </article>`;
   }).join("")}</div>`;
 }
 
 export function installPreview(dialog) {
   let controller;
+  const readHead = async (url, signal) => {
+    const response = await fetch(url, { signal, referrerPolicy: "no-referrer" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const reader = response.body.getReader();
+    const chunks = [];
+    let size = 0;
+    let truncated = false;
+    const limit = 65536;
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      const remaining = limit - size;
+      chunks.push(value.subarray(0, remaining));
+      size += Math.min(value.length, remaining);
+      if (size >= limit) { truncated = true; await reader.cancel(); break; }
+    }
+    const bytes = new Uint8Array(size);
+    let offset = 0;
+    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
+    return { bytes, truncated };
+  };
   document.addEventListener("click", async event => {
     const button = event.target.closest("[data-preview]");
     if (!button) return;
     const url = button.dataset.previewUrl || publicPath(button.dataset.preview);
     if (!url) return;
+    const fallback = button.dataset.previewFallback || null;
     controller?.abort();
     controller = new AbortController();
     const current = controller;
@@ -35,35 +57,42 @@ export function installPreview(dialog) {
     const download = dialog.querySelector(".preview-download");
     download.href = url;
     download.download = button.dataset.download;
+    download.rel = "noreferrer";
     const pre = dialog.querySelector("pre");
     const status = dialog.querySelector(".preview-status");
     pre.textContent = "Loading source file…";
     status.textContent = "Read-only preview; the download retains the source bytes.";
     if (!dialog.open) dialog.showModal();
+    let source = url;
+    let result;
     try {
-      const response = await fetch(url, { signal: current.signal });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const reader = response.body.getReader();
-      const chunks = [];
-      let size = 0;
-      let truncated = false;
-      const limit = 65536;
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        const remaining = limit - size;
-        chunks.push(value.subarray(0, remaining));
-        size += Math.min(value.length, remaining);
-        if (size >= limit) { truncated = true; await reader.cancel(); break; }
+      try {
+        result = await readHead(url, current.signal);
+      } catch (error) {
+        if (error.name === "AbortError" || !fallback) throw error;
+        // The primary archive can be unreachable on networks that cannot
+        // route to it; the mirror serves the identical hash-anchored bytes.
+        status.textContent = "Primary archive unreachable; loading from the mirror archive.";
+        source = fallback;
+        result = await readHead(fallback, current.signal);
       }
-      const bytes = new Uint8Array(size);
-      let offset = 0;
-      for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
       if (current.signal.aborted) return;
-      pre.textContent = bytes.includes(0) ? "This file appears to be binary. Download it to inspect the original content." : new TextDecoder("utf-8").decode(bytes) || "This source file is empty.";
-      if (truncated) status.textContent = "Preview limited to the first 64 KB. Download the complete source file.";
+      pre.textContent = result.bytes.includes(0) ? "This file appears to be binary. Download it to inspect the original content." : new TextDecoder("utf-8").decode(result.bytes) || "This source file is empty.";
+      if (source !== url) {
+        download.href = source;
+        status.textContent = result.truncated
+          ? "Loaded from the mirror archive; preview limited to the first 64 KB."
+          : "Loaded from the mirror archive.";
+      } else if (result.truncated) {
+        status.textContent = "Preview limited to the first 64 KB. Download the complete source file.";
+      }
     } catch (error) {
-      if (error.name !== "AbortError") { pre.textContent = `Could not read this file (${error.message}).`; status.textContent = "The source file is currently unavailable."; }
+      if (error.name !== "AbortError") {
+        pre.textContent = `Could not read this file (${error.message}).`;
+        status.textContent = fallback
+          ? "Both the primary and mirror archives were unreachable from this network. Use the Download or Mirror links below."
+          : "The source file is currently unavailable.";
+      }
     }
   });
   dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());

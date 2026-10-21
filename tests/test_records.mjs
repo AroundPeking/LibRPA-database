@@ -453,6 +453,7 @@ test("file rows expose view/download and label unknown originals without interna
   assert.doesNotMatch(html, /abc123/);
   assert.doesNotMatch(html, />payload</);
   assert.match(renderFiles([{ path: "data/<script>bad</script>.orb" }]), /&lt;script&gt;/);
+  assert.doesNotMatch(renderFiles([{ path: "data/hash.orb" }]), /data-preview-fallback/);
 });
 
 test("referenced-tier file rows link the external archive with a mirror and keep the path as identity", () => {
@@ -463,10 +464,14 @@ test("referenced-tier file rows link the external archive with a mirror and keep
   assert.match(html, new RegExp(`href="${mirror.replace(/\?/g, "\\\\?")}"`));
   assert.match(html, /Mirror/);
   assert.match(html, /External archive/);
+  assert.match(html, /class="download-link mirror-link"[^>]*rel="noreferrer"/);
+  assert.match(html, /class="download-link"[^>]*rel="noreferrer"/);
   assert.equal((html.match(/download-link/g) || []).length, 2);
   assert.doesNotMatch(html, /\.\.\/data\/calculations/);
   const view = html.match(/data-preview-url="([^"]+)"/);
   assert.equal(view?.[1], external);
+  const fallback = html.match(/data-preview-fallback="([^"]+)"/);
+  assert.equal(fallback?.[1], mirror);
   assert.match(html, /data-preview="data\/calculations\/3d\/CdS\/cds-jctc-aims-gw\/logs\/aims\.out"/);
 });
 
