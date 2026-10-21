@@ -134,11 +134,14 @@ test("new hBN shows the cited 6.94183 path-resolved headline", () => {
   assert.match(renderMaterial(record, []), /Path-resolved/);
 });
 
-test("all figure metadata attachments remain available", () => {
+test("all figure metadata attachments remain available under Results files", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/3d/Si/si-paper-all_kpath/record.json", import.meta.url)));
   const html = renderMaterial(record, []);
-  assert.match(html, /Figure source &amp; metadata/);
-  assert.match(html, /band_comparison\.json/);
+  const resultsSection = html.slice(html.indexOf('id="record-results-files"'));
+  assert.ok(resultsSection.length > 0, "results files section present");
+  assert.match(resultsSection, /band_comparison\.json/);
+  const logName = record.files.logs[0]?.path.split("/").at(-1);
+  assert.ok(logName && resultsSection.includes(logName), "run logs are listed in the same results section");
 });
 
 test("formal record pages keep software provenance while internal QA fields stay private", () => {
@@ -151,7 +154,7 @@ test("formal record pages keep software provenance while internal QA fields stay
   };
   const html = renderMaterial(record, []);
   const software = html.slice(html.indexOf('id="record-evidence"'));
-  assert.match(software, /<h2>Software &amp; logs<\/h2>/);
+  assert.match(software, /<h2>Software<\/h2>/);
   assert.match(software, /Source code ↗/);
   assert.doesNotMatch(software, /Executable SHA-256/);
   assert.doesNotMatch(html, /Archive completeness|Upload incomplete|CI blocked|Missing &lt;INPUT&gt;|Original input unavailable|SCF evidence pending|Pathology|evidence issues/);

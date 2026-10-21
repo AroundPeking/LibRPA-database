@@ -333,7 +333,7 @@ async function main() {
     await go(`#/material/${encodeURIComponent(audited.id)}`);
     const formalText = await page.locator("#detail-view").innerText();
     check(!/Archive completeness|Upload incomplete|CI blocked|evidence issues|Missing evidence|Full commit not recorded/i.test(formalText), "内部审计字段不出现在正式详情页");
-    check(await page.locator("#record-evidence > summary h2").textContent() === "Software & logs", "软件与日志使用正式分区名称");
+    check(await page.locator("#record-evidence > summary h2").textContent() === "Software", "软件与日志使用正式分区名称");
     await page.locator(".section-nav [data-section='record-evidence']").click();
     const softwareEntries = page.locator("#record-evidence .software-entry");
     check(await softwareEntries.count() === 2, "两软件入口均保留");
@@ -379,7 +379,7 @@ async function main() {
     await originalImage.scrollIntoViewIfNeeded();
     await originalImage.evaluate(img => img.decode());
     check(await originalImage.isVisible() && await originalImage.evaluate(img => img.naturalWidth > 0), "原图可展开且真实图像加载");
-    const bandDownloadUrls = await page.locator("#record-bands a[download]").evaluateAll(links => links.map(link => link.href));
+    const bandDownloadUrls = await page.locator("#record-bands a[download], #record-results-files a[download]").evaluateAll(links => links.map(link => link.href));
     check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
     check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("recorded k-path"), "路径结果保留其定义与范围说明");
     const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
@@ -697,7 +697,7 @@ async function main() {
     }
     for (const { record, group, file } of referencedFiles.slice(0, 3)) {
       await go(`#/material/${encodeURIComponent(record.id)}`);
-      const section = group === "logs" ? "record-evidence" : group === "figures" ? "record-bands" : "record-results";
+      const section = group === "logs" ? "record-results-files" : group === "figures" ? "record-bands" : "record-results";
       await page.locator(`.section-nav [data-section='${section}']`).click();
       await page.waitForSelector(`#${section} .file-row`);
       const row = page.locator(`#${section} .file-row`)
@@ -749,10 +749,10 @@ async function main() {
       const offPage = await offline.newPage();
       offPage.on("pageerror", error => errors.push(error.message));
       await offPage.goto(base.href + `#/material/${encodeURIComponent(offlineTarget.record.id)}`, { waitUntil: "domcontentloaded" });
-      await offPage.waitForSelector(".section-nav [data-section='record-evidence']", { timeout: 60000 });
-      await offPage.locator(".section-nav [data-section='record-evidence']").click();
-      await offPage.waitForSelector("#record-evidence .file-row");
-      const offRow = offPage.locator("#record-evidence .file-row")
+      await offPage.waitForSelector(".section-nav [data-section='record-results-files']", { timeout: 60000 });
+      await offPage.locator(".section-nav [data-section='record-results-files']").click();
+      await offPage.waitForSelector("#record-results-files .file-row");
+      const offRow = offPage.locator("#record-results-files .file-row")
         .filter({ has: offPage.locator(`a.download-link[href="${offlineTarget.file.external_url}"]`) }).first();
       await offRow.getByRole("button", { name: "View", exact: true }).click();
       await offPage.waitForFunction(() => (document.querySelector("#file-preview pre")?.textContent || "").length > 100, null, { timeout: 60000 });
