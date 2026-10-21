@@ -168,7 +168,7 @@ test("archive completeness metadata does not alter the public record page", () =
   assert.doesNotMatch(base + withAudit, /Upload completeness|archive checks|internal issue/);
 });
 
-test("primary figures occupy the main grid while original figures and metadata remain downloadable", () => {
+test("primary figures occupy the main grid while every figure file stays downloadable under Results files", () => {
   const record = {
     id: "figures", material: "Si", dimension: "3d", files: {
       figures: [
@@ -179,12 +179,14 @@ test("primary figures occupy the main grid while original figures and metadata r
     },
   };
   const html = renderMaterial(record, []);
-  const mainGrid = html.slice(html.indexOf('<div class="figure-grid">'), html.indexOf('<details class="original-figures">'));
+  const mainGrid = html.slice(html.indexOf('<div class="figure-grid">'), html.indexOf('id="record-results-files"'));
   assert.match(mainGrid, /primary\.svg/);
   assert.doesNotMatch(mainGrid, /original\.png/);
-  assert.match(html, /Additional source figures · 1/);
-  assert.match(html, /download="original\.png"/);
-  assert.match(html, /figure\.json/);
+  assert.doesNotMatch(html, /original-figures|Additional source figures/);
+  const resultsSection = html.slice(html.indexOf('id="record-results-files"'));
+  assert.match(resultsSection, /download="primary\.svg"/);
+  assert.match(resultsSection, /download="original\.png"/);
+  assert.match(resultsSection, /figure\.json/);
   assert.match(html, /href="\.\.\/references\/plotting\.md"/);
   assert.match(html, /reusable band-figure script/);
   assert.match(html, /Each method uses its own occupied path VBM/);

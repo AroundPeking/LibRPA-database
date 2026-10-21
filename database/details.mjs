@@ -121,14 +121,13 @@ export function renderMaterial(record, sets, allRecords = []) {
   const figures = figureFiles.filter(f => /\.(?:svg|png|jpe?g|webp)$/i.test(f.path));
   const primaryFigures = figures.filter(file => file.display_priority === "primary");
   const mainFigures = primaryFigures.length ? primaryFigures : figures;
-  const originalFigures = primaryFigures.length ? figures.filter(file => file.display_priority !== "primary") : [];
-  const figureAttachments = figureFiles.filter(f => !figures.includes(f));
-  // One results layer: numerical outputs, figure sources/metadata, and run
-  // logs live together so the page presents exactly three file layers -
-  // inputs, basis payloads, and results.
+  // One results layer: numerical outputs, every archived figure (primary
+  // render plus additional source figures and sidecars), and run logs live
+  // together so the page presents exactly three file layers - inputs, basis
+  // payloads, and results. The band section renders primary figures only.
   const resultsFiles = (() => {
     const seen = new Set();
-    return [...results, ...figureAttachments, ...logs].filter(file => {
+    return [...results, ...figureFiles, ...logs].filter(file => {
       if (typeof file?.path !== "string" || seen.has(file.path)) return false;
       seen.add(file.path);
       return true;
@@ -147,7 +146,7 @@ export function renderMaterial(record, sets, allRecords = []) {
   const scopedObservable = limited && record.summary?.value != null ? `<div class="notice"><strong>${esc(record.summary.observable)}</strong><p>Path-resolved selected-state observable. ${paperGap(record) ? "The database displays the referenced path value with its recorded definition." : "The numerical result remains available in the associated data files."}</p></div>` : "";
   const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${crossFrontendNotice(record, allRecords)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
   const structureHtml = structure.length ? `<p class="section-intro">Structure files attached to this calculation. Files from different calculation stages remain separately identified.</p>${renderFiles(structure, { input: true })}` : '<div class="empty-panel"><h3>Structure data</h3><p>This record presents the calculation results and attached provenance files; no separate STRU, CIF, or equivalent structure file is listed.</p></div>';
-  const bandsHtml = `<p class="section-intro">Figure style and data contracts: <a href="../references/plotting.md">plotting reference</a> · <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/scripts/generate_band_figures.py" target="_blank" rel="noopener">reusable band-figure script ↗</a>. Each method uses its own occupied path VBM. The y range shows the full extent of the selected curves without adding bands.</p>${mainFigures.length ? `${figureGrid(mainFigures)}<p class="definition-note">Band figures follow the recorded k-path; refer to the definition and scope in Overview.</p>` : '<p class="empty-panel">No band figures are recorded; the archived result files are listed under Results files.</p>'}${originalFigures.length ? `<details class="original-figures"><summary>Additional source figures · ${originalFigures.length}</summary>${figureGrid(originalFigures)}</details>` : ""}`;
+  const bandsHtml = `<p class="section-intro">Figure style and data contracts: <a href="../references/plotting.md">plotting reference</a> · <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/scripts/generate_band_figures.py" target="_blank" rel="noopener">reusable band-figure script ↗</a>. Each method uses its own occupied path VBM. The y range shows the full extent of the selected curves without adding bands.</p>${mainFigures.length ? `${figureGrid(mainFigures)}<p class="definition-note">Band figures follow the recorded k-path; refer to the definition and scope in Overview.</p>` : '<p class="empty-panel">No band figures are recorded; the archived result files are listed under Results files.</p>'}`;
   const sampledPbe = sampledGridGap(record, "PBE");
   const sampledGw = sampledGridGap(record, "G0W0");
   const resultsHtml = `<div class="notice"><strong>Regular-grid quasiparticle result</strong><p>This calculation completed the recorded quasiparticle table without a band-path input. These gaps are sampled Γ-point observables and are not presented as global fundamental gaps.</p></div><div class="metric-grid"><div><span>Sampling</span><strong>${esc(record.workflow?.sampling_label || "Γ point on the regular grid")}</strong></div><div><span>QP states</span><strong>${esc(record.computational_scale?.state_count ?? "—")}</strong></div><div><span>Occupied states</span><strong>${esc(record.computational_scale?.occupied_states ?? "—")}</strong></div><div><span>Unoccupied states</span><strong>${esc(record.computational_scale?.unoccupied_states ?? "—")}</strong></div></div>`;

@@ -371,14 +371,10 @@ async function main() {
     await screenshot("alp-primary-bands.png");
     const imageSources = await primaryImages.evaluateAll(images => images.map(img => img.src));
     check(imageSources.length === primaryFiles.length && primaryFiles.every(file => imageSources.includes(new URL(file.path, archive).href)), "主网格仅显示primary新图");
-    const originalPanel = page.locator("#record-bands .original-figures");
-    check(await originalPanel.evaluate(details => !details.open), "原始图默认折叠");
-    check(await originalPanel.locator("img").count() === originals.length, "原始图全部保留在折叠面板");
-    await originalPanel.locator("summary").click();
-    const originalImage = originalPanel.locator("img").first();
-    await originalImage.scrollIntoViewIfNeeded();
-    await originalImage.evaluate(img => img.decode());
-    check(await originalImage.isVisible() && await originalImage.evaluate(img => img.naturalWidth > 0), "原图可展开且真实图像加载");
+    check(await page.locator("#record-bands .original-figures").count() === 0, "图区不再渲染折叠的额外原图面板");
+    const resultsFileUrls = await page.locator("#record-results-files a[download]").evaluateAll(links => links.map(link => link.href));
+    check(originals.every(file => resultsFileUrls.includes(new URL(file.path, archive).href)), "全部原图统一作为Results files文件行可下载");
+    check(primaryFiles.every(file => resultsFileUrls.includes(new URL(file.path, archive).href)), "主图文件同样在Results files可下载");
     const bandDownloadUrls = await page.locator("#record-bands a[download], #record-results-files a[download]").evaluateAll(links => links.map(link => link.href));
     check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
     check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("recorded k-path"), "路径结果保留其定义与范围说明");
