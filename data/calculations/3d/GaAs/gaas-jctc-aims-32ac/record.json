@@ -45,7 +45,10 @@
         "label": "FHI-aims control.in (focused rerun, n_anacon_par 32)",
         "scientific_role": "aims_control_input",
         "transformation": "none",
-        "original_name": "control.in"
+        "original_name": "control.in",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/control.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/control.in"
       },
       {
         "role": "inputs",
@@ -56,7 +59,10 @@
         "label": "FHI-aims geometry.in (focused rerun)",
         "scientific_role": "aims_geometry_input",
         "transformation": "none",
-        "original_name": "geometry.in"
+        "original_name": "geometry.in",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/geometry.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/geometry.in"
       },
       {
         "role": "inputs",
@@ -66,7 +72,10 @@
         "original_sha256": "b1f21d01a4b672e87079a40eb19c3f29c83d25b1fddc02048b59a5f337c24f8d",
         "label": "Derived band-path KPT (inclusive segments)",
         "scientific_role": "aims_kpt_band_derived",
-        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band"
       }
     ],
     "results": [
@@ -79,7 +88,10 @@
         "label": "FHI-aims focused rerun GW band table (single G-X segment)",
         "scientific_role": "aims_gw_band_table",
         "transformation": "renamed from producer file GW_band1001.out; content byte-preserved",
-        "original_name": "GW_band1001.out"
+        "original_name": "GW_band1001.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -90,7 +102,10 @@
         "label": "Focused rerun QP self-energy band data (MATLAB v4 matrix, 21x16 complex)",
         "scientific_role": "aims_qp_self_energy_matrix",
         "transformation": "none",
-        "original_name": "self_energy_band.dat"
+        "original_name": "self_energy_band.dat",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/self_energy_band.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/self_energy_band.dat"
       }
     ],
     "logs": [
@@ -103,7 +118,10 @@
         "label": "FHI-aims focused GW rerun log (n_anacon_par 32)",
         "scientific_role": "aims_run_log",
         "transformation": "none",
-        "original_name": "aims.out"
+        "original_name": "aims.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/logs/aims.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/logs/aims.out"
       }
     ],
     "figures": [
@@ -119,7 +137,10 @@
           "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -133,7 +154,10 @@
           "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/results/GW_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-jctc-aims-32ac/inputs/KPT_band"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-32ac/figures/band_frontier_metadata.json"
       }
     ]
   },

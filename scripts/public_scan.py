@@ -21,7 +21,7 @@ def main() -> int:
     failures = []
     for path in args.root.rglob("*"):
         # The scanner and its tests contain the patterns they detect.
-        if not path.is_file() or any(part in {".git", "__pycache__"} for part in path.parts):
+        if not path.is_file() or any(part in {".git", "__pycache__", ".external-cache"} for part in path.parts):
             continue
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".pdf", ".sqlite", ".pyc"}:
             continue

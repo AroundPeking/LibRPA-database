@@ -20,7 +20,8 @@ inside the GitHub Pages size limits:
 - **Primary archive:** <https://huggingface.co/datasets/AroundPeking/LibRPA-database>
 - **Backup mirror:** <https://hf-mirror.com/datasets/AroundPeking/LibRPA-database>
 
-A file stored there is marked `tier: "referenced"` in its record: the
+Every calculation payload - inputs, numerical results, run logs, and
+figures alike - is marked `tier: "referenced"` in its record: the
 repository-relative path remains the file's identity, the recorded
 SHA-256 remains the integrity anchor, and the record carries the direct
 download URL plus the mirror URL. The website previews and downloads
@@ -29,9 +30,18 @@ external-archive note. `scripts/externalize_files.py` manages the whole
 conversion (`plan`, `stage`, `upload`, `apply`, `verify`); after a
 conversion the local bytes are removed from the repository, and any
 archive copy can be re-checked against the recorded SHA-256 at any
-time. Structure inputs, basis payloads, and species bindings are never
-converted; scientific evidence that gates acceptance stays in
-repository bytes.
+time. The basis library (`data/elements`) and species bindings keep
+repository bytes: radial functions and basis readability stay local.
+
+Validation gates still read real bytes: when a payload is referenced,
+the validators fetch it from the archive, verify it against the declared
+SHA-256, and keep a content-addressed copy in `.external-cache/` (never
+committed). Acceptance strength is unchanged - evidence, structure
+identity, and figure checks read exactly the recorded bytes, whether
+those bytes sit in git or in the archive. A merged data PR reaches the
+archive automatically through the `External archive sync` workflow; it
+needs the `HF_TOKEN` repository secret (a write-scoped dataset token)
+to act.
 
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 

@@ -69,7 +69,10 @@
         "size_bytes": 611,
         "original_sha256": "913ad7a8cff6cad8732fb1c8c2a5aa20e8c40159befbb9a3067fc3bcedeb3e9c",
         "label": "INPUT",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT"
       },
       {
         "role": "inputs",
@@ -78,7 +81,10 @@
         "size_bytes": 611,
         "original_sha256": "913ad7a8cff6cad8732fb1c8c2a5aa20e8c40159befbb9a3067fc3bcedeb3e9c",
         "label": "INPUT_nscf",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -87,7 +93,10 @@
         "size_bytes": 668,
         "original_sha256": "b5a624ae982b6b70345d5504b107db7859059daee1d60bea358771cfcf66344c",
         "label": "INPUT_scf",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -96,7 +105,10 @@
         "size_bytes": 261,
         "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
         "label": "KPT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT"
       },
       {
         "role": "inputs",
@@ -105,7 +117,10 @@
         "size_bytes": 261,
         "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
         "label": "KPT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT_nscf"
       },
       {
         "role": "inputs",
@@ -114,7 +129,10 @@
         "size_bytes": 29,
         "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
         "label": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -123,7 +141,10 @@
         "size_bytes": 430,
         "original_sha256": "e5b2fb9bea98cd98f4b94db9d28b06e4e5995e4b8d71bc2a5a49074f8e4593cc",
         "label": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -132,7 +153,10 @@
         "size_bytes": 196,
         "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
         "label": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/inputs/librpa.in"
       }
     ],
     "results": [
@@ -143,7 +167,10 @@
         "size_bytes": 209451,
         "original_sha256": "b6320270dc221a46c18411ad999ef00bea520bcf700f1dbc7b3f66653c5bf645",
         "label": "EXX_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -152,7 +179,10 @@
         "size_bytes": 209451,
         "original_sha256": "edbd68435493e7a581d3c165b0cbd6ccfe10e1a75c23edc236a36ee7ce4677ec",
         "label": "GW_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -161,7 +191,10 @@
         "size_bytes": 209451,
         "original_sha256": "c8576204451599f2b40b2af4a897dc82ccca9f6c9b60e6173e2242951c1bad1f",
         "label": "KS_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/KS_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/KS_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -170,14 +203,20 @@
         "size_bytes": 6680,
         "original_sha256": "76b683dea4ec9ce14f6cabd3da21d91d4caefbea4a222626dd7f854366a36242",
         "label": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/band_kpath_info"
       },
       {
         "role": "results",
         "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/paper_reported_values.json",
         "sha256": "c38f28c3110d905661670340aa8b21507179100c5ef92277b174b074aaeab7c8",
         "size_bytes": 1867,
-        "label": "Paper-reported Table IV values (DFT / GW)"
+        "label": "Paper-reported Table IV values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/paper_reported_values.json"
       },
       {
         "role": "results",
@@ -187,7 +226,10 @@
         "original_sha256": "cde4704047fef384c4e50752d91f3c735bb624eccf3ca07f97e5afac74f6d6c7",
         "label": "backup_assets_receipt.json",
         "original_name": "backup_assets_receipt.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
       }
     ],
     "logs": [
@@ -198,7 +240,10 @@
         "size_bytes": 13472,
         "original_sha256": "89af1adce1b36efe86e8d208cf82ef882ed751f08edd7c83923c9dfd391fd702",
         "label": "abacus.out",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/abacus.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/abacus.out"
       },
       {
         "role": "logs",
@@ -228,7 +273,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/band_kpath_info",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/ks_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/ks_frontier.svg"
       },
       {
         "role": "figures",
@@ -244,7 +292,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/band_kpath_info",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -260,7 +311,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/band_kpath_info",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -278,7 +332,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_frontier_metadata.json"
       },
       {
         "role": "figures",
@@ -293,7 +350,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_comparison.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_comparison.svg"
       },
       {
         "role": "figures",
@@ -308,7 +368,10 @@
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/EXX_band_spin_1.dat",
           "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_comparison.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/figures/band_comparison.json"
       }
     ]
   },

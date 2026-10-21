@@ -64,7 +64,10 @@
         "original_sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
         "label": "INPUT",
         "original_name": "INPUT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT"
       },
       {
         "role": "inputs",
@@ -74,7 +77,10 @@
         "original_sha256": "f75063125d89c11360f5f1470ece46607fcf9568e9e9beb127f70b2934e37a27",
         "label": "INPUT_scf",
         "original_name": "INPUT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -84,7 +90,10 @@
         "original_sha256": "3830bb527d87b0ad58b934cf8eff7fc90ae84d5bbce5d385fc118ff92582fe48",
         "label": "INPUT_nscf",
         "original_name": "INPUT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -94,7 +103,10 @@
         "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
         "label": "KPT",
         "original_name": "KPT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT"
       },
       {
         "role": "inputs",
@@ -104,7 +116,10 @@
         "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
         "label": "KPT_scf",
         "original_name": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -114,7 +129,10 @@
         "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
         "label": "KPT_nscf",
         "original_name": "KPT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/KPT_nscf"
       },
       {
         "role": "inputs",
@@ -124,7 +142,10 @@
         "original_sha256": "45cc5b1996875a18483e7ad0624e68565caf5ff735d5ed9ff5d90338d65ce200",
         "label": "STRU",
         "original_name": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -134,7 +155,10 @@
         "original_sha256": "2def263916481d2ad819bea44dfbdc9a367c5ee0d8c0019c8d6e622d033486d7",
         "label": "librpa.in",
         "original_name": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/librpa.in"
       },
       {
         "role": "inputs",
@@ -144,7 +168,10 @@
         "original_sha256": "5c894955d7769cf0bcfb92159d0a8cf64b31a19bb06412c351965ecb018ebe38",
         "label": "abacus_run_script.sh",
         "original_name": "run_abacus.sh",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/abacus_run_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/inputs/abacus_run_script.sh"
       }
     ],
     "results": [
@@ -156,7 +183,10 @@
         "original_sha256": "ae10400d078c524f8ad9501b0fa3b447da558cfa69187c0b6876556c2c8ee70f",
         "label": "KS_band_spin_1.dat",
         "original_name": "KS_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/KS_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -166,7 +196,10 @@
         "original_sha256": "27aaf1a293f5f1866a1f030df2db79954b8c51d34c97d4eda460222d5fb92108",
         "label": "EXX_band_spin_1.dat",
         "original_name": "EXX_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -176,7 +209,10 @@
         "original_sha256": "255fe642c1b47c29a6c3bfc8cbfd063768b16d180b68dd033bfb3190dbe1be4e",
         "label": "GW_band_spin_1.dat",
         "original_name": "GW_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -186,7 +222,10 @@
         "original_sha256": "7af4819a05aa7b52711698f2d25790150777e8003f0d0258c76af89e7d6e8758",
         "label": "band_kpath_info",
         "original_name": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info"
       }
     ],
     "logs": [
@@ -198,7 +237,10 @@
         "original_sha256": "4058b84ffdb78a6b3df06fd0b696aeb9583be758283a9bf96be39ef621a52733",
         "label": "abacus.out",
         "original_name": "abacus.859292.out",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus.out"
       },
       {
         "role": "logs",
@@ -221,7 +263,10 @@
         "original_sha256": "e7fa8424fbafa2d67a0885f2503f7312736897176cbdaedbf9bca54592b50797",
         "label": "abacus_slurm_stdout.log",
         "original_name": "slurm-859292.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_slurm_stdout.log"
       },
       {
         "role": "logs",
@@ -231,7 +276,10 @@
         "original_sha256": "55ff152bbefd8d53a2cf29e85a6d97cc1231df40e2ce668a1c2d85eaac35c1cf",
         "label": "abacus_nscf_slurm_stdout.log",
         "original_name": "slurm-859299.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_nscf_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_nscf_slurm_stdout.log"
       },
       {
         "role": "logs",
@@ -241,7 +289,10 @@
         "original_sha256": "594c1df2eb888179b7acf8919bea9adaf8766de3a7d81d32455ddada4bd291cb",
         "label": "gw_slurm_stdout.log",
         "original_name": "slurm-859318.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/gw_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/gw_slurm_stdout.log"
       }
     ],
     "figures": [
@@ -259,7 +310,10 @@
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/ks_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/ks_frontier.svg"
       },
       {
         "role": "figures",
@@ -275,7 +329,10 @@
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -291,7 +348,10 @@
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -309,7 +369,10 @@
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/figures/band_frontier_metadata.json"
       }
     ]
   },

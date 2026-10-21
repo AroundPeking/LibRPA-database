@@ -23,7 +23,10 @@
         "original_name": "INPUT",
         "original_sha256": null,
         "transformation": "rendered production INPUT: the archived campaign reference INPUT with the deterministic set_input_key patches of the archived response driver applied at the accepted endpoint; per-q suffix and sternheimer_q_index varied across the canonical-q array tasks exactly as documented in that driver",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__INPUT"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_reference__INPUT",
@@ -34,7 +37,10 @@
         "original_name": "INPUT",
         "original_sha256": "7ac5d6fce411633be8576ebcd47e2383d360a134dc14878e67576da4d26c9b02",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_reference__INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_reference__INPUT"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__KPT",
@@ -45,7 +51,10 @@
         "original_name": "KPT",
         "original_sha256": "b10c3b71999cda281d5d9d9559c8d629347bfcf8dd11d76b0bbd81aa2872e67b",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__KPT"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__STRU",
@@ -56,7 +65,10 @@
         "original_name": "STRU",
         "original_sha256": "16852add83275a2154bc28190b327d8cef30aef5181d76d79d29ab488756296f",
         "transformation": "none",
-        "scientific_role": "abacus_stru"
+        "scientific_role": "abacus_stru",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid__STRU"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__INPUT",
@@ -67,7 +79,10 @@
         "original_name": "INPUT",
         "original_sha256": "00eabd753606a2d243be3e4fe36ca9571852add13a278c685c9f3c73fccc4ca5",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__INPUT"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__KPT",
@@ -78,7 +93,10 @@
         "original_name": "KPT",
         "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__KPT"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__STRU",
@@ -89,7 +107,10 @@
         "original_name": "STRU",
         "original_sha256": "c9003add598a7301907922ed4bf8ef26b2f6b6796dce3724ea32de094e2f2658",
         "transformation": "none",
-        "scientific_role": "abacus_stru_atom_reference"
+        "scientific_role": "abacus_stru_atom_reference",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/si_atom__STRU"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_response_slurm_script.sh",
@@ -100,7 +121,10 @@
         "original_name": "run_si_grid_fd8_response_work1.slurm",
         "original_sha256": "4175d16eb6e7cdf33862eba040124651109ac0dddd75987e6b588144787252ad",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "abacus_run_script"
+        "scientific_role": "abacus_run_script",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_response_slurm_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_response_slurm_script.sh"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_librpa_qavg_slurm_script.sh",
@@ -111,7 +135,10 @@
         "original_name": "run_si_grid_fd8_librpa_qavg_work1.slurm",
         "original_sha256": "0bcc6a8738a0d6e7302832a97ef5b3e6813bb0f880f4aac0af31617c6e915b2a",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_run_script"
+        "scientific_role": "rpa_run_script",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_librpa_qavg_slurm_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/solid_librpa_qavg_slurm_script.sh"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/librpa.in",
@@ -122,7 +149,10 @@
         "original_name": "librpa.in",
         "original_sha256": null,
         "transformation": "rendered verbatim from the archived production slurm heredoc (run_*_librpa_qavg*.slurm) with the private input_dir path rewritten to ./input/; all task keywords and their order unchanged",
-        "scientific_role": "librpa_rpa_input"
+        "scientific_role": "librpa_rpa_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/inputs/librpa.in"
       }
     ],
     "results": [
@@ -135,7 +165,10 @@
         "original_name": "si_c_delta_st_fd8_cohesive_comparison_20260824.csv",
         "original_sha256": "ee896ba7e4731857c543a58495ed214471c43fe7b1c49eeece22595dcf082c57",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "campaign_result_table"
+        "scientific_role": "campaign_result_table",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_c_cohesive_comparison.csv"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv",
@@ -146,7 +179,10 @@
         "original_name": "si_c_delta_st_fd8_grid_convergence_20260824.csv",
         "original_sha256": "bb874e1c4498d2e40b66b2a597b39cd985ecceb1fce65b58c1ea7b0f21aaeb84",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "campaign_result_table"
+        "scientific_role": "campaign_result_table",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_grid_convergence.csv"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv",
@@ -157,7 +193,10 @@
         "original_name": "si_delta_st_convergence_20260812.csv",
         "original_sha256": "0da8dfce47bc03f020332cf180f2d0ce6f7ec33ac1e910e553770ae7cdaaf115",
         "transformation": "none",
-        "scientific_role": "campaign_result_table"
+        "scientific_role": "campaign_result_table",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/si_atom_convergence.csv"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_formal_protocol.txt",
@@ -168,7 +207,10 @@
         "original_name": "FORMAL_PROTOCOL.txt",
         "original_sha256": "42eaf3828fba7792d36e0bc9b15b248eb055e54e48851129d4c5b1e102c552da",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "campaign_protocol"
+        "scientific_role": "campaign_protocol",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_formal_protocol.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/results/solid_formal_protocol.txt"
       }
     ],
     "logs": [
@@ -181,7 +223,10 @@
         "original_name": "ABACUS_ARTIFACT_ACCEPTANCE.txt",
         "original_sha256": "5a0c2d032c8463a40cd3232b6227ef11a2d3a33873508f9aa3f16484340a1dad",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "campaign_runtime_gate"
+        "scientific_role": "campaign_runtime_gate",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_abacus_artifact_acceptance.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_abacus_artifact_acceptance.txt"
       },
       {
         "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
@@ -192,7 +237,10 @@
         "original_name": "sacct_elapsed_excerpts.txt",
         "original_sha256": null,
         "transformation": "verbatim excerpts of live Slurm sacct output captured during the campaign's cluster monitoring; assembled into one file without modifying any field",
-        "scientific_role": "slurm_sacct_elapsed_log"
+        "scientific_role": "slurm_sacct_elapsed_log",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt"
       }
     ],
     "figures": []

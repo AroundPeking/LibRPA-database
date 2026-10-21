@@ -55,7 +55,10 @@
         "label": "FHI-aims control.in (dataset generation, dataset/for_librpa-16)",
         "scientific_role": "aims_control_input",
         "transformation": "none",
-        "original_name": "control.in"
+        "original_name": "control.in",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/control.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/control.in"
       },
       {
         "role": "inputs",
@@ -66,7 +69,10 @@
         "label": "FHI-aims geometry.in (dataset generation, dataset/for_librpa-16)",
         "scientific_role": "aims_geometry_input",
         "transformation": "none",
-        "original_name": "geometry.in"
+        "original_name": "geometry.in",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/geometry.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/geometry.in"
       },
       {
         "role": "inputs",
@@ -77,7 +83,10 @@
         "label": "LibRPA g0w0_band input (16-point grid)",
         "scientific_role": "librpa_g0w0_input",
         "transformation": "none",
-        "original_name": "librpa.in"
+        "original_name": "librpa.in",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/librpa.in"
       },
       {
         "role": "inputs",
@@ -87,7 +96,10 @@
         "original_sha256": "b451f7fee88e5583337d9c66f0f2dd02d0559ef9a6e1af670a9379e77259a31a",
         "label": "Derived band-path KPT (inclusive segments)",
         "scientific_role": "aims_kpt_band_derived",
-        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints"
+        "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band"
       }
     ],
     "results": [
@@ -100,7 +112,10 @@
         "label": "LibRPA EXX band table (16-point grid)",
         "scientific_role": "librpa_exx_band_table",
         "transformation": "none",
-        "original_name": "EXX_band_spin_1.dat"
+        "original_name": "EXX_band_spin_1.dat",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -111,7 +126,10 @@
         "label": "LibRPA GW band table (16-point grid)",
         "scientific_role": "librpa_gw_band_table",
         "transformation": "none",
-        "original_name": "GW_band_spin_1.dat"
+        "original_name": "GW_band_spin_1.dat",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat"
       }
     ],
     "logs": [
@@ -124,7 +142,10 @@
         "label": "FHI-aims dataset-generation SCF log",
         "scientific_role": "aims_scf_log",
         "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-        "original_name": "aims.out"
+        "original_name": "aims.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/logs/aims.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/logs/aims.out"
       },
       {
         "role": "logs",
@@ -155,7 +176,10 @@
           "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
           "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -170,7 +194,10 @@
           "data/calculations/3d/BN/bn-jctc-librpa-16/inputs/KPT_band",
           "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -186,7 +213,10 @@
           "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out",
           "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/band_frontier_metadata.json"
       },
       {
         "role": "figures",
@@ -199,7 +229,10 @@
         "source_paths": [
           "data/calculations/3d/BN/bn-jctc-librpa-16/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_restricted_gap_provenance.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/figures/gw_restricted_gap_provenance.json"
       }
     ]
   },

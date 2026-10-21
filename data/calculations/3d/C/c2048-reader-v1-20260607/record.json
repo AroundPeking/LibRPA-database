@@ -93,7 +93,10 @@
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/figures/band_frontier_metadata.json"
       }
     ],
     "inputs": [
@@ -106,7 +109,10 @@
         "scientific_role": "abacus_scf_input",
         "sha256": "74fddbfc898fe1f958f691d254f191fa693d5ba2ba64f792256262247a258667",
         "size_bytes": 655,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_INPUT"
       },
       {
         "label": "ABACUS K-point file",
@@ -117,7 +123,10 @@
         "scientific_role": "abacus_kpt",
         "sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
         "size_bytes": 29,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_KPT"
       },
       {
         "label": "ABACUS structure file (C2048 diamond)",
@@ -128,7 +137,10 @@
         "scientific_role": "abacus_stru",
         "sha256": "db59c2936369ad797be5ade5696b838b63f3b407434c98530e554470e30e79f8",
         "size_bytes": 139622,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/STRU"
       },
       {
         "label": "ABACUS SCF slurm batch script",
@@ -139,7 +151,10 @@
         "scientific_role": "abacus_slurm_script",
         "sha256": "8e56f80c8d65f026e00cf7d1a2e02321a4d827af74e30cea693d3e4731ce7bdb",
         "size_bytes": 2322,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_run_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/abacus_run_script.sh"
       },
       {
         "label": "LibRPA G0W0 input",
@@ -150,7 +165,10 @@
         "scientific_role": "librpa_gw_input",
         "sha256": "dd4c551a72ec77f6ae1108be25a82245707a0db4d4fce622559dff28ef886ead",
         "size_bytes": 1068,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_gw.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_gw.in"
       },
       {
         "label": "LibRPA G0W0 slurm batch script (256 DCU nodes)",
@@ -161,7 +179,10 @@
         "scientific_role": "gw_slurm_script",
         "sha256": "b3cfdb186c66bd84d1363b54697e11d109926675ed36f23d1e94df52004a1f47",
         "size_bytes": 4178,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/gw_slurm_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/gw_slurm_script.sh"
       },
       {
         "label": "LibRPA RPA input",
@@ -172,7 +193,10 @@
         "scientific_role": "librpa_rpa_input",
         "sha256": "be91168a8c3e40c87f8cc42ce50728c9a41cd289f808eba6badfd2f6ce70a225",
         "size_bytes": 577,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_rpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/librpa_rpa.in"
       },
       {
         "label": "LibRPA RPA slurm batch script (100 DCU nodes)",
@@ -183,7 +207,10 @@
         "scientific_role": "rpa_slurm_script",
         "sha256": "df2490b8a55b3c5ee266587df83ce0e1250b8140225568c7b869bae766ae7f82",
         "size_bytes": 3658,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/rpa_slurm_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/inputs/rpa_slurm_script.sh"
       }
     ],
     "logs": [
@@ -196,7 +223,10 @@
         "scientific_role": "gw_slurm_stdout",
         "sha256": "db5f1d80598a3672f45d02392a39de972708679162a45a97dd34ebea29fd6386",
         "size_bytes": 9152,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stdout.log"
       },
       {
         "label": "G0W0 slurm stderr",
@@ -207,7 +237,10 @@
         "scientific_role": "gw_slurm_stderr",
         "sha256": "87fbfe55bc4f29f226ee1b79cc2c5b8c491c079a2aeeb559e0aa0d767445bb6a",
         "size_bytes": 84738,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stderr.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/gw_slurm_stderr.log"
       },
       {
         "label": "RPA slurm stdout (job 20918572)",
@@ -218,7 +251,10 @@
         "scientific_role": "rpa_slurm_stdout",
         "sha256": "362d6d2baed37f0b45cfcef41ac64d1592b5a8f48101c1616a8d3f15da3ef5d8",
         "size_bytes": 8894,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stdout.log"
       },
       {
         "label": "RPA slurm stderr",
@@ -229,7 +265,10 @@
         "scientific_role": "rpa_slurm_stderr",
         "sha256": "4044baa48980c57b0455aa514c4c0d4cb60c72effb2a14f6fead54d776ae8c1e",
         "size_bytes": 34390,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stderr.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/rpa_slurm_stderr.log"
       },
       {
         "label": "ABACUS SCF slurm stdout (job 20835425)",
@@ -240,7 +279,10 @@
         "scientific_role": "abacus_slurm_stdout",
         "sha256": "fc41429ab0ceb36d4fa0a268c03a7273a418b4d2a1172185e5a2e85d5b92c4a8",
         "size_bytes": 18726,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stdout.log"
       },
       {
         "label": "ABACUS SCF slurm stderr",
@@ -251,7 +293,10 @@
         "scientific_role": "abacus_slurm_stderr",
         "sha256": "f09a2faa9c5c7b5220ee4b230c3be96d0db1d23af3d5292ce0bfd612dabc7459",
         "size_bytes": 228,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stderr.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_slurm_stderr.log"
       },
       {
         "label": "ABACUS SCF stdout",
@@ -262,7 +307,10 @@
         "scientific_role": "abacus_stdout",
         "sha256": "6ae17a3037d0c488536aa533117ee56259963af823b4a3ab396a84f111a2bb01",
         "size_bytes": 30302,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/abacus_stdout.log"
       },
       {
         "label": "Reader-v1 conversion log (job 21017903)",
@@ -273,7 +321,10 @@
         "scientific_role": "reader_v1_conversion_log",
         "sha256": "fb93feea1269d2cd92739f2681c59c37c9cbb16dcc5d5a506fc39d571f88281e",
         "size_bytes": 840,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/reader_v1_conversion_log.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/logs/reader_v1_conversion_log.out"
       }
     ],
     "results": [
@@ -314,7 +365,10 @@
         "scientific_role": "reader_conversion_receipt",
         "sha256": "c89bd4c8cf1f331fe9b19a324a1af9e673ca0b89fe6858bd6e6c7dc9b94f1e72",
         "size_bytes": 3335,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json"
       }
     ]
   },

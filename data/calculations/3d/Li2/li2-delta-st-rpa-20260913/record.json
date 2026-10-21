@@ -23,7 +23,10 @@
         "original_name": "INPUT",
         "original_sha256": "af067bc452f50b04ed9ba51a5f839ad0fff5403bd7d563df4520a78af36eecdb",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__INPUT"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__KPT",
@@ -34,7 +37,10 @@
         "original_name": "KPT",
         "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__KPT"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__STRU",
@@ -45,7 +51,10 @@
         "original_name": "STRU",
         "original_sha256": "c67354e871991a663d1cfc4e6da043f49075f89508aece756f3fc02a3a1b811f",
         "transformation": "none",
-        "scientific_role": "abacus_stru"
+        "scientific_role": "abacus_stru",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule__STRU"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__INPUT",
@@ -56,7 +65,10 @@
         "original_name": "INPUT",
         "original_sha256": "6b40f50a7980023c816e37ad8f1d0365de06973a9cf70de6ca3f773c1b0c02cd",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__INPUT"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__KPT",
@@ -67,7 +79,10 @@
         "original_name": "KPT",
         "original_sha256": "91042b39ee493cb5c1bee648adc865a2e5935a29278eb405dc009f994db55ece",
         "transformation": "none",
-        "scientific_role": "abacus_scf_input"
+        "scientific_role": "abacus_scf_input",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__KPT"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__STRU",
@@ -78,7 +93,10 @@
         "original_name": "STRU",
         "original_sha256": "28e2c7ecda703c74567a20cc89b7edb8b962ea817567d17b73fbba70de4ffb3b",
         "transformation": "none",
-        "scientific_role": "abacus_stru_atom_reference"
+        "scientific_role": "abacus_stru_atom_reference",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/li_atom__STRU"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_response_slurm_script.sh",
@@ -89,7 +107,10 @@
         "original_name": "run_response_g2_full.slurm",
         "original_sha256": "8662fe2feb0ec654790bc3e9eb7686300c141d5e21b059bb3e96835a9fb99466",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "abacus_run_script"
+        "scientific_role": "abacus_run_script",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_response_slurm_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_response_slurm_script.sh"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_case_contract.sh",
@@ -100,7 +121,10 @@
         "original_name": "case_contract_g2.sh",
         "original_sha256": "39e9d15661daff9fabb895bbe7f665e569e053703a9edba8f5034c6c5539c90a",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "campaign_case_contract"
+        "scientific_role": "campaign_case_contract",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_case_contract.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/inputs/molecule_case_contract.sh"
       }
     ],
     "results": [
@@ -113,7 +137,10 @@
         "original_name": "STERNHEIMER_CHI0.dat",
         "original_sha256": "7afa48d4fde8fe227a8ff262e9a685ac7ab5d26907b39d082f48cc10a4806e0a",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_response_report"
+        "scientific_role": "rpa_response_report",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_sternheimer_chi0.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_sternheimer_chi0.dat"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_fixed_frequency_grid.dat",
@@ -124,7 +151,10 @@
         "original_name": "fixed_frequency_grid.dat",
         "original_sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
         "transformation": "none",
-        "scientific_role": "rpa_frequency_grid"
+        "scientific_role": "rpa_frequency_grid",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_fixed_frequency_grid.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_fixed_frequency_grid.dat"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_sternheimer_chi0.dat",
@@ -135,7 +165,10 @@
         "original_name": "STERNHEIMER_CHI0.dat",
         "original_sha256": "f3b5386febe880d42340437f8209e9070d412b33211c0049a7cc33b1e0d1d8e9",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_response_report"
+        "scientific_role": "rpa_response_report",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_sternheimer_chi0.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_sternheimer_chi0.dat"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_fixed_frequency_grid.dat",
@@ -146,7 +179,10 @@
         "original_name": "fixed_frequency_grid.dat",
         "original_sha256": "fbbfc7bdd4e691400d6947b99a6bc4794da335ff4af983cc9a89d4748d5126a2",
         "transformation": "none",
-        "scientific_role": "rpa_frequency_grid"
+        "scientific_role": "rpa_frequency_grid",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_fixed_frequency_grid.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/li_atom_fixed_frequency_grid.dat"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json",
@@ -157,7 +193,10 @@
         "original_name": "li2_mol_g2_full.json",
         "original_sha256": "1c38d6cd9204a9e55f8aed099cb591073ac111c3b8c3651daf70fca66c5ff550",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_energy_evaluation_result"
+        "scientific_role": "rpa_energy_evaluation_result",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/molecule_rpa_analysis.json"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json",
@@ -168,7 +207,10 @@
         "original_name": "li_atom_g2_full.json",
         "original_sha256": "accf8584782da33dd2683fffdf89764f5ad6dbae844d30814729111a42e90ad7",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_energy_evaluation_result"
+        "scientific_role": "rpa_energy_evaluation_result",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/atom_rpa_analysis.json"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/compute_st_ecrpa.py",
@@ -179,7 +221,10 @@
         "original_name": "compute_st_ecrpa.py",
         "original_sha256": "00565e95abe47e877291e67f92687049ced8256329f7fcaa3cee794b1608450f",
         "transformation": "none",
-        "scientific_role": "rpa_trace_log_evaluation"
+        "scientific_role": "rpa_trace_log_evaluation",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/compute_st_ecrpa.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/compute_st_ecrpa.py"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/analyze_response.py",
@@ -190,7 +235,10 @@
         "original_name": "analyze_response.py",
         "original_sha256": "678b33b1ea4f705e2ab52159773402bc813a538980beeda02f895b5d6e41084f",
         "transformation": "none",
-        "scientific_role": "rpa_trace_log_evaluation"
+        "scientific_role": "rpa_trace_log_evaluation",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/analyze_response.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/analyze_response.py"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/campaign_readme.md",
@@ -201,7 +249,10 @@
         "original_name": "README.md",
         "original_sha256": "2b1364673c900d3af39935bacf6709f1f85c58405d71c6be377658bdc95b8ce1",
         "transformation": "none",
-        "scientific_role": "campaign_protocol"
+        "scientific_role": "campaign_protocol",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/campaign_readme.md",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/results/campaign_readme.md"
       }
     ],
     "logs": [
@@ -214,7 +265,10 @@
         "original_name": "RESULT_SUMMARY.txt",
         "original_sha256": "0374cd1e14bcef203cbda06cca1018ce40a79b28df10c2e29d3688db52a73e16",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_run_summary"
+        "scientific_role": "rpa_run_summary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_result_summary.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_result_summary.txt"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
@@ -225,7 +279,10 @@
         "original_name": "RUN_PROVENANCE.txt",
         "original_sha256": "743df98f67cd1af7d0f864df57f02a6ead2982041d2bc48f2bbcce8f83050628",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_run_provenance"
+        "scientific_role": "rpa_run_provenance",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_run_provenance.txt"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
@@ -236,7 +293,10 @@
         "original_name": "abacus.out",
         "original_sha256": "8f6fa58ebe31bc7e7c047fdd0507f47cb9aa2c3bd4af78758fc30dbd6cfb0f4f",
         "transformation": "none",
-        "scientific_role": "abacus_program_stdout"
+        "scientific_role": "abacus_program_stdout",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/molecule_abacus_stdout.log"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_result_summary.txt",
@@ -247,7 +307,10 @@
         "original_name": "RESULT_SUMMARY.txt",
         "original_sha256": "8f38a7cf18e4827523afb73cbd660b5fc48b5eefade6cd5576d987f6d7459285",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_run_summary"
+        "scientific_role": "rpa_run_summary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_result_summary.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_result_summary.txt"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt",
@@ -258,7 +321,10 @@
         "original_name": "RUN_PROVENANCE.txt",
         "original_sha256": "246fb62164013eb95d78606a1e9bd036679b01b1ce108b9581491638097d3baf",
         "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
-        "scientific_role": "rpa_run_provenance"
+        "scientific_role": "rpa_run_provenance",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_run_provenance.txt"
       },
       {
         "path": "data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log",
@@ -269,7 +335,10 @@
         "original_name": "abacus.out",
         "original_sha256": "8a71fc1bda04308e20c9d05b3ed71233400bbfcaea314f5e5a7a58a3c8a891e7",
         "transformation": "none",
-        "scientific_role": "abacus_program_stdout"
+        "scientific_role": "abacus_program_stdout",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log"
       }
     ],
     "figures": []

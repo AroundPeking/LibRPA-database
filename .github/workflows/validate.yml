@@ -18,6 +18,12 @@ jobs:
           node-version: "22"
       - run: node --check database/app.js
       - run: node --test tests/*.mjs
+      - name: Restore the external byte cache
+        uses: actions/cache@v4
+        with:
+          path: .external-cache
+          key: external-cache-${{ hashFiles('database/data.json') }}
+          restore-keys: external-cache-
       - name: 检查归档完整性（仅接受固定历史软件身份基线）
         run: python scripts/library.py --check-completeness --completeness-report "${{ runner.temp }}/archive-completeness.json"
       - name: 保留原始缺项、历史接受项与CI阻断结果

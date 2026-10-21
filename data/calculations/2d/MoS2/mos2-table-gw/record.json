@@ -71,7 +71,10 @@
         "original_sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
         "label": "INPUT",
         "original_name": "INPUT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT"
       },
       {
         "role": "inputs",
@@ -81,7 +84,10 @@
         "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
         "label": "KPT",
         "original_name": "KPT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT"
       },
       {
         "role": "inputs",
@@ -91,7 +97,10 @@
         "original_sha256": "07b4b7c9b932329eb586ad132ba9cc5e38741b631a60dcafa4886fa7a6a33e5d",
         "label": "STRU",
         "original_name": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -101,7 +110,10 @@
         "original_sha256": "c5ccdc6c455d928eba289aa7c68bc498e0bada87a4bd08368d4ccd7a4d9017b2",
         "label": "librpa.in",
         "original_name": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/librpa.in"
       },
       {
         "role": "inputs",
@@ -111,7 +123,10 @@
         "original_sha256": "68ba051f4c25a3c13be179b4f65b831c757c9ba486ffdcf59edcb179a592643a",
         "label": "INPUT_scf",
         "original_name": "INPUT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -121,7 +136,10 @@
         "original_sha256": "7f7a7e55fd8cc588332e74e3fe9e43bbef6e5cd8c1a46d4a363709cb13302652",
         "label": "KPT_scf",
         "original_name": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -131,7 +149,10 @@
         "original_sha256": "f6499a332e06b9b8693c610dc9a3149fdf373406488ebcaeec9012b0a5895c6f",
         "label": "INPUT_nscf",
         "original_name": "INPUT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -141,7 +162,10 @@
         "original_sha256": "201dd82fbc8aa271c486578e2400f231bc5d3d2f0263955e733943acbc1e35d4",
         "label": "KPT_nscf",
         "original_name": "KPT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/inputs/KPT_nscf"
       }
     ],
     "results": [
@@ -152,7 +176,10 @@
         "size_bytes": 198561,
         "original_sha256": "3d20e800b4657551660bbfe67cbd30a0907543abddb7e4b89c5e09ccb459f151",
         "label": "mos2_KS.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat"
       },
       {
         "role": "results",
@@ -161,7 +188,10 @@
         "size_bytes": 198561,
         "original_sha256": "637b221fb560831cbb977fc3731c0bde155fc452026d45468406156912a711a9",
         "label": "mos2_EXX.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat"
       },
       {
         "role": "results",
@@ -170,7 +200,10 @@
         "size_bytes": 198561,
         "original_sha256": "f49ac0485c9f159ae1cdbb54690f8942c53414e743aea314a64b4ef8252f412d",
         "label": "mos2_GW.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat"
       },
       {
         "role": "results",
@@ -179,7 +212,10 @@
         "size_bytes": 59942,
         "original_sha256": "a954c129c56f9eb2a02971fe900958562e41faa3df28fb9f63c5848a19daa4c4",
         "label": "mos2.json",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
       },
       {
         "role": "results",
@@ -189,7 +225,10 @@
         "original_sha256": "37d2a210dd6c7cf74b03aca2e50dc397fa8d395aaf861927d9e6c5b24808ea54",
         "label": "band_kpath_info",
         "original_name": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/band_kpath_info"
       },
       {
         "role": "results",
@@ -199,14 +238,20 @@
         "original_sha256": "4070647dda56086da29d8f468dcc3b124b526d4032e71827110f54e0edb5847e",
         "label": "raw_input_receipt.json",
         "original_name": "raw_input_receipt.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
       },
       {
         "role": "results",
         "path": "data/calculations/2d/MoS2/mos2-table-gw/results/paper_reported_values.json",
         "sha256": "43636c75ff9d4dea611d51a6a9aae6a96fed8c3be0e80684e72456b83162691a",
         "size_bytes": 2257,
-        "label": "Paper-reported Table I values (DFT / GW)"
+        "label": "Paper-reported Table I values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/results/paper_reported_values.json"
       }
     ],
     "logs": [],
@@ -223,7 +268,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.png"
       },
       {
         "role": "figures",
@@ -237,7 +285,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/KS_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_ks.pdf"
       },
       {
         "role": "figures",
@@ -251,7 +302,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "EXX"
+        "method": "EXX",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.png"
       },
       {
         "role": "figures",
@@ -265,7 +319,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/EXX_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "EXX"
+        "method": "EXX",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_exx.pdf"
       },
       {
         "role": "figures",
@@ -279,7 +336,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.png"
       },
       {
         "role": "figures",
@@ -293,7 +353,10 @@
           "data/calculations/2d/MoS2/mos2-table-gw/results/GW_bands.dat",
           "data/calculations/2d/MoS2/mos2-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoS2/mos2-table-gw/figures/mos2_gw.pdf"
       }
     ]
   },
@@ -382,16 +445,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aK\u2013K\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       },
       "GW": {
         "value": 2.37339,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aK\u2013K\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：K–K；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       }
     },
-    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002 MoS2\u5176\u4ed6EXX\u6536\u655b\u7cfb\u5217\u76846.25292 eV\u4e0d\u662f\u672ccase\u7684\u4e3b\u8868\u503c\uff0c\u4e0d\u66ff\u6362\u672ccase\u5f52\u6863EXX\u3002"
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。 MoS2其他EXX收敛系列的6.25292 eV不是本case的主表值，不替换本case归档EXX。"
   }
 }

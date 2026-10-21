@@ -28,6 +28,56 @@ async function main() {
     const calculations = data.calculations;
     const inputs = calculations.flatMap(record => record.files?.inputs || []);
     check(calculations.length > 0 && data.basis_sets.length > 0, "nonempty real archive");
+    const externalFixtures = process.env.EXTERNAL_FIXTURE_DIR;
+    const fileUrlOf = file => (file.tier === "referenced" && file.external_url) ? file.external_url : new URL(file.path, archive).href;
+    let cacheRouted = false;
+    const allReferenced = calculations.flatMap(record =>
+      Object.values(record.files || {}).flat().filter(file => file.tier === "referenced" && file.sha256));
+    const externalCacheDir = process.env.EXTERNAL_CACHE_DIR || path.join(__dirname, "..", ".external-cache");
+    if (!process.env.LIVE_EXTERNAL && !externalFixtures && allReferenced.length && fs.existsSync(externalCacheDir)) {
+      // Hermetic stand-in for the external archive in normal mode: serve
+      // referenced bytes from the validator's content-addressed cache.
+      const cacheByUrl = new Map(allReferenced.map(file => [file.external_url,
+        path.join(externalCacheDir, file.sha256.slice(0, 2), file.sha256)]));
+      await context.route(/https:\/\/huggingface\.co\/datasets\/AroundPeking\/LibRPA-database\/resolve\/main\//, async route => {
+        const url = route.request().url();
+        const cached = cacheByUrl.get(url);
+        const mime = /\.svg$/i.test(url) ? "image/svg+xml"
+          : /\.png$/i.test(url) ? "image/png" : /\.jpe?g$/i.test(url) ? "image/jpeg" : "application/octet-stream";
+        try {
+          await route.fulfill({ status: 200, body: fs.readFileSync(cached),
+            headers: { "content-type": mime, "access-control-allow-origin": "*" } });
+        } catch {
+          await route.abort();
+        }
+      });
+      cacheRouted = true;
+    }
+    const fetchFileBytes = async file => {
+      if (file.tier === "referenced" && process.env.LIVE_EXTERNAL && !externalFixtures) {
+        // The API request context bypasses the system proxy on this host;
+        // fetch through the page so referenced bytes come back.
+        const b64 = await page.evaluate(async url => {
+          const response = await fetch(url, { referrerPolicy: "no-referrer" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const bytes = new Uint8Array(await response.arrayBuffer());
+          let text = "";
+          for (let offset = 0; offset < bytes.length; offset += 8192) text += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+          return btoa(text);
+        }, file.external_url);
+        return Buffer.from(b64, "base64");
+      }
+      if (file.tier === "referenced" && file.sha256) {
+        // Normal mode stays hermetic: the API request context bypasses both
+        // context.route and the system proxy, so read the hash-verified
+        // content-addressed cache directly instead of hitting the network.
+        const cached = path.join(externalCacheDir, file.sha256.slice(0, 2), file.sha256);
+        if (fs.existsSync(cached)) return fs.readFileSync(cached);
+      }
+      const fetched = await context.request.get(fileUrlOf(file));
+      check(fetched.ok(), `文件可读取: ${file.path}`);
+      return await fetched.body();
+    };
     const go = async hash => {
       await page.goto(base.href + hash, { waitUntil: "domcontentloaded" });
       await page.waitForFunction(() => document.querySelector("#catalog").getAttribute("aria-busy") === "false" || document.querySelector("#detail-view h1") || !document.querySelector("#landing-view").hidden);
@@ -224,9 +274,7 @@ async function main() {
     await page.locator(".breadcrumb a").click();
     check(await page.locator("#search").inputValue() === "Si", "back link preserves search");
     const previewAndDownload = async (row, file, expectedName, description) => {
-      const fetched = await context.request.get(new URL(file.path, archive).href);
-      check(fetched.ok(), `${description}：文件可读取`);
-      const bytes = await fetched.body();
+      const bytes = await fetchFileBytes(file);
       check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `${description}：归档哈希一致`);
       await row.getByRole("button", { name: "View", exact: true }).click();
       const prefix = bytes.subarray(0, 128).toString("utf8");
@@ -298,11 +346,10 @@ async function main() {
       const panel = page.locator("#record-inputs");
       check((await panel.innerText()).includes("Stage-resolved calculation inputs"), `${record.id}: stage-resolved input description visible`);
       const receiptLink = panel.getByRole("link", { name: "View stage-input receipt ↗", exact: true });
-      check(await receiptLink.getAttribute("href") === `../${record.source.stage_input_receipt}`, `${record.id}: receipt link targets this case`);
-      const receiptResponse = await context.request.get(new URL(record.source.stage_input_receipt, archive).href);
-      check(receiptResponse.ok(), `${record.id}: actual receipt downloadable`);
-      const receiptBytes = await receiptResponse.body();
       const receiptItem = record.files.results.find(file => file.path === record.source.stage_input_receipt);
+      check(Boolean(receiptItem), `${record.id}: stage-input receipt declared in results`);
+      check(new URL(await receiptLink.getAttribute("href"), base).href === fileUrlOf(receiptItem), `${record.id}: receipt link resolves to the declared file URL`);
+      const receiptBytes = await fetchFileBytes(receiptItem);
       check(createHash("sha256").update(receiptBytes).digest("hex") === receiptItem.sha256, `${record.id}: receipt SHA verified`);
       const receipt = JSON.parse(receiptBytes.toString("utf8"));
       check(receipt.case_id === record.id && receipt.full_runtime_handoff_verified === false && receipt.runtime_asset_seal_verified === false && receipt.scientific_acceptance_reassessed === false && receipt.automatic_import_candidate_promoted === false, `${record.id}: receipt preserves evidence boundaries`);
@@ -370,13 +417,13 @@ async function main() {
     }
     await screenshot("alp-primary-bands.png");
     const imageSources = await primaryImages.evaluateAll(images => images.map(img => img.src));
-    check(imageSources.length === primaryFiles.length && primaryFiles.every(file => imageSources.includes(new URL(file.path, archive).href)), "主网格仅显示primary新图");
+    check(imageSources.length === primaryFiles.length && primaryFiles.every(file => imageSources.includes(fileUrlOf(file))), "主网格仅显示primary新图");
     check(await page.locator("#record-bands .original-figures").count() === 0, "图区不再渲染折叠的额外原图面板");
     const resultsFileUrls = await page.locator("#record-results-files a[download]").evaluateAll(links => links.map(link => link.href));
-    check(originals.every(file => resultsFileUrls.includes(new URL(file.path, archive).href)), "全部原图统一作为Results files文件行可下载");
-    check(primaryFiles.every(file => resultsFileUrls.includes(new URL(file.path, archive).href)), "主图文件同样在Results files可下载");
+    check(originals.every(file => resultsFileUrls.includes(fileUrlOf(file))), "全部原图统一作为Results files文件行可下载");
+    check(primaryFiles.every(file => resultsFileUrls.includes(fileUrlOf(file))), "主图文件同样在Results files可下载");
     const bandDownloadUrls = await page.locator("#record-bands a[download], #record-results-files a[download]").evaluateAll(links => links.map(link => link.href));
-    check(alp.files.figures.every(file => bandDownloadUrls.includes(new URL(file.path, archive).href)), "新图、原图与所有sidecar均可下载");
+    check(alp.files.figures.every(file => bandDownloadUrls.includes(fileUrlOf(file))), "新图、原图与所有sidecar均可下载");
     check((await page.locator("#record-bands > .section-body > .definition-note").innerText()).includes("recorded k-path"), "路径结果保留其定义与范围说明");
     const hbn = calculations.find(record => record.id === "hbn-tzdp10-fgext-20261008");
     check(hbn?.status === undefined && /raw-band/i.test(hbn?.summary?.observable || ""), "replacement hBN carries no record-level status and keeps its restricted path observable");
@@ -404,9 +451,8 @@ async function main() {
       check(await image.evaluate(img => img.complete && img.naturalWidth > 0), "replacement hBN primary SVG loads");
     }
     for (const file of [...hbn.files.results.filter(file => /(?:KS|EXX|GW)_band_spin_1\.dat$/.test(file.path)), ...hbnFigures, ...hbn.files.figures.filter(file => /hbn_frontier_audit\.json$/.test(file.path))]) {
-      const fetched = await context.request.get(new URL(file.path, archive).href);
-      check(fetched.ok(), `replacement hBN evidence downloadable: ${file.path}`);
-      check(createHash("sha256").update(await fetched.body()).digest("hex") === file.sha256, `replacement hBN evidence hash: ${file.path}`);
+      const bytes = await fetchFileBytes(file);
+      check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `replacement hBN evidence hash: ${file.path}`);
     }
     await screenshot("hbn-primary-bands.png");
     await go("#/materials");
@@ -527,10 +573,12 @@ async function main() {
     check(await rejectedRadial.locator(".radial-card, svg, [data-radial-download]").count() === 0, "错误 SHA：没有任何可下载或可误读的曲线");
     check(await rejectedRadial.locator("[data-radial-load]").isEnabled(), "错误 SHA：失败后按钮恢复可重试");
     await shaFailure.close();
+    let inputsVerified = 0;
     for (const file of inputs) {
-      const fetched = await context.request.get(new URL(file.path, archive).href);
-      check(fetched.ok(), `input is downloadable: ${file.path}`);
-      check(createHash("sha256").update(await fetched.body()).digest("hex") === file.sha256, `input content hash: ${file.path}`);
+      if (file.tier === "referenced" && !process.env.LIVE_EXTERNAL && !cacheRouted && !externalFixtures) continue;
+      const bytes = await fetchFileBytes(file);
+      check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `input content hash: ${file.path}`);
+      inputsVerified += 1;
     }
     const frontierRecords = calculations.filter(record => record.files.figures.some(file => /\/band_frontier_metadata\.json$/.test(file.path)));
     check(frontierRecords.length > 0, "真实frontier方法sidecar存在");
@@ -538,9 +586,7 @@ async function main() {
     for (const record of frontierRecords) {
       const metadataFile = record.files.figures.find(file => /\/band_frontier_metadata\.json$/.test(file.path));
       const metadataUrl = new URL(metadataFile.path, archive);
-      const fetched = await context.request.get(metadataUrl.href);
-      check(fetched.ok(), `${record.id}：frontier sidecar可读取`);
-      const metadataBytes = await fetched.body();
+      const metadataBytes = await fetchFileBytes(metadataFile);
       check(createHash("sha256").update(metadataBytes).digest("hex") === metadataFile.sha256, `${record.id}：sidecar哈希一致`);
       const metadata = JSON.parse(metadataBytes.toString("utf8"));
       check(metadata.calculation_id === record.id, `${record.id}：sidecar属于同一计算`);
@@ -555,9 +601,7 @@ async function main() {
         primaryMethodsVerified += 1;
         const primary = record.files.figures.find(file => new URL(file.path, archive).href === svgUrl);
         check(primary?.display_priority === "primary", `${record.id} / ${method}：有效新图有primary引用`);
-        const figureResponse = await context.request.get(svgUrl);
-        check(figureResponse.ok(), `${record.id} / ${method}：重新绘制的单方法图HTTP可访问`);
-        const figureBytes = await figureResponse.body();
+        const figureBytes = await fetchFileBytes(primary);
         check(createHash("sha256").update(figureBytes).digest("hex") === primary.sha256, `${record.id} / ${method}：网页图字节匹配脚本生成图SHA`);
         const figureText = figureBytes.toString("utf8");
         check(figureText.includes('fill="white"') && figureText.includes('font-family="Times New Roman, DejaVu Serif, serif"') && figureText.includes('E − E'), `${record.id} / ${method}：白底衬线与独立VBM统一风格`);
@@ -669,10 +713,9 @@ async function main() {
     await go("#/material/%E0%A4%A");
     check((await page.locator("#detail-view").innerText()).includes("Record not found"), "malformed URL handled");
     const referencedFiles = calculations.flatMap(record =>
-      ["results", "logs", "figures"].flatMap(group => (record.files?.[group] || [])
+      ["inputs", "results", "logs", "figures"].flatMap(group => (record.files?.[group] || [])
         .filter(file => file.tier === "referenced")
         .map(file => ({ record, group, file }))));
-    const externalFixtures = process.env.EXTERNAL_FIXTURE_DIR;
     if (referencedFiles.length) {
       await page.setViewportSize({ width: 1440, height: 1050 });
     }
@@ -693,9 +736,9 @@ async function main() {
     }
     for (const { record, group, file } of referencedFiles.slice(0, 3)) {
       await go(`#/material/${encodeURIComponent(record.id)}`);
-      // Every referenced payload - logs, results, and figures alike - is
-      // listed as a file row in the unified Results files section.
-      const section = "record-results-files";
+      // Referenced result-layer payloads sit in the unified Results files
+      // section; referenced inputs keep their own Input files section.
+      const section = group === "inputs" ? "record-inputs" : "record-results-files";
       await page.locator(`.section-nav [data-section='${section}']`).click();
       await page.waitForSelector(`#${section} .file-row`);
       const row = page.locator(`#${section} .file-row`)
@@ -710,7 +753,7 @@ async function main() {
           && (await row.locator("a.mirror-link").getAttribute("href")) === file.external_url_backup, `${record.id}：备用镜像直链渲染`);
       }
       check(!/\.\.\/data\//.test(await row.locator("a.download-link").first().getAttribute("href") || ""), `${record.id}：不再回退到本地 Pages 路径`);
-      if ((externalFixtures || process.env.LIVE_EXTERNAL) && /\.(?:out|log|txt|dat)$/i.test(file.path)) {
+      if ((externalFixtures || process.env.LIVE_EXTERNAL || cacheRouted) && /\.(?:out|log|txt|dat|in)$/i.test(file.path)) {
         await row.getByRole("button", { name: "View", exact: true }).click();
         await page.waitForFunction(() => (document.querySelector("#file-preview pre")?.textContent || "").length > 0, null, { timeout: 15000 });
         check(await page.locator("#file-preview").isVisible(), `${record.id}：外部文件预览对话框打开`);
@@ -767,7 +810,7 @@ async function main() {
     await failure.waitForSelector("#load-error:not([hidden])");
     check((await failure.locator("#load-error").innerText()).includes("503"), "catalog network errors shown honestly");
     check(errors.length === 0, `browser errors: ${errors.join("; ")}`);
-    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputs.length, radial_files_verified: radialFilesVerified, radial_channels_verified: radialChannelsVerified, referenced_files_verified: referencedFiles.length, browser_errors: errors }, null, 2));
+    console.log(JSON.stringify({ passed: true, checks, calculations: calculations.length, basis_sets: data.basis_sets.length, input_files_verified: inputsVerified, radial_files_verified: radialFilesVerified, radial_channels_verified: radialChannelsVerified, referenced_files_verified: referencedFiles.length, browser_errors: errors }, null, 2));
   } finally {
     await browser.close();
   }

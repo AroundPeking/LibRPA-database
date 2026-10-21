@@ -32,10 +32,16 @@ jobs:
           python-version: "3.12"
       - name: Install the Hugging Face client
         run: pip install huggingface_hub
+      - name: Restore the external byte cache
+        uses: actions/cache@v4
+        with:
+          path: .external-cache
+          key: external-cache-${{ hashFiles('database/data.json') }}
+          restore-keys: external-cache-
       - name: Convert new large payloads to the referenced tier
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python scripts/sync_external_archive.py --min-size-mb 5 --paths-output converted-paths.txt
+        run: python scripts/sync_external_archive.py --paths-output converted-paths.txt
       - name: Remove the converted local bytes and commit
         run: |
           if [ -s converted-paths.txt ]; then

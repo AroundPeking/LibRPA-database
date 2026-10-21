@@ -1125,12 +1125,14 @@ class ReferencedTierTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsupported tier"):
             self.lib.validate(self.root, [self.set], [self.case])
 
-    def test_inputs_must_keep_local_bytes(self):
+    def test_referenced_inputs_pass_validation(self):
+        # Calculation inputs may move to the external archive; structure
+        # identity and evidence gates read them through the hash-verifying
+        # resolver instead of repository bytes.
         entry = self._referenced_entry(
-            path="data/calculations/3d/Si/si-control/inputs/librpa.in")
+            path="data/calculations/3d/Si/si-control/inputs/librpa.in", role="input")
         self.case["files"] = {"inputs": [entry]}
-        with self.assertRaisesRegex(ValueError, "only supported for calculation results, logs, and figures"):
-            self.lib.validate(self.root, [self.set], [self.case])
+        self.lib.validate(self.root, [self.set], [self.case])
 
     def test_basis_payloads_must_keep_local_bytes(self):
         remote = self.root / "remote.abfs"
@@ -1140,13 +1142,21 @@ class ReferencedTierTests(unittest.TestCase):
                  "size_bytes": 17, "tier": "referenced", "external_url": self.EXTERNAL}
         remote.unlink()
         broken = {"id": "Si-remote", "element": "Si", "files": [entry]}
-        with self.assertRaisesRegex(ValueError, "only supported for calculation results, logs, and figures"):
+        with self.assertRaisesRegex(ValueError, "must keep repository-local bytes"):
             self.lib.validate(self.root, [broken], [self.case])
 
-    def test_referenced_files_cannot_serve_as_local_byte_evidence(self):
-        # validate() 只要求证据路径已声明；completeness 是上传门禁，
-        # 它要求证据字节本地可读，所以 referenced 证据在那里被拒绝。
+    def _seed_external_cache(self, entry: dict, data: bytes) -> None:
+        digest = hashlib.sha256(data).hexdigest()
+        entry["sha256"] = digest
+        cache = self.root / ".external-cache" / digest[:2] / digest
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_bytes(data)
+
+    def test_referenced_evidence_reads_through_hash_verified_cache(self):
+        # completeness 通过回源解析器读取 referenced 证据：缓存字节与声明
+        # 哈希一致时，performance 证据要求被满足，不再产生阻断项。
         entry = self._referenced_entry()
+        self._seed_external_cache(entry, b"timing evidence bytes\n" * 64)
         self.case["files"] = {"logs": [entry]}
         self.case["performance"] = {
             "cluster_label": "cluster", "wall_time_seconds": 100, "nodes": 1,
@@ -1154,7 +1164,19 @@ class ReferencedTierTests(unittest.TestCase):
         }
         self.lib.validate(self.root, [self.set], [self.case])
         issues = self.lib.completeness_issues(self.root, [self.set], self.case)
-        self.assertTrue(any("performance.evidence" in issue for issue in issues), issues)
+        self.assertFalse(any("performance.evidence" in issue for issue in issues), issues)
+
+    def test_unreachable_external_evidence_fails_loudly(self):
+        # 外部档案不可达时门禁必须响亮失败，而不是把证据当作缺失静默放行。
+        entry = self._referenced_entry(external_url="https://127.0.0.1:9/a")
+        self.case["files"] = {"logs": [entry]}
+        self.case["performance"] = {
+            "cluster_label": "cluster", "wall_time_seconds": 100, "nodes": 1,
+            "mpi_ranks": 1, "omp_threads_per_rank": 1, "evidence": [entry["path"]],
+        }
+        self.lib.validate(self.root, [self.set], [self.case])
+        with self.assertRaisesRegex(ValueError, "external payload unreachable"):
+            self.lib.completeness_issues(self.root, [self.set], self.case)
 
     def test_log_index_accepts_referenced_entries_without_local_bytes(self):
         from build_indexes import _portable_file

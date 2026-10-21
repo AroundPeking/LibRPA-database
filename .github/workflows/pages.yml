@@ -28,6 +28,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Restore the external byte cache
+        uses: actions/cache@v4
+        with:
+          path: .external-cache
+          key: external-cache-${{ hashFiles('database/data.json') }}
+          restore-keys: external-cache-
       - name: 校验并公开全部缺证报告（网页发布不代表严格验收通过）
         run: python scripts/export_missing_evidence.py --check --report-output "${{ runner.temp }}/archive-completeness.json"
       - name: 保留全部记录的真实完整性报告

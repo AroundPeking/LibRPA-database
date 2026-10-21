@@ -1,8 +1,0 @@
-task = g0w0_band
-input_dir = ../../aims_dataset/df_32
-nfreq = 32
-option_dielect_func = 0
-replace_w_head = true
-use_scalapack_gw_wc = t
-parallel_routing = libri
-binary_input = t

@@ -1,4 +1,4 @@
-import { esc, publicPath, fileUrl, filesByPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, methodTag, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
+import { esc, publicPath, fileUrl, fileMirrorUrl, filesByPath, fileName, downloadName, filesOf, bandGap, paperGap, boundFiles, methodNames, methodTag, socTag, spinPolTag, setRelation, restrictedGap, recordType, recordTypeLabel, atomCount, sampledGridGap, performanceSummary, frontendLabel, workflowFrontend, workflowLabel, sameStructureRecords, crossFrontendRecords, primaryResult } from "./records.mjs";
 import { renderFiles } from "./files.mjs";
 import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs, getPropertyCategories } from "./properties.mjs";
@@ -49,7 +49,11 @@ const formatField = value => esc(typeof value === "object" ? JSON.stringify(valu
 const figureGrid = files => `<div class="figure-grid">${files.map(file => {
   const url = fileUrl(file);
   if (!url) return '<div class="notice warning">Figure link unavailable.</div>';
-  return `<figure><a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="${esc(url)}" alt="${esc(fileName(file))}"></a><figcaption><span>${esc(fileName(file))}</span><a href="${esc(url)}" download="${esc(downloadName(file))}">Download figure ↓</a></figcaption></figure>`;
+  const mirror = fileMirrorUrl(file);
+  // When the primary archive cannot serve the image (for example on
+  // networks that cannot route to it), retry once through the mirror.
+  const fallback = mirror ? ` onerror="this.onerror=null;this.src='${esc(mirror)}'"` : "";
+  return `<figure><a href="${esc(url)}" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="${esc(url)}"${fallback} alt="${esc(fileName(file))}"></a><figcaption><span>${esc(fileName(file))}</span><a href="${esc(url)}" download="${esc(downloadName(file))}">Download figure ↓</a></figcaption></figure>`;
 }).join("")}</div>`;
 
 function softwareInfo(record) {
@@ -169,7 +173,13 @@ export function renderMaterial(record, sets, allRecords = []) {
   const propertyDefault = getPropertyCategories(visibleProperties).find(category => visibleProperties.some(property => property?.category === category.slug))?.slug ?? "electronic";
   const propertyFiles = filesByPath(record);
   const propsHtml = `<p class="section-intro">Evidence-linked properties. Empty categories are available for future contributions, not zero-valued results.</p><div class="property-tabs" role="tablist" aria-label="Property categories">${renderPropertyTabs(visibleProperties, propertyDefault)}</div><div class="property-panel" id="property-panel" role="tabpanel" tabindex="0" aria-labelledby="property-tab-${esc(propertyDefault)}">${renderPropertyPanel(visibleProperties, propertyDefault, propertyFiles)}</div>`;
-  const partialInputNotice = record.source?.stage_input_receipt ? `<div class="notice"><strong>Stage-resolved calculation inputs</strong><p>Controls are organized by their original calculation stage. File transformations are recorded in the accompanying receipt.</p><a href="${esc(publicPath(record.source.stage_input_receipt))}" target="_blank" rel="noopener">View stage-input receipt ↗</a>${record.source.producer_assets_receipt ? `<p>PP/NAO/ABF names are documented separately from the original STRU and producer manifests.</p><a href="${esc(publicPath(record.source.producer_assets_receipt))}" target="_blank" rel="noopener">View producer-assets receipt ↗</a>` : ""}</div>` : "";
+  const declaredUrl = (record, rawPath) => {
+    // Receipt paths are record metadata; resolve them through the declared
+    // file entries so referenced tiers link to the external archive.
+    const entry = filesByPath(record).get(rawPath);
+    return entry ? fileUrl(entry) : publicPath(rawPath);
+  };
+  const partialInputNotice = record.source?.stage_input_receipt ? `<div class="notice"><strong>Stage-resolved calculation inputs</strong><p>Controls are organized by their original calculation stage. File transformations are recorded in the accompanying receipt.</p><a href="${esc(declaredUrl(record, record.source.stage_input_receipt))}" target="_blank" rel="noopener">View stage-input receipt ↗</a>${record.source.producer_assets_receipt ? `<p>PP/NAO/ABF names are documented separately from the original STRU and producer manifests.</p><a href="${esc(declaredUrl(record, record.source.producer_assets_receipt))}" target="_blank" rel="noopener">View producer-assets receipt ↗</a>` : ""}</div>` : "";
   const inputsHtml = inputs.length ? `${partialInputNotice}<div class="notice"><strong>${inputs.length} calculation input files</strong><p>These files belong to <code>${esc(record.id)}</code>. Associated PP / NAO / auxiliary data are linked in the Basis section.</p></div>${renderFiles(inputs, { input: true })}` : '<div class="notice"><strong>Calculation results</strong><p>Numerical results and provenance are available in the other sections of this record.</p></div>';
   const evidenceHtml = `<p class="section-intro">Software identities recorded for this run. Calculation logs and numerical outputs are listed under Results files.</p><div class="software-grid">${softwareInfo(record)}</div>`;
   const resultsFilesHtml = resultsFiles.length

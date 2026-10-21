@@ -88,40 +88,21 @@ def _url(base: str, repo_relative: str) -> str:
     return f"{base}/resolve/main/{segment}"
 
 
-def _evidence_cited_paths(record: dict) -> set[str]:
-    """Paths this record cites as acceptance evidence.
-
-    Property, auxiliary-basis, performance, and conversion evidence must
-    stay local-byte readable: the completeness gate reads those files, so
-    they can never move to the referenced tier.
-    """
-    cited: set[str] = set()
-
-    def add(values) -> None:
-        if isinstance(values, list):
-            cited.update(path for path in values if isinstance(path, str))
-
-    for prop in record.get("properties") or []:
-        if isinstance(prop, dict):
-            add(prop.get("evidence"))
-    for section in ("auxiliary_basis", "performance", "conversion"):
-        block = record.get(section)
-        if isinstance(block, dict):
-            add(block.get("evidence"))
-    return cited
-
-
-def build_plan(paths: list[str], min_size_mb: float) -> list[dict]:
-    # Only these record groups may move to the referenced tier; the size scan
-    # must skip inputs and everything under data/elements (basis payloads).
-    convertible = {"results", "logs", "figures"}
+def build_plan(paths: list[str], min_size_mb: float, all_payloads: bool = False) -> list[dict]:
+    # Calculation payload groups that may move to the referenced tier. Basis
+    # payloads under data/elements are never scanned and species bindings are
+    # never referenced; acceptance gates read referenced evidence through the
+    # hash-verifying resolver in library.py, so evidence files may convert.
+    convertible = {"inputs", "results", "logs", "figures"}
     candidates = []
     if paths:
         candidates = [ROOT / p for p in paths]
-    elif min_size_mb > 0:
-        threshold = int(min_size_mb * 1024 * 1024)
+    elif all_payloads or min_size_mb > 0:
+        threshold = 0 if all_payloads else int(min_size_mb * 1024 * 1024)
         root_data = ROOT / "data" / "calculations"
-        candidates = [p for p in sorted(root_data.rglob("*")) if p.is_file() and p.stat().st_size >= threshold]
+        # record.json files are the repository index, never payloads.
+        candidates = [p for p in sorted(root_data.rglob("*"))
+                      if p.is_file() and p.name != "record.json" and p.stat().st_size >= threshold]
     plan = []
     for full in candidates:
         repo_relative = full.relative_to(ROOT).as_posix()
@@ -130,10 +111,6 @@ def build_plan(paths: list[str], min_size_mb: float) -> list[dict]:
         if group not in convertible:
             if paths:
                 raise SystemExit(f"{repo_relative}: group '{group}' cannot move to the referenced tier")
-            continue
-        if repo_relative in _evidence_cited_paths(record):
-            if paths:
-                raise SystemExit(f"{repo_relative}: cited as acceptance evidence; evidence files must keep local bytes")
             continue
         size = full.stat().st_size
         declared = entry.get("size_bytes")
@@ -191,8 +168,6 @@ def cmd_apply(plan: list[dict], url_base: str, backup_base: str | None) -> int:
         _, group, index, entry = _locate(record_path, item["path"], record)
         if entry.get("sha256") != item["sha256"] or entry.get("size_bytes") != item["size_bytes"]:
             raise SystemExit(f"{item['path']}: record identity drifted from the plan; re-run plan")
-        if group == "inputs":
-            raise SystemExit(f"{item['path']}: inputs must keep local bytes (structure identity)")
         entry["tier"] = "referenced"
         entry["external_url"] = _url(url_base, item["path"])
         if backup_base:
@@ -220,26 +195,35 @@ def cmd_unapply(paths: list[str]) -> int:
     return 0
 
 
-def cmd_verify(plan: list[dict], url_base: str, backup_base: str | None) -> int:
-    failures = 0
+def _verify_one(url: str, expected: str) -> str:
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            local = Path(tmp) / "payload"
+            with urllib.request.urlopen(url, timeout=180) as response, local.open("wb") as stream:
+                shutil.copyfileobj(response, stream)
+            digest = _digest(local)
+        return f"OK  {url}" if digest == expected else f"SHA-256 MISMATCH  {url}"
+    except Exception as exc:  # noqa: BLE001 - report every URL, then fail
+        return f"UNREACHABLE  {url}  ({exc})"
+
+
+def cmd_verify(plan: list[dict], url_base: str, backup_base: str | None, workers: int = 1) -> int:
+    jobs = []
     for item in plan:
-        urls = [_url(url_base, item["path"])]
+        jobs.append((_url(url_base, item["path"]), item["sha256"]))
         if backup_base:
-            urls.append(_url(backup_base, item["path"]))
-        for url in urls:
-            try:
-                with tempfile.TemporaryDirectory() as tmp:
-                    local = Path(tmp) / "payload"
-                    with urllib.request.urlopen(url, timeout=120) as response, local.open("wb") as stream:
-                        shutil.copyfileobj(response, stream)
-                    digest = _digest(local)
-                status = "OK" if digest == item["sha256"] else "SHA-256 MISMATCH"
-                if status != "OK":
-                    failures += 1
-                print(f"{status}  {url}")
-            except Exception as exc:  # noqa: BLE001 - report every URL, then fail
-                failures += 1
-                print(f"UNREACHABLE  {url}  ({exc})")
+            jobs.append((_url(backup_base, item["path"]), item["sha256"]))
+    if workers > 1:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            lines = list(pool.map(lambda job: _verify_one(*job), jobs))
+    else:
+        lines = [_verify_one(*job) for job in jobs]
+    failures = 0
+    for line in lines:
+        print(line, flush=True)
+        if not line.startswith("OK"):
+            failures += 1
     if failures:
         print(f"{failures} verification failure(s); do not remove local bytes", file=sys.stderr)
         return 1
@@ -247,7 +231,7 @@ def cmd_verify(plan: list[dict], url_base: str, backup_base: str | None) -> int:
     return 0
 
 
-def cmd_upload(plan: list[dict], repo_id: str) -> int:
+def cmd_upload(plan: list[dict], repo_id: str, bulk: bool = False) -> int:
     try:
         from huggingface_hub import HfApi
     except ImportError:
@@ -263,6 +247,14 @@ def cmd_upload(plan: list[dict], repo_id: str) -> int:
     with tempfile.TemporaryDirectory() as tmp:
         dest = Path(tmp) / "tree"
         cmd_stage(plan, dest)
+        if bulk:
+            # One folder upload = one dataset commit for the whole batch;
+            # huggingface_hub parallelizes the small-file transfers itself.
+            api.upload_folder(folder_path=str(dest),
+                              repo_id=repo_id, repo_type="dataset",
+                              commit_message=f"bulk externalize {len(plan)} payloads")
+            print(f"uploaded {len(plan)} file(s) to dataset {repo_id} (bulk)")
+            return 0
         for item in plan:
             # One upload per file preserves the exact repository-relative
             # path; each upload is resumable on its own.
@@ -283,6 +275,8 @@ def main() -> int:
     plan_cmd = sub.add_parser("plan", help="list candidate files and write a conversion plan")
     plan_cmd.add_argument("--paths", nargs="*", default=[], help="explicit repository-relative file paths")
     plan_cmd.add_argument("--min-size-mb", type=float, default=0.0, help="collect every payload at or above this size")
+    plan_cmd.add_argument("--all-payloads", action="store_true",
+                          help="collect every local-tier calculation payload regardless of size")
     plan_cmd.add_argument("-o", "--output", default="-", help="plan file ('-' for stdout)")
 
     stage_cmd = sub.add_parser("stage", help="verify local bytes and copy them into a staging tree")
@@ -301,16 +295,20 @@ def main() -> int:
     verify_cmd.add_argument("--plan", required=True)
     verify_cmd.add_argument("--url-base", required=True)
     verify_cmd.add_argument("--backup-base")
+    verify_cmd.add_argument("--workers", type=int, default=1,
+                            help="parallel URL downloads (1 = sequential)")
 
     upload_cmd = sub.add_parser("upload", help="push staged files to a Hugging Face dataset")
     upload_cmd.add_argument("--plan", required=True)
     upload_cmd.add_argument("--repo-id", required=True, help="dataset namespace/name")
+    upload_cmd.add_argument("--bulk", action="store_true",
+                            help="push the staged tree as one folder upload instead of per-file commits")
 
     args = parser.parse_args()
     ROOT = args.root.resolve()
 
     if args.command == "plan":
-        plan = build_plan(args.paths, args.min_size_mb)
+        plan = build_plan(args.paths, args.min_size_mb, all_payloads=args.all_payloads)
         text = json.dumps(plan, indent=2, ensure_ascii=False) + "\n"
         if args.output == "-":
             sys.stdout.write(text)
@@ -325,9 +323,9 @@ def main() -> int:
     if args.command == "unapply":
         return cmd_unapply(args.paths)
     if args.command == "verify":
-        return cmd_verify(read_plan(args.plan), args.url_base, args.backup_base)
+        return cmd_verify(read_plan(args.plan), args.url_base, args.backup_base, workers=args.workers)
     if args.command == "upload":
-        return cmd_upload(read_plan(args.plan), args.repo_id)
+        return cmd_upload(read_plan(args.plan), args.repo_id, bulk=args.bulk)
     return 2
 
 

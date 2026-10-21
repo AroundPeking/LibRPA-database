@@ -8,6 +8,8 @@ import json
 import math
 import re
 import struct
+import time
+import urllib.request
 import xml.etree.ElementTree as ET
 import zlib
 from pathlib import Path, PurePosixPath
@@ -70,10 +72,11 @@ def _file(root: Path, item: dict, label: str, *, allow_referenced: bool = False)
     if tier is not None and tier != "referenced":
         _fail(f"{label}: unsupported tier {tier!r}")
     if tier == "referenced":
-        # 结构输入、基组载荷和物种绑定必须保持本地可读字节；
-        # 仅计算记录自有的 results/logs/figures 文件可外部化。
+        # 基组载荷与物种绑定（默认 allow_referenced=False 的调用点）必须
+        # 保持本地字节；计算记录的全部文件组都可以外部化，字节由
+        # _payload_bytes 的回源解析器按声明 SHA-256 校验读取。
         if not allow_referenced:
-            _fail(f"{label}: the referenced tier is only supported for calculation results, logs, and figures")
+            _fail(f"{label}: this entry type must keep repository-local bytes")
         _validate_referenced(item, label)
         return
     full = root.joinpath(*path.parts).resolve()
@@ -433,7 +436,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
                 _fail(f"{label}: files.{group} must be a list")
             for n, file_item in enumerate(values):
                 _file(root, file_item, f"{label}.files.{group}[{n}]",
-                      allow_referenced=group != "inputs")
+                      allow_referenced=True)
                 declared_paths.add(file_item["path"])
 
         _validate_workflow_contract(case, label, declared_paths)
@@ -464,15 +467,67 @@ def _formula_elements(value: object) -> set[str]:
     return symbols if symbols.issubset(ELEMENTS) else set()
 
 
+def _external_bytes(root: Path, item: dict, label: str) -> bytes:
+    """按声明 SHA-256 从外部档案取回 referenced 字节并做本地缓存。
+
+    验收门禁读的是真实字节：下载后逐字节核对哈希，任何失配或不可达都
+    直接失败，而不是把证据当作缺失静默放过。缓存按内容寻址，命中时
+    同样复核哈希，避免中毒缓存影响验收。
+    """
+    digest = item.get("sha256")
+    url = item.get("external_url")
+    if not isinstance(digest, str) or not SHA256.fullmatch(digest) or not isinstance(url, str):
+        _fail(f"{label}: referenced payload is missing its hash or direct URL")
+    cache = root / ".external-cache" / digest[:2] / digest
+    if cache.is_file():
+        data = cache.read_bytes()
+        if hashlib.sha256(data).hexdigest() == digest:
+            return data
+        cache.unlink()
+    data = None
+    last_error = None
+    for attempt in range(3):
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": "librpa-database-gate/1.0"})
+            with urllib.request.urlopen(request, timeout=180) as response:
+                data = response.read()
+            last_error = None
+            break
+        except Exception as exc:  # noqa: BLE001 - retry transient transport errors
+            last_error = exc
+            time.sleep(4 * (attempt + 1))
+    if data is None:
+        _fail(f"{label}: external payload unreachable at {url} ({last_error})")
+    if hashlib.sha256(data).hexdigest() != digest:
+        _fail(f"{label}: external payload SHA-256 mismatch at {url}")
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    temporary = cache.with_name(digest + ".part")
+    temporary.write_bytes(data)
+    try:
+        temporary.replace(cache)
+    except FileNotFoundError:
+        # A concurrent gate populated the same entry; trust the winner
+        # only when it still hash-matches.
+        if not cache.is_file() or hashlib.sha256(cache.read_bytes()).hexdigest() != digest:
+            cache.write_bytes(data)
+        temporary.unlink(missing_ok=True)
+    return data
+
+
 def _payload_bytes(root: Path, item: dict, limit: int | None = None) -> bytes:
     path = PurePosixPath(item.get("path", ""))
     if path.is_absolute() or ".." in path.parts or not path.parts:
         return b""
     full = root.joinpath(*path.parts).resolve()
-    if not full.is_relative_to(root.resolve()) or not full.is_file():
+    if not full.is_relative_to(root.resolve()):
         return b""
-    with full.open("rb") as stream:
-        return stream.read(limit) if limit else stream.read()
+    if full.is_file():
+        with full.open("rb") as stream:
+            return stream.read(limit) if limit else stream.read()
+    if item.get("tier") == "referenced":
+        data = _external_bytes(root, item, item.get("path") or "payload")
+        return data[:limit] if limit else data
+    return b""
 
 
 def _input_name(item: dict, name: str) -> bool:
@@ -871,17 +926,16 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                 continue
             try:
                 _file(root, item, f"files.{group}: {path}",
-                      allow_referenced=group != "inputs")
+                      allow_referenced=True)
             except ValueError as exc:
                 issues.append(str(exc))
                 continue
             owned[group].append(item)
             if item.get("tier") == "referenced":
-                # 能带图的 source_paths 溯源允许引用 referenced 档：字节有
-                # 声明 SHA-256 锚点且外部可下载复核，推导关系保持可验证。
+                # referenced 档字节经 _payload_bytes 回源读取并按声明
+                # SHA-256 校验；因此能带图溯源与 performance/auxiliary/
+                # 属性证据都允许引用外部档案，验收强度不变。
                 referenced_paths.add(path)
-            # referenced 档的字节不在仓库内，不能充当需要本地核对的
-            # performance/auxiliary/属性证据；这类证据必须保持本地归档。
             if _payload_bytes(root, item, 1):
                 evidence_paths.add(path)
 
@@ -1409,11 +1463,8 @@ def _mean_field_functional(root: Path, case: dict) -> str | None:
         name = PurePosixPath(str(entry.get("path", ""))).name.split("__")[-1]
         if not (ABACUS_CONTROL_NAMES.fullmatch(name) or name == "control.in"):
             continue
-        path = root / str(entry.get("path", ""))
-        if not path.is_file():
-            continue
         try:
-            text = path.read_text(encoding="utf-8", errors="replace")
+            text = _payload_bytes(root, entry).decode("utf-8", errors="replace")
         except OSError:
             continue
         pattern = AIMS_FUNCTIONAL_INPUT if name == "control.in" else ABACUS_FUNCTIONAL_INPUT
@@ -1425,11 +1476,8 @@ def _mean_field_functional(root: Path, case: dict) -> str | None:
 def _declared_input_texts(root: Path, case: dict) -> list[str]:
     texts = []
     for entry in (case.get("files") or {}).get("inputs", []):
-        path = root / str(entry.get("path", ""))
-        if not path.is_file():
-            continue
         try:
-            texts.append(path.read_text(encoding="utf-8", errors="replace"))
+            texts.append(_payload_bytes(root, entry).decode("utf-8", errors="replace"))
         except OSError:
             continue
     return texts

@@ -4,14 +4,50 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import shutil
+import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import library  # noqa: E402
+
 SPEC = importlib.util.spec_from_file_location("generate_band_figures", ROOT / "scripts/generate_band_figures.py")
 generator = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(generator)
+
+
+def payload_file(record_json: Path, *relative: str) -> Path:
+    """按声明路径读取真实字节：本地文件优先，其次回源外部归档缓存。"""
+    direct = record_json.parent.joinpath(*relative)
+    if direct.is_file():
+        return direct
+    repo_relative = record_json.parent.relative_to(ROOT).joinpath(*relative).as_posix()
+    record = json.loads(record_json.read_text(encoding="utf-8"))
+    for entries in record["files"].values():
+        for item in entries:
+            if item.get("path") == repo_relative:
+                library._external_bytes(ROOT, item, repo_relative)
+                return ROOT / ".external-cache" / item["sha256"][:2] / item["sha256"]
+    raise FileNotFoundError(repo_relative)
+
+
+def materialize_record(record_dir: Path, root: Path) -> Path:
+    """把真实记录连同 referenced 档字节完整物化到临时根目录，供改写类测试使用。"""
+    record_json = record_dir / "record.json"
+    record = json.loads(record_json.read_text(encoding="utf-8"))
+    for entries in record["files"].values():
+        for item in entries:
+            if item.get("tier") != "referenced":
+                continue
+            target = root / item["path"]
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(library._external_bytes(ROOT, item, item["path"]))
+    destination = root / record_dir.relative_to(ROOT)
+    shutil.copytree(record_dir, destination, dirs_exist_ok=True)
+    return destination / "record.json"
 
 
 class BandFigureTests(unittest.TestCase):
@@ -253,16 +289,16 @@ class BandFigureTests(unittest.TestCase):
                     "NaCl": (8, 5.08771, 13.36155)}
         for material, (occupied, ks, exx) in expected.items():
             path = next(ROOT.glob(f"data/calculations/3d/{material}/{material.lower()}-paper-*/record.json"))
-            export_count = int((path.parent / "results/band_kpath_info").read_text().splitlines()[0].split()[1])
+            export_count = int(payload_file(path, "results/band_kpath_info").read_text().splitlines()[0].split()[1])
             for method, gap in (("KS", ks), ("EXX", exx)):
                 with self.subTest(material=material, method=method):
                     rows = [[float(value) for value in line.split()[5::2]][:export_count]
-                            for line in (path.parent / f"results/{method}_band_spin_1.dat").read_text().splitlines()
+                            for line in payload_file(path, f"results/{method}_band_spin_1.dat").read_text().splitlines()
                             if line.strip()]
                     vbm = max(value for row in rows for value in row[:occupied])
                     cbm = min(value for row in rows for value in row[occupied:])
                     self.assertAlmostEqual(cbm - vbm, gap, places=5)
-                    table = generator.plot_bands.parse_abacus_band_table(path.parent / f"results/{method}_band_spin_1.dat")
+                    table = generator.plot_bands.parse_abacus_band_table(payload_file(path, f"results/{method}_band_spin_1.dat"))
                     contract = {"kind": "logged_raw_boundary", "occupied_band_count": occupied, "evidence": ["same.log"]}
                     if all(value == 0 for row in table.occupations for value in row[:export_count]):
                         analysis = generator.plot_bands.analyze_frontier(table, occupation_contract=contract,
@@ -278,7 +314,7 @@ class BandFigureTests(unittest.TestCase):
     def test_actual_alp_full_tail_is_preserved_diagnosed_and_never_selected(self):
         path = next(ROOT.glob("data/calculations/3d/AlP/alp-paper-*/record.json"))
         for method in generator.METHODS:
-            table = generator.plot_bands.parse_abacus_band_table(path.parent / f"results/{method}_band_spin_1.dat")
+            table = generator.plot_bands.parse_abacus_band_table(payload_file(path, f"results/{method}_band_spin_1.dat"))
             tail = generator._tail_diagnostics(table, 44)
             self.assertEqual(tail["rejected_raw_band_indices"], list(range(45, 57)))
             if method == "KS":
@@ -288,15 +324,17 @@ class BandFigureTests(unittest.TestCase):
                 self.assertLess(tail["finite_minimum_ev"], -874)
             if method == "GW":
                 self.assertEqual(tail["zero_state_count"], 121 * 12)
-        metadata_path = path.parent / "figures/band_frontier_metadata.json"
-        if metadata_path.exists():
-            metadata = json.loads(metadata_path.read_text())
+        try:
+            metadata = json.loads(payload_file(path, "figures/band_frontier_metadata.json").read_text())
+        except FileNotFoundError:
+            pass
+        else:
             self.assertEqual(metadata["methods"]["GW"]["gap_status"], "rejected")
 
     def test_actual_cao_nacl_gw_negative_full_gap_keeps_fixed_low_window(self):
         for material in ("CaO", "NaCl"):
             path = next(ROOT.glob(f"data/calculations/3d/{material}/{material.lower()}-paper-*/record.json"))
-            table = generator.plot_bands.parse_abacus_band_table(path.parent / "results/GW_band_spin_1.dat")
+            table = generator.plot_bands.parse_abacus_band_table(payload_file(path, "results/GW_band_spin_1.dat"))
             contract = {"kind": "logged_raw_boundary", "occupied_band_count": 8, "evidence": ["same.log"]}
             if any(value != 0 for row in table.occupations for value in row):
                 contract = {"kind": "uniform_k_weighted", "occupied_band_count": 8,
@@ -312,11 +350,12 @@ class BandFigureTests(unittest.TestCase):
     def test_actual_full_selected_band_viewport_and_rejected_gw_svg_references(self):
         declared = 0
         for path in ROOT.glob("data/calculations/3d/*/*/record.json"):
-            metadata_path = path.parent / "figures/band_frontier_metadata.json"
-            if not metadata_path.exists():
+            try:
+                metadata_text = payload_file(path, "figures/band_frontier_metadata.json").read_text()
+            except FileNotFoundError:
                 continue
             record = json.loads(path.read_text())
-            metadata = json.loads(metadata_path.read_text())
+            metadata = json.loads(metadata_text)
             references = {entry["path"] for entry in record["files"]["figures"]}
             for method, analysis in metadata["methods"].items():
                 svg = (path.parent / f"figures/{method.lower()}_frontier.svg").relative_to(ROOT).as_posix()
@@ -401,8 +440,7 @@ class BandFigureTests(unittest.TestCase):
         relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            shutil.copytree(ROOT / relative, root / relative)
-            path = root / relative / "record.json"
+            path = materialize_record(ROOT / relative, root)
             before = json.loads(path.read_text())
             originals = {p: p.read_bytes() for group in ("inputs", "results", "logs")
                          for p in (path.parent / group).iterdir() if p.is_file()}
@@ -447,8 +485,7 @@ class BandFigureTests(unittest.TestCase):
             for replacement in ("unknown", "0" * 40):
                 with self.subTest(stage=stage, replacement=replacement), tempfile.TemporaryDirectory() as tmp:
                     root = Path(tmp)
-                    shutil.copytree(ROOT / relative, root / relative)
-                    path = root / relative / "record.json"
+                    path = materialize_record(ROOT / relative, root)
                     log = path.parent / "logs" / stage
                     text = log.read_text()
                     commit = __import__("re").search(r"(?m)^\s*Commit:\s*([0-9a-f]{40})\b", text).group(1)
@@ -468,8 +505,7 @@ class BandFigureTests(unittest.TestCase):
         for method in generator.METHODS:
             with self.subTest(method=method), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
-                shutil.copytree(ROOT / relative, root / relative)
-                path = root / relative / "record.json"
+                path = materialize_record(ROOT / relative, root)
                 raw = path.parent / "results" / f"{method}_band_spin_1.dat"
                 lines = []
                 for line in raw.read_text().splitlines():
@@ -493,8 +529,7 @@ class BandFigureTests(unittest.TestCase):
         relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            shutil.copytree(ROOT / relative, root / relative)
-            path = root / relative / "record.json"
+            path = materialize_record(ROOT / relative, root)
             before = json.loads(path.read_text())
             previous = json.loads((path.parent / "figures/hbn_frontier_audit.json").read_text())
             generator.generate_hbn_record(path, root, write=True)
@@ -514,8 +549,7 @@ class BandFigureTests(unittest.TestCase):
         relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            shutil.copytree(ROOT / relative, root / relative)
-            path = root / relative / "record.json"
+            path = materialize_record(ROOT / relative, root)
             generator.generate_hbn_record(path, root, write=True)
             svg = path.parent / "figures/exx_frontier.svg"
             svg.write_bytes(svg.read_bytes() + b"\n")
@@ -530,8 +564,7 @@ class BandFigureTests(unittest.TestCase):
         relative = Path("data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008")
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            shutil.copytree(ROOT / relative, root / relative)
-            path = root / relative / "record.json"
+            path = materialize_record(ROOT / relative, root)
             target = (path.parent / "results/EXX_band_spin_1.dat").resolve()
             original_read = Path.read_bytes
             reads = 0

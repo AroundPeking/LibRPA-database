@@ -1,4 +1,0 @@
-  File "/HPC/app/src/abacus-v1-commonkeys-old-libri-20260605/tools/validate_librpa_v1_output.py", line 113
-    print("ERROR: {}".format(exc), file=sys.stderr)
-                                       ^
-SyntaxError: invalid syntax

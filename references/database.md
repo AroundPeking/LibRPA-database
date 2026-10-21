@@ -161,8 +161,12 @@ Such a
 and byte size remain the integrity anchor: the upload tooling verifies the
 bytes before upload, and `scripts/externalize_files.py verify` re-downloads
 and re-checks every URL before local copies may be removed. Calculation
-inputs, basis-set payloads, and species bindings always keep local bytes —
-structure identity and basis readability are validated from the repository
+inputs, results, logs, and figures may all convert; basis-set payloads and
+species bindings always keep local bytes — basis readability and radial
+functions are validated from the repository. When a gate needs to read a
+referenced payload, it fetches the external URL, verifies the declared
+SHA-256, and caches the bytes content-addressed under `.external-cache/`,
+so acceptance checks read exactly the recorded bytes either way.
 itself — and `performance`/`auxiliary_basis`/property evidence that the
 completeness gate must read locally cannot point at a referenced file. Band
 figures may cite a referenced file in `source_paths`: the derivation stays

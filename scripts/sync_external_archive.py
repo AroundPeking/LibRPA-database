@@ -4,9 +4,9 @@
 Intended to run on GitHub Actions after the validation workflows accept a
 push to ``main``. The loop mirrors the reviewed manual go-live procedure:
 
-1. ``plan`` every local-tier ``logs``/``results`` payload at or above the
-   size threshold. The planner already refuses acceptance-evidence files
-   and non-convertible record groups, so this can never weaken a gate.
+1. ``plan`` every local-tier calculation payload - inputs, results, logs,
+   and figures alike, regardless of size. Basis payloads and species
+   bindings are never scanned, so the basis library stays in git.
 2. ``upload`` the staged bytes to the Hugging Face dataset (token from the
    ``HF_TOKEN`` environment variable / Actions secret).
 3. ``verify`` every URL (primary and mirror) before anything is rewritten.
@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_REPO = "AroundPeking/LibRPA-database"
-CONVERTIBLE_GROUPS = ("logs", "results")
+CONVERTIBLE_GROUPS = ("inputs", "results", "logs", "figures")
 
 
 def _run(script: str, *arguments: str) -> str:
@@ -43,8 +43,8 @@ def _run(script: str, *arguments: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--min-size-mb", type=float, default=5.0,
-                        help="convert local-tier logs/results payloads at or above this size")
+    parser.add_argument("--workers", type=int, default=8,
+                        help="parallel URL downloads for the verify pass")
     parser.add_argument("--repo-id", default=DEFAULT_REPO)
     parser.add_argument("--paths-output", type=Path, default=None,
                         help="write the converted repository-relative paths here, one per line")
@@ -56,7 +56,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         raw = Path(tmp) / "raw-plan.json"
         plan_path = Path(tmp) / "plan.json"
-        _run("externalize_files.py", "plan", "--min-size-mb", str(args.min_size_mb), "-o", str(raw))
+        _run("externalize_files.py", "plan", "--all-payloads", "-o", str(raw))
         items = [item for item in json.loads(raw.read_text())
                  if item["group"] in CONVERTIBLE_GROUPS]
         if not items:
@@ -69,7 +69,8 @@ def main() -> int:
         plan_path.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n")
         _run("externalize_files.py", "upload", "--plan", str(plan_path), "--repo-id", args.repo_id)
         _run("externalize_files.py", "verify", "--plan", str(plan_path),
-             "--url-base", url_base, "--backup-base", backup_base)
+             "--url-base", url_base, "--backup-base", backup_base,
+             "--workers", str(args.workers))
         _run("externalize_files.py", "apply", "--plan", str(plan_path),
              "--url-base", url_base, "--backup-base", backup_base)
 

@@ -76,7 +76,10 @@
         "transformation": "none",
         "original_size_bytes": 1896,
         "stage_id": "scf",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/INPUT"
       },
       {
         "role": "inputs",
@@ -89,7 +92,10 @@
         "transformation": "none",
         "original_size_bytes": 31,
         "stage_id": "scf",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/KPT"
       },
       {
         "role": "inputs",
@@ -102,7 +108,10 @@
         "transformation": "none",
         "original_size_bytes": 737,
         "stage_id": "scf",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/scf/STRU"
       },
       {
         "role": "inputs",
@@ -115,7 +124,10 @@
         "transformation": "none",
         "original_size_bytes": 1124,
         "stage_id": "band",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/INPUT"
       },
       {
         "role": "inputs",
@@ -128,7 +140,10 @@
         "transformation": "none",
         "original_size_bytes": 28820,
         "stage_id": "band",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/KPT"
       },
       {
         "role": "inputs",
@@ -141,7 +156,10 @@
         "transformation": "none",
         "original_size_bytes": 667,
         "stage_id": "band",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/band/STRU"
       },
       {
         "role": "inputs",
@@ -154,7 +172,10 @@
         "transformation": "none",
         "original_size_bytes": 1494,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/gw/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/gw/librpa.in"
       },
       {
         "role": "inputs",
@@ -167,7 +188,10 @@
         "transformation": "none",
         "original_size_bytes": 839,
         "stage_id": "exx",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/exx/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/inputs/recovered/exx/librpa.in"
       }
     ],
     "results": [
@@ -188,7 +212,10 @@
           "evidence": [
             "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
           ]
-        }
+        },
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat"
       },
       {
         "role": "results",
@@ -197,7 +224,10 @@
         "size_bytes": 2564400,
         "original_sha256": "b309d093a7730ebc3eb2f459499f2c408ff078d6af072a8c959f035a2b288fc8",
         "label": "snse_EXX.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat"
       },
       {
         "role": "results",
@@ -206,7 +236,10 @@
         "size_bytes": 1988400,
         "original_sha256": "74c6cc28383afe2d0effa7896b14d73c5c3d3f3a8e48161a517c4fc980e835e5",
         "label": "snse_GW.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat"
       },
       {
         "role": "results",
@@ -215,14 +248,20 @@
         "size_bytes": 180858,
         "original_sha256": "15dd84f1b78d6e16d6d15a0f80dbd9b4fc468ece06d0028b64b944514dfec320",
         "label": "snse.json",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
       },
       {
         "role": "results",
         "path": "data/calculations/2d/SnSe/snse-table-gw/results/paper_reported_values.json",
         "sha256": "33ee8ad526aff517fa36c9af2505a4c2427a888c6938b6dd5fac7d8af3e8da04",
         "size_bytes": 2375,
-        "label": "Paper-reported Table I values (DFT / GW)"
+        "label": "Paper-reported Table I values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/paper_reported_values.json"
       },
       {
         "role": "results",
@@ -232,7 +271,10 @@
         "original_sha256": "dcc248245a5c30a163ce91643704b0824da75934add5475a263a7e5aaf905ef9",
         "label": "producer_assets_receipt.json",
         "original_name": "producer_assets_receipt.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json"
       }
     ],
     "logs": [],
@@ -249,7 +291,10 @@
           "data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
           "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_ks.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_ks.png"
       },
       {
         "role": "figures",
@@ -263,7 +308,10 @@
           "data/calculations/2d/SnSe/snse-table-gw/results/KS_bands.dat",
           "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_ks.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_ks.pdf"
       },
       {
         "role": "figures",
@@ -279,7 +327,10 @@
         ],
         "method": "EXX",
         "scientific_status": "archived_diagnostic",
-        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result"
+        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_exx.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_exx.png"
       },
       {
         "role": "figures",
@@ -295,7 +346,10 @@
         ],
         "method": "EXX",
         "scientific_status": "archived_diagnostic",
-        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result"
+        "notes": "Archived diagnostic figure of anomalous original raw bands; not a newly accepted result",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_exx.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_exx.pdf"
       },
       {
         "role": "figures",
@@ -309,7 +363,10 @@
           "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat",
           "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_gw.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_gw.png"
       },
       {
         "role": "figures",
@@ -323,7 +380,10 @@
           "data/calculations/2d/SnSe/snse-table-gw/results/GW_bands.dat",
           "data/calculations/2d/SnSe/snse-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_gw.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/SnSe/snse-table-gw/figures/snse_gw.pdf"
       }
     ]
   },
@@ -384,7 +444,7 @@
       "value": -1898024.7638299998,
       "unit": "eV",
       "status": "provisional",
-      "definition": "Restricted raw-band frontier path gap: full raw path CBM \u2212 VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
+      "definition": "Restricted raw-band frontier path gap: full raw path CBM − VBM of the archived EXX spectrum; pathological negative value retained for traceability, not an accepted gap",
       "scope": "Sampled path; provisional pathological diagnostic, not an accepted gap.",
       "evidence": [
         "data/calculations/2d/SnSe/snse-table-gw/results/EXX_bands.dat"
@@ -427,16 +487,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1asampled path\uff1bprovisional/path\u8bca\u65ad\uff0c\u4e0d\u5347\u7ea7\u4e3aaccepted benchmark\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       },
       "GW": {
         "value": 1.74577,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1asampled path\uff1bprovisional/path\u8bca\u65ad\uff0c\u4e0d\u5347\u7ea7\u4e3aaccepted benchmark\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：sampled path；provisional/path诊断，不升级为accepted benchmark。 有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       }
     },
-    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
   }
 }

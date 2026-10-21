@@ -60,7 +60,10 @@
         "transformation": "none",
         "original_size_bytes": 625,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT"
       },
       {
         "role": "inputs",
@@ -73,7 +76,10 @@
         "transformation": "none",
         "original_size_bytes": 645,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -86,7 +92,10 @@
         "transformation": "none",
         "original_size_bytes": 625,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -99,7 +108,10 @@
         "transformation": "none",
         "original_size_bytes": 175,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT"
       },
       {
         "role": "inputs",
@@ -112,7 +124,10 @@
         "transformation": "none",
         "original_size_bytes": 31,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_scf"
       },
       {
         "role": "inputs",
@@ -125,7 +140,10 @@
         "transformation": "none",
         "original_size_bytes": 175,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/KPT_nscf"
       },
       {
         "role": "inputs",
@@ -138,7 +156,10 @@
         "transformation": "none",
         "original_size_bytes": 492,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/STRU"
       },
       {
         "role": "inputs",
@@ -151,7 +172,10 @@
         "transformation": "none",
         "original_size_bytes": 196,
         "stage_id": "gw",
-        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import."
+        "evidence_scope": "Recovered production controls from the original run directory; byte-preserved. Directory association is not an immutable full production chain or a self-contained rerun bundle; software identities and scientific acceptance are not changed by this import.",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/inputs/recovered/gw/librpa.in"
       }
     ],
     "results": [
@@ -162,7 +186,10 @@
         "size_bytes": 325611,
         "original_sha256": "084d0bef68a697a4c1564b64a0482c859a54c87c32fca927dccf444b1b15890e",
         "label": "p4_KS.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/KS_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/KS_bands.dat"
       },
       {
         "role": "results",
@@ -171,7 +198,10 @@
         "size_bytes": 325611,
         "original_sha256": "bface75f48a612aaa64162ec03e77e2324c4905da9fdb1801e9d94f819efebc9",
         "label": "p4_EXX.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/EXX_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/EXX_bands.dat"
       },
       {
         "role": "results",
@@ -180,7 +210,10 @@
         "size_bytes": 325611,
         "original_sha256": "dc79e7b39c14791bcbe4a5928fb6d20861d7fda4a028d4075deefec307213d44",
         "label": "p4_GW.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat"
       },
       {
         "role": "results",
@@ -189,14 +222,20 @@
         "size_bytes": 58441,
         "original_sha256": "75757430872118f891752293ad9e08fbf2e60f28da3035a9ec08c7885829a1f0",
         "label": "phosphorene.json",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
       },
       {
         "role": "results",
         "path": "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/paper_reported_values.json",
         "sha256": "e19a5326d9ac63e9634ff15118d9fa51113bbc64b467bdb856f202d3949ec5b4",
         "size_bytes": 2133,
-        "label": "Paper-reported Table I values (DFT / GW)"
+        "label": "Paper-reported Table I values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/paper_reported_values.json"
       },
       {
         "role": "results",
@@ -206,7 +245,10 @@
         "original_sha256": "3fc0a0d934e2ed02ccda70f2a747252f51cbdb86d6849381529f55e40706bc4e",
         "label": "producer_assets_receipt.json",
         "original_name": "producer_assets_receipt.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json"
       }
     ],
     "logs": [],
@@ -223,7 +265,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/KS_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.png"
       },
       {
         "role": "figures",
@@ -237,7 +282,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/KS_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_ks.pdf"
       },
       {
         "role": "figures",
@@ -251,7 +299,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/EXX_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "EXX"
+        "method": "EXX",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.png"
       },
       {
         "role": "figures",
@@ -265,7 +316,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/EXX_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "EXX"
+        "method": "EXX",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_exx.pdf"
       },
       {
         "role": "figures",
@@ -279,7 +333,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.png"
       },
       {
         "role": "figures",
@@ -293,7 +350,10 @@
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/GW_bands.dat",
           "data/calculations/2d/Phosphorene/phosphorene-table-gw/results/band_window_and_provenance.json"
         ],
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/Phosphorene/phosphorene-table-gw/figures/phosphorene_gw.pdf"
       }
     ]
   },
@@ -377,16 +437,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1a\u0393\u2013\u0393\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       },
       "GW": {
         "value": 1.93526,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1a\u0393\u2013\u0393\uff1b\u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：Γ–Γ；有限主表值不自动升级归档path、完整空态谱或当前record.status。"
       }
     },
-    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
   }
 }

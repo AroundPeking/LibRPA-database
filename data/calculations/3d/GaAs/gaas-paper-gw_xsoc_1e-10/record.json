@@ -67,7 +67,10 @@
         "size_bytes": 587,
         "original_sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
         "label": "INPUT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT"
       },
       {
         "role": "inputs",
@@ -76,7 +79,10 @@
         "size_bytes": 587,
         "original_sha256": "338df10f34d30dcc08251633cda71e3a0a038f56f2e5a9e55b6841f86b75391b",
         "label": "INPUT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -85,7 +91,10 @@
         "size_bytes": 707,
         "original_sha256": "0c34ecfccbc12873c080bb83758371c38d51308c88e7416760eb3a0c3990ddaf",
         "label": "INPUT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -94,7 +103,10 @@
         "size_bytes": 453,
         "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
         "label": "KPT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT"
       },
       {
         "role": "inputs",
@@ -103,7 +115,10 @@
         "size_bytes": 453,
         "original_sha256": "9f10b6403015ad54b2771005c6a667e5dee7ff6c2304df8168c54f95e67e64b0",
         "label": "KPT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_nscf"
       },
       {
         "role": "inputs",
@@ -112,7 +127,10 @@
         "size_bytes": 29,
         "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
         "label": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -121,7 +139,10 @@
         "size_bytes": 398,
         "original_sha256": "19cc99d88fff7dfcb5de32c6c4a2a0eb89d30a31db2255e464a1fafa5ed87fad",
         "label": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -130,7 +151,10 @@
         "size_bytes": 196,
         "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
         "label": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/inputs/librpa.in"
       }
     ],
     "results": [
@@ -141,7 +165,10 @@
         "size_bytes": 414261,
         "original_sha256": "28472a00ad9289a58fe4ab64fd92d5fe25e9da34e61197b5c857b1c8b329b361",
         "label": "EXX_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -150,7 +177,10 @@
         "size_bytes": 414261,
         "original_sha256": "49b49448901aaf017820cb5d5a6dee3b94d39861f09a6af53b935f117a67dd60",
         "label": "GW_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -159,7 +189,10 @@
         "size_bytes": 414261,
         "original_sha256": "2b855827619c859a02e959f6ccfe4faf7069f0d65fc69f99cb50458587d62e3e",
         "label": "KS_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/KS_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -168,14 +201,20 @@
         "size_bytes": 11080,
         "original_sha256": "23b2378c16b98c181066be5808cc5d5ef9f72d4c47b7093205eb89f59a18bdcc",
         "label": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info"
       },
       {
         "role": "results",
         "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/paper_reported_values.json",
         "sha256": "f0c8862a033e909864995b2141608449f45f0e446c240c29ad0fdf94c47212fb",
         "size_bytes": 1870,
-        "label": "Paper-reported Table IV values (DFT / GW)"
+        "label": "Paper-reported Table IV values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/paper_reported_values.json"
       }
     ],
     "logs": [
@@ -186,7 +225,10 @@
         "size_bytes": 40581,
         "original_sha256": "eb58115569bf32a41ce35e04166443b412ed54a87c8299465654ec61ad4d0798",
         "label": "abacus.out",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out"
       },
       {
         "role": "logs",
@@ -216,7 +258,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/ks_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/ks_frontier.svg"
       },
       {
         "role": "figures",
@@ -232,7 +277,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -248,7 +296,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/band_kpath_info",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -266,7 +317,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_frontier_metadata.json"
       },
       {
         "role": "figures",
@@ -281,7 +335,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.svg"
       },
       {
         "role": "figures",
@@ -296,7 +353,10 @@
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/EXX_band_spin_1.dat",
           "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/figures/band_comparison.json"
       }
     ]
   },

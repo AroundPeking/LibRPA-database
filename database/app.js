@@ -1,10 +1,10 @@
 import { matchesSearch, materialSearchText, basisSearchText } from "./search.mjs";
 import { esc, filesOf, recordElements, methodNames, methodTag, socTag, spinPolTag, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
-import { installPreview } from "./files.mjs";
+import { installPreview, installBlobDownloads } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
-import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261021-figures-v27";
+import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261021-archive-v28";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
@@ -181,6 +181,7 @@ function route() {
 
 async function start() {
   installPreview($("#file-preview"));
+  installBlobDownloads();
   installRadial($("#detail-view"));
   installDetailActions($("#detail-view"), () => state.currentRecord);
   const themeToggle = $("#theme-toggle");

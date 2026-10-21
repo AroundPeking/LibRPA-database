@@ -68,12 +68,12 @@ class RecoveredCaseImportTests(unittest.TestCase):
             for required in ("INPUT", "KPT", "STRU", "librpa.in"):
                 self.assertTrue(any(name == required or name.startswith(required + "_") for name in names),
                                 f"{case_id} missing {required}")
+            prefix = directory.relative_to(ROOT).as_posix() + "/"
             for item in inputs:
-                full = ROOT / item["path"]
-                self.assertTrue(full.is_file() and not full.is_symlink(), item["path"])
-                self.assertEqual(sha(full), item["sha256"], item["path"])
+                self.assertTrue(item["path"].startswith(prefix), item["path"])
                 self.assertEqual(item["transformation"], "none")
-                self.assertTrue(str(full).startswith(str(directory)), item["path"])
+                data = library._payload_bytes(ROOT, item)
+                self.assertEqual(hashlib.sha256(data).hexdigest(), item["sha256"], item["path"])
 
     def test_archived_stru_declarations_match_species_aliases(self):
         for case_id in CASE_IDS:
@@ -83,7 +83,7 @@ class RecoveredCaseImportTests(unittest.TestCase):
             self.assertTrue(stru_items, case_id)
             declared = set()
             for item in stru_items:
-                sections = library._stru_sections((ROOT / item["path"]).read_text(encoding="utf-8"))
+                sections = library._stru_sections(library._payload_bytes(ROOT, item).decode("utf-8"))
                 rows = [line.split() for line in sections.get("ATOMIC_SPECIES", [])]
                 order = [row[0] for row in rows if row]
                 self.assertEqual(set(order), set(species), f"{case_id} {item['path']}")
@@ -159,7 +159,8 @@ class RecoveredCaseImportTests(unittest.TestCase):
         for case_id in CASE_IDS:
             directory, record = load_case(case_id)
             receipt_path = record["source"]["producer_assets_receipt"]
-            receipt = json.loads((ROOT / receipt_path).read_text(encoding="utf-8"))
+            receipt_item = next(entry for entry in record["files"]["results"] if entry["path"] == receipt_path)
+            receipt = json.loads(library._payload_bytes(ROOT, receipt_item).decode("utf-8"))
             self.assertEqual(receipt["case_id"], case_id)
             self.assertEqual(len(receipt["inputs"]), len(record["files"]["inputs"]))
             self.assertTrue(receipt["structures"], case_id)

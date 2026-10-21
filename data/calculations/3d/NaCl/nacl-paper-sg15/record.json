@@ -70,7 +70,10 @@
         "size_bytes": 611,
         "original_sha256": "6dfabcace03f994ca9065268b070633858d9fc4abeb158acff1a90146e8e7f06",
         "label": "INPUT",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT"
       },
       {
         "role": "inputs",
@@ -79,7 +82,10 @@
         "size_bytes": 611,
         "original_sha256": "6dfabcace03f994ca9065268b070633858d9fc4abeb158acff1a90146e8e7f06",
         "label": "INPUT_nscf",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_nscf"
       },
       {
         "role": "inputs",
@@ -88,7 +94,10 @@
         "size_bytes": 669,
         "original_sha256": "0cfc668bc5db54928d8576af32ba89bc1579dfff92c051db54356dc3f5c95fce",
         "label": "INPUT_scf",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -97,7 +106,10 @@
         "size_bytes": 261,
         "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
         "label": "KPT",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT"
       },
       {
         "role": "inputs",
@@ -106,7 +118,10 @@
         "size_bytes": 261,
         "original_sha256": "5568c3a78beb4415aacbbbe730c44fb389e247912d00c22097f9b4df7fba9041",
         "label": "KPT_nscf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_nscf"
       },
       {
         "role": "inputs",
@@ -115,7 +130,10 @@
         "size_bytes": 29,
         "original_sha256": "109809520b985be1c11ea431401f5420916fbd8dc4ca81bdd6cad1215336f659",
         "label": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -124,7 +142,10 @@
         "size_bytes": 454,
         "original_sha256": "472b0a629096e395cb1cdccb25a31d8b194a0a7335f7ea27e21fa1558cc8a577",
         "label": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -133,7 +154,10 @@
         "size_bytes": 196,
         "original_sha256": "268a87057585bf602344ac054764ff3055b3534637a84f0ea724ccf72022ebbd",
         "label": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/inputs/librpa.in"
       }
     ],
     "results": [
@@ -144,7 +168,10 @@
         "size_bytes": 176781,
         "original_sha256": "76d3cb51c23988932bd8bf032a1d670aca9c746410ad94f7c854dbaedb92dd81",
         "label": "EXX_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -153,7 +180,10 @@
         "size_bytes": 176781,
         "original_sha256": "b0ac0390876e295cce1825e1483ab8ef3f9deedb525c12985558edd8b5ed640a",
         "label": "GW_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -162,7 +192,10 @@
         "size_bytes": 176781,
         "original_sha256": "85d3ba9e42ecf3b24a8668b1b639fa0fce577efe346310c59be26e6eeafabcf6",
         "label": "KS_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/KS_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -171,14 +204,20 @@
         "size_bytes": 6680,
         "original_sha256": "315e8b13dbf3bb777d361dff91e16c2afebd3df97b7770838d3caa69dc6a9f88",
         "label": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info"
       },
       {
         "role": "results",
         "path": "data/calculations/3d/NaCl/nacl-paper-sg15/results/paper_reported_values.json",
         "sha256": "773fe5409082cd9609203c3ccaeabf98207bffebfa8d20729a25fd49708c94f5",
         "size_bytes": 1852,
-        "label": "Paper-reported Table IV values (DFT / GW)"
+        "label": "Paper-reported Table IV values (DFT / GW)",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/paper_reported_values.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/paper_reported_values.json"
       },
       {
         "role": "results",
@@ -188,7 +227,10 @@
         "original_sha256": "d10b06f7e8761ed00d43824005c3881d22c6ba157c7123dccfb5ded55c1cd19c",
         "label": "backup_assets_receipt.json",
         "original_name": "backup_assets_receipt.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json"
       }
     ],
     "logs": [
@@ -199,7 +241,10 @@
         "size_bytes": 13124,
         "original_sha256": "0cbbab472eb92485e5e6789b207c4292e486c39ffe57a408c7ccc842b8dd9a2f",
         "label": "abacus.out",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/abacus.out"
       },
       {
         "role": "logs",
@@ -229,7 +274,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
           "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/ks_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/ks_frontier.svg"
       },
       {
         "role": "figures",
@@ -245,7 +293,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
           "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -261,7 +312,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/band_kpath_info",
           "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -279,7 +333,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "primary"
+        "display_priority": "primary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_frontier_metadata.json"
       },
       {
         "role": "figures",
@@ -294,7 +351,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.svg"
       },
       {
         "role": "figures",
@@ -309,7 +369,10 @@
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/EXX_band_spin_1.dat",
           "data/calculations/3d/NaCl/nacl-paper-sg15/results/GW_band_spin_1.dat"
         ],
-        "display_priority": "secondary"
+        "display_priority": "secondary",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/figures/band_comparison.json"
       }
     ]
   },

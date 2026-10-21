@@ -7,3 +7,7 @@ _site_brand_*/
 .playwright-cli/
 test-results/
 .superpowers/
+
+# Validator cache for referenced-tier payload bytes fetched from the
+# external archive; content-addressed, never part of the repository.
+.external-cache/
