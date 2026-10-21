@@ -286,7 +286,10 @@
         "scientific_role": "g0w0_qp_output",
         "sha256": "e33b292d4624d21d1c4f89109fbc2e195b5fd66036a2729eb71ac3b5a62ed230",
         "size_bytes": 6803439,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/gw_output_rank0.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/gw_output_rank0.out"
       },
       {
         "label": "LibRPA RPA output (rank 0, 100 DCU nodes, job 20918572)",
@@ -297,7 +300,10 @@
         "scientific_role": "rpa_correlation_output",
         "sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
         "size_bytes": 5942570,
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/rpa_output_rank0.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/rpa_output_rank0.out"
       },
       {
         "label": "Reader-v1 conversion and historical GW audit receipt",

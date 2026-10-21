@@ -317,7 +317,10 @@
         "original_sha256": "40385ca9fc235bd8fa6d49539d2cd5b530742ad305564c07a4e1853bc5518b42",
         "label": "librpa.out",
         "original_name": "LibRPA.2487982.out",
-        "transformation": "private server path redacted"
+        "transformation": "private server path redacted",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
       },
       {
         "role": "logs",

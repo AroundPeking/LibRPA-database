@@ -5,7 +5,8 @@
       "calculation_id": "alas-jctc-aims-gw",
       "path": "data/calculations/3d/AlAs/alas-jctc-aims-gw/logs/aims.out",
       "sha256": "4dc68ba5be0eae5eddc51dcdc08e1548a9c3a125cdbb3aa945eb57d9cc586b63",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "alas-jctc-librpa-16",
@@ -47,7 +48,8 @@
       "calculation_id": "alp-jctc-aims-gw",
       "path": "data/calculations/3d/AlP/alp-jctc-aims-gw/logs/aims.out",
       "sha256": "ce21d79844387efac205a0532da89eb2a8199d11540dbb988422e1423cd06465",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "alp-jctc-librpa-16",
@@ -125,13 +127,15 @@
       "calculation_id": "bi2se3-abacus-gw-dzp",
       "path": "data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
       "sha256": "563fccbee4d2cb7a3d32dadf323172206d1d98c2c435867e6ab075344b8c7301",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bn-jctc-aims-gw",
       "path": "data/calculations/3d/BN/bn-jctc-aims-gw/logs/aims.out",
       "sha256": "75a43dab6e97f91696280927c1e32a921e20814fd01524dc310d4ac25028d904",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bn-jctc-librpa-16",
@@ -173,7 +177,8 @@
       "calculation_id": "bp-jctc-aims-gw",
       "path": "data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out",
       "sha256": "b06e80215de47629e4a98b51c6ddf522292928cb62b9687df151cd733f158031",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bp-jctc-librpa-16",
@@ -227,7 +232,8 @@
       "calculation_id": "c-jctc-aims-gw",
       "path": "data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out",
       "sha256": "e541bb2dba7fb9089078f01192c888d715cebfcfe16c954fdf56b8751a9a448f",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "c-jctc-librpa-16",
@@ -359,7 +365,8 @@
       "calculation_id": "cao-jctc-aims-gw",
       "path": "data/calculations/3d/CaO/cao-jctc-aims-gw/logs/aims.out",
       "sha256": "f7df0a8f761ca66abd82d9132c376e4d31b225c84e9e803249f3f4e7ab2e3fb4",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "cao-jctc-librpa-16",
@@ -426,7 +433,8 @@
       "calculation_id": "cds-jctc-librpa-32",
       "path": "data/calculations/3d/CdS/cds-jctc-librpa-32/logs/librpa.out",
       "sha256": "42964955744291392e60c63b13a70871347bf07520bb1f991e8d1b2cbd9c423d",
-      "label": "LibRPA g0w0_band run log (32-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "cds-paper-debug",
@@ -438,7 +446,8 @@
       "calculation_id": "cds-paper-debug",
       "path": "data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out",
       "sha256": "ba51dafc0507573078ca59347107c78c1f8b9d0c4d1e4c6226503a21cc59118d",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gaas-abacus-gw-soc-32freq",
@@ -481,7 +490,8 @@
       "calculation_id": "gaas-jctc-aims-gw",
       "path": "data/calculations/3d/GaAs/gaas-jctc-aims-gw/logs/aims.out",
       "sha256": "7ac60c0fdae4f92513be4306a83b58df438bd43d7f04615278987a55d7da03f5",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gaas-jctc-librpa-16",
@@ -505,7 +515,8 @@
       "calculation_id": "gaas-jctc-librpa-32",
       "path": "data/calculations/3d/GaAs/gaas-jctc-librpa-32/logs/librpa.out",
       "sha256": "5448e793e57eac1f3545ba76ca42973d831502ba9e64315164d321f19e794d41",
-      "label": "LibRPA g0w0_band run log (32-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gaas-paper-gw_xsoc_1e-10",
@@ -517,13 +528,15 @@
       "calculation_id": "gaas-paper-gw_xsoc_1e-10",
       "path": "data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out",
       "sha256": "5936f6cee7e3bc652f10f4d75ce54ff4c0b9055dab4ec9cea8a517f3c0ba3f6c",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gan-jctc-aims-gw",
       "path": "data/calculations/3d/GaN/gan-jctc-aims-gw/logs/aims.out",
       "sha256": "ef652e104ad292b9dfa1e492a7a2fcfc33f59bd02b561c4bc7eb39ce03f38974",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gan-jctc-librpa-16",
@@ -559,13 +572,15 @@
       "calculation_id": "gan-paper-pca1e-6",
       "path": "data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out",
       "sha256": "5e92347c928ed6987a8351a4687167b8d6d7fc38e3585dac340d040655346d57",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gap-jctc-aims-gw",
       "path": "data/calculations/3d/GaP/gap-jctc-aims-gw/logs/aims.out",
       "sha256": "e144507b764052da318505072d6504a2f0147235f6f6d15bb76500d849f216cf",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gap-jctc-librpa-16",
@@ -601,13 +616,15 @@
       "calculation_id": "gap-paper-gw_shrink_chi",
       "path": "data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out",
       "sha256": "884e136391cf8580026702af72e49c151b7cd1e7fedb9df3290592d2654beb7d",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gasb-jctc-aims-gw",
       "path": "data/calculations/3d/GaSb/gasb-jctc-aims-gw/logs/aims.out",
       "sha256": "2f92b21064f617360a995be8b44f506dbb91b5c53b5d09006d719f88480f3821",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gasb-jctc-librpa-16",
@@ -619,7 +636,8 @@
       "calculation_id": "gasb-jctc-librpa-16",
       "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-16/logs/librpa.out",
       "sha256": "8770464f105487953e24aa30fffa795a74a505787be60bf1a09b1fd72158c7b0",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gasb-jctc-librpa-32",
@@ -631,7 +649,8 @@
       "calculation_id": "gasb-jctc-librpa-32",
       "path": "data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out",
       "sha256": "7a30f46e6181a98e9e46a3e5bf088d96bdf6a50709746a2fd51b72adb29c78c9",
-      "label": "LibRPA g0w0_band run log (32-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "h2-delta-st-rpa-20260906",
@@ -763,7 +782,8 @@
       "calculation_id": "inp-jctc-aims-gw",
       "path": "data/calculations/3d/InP/inp-jctc-aims-gw/logs/aims.out",
       "sha256": "cb43624b3639824d435463ae6347113f6494ee34239b04ab9020d3f224dabbfd",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "inp-jctc-librpa-16",
@@ -787,13 +807,15 @@
       "calculation_id": "inp-jctc-librpa-32",
       "path": "data/calculations/3d/InP/inp-jctc-librpa-32/logs/librpa.out",
       "sha256": "ee98b3f20130525c4407d9489f989a78449477445f28258ebe3bf177ddb95214",
-      "label": "LibRPA g0w0_band run log (32-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (32-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "kcl-jctc-aims-gw",
       "path": "data/calculations/3d/KCl/kcl-jctc-aims-gw/logs/aims.out",
       "sha256": "857e09ae2e20813f6e0ab5c4d6e2c1c4228ec5abf763cf1026dcc26f8be6b2d0",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "kcl-jctc-librpa-16",
@@ -823,7 +845,8 @@
       "calculation_id": "kf-jctc-aims-gw",
       "path": "data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out",
       "sha256": "867410d8f5b2e2e95db6ecc537bfc3e497bd83cae4a69c5cb009ab7ebb1fe537",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "kf-jctc-librpa-16",
@@ -889,7 +912,8 @@
       "calculation_id": "licl-jctc-aims-gw",
       "path": "data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out",
       "sha256": "1b8c6093590401d72f185800f409097adb514cfa99bd34edebd3173feb0a445d",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "licl-jctc-librpa-16",
@@ -919,7 +943,8 @@
       "calculation_id": "lif-jctc-aims-gw",
       "path": "data/calculations/3d/LiF/lif-jctc-aims-gw/logs/aims.out",
       "sha256": "3879108dddb1d35eede4981797461fc4c61580eb8f1f7e1bd56647dea29f2d8f",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "lif-jctc-librpa-16",
@@ -1045,7 +1070,8 @@
       "calculation_id": "mgo-jctc-aims-gw",
       "path": "data/calculations/3d/MgO/mgo-jctc-aims-gw/logs/aims.out",
       "sha256": "bbd2665db5c070131aa2d5e2be3b297d66e7bd35800207d4ee51f5982d0484e7",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "mgo-jctc-librpa-16",
@@ -1087,7 +1113,8 @@
       "calculation_id": "mgs-jctc-aims-gw",
       "path": "data/calculations/3d/MgS/mgs-jctc-aims-gw/logs/aims.out",
       "sha256": "1c1cbe53fe8f53db1b76522a5370d933611721cec4b8dce11f939e6deef8c1bb",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "mgs-jctc-librpa-16",
@@ -1177,7 +1204,8 @@
       "calculation_id": "nacl-jctc-aims-gw",
       "path": "data/calculations/3d/NaCl/nacl-jctc-aims-gw/logs/aims.out",
       "sha256": "8fabbd184a9474a131ea85db2003d543fa538c2c6b3e4f5989cfe6b94954a6ec",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "nacl-jctc-librpa-16",
@@ -1219,7 +1247,8 @@
       "calculation_id": "naf-jctc-aims-gw",
       "path": "data/calculations/3d/NaF/naf-jctc-aims-gw/logs/aims.out",
       "sha256": "63324a89d9f169cc3b98fb81c6fe4bbad24738c68c9a46da052a001ef6c68776",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "naf-jctc-librpa-16",
@@ -1255,7 +1284,8 @@
       "calculation_id": "nio-aims-gw-int",
       "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
       "sha256": "35b0eacc2dc7df7e6bed6d472d237f202a932bd17e2582fbe866538a479dc9b4",
-      "label": "aims_731944_stdout.log"
+      "label": "aims_731944_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "nio-aims-gw-int",
@@ -1267,7 +1297,8 @@
       "calculation_id": "nio-aims-gw-int",
       "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
       "sha256": "4ccea660791dcbfc57fd5a875736d82de3ac20210df9da119d96a9a6dcfd864f",
-      "label": "aims_735178_stdout.log"
+      "label": "aims_735178_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "nio-aims-gw-int",
@@ -1279,7 +1310,8 @@
       "calculation_id": "nio-aims-gw-int",
       "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
       "sha256": "8d87cad8a40c51aed3025f61b95ca2efda59540700ba5f3aa9a6419db3b52be1",
-      "label": "aims_736421_stdout.log"
+      "label": "aims_736421_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "nio-aims-gw-int",
@@ -1310,7 +1342,8 @@
       "calculation_id": "si-jctc-aims-gw",
       "path": "data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out",
       "sha256": "b9e848438adbddaf0dcb19b8d8ee13c1c44c3bdc4c20cd66cb4f9a143c867a73",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-jctc-librpa-16",
@@ -1358,7 +1391,8 @@
       "calculation_id": "sic-jctc-aims-gw",
       "path": "data/calculations/3d/SiC/sic-jctc-aims-gw/logs/aims.out",
       "sha256": "96a5b319650afa43a0a53a7187cfc2c3be313491bb7090467ef8d3090403b6a0",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "sic-jctc-librpa-16",
@@ -1424,7 +1458,8 @@
       "calculation_id": "zno-abacus-gw-sg15",
       "path": "data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
       "sha256": "08f657a0951a49837505db50a4eed38e9ea06cec3f4b4df364802330d95be6b6",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "zno-abacus-gw-sg15",
@@ -1436,7 +1471,8 @@
       "calculation_id": "zno-jctc-aims-gw",
       "path": "data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out",
       "sha256": "c273c2d9091a25cfe129dc5e7b923f7abb110e36d4792d2d1a9cb56685b5943a",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "zno-jctc-librpa-16",
@@ -1466,7 +1502,8 @@
       "calculation_id": "zns-jctc-aims-gw",
       "path": "data/calculations/3d/ZnS/zns-jctc-aims-gw/logs/aims.out",
       "sha256": "d18c783943edf5d8ca8ce0a1419934bc05578d937c65a63dceb98cc0f8ca2a84",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "zns-jctc-librpa-16",

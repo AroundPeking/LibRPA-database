@@ -195,7 +195,10 @@
         "size_bytes": 5266389,
         "original_sha256": "a979ada0d566a6d17b1d1d551ee0f469ce2eb456c6c9950a047a2f4dd5b053d4",
         "label": "librpa.out",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out"
       }
     ],
     "figures": [

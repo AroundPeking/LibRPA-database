@@ -208,7 +208,10 @@
         "original_sha256": "1c74c4d12a03ec7313977c025581ee3c8f87e98eb193e1b447c6b5f6ebb1166c",
         "label": "librpa.out",
         "original_name": "LibRPA.831496.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
       },
       {
         "role": "logs",

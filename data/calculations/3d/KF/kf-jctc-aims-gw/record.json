@@ -144,7 +144,10 @@
         "label": "FHI-aims GW band-structure run log",
         "scientific_role": "aims_run_log",
         "transformation": "none",
-        "original_name": "aims.out"
+        "original_name": "aims.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out"
       }
     ],
     "figures": [

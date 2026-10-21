@@ -145,7 +145,10 @@
         "label": "FHI-aims GW band-structure run log",
         "scientific_role": "aims_run_log",
         "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-        "original_name": "aims.out"
+        "original_name": "aims.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out"
       }
     ],
     "figures": [
