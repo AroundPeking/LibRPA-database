@@ -129,7 +129,10 @@
         "label": "LibRPA g0w0_band run log (16-point frequency grid)",
         "scientific_role": "librpa_run_log",
         "transformation": "none",
-        "original_name": "LibRPA.out"
+        "original_name": "LibRPA.out",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out"
       }
     ],
     "figures": [

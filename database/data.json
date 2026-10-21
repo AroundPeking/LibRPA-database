@@ -17643,7 +17643,10 @@
             "scientific_role": "gw_completion_log",
             "sha256": "48872790ea6c58d7cf2bbc4e00f0041464bdad4e7120e50559a2cd548d798235",
             "size_bytes": 5219283,
-            "transformation": "private paths and node identifiers redacted; scientific settings and completion retained"
+            "transformation": "private paths and node identifiers redacted; scientific settings and completion retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out"
           }
         ],
         "results": [
@@ -19845,7 +19848,10 @@
             "scientific_role": "gw_completion_log",
             "sha256": "ceafe42de5552f0a675e016edb78d6d4becbe331d2605008475b9bef5e6673f4",
             "size_bytes": 5227789,
-            "transformation": "private paths and node identifiers redacted; scientific settings and completion retained"
+            "transformation": "private paths and node identifiers redacted; scientific settings and completion retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out"
           }
         ],
         "results": [
@@ -20891,7 +20897,10 @@
             "size_bytes": 3075451,
             "original_sha256": "b85647a4f450bd00ea343295e8ef58cc8541da0065f7221c492029759c3b5507",
             "label": "self_energy_omega_band_00000.dat",
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__librpa.d__self_energy_omega_band_00000.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__librpa.d__self_energy_omega_band_00000.dat"
           },
           {
             "role": "results",
@@ -25130,7 +25139,10 @@
             "size_bytes": 4462296,
             "original_sha256": "cf003a5e4f130f3c778f727ef5bfd69888a61ffabececb0c0ccb24970fb422c8",
             "label": "KS_eigenvector_0.dat",
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__pyatb_k12_20261008__pyatb_librpa_df__KS_eigenvector_0.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__pyatb_k12_20261008__pyatb_librpa_df__KS_eigenvector_0.dat"
           },
           {
             "role": "results",
@@ -25246,7 +25258,10 @@
             "size_bytes": 1067233,
             "original_sha256": "1daacada73b06deef4c356766b9e276691604e4a02d093e5f66b20fe03c4c1ce",
             "label": "librpa_gw_fgext_k12_3601934.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out"
           },
           {
             "role": "logs",
@@ -25327,7 +25342,10 @@
             "size_bytes": 1067233,
             "original_sha256": "1daacada73b06deef4c356766b9e276691604e4a02d093e5f66b20fe03c4c1ce",
             "label": "librpa_gw_fgext_k12_3601934.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out"
           }
         ],
         "figures": [
@@ -25694,7 +25712,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -26544,7 +26565,10 @@
             "size_bytes": 4948264,
             "original_sha256": "ab63a828bfea9e97d002f03adfb58214e71c9fd937fbd0d20eb0ab2dc0a41812",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out"
           }
         ],
         "figures": [
@@ -26887,7 +26911,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -27129,7 +27156,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -27731,7 +27761,10 @@
             "size_bytes": 4627095,
             "original_sha256": "426c54131dacea0455086252247cc45983e04aab84d56641f81cb9eaf003ac78",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out"
           }
         ],
         "figures": [
@@ -28139,7 +28172,10 @@
             "size_bytes": 4754801,
             "original_sha256": "a6791c8c9faccb6029fcd1cf91488929600f7ef21171249e397cd23d75a3bfdc",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out"
           }
         ],
         "figures": [
@@ -28555,7 +28591,10 @@
             "size_bytes": 3854548,
             "original_sha256": "047653be466baa4086cbc918b4fb2967afff71b95911cd11eac791120f0a7fbc",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out"
           }
         ],
         "figures": [
@@ -28900,7 +28939,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -29142,7 +29184,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -29746,7 +29791,10 @@
             "size_bytes": 3855263,
             "original_sha256": "0e3f110f2cf576c6e93ab23e7590e24f5dc2d892eb8f0681d9dc3ecbbf475081",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out"
           }
         ],
         "figures": [
@@ -30087,7 +30135,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -30329,7 +30380,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -30931,7 +30985,10 @@
             "size_bytes": 3854530,
             "original_sha256": "7cacaa88720de97ea244864886d5be25e01f734a6468ad08ad9a299aa0f4bf04",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out"
           }
         ],
         "figures": [
@@ -32007,7 +32064,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -32243,7 +32303,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -32816,7 +32879,10 @@
             "size_bytes": 3862601,
             "original_sha256": "6f22f5a84f61f95f99e0fc6bef78a019e52e407a84c16da45854899f305aa3e4",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out"
           }
         ],
         "figures": [
@@ -34323,7 +34389,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -35158,7 +35227,10 @@
             "size_bytes": 4370408,
             "original_sha256": "66305b5d0d0fefe0a75127d9d7931f934546ad7d3f1d1436053e9f7584cc3cc4",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out"
           }
         ],
         "figures": [
@@ -35500,7 +35572,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -37277,7 +37352,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -38587,7 +38665,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -38830,7 +38911,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -39806,7 +39890,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -40048,7 +40135,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -40981,7 +41071,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaSb/gasb-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaSb/gasb-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -42225,7 +42318,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/InP/inp-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/InP/inp-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -42997,7 +43093,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KCl/kcl-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KCl/kcl-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -43769,7 +43868,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -44978,7 +45080,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiCl/licl-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiCl/licl-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -45751,7 +45856,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -46674,7 +46782,10 @@
             "size_bytes": 3218803,
             "original_sha256": "f0372bb5aacc82eee2d5d07e00f9ea4361b7aaf0a9c55a6b589450085ceda5e2",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out"
           }
         ],
         "figures": [
@@ -48320,7 +48431,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -48573,7 +48687,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -49236,7 +49353,10 @@
             "size_bytes": 4050834,
             "original_sha256": "7c74ba3989c637e6352a117d97a6c2ed355d4f41a72a8e4b0831f2bdc789ea7a",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out"
           }
         ],
         "figures": [
@@ -49576,7 +49696,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgS/mgs-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgS/mgs-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -50810,7 +50933,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -51052,7 +51178,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -51655,7 +51784,10 @@
             "size_bytes": 4051054,
             "original_sha256": "c3fd6f9feab95801eb03491802fe42571e90a7392bbbff527ca6df51c9adbb9f",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
           }
         ],
         "figures": [
@@ -52000,7 +52132,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaF/naf-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaF/naf-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -53550,7 +53685,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -53797,7 +53935,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -54443,7 +54584,10 @@
             "size_bytes": 3861928,
             "original_sha256": "348196b9817e0c24073e8da4e3293dedde287e46107a37424265465d517a87b8",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out"
           }
         ],
         "figures": [
@@ -55145,7 +55289,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -55387,7 +55534,10 @@
             "label": "LibRPA g0w0_band run log (16-point frequency grid)",
             "scientific_role": "librpa_run_log",
             "transformation": "none",
-            "original_name": "LibRPA.out"
+            "original_name": "LibRPA.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-librpa-16/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-librpa-16/logs/librpa.out"
           }
         ],
         "figures": [
@@ -55977,7 +56127,10 @@
             "size_bytes": 3861840,
             "original_sha256": "c38ccb0e2665098adc8fd13262f9b7cbad9217f157efe2e159c055fccd285a70",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out"
           }
         ],
         "figures": [
@@ -56741,7 +56894,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [
@@ -57611,7 +57767,10 @@
             "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
             "scientific_role": "aims_qp_table",
             "transformation": "none",
-            "original_name": "tmp"
+            "original_name": "tmp",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnS/zns-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnS/zns-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
           }
         ],
         "logs": [

@@ -425,7 +425,10 @@
         "size_bytes": 3075451,
         "original_sha256": "b85647a4f450bd00ea343295e8ef58cc8541da0065f7221c492029759c3b5507",
         "label": "self_energy_omega_band_00000.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__librpa.d__self_energy_omega_band_00000.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__librpa.d__self_energy_omega_band_00000.dat"
       },
       {
         "role": "results",
@@ -4664,7 +4667,10 @@
         "size_bytes": 4462296,
         "original_sha256": "cf003a5e4f130f3c778f727ef5bfd69888a61ffabececb0c0ccb24970fb422c8",
         "label": "KS_eigenvector_0.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__pyatb_k12_20261008__pyatb_librpa_df__KS_eigenvector_0.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__pyatb_k12_20261008__pyatb_librpa_df__KS_eigenvector_0.dat"
       },
       {
         "role": "results",
@@ -4780,7 +4786,10 @@
         "size_bytes": 1067233,
         "original_sha256": "1daacada73b06deef4c356766b9e276691604e4a02d093e5f66b20fe03c4c1ce",
         "label": "librpa_gw_fgext_k12_3601934.out",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out"
       },
       {
         "role": "logs",
@@ -4861,7 +4870,10 @@
         "size_bytes": 1067233,
         "original_sha256": "1daacada73b06deef4c356766b9e276691604e4a02d093e5f66b20fe03c4c1ce",
         "label": "librpa_gw_fgext_k12_3601934.out",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out"
       }
     ],
     "figures": [
@@ -5075,16 +5087,16 @@
         "unit": "eV",
         "precision": 5,
         "column": "Eg(PBE) / ABACUS",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aPBE K\u2013K\uff1bGW K\u2013\u0393 raw-band-5 frontier diagnostic\uff1b\u660e\u786e\u4e3a\u8def\u5f84\u8bca\u65ad\uff0c\u4e0d\u662f\u6536\u655b\u5b8c\u6574\u8c31\u57fa\u672c\u5e26\u9699\uff0cPBE valley ordering\u9519\u8bef\u4e14\u9ad8\u6001\u4fb5\u5165\u4ecd\u5b58\u5728\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002 Table I\u811a\u6ce8\u65b0\u884c\uff1a10-au GTH-PBE 3s3p2d physical orbital\uff0csmooth 1f1g-extended ABF\uff0c\u65e0empty atoms\uff0c12\u00d712\u00d71 response mesh\u3002PBE Ec(K)-Ec(\u0393)=-0.2602 eV\uff0cvalley ordering\u4ecd\u9519\u8bef\uff1bGW6.94183\u4e3araw-band-5 frontier path gap\uff0c\u6709\u9ad8\u6001\u4fb5\u5165\uff0c\u975e\u6536\u655b\u5b8c\u6574\u8c31\u57fa\u672c\u5e26\u9699\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
       },
       "GW": {
         "value": 6.94183,
         "unit": "eV",
         "precision": 5,
         "column": "Eg(G0W0) / ABACUS+LibRPA",
-        "scope": "\u8bba\u6587Table I scalar-relativistic\u3001no-SOC ABACUS PBE\u4e0eABACUS+LibRPA G0W0@PBE\uff1b\u62a5\u544a\u8def\u5f84\uff1aPBE K\u2013K\uff1bGW K\u2013\u0393 raw-band-5 frontier diagnostic\uff1b\u660e\u786e\u4e3a\u8def\u5f84\u8bca\u65ad\uff0c\u4e0d\u662f\u6536\u655b\u5b8c\u6574\u8c31\u57fa\u672c\u5e26\u9699\uff0cPBE valley ordering\u9519\u8bef\u4e14\u9ad8\u6001\u4fb5\u5165\u4ecd\u5b58\u5728\u3002 \u6709\u9650\u4e3b\u8868\u503c\u4e0d\u81ea\u52a8\u5347\u7ea7\u5f52\u6863path\u3001\u5b8c\u6574\u7a7a\u6001\u8c31\u6216\u5f53\u524drecord.status\u3002 Table I\u811a\u6ce8\u65b0\u884c\uff1a10-au GTH-PBE 3s3p2d physical orbital\uff0csmooth 1f1g-extended ABF\uff0c\u65e0empty atoms\uff0c12\u00d712\u00d71 response mesh\u3002PBE Ec(K)-Ec(\u0393)=-0.2602 eV\uff0cvalley ordering\u4ecd\u9519\u8bef\uff1bGW6.94183\u4e3araw-band-5 frontier path gap\uff0c\u6709\u9ad8\u6001\u4fb5\u5165\uff0c\u975e\u6536\u655b\u5b8c\u6574\u8c31\u57fa\u672c\u5e26\u9699\u3002"
+        "scope": "论文Table I scalar-relativistic、no-SOC ABACUS PBE与ABACUS+LibRPA G0W0@PBE；报告路径：PBE K–K；GW K–Γ raw-band-5 frontier diagnostic；明确为路径诊断，不是收敛完整谱基本带隙，PBE valley ordering错误且高态侵入仍存在。 有限主表值不自动升级归档path、完整空态谱或当前record.status。 Table I脚注新行：10-au GTH-PBE 3s3p2d physical orbital，smooth 1f1g-extended ABF，无empty atoms，12×12×1 response mesh。PBE Ec(K)-Ec(Γ)=-0.2602 eV，valley ordering仍错误；GW6.94183为raw-band-5 frontier path gap，有高态侵入，非收敛完整谱基本带隙。"
       }
     },
-    "notes": "\u8bba\u6587Table I\u6ca1\u6709EXX\u4e3b\u5217\uff1bEXX\u4ecd\u4e3ahistorical archive/path\u5f52\u6863\u8fd0\u884c\u503c\uff0c\u4fdd\u7559\u539f\u59cb\u8c31\u3001properties\u53casummary\uff0c\u4e0d\u6807\u4e3apaper benchmark\uff0c\u4e5f\u4e0d\u8865\u96f6\u3002"
+    "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
   }
 }

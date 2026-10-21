@@ -693,7 +693,9 @@ async function main() {
     }
     for (const { record, group, file } of referencedFiles.slice(0, 3)) {
       await go(`#/material/${encodeURIComponent(record.id)}`);
-      const section = group === "logs" ? "record-results-files" : group === "figures" ? "record-bands" : "record-results";
+      // Every referenced payload - logs, results, and figures alike - is
+      // listed as a file row in the unified Results files section.
+      const section = "record-results-files";
       await page.locator(`.section-nav [data-section='${section}']`).click();
       await page.waitForSelector(`#${section} .file-row`);
       const row = page.locator(`#${section} .file-row`)

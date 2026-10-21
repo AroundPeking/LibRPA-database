@@ -250,7 +250,10 @@
         "scientific_role": "gw_completion_log",
         "sha256": "48872790ea6c58d7cf2bbc4e00f0041464bdad4e7120e50559a2cd548d798235",
         "size_bytes": 5219283,
-        "transformation": "private paths and node identifiers redacted; scientific settings and completion retained"
+        "transformation": "private paths and node identifiers redacted; scientific settings and completion retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out"
       }
     ],
     "results": [

@@ -42,7 +42,8 @@
       "calculation_id": "alas-paper-paper",
       "path": "data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out",
       "sha256": "155d3136b4037439e2df49259ace4cacaaaf088cb8d46df0d0d71c11b93e425e",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "alp-jctc-aims-gw",
@@ -61,7 +62,8 @@
       "calculation_id": "alp-jctc-librpa-16",
       "path": "data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out",
       "sha256": "a0da3cdf41511ad0dfb677c7f4e59eabd42672951c8f4036fd77273be7fd6669",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "alp-jctc-librpa-32",
@@ -85,7 +87,8 @@
       "calculation_id": "alp-paper-k8_shrink_wing",
       "path": "data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out",
       "sha256": "e4e68d0bc5e86248bd119688c0f5881f11ca5308cb70404e0be195570809c254",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "alsb-paper-gw_gth_modspencer",
@@ -97,7 +100,8 @@
       "calculation_id": "alsb-paper-gw_gth_modspencer",
       "path": "data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out",
       "sha256": "19179ef7f858abd5690a2a4a4b07722ae3f5b6b4f7fd10e1529d62b03182185a",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bas-paper-k8_shrink_wing",
@@ -109,7 +113,8 @@
       "calculation_id": "bas-paper-k8_shrink_wing",
       "path": "data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out",
       "sha256": "246e6583826db72fdc4e4607e070d04835ae0e085071054dff817484b7fc5e3c",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bi2se3-abacus-gw-dzp",
@@ -147,7 +152,8 @@
       "calculation_id": "bn-jctc-librpa-16",
       "path": "data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out",
       "sha256": "b1eb8b03f8db7550f8b2c45dfcfd6c5f43ec8ce44e3a1357d1960c48c9c257ea",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bn-jctc-librpa-32",
@@ -171,7 +177,8 @@
       "calculation_id": "bn-paper-sg15",
       "path": "data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out",
       "sha256": "129a32449d822fedf470e1f80a35c6ef8534de0a4e9211c4b33ee8d73ab5710b",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bp-jctc-aims-gw",
@@ -190,7 +197,8 @@
       "calculation_id": "bp-jctc-librpa-16",
       "path": "data/calculations/3d/BP/bp-jctc-librpa-16/logs/librpa.out",
       "sha256": "834244cde619bd7207e97b38f4eb7685a3c7e59bdae273600033376cb253d33f",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "bp-jctc-librpa-32",
@@ -214,7 +222,8 @@
       "calculation_id": "bp-paper-k8_shrink_wing",
       "path": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out",
       "sha256": "3a2e05dcc07afb9f03bcb515a092a2e70fee5319a1b2f5c3bc8b4ef1e52f246f",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "c-delta-st-rpa-20260824",
@@ -245,7 +254,8 @@
       "calculation_id": "c-jctc-librpa-16",
       "path": "data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out",
       "sha256": "d5071ef4bf204e27430f353daff9c31313d075678f78e1174bdf096f10b358f2",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "c-jctc-librpa-32",
@@ -269,7 +279,8 @@
       "calculation_id": "c-paper-sg15_cs1e-5",
       "path": "data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out",
       "sha256": "51e78fb2d67e6b32f8989ac9db4517b321063b6b72b4c9fe4949b9bf4ba0dc51",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "c1024-gamma-g0w0-20260521",
@@ -402,7 +413,8 @@
       "calculation_id": "cao-paper-24freq",
       "path": "data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out",
       "sha256": "0b4f3f133ef49913246697243de501eca3c23fc317b0e3585792a463ccd690ce",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "cds-jctc-aims-gw",
@@ -546,7 +558,8 @@
       "calculation_id": "gan-jctc-librpa-16",
       "path": "data/calculations/3d/GaN/gan-jctc-librpa-16/logs/librpa.out",
       "sha256": "ae5b68e8a25ada28f6761ffaa5fe5cd990208a81feae6772667dcb9327571391",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gan-jctc-librpa-32",
@@ -590,7 +603,8 @@
       "calculation_id": "gap-jctc-librpa-16",
       "path": "data/calculations/3d/GaP/gap-jctc-librpa-16/logs/librpa.out",
       "sha256": "7247b4c2b1d2ad3fda291ba7878be3f9af27db8702ac8cbf89d55f36b49b8007",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gap-jctc-librpa-32",
@@ -718,7 +732,8 @@
       "calculation_id": "hbn-tzdp10-fgext-20261008",
       "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/calculation__gw_k12_fgext_20261008__librpa_gw_fgext_k12_3601934.out",
       "sha256": "d04bfb441ebdacedeef4e1d96a28d3ffc50851af9704ee36584b01114a739a04",
-      "label": "librpa_gw_fgext_k12_3601934.out"
+      "label": "librpa_gw_fgext_k12_3601934.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "hbn-tzdp10-fgext-20261008",
@@ -772,7 +787,8 @@
       "calculation_id": "hbn-tzdp10-fgext-20261008",
       "path": "data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/logs/librpa_gw_fgext_k12_3601934.out",
       "sha256": "d04bfb441ebdacedeef4e1d96a28d3ffc50851af9704ee36584b01114a739a04",
-      "label": "librpa_gw_fgext_k12_3601934.out"
+      "label": "librpa_gw_fgext_k12_3601934.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "inp-jctc-aims-gw",
@@ -975,7 +991,8 @@
       "calculation_id": "lif-paper-jy",
       "path": "data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out",
       "sha256": "3d585699b32f6d941f2eb6f521e7dcf4cc48018e1918bb22ee8e68f701e028c6",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "lih-molecule-delta-st-rpa-20260913",
@@ -1078,7 +1095,8 @@
       "calculation_id": "mgo-jctc-librpa-16",
       "path": "data/calculations/3d/MgO/mgo-jctc-librpa-16/logs/librpa.out",
       "sha256": "0ca30e4a137e149f7b0a112d947b446ad3cea36a002a5e9d20b5e84129646bc5",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "mgo-jctc-librpa-32",
@@ -1102,7 +1120,8 @@
       "calculation_id": "mgo-paper-fix_gap",
       "path": "data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out",
       "sha256": "99c3d66f49535dc85bfe8cf133d6be4131104892bf280cd5feb5577eb98b886f",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "mgs-jctc-aims-gw",
@@ -1139,7 +1158,8 @@
       "calculation_id": "mose2-table-gw",
       "path": "data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out",
       "sha256": "48872790ea6c58d7cf2bbc4e00f0041464bdad4e7120e50559a2cd548d798235",
-      "label": "LibRPA G0W0 band log"
+      "label": "LibRPA G0W0 band log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "mose2-table-gw",
@@ -1212,7 +1232,8 @@
       "calculation_id": "nacl-jctc-librpa-16",
       "path": "data/calculations/3d/NaCl/nacl-jctc-librpa-16/logs/librpa.out",
       "sha256": "bdb1748eec9014dbac7b1cc71ee31850bf51da6a86e0038073e41ea13406cadd",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "nacl-jctc-librpa-32",
@@ -1236,7 +1257,8 @@
       "calculation_id": "nacl-paper-sg15",
       "path": "data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
       "sha256": "9afaf30081782e030d928f00a5d799c8a77317ffea76aa452d309e1a45aa29ef",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "naf-jctc-aims-gw",
@@ -1350,7 +1372,8 @@
       "calculation_id": "si-jctc-librpa-16",
       "path": "data/calculations/3d/Si/si-jctc-librpa-16/logs/librpa.out",
       "sha256": "a6a822f3c64c85b3dc6a539750a15c6b18b9be7e5dd27a6f2f5cb6191c24230f",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-jctc-librpa-32",
@@ -1374,7 +1397,8 @@
       "calculation_id": "si-paper-all_kpath",
       "path": "data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out",
       "sha256": "1653704f04fb840984511b5e8a7842c9a5725cebdd91155a4a4b3d942b8aee22",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "sic-delta-st-rpa-20260829",
@@ -1399,7 +1423,8 @@
       "calculation_id": "sic-jctc-librpa-16",
       "path": "data/calculations/3d/SiC/sic-jctc-librpa-16/logs/librpa.out",
       "sha256": "12894ff647dcbca8d669746546ddb6f70ed532b1cf766fb65bb1080576f9cba8",
-      "label": "LibRPA g0w0_band run log (16-point frequency grid)"
+      "label": "LibRPA g0w0_band run log (16-point frequency grid)",
+      "tier": "referenced"
     },
     {
       "calculation_id": "sic-jctc-librpa-32",
@@ -1423,13 +1448,15 @@
       "calculation_id": "sic-paper-pca1e-6",
       "path": "data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out",
       "sha256": "d68aae360246c284d7808989aa7aa9960c8d23616845f01047e5c1a0d6f6f14f",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "ws2-table-gw",
       "path": "data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out",
       "sha256": "ceafe42de5552f0a675e016edb78d6d4becbe331d2605008475b9bef5e6673f4",
-      "label": "LibRPA G0W0 band log"
+      "label": "LibRPA G0W0 band log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "ws2-table-gw",

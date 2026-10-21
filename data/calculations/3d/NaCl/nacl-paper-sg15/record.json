@@ -208,7 +208,10 @@
         "size_bytes": 4051054,
         "original_sha256": "c3fd6f9feab95801eb03491802fe42571e90a7392bbbff527ca6df51c9adbb9f",
         "label": "librpa.out",
-        "transformation": "private paths and host identifiers redacted; scientific values retained"
+        "transformation": "private paths and host identifiers redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out"
       }
     ],
     "figures": [

@@ -1,0 +1,50 @@
+name: External archive sync
+
+# After Validate and Publish accept a push to main, move any new large
+# logs/results payloads to the Hugging Face dataset and commit the record
+# rewrites, so merged data PRs reach the external archive automatically.
+# Requires the HF_TOKEN repository secret (a write-scoped dataset token).
+
+on:
+  workflow_run:
+    workflows: ["Publish database"]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: external-archive-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: ${{ !github.event.workflow_run || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The sync commits on top of main; give it the full history.
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the Hugging Face client
+        run: pip install huggingface_hub
+      - name: Convert new large payloads to the referenced tier
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts/sync_external_archive.py --min-size-mb 5 --paths-output converted-paths.txt
+      - name: Remove the converted local bytes and commit
+        run: |
+          if [ -s converted-paths.txt ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git rm --quiet $(cat converted-paths.txt)
+            git add -A data database archive-completeness.json
+            git commit -m "Externalize new large payloads to the dataset archive" -m "Automated by the external-archive-sync workflow after validation."
+            git push
+          else
+            echo "no external-archive changes to commit"
+          fi

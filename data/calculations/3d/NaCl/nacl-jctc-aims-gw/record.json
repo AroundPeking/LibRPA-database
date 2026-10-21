@@ -132,7 +132,10 @@
         "label": "FHI-aims GW quasi-particle spectrum (regular grid)",
         "scientific_role": "aims_qp_table",
         "transformation": "none",
-        "original_name": "tmp"
+        "original_name": "tmp",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/results/aims_qp_table_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/results/aims_qp_table_spin_1.dat"
       }
     ],
     "logs": [
