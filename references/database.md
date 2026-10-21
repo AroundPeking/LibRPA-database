@@ -148,7 +148,13 @@ comparisons.
 ### Referenced storage tier
 
 Files that are too large for GitHub Pages can move to an external object
-store while the record keeps the repository path as identity. Such a
+store while the record keeps the repository path as identity. The current
+external archive is the Hugging Face dataset
+`AroundPeking/LibRPA-database`
+(<https://huggingface.co/datasets/AroundPeking/LibRPA-database>, mirrored
+at <https://hf-mirror.com/datasets/AroundPeking/LibRPA-database>); the
+record links point at that dataset's `resolve/main` download endpoints.
+Such a
 `files.results` / `files.logs` / `files.figures` entry carries
 `tier: "referenced"`, a positive `size_bytes`, and direct `external_url` /
 `external_url_backup` links (both must be `https`). The declared `sha256`

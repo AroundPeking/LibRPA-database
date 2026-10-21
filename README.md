@@ -10,6 +10,29 @@ local server is needed. The files below are the source repository, not the live 
 
 This repository is an open data archive for LibRPA materials calculations. It can host results produced through both ABACUS + LibRPA and FHI-aims + LibRPA workflows, while retaining each calculation's code-specific inputs, basis data, provenance, and validation scope. The existing [ABACUS + LibRPA GW basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill) remains a companion for the ABACUS/NAO subset; it does not define the scope of the database.
 
+## Where the data files live
+
+The website and this repository carry the catalog UI, every calculation's
+inputs, basis payloads, figures, and small evidence files. Large output
+files are stored in an external archive so the deployable site stays well
+inside the GitHub Pages size limits:
+
+- **Primary archive:** <https://huggingface.co/datasets/AroundPeking/LibRPA-database>
+- **Backup mirror:** <https://hf-mirror.com/datasets/AroundPeking/LibRPA-database>
+
+A file stored there is marked `tier: "referenced"` in its record: the
+repository-relative path remains the file's identity, the recorded
+SHA-256 remains the integrity anchor, and the record carries the direct
+download URL plus the mirror URL. The website previews and downloads
+these files straight from the archive and shows an explicit
+external-archive note. `scripts/externalize_files.py` manages the whole
+conversion (`plan`, `stage`, `upload`, `apply`, `verify`); after a
+conversion the local bytes are removed from the repository, and any
+archive copy can be re-checked against the recorded SHA-256 at any
+time. Structure inputs, basis payloads, and species bindings are never
+converted; scientific evidence that gates acceptance stays in
+repository bytes.
+
 The catalog is split into `2d` and `3d`. Each element has its own directory under `data/elements/<Element>/`, and each calculation is under `data/calculations/2d/` or `data/calculations/3d/`. The searchable static catalog is in [`database/index.html`](database/index.html); its machine-readable source is [`database/data.json`](database/data.json).
 
 The current snapshot contains 109 calculation records across 2D and 3D (band, large-system GW, RPA-energy, and reader-conversion records) and a public basis library of 123 ABACUS pseudopotential / physical-orbital / auxiliary-basis records. FHI-aims species defaults are kept as per-calculation binding evidence inlined in each archived `control.in`, not as basis-library entries. These are historical and reference records with explicit scope. The database does not declare a universal best PP/NAO/ABF: use the exact set IDs, hashes, producer commits, observable, and passed gates before reusing a file.

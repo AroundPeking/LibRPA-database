@@ -88,18 +88,25 @@ def _url(base: str, repo_relative: str) -> str:
 
 
 def build_plan(paths: list[str], min_size_mb: float) -> list[dict]:
+    # Only these record groups may move to the referenced tier; the size scan
+    # must skip inputs and everything under data/elements (basis payloads).
+    convertible = {"results", "logs", "figures"}
     candidates = []
     if paths:
         candidates = [ROOT / p for p in paths]
     elif min_size_mb > 0:
         threshold = int(min_size_mb * 1024 * 1024)
-        root_data = ROOT / "data"
+        root_data = ROOT / "data" / "calculations"
         candidates = [p for p in sorted(root_data.rglob("*")) if p.is_file() and p.stat().st_size >= threshold]
     plan = []
     for full in candidates:
         repo_relative = full.relative_to(ROOT).as_posix()
         record_path = _record_for(repo_relative)
         _, group, index, entry = _locate(record_path, repo_relative)
+        if group not in convertible:
+            if paths:
+                raise SystemExit(f"{repo_relative}: group '{group}' cannot move to the referenced tier")
+            continue
         size = full.stat().st_size
         declared = entry.get("size_bytes")
         if declared is not None and declared != size:
