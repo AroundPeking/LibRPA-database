@@ -1231,6 +1231,31 @@ class ExternalizeScriptTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("https", result.stderr)
 
+    def test_apply_converts_every_item_that_shares_a_record(self):
+        # A plan can hold several payloads from the same record; every entry
+        # must be rewritten, not only the first one.
+        second = self.record_dir / "logs/librpa_second.out"
+        second.write_bytes(b" second workflow log " * 40000)
+        second_digest = hashlib.sha256(second.read_bytes()).hexdigest()
+        second_relative = second.relative_to(self.root).as_posix()
+        record = json.loads(self.record_path.read_text())
+        record["files"]["logs"].append({"path": second_relative, "sha256": second_digest,
+                                        "size_bytes": second.stat().st_size})
+        self.record_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n")
+        plan_path = self.root / "plan.json"
+        self._run("plan", "--paths", self.repo_relative, second_relative, "-o", str(plan_path))
+        plan = json.loads(plan_path.read_text())
+        self.assertEqual(len(plan), 2)
+        self.assertEqual({item["path"] for item in plan}, {self.repo_relative, second_relative})
+        self._run("apply", "--plan", str(plan_path),
+                  "--url-base", "https://huggingface.co/datasets/AroundPeking/LibRPA-database",
+                  "--backup-base", "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database")
+        converted = json.loads(self.record_path.read_text())
+        for entry in converted["files"]["logs"]:
+            self.assertEqual(entry["tier"], "referenced", entry["path"])
+            self.assertTrue(entry["external_url"].startswith("https://huggingface.co/datasets/"))
+            self.assertTrue(entry["external_url_backup"].startswith("https://hf-mirror.com/datasets/"))
+
 
 if __name__ == "__main__":
     unittest.main()

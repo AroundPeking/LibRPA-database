@@ -72,8 +72,9 @@ def _record_for(repo_relative: str) -> Path:
     return record
 
 
-def _locate(record_path: Path, repo_relative: str):
-    record = _load_json(record_path)
+def _locate(record_path: Path, repo_relative: str, record=None):
+    if record is None:
+        record = _load_json(record_path)
     for group, entries in (record.get("files") or {}).items():
         for index, entry in enumerate(entries or []):
             if entry.get("path") == repo_relative:
@@ -85,6 +86,29 @@ def _url(base: str, repo_relative: str) -> str:
     base = base.rstrip("/")
     segment = "/".join(urllib.parse.quote(part, safe="") for part in PurePosixPath(repo_relative).parts)
     return f"{base}/resolve/main/{segment}"
+
+
+def _evidence_cited_paths(record: dict) -> set[str]:
+    """Paths this record cites as acceptance evidence.
+
+    Property, auxiliary-basis, performance, and conversion evidence must
+    stay local-byte readable: the completeness gate reads those files, so
+    they can never move to the referenced tier.
+    """
+    cited: set[str] = set()
+
+    def add(values) -> None:
+        if isinstance(values, list):
+            cited.update(path for path in values if isinstance(path, str))
+
+    for prop in record.get("properties") or []:
+        if isinstance(prop, dict):
+            add(prop.get("evidence"))
+    for section in ("auxiliary_basis", "performance", "conversion"):
+        block = record.get(section)
+        if isinstance(block, dict):
+            add(block.get("evidence"))
+    return cited
 
 
 def build_plan(paths: list[str], min_size_mb: float) -> list[dict]:
@@ -102,10 +126,14 @@ def build_plan(paths: list[str], min_size_mb: float) -> list[dict]:
     for full in candidates:
         repo_relative = full.relative_to(ROOT).as_posix()
         record_path = _record_for(repo_relative)
-        _, group, index, entry = _locate(record_path, repo_relative)
+        record, group, index, entry = _locate(record_path, repo_relative)
         if group not in convertible:
             if paths:
                 raise SystemExit(f"{repo_relative}: group '{group}' cannot move to the referenced tier")
+            continue
+        if repo_relative in _evidence_cited_paths(record):
+            if paths:
+                raise SystemExit(f"{repo_relative}: cited as acceptance evidence; evidence files must keep local bytes")
             continue
         size = full.stat().st_size
         declared = entry.get("size_bytes")
@@ -150,10 +178,17 @@ def cmd_stage(plan: list[dict], dest: Path) -> int:
 def cmd_apply(plan: list[dict], url_base: str, backup_base: str | None) -> int:
     if not url_base.startswith("https://"):
         raise SystemExit("--url-base must be an https URL (publish gate rejects anything else)")
-    touched = {}
+    # One in-memory snapshot per record file: _locate re-reads the record from
+    # disk on every call, so per-item loads would silently drop the rewrite of
+    # every later plan item that shares a record with an earlier one.
+    records: dict[Path, dict] = {}
     for item in plan:
         record_path = ROOT / item["record"]
-        record, group, index, entry = _locate(record_path, item["path"])
+        record = records.get(record_path)
+        if record is None:
+            record = _load_json(record_path)
+            records[record_path] = record
+        _, group, index, entry = _locate(record_path, item["path"], record)
         if entry.get("sha256") != item["sha256"] or entry.get("size_bytes") != item["size_bytes"]:
             raise SystemExit(f"{item['path']}: record identity drifted from the plan; re-run plan")
         if group == "inputs":
@@ -164,11 +199,10 @@ def cmd_apply(plan: list[dict], url_base: str, backup_base: str | None) -> int:
             if not backup_base.startswith("https://"):
                 raise SystemExit("--backup-base must be an https URL")
             entry["external_url_backup"] = _url(backup_base, item["path"])
-        touched.setdefault(record_path, record)
         print(f"applied referenced tier: {item['path']}")
-    for record_path, record in touched.items():
+    for record_path, record in records.items():
         _dump_json(record_path, record)
-    print(f"rewrote {len(touched)} record file(s); review with git diff before committing")
+    print(f"rewrote {len(records)} record file(s); review with git diff before committing")
     return 0
 
 

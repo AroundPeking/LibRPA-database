@@ -25707,7 +25707,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlAs/alas-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -26897,7 +26900,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -28907,7 +28913,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BN/bn-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -30091,7 +30100,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -31340,7 +31352,10 @@
             "original_sha256": "1c74c4d12a03ec7313977c025581ee3c8f87e98eb193e1b447c6b5f6ebb1166c",
             "label": "librpa.out",
             "original_name": "LibRPA.831496.out",
-            "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+            "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out"
           },
           {
             "role": "logs",
@@ -32005,7 +32020,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -33532,7 +33550,10 @@
             "scientific_role": "g0w0_qp_output",
             "sha256": "e33b292d4624d21d1c4f89109fbc2e195b5fd66036a2729eb71ac3b5a62ed230",
             "size_bytes": 6803439,
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/gw_output_rank0.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/gw_output_rank0.out"
           },
           {
             "label": "LibRPA RPA output (rank 0, 100 DCU nodes, job 20918572)",
@@ -33543,7 +33564,10 @@
             "scientific_role": "rpa_correlation_output",
             "sha256": "590bc1a4dba518701090bb8cb857db7e33838bedd697afb3612803453f7a98c4",
             "size_bytes": 5942570,
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/rpa_output_rank0.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/C/c2048-reader-v1-20260607/results/rpa_output_rank0.out"
           },
           {
             "label": "Reader-v1 conversion and historical GW audit receipt",
@@ -34312,7 +34336,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CaO/cao-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -36309,7 +36336,10 @@
             "size_bytes": 5266389,
             "original_sha256": "a979ada0d566a6d17b1d1d551ee0f469ce2eb456c6c9950a047a2f4dd5b053d4",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out"
           }
         ],
         "figures": [
@@ -37260,7 +37290,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -38166,7 +38199,10 @@
             "size_bytes": 5334229,
             "original_sha256": "e81d164b33b14668f8ffcf1c6b11ccc34b3c3a52351815e0e194c552e7a5d055",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out"
           }
         ],
         "figures": [
@@ -38564,7 +38600,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -39423,7 +39462,10 @@
             "size_bytes": 6162595,
             "original_sha256": "ee71797e590bfa956a3394c1248d1103787f0aeb5a85400a49de6d0cc8de5616",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out"
           }
         ],
         "figures": [
@@ -39777,7 +39819,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -40593,7 +40638,10 @@
             "size_bytes": 5335057,
             "original_sha256": "f4435ad2810a4d15873c936dbdd1d49415907840b772c8b166b2ec121d46be5d",
             "label": "librpa.out",
-            "transformation": "private paths and host identifiers redacted; scientific values retained"
+            "transformation": "private paths and host identifiers redacted; scientific values retained",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out"
           }
         ],
         "figures": [
@@ -40946,7 +40994,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaSb/gasb-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaSb/gasb-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -42187,7 +42238,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/InP/inp-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/InP/inp-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -42956,7 +43010,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KCl/kcl-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KCl/kcl-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -43725,7 +43782,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -44931,7 +44991,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -45701,7 +45764,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/LiF/lif-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -48267,7 +48333,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -49520,7 +49589,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgS/mgs-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgS/mgs-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -50751,7 +50823,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaCl/nacl-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -51938,7 +52013,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaF/naf-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NaF/naf-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -52793,7 +52871,10 @@
             "original_sha256": "35b0eacc2dc7df7e6bed6d472d237f202a932bd17e2582fbe866538a479dc9b4",
             "label": "aims_731944_stdout.log",
             "original_name": "aims.731944.out",
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log"
           },
           {
             "role": "logs",
@@ -52813,7 +52894,10 @@
             "original_sha256": "4ccea660791dcbfc57fd5a875736d82de3ac20210df9da119d96a9a6dcfd864f",
             "label": "aims_735178_stdout.log",
             "original_name": "aims.735178.out",
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log"
           },
           {
             "role": "logs",
@@ -52833,7 +52917,10 @@
             "original_sha256": "8d87cad8a40c51aed3025f61b95ca2efda59540700ba5f3aa9a6419db3b52be1",
             "label": "aims_736421_stdout.log",
             "original_name": "aims.736421.out",
-            "transformation": "none"
+            "transformation": "none",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log"
           },
           {
             "role": "logs",
@@ -53476,7 +53563,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -55068,7 +55158,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/SiC/sic-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -56410,7 +56503,10 @@
             "original_sha256": "40385ca9fc235bd8fa6d49539d2cd5b530742ad305564c07a4e1853bc5518b42",
             "label": "librpa.out",
             "original_name": "LibRPA.2487982.out",
-            "transformation": "private server path redacted"
+            "transformation": "private server path redacted",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/librpa.out"
           },
           {
             "role": "logs",
@@ -56658,7 +56754,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
@@ -57525,7 +57624,10 @@
             "label": "FHI-aims GW band-structure run log",
             "scientific_role": "aims_run_log",
             "transformation": "none",
-            "original_name": "aims.out"
+            "original_name": "aims.out",
+            "tier": "referenced",
+            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnS/zns-jctc-aims-gw/logs/aims.out",
+            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/ZnS/zns-jctc-aims-gw/logs/aims.out"
           }
         ],
         "figures": [
