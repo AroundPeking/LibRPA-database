@@ -206,7 +206,7 @@ def cmd_verify(plan: list[dict], url_base: str, backup_base: str | None) -> int:
     return 0
 
 
-def cmd_upload(plan: list[dict], repo_id: str, revision: str = "main") -> int:
+def cmd_upload(plan: list[dict], repo_id: str) -> int:
     try:
         from huggingface_hub import HfApi
     except ImportError:
@@ -218,11 +218,17 @@ def cmd_upload(plan: list[dict], repo_id: str, revision: str = "main") -> int:
     who = api.whoami()
     if who.get("name") != repo_id.split("/")[0]:
         raise SystemExit(f"logged in as {who.get('name')!r}, but the dataset namespace is {repo_id.split('/')[0]!r}")
+    api.create_repo(repo_id, repo_type="dataset", private=False, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
         dest = Path(tmp) / "tree"
         cmd_stage(plan, dest)
-        api.create_repo(repo_id, repo_type="dataset", private=False, exist_ok=True)
-        api.upload_large_folder(repo_id=repo_id, repo_type="dataset", folder_path=str(dest), revision=revision)
+        for item in plan:
+            # One upload per file preserves the exact repository-relative
+            # path; each upload is resumable on its own.
+            api.upload_file(path_or_fileobj=str(dest / item["path"]),
+                            path_in_repo=item["path"],
+                            repo_id=repo_id, repo_type="dataset")
+            print(f"uploaded {item['path']}")
     print(f"uploaded {len(plan)} file(s) to dataset {repo_id}")
     return 0
 

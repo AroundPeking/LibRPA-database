@@ -208,7 +208,10 @@
         "original_sha256": "f383b1ee82f2aa04de65f1f8e9328aa36db5fc28690f6a377ac6796b83c2fe6a",
         "label": "librpa.out",
         "original_name": "LibRPA.859318.out",
-        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained"
+        "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out"
       },
       {
         "role": "logs",

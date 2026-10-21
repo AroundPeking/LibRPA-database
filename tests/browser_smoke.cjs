@@ -712,7 +712,7 @@ async function main() {
           && (await row.locator("a.mirror-link").getAttribute("href")) === file.external_url_backup, `${record.id}：备用镜像直链渲染`);
       }
       check(!/\.\.\/data\//.test(await row.locator("a.download-link").first().getAttribute("href") || ""), `${record.id}：不再回退到本地 Pages 路径`);
-      if (externalFixtures && /\.(?:out|log|txt|dat)$/i.test(file.path)) {
+      if ((externalFixtures || process.env.LIVE_EXTERNAL) && /\.(?:out|log|txt|dat)$/i.test(file.path)) {
         await row.getByRole("button", { name: "View", exact: true }).click();
         await page.waitForFunction(() => (document.querySelector("#file-preview pre")?.textContent || "").length > 0, null, { timeout: 15000 });
         check(await page.locator("#file-preview").isVisible(), `${record.id}：外部文件预览对话框打开`);

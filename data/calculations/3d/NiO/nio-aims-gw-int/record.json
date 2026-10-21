@@ -289,7 +289,10 @@
         "original_sha256": "1048def288f4be20e50c5e1fedb61ac139388536e3d62e4059eef0a7a9d612ca",
         "label": "aims_740569_stdout.log",
         "original_name": "aims.740569.out",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log"
       },
       {
         "role": "logs",

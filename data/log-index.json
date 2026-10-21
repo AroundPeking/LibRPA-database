@@ -401,7 +401,8 @@
       "calculation_id": "cds-jctc-aims-gw",
       "path": "data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out",
       "sha256": "bd893a987c48e4ddd53c5b1a571469918e74f4e2ee4ab1faac45842df8a7a51d",
-      "label": "FHI-aims GW band-structure run log"
+      "label": "FHI-aims GW band-structure run log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "cds-jctc-librpa-16",
@@ -467,7 +468,8 @@
       "calculation_id": "gaas-abacus-gw-soc-32freq",
       "path": "data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/librpa.out",
       "sha256": "66277ae06f36039b391009638a545556333a9d7341b5e6820f7265def611853d",
-      "label": "librpa.out"
+      "label": "librpa.out",
+      "tier": "referenced"
     },
     {
       "calculation_id": "gaas-jctc-aims-32ac",
@@ -1289,7 +1291,8 @@
       "calculation_id": "nio-aims-gw-int",
       "path": "data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
       "sha256": "1048def288f4be20e50c5e1fedb61ac139388536e3d62e4059eef0a7a9d612ca",
-      "label": "aims_740569_stdout.log"
+      "label": "aims_740569_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-delta-st-rpa-20260824",
