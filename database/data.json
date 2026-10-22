@@ -14753,6 +14753,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -15294,6 +15299,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -15790,6 +15800,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -16331,6 +16346,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -16872,6 +16892,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -17339,6 +17364,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。 MoS2其他EXX收敛系列的6.25292 eV不是本case的主表值，不替换本case归档EXX。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -17848,6 +17878,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -18382,6 +18417,11 @@
         "unit": "eV",
         "value": 2.088
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -18891,6 +18931,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -19353,6 +19398,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -19865,6 +19915,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -20390,6 +20445,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -20913,6 +20973,11 @@
         "unit": "eV",
         "value": 2.674
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -21380,6 +21445,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -28115,6 +28185,11 @@
         },
         "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -29458,6 +29533,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -30800,6 +30880,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -31267,6 +31352,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -31753,6 +31843,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -33093,6 +33188,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -34435,6 +34535,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -36574,6 +36679,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -39215,6 +39325,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -40541,6 +40656,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -42694,6 +42814,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -44066,6 +44191,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -45389,6 +45519,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -52166,6 +52301,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -55091,6 +55231,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -57829,6 +57974,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -60985,6 +61135,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
@@ -62720,6 +62875,11 @@
         },
         "notes": "论文Table IV没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
       },
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "record_type": "band",
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",

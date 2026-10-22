@@ -13,7 +13,7 @@ export function renderFiles(files, { input = false } = {}) {
     const external = isExternalFile(file);
     return `<article class="file-row">
       <div class="file-info"><strong>${esc(fileName(file))}</strong><span>${esc(input ? inputStage(file) : roleNames[file.role] || file.role || "Data file")} <span aria-hidden="true">·</span> ${esc(sizeLabel(file.size_bytes))}</span>
-      ${alias ? '<span class="name-note">Descriptive filename</span>' : file.name_source === "calculation_alias" ? '<span class="name-note">Calculation filename</span>' : ""}${external ? '<span class="name-note">External archive · integrity by SHA-256</span>' : ""}
+      ${alias ? '<span class="name-note">Descriptive filename</span>' : file.name_source === "calculation_alias" ? '<span class="name-note">Calculation filename</span>' : ""}${external ? '<span class="name-note">External archive</span>' : ""}
       </div>
       <div class="file-actions">${previewable(file.path) ? `<button type="button" class="text-button" data-preview="${esc(file.path)}" data-preview-url="${esc(url)}"${mirror ? ` data-preview-fallback="${esc(mirror)}"` : ""} data-name="${esc(fileName(file))}" data-download="${esc(downloadName(file))}">View</button>` : `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Open</a>`}<a class="download-link" href="${esc(url)}" rel="noreferrer" download="${esc(downloadName(file))}"${external ? ' data-blob-download="1"' : ""}>Download <span aria-hidden="true">↓</span></a>${mirror ? `<a class="download-link mirror-link" href="${esc(mirror)}" rel="noreferrer" download="${esc(downloadName(file))}" data-blob-download="1">Mirror <span aria-hidden="true">↗</span></a>` : ""}</div>
     </article>`;

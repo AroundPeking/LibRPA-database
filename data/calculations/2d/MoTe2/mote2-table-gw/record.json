@@ -495,5 +495,10 @@
       }
     },
     "notes": "论文Table I没有EXX主列；EXX仍为historical archive/path归档运行值，保留原始谱、properties及summary，不标为paper benchmark，也不补零。"
-  }
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "gw"
+  },
+  "record_type": "band"
 }

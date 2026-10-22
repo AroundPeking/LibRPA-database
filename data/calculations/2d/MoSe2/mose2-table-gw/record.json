@@ -520,5 +520,10 @@
     "observable": "Archived GW path gap",
     "unit": "eV",
     "value": 2.088
-  }
+  },
+  "workflow": {
+    "frontend": "abacus",
+    "task": "gw"
+  },
+  "record_type": "band"
 }

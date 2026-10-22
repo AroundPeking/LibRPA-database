@@ -95,7 +95,7 @@ function sameStructureNotice(record, allRecords) {
   const rows = peers.map(peer => {
     const result = primaryResult(peer);
     const value = result ? `${typeof result.value === "number" ? result.value.toFixed(5) : esc(result.value)} <small>${esc(result.unit)}</small>` : "—";
-    return `<div class="compare-row"><a href="${materialLink(peer)}"><strong>${esc(peer.material)}</strong><span>${esc(peer.id)}</span></a><span class="compare-frontend">${esc(workflowLabel(peer))}</span><span class="compare-result">${value}</span></div>`;
+    return `<div class="compare-row"><a href="${materialLink(peer)}"><span>${esc(peer.id)}</span></a><span class="compare-frontend">${esc(workflowLabel(peer))}</span><span class="compare-result">${value}</span></div>`;
   }).join("");
   return `<div class="notice same-structure"><strong>Same-structure calculations</strong><p>This structure has ${peers.length === 1 ? "1 other" : `${peers.length} other`} independent calculation${peers.length > 1 ? "s" : ""} in the database, using a different workflow or frontend. Compare results directly:</p><div class="compare-list">${rows}</div></div>`;
 }
@@ -106,7 +106,7 @@ function crossFrontendNotice(record, allRecords) {
   const rows = peers.map(peer => {
     const result = primaryResult(peer);
     const value = result ? `${typeof result.value === "number" ? result.value.toFixed(5) : esc(result.value)} <small>${esc(result.unit)}</small>` : "—";
-    return `<div class="compare-row"><a href="${materialLink(peer)}"><strong>${esc(peer.material)}</strong><span>${esc(peer.id)} · ${esc(recordTypeLabel(peer))}</span></a><span class="compare-frontend">${esc(workflowLabel(peer))}</span><span class="compare-result">${value}</span></div>`;
+    return `<div class="compare-row"><a href="${materialLink(peer)}"><span>${esc(peer.id)} · ${esc(recordTypeLabel(peer))}</span></a><span class="compare-frontend">${esc(workflowLabel(peer))}</span><span class="compare-result">${value}</span></div>`;
   }).join("");
   return `<div class="notice cross-frontend"><strong>Same material across frontends</strong><p>This material is also covered by ${peers.length === 1 ? "1 other record from" : `${peers.length} other records from`} the ${esc(frontendLabel(peers[0]))} frontend. Those runs set their structures independently, so the values are cross-frontend reference points, not identical-structure comparisons:</p><div class="compare-list">${rows}</div></div>`;
 }
