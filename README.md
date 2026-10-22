@@ -173,16 +173,18 @@ curl -s https://aroundpeking.github.io/LibRPA-database/database/data.json -o dat
 
 Each declared file carries `path`, `size_bytes`, `sha256`, and (for the
 external archive) `external_url` plus a mirror — verify the hash after
-downloading. For agent runtimes there is a ready-made package in
-[`plugin/`](plugin/): a zero-dependency read-only MCP server
-(`plugin/mcp/server.py`, tools for search, records, hash-verified file reads,
-and band-table parsing) and two markdown skills —
-[`plugin/skills/librpa-database-intake/SKILL.md`](plugin/skills/librpa-database-intake/SKILL.md)
+downloading. For agent runtimes there is a ready-made package in the
+[`plugin/` directory](https://github.com/AroundPeking/LibRPA-database/tree/main/plugin):
+a zero-dependency read-only MCP server
+([`plugin/mcp/server.py`](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/mcp/server.py),
+tools for search, records, hash-verified file reads, and band-table parsing)
+and two markdown skills —
+[`librpa-database-intake`](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/skills/librpa-database-intake/SKILL.md)
 for contributing a calculation as a pull request (payloads are externalized
 automatically after merge) and
-[`plugin/skills/librpa-database-query/SKILL.md`](plugin/skills/librpa-database-query/SKILL.md)
+[`librpa-database-query`](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/skills/librpa-database-query/SKILL.md)
 for reading the data without MCP. Install instructions live in
-[`plugin/README.md`](plugin/README.md).
+[`plugin/README.md`](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/README.md).
 
 ## Validate
 
