@@ -162,6 +162,28 @@ for the complete display and evidence contract.
 
 The generation protocol, validation ladder, and ABACUS-to-LibRPA handoff are documented in the companion skill, especially [`references/database.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/references/database.md), [`SKILL.md`](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill/blob/main/SKILL.md), and [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Programmatic access
+
+The catalog is one JSON document and every payload byte is a plain HTTPS
+download, so scripts and AI agents need no special client:
+
+```bash
+curl -s https://aroundpeking.github.io/LibRPA-database/database/data.json -o data.json
+```
+
+Each declared file carries `path`, `size_bytes`, `sha256`, and (for the
+external archive) `external_url` plus a mirror — verify the hash after
+downloading. For agent runtimes there is a ready-made package in
+[`plugin/`](plugin/): a zero-dependency read-only MCP server
+(`plugin/mcp/server.py`, tools for search, records, hash-verified file reads,
+and band-table parsing) and two markdown skills —
+[`plugin/skills/librpa-database-intake/SKILL.md`](plugin/skills/librpa-database-intake/SKILL.md)
+for contributing a calculation as a pull request (payloads are externalized
+automatically after merge) and
+[`plugin/skills/librpa-database-query/SKILL.md`](plugin/skills/librpa-database-query/SKILL.md)
+for reading the data without MCP. Install instructions live in
+[`plugin/README.md`](plugin/README.md).
+
 ## Validate
 
 Data checks use the Python standard library; frontend unit tests use Node.js
