@@ -375,11 +375,14 @@ async function main() {
     } else {
       check(calculations.filter(record => record.record_type !== "reader_conversion").every(record => (record.files?.inputs || []).length > 0), "全部科学计算记录均有归档输入；转换凭据单独处理");
     }
-    const audited = calculations.find(record => record.archive_completeness?.status === "incomplete");
+    const audited = calculations.find(record => record.archive_completeness?.status === "incomplete" && (record.archive_completeness.issues || []).length);
     check(Boolean(audited), "内部审计样例存在");
     await go(`#/material/${encodeURIComponent(audited.id)}`);
     const formalText = await page.locator("#detail-view").innerText();
-    check(!/Archive completeness|Upload incomplete|CI blocked|evidence issues|Missing evidence|Full commit not recorded/i.test(formalText), "内部审计字段不出现在正式详情页");
+    check(formalText.includes("Archive completeness: incomplete"), "缺证记录在详情页明示归档完整性缺口");
+    check((audited.archive_completeness.issues || []).every(issue => formalText.includes(issue.slice(issue.indexOf(": ") + 2))), "缺证条目逐条展示");
+    check(await page.locator('#detail-view a[href="missing-evidence.html"]').count() >= 1, "缺证通知链接到完整清单");
+    check(!/Upload incomplete|CI blocked|evidence issues|Missing evidence|Full commit not recorded/i.test(formalText), "其余内部审计字段不出现在正式详情页");
     check(await page.locator("#record-evidence > summary h2").textContent() === "Software", "软件与日志使用正式分区名称");
     await page.locator(".section-nav [data-section='record-evidence']").click();
     const softwareEntries = page.locator("#record-evidence .software-entry");

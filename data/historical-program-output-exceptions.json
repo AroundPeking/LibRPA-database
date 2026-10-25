@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "policy": "grandfathered_missing_delta_st_program_output",
+  "frozen_issue_count": 10,
+  "scope": "Only the exact pre-existing calculation/role pairs listed here may retain a missing delta-Sternheimer program output. New records are never added automatically. Archiving the real program output retires the issue, the stale entry then blocks integrity, and the entry must be deleted in the same change.",
+  "notes": "Added on 2026-10-26 following the database owner's review of the live site: the five solid delta-Sternheimer records (C, Si, SiC, MgO, LiH-solid) archived only summary tables and scheduler excerpts, while the intake requirement demands the production chain's ABACUS program output and, where the LibRPA executable evaluated the RPA energy, the LibRPA program output. The four molecule records already archive the ABACUS program stdout of every production stage and need no entry. The raw solid-chain outputs exist only on the production cluster; these entries keep the gap explicit and block silent acceptance until the outputs are recovered and archived, or the owner records a deliberate retirement decision.",
+  "records": [
+    {
+      "id": "c-delta-st-rpa-20260824",
+      "missing_roles": [
+        "abacus_program_stdout",
+        "librpa_program_output"
+      ]
+    },
+    {
+      "id": "lih-solid-delta-st-rpa-20260831",
+      "missing_roles": [
+        "abacus_program_stdout",
+        "librpa_program_output"
+      ]
+    },
+    {
+      "id": "mgo-delta-st-rpa-20260829",
+      "missing_roles": [
+        "abacus_program_stdout",
+        "librpa_program_output"
+      ]
+    },
+    {
+      "id": "si-delta-st-rpa-20260824",
+      "missing_roles": [
+        "abacus_program_stdout",
+        "librpa_program_output"
+      ]
+    },
+    {
+      "id": "sic-delta-st-rpa-20260829",
+      "missing_roles": [
+        "abacus_program_stdout",
+        "librpa_program_output"
+      ]
+    }
+  ]
+}

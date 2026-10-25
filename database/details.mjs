@@ -117,6 +117,17 @@ function sourceInfo(record) {
   return `<dl class="metadata-list"><dt>Calculation ID</dt><dd><code>${esc(record.id)}</code></dd><dt>Collection</dt><dd>${esc(source.collection || "—")}</dd>${safeRepository ? `<dt>Source repository</dt><dd><a href="${esc(source.repository)}" target="_blank" rel="noopener">${esc(source.repository.replace("https://github.com/", ""))} ↗</a></dd>` : ""}<dt>Observable</dt><dd>${esc(record.summary?.observable || "—")}</dd></dl>`;
 }
 
+function archiveCompletenessNotice(record) {
+  const state = record.archive_completeness;
+  if (!state || state.status !== "incomplete" || !Array.isArray(state.issues) || !state.issues.length) return "";
+  const items = state.issues.map(issue => {
+    const separator = issue.indexOf(": ");
+    const text = separator >= 0 ? issue.slice(separator + 2) : issue;
+    return `<li>${esc(text)}</li>`;
+  }).join("");
+  return `<div class="notice"><strong>Archive completeness: incomplete</strong><p>This record is retained with the missing-evidence items below; they are tracked in the <a href="missing-evidence.html">missing-evidence checklist</a> and do not alter the archived numerical results.</p><ul>${items}</ul></div>`;
+}
+
 export function renderMaterial(record, sets, allRecords = []) {
   const inputs = filesOf(record, "inputs");
   const results = filesOf(record, "results");
@@ -148,7 +159,7 @@ export function renderMaterial(record, sets, allRecords = []) {
   const readerConversion = type === "reader_conversion";
   const validationState = readerConversion ? (record.associated_gw_run?.scheduler_state === "COMPLETED" ? "Reader-format provenance with linked GW completion audit" : "Reader-format provenance record") : largeSystem ? "Large-system GW calculation" : type === "rpa_energy" ? "RPA energy calculation" : "GW calculation";
   const scopedObservable = limited && record.summary?.value != null ? `<div class="notice"><strong>${esc(record.summary.observable)}</strong><p>Path-resolved selected-state observable. ${paperGap(record) ? "The database displays the referenced path value with its recorded definition." : "The numerical result remains available in the associated data files."}</p></div>` : "";
-  const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${crossFrontendNotice(record, allRecords)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
+  const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${crossFrontendNotice(record, allRecords)}${archiveCompletenessNotice(record)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
   const structureHtml = structure.length ? `<p class="section-intro">Structure files attached to this calculation. Files from different calculation stages remain separately identified.</p>${renderFiles(structure, { input: true })}` : '<div class="empty-panel"><h3>Structure data</h3><p>This record presents the calculation results and attached provenance files; no separate STRU, CIF, or equivalent structure file is listed.</p></div>';
   const bandsHtml = `<p class="section-intro">Figure style and data contracts: <a href="../references/plotting.md">plotting reference</a> · <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/scripts/generate_band_figures.py" target="_blank" rel="noopener">reusable band-figure script ↗</a>. Each method uses its own occupied path VBM. The y range shows the full extent of the selected curves without adding bands.</p>${mainFigures.length ? `${figureGrid(mainFigures)}<p class="definition-note">Band figures follow the recorded k-path; refer to the definition and scope in Overview.</p>` : '<p class="empty-panel">No band figures are recorded; the archived result files are listed under Results files.</p>'}`;
   const sampledPbe = sampledGridGap(record, "PBE");

@@ -35391,8 +35391,11 @@
       "spin_polarized": true,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
+          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
+        ]
       }
     },
     {
@@ -53446,8 +53449,11 @@
       "spin_polarized": true,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
+          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
+        ]
       }
     },
     {
@@ -53818,8 +53824,11 @@
       "spin_polarized": true,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
+          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
+        ]
       }
     },
     {
@@ -59751,8 +59760,11 @@
       "spin_polarized": true,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
+          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
+        ]
       }
     },
     {
@@ -61558,8 +61570,11 @@
       "spin_polarized": true,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
+          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
+        ]
       }
     },
     {

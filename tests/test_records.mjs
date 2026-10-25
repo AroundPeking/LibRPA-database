@@ -7,16 +7,19 @@ import { renderMaterial } from "../database/details.mjs";
 import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
 import { readFileSync } from "node:fs";
 
-test("stage-resolved controls retain redaction provenance without exposing internal QA status", () => {
+test("stage-resolved controls retain redaction provenance while publishing the archive-completeness gap", () => {
   const path = "data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json";
   const record = { id: "mote2-table-gw", material: "MoTe2", dimension: "2d", summary: {}, source: { stage_input_receipt: path }, files: { inputs: [{ path: "data/calculations/2d/MoTe2/mote2-table-gw/inputs/recovered/stage/librpa.in", sha256: "a".repeat(64), original_sha256: "b".repeat(64), transformation: "private server path redacted; not a rerun bundle" }] }, archive_completeness: { status: "incomplete", issues: ["software missing"] } };
   const html = renderMaterial(record, []);
   assert.match(html, /Stage-resolved calculation inputs/);
   assert.match(html, /View stage-input receipt/);
   assert.match(html, /File transformations are recorded/);
+  assert.match(html, /Archive completeness: incomplete/);
+  assert.match(html, /software missing/);
+  assert.match(html, /missing-evidence\.html/);
   assert.doesNotMatch(html, /Original SHA-256/);
   assert.doesNotMatch(html, new RegExp("b".repeat(64)));
-  assert.doesNotMatch(html, /Upload incomplete|CI blocked|software missing|Archive completeness/);
+  assert.doesNotMatch(html, /Upload incomplete|CI blocked/);
 });
 
 test("all real material and basis pages render English without rewriting archived paper evidence", () => {
@@ -144,7 +147,7 @@ test("all figure metadata attachments remain available under Results files", () 
   assert.ok(logName && resultsSection.includes(logName), "run logs are listed in the same results section");
 });
 
-test("formal record pages keep software provenance while internal QA fields stay private", () => {
+test("formal record pages keep internal QA fields private while listing archive-completeness gaps", () => {
   const record = {
     id: "ui-check", material: "Si", dimension: "3d", summary: { gates: ["SCF evidence pending"] },
     missing: ["Original input unavailable"],
@@ -157,15 +160,25 @@ test("formal record pages keep software provenance while internal QA fields stay
   assert.match(software, /<h2>Software<\/h2>/);
   assert.match(software, /Source code ↗/);
   assert.doesNotMatch(software, /Executable SHA-256/);
-  assert.doesNotMatch(html, /Archive completeness|Upload incomplete|CI blocked|Missing &lt;INPUT&gt;|Original input unavailable|SCF evidence pending|Pathology|evidence issues/);
+  assert.match(html, /Archive completeness: incomplete/);
+  assert.match(html, /Missing &lt;INPUT&gt;/);
+  assert.match(html, /missing-evidence\.html/);
+  assert.doesNotMatch(html, /Upload incomplete|CI blocked|Original input unavailable|SCF evidence pending|Pathology|evidence issues/);
 });
 
-test("archive completeness metadata does not alter the public record page", () => {
+test("archive completeness notice appears only for records with retained issues", () => {
   const record = { id: "unknown", material: "Si", dimension: "3d" };
   const base = renderMaterial(record, []);
-  record.archive_completeness = { status: "incomplete", issues: ["internal issue"] };
+  assert.doesNotMatch(base, /Archive completeness/);
+  record.archive_completeness = { status: "complete", issues: [] };
+  assert.doesNotMatch(renderMaterial(record, []), /Archive completeness/);
+  record.archive_completeness = { status: "incomplete", issues: ["software.abacus.identity: full immutable commit or executable SHA-256 is required", "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute"] };
   const withAudit = renderMaterial(record, []);
-  assert.doesNotMatch(base + withAudit, /Upload completeness|archive checks|internal issue/);
+  assert.match(withAudit, /Archive completeness: incomplete/);
+  assert.match(withAudit, /full immutable commit or executable SHA-256 is required/);
+  assert.match(withAudit, /the delta-Sternheimer production chain must archive the ABACUS program output/);
+  assert.doesNotMatch(withAudit, /files\.logs\.delta_st\.abacus_program_stdout:|software\.abacus\.identity:/);
+  assert.match(withAudit, /missing-evidence\.html/);
 });
 
 test("primary figures occupy the main grid while every figure file stays downloadable under Results files", () => {

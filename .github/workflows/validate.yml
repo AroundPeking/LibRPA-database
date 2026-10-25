@@ -24,7 +24,7 @@ jobs:
           path: .external-cache
           key: external-cache-${{ hashFiles('database/data.json') }}
           restore-keys: external-cache-
-      - name: 检查归档完整性（仅接受固定历史软件身份基线）
+      - name: 检查归档完整性（仅接受固定历史基线：软件身份与 delta-Sternheimer 程序输出）
         run: python scripts/library.py --check-completeness --completeness-report "${{ runner.temp }}/archive-completeness.json"
       - name: 保留原始缺项、历史接受项与CI阻断结果
         if: always()

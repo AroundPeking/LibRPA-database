@@ -843,6 +843,105 @@ libRPA finished successfully
         self.case["properties"] = []
         self.assertTrue(any("rpa_correlation_energy" in issue for issue in self.issues()))
 
+    def _make_delta_st(self, *, campaign_script=False):
+        """在已接受的 rpa_energy 案例上声明 delta-Sternheimer 响应链。"""
+        self._make_rpa_energy()
+        self.case["workflow"]["response"] = "delta_sternheimer"
+        if campaign_script:
+            self.case["workflow"]["rpa_evaluation"] = "archived_campaign_script"
+            script = self._add_file(self.prefix + "logs/campaign_evaluation.py",
+                                    b"# evaluate D_RPA from archived trace\n", "logs")
+            script["scientific_role"] = "rpa_trace_log_evaluation"
+            self.case["files"]["logs"].append(script)
+        return self.case["workflow"]
+
+    def _add_program_output(self, name, scientific_role):
+        item = self._add_file(self.prefix + f"logs/{name}", b"JOB DONE\n", "logs")
+        item["scientific_role"] = scientific_role
+        self.case["files"]["logs"].append(item)
+        return item
+
+    def test_delta_st_chain_requires_abacus_and_librpa_program_outputs(self):
+        self._make_delta_st()
+        issues = self.issues()
+        self.assertTrue(any(issue.startswith("files.logs.delta_st.abacus_program_stdout:") for issue in issues))
+        self.assertTrue(any(issue.startswith("files.logs.delta_st.librpa_program_output:") for issue in issues))
+
+    def test_delta_st_archived_outputs_satisfy_the_program_output_gate(self):
+        self._make_delta_st()
+        self._add_program_output("solid_abacus_stdout.log", "abacus_program_stdout")
+        self._add_program_output("solid_librpa_stdout.log", "librpa_program_stdout")
+        self.lib.validate(self.root, [self.basis], [self.case])
+        self.assertEqual(self.issues(), [])
+
+    def test_delta_st_librpa_program_output_role_is_also_accepted(self):
+        self._make_delta_st()
+        self._add_program_output("solid_abacus_stdout.log", "abacus_program_stdout")
+        self._add_program_output("solid_librpa_summary.txt", "librpa_program_output")
+        self.assertEqual(self.issues(), [])
+
+    def test_delta_st_campaign_script_records_waive_librpa_output_only(self):
+        self._make_delta_st(campaign_script=True)
+        issues = self.issues()
+        self.assertTrue(any(issue.startswith("files.logs.delta_st.abacus_program_stdout:") for issue in issues))
+        self.assertFalse(any("librpa_program_output" in issue for issue in issues))
+        self._add_program_output("molecule_abacus_stdout.log", "abacus_program_stdout")
+        self.assertEqual(self.issues(), [])
+
+    def _write_program_output_exceptions(self, records, frozen_issue_count=None):
+        path = self.root / "data/historical-program-output-exceptions.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        count = frozen_issue_count
+        if count is None:
+            count = sum(len(record["missing_roles"]) for record in records)
+        path.write_text(json.dumps({
+            "schema_version": 1,
+            "policy": "grandfathered_missing_delta_st_program_output",
+            "frozen_issue_count": count,
+            "records": records,
+        }))
+
+    def test_exact_program_output_exceptions_pass_ci_but_remain_in_raw_report(self):
+        self._make_delta_st()
+        self._write_program_output_exceptions([
+            {"id": "si-control", "missing_roles": ["abacus_program_stdout", "librpa_program_output"]},
+        ])
+        report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+        self.assertEqual(report["status"], "blocked")
+        self.assertEqual(report["gate_status"], "complete")
+        self.assertEqual(report["stats"]["issue_count"], 2)
+        self.assertEqual(report["stats"]["accepted_exception_count"], 2)
+        self.assertEqual(report["cases"][0]["blocking_issues"], [])
+        self.lib.check_completeness(self.root, [self.basis], [self.case], report)
+
+    def test_program_output_baseline_cannot_waive_other_or_unlisted_issues(self):
+        self._make_delta_st()
+        self._write_program_output_exceptions([
+            {"id": "si-control", "missing_roles": ["abacus_program_stdout"]},
+        ])
+        report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+        self.assertEqual(report["gate_status"], "blocked")
+        self.assertTrue(any(issue.startswith("files.logs.delta_st.librpa_program_output:")
+                            for issue in report["cases"][0]["blocking_issues"]))
+
+    def test_unknown_stale_or_malformed_program_output_baseline_blocks(self):
+        self._make_delta_st()
+        self._add_program_output("solid_abacus_stdout.log", "abacus_program_stdout")
+        self._add_program_output("solid_librpa_stdout.log", "librpa_program_stdout")
+        variants = [
+            ([{"id": "not-a-case", "missing_roles": ["abacus_program_stdout"]}], None, "unknown calculation"),
+            ([{"id": "si-control", "missing_roles": ["abacus_program_stdout", "librpa_program_output"]}], None, "stale entry"),
+            ([{"id": "si-control", "missing_roles": ["abacus_program_stdout", "abacus_program_stdout"]}], None, "duplicates"),
+            ([{"id": "si-control", "missing_roles": ["abacus_program_stdout"]}], 2, "frozen_issue_count"),
+            ([{"id": "si-control", "missing_roles": ["not_a_role"]}], None, "unknown role"),
+        ]
+        for records, count, message in variants:
+            with self.subTest(message=message):
+                self._write_program_output_exceptions(records, count)
+                report = self.lib.completeness_report(self.root, [self.basis], [self.case])
+                self.assertEqual(report["gate_status"], "blocked")
+                self.assertTrue(any(message in issue for issue in report["integrity_issues"]))
+
     def _make_fhi_aims(self, task="g0w0_band"):
         """把 ABACUS band fixture 换成等价完整的 FHI-aims 前端案例。"""
         block = (

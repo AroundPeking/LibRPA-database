@@ -36,6 +36,11 @@ SOFTWARE_IDENTITY_ISSUE = re.compile(
     r"^software\.(abacus|fhi_aims|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
 )
 HISTORICAL_SOFTWARE_EXCEPTIONS = Path("data/historical-software-identity-exceptions.json")
+DELTA_ST_OUTPUT_ROLES = {"abacus_program_stdout", "librpa_program_output"}
+DELTA_ST_PROGRAM_OUTPUT_ISSUE = re.compile(
+    r"^files\.logs\.delta_st\.(abacus_program_stdout|librpa_program_output): "
+)
+HISTORICAL_PROGRAM_OUTPUT_EXCEPTIONS = Path("data/historical-program-output-exceptions.json")
 
 
 def _fail(message: str) -> None:
@@ -1016,6 +1021,17 @@ def completeness_issues(root: Path, sets: list[dict], case: dict) -> list[str]:
                    for item in owned["results"] + owned["logs"]):
             issues.append("results: script-evaluated RPA records must archive the campaign evaluation script (scientific_role rpa_trace_log_evaluation)")
 
+    if isinstance(workflow, dict) and workflow.get("response") == "delta_sternheimer":
+        # 表格总结不能代替程序输出：生产链的 ABACUS stdout 必须归档；
+        # 由 LibRPA 可执行程序求值 RPA 能量时，LibRPA 输出同样必须归档。
+        declared = owned["inputs"] + owned["results"] + owned["logs"]
+        if not any(item.get("scientific_role") == "abacus_program_stdout" for item in declared):
+            issues.append("files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute")
+        if workflow.get("rpa_evaluation") != "archived_campaign_script":
+            if not any(item.get("scientific_role") in ("librpa_program_stdout", "librpa_program_output")
+                       for item in declared):
+                issues.append("files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute")
+
     species = case.get("species", [])
     actual = {entry.get("element") for entry in species}
     required = _formula_elements(case.get("formula") if case.get("formula") is not None else case.get("material"))
@@ -1324,6 +1340,42 @@ def _issue_categories(issues: list[str]) -> dict[str, list[str]]:
     return missing
 
 
+def load_historical_program_output_exceptions(root: Path) -> set[tuple[str, str]]:
+    """读取固定历史程序输出基线；缺失基线意味着不豁免任何记录。
+
+    与软件身份基线同构：条目冻结、精确到 (记录, 角色)；一旦真实输出归档、
+    对应 issue 消失，残留条目即 stale 并阻断完整性，必须在同一变更中删除。"""
+    path = root / HISTORICAL_PROGRAM_OUTPUT_EXCEPTIONS
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        _fail(f"historical program output exception baseline is unreadable: {exc}")
+    records = data.get("records") if isinstance(data, dict) else None
+    if (not isinstance(data, dict) or data.get("schema_version") != 1
+            or data.get("policy") != "grandfathered_missing_delta_st_program_output"
+            or not isinstance(records, list)):
+        _fail("historical program output exception baseline has an invalid schema or policy")
+    pairs = set()
+    for index, entry in enumerate(records):
+        case_id = entry.get("id") if isinstance(entry, dict) else None
+        roles = entry.get("missing_roles") if isinstance(entry, dict) else None
+        if (not isinstance(case_id, str) or not case_id.strip()
+                or not isinstance(roles, list) or not roles):
+            _fail(f"historical program output exception baseline records[{index}] is invalid")
+        for role in roles:
+            if role not in DELTA_ST_OUTPUT_ROLES:
+                _fail(f"historical program output exception baseline records[{index}] has unknown role {role!r}")
+            pair = (case_id, role)
+            if pair in pairs:
+                _fail(f"historical program output exception baseline duplicates {case_id}/{role}")
+            pairs.add(pair)
+    if data.get("frozen_issue_count") != len(pairs):
+        _fail("historical program output exception baseline frozen_issue_count does not match its exact entries")
+    return pairs
+
+
 def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict:
     """保留原始缺项，同时将固定历史软件身份基线与CI阻断结果分开。"""
     integrity_issues = []
@@ -1333,11 +1385,17 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
         exceptions = set()
         integrity_issues.append(f"software exception baseline: {exc}")
     try:
+        output_exceptions = load_historical_program_output_exceptions(root)
+    except ValueError as exc:
+        output_exceptions = set()
+        integrity_issues.append(f"program output exception baseline: {exc}")
+    try:
         validate(root, sets, cases)
     except ValueError as exc:
         integrity_issues.append(str(exc))
     raw_records = []
     raw_pairs = set()
+    raw_output_pairs = set()
     case_ids = {case.get("id") for case in cases}
     for index, case in enumerate(cases):
         try:
@@ -1353,6 +1411,9 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
             match = SOFTWARE_IDENTITY_ISSUE.fullmatch(issue)
             if match:
                 raw_pairs.add((case.get("id"), match.group(1)))
+            output_match = DELTA_ST_PROGRAM_OUTPUT_ISSUE.match(issue)
+            if output_match:
+                raw_output_pairs.add((case.get("id"), output_match.group(1)))
         raw_records.append((case, issues))
     if not integrity_issues:
         for case_id, name in sorted(exceptions):
@@ -1364,6 +1425,15 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
                 integrity_issues.append(
                     f"software exception baseline: stale entry {case_id}/{name}"
                 )
+        for case_id, role in sorted(output_exceptions):
+            if case_id not in case_ids:
+                integrity_issues.append(
+                    f"program output exception baseline: unknown calculation {case_id}/{role}"
+                )
+            elif (case_id, role) not in raw_output_pairs:
+                integrity_issues.append(
+                    f"program output exception baseline: stale entry {case_id}/{role}"
+                )
     baseline_valid = not integrity_issues
     records = []
     categories = {}
@@ -1374,7 +1444,11 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
         accepted, blocking = [], []
         for issue in issues:
             match = SOFTWARE_IDENTITY_ISSUE.fullmatch(issue)
+            output_match = DELTA_ST_PROGRAM_OUTPUT_ISSUE.match(issue)
             if baseline_valid and match and (case.get("id"), match.group(1)) in exceptions:
+                accepted.append(issue)
+            elif (baseline_valid and output_match
+                    and (case.get("id"), output_match.group(1)) in output_exceptions):
                 accepted.append(issue)
             else:
                 blocking.append(issue)
@@ -1399,6 +1473,7 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
     return {"schema_version": 2, "status": "blocked" if incomplete or integrity_issues else "complete",
             "gate_status": gate_status, "integrity_issues": integrity_issues,
             "software_exception_baseline": HISTORICAL_SOFTWARE_EXCEPTIONS.as_posix(),
+            "program_output_exception_baseline": HISTORICAL_PROGRAM_OUTPUT_EXCEPTIONS.as_posix(),
             "stats": {"total": len(records), "complete": len(records) - incomplete,
                       "incomplete": incomplete, "issue_count": issue_count,
                       "accepted_exception_count": accepted_count,
@@ -1409,7 +1484,7 @@ def completeness_report(root: Path, sets: list[dict], cases: list[dict]) -> dict
 
 
 def check_completeness(root: Path, sets: list[dict], cases: list[dict], report: dict | None = None) -> None:
-    """仅固定历史软件身份缺项可被接受；所有新缺项继续阻断。"""
+    """仅固定历史基线（软件身份、delta-st 程序输出）可被接受；所有新缺项继续阻断。"""
     report = report if report is not None else completeness_report(root, sets, cases)
     if report["gate_status"] == "blocked":
         details = "\n".join(
@@ -1558,7 +1633,8 @@ def main() -> int:
             return 1
         print(
             f"archive CI gate OK: {len(cases)} calculations; "
-            f"{report['stats']['accepted_exception_count']} grandfathered software identity issues retained in raw report"
+            f"{report['stats']['accepted_exception_count']} grandfathered historical exception issues "
+            "(software identity, delta-Sternheimer program output) retained in raw report"
         )
     catalog = build_catalog(args.root)
     if args.check_catalog:
