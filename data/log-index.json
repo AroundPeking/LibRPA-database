@@ -248,10 +248,106 @@
     },
     {
       "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/c_atom_abacus_stdout.log",
+      "sha256": "a1ed0ed7065176dc458a7457686631249970e40b24c7ff2ae9d10f28ee2f6bd4",
+      "label": "ABACUS program stdout of the C atom reference run (unified campaign job 21662287)"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/c_atom_librpa_stdout.log",
+      "sha256": "7cfe45fcdc65a8b694a8218e2137a5b8fdae883d37dd4171ef4cbc16ca73aa9e",
+      "label": "LibRPA program output of the C atom reference evaluation (unified campaign job 21662288)"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
       "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/sacct_elapsed_excerpts.txt",
       "sha256": "69cb9efb9a465ec3e37b0f34de27d4ae97459c46f510f266912ff28c4fb636a2",
       "label": "Slurm sacct elapsed-time excerpts for the accepted 30^3 production chain",
       "tier": "referenced"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_librpa_stdout.log",
+      "sha256": "95c9bcb2693dc7d7de9f06a704ea5053a51a5b0672df8e0779e84cac550a653a",
+      "label": "LibRPA program output of the accepted 30x30x30-grid solid q-average evaluation (job 21728235)"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q11_abacus_stdout.log",
+      "sha256": "8f22893ac5e3cbfa43ef9bc2f6c8b1ed2b9aa1b434ff7904aac94bcfe5bf218f",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=11"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q1_abacus_stdout.log",
+      "sha256": "17d041697bd709961176bab80d5e6bd0aef7e909bda5e6e61c827b8235589f3b",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=1"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q22_abacus_stdout.log",
+      "sha256": "75f168b88abc2ff59e879db5c1c9d4d245aee4b40b04220315702aa26b5007f0",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=22"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q23_abacus_stdout.log",
+      "sha256": "9ce6d3529247b19ae63acb78f59fc9d74a99f7a27a0da25f27ceb81ef1dcb1d1",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=23"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q24_abacus_stdout.log",
+      "sha256": "f5d647ee09214d4959976ecdecf1089f712a548f34c7b5b502dd7a6ea672c48e",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=24"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q27_abacus_stdout.log",
+      "sha256": "b756416df4766a7de9b1f4f8a316d5c3067ad1bf52993a63fff73e175655db4b",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=27"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q28_abacus_stdout.log",
+      "sha256": "69835ec6e9b7d94f739e28612d0f743cb7db997bbe09126ed462aad65928c866",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=28"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q2_abacus_stdout.log",
+      "sha256": "48bc01da52ce976d60b4da298bfffe5e0411763a27618c0501de8c70144682dc",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=2"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q3_abacus_stdout.log",
+      "sha256": "aad6c747acf5fac17db6c23d9122eec1e41cad5a0db95690352790c4cc188396",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=3"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q43_abacus_stdout.log",
+      "sha256": "ba7b33c1e72594ec732c5b60c2f0968acd19eb717582e3871054bffd0c6e7878",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=43"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q6_abacus_stdout.log",
+      "sha256": "26b88b12b4b094ac9c6c7e924fb46d27086e6f2139156c5b613c8208e227e7e4",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=6"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q7_abacus_stdout.log",
+      "sha256": "10bf76d4b87497070bd0387e4c5260b4da6b8377f907b32e2ba39767ed317b6f",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=7"
+    },
+    {
+      "calculation_id": "c-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/C/c-delta-st-rpa-20260824/logs/solid_response_q8_abacus_stdout.log",
+      "sha256": "b6323595ced937e2e4f050189443673f774d44004e0c26cc166b474af4533b6c",
+      "label": "ABACUS program stdout of the accepted 30x30x30-grid solid response run at canonical q=8"
     },
     {
       "calculation_id": "c-delta-st-rpa-20260824",
@@ -1193,6 +1289,30 @@
     },
     {
       "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/h_atom_abacus_stdout.log",
+      "sha256": "c2ccd1cdb0a033eb2646d6790f08368861bba4cd57fd9a90d45592a3382acdc3",
+      "label": "ABACUS program stdout of the H atom reference run (screening campaign job 21818997)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/h_atom_librpa_stdout.log",
+      "sha256": "ca1505cb19f06f5c25fd200aabce5d712acb94f0be827f0175380fd4737f323e",
+      "label": "LibRPA program output of the H atom reference evaluation (screening campaign job 21819009)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/li_atom_abacus_stdout.log",
+      "sha256": "c8e1dfb590e1d9a1d46f5a16f7a8d58d9b424fc468db5ec4027e79f2a6c520dc",
+      "label": "ABACUS program stdout of the Li atom reference run (screening campaign job 21819213)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/li_atom_librpa_stdout.log",
+      "sha256": "96cf127609608feda912b91f6387be1e46c39fd2f00c267100e5bfdaccafc6c4",
+      "label": "LibRPA program output of the Li atom reference evaluation (screening campaign job 21819579)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
       "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/lih_cohesive_result_summary.txt",
       "sha256": "a5d5b9290d3a949bbca4cade62bfaba4a494fac4a1145c799419be34ca5b3adc",
       "label": "LiH cohesive-energy chain result summary (solid, Li atom, H atom)",
@@ -1204,6 +1324,174 @@
       "sha256": "a5f6a583c8e060222d154d1566ed06a4997054c7db266aededaf52d88435ba31",
       "label": "Slurm sacct elapsed-time excerpts for the accepted LiH rocksalt chain",
       "tier": "referenced"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_librpa_stdout.log",
+      "sha256": "fcbb42a2ea433719b441b200177617e365a492701246f9f07ea729d76aa336c0",
+      "label": "LibRPA program output of the accepted hermitian-pair-fixed solid q-average evaluation (job 21820324)"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q11_abacus_stdout.log",
+      "sha256": "e757bc549eac68dbbdc5d29307dfd99890dc3632945c1b26d311496b87c7d539",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=11"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q1_abacus_stdout.log",
+      "sha256": "947c7ca292ced6d783200724a08b0a56d74a336ac21831bbb65a2e2f7d1211a7",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=1"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q22_abacus_stdout.log",
+      "sha256": "78651ceaa1c1d96931b070aa073808938a6de5898f81ca0c54896cfb21580cec",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=22"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q23_abacus_stdout.log",
+      "sha256": "e4d910d881f87701a71629ef6ddb8b74b4ea0ccd3919e4cb62146e74afb95508",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=23"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q24_abacus_stdout.log",
+      "sha256": "a31b43ff76ad7a659ad0ca6a2482c045924089ab44556ed19a56ffe39c2ee605",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=24"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q27_abacus_stdout.log",
+      "sha256": "df177df9399757bf870f9a939eef86bb8cf77c1d94768ec758a6cc90452fcd62",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=27"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q28_abacus_stdout.log",
+      "sha256": "afe991f6965366b50554ce0cd61a2953354ae60bb53acb7fbf5b3533424604bd",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=28"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q2_abacus_stdout.log",
+      "sha256": "da2fe1f718104742fc8f42e4e737911ecbc0afb37ff42795747ccad6f674d2d5",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=2"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q3_abacus_stdout.log",
+      "sha256": "8613786f19ebeccac84ccbd9d99cc58373a6ff8b49a7a7a76f6b0d896cb87da9",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=3"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q43_abacus_stdout.log",
+      "sha256": "8c4d17d3be5a3436a188a7a2dc579c171843b9a5b37a81fe5ee11daa0d7b6f57",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=43"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q6_abacus_stdout.log",
+      "sha256": "3e00fed5d64fb261c36d9ccdb4f13c036ed189002acf75b18a341309a1d77c10",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=6"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q7_abacus_stdout.log",
+      "sha256": "5bf2587855597e13eb0ac54ab470734caf22af7ef9b233ce22bb96c0614933f7",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=7"
+    },
+    {
+      "calculation_id": "lih-solid-delta-st-rpa-20260831",
+      "path": "data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/solid_response_q8_abacus_stdout.log",
+      "sha256": "af9e76b83d2aea86ebea6ad5235433edd6bacf416bb84f61eb860145f0350779",
+      "label": "ABACUS program stdout of the accepted hermitian-pair-fixed solid response run at canonical q=8"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_librpa_stdout.log",
+      "sha256": "851e9f78fa6d86ad28526f4fa531763b60253be78478daa961d7d683dbde753c",
+      "label": "LibRPA program output of the screening solid q-average evaluation (job 21782603)"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q11_abacus_stdout.log",
+      "sha256": "518c114a66ef0773caf18274541a42e322cf860048a5d5e51e6538cfd61568fc",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=11"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q1_abacus_stdout.log",
+      "sha256": "3d97a9452612d4a40d65fd8cfb0ebf7b1150ff0a1709c3aea6437d93f3386cfd",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=1"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q22_abacus_stdout.log",
+      "sha256": "5eca1de680e4a9ccd39f15303a89066199620594775af5f7e342382f7b5f001b",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=22"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q23_abacus_stdout.log",
+      "sha256": "d3da20fab0c95cd71e38522a77b14cd1e2a0aa254379efea1e2066f0a8f09395",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=23"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q24_abacus_stdout.log",
+      "sha256": "2eb3b5fff9014b1eecc053b7898da1fcc219524fd244456af54923b22bf11798",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=24"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q27_abacus_stdout.log",
+      "sha256": "ba388ab21251d5de88aacf986d869aacf733528003daf98b6dd228ff9dccb371",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=27"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q28_abacus_stdout.log",
+      "sha256": "a7dca29906cfa7c69433349f5c78130762db07115f054f59358fd482a152ec94",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=28"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q2_abacus_stdout.log",
+      "sha256": "518f3693e38a7cff1df1c8f762ffa52ebef1dec7d9367e14aed10c1dadc329a3",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=2"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q3_abacus_stdout.log",
+      "sha256": "de431d65df28d184bc14af0873b55666ad901fe4ee8fa81d3a9c36389ea69bb7",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=3"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q43_abacus_stdout.log",
+      "sha256": "d3a455d59e3c3e356e7394cde4fe482f396deabdf646a37aba823e88a1cfd02c",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=43"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q6_abacus_stdout.log",
+      "sha256": "4a7ee7aaf451cfcaec05b7dc6d6fa85f8f456ee512e50bfe484def5ac864c8bc",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=6"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q7_abacus_stdout.log",
+      "sha256": "bca36e25e4c09b12e03f274f4f4dfe46b0420eab99b651bdaf5c75194fef2361",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=7"
+    },
+    {
+      "calculation_id": "mgo-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q8_abacus_stdout.log",
+      "sha256": "60d2b222f6bb7490e6981e794e71f4922a0982cda6673f3a54c0bacf58f3ab16",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=8"
     },
     {
       "calculation_id": "mgo-delta-st-rpa-20260829",
@@ -1521,6 +1809,90 @@
       "tier": "referenced"
     },
     {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_librpa_stdout.log",
+      "sha256": "2bf265467c807c33d73829b74bb0a103999867e0d53d23d4ef9ca5c8ab5eba68",
+      "label": "LibRPA program output of the accepted 35x35x35-grid solid q-average evaluation (job 21745245)"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q11_abacus_stdout.log",
+      "sha256": "4a26010f71d1d374b536e28ca6969ffcd0c1b0811386247e2121de37724fb609",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=11"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q1_abacus_stdout.log",
+      "sha256": "274ecd541191ef10f9d96ea3b154c21e70521f047a08050900cd4750939177bc",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=1"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q22_abacus_stdout.log",
+      "sha256": "e634ce3f0ebcfb48c2504aca7c61fcc1d1e5a201ebb07f9d86f6a129989203c8",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=22"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q23_abacus_stdout.log",
+      "sha256": "b47004ea0b778f588e8ec232d3119a544291a5ea9c87bf9248161f24600d631d",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=23"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q24_abacus_stdout.log",
+      "sha256": "acf89fe43d229bfeb08a833822f24e2250a85585b2b676be347bf39644e2006a",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=24"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q27_abacus_stdout.log",
+      "sha256": "0bfce225d2c71784ec715aacdc9aa63e62d2c40cb4a6c8199cd4705e05436192",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=27"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q28_abacus_stdout.log",
+      "sha256": "ce33ca76a2caa3db51f911b0c2327a4606d0b132b7514600956a65f1fe2f190f",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=28"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q2_abacus_stdout.log",
+      "sha256": "728a5f88d3df878ae5291bbc9c8bb3c183f48625f66e09955d15d37aa2609ae1",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=2"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q3_abacus_stdout.log",
+      "sha256": "b42e25af740730a54496fe66d3d9d0de8d0f0d6895a713b9f2af89afb0940e83",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=3"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q43_abacus_stdout.log",
+      "sha256": "71942e32fa559ff991547af2cd8fe8845875a460a8173ae379e061a9cacd54e9",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=43"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q6_abacus_stdout.log",
+      "sha256": "6e1ee0ae06380bf3dbdcd7f60736814902d3ee734c7761bb5e7f03ed0e25e408",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=6"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q7_abacus_stdout.log",
+      "sha256": "1eb920452066495515c786017e9f0aae4517c93cfdd257aff68c2c95df1db506",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=7"
+    },
+    {
+      "calculation_id": "si-delta-st-rpa-20260824",
+      "path": "data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_response_q8_abacus_stdout.log",
+      "sha256": "c2a6014561b8458dfcd4c53387701115f4f45e6fa45681e0b2e4af8e75cf9880",
+      "label": "ABACUS program stdout of the accepted 35x35x35-grid solid response run at canonical q=8"
+    },
+    {
       "calculation_id": "si-jctc-aims-gw",
       "path": "data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out",
       "sha256": "b9e848438adbddaf0dcb19b8d8ee13c1c44c3bdc4c20cd66cb4f9a143c867a73",
@@ -1568,6 +1940,114 @@
       "sha256": "1653704f04fb840984511b5e8a7842c9a5725cebdd91155a4a4b3d942b8aee22",
       "label": "librpa.out",
       "tier": "referenced"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/c_atom_abacus_stdout.log",
+      "sha256": "a1ed0ed7065176dc458a7457686631249970e40b24c7ff2ae9d10f28ee2f6bd4",
+      "label": "ABACUS program stdout of the C atom reference run (unified campaign job 21662287)"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/c_atom_librpa_stdout.log",
+      "sha256": "7cfe45fcdc65a8b694a8218e2137a5b8fdae883d37dd4171ef4cbc16ca73aa9e",
+      "label": "LibRPA program output of the C atom reference evaluation (unified campaign job 21662288)"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/si_atom_abacus_stdout.log",
+      "sha256": "fcf6d2be576f071b4466bde3f36f068c548f4b1334365bbdc118f52e75d10b8d",
+      "label": "ABACUS program stdout of the Si atom reference run reused by the screening campaign (job 21768522)"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/si_atom_librpa_stdout.log",
+      "sha256": "b0d1cb0571c89c2c51d15acd08d1b38435c4e27eb2a00c189ca0b79c7899d3ad",
+      "label": "LibRPA program output of the Si atom reference evaluation reused by the screening campaign (job 21783921)"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_librpa_stdout.log",
+      "sha256": "6ec58663d9536ec95aa4cc1eecb7070513229272860a11668e2c6bed9a5b05d9",
+      "label": "LibRPA program output of the screening solid q-average evaluation (job 21782602)"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q11_abacus_stdout.log",
+      "sha256": "6938c595384e8773fd1bbb8fb7929f493cd83ed2663459b2e4a7d8312cc00293",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=11"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q1_abacus_stdout.log",
+      "sha256": "0fd2c7c56251789ccd03e31ed87e2ef575c63a5c243ee65d85b5a73cb7e79094",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=1"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q22_abacus_stdout.log",
+      "sha256": "117c67441c9b772d205fba325be6fbb8da13bf84c5d5555b1fa84656e22b0553",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=22"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q23_abacus_stdout.log",
+      "sha256": "45e51092528e7c3f2ea183983f4554c7d66493932ba2d8b6b80bd3bca0c5769d",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=23"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q24_abacus_stdout.log",
+      "sha256": "30faff60abd0a6561aa39e953abc688eb66f141cf9c116c9e806de3000535c60",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=24"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q27_abacus_stdout.log",
+      "sha256": "1e1bad51dca90f35a48a13bc8e3f8ca3b66f044617625d0d9d0265d1cc7310e8",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=27"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q28_abacus_stdout.log",
+      "sha256": "c63a589049c1fa26012bd4c8334ae74501ee6139e5c2037b9be0db0072112e79",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=28"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q2_abacus_stdout.log",
+      "sha256": "74971d0973955e63ce38eac91f845c54aca1f3f62385acd86823629d648634a3",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=2"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q3_abacus_stdout.log",
+      "sha256": "d51dd120dbad78a9ea9602592e43b47bb18aee81157d100e0b01261ad2bfef06",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=3"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q43_abacus_stdout.log",
+      "sha256": "356c52367334f1fd152e1382a7125d8c4e8f0f3e4f4c47393555db1586624f8c",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=43"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q6_abacus_stdout.log",
+      "sha256": "d06ecc068d72ddd0a79ca98a159ba5ec042b57e3afed4a046e06ed966e0a03a2",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=6"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q7_abacus_stdout.log",
+      "sha256": "574540d2d2646913d680e65bcedbbab8817df7ca7d37deeb14bdb9e5d290b5f7",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=7"
+    },
+    {
+      "calculation_id": "sic-delta-st-rpa-20260829",
+      "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/solid_response_q8_abacus_stdout.log",
+      "sha256": "875576c45986ff8e53160ce151ba3cec5397981517fad09351dea71a0c81e90d",
+      "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=8"
     },
     {
       "calculation_id": "sic-delta-st-rpa-20260829",

@@ -1,0 +1,128 @@
+srun: ROUTE: split_hostlist: hl=j01r2n[15-19],j01r3n[00-03],k02r2n[03-09] tree_width 0
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number:                                                                                      
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+1,OpenMP thread number: 30,Total thread number: 30
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32 ,Local thread limit: 32
+
+
+Thu Aug 27 08:22:05 2026
+
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: ,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 
+
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: 32Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 3230,Total thread number: 
+30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.SIC_FD8_SCREEN_Q8/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x16)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 24 * 24 * 24
+ UNIFORM GRID DIM(BIG): 12 * 12 * 12
+ DONE(0.18154    SEC) : SYMMETRY
+ DONE(0.181579   SEC) : SETUP UNITCELL
+ DONE(0.358007   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       8               16          480         44          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Si      3s3p2d-8au      22          1           
+ C       3s3p2d0f0g-8au  22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.429321   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.770882   SEC) : CHARGE
+ DONE(0.771979   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.863038   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -2.62409549e+02   0.00000000e+00   2.7781e-01   0.49
+ GE2     -2.62380045e+02   2.95033021e-02   1.3518e-01   0.38
+ GE3     -2.62511690e+02  -1.31644788e-01   5.2366e-02   0.23
+ GE4     -2.62514200e+02  -2.50996961e-03   5.8497e-03   0.19
+ GE5     -2.62514359e+02  -1.58747265e-04   2.1845e-03   0.17
+ GE6     -2.62514368e+02  -8.96956591e-06   1.6063e-04   0.17
+ GE7     -2.62514368e+02  -8.63586677e-08   4.5061e-05   0.16
+ GE8     -2.62514368e+02  -4.71569979e-08   5.3093e-06   0.18
+ GE9     -2.62514368e+02   1.01207840e-08   1.0630e-06   0.18
+ GE10    -2.62514368e+02   2.87025993e-10   1.0087e-07   0.24
+ GE11    -2.62514368e+02  -4.00714968e-11   1.1957e-08   0.28
+ GE12    -2.62514368e+02  -3.86697195e-13   3.2684e-09   0.42
+Use rpa_ccp_rmesh_times=2 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 2.33133 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 2
+rpa_lcao_exx(Ha): -2.742031099713339
+etxc(Ha): -3.054736713682008
+etot(Ha): -9.647221627332968
+Etot_without_rpa(Ha): -9.334516013364299
+Ewald short-range tail:
+  mode: warn
+  lambda: 1.000000000000e+00
+  full-range source: exx_ccp_rmesh_times=2.000000000000e+00
+  exact radial mesh factor: 2.000000000000e+00
+  production period: 13 13 13
+  probe period: 15 15 15
+  production blocks: 1698
+  shell blocks: 4712
+  max |Vbare-Vgauss|_F: 0.000000000000e+00
+  sum |Vbare-Vgauss|_F: 0.000000000000e+00
+  relative max: 0.000000000000e+00
+  relative sum: 0.000000000000e+00
+  max Hermitian residual: 0.000000000000e+00
+  worst I,J,R: 0 0 0 0 0
+  worst distance/bare/Gaussian: 0.000000000000e+00 0.000000000000e+00 0.000000000000e+00
+  coverage complete: true
+  expansion: 0
+  decision: accepted
+
+TIME STATISTICS
+------------------------------------------------------------------------
+   CLASS_NAME            NAME          TIME/s   CALLS    AVG/s   PER/%  
+------------------------------------------------------------------------
+                 total                17450.71 1603     10.89    100.00 
+ Driver          atomic_world         17450.71 1        17450.71 100.00 
+ Relax_Driver    relax_driver         17449.94 1        17449.94 100.00 
+ ESolver_KS      runner               17449.94 1        17449.94 100.00 
+ ESolver_KS_LCAO after_scf            17446.75 1        17446.75 99.98  
+ ModuleIO        ctrl_scf_lcao        17446.74 1        17446.74 99.98  
+ RPA_LRI         postSCF              456.80   1        456.80   2.62   
+ RPA_LRI         cal_postSCF_exx      220.17   1        220.17   1.26   
+ Matrix_Orbs21   init_radial_table    271.57   4        67.89    1.56   
+ Center2_Orb     cal_ST_Phi12_R       391.75   145807   0.00     2.24   
+ Exx_LRI         init_spencer         180.34   1        180.34   1.03   
+ LRI_CV          set_orbitals         411.89   3        137.30   2.36   
+ Matrix_Orbs11   init_radial_table    184.67   3        61.56    1.06   
+ RPA_LRI         output_ewald_coulomb 235.65   1        235.65   1.35   
+ Exx_LRI         init                 232.92   1        232.92   1.33   
+------------------------------------------------------------------------
+
+
+ START  Time  : Thu Aug 27 08:22:05 2026
+ FINISH Time  : Thu Aug 27 13:12:55 2026
+ TOTAL  Time  : 17450
+ SEE INFORMATION IN : OUT.SIC_FD8_SCREEN_Q8/

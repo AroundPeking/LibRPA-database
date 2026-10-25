@@ -1,0 +1,189 @@
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+srun: ROUTE: split_hostlist: hl=h09r3n08 tree_width 0
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+Initialized LibRPA global environment at [2026-08-28 11:39:12.108]
+Total number of tasks    :     1
+Total number of nodes    :     1
+Maximal number of threads:  30
+MPI tasks information:
+| Proc    0 of Size    1: h09r3n08
+| Global ID of master process of node     0 :     0
+
+LibRPA CMake build info:
+| Build type               : RelWithDebInfo
+| Source code directory    : /HPC/delta-st-master-merge-20260823/source-librpa-21722342/src
+| Source code Git reference: GITDIR-NOTFOUND
+| Source code Git hash     : GITDIR-NOTFOUND
+| C++ compiler             : /public/software/mpi/intelmpi/2021.3.0/bin/mpiicpc
+| C++ compiler flags       :   -qopenmp
+| Fortran compiler         : /public/software/mpi/intelmpi/2021.3.0/bin/mpiifort
+| Fortran compiler flags   : 
+| GreenX commit hash       : c90d131
+| Use LibRI                : ON
+| LibRI include directory  : /HPC/app/src/si-solid-delta-20260814/deps/LibRI/include
+| LibComm include directory: /HPC/app/src/si-solid-delta-20260814/deps/LibComm-ring-final/include
+
+===== Begin driver parameters  =====
+task = sternheimer_rpa
+constants_choice = internal
+input_dir = /HPC/solid-delta-fd8-screening-20260825/runs/atoms/si/atom_box20_e30_nf16_pca1em6_fd8_merge/delta/job21783921/input/
+prefix_lri_coeff = Cs_data
+prefix_lri_coeff_shrink = Cs_shrinked_data
+prefix_shrink_sinvS = shrink_sinvS_
+prefix_coul_full = v1_coulomb_full_iq_
+prefix_sternheimer_chi0 = v1_sternheimer_chi0_iq_
+fn_sternheimer_qpoints = qpoints.dat
+fn_sternheimer_partial_manifest = 
+fn_sternheimer_symmetry_routes = 
+fn_sternheimer_qstar_routes = 
+prefix_sternheimer_reconstructed = 
+prefix_sternheimer_kresolved = 
+prefix_sternheimer_symmetry_diagnostic = 
+prefix_coul_cut = coulomb_cut
+prefix_eigvecs_scf = KS_eigenvector
+fn_stru = stru_out
+fn_bz_sampling = bz_sampling_out
+fn_basis = basis_out
+fn_basis_wfc = basis_wfc_out
+fn_basis_aux = basis_aux_out
+fn_basis_aux_shrink = basis_aux_shrink_out
+fn_eigocc_scf = band_out
+fn_dielfunc = dielecfunc_out
+fn_vxc_scf = vxc_out
+fn_band_kpath_info = band_kpath_info
+output_level = info
+use_spinor_wfc = false
+use_rpa_gamma = true
+sternheimer_matrix_only = false
+output_energy_qp = false
+output_gw_spec_func = false
+output_hamgnn = false
+use_pyatb = false
+version_coul_reader = 1
+version_lri_reader = -1
+sternheimer_iq = 1
+sternheimer_qweight = 1
+cs_R_threshold = 1e-06
+i_state_low = 0
+i_state_high = 999999
+===== End driver parameters    =====
+
+===== Begin control parameters =====
+output_dir = librpa.d/
+restart_from_dir = <output_dir>
+tfgrids_type = minimax
+anacon_tfgrids_type = unset
+parallel_routing = auto
+rpa_headwing_mode = qavg
+nfreq = 16
+n_bands_chi0 = -1
+n_bands_sigc = -1
+n_params_anacon = -1
+n_params_anacon_resample = -1
+anacon_nfreq = -1
+option_qpe_solver = 0
+option_dielect_func = 0
+option_bvk_remap = 1
+rpa_headwing_body_start = 0
+qpe_solver_n_iter_max = 10000
+libri_chi0_collect_s0_chunk = 0
+istate_ref_hedin_shift = -1
+ifreq_output_wc_start = 0
+ifreq_output_wc_end = -1
+libri_chi0_collect_max_bytes = 0
+gf_R_threshold = 0
+vq_threshold = 0
+minimax_emin = -1
+minimax_emax = -1
+minimax_regulation = 0
+sqrt_coulomb_threshold = 1e-05
+libri_chi0_threshold_C = 0
+libri_chi0_threshold_G = 0
+libri_exx_threshold_C = 0
+libri_exx_threshold_D = 0
+libri_exx_threshold_V = 0
+libri_g0w0_threshold_C = 0
+libri_g0w0_threshold_G = 0
+libri_g0w0_threshold_Wc = 0
+qpe_solver_thres = 1e-06
+qpe_solver_damp_factor = 0.1
+sf_gf_omega_shift = 0.01
+sf_sigc_omega_shift = 0.01
+debug = false
+replace_w_head = false
+use_fullcoul_eps = true
+use_fullcoul_exx = false
+use_fullcoul_wc = false
+use_symmetry_exx = false
+use_symmetry_gw = false
+use_symmetry_rpa = false
+output_abacus_gw_gf = false
+use_shrink_abfs = false
+use_shrink_chi = true
+use_scalapack_ecrpa = true
+use_scalapack_gw_wc = true
+use_cholesky_gw_wc = false
+use_gpu_replace_scalapack = false
+use_elpa_sqrt_coulomb = false
+use_kpara_scf_eigvec = false
+read_sigc_mat_rf = false
+output_gw_sigc_ks_kf = false
+output_gw_sigc_ks_mat_kf = false
+output_gw_sigc_mat_kf = false
+output_gw_sigc_mat_rf = false
+output_gw_sigc_mat_rt = false
+output_wc_rf = false
+output_wc_rf_atom_pair = true
+output_2d_finite_q_diagnostics = false
+use_qpe_adaptive_damp = false
+use_qpe_legacy_update = false
+override_qpe_solver_nan = false
+use_hedin_shift = false
+===== End control parameters   =====
+
+Initialization finished, Wall/CPU time [min]:       0.0000       0.0000
+Free memory on node     0 [GB]:  118.999
+Common data parsed, task sternheimer_rpa will begin
+sternheimer_rpa: Sternheimer RPA correlation energy from response matrices
+Sternheimer RPA correlation energy (Hartree)
+| q mode = manifest
+| q manifest = /HPC/solid-delta-fd8-screening-20260825/runs/atoms/si/atom_box20_e30_nf16_pca1em6_fd8_merge/delta/job21783921/input/qpoints.dat
+| Coulomb prefix = v1_coulomb_full_iq_
+| Sternheimer chi0 prefix = v1_sternheimer_chi0_iq_
+| use_rpa_gamma = true
+| analytic head/wing = off
+| iq = 1
+| q = 0.0000000000000000e+00 0.0000000000000000e+00 0.0000000000000000e+00
+| q weight = 1.0000000000000000e+00
+| ifreq omega_Ha weight_Ha integrand_real integrand_imag Ec_real Ec_imag
+|     1   2.149078548249e-03   4.352564503244e-03  -8.183928795692e+00   4.258181506609e-27  -5.669270637698e-03   2.949779254936e-30
+|     2   6.780239743139e-03   5.029572010056e-03  -6.185731434821e+00  -3.909866639122e-27  -4.951562012782e-03  -3.129774923033e-30
+|     3   1.247742720011e-02   6.519382021530e-03  -4.343776724841e+00  -1.894471422427e-26  -4.507067434905e-03  -1.965688154630e-29
+|     4   2.018617082744e-02   9.117869143649e-03  -3.368489271728e+00   1.026865312975e-26  -4.888196494270e-03   1.490139649575e-29
+|     5   3.125163830600e-02   1.334280126510e-02  -2.942979688501e+00   3.824424824156e-27  -6.249631546921e-03   8.121444440565e-30
+|     6   4.769421761000e-02   2.005278563036e-02  -2.729489714105e+00   2.314505619807e-27  -8.711166302016e-03   7.386744583392e-30
+|     7   7.264480310329e-02   3.065468553738e-02  -2.538696051222e+00  -4.827505390358e-27  -1.238590385616e-02  -2.355264924342e-29
+|     8   1.110546636761e-01   4.745865870921e-02  -2.253662289885e+00  -6.206004082476e-28  -1.702254258509e-02  -4.687568729855e-30
+|     9   1.708780313999e-01   7.429430214218e-02  -1.802879442599e+00  -7.618077100060e-28  -2.131779718184e-02  -9.007847041653e-30
+|    10   2.650892147912e-01   1.176179956849e-01  -1.226580592197e+00   4.353100036481e-28  -2.296095749959e-02   8.148779262036e-30
+|    11   4.152524259965e-01   1.886476362933e-01  -6.914041885193e-01  -8.465536771400e-28  -2.075886027720e-02  -2.541710014591e-29
+|    12   6.582998709854e-01   3.080787020023e-01  -3.262980317364e-01   1.305623733082e-27  -1.599912610701e-02   6.401766704728e-29
+|    13   1.061332298513e+00   5.191808972879e-01  -1.302093276665e-01  -2.088617340814e-28  -1.075922358933e-02  -1.725828814655e-29
+|    14   1.763017338897e+00   9.371256262004e-01  -4.302364059334e-02  -1.126651042344e-27  -6.416897506808e-03  -1.680379476250e-28
+|    15   3.140476169505e+00   2.019909993805e+00  -1.046413851136e-02  -8.227135781375e-29  -3.363997227889e-03  -2.644848587579e-29
+|    16   7.012489720798e+00   7.540907669871e+00  -1.087243871090e-03   2.594742565046e-30  -1.304880446093e-03   3.114139270688e-30
+| q Sternheimer EcRPA:  -1.672670807056e-01  -1.885565929229e-28
+| Total Sternheimer EcRPA:  -1.672670807056e-01  -1.885565929229e-28
+Finalizing LibRPA global environment at [2026-08-28 11:39:13.501]
+Entry                                             #calls       CPU time (s)       Wall time (s)     
+----------------------------------------------------------------------------------------------------
+Total for driver                                  1            18.3300            1.3927            
+ Driver Read Input Parameters                     1             0.0000             0.0031           
+ Driver Read Task-Common Input Data               1             0.0100             0.0002           
+libRPA finished successfully

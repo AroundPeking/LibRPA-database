@@ -241,6 +241,160 @@
         "tier": "referenced",
         "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt",
         "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_screening_campaign_readme.txt"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q1_abacus_stdout.log",
+        "sha256": "3d97a9452612d4a40d65fd8cfb0ebf7b1150ff0a1709c3aea6437d93f3386cfd",
+        "size_bytes": 7744,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=1",
+        "original_name": "abacus.out",
+        "original_sha256": "3d97a9452612d4a40d65fd8cfb0ebf7b1150ff0a1709c3aea6437d93f3386cfd",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q2_abacus_stdout.log",
+        "sha256": "518f3693e38a7cff1df1c8f762ffa52ebef1dec7d9367e14aed10c1dadc329a3",
+        "size_bytes": 7709,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=2",
+        "original_name": "abacus.out",
+        "original_sha256": "518f3693e38a7cff1df1c8f762ffa52ebef1dec7d9367e14aed10c1dadc329a3",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q3_abacus_stdout.log",
+        "sha256": "de431d65df28d184bc14af0873b55666ad901fe4ee8fa81d3a9c36389ea69bb7",
+        "size_bytes": 7716,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=3",
+        "original_name": "abacus.out",
+        "original_sha256": "de431d65df28d184bc14af0873b55666ad901fe4ee8fa81d3a9c36389ea69bb7",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q6_abacus_stdout.log",
+        "sha256": "4a7ee7aaf451cfcaec05b7dc6d6fa85f8f456ee512e50bfe484def5ac864c8bc",
+        "size_bytes": 7732,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=6",
+        "original_name": "abacus.out",
+        "original_sha256": "4a7ee7aaf451cfcaec05b7dc6d6fa85f8f456ee512e50bfe484def5ac864c8bc",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q7_abacus_stdout.log",
+        "sha256": "bca36e25e4c09b12e03f274f4f4dfe46b0420eab99b651bdaf5c75194fef2361",
+        "size_bytes": 7549,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=7",
+        "original_name": "abacus.out",
+        "original_sha256": "bca36e25e4c09b12e03f274f4f4dfe46b0420eab99b651bdaf5c75194fef2361",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q8_abacus_stdout.log",
+        "sha256": "60d2b222f6bb7490e6981e794e71f4922a0982cda6673f3a54c0bacf58f3ab16",
+        "size_bytes": 7723,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=8",
+        "original_name": "abacus.out",
+        "original_sha256": "60d2b222f6bb7490e6981e794e71f4922a0982cda6673f3a54c0bacf58f3ab16",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q11_abacus_stdout.log",
+        "sha256": "518c114a66ef0773caf18274541a42e322cf860048a5d5e51e6538cfd61568fc",
+        "size_bytes": 7734,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=11",
+        "original_name": "abacus.out",
+        "original_sha256": "518c114a66ef0773caf18274541a42e322cf860048a5d5e51e6538cfd61568fc",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q22_abacus_stdout.log",
+        "sha256": "5eca1de680e4a9ccd39f15303a89066199620594775af5f7e342382f7b5f001b",
+        "size_bytes": 7739,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=22",
+        "original_name": "abacus.out",
+        "original_sha256": "5eca1de680e4a9ccd39f15303a89066199620594775af5f7e342382f7b5f001b",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q23_abacus_stdout.log",
+        "sha256": "d3da20fab0c95cd71e38522a77b14cd1e2a0aa254379efea1e2066f0a8f09395",
+        "size_bytes": 7748,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=23",
+        "original_name": "abacus.out",
+        "original_sha256": "d3da20fab0c95cd71e38522a77b14cd1e2a0aa254379efea1e2066f0a8f09395",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q24_abacus_stdout.log",
+        "sha256": "2eb3b5fff9014b1eecc053b7898da1fcc219524fd244456af54923b22bf11798",
+        "size_bytes": 7759,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=24",
+        "original_name": "abacus.out",
+        "original_sha256": "2eb3b5fff9014b1eecc053b7898da1fcc219524fd244456af54923b22bf11798",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q27_abacus_stdout.log",
+        "sha256": "ba388ab21251d5de88aacf986d869aacf733528003daf98b6dd228ff9dccb371",
+        "size_bytes": 7749,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=27",
+        "original_name": "abacus.out",
+        "original_sha256": "ba388ab21251d5de88aacf986d869aacf733528003daf98b6dd228ff9dccb371",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q28_abacus_stdout.log",
+        "sha256": "a7dca29906cfa7c69433349f5c78130762db07115f054f59358fd482a152ec94",
+        "size_bytes": 7765,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=28",
+        "original_name": "abacus.out",
+        "original_sha256": "a7dca29906cfa7c69433349f5c78130762db07115f054f59358fd482a152ec94",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_response_q43_abacus_stdout.log",
+        "sha256": "d3a455d59e3c3e356e7394cde4fe482f396deabdf646a37aba823e88a1cfd02c",
+        "size_bytes": 7781,
+        "role": "logs",
+        "label": "ABACUS program stdout of the accepted screening-grid solid response run at canonical q=43",
+        "original_name": "abacus.out",
+        "original_sha256": "d3a455d59e3c3e356e7394cde4fe482f396deabdf646a37aba823e88a1cfd02c",
+        "transformation": "none",
+        "scientific_role": "abacus_program_stdout"
+      },
+      {
+        "path": "data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_librpa_stdout.log",
+        "sha256": "851e9f78fa6d86ad28526f4fa531763b60253be78478daa961d7d683dbde753c",
+        "size_bytes": 2632656,
+        "role": "logs",
+        "label": "LibRPA program output of the screening solid q-average evaluation (job 21782603)",
+        "original_name": "librpa.out",
+        "original_sha256": "849ff93a2650abcb52c6f2ca6b23c599553b3c1be47834271db3167bf01b9a06",
+        "transformation": "private cluster paths redacted to /HPC/; the legacy scheduler job-variable name normalized to SLURM_JOBID; IP addresses and user@host strings redacted; physical content otherwise byte-preserved",
+        "scientific_role": "librpa_program_stdout"
       }
     ],
     "figures": []

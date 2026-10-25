@@ -1,0 +1,201 @@
+srun: ROUTE: split_hostlist: hl=g11r2n10,h10r3n[00,04],i04r2n[13,17],i05r2n[13,17],j02r2n[06,10],k02r1n08,k04r3n[05,09,13,17],k15r2n[12,16] tree_width 0
+srun: ROUTE: split_hostlist: hl=g11r2n11,h10r2n[18-19] tree_width 0
+srun: ROUTE: split_hostlist: hl=i04r2n[14-16] tree_width 0
+srun: ROUTE: split_hostlist: hl=j02r2n[07-09] tree_width 0
+srun: ROUTE: split_hostlist: hl=k15r2n[13-15] tree_width 0
+srun: ROUTE: split_hostlist: hl=k04r3n[14-16] tree_width 0
+srun: ROUTE: split_hostlist: hl=i05r2n18,j02r2n[04-05] tree_width 0
+srun: ROUTE: split_hostlist: hl=k04r3n[18-19],k15r2n11 tree_width 0
+srun: ROUTE: split_hostlist: hl=k02r1n[05-07] tree_width 0
+srun: ROUTE: split_hostlist: hl=k04r3n[10-12] tree_width 0
+srun: ROUTE: split_hostlist: hl=i04r2n[10-12] tree_width 0
+srun: ROUTE: split_hostlist: hl=h10r3n[01-03] tree_width 0
+srun: ROUTE: split_hostlist: hl=k04r3n[06-08] tree_width 0
+srun: ROUTE: split_hostlist: hl=k15r2n[17-19] tree_width 0
+srun: ROUTE: split_hostlist: hl=k02r1n[09-11] tree_width 0
+srun: ROUTE: split_hostlist: hl=i05r2n[14-16] tree_width 0
+srun: ROUTE: split_hostlist: hl=i05r2n[10-12] tree_width 0
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: Info: Local MPI proc number: 
+
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: 
+Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,1,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Local thread limit: 32Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 3230,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+
+
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,
+
+
+
+Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+32
+
+OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,
+
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+
+Info: Local MPI proc number: 
+
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 
+
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32                                                                                     
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Tue Aug 18 23:29:43 2026
+Info: Local MPI proc number: Info: Local MPI proc number: 11,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: ,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.C_ATOM_UNIFIED_FD8_E30_NF16_PCA1EM6/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x64)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 135 * 135 * 135
+ UNIFORM GRID DIM(BIG): 45 * 45 * 45
+ DONE(0.16517    SEC) : SETUP UNITCELL
+ DONE(0.262011   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 2       2               64          1920        22          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ C       3s3p2d0f0g-8au  22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.351386   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.555964   SEC) : CHARGE
+ DONE(0.559639   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.750907   SEC) : INIT SCF
+ ITER      TMAG       AMAG        ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1      2.00e+00   2.00e+00  -1.47313647e+02   0.00000000e+00   2.3523e-01   0.38
+ GE2      2.00e+00   2.00e+00  -1.47431030e+02  -1.17382599e-01   1.7024e-01   0.29
+ GE3      2.00e+00   2.01e+00  -1.47458426e+02  -2.73960230e-02   3.2003e-02   0.22
+ GE4      2.00e+00   2.01e+00  -1.47459904e+02  -1.47794823e-03   2.6399e-02   0.29
+ GE5      2.00e+00   2.01e+00  -1.47460184e+02  -2.80452755e-04   1.0867e-02   0.20
+ GE6      2.00e+00   2.01e+00  -1.47460223e+02  -3.91082284e-05   6.6993e-03   0.28
+ GE7      2.00e+00   2.01e+00  -1.47460326e+02  -1.03059515e-04   5.9712e-03   0.28
+ GE8      2.00e+00   2.01e+00  -1.47460415e+02  -8.85663867e-05   2.9881e-03   0.23
+ GE9      2.00e+00   2.01e+00  -1.47460466e+02  -5.11324991e-05   1.3830e-03   0.22
+ GE10     2.00e+00   2.01e+00  -1.47460429e+02   3.72030589e-05   9.8648e-04   0.25
+ GE11     2.00e+00   2.01e+00  -1.47460432e+02  -3.17136361e-06   2.8824e-03   0.19
+ GE12     2.00e+00   2.01e+00  -1.47460398e+02   3.35964252e-05   3.4260e-03   0.16
+ GE13     2.00e+00   2.01e+00  -1.47460366e+02   3.24697895e-05   3.3275e-03   0.16
+ GE14     2.00e+00   2.01e+00  -1.47460433e+02  -6.74302854e-05   2.9171e-03   0.17
+ GE15     2.00e+00   2.01e+00  -1.47460467e+02  -3.34868536e-05   1.8659e-03   0.25
+ GE16     2.00e+00   2.01e+00  -1.47460479e+02  -1.21561921e-05   1.1945e-03   0.23
+ GE17     2.00e+00   2.01e+00  -1.47460500e+02  -2.10025722e-05   9.5494e-04   0.21
+ GE18     2.00e+00   2.01e+00  -1.47460490e+02   9.37833962e-06   3.9853e-04   0.24
+ GE19     2.00e+00   2.01e+00  -1.47460501e+02  -1.05898477e-05   6.3449e-04   0.24
+ GE20     2.00e+00   2.01e+00  -1.47460499e+02   2.09177627e-06   3.7524e-04   0.19
+ GE21     2.00e+00   2.01e+00  -1.47460499e+02  -1.95432895e-08   4.2329e-04   0.27
+ GE22     2.00e+00   2.01e+00  -1.47460490e+02   8.47995465e-06   4.2530e-04   0.24
+ GE23     2.00e+00   2.01e+00  -1.47460489e+02   1.16669910e-06   5.5652e-04   0.18
+ GE24     2.00e+00   2.01e+00  -1.47460413e+02   7.63585148e-05   5.8444e-04   0.16
+ GE25     2.00e+00   2.01e+00  -1.47460459e+02  -4.56122150e-05   1.0753e-03   0.19
+ GE26     2.00e+00   2.01e+00  -1.47460471e+02  -1.28695949e-05   1.0549e-03   0.35
+ GE27     2.00e+00   2.01e+00  -1.47460486e+02  -1.47376754e-05   8.1544e-04   0.29
+ GE28     2.00e+00   2.01e+00  -1.47460492e+02  -5.45290075e-06   5.1923e-04   0.56
+ GE29     2.00e+00   2.01e+00  -1.47460505e+02  -1.34333960e-05   3.7924e-04   0.21
+ GE30     2.00e+00   2.01e+00  -1.47460507e+02  -2.04767966e-06   1.1528e-04   0.23
+ GE31     2.00e+00   2.01e+00  -1.47460508e+02  -7.03906161e-07   6.4616e-05   0.25
+ GE32     2.00e+00   2.01e+00  -1.47460508e+02  -2.73279488e-07   4.1934e-05   0.29
+ GE33     2.00e+00   2.01e+00  -1.47460509e+02  -4.17043620e-07   3.1395e-05   0.16
+ GE34     2.00e+00   2.01e+00  -1.47460509e+02  -5.25621063e-08   1.0564e-05   0.18
+ GE35     2.00e+00   2.01e+00  -1.47460509e+02  -7.15714637e-08   7.1706e-06   0.16
+ GE36     2.00e+00   2.01e+00  -1.47460509e+02  -1.40491925e-08   2.6491e-06   0.22
+ GE37     2.00e+00   2.01e+00  -1.47460509e+02   1.78835368e-09   1.1921e-06   0.16
+ GE38     2.00e+00   2.01e+00  -1.47460509e+02  -1.01532182e-10   1.0435e-06   0.16
+ GE39     2.00e+00   2.01e+00  -1.47460509e+02  -5.07540069e-10   5.1198e-07   0.15
+ GE40     2.00e+00   2.01e+00  -1.47460509e+02   6.49027739e-09   4.8847e-07   0.11
+ GE41     2.00e+00   2.01e+00  -1.47460509e+02  -1.15018247e-10   2.5063e-07   0.14
+ GE42     2.00e+00   2.01e+00  -1.47460509e+02   2.10266600e-12   1.7076e-07   0.15
+ GE43     2.00e+00   2.01e+00  -1.47460509e+02  -1.57095736e-12   9.8780e-08   0.32
+ GE44     2.00e+00   2.01e+00  -1.47460509e+02  -8.45900114e-13   8.7238e-08   0.23
+ GE45     2.00e+00   2.01e+00  -1.47460509e+02  -1.64346308e-12   6.7425e-08   0.19
+ GE46     2.00e+00   2.01e+00  -1.47460509e+02  -8.45900114e-13   2.8740e-08   0.32
+ GE47     2.00e+00   2.01e+00  -1.47460509e+02   5.07540069e-13   2.4740e-08   0.21
+ GE48     2.00e+00   2.01e+00  -1.47460509e+02   5.80045793e-13   1.9335e-08   0.19
+ GE49     2.00e+00   2.01e+00  -1.47460509e+02  -3.86697195e-13   2.7498e-08   0.17
+ GE50     2.00e+00   2.01e+00  -1.47460509e+02   1.45011448e-13   2.3829e-08   0.17
+ GE51     2.00e+00   2.01e+00  -1.47460509e+02   1.69180023e-13   2.1124e-08   0.16
+ GE52     2.00e+00   2.01e+00  -1.47460509e+02  -1.45011448e-13   5.4895e-09   1.71
+Use rpa_ccp_rmesh_times=1 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 0.0977754 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 1
+rpa_lcao_exx(Ha): -1.419860995812806
+etxc(Ha): -1.509424090700950
+etot(Ha): -5.419071798046909
+Etot_without_rpa(Ha): -5.329508703158766
+
+TIME STATISTICS
+-----------------------------------------------------------------
+   CLASS_NAME        NAME       TIME/s   CALLS    AVG/s   PER/%  
+-----------------------------------------------------------------
+                 total         19635.54 3562     5.51     100.00 
+ Driver          atomic_world  19635.54 1        19635.54 100.00 
+ Relax_Driver    relax_driver  19634.98 1        19634.98 100.00 
+ ESolver_KS      runner        19634.98 1        19634.98 100.00 
+ ESolver_KS_LCAO after_scf     19621.58 1        19621.58 99.93  
+ ModuleIO        ctrl_scf_lcao 19621.52 1        19621.52 99.93  
+-----------------------------------------------------------------
+
+
+ START  Time  : Tue Aug 18 23:29:43 2026
+ FINISH Time  : Wed Aug 19 04:56:58 2026
+ TOTAL  Time  : 19635
+ SEE INFORMATION IN : OUT.C_ATOM_UNIFIED_FD8_E30_NF16_PCA1EM6/

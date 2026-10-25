@@ -1,0 +1,165 @@
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+srun: ROUTE: split_hostlist: hl=f15r3n01,f16r2n[12,16,19],f16r3n07,g12r1n[10,12,14,18],g12r2n19,g12r3n02,g12r4n[02,06],i05r3n[03-05] tree_width 0
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+Info: Local MPI proc number:                                                                                      
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Mon Aug 31 18:59:34 2026
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.H_ATOM_FD8_MERGE/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x16)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 135 * 135 * 135
+ UNIFORM GRID DIM(BIG): 45 * 45 * 45
+ DONE(0.144863   SEC) : SETUP UNITCELL
+ DONE(0.171065   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 2       2               16          480         9           
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ H       3s2p-10au       9           1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.270324   SEC) : INIT PLANEWAVE
+ START CHARGE      : file
+ DONE(0.632756   SEC) : CHARGE
+ DONE(0.637864   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(1.05764    SEC) : INIT SCF
+ ITER      TMAG       AMAG        ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1      1.00e+00   1.00e+00  -1.35841611e+01   0.00000000e+00   1.1800e-02   0.38
+ GE2      1.00e+00   1.00e+00  -1.35844222e+01  -2.61089742e-04   1.0620e-02   0.28
+ GE3      1.00e+00   1.00e+00  -1.35844230e+01  -7.30378205e-07   1.7163e-04   0.27
+ GE4      1.00e+00   1.00e+00  -1.35844230e+01   5.57263890e-10   4.1548e-05   0.25
+ GE5      1.00e+00   1.00e+00  -1.35844230e+01  -1.56355573e-10   2.0786e-05   0.30
+ GE6      1.00e+00   1.00e+00  -1.35844230e+01   2.44605613e-10   3.2774e-05   0.26
+ GE7      1.00e+00   1.00e+00  -1.35844230e+01  -1.17018197e-10   2.8462e-06   0.31
+ GE8      1.00e+00   1.00e+00  -1.35844230e+01   2.25069852e-12   6.0040e-07   0.32
+ GE9      1.00e+00   1.00e+00  -1.35844230e+01  -1.28244499e-12   8.7075e-08   0.24
+ GE10     1.00e+00   1.00e+00  -1.35844230e+01   4.04823626e-12   2.6566e-07   0.19
+ GE11     1.00e+00   1.00e+00  -1.35844230e+01  -2.04224456e-12   2.8328e-07   0.25
+ GE12     1.00e+00   1.00e+00  -1.35844230e+01  -6.19319727e-14   1.6293e-12   1.03
+Use rpa_ccp_rmesh_times=1 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 0.0264288 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 1
+rpa_lcao_exx(Ha): -0.309801844036588
+etxc(Ha): -0.309783910094695
+etot(Ha): -0.499218157263627
+Etot_without_rpa(Ha): -0.499236091205520
+Ewald short-range tail:
+  mode: warn
+  lambda: 1.000000000000e+00
+  full-range source: exx_ccp_rmesh_times=1.000000000000e+00
+  exact radial mesh factor: 1.000000000000e+00
+  production period: 3 3 3
+  probe period: 5 5 5
+  production blocks: 1
+  shell blocks: 98
+  max |Vbare-Vgauss|_F: 0.000000000000e+00
+  sum |Vbare-Vgauss|_F: 0.000000000000e+00
+  relative max: 0.000000000000e+00
+  relative sum: 0.000000000000e+00
+  max Hermitian residual: 0.000000000000e+00
+  worst I,J,R: 0 0 0 0 0
+  worst distance/bare/Gaussian: 0.000000000000e+00 0.000000000000e+00 0.000000000000e+00
+  coverage complete: true
+  expansion: 0
+  decision: accepted
+
+TIME STATISTICS
+--------------------------------------------------------------------
+   CLASS_NAME            NAME         TIME/s  CALLS   AVG/s  PER/%  
+--------------------------------------------------------------------
+                 total                298.51 1012     0.29   100.00 
+ Driver          atomic_world         298.52 1        298.52 100.00 
+ Relax_Driver    relax_driver         297.87 1        297.87 99.78  
+ ESolver_KS      runner               297.87 1        297.87 99.78  
+ ESolver_KS_LCAO after_scf            293.36 1        293.36 98.27  
+ ModuleIO        ctrl_scf_lcao        290.42 1        290.42 97.29  
+ RPA_LRI         postSCF              26.37  1        26.37  8.83   
+ RPA_LRI         cal_postSCF_exx      14.08  1        14.08  4.72   
+ Matrix_Orbs21   init_radial_table    12.22  4        3.05   4.09   
+ Center2_Orb     cal_ST_Phi12_R       15.12  4061     0.00   5.06   
+ Exx_LRI         init_spencer         9.72   1        9.72   3.26   
+ LRI_CV          set_orbitals         17.05  3        5.68   5.71   
+ Matrix_Orbs11   init_radial_table    7.12   3        2.37   2.39   
+ RPA_LRI         output_ewald_coulomb 12.16  1        12.16  4.07   
+ Exx_LRI         init                 7.55   1        7.55   2.53   
+ Exx_LRI         cal_ewald_coulomb    4.57   1        4.57   1.53   
+ YlmReal         rlylm                4.99   7882832  0.00   1.67   
+--------------------------------------------------------------------
+
+
+ START  Time  : Mon Aug 31 18:59:34 2026
+ FINISH Time  : Mon Aug 31 19:04:32 2026
+ TOTAL  Time  : 298
+ SEE INFORMATION IN : OUT.H_ATOM_FD8_MERGE/

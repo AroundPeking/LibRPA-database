@@ -1,0 +1,165 @@
+srun: ROUTE: split_hostlist: hl=g10r2n[09,12],g14r3n19,g14r4n02,i06r4n03,i11r1n[09,12],j01r2n18,j01r3n01,j02r2n06,j02r4n[06,09,12],k02r1n19,k04r3n[14,17] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=k02r1n[17-18] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=i11r1n[10-11] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=k04r3n[15-16] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=g14r4n[00-01] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=g10r2n[10-11] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=j02r4n[10-11] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=i06r4n[01-02] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=i06r4n[04-05] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=k04r3n[18-19] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=j01r2n19,j01r3n00 tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=j02r2n[07-08] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=i11r1n13,j01r2n17 tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=g14r3n[17-18] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=j02r2n[04-05] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=j02r4n[07-08] tree_width 0
+srun: request too frequently, retrying ......
+srun: ROUTE: split_hostlist: hl=k02r2n[00-01] tree_width 0
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: ,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 1,OpenMP thread number: 30,Total thread number: 30
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: ,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+32Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 3232
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: 
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 301,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+
+Info: Local MPI proc number: 1321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30Info: Local MPI proc number: 
+
+
+,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+
+,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: 
+
+Info: Local MPI proc number: Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 
+30,Local thread limit: 32
+30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: Info: Local MPI proc number: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: 1Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: ,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30
+,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,
+Local thread limit: 32                                                                                     
+                              ABACUS v3.9.0.25
+
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Mon Aug 24 11:31:13 2026
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.C_GRID_G30_FD8_NF12_Q43/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x48)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 30 * 30 * 30
+ UNIFORM GRID DIM(BIG): 15 * 15 * 15
+ DONE(0.293501   SEC) : SYMMETRY
+ DONE(0.29353    SEC) : SETUP UNITCELL
+ DONE(0.471129   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       8               48          1440        44          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ C       3s3p2d0f0g-8au  22          2           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.532372   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.732664   SEC) : CHARGE
+ DONE(0.733156   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.868045   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -3.10087893e+02   0.00000000e+00   1.5521e-01   0.58
+ GE2     -3.09808235e+02   2.79658356e-01   1.0317e-01   0.46
+ GE3     -3.09863455e+02  -5.52196866e-02   1.1285e-02   0.39
+ GE4     -3.09863479e+02  -2.47171463e-05   1.5229e-03   0.39
+ GE5     -3.09863492e+02  -1.25938991e-05   6.6806e-04   0.35
+ GE6     -3.09863495e+02  -2.54972174e-06   2.8476e-05   0.44
+ GE7     -3.09863495e+02   9.99950610e-10   1.1094e-05   0.42
+ GE8     -3.09863495e+02  -1.76285584e-10   1.4015e-07   0.39
+ GE9     -3.09863495e+02   5.27841671e-11   7.0475e-08   0.42
+ GE10    -3.09863495e+02  -1.83681168e-12   4.5158e-09   1.18
+Use rpa_ccp_rmesh_times=2 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 1.15221 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 2
+rpa_lcao_exx(Ha): -3.203001682334211
+etxc(Ha): -3.559181125752188
+etot(Ha): -11.387269309420248
+Etot_without_rpa(Ha): -11.031089866002270
+
+TIME STATISTICS
+------------------------------------------------------------------
+   CLASS_NAME         NAME       TIME/s    CALLS    AVG/s  PER/%  
+------------------------------------------------------------------
+                 total           8580.83 1192      7.20    100.00 
+ Driver          atomic_world    8580.83 1         8580.83 100.00 
+ Relax_Driver    relax_driver    8580.10 1         8580.10 99.99  
+ ESolver_KS      runner          8580.10 1         8580.10 99.99  
+ ESolver_KS_LCAO after_scf       8574.94 1         8574.94 99.93  
+ ModuleIO        ctrl_scf_lcao   8574.92 1         8574.92 99.93  
+ RPA_LRI         postSCF         139.55  1         139.55  1.63   
+ RPA_LRI         cal_postSCF_exx 88.21   1         88.21   1.03   
+ Center2_Orb     cal_ST_Phi12_R  97.07   48852     0.00    1.13   
+ LRI_CV          set_orbitals    100.47  3         33.49   1.17   
+ YlmReal         rlylm           243.72  259430380 0.00    2.84   
+------------------------------------------------------------------
+
+
+ START  Time  : Mon Aug 24 11:31:13 2026
+ FINISH Time  : Mon Aug 24 13:54:14 2026
+ TOTAL  Time  : 8581
+ SEE INFORMATION IN : OUT.C_GRID_G30_FD8_NF12_Q43/

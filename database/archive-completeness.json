@@ -7,17 +7,13 @@
   "program_output_exception_baseline": "data/historical-program-output-exceptions.json",
   "stats": {
     "total": 122,
-    "complete": 59,
-    "incomplete": 63,
-    "issue_count": 84,
-    "accepted_exception_count": 84,
+    "complete": 64,
+    "incomplete": 58,
+    "issue_count": 74,
+    "accepted_exception_count": 74,
     "blocking_case_count": 0,
     "blocking_issue_count": 0,
     "missing_categories": {
-      "files": {
-        "cases": 5,
-        "issues": 10
-      },
       "software": {
         "cases": 58,
         "issues": 74
@@ -695,23 +691,12 @@
       "id": "c-delta-st-rpa-20260824",
       "material": "C",
       "dimension": "3d",
-      "status": "incomplete",
+      "status": "complete",
       "gate_status": "accepted",
-      "issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
-      "accepted_issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
+      "issues": [],
+      "accepted_issues": [],
       "blocking_issues": [],
-      "missing_categories": {
-        "files": [
-          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-        ]
-      },
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -1481,46 +1466,24 @@
       "id": "lih-solid-delta-st-rpa-20260831",
       "material": "LiH",
       "dimension": "3d",
-      "status": "incomplete",
+      "status": "complete",
       "gate_status": "accepted",
-      "issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
-      "accepted_issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
+      "issues": [],
+      "accepted_issues": [],
       "blocking_issues": [],
-      "missing_categories": {
-        "files": [
-          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-        ]
-      },
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
       "id": "mgo-delta-st-rpa-20260829",
       "material": "MgO",
       "dimension": "3d",
-      "status": "incomplete",
+      "status": "complete",
       "gate_status": "accepted",
-      "issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
-      "accepted_issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
+      "issues": [],
+      "accepted_issues": [],
       "blocking_issues": [],
-      "missing_categories": {
-        "files": [
-          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-        ]
-      },
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -1778,23 +1741,12 @@
       "id": "si-delta-st-rpa-20260824",
       "material": "Si",
       "dimension": "3d",
-      "status": "incomplete",
+      "status": "complete",
       "gate_status": "accepted",
-      "issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
-      "accepted_issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
+      "issues": [],
+      "accepted_issues": [],
       "blocking_issues": [],
-      "missing_categories": {
-        "files": [
-          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-        ]
-      },
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
@@ -1873,23 +1825,12 @@
       "id": "sic-delta-st-rpa-20260829",
       "material": "SiC",
       "dimension": "3d",
-      "status": "incomplete",
+      "status": "complete",
       "gate_status": "accepted",
-      "issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
-      "accepted_issues": [
-        "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-        "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-      ],
+      "issues": [],
+      "accepted_issues": [],
       "blocking_issues": [],
-      "missing_categories": {
-        "files": [
-          "files.logs.delta_st.abacus_program_stdout: the delta-Sternheimer production chain must archive the ABACUS program output (scientific_role abacus_program_stdout); summary tables are not a substitute",
-          "files.logs.delta_st.librpa_program_output: records whose RPA energy was evaluated by the LibRPA executable must archive the LibRPA program output (scientific_role librpa_program_stdout or librpa_program_output); summary tables are not a substitute"
-        ]
-      },
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {

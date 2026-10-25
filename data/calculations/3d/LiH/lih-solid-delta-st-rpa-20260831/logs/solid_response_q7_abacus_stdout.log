@@ -1,0 +1,174 @@
+/bin/sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+srun: ROUTE: split_hostlist: hl=h06r3n[04-11],h11r4n[13-19],h12r1n00 tree_width 0
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+sh: warning: setlocale: LC_ALL: cannot change locale (C.UTF-8)
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Local thread limit: 32Info: Local MPI proc number: 
+Info: Local MPI proc number: 
+
+1,OpenMP thread number: 30,Total thread number: 30,1,OpenMP thread number: 30Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 3232
+
+
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number:                                                                                      
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+                      Commit: unknown
+
+ Mon Aug 31 21:13:38 2026
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.LIH_FD8_SCREEN_Q7/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x16)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 1 for Li: [He] 2s1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 24 * 24 * 24
+ UNIFORM GRID DIM(BIG): 12 * 12 * 12
+ DONE(0.211242   SEC) : SYMMETRY
+ DONE(0.211275   SEC) : SETUP UNITCELL
+ DONE(0.392808   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       8               16          480         21          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Li      6s2p-10au       12          1           
+ H       3s2p-10au       9           1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.445296   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.685333   SEC) : CHARGE
+ DONE(0.686235   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.791857   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -2.10676605e+02   0.00000000e+00   1.7264e-01   0.36
+ GE2     -2.10460583e+02   2.16022537e-01   1.1302e-01   0.26
+ GE3     -2.10502381e+02  -4.17985512e-02   1.7395e-02   0.30
+ GE4     -2.10502448e+02  -6.68446661e-05   3.3571e-03   0.37
+ GE5     -2.10502435e+02   1.26513017e-05   1.5120e-03   0.26
+ GE6     -2.10502445e+02  -1.00247405e-05   7.6629e-05   0.27
+ GE7     -2.10502443e+02   2.19283056e-06   3.7927e-04   0.23
+ GE8     -2.10502444e+02  -1.06246604e-06   8.8182e-06   0.25
+ GE9     -2.10502444e+02  -1.89016381e-08   1.8930e-07   0.24
+ GE10    -2.10502444e+02   1.03801611e-09   4.9309e-07   0.23
+ GE11    -2.10502444e+02  -7.39751734e-10   1.7582e-09   0.51
+Use rpa_ccp_rmesh_times=2 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 0.122464 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 2
+rpa_lcao_exx(Ha): -1.949383926142017
+etxc(Ha): -2.018387470164883
+etot(Ha): -7.735819368168364
+Etot_without_rpa(Ha): -7.666815824145499
+Ewald short-range tail:
+  mode: warn
+  lambda: 1.000000000000e+00
+  full-range source: exx_ccp_rmesh_times=2.000000000000e+00
+  exact radial mesh factor: 2.000000000000e+00
+  production period: 15 15 15
+  probe period: 17 17 17
+  production blocks: 4206
+  shell blocks: 6152
+  max |Vbare-Vgauss|_F: 0.000000000000e+00
+  sum |Vbare-Vgauss|_F: 0.000000000000e+00
+  relative max: 0.000000000000e+00
+  relative sum: 0.000000000000e+00
+  max Hermitian residual: 0.000000000000e+00
+  worst I,J,R: 0 0 0 0 0
+  worst distance/bare/Gaussian: 0.000000000000e+00 0.000000000000e+00 0.000000000000e+00
+  coverage complete: true
+  expansion: 0
+  decision: accepted
+
+TIME STATISTICS
+--------------------------------------------------------------------
+   CLASS_NAME            NAME         TIME/s  CALLS   AVG/s  PER/%  
+--------------------------------------------------------------------
+                 total                653.68 1486     0.44   100.00 
+ Driver          atomic_world         653.68 1        653.68 100.00 
+ Relax_Driver    relax_driver         652.99 1        652.99 99.89  
+ ESolver_KS      runner               652.99 1        652.99 99.89  
+ ESolver_KS_LCAO after_scf            649.58 1        649.58 99.37  
+ ModuleIO        ctrl_scf_lcao        649.57 1        649.57 99.37  
+ RPA_LRI         postSCF              116.97 1        116.97 17.89  
+ RPA_LRI         cal_postSCF_exx      57.70  1        57.70  8.83   
+ Matrix_Orbs21   init_radial_table    60.05  4        15.01  9.19   
+ Center2_Orb     cal_ST_Phi12_R       92.77  26610    0.00   14.19  
+ Exx_LRI         init_spencer         45.28  1        45.28  6.93   
+ LRI_CV          set_orbitals         100.17 3        33.39  15.32  
+ Matrix_Orbs11   init_radial_table    47.62  3        15.87  7.28   
+ RPA_LRI         output_ewald_coulomb 58.99  1        58.99  9.02   
+ Exx_LRI         init                 55.78  1        55.78  8.53   
+ Ewald_Vq        init                 13.89  1        13.89  2.13   
+ YlmReal         rlylm                43.26  69051858 0.00   6.62   
+--------------------------------------------------------------------
+
+
+ START  Time  : Mon Aug 31 21:13:38 2026
+ FINISH Time  : Mon Aug 31 21:24:31 2026
+ TOTAL  Time  : 653
+ SEE INFORMATION IN : OUT.LIH_FD8_SCREEN_Q7/

@@ -1,0 +1,146 @@
+srun: ROUTE: split_hostlist: hl=f13r1n03,g09r1n01,g12r4n01,g13r2n03,g16r1n04,g16r3n04,h12r1n[07,15],h13r4n16,h14r1n05,h15r3n15,h16r1n19,h16r4n[02,13],i03r3n12,i06r1n16 tree_width 0
+srun: ROUTE: split_hostlist: hl=i03r3n13,i06r1n15 tree_width 0
+srun: ROUTE: split_hostlist: hl=f13r1n04,g09r1n00 tree_width 0
+srun: ROUTE: split_hostlist: hl=g12r3n[12-13] tree_width 0
+srun: ROUTE: split_hostlist: hl=g12r4n02,g13r2n02 tree_width 0
+srun: ROUTE: split_hostlist: hl=i06r1n[17-18] tree_width 0
+srun: ROUTE: split_hostlist: hl=h12r1n[08,14] tree_width 0
+srun: ROUTE: split_hostlist: hl=h13r4n17,h14r1n04 tree_width 0
+srun: ROUTE: split_hostlist: hl=h15r3n16,h16r1n18 tree_width 0
+srun: ROUTE: split_hostlist: hl=g14r4n[03-04] tree_width 0
+srun: ROUTE: split_hostlist: hl=h16r2n[16-17] tree_width 0
+srun: ROUTE: split_hostlist: hl=i03r2n[11-12] tree_width 0
+srun: ROUTE: split_hostlist: hl=h05r2n[09-10] tree_width 0
+srun: ROUTE: split_hostlist: hl=h13r3n[10-11] tree_width 0
+srun: ROUTE: split_hostlist: hl=h16r4n[03,12] tree_width 0
+srun: ROUTE: split_hostlist: hl=h15r3n[05-06] tree_width 0
+srun: ROUTE: split_hostlist: hl=g16r1n05,g16r3n03 tree_width 0
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: ,Local thread limit: 32
+Info: Local MPI proc number: 1Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: ,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+30,Total thread number: 30,Local thread limit: 32
+,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: Info: Local MPI proc number: 1Info: Local MPI proc number: Info: Local MPI proc number: 
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 
+Info: Local MPI proc number: 11,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+30,Total thread number: 30,Local thread limit: 32
+,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 11,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 30,Total thread number: 30,Local thread limit: 32
+
+,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 
+Info: Local MPI proc number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,                                                                                     
+                              ABACUS v3.9.0.25
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Mon Aug 24 07:42:22 2026
+ MAKE THE DIR         : OUT.C_GRID_G30_FD8_NF12_Q22/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x48)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 30 * 30 * 30
+ UNIFORM GRID DIM(BIG): 15 * 15 * 15
+ DONE(0.139459   SEC) : SYMMETRY
+ DONE(0.139489   SEC) : SETUP UNITCELL
+ DONE(0.316834   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       8               48          1440        44          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ C       3s3p2d0f0g-8au  22          2           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.394376   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(0.554637   SEC) : CHARGE
+ DONE(0.55523    SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.620188   SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -3.10087893e+02   0.00000000e+00   1.5521e-01   0.48
+ GE2     -3.09808235e+02   2.79658356e-01   1.0317e-01   0.39
+ GE3     -3.09863455e+02  -5.52196866e-02   1.1285e-02   0.35
+ GE4     -3.09863479e+02  -2.47171461e-05   1.5229e-03   0.34
+ GE5     -3.09863492e+02  -1.25938989e-05   6.6806e-04   0.33
+ GE6     -3.09863495e+02  -2.54972203e-06   2.8476e-05   0.43
+ GE7     -3.09863495e+02   9.99998947e-10   1.1094e-05   0.40
+ GE8     -3.09863495e+02  -1.76043898e-10   1.4015e-07   0.44
+ GE9     -3.09863495e+02   5.24941442e-11   7.0475e-08   0.43
+ GE10    -3.09863495e+02  -1.45011448e-12   4.5158e-09   1.16
+Use rpa_ccp_rmesh_times=2 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 1.3289 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 2
+rpa_lcao_exx(Ha): -3.203001682334209
+etxc(Ha): -3.559181125752188
+etot(Ha): -11.387269309420240
+Etot_without_rpa(Ha): -11.031089866002262
+
+TIME STATISTICS
+------------------------------------------------------------------
+   CLASS_NAME        NAME       TIME/s    CALLS    AVG/s   PER/%  
+------------------------------------------------------------------
+                 total         12310.01 1192      10.33    100.00 
+ Driver          atomic_world  12310.01 1         12310.01 100.00 
+ Relax_Driver    relax_driver  12309.45 1         12309.45 100.00 
+ ESolver_KS      runner        12309.45 1         12309.45 100.00 
+ ESolver_KS_LCAO after_scf     12304.64 1         12304.64 99.96  
+ ModuleIO        ctrl_scf_lcao 12304.62 1         12304.62 99.96  
+ RPA_LRI         postSCF       139.27   1         139.27   1.13   
+ YlmReal         rlylm         249.28   261340234 0.00     2.02   
+------------------------------------------------------------------
+
+
+ START  Time  : Mon Aug 24 07:42:22 2026
+ FINISH Time  : Mon Aug 24 11:07:32 2026
+ TOTAL  Time  : 12310
+ SEE INFORMATION IN : OUT.C_GRID_G30_FD8_NF12_Q22/

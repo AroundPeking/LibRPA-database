@@ -1,0 +1,135 @@
+srun: ROUTE: split_hostlist: hl=f15r2n19,f15r3n[00-01],g13r1n[13-16],g13r3n[12-15],h03r1n[14-18] tree_width 0
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+1,OpenMP thread number: 30,Info: Local MPI proc number: Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+
+Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32Info: Local MPI proc number: 32
+                                                                                     
+                              ABACUS v3.9.0.25
+
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: Info: Local MPI proc number: Info: Local MPI proc number: 
+
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 1,OpenMP thread number: 30,Total thread number: 30Info: Local MPI proc number:                Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+
+30,Local thread limit: 32,Local thread limit: 321,OpenMP thread number: 30,Total thread number: 30, 
+
+Local thread limit: 32Thu Aug 27 16:04:58 2026
+Info: Local MPI proc number: 
+1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+Info: Local MPI proc number: 1,OpenMP thread number: 30,Total thread number: 30,Local thread limit: 32
+ MAKE THE DIR         : OUT.MGO_FD8_SCREEN_Q6/
+ RUNNING WITH DEVICE  : CPU / Hygon C86 7185 32-core Processor (x16)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 2 for Mg: [Ne] 3s2
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 20 * 20 * 20
+ UNIFORM GRID DIM(BIG): 10 * 10 * 10
+ DONE(0.474913   SEC) : SYMMETRY
+ DONE(0.474943   SEC) : SETUP UNITCELL
+ DONE(0.651031   SEC) : INIT K-POINTS
+ ---------------------------------------------------------
+ Self-consistent calculations for electrons
+ ---------------------------------------------------------
+ SPIN    KPOINTS         PROCESSORS  THREADS     NBASE       
+ 1       8               16          480         47          
+ ---------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ---------------------------------------------------------
+ ELEMENT ORBITALS        NBASE       NATOM       XC          
+ Mg      6s3p2d-10au     25          1           
+ O       3s3p2d-10au     22          1           
+ ---------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ---------------------------------------------------------
+ DONE(0.692068   SEC) : INIT PLANEWAVE
+ START CHARGE      : atomic
+ DONE(1.12467    SEC) : CHARGE
+ DONE(1.12574    SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(1.23643    SEC) : INIT SCF
+ ITER       ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1     -1.91597961e+03   0.00000000e+00   1.1316e-01   0.69
+ GE2     -1.91628690e+03  -3.07298146e-01   4.9991e-02   0.40
+ GE3     -1.91632610e+03  -3.91965325e-02   2.8841e-02   0.34
+ GE4     -1.91632978e+03  -3.68051585e-03   4.6941e-03   0.31
+ GE5     -1.91632988e+03  -9.56019635e-05   3.9117e-03   0.28
+ GE6     -1.91633036e+03  -4.79196691e-04   6.3077e-04   0.31
+ GE7     -1.91633037e+03  -1.46840329e-05   6.8017e-05   0.28
+ GE8     -1.91633037e+03   3.10695032e-06   1.9977e-05   0.27
+ GE9     -1.91633037e+03   3.77488001e-07   3.0481e-06   0.27
+ GE10    -1.91633037e+03   7.78645738e-08   6.8134e-07   0.30
+ GE11    -1.91633037e+03   1.88638626e-08   1.6625e-08   0.29
+ GE12    -1.91633037e+03   2.28151345e-10   6.9140e-09   0.49
+Use rpa_ccp_rmesh_times=2 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 3.17263 s
+rpa_pca_threshold: 1e-06
+rpa_ccp_rmesh_times: 2
+rpa_lcao_exx(Ha): -9.997323342830455
+etxc(Ha): -10.615714898727187
+etot(Ha): -70.423816804420255
+Etot_without_rpa(Ha): -69.805425248523520
+Ewald short-range tail:
+  mode: warn
+  lambda: 1.000000000000e+00
+  full-range source: exx_ccp_rmesh_times=2.000000000000e+00
+  exact radial mesh factor: 2.000000000000e+00
+  production period: 15 15 15
+  probe period: 17 17 17
+  production blocks: 3678
+  shell blocks: 6152
+  max |Vbare-Vgauss|_F: 0.000000000000e+00
+  sum |Vbare-Vgauss|_F: 0.000000000000e+00
+  relative max: 0.000000000000e+00
+  relative sum: 0.000000000000e+00
+  max Hermitian residual: 0.000000000000e+00
+  worst I,J,R: 0 0 0 0 0
+  worst distance/bare/Gaussian: 0.000000000000e+00 0.000000000000e+00 0.000000000000e+00
+  coverage complete: true
+  expansion: 0
+  decision: accepted
+
+TIME STATISTICS
+------------------------------------------------------------------------
+   CLASS_NAME            NAME          TIME/s   CALLS    AVG/s   PER/%  
+------------------------------------------------------------------------
+                 total                19675.20 1603     12.27    100.00 
+ Driver          atomic_world         19675.20 1        19675.20 100.00 
+ Relax_Driver    relax_driver         19674.07 1        19674.07 99.99  
+ ESolver_KS      runner               19674.07 1        19674.07 99.99  
+ ESolver_KS_LCAO after_scf            19669.72 1        19669.72 99.97  
+ ModuleIO        ctrl_scf_lcao        19669.68 1        19669.68 99.97  
+ RPA_LRI         postSCF              711.01   1        711.01   3.61   
+ RPA_LRI         cal_postSCF_exx      344.29   1        344.29   1.75   
+ Matrix_Orbs21   init_radial_table    440.97   4        110.24   2.24   
+ Center2_Orb     cal_ST_Phi12_R       594.57   197231   0.00     3.02   
+ Exx_LRI         init_spencer         303.22   1        303.22   1.54   
+ LRI_CV          set_orbitals         638.15   3        212.72   3.24   
+ Matrix_Orbs11   init_radial_table    250.41   3        83.47    1.27   
+ RPA_LRI         output_ewald_coulomb 365.29   1        365.29   1.86   
+ Exx_LRI         init                 336.92   1        336.92   1.71   
+------------------------------------------------------------------------
+
+
+ START  Time  : Thu Aug 27 16:04:58 2026
+ FINISH Time  : Thu Aug 27 21:32:53 2026
+ TOTAL  Time  : 19675
+ SEE INFORMATION IN : OUT.MGO_FD8_SCREEN_Q6/
