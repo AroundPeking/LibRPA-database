@@ -219,7 +219,23 @@ Three workflows run per push (and PR):
 3. **External archive sync** (after a successful publish) — converts every
    calculation payload still stored locally to the referenced tier, uploads the
    bytes to the HuggingFace dataset, regenerates the catalog, and removes the
-   local bytes in an automated commit.
+   local bytes in an automated commit. Every sync then runs the post-sync
+   triple check (`scripts/verify_post_sync.py --base HEAD~1`): the newly
+   referenced entries are fetched over HTTPS and byte-checked against their
+   declared SHA-256/size, and the tracked tree under `data/calculations` must
+   contain `record.json` manifests only. A failed check turns the sync red.
+   The verifier checks HTTP status explicitly and paces/retries per host
+   (`--delay`): the hf-mirror backup answers rapid request sequences with
+   429 error pages that curl still reports as a completed transfer, and those
+   error pages must never be mistaken for payload bytes.
+
+After each sync the owner additionally verifies the deployed site with
+`python3 scripts/verify_post_sync.py --live <site-root>` (default 40-entry
+sample; `--live-all` for the full sweep): every entry in the deployed
+`database/data.json` must resolve over HTTPS — referenced entries at their
+external URL, local-tier entries at the deployed site path. Transmission,
+repository state, and public accessibility are three separate facts; verify
+all three after every upload.
 
 Locally, run the same scripts plus `python3 -m unittest discover -s tests` and
 `node --test tests/*.mjs` before submitting. The test suite includes pinned

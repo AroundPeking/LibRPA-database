@@ -54,3 +54,5 @@ jobs:
           else
             echo "no external-archive changes to commit"
           fi
+      - name: Post-sync triple check (HF bytes received, tree keeps no payload bytes)
+        run: python scripts/verify_post_sync.py --base "HEAD~1"
