@@ -342,6 +342,9 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.match(app, /path === "#\/gaps" \? "gaps"/);
   assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
   assert.match(app, /renderGapOverview\(state\.calculations, state\.sort\)/);
+  assert.match(app, /\["materials", "gaps"\]\.includes\(state\.mode\)/);
+  assert.match(app, /back\.textContent = state\.mode === "gaps" \? "Gap overview"/);
+  assert.match(app, /state\.mode === "gaps" \? "gaps" : "materials"/);
   assert.match(app, /records list a gap value/);
   assert.match(css, /\.browser-layout:has\(>\.filter-panel\[hidden\]\)\{grid-template-columns:minmax\(0,1fr\)\}/);
   assert.match(css, /\.gw-line\{display:flex/);
@@ -366,7 +369,9 @@ test("dark mode toggle is wired with persisted preference and token overrides", 
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
-  assert.match(index, /id="theme-toggle"/);
+  assert.match(index, /id="theme-toggle" class="theme-toggle"/);
+  assert.match(css, /\.theme-toggle \.icon-moon\{display:none\}/);
+  assert.match(css, /html\[data-theme="dark"\] \.theme-toggle \.icon-sun\{display:none\}/);
   assert.match(index, /localStorage\.getItem\("theme"\)/);
   assert.match(app, /localStorage\.setItem\("theme", next\)/);
   assert.match(app, /document\.documentElement\.dataset\.theme === "dark" \? "light" : "dark"/);
@@ -426,10 +431,12 @@ test("recorded software identifiers are displayed without internal missing-versi
 test("figure downloads honor aliases and invalid figure paths never become links", () => {
   const record = { id: "figure-paths", material: "Si", dimension: "3d", files: { figures: [
     { path: "data/case/figure.svg", download_name: "Si_PBE_GW.svg" },
+    { path: "data/case/external.svg", tier: "referenced", external_url: "https://huggingface.co/datasets/x/resolve/0123456789abcdef0123456789abcdef01234567/data/case/external.svg", sha256: "a".repeat(64) },
     { path: "../private.svg" },
   ] } };
   const html = renderMaterial(record, []);
   assert.match(html, /download="Si_PBE_GW\.svg"/);
+  assert.match(html, /href="https:\/\/huggingface\.co\/datasets\/x\/resolve\/0123456789abcdef0123456789abcdef01234567\/data\/case\/external\.svg" download="external\.svg" data-blob-download="1"/);
   assert.match(html, /Figure link unavailable/);
   assert.doesNotMatch(html, /(?:href|src)="null"/);
   assert.doesNotMatch(html, /(?:href|src)="[^\"]*private\.svg"/);
@@ -610,14 +617,58 @@ test("C2048 shows verified sampled Gamma gaps from the complete QP output", () =
   assert.doesNotMatch(html, /Unavailable|fundamental gap|315\.02863/);
 });
 
+test("reader conversion handles independent KS and GW availability without stale values", () => {
+  const original = JSON.parse(readFileSync(new URL("../data/calculations/3d/C/c2048-reader-v1-20260607/record.json", import.meta.url)));
+  const ksOnly = structuredClone(original);
+  ksOnly.associated_gw_run.gap.g0w0_available = false;
+  delete ksOnly.associated_gw_run.gap.g0w0_value;
+  const gwMetricValues = html => [...html.matchAll(/Sampled Γ G0W0 gap<\/span><strong[^>]*>([\s\S]*?)<\/strong>/g)].map(match => match[1]);
+  const ksHtml = renderMaterial(ksOnly, []);
+  assert.match(ksHtml, /4\.28728/);
+  assert.match(ksHtml, /Sampled Γ G0W0 gap[\s\S]*?Unavailable/);
+  assert.match(ksHtml, /Γ gap partially available/);
+  assert.ok(gwMetricValues(ksHtml).length >= 2);
+  assert.ok(gwMetricValues(ksHtml).every(value => !value.includes("5.74313")));
+  assert.deepEqual(gapOverview(ksOnly), { ks: 4.28728, exx: null, gw: null, scope: "sampled" });
+
+  const staleGw = structuredClone(original);
+  staleGw.associated_gw_run.gap.g0w0_available = false;
+  const staleHtml = renderMaterial(staleGw, []);
+  assert.ok(gwMetricValues(staleHtml).every(value => !value.includes("5.74313")));
+  assert.equal(gapOverview(staleGw).gw, null);
+
+  const gwOnly = structuredClone(original);
+  gwOnly.associated_gw_run.gap.ks_available = false;
+  delete gwOnly.associated_gw_run.gap.ks_value;
+  const gwHtml = renderMaterial(gwOnly, []);
+  assert.match(gwHtml, /Sampled Γ PBE gap[\s\S]*?Unavailable/);
+  assert.match(gwHtml, /5\.74313/);
+  assert.deepEqual(gapOverview(gwOnly), { ks: null, exx: null, gw: 5.74313, scope: "sampled" });
+});
+
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   assert.match(css, /\.catalog-table:not\(\.basis-table\)\{display:block;min-width:0/);
   assert.match(css, /content:"Primary result"/);
   assert.match(app, /\["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
+  assert.match(app, /<option value="result">GW gap ↓<\/option>/);
+  assert.match(app, /gapOverview\(b\)\?\.gw/);
+  assert.doesNotMatch(app, /primaryResult\(b\)\?\.value|Primary result ↓/);
   assert.match(app, /<td><span class="record-type-tag">\$\{esc\(workflowLabel\(record\)\)\}<\/span><\/td>/);
   assert.match(app, /large-system GW results, and reader-format provenance/);
+});
+
+test("responsive reading refinements cover every catalog and dark method chips", () => {
+  const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
+  assert.match(css, /--text-faint:#526f7b/);
+  assert.match(css, /\.gap-table,\.catalog-table\.basis-table\{display:block;min-width:0/);
+  assert.match(css, /\.gap-table \.gap-row>td:nth-child\(6\)::before\{content:"GW"\}/);
+  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(3\)::before\{content:"Recorded scope"\}/);
+  assert.match(css, /\.section-nav\{flex-wrap:nowrap;overflow-x:auto/);
+  assert.match(css, /\.header-inner\{display:grid;grid-template-columns:minmax\(0,1fr\) auto/);
+  assert.match(css, /html\[data-theme="dark"\] \.method-rpa\{background:#21371f;color:#b5dfa0\}/);
+  assert.match(css, /html\[data-theme="dark"\] \.method-delta-st\{background:#183342;color:#91d5e9\}/);
 });
 
 test("performance summary includes cluster and accelerator fields when present", () => {

@@ -9,6 +9,9 @@ permissions:
   id-token: write
 concurrency:
   group: pages
+  # Do not cancel an intermediate pending Publish: every accepted revision
+  # must reach its own post-deployment live check.
+  queue: max
   cancel-in-progress: false
 jobs:
   build:
@@ -57,8 +60,29 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Live verification includes every changed payload and may need mirror retries.
+    timeout-minutes: 120
     needs: build
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          # The live check covers every commit included in the accepted push.
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify deployed revision and changed payload paths
+        # Keep this in the Publish workflow: its concurrency prevents a later
+        # deployment from replacing this revision before the check finishes.
+        env:
+          PUBLISH_SHA: ${{ github.sha }}
+          PUBLISH_BASE: ${{ github.event.before }}
+        run: |
+          args=(python scripts/verify_post_sync.py --skip-hash --skip-tree --live "https://aroundpeking.github.io/LibRPA-database" --live-commit "$PUBLISH_SHA")
+          if [ -n "$PUBLISH_BASE" ] && [ "$PUBLISH_BASE" != "0000000000000000000000000000000000000000" ]; then
+            args+=(--live-base "$PUBLISH_BASE")
+          fi
+          "${args[@]}"

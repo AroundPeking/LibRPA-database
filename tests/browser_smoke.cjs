@@ -39,7 +39,7 @@ async function main() {
       // referenced bytes from the validator's content-addressed cache.
       const cacheByUrl = new Map(allReferenced.map(file => [file.external_url,
         path.join(externalCacheDir, file.sha256.slice(0, 2), file.sha256)]));
-      await context.route(/https:\/\/huggingface\.co\/datasets\/AroundPeking\/LibRPA-database\/resolve\/main\//, async route => {
+      await context.route(/https:\/\/huggingface\.co\/datasets\/AroundPeking\/LibRPA-database\/resolve\/[0-9a-f]{40}\//, async route => {
         const url = route.request().url();
         const cached = cacheByUrl.get(url);
         const mime = /\.svg$/i.test(url) ? "image/svg+xml"
@@ -161,6 +161,23 @@ async function main() {
     check(await page.locator("link[rel='apple-touch-icon']").evaluate(link => new URL(link.href).pathname) === new URL("apple-touch-icon.png", base).pathname, "apple-touch-icon is linked at the catalog subpath");
     check(await page.locator("#search").evaluate(input => input.getBoundingClientRect().bottom <= innerHeight), "desktop search is visible in first viewport");
     await screenshot("materials-desktop.png");
+    const initialTheme = await page.locator("html").getAttribute("data-theme");
+    await page.locator("#theme-toggle").click();
+    check(await page.locator("html").getAttribute("data-theme") !== initialTheme, "theme toggle changes the computed theme");
+    check(await page.locator("#theme-toggle").getAttribute("aria-pressed") === String(initialTheme !== "dark"), "theme toggle exposes pressed state");
+    check(await page.locator("#theme-toggle .icon-sun, #theme-toggle .icon-moon").evaluateAll(icons => icons.filter(icon => getComputedStyle(icon).display !== "none").length === 1), "theme toggle shows exactly one icon");
+    await page.locator("#theme-toggle").click();
+    await go("#/gaps");
+    await page.waitForSelector(".gap-row");
+    await page.locator(".gap-row .material-link").first().click();
+    await page.waitForSelector("#detail-view h1");
+    check(await page.locator(".breadcrumb a").innerText() === "Gap overview", "Gap detail breadcrumb names its actual source");
+    check((await page.locator(".breadcrumb a").getAttribute("href")).startsWith("#/gaps"), "Gap detail return hash preserves Gap route");
+    check(await page.locator("[data-nav='gaps']").getAttribute("aria-current") === "page", "Gap detail keeps Gap navigation active");
+    await page.locator(".breadcrumb a").click();
+    await page.waitForSelector(".gap-row");
+    check(await page.locator("#catalog-title").innerText() === "Gap overview", "Gap detail returns to Gap overview rather than Materials");
+    await go("#/materials");
     for (const expected of [
       { id: "c512-gamma-g0w0-20260519", states: "6656", atoms: "512", gap: "6.09949", wall: "18:42:46", nodes: "4", mpi: "4", omp: "96" },
       { id: "c1024-gamma-g0w0-20260521", states: "13312", atoms: "1024", gap: "6.22160", wall: "16:50:12", nodes: "18", mpi: "36", omp: "48" },
@@ -418,6 +435,16 @@ async function main() {
       await primaryImages.nth(index).evaluate(img => img.decode());
       check(await primaryImages.nth(index).evaluate(img => img.complete && img.naturalWidth > 0), `AlP方法主图${index + 1}：真实SVG加载`);
     }
+    const externalFigure = primaryFiles.find(file => file.tier === "referenced");
+    if (externalFigure) {
+      const figureLink = page.locator(`#record-bands figcaption a[href="${externalFigure.external_url}"]`);
+      check(await figureLink.getAttribute("data-blob-download") === "1", "external figure uses Blob download rather than cross-origin navigation");
+      const figureDownloadPromise = page.waitForEvent("download");
+      await figureLink.click();
+      const figureDownload = await figureDownloadPromise;
+      const figureDownloadPath = await figureDownload.path();
+      check(figureDownloadPath && createHash("sha256").update(fs.readFileSync(figureDownloadPath)).digest("hex") === externalFigure.sha256, "external figure download preserves the exact archived bytes");
+    }
     await screenshot("alp-primary-bands.png");
     const imageSources = await primaryImages.evaluateAll(images => images.map(img => img.src));
     check(imageSources.length === primaryFiles.length && primaryFiles.every(file => imageSources.includes(fileUrlOf(file))), "主网格仅显示primary新图");
@@ -462,7 +489,7 @@ async function main() {
     await page.locator("#search").fill("hBN");
     const replacementRow = page.locator(".material-row").filter({ has: page.locator("a[href='#/material/hbn-tzdp10-fgext-20261008']") });
     check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Path-resolved"), "replacement hBN list shows rounded paper number with path scope");
-    check((await page.locator("#sort").innerText()).includes("Primary result"), "sorting label covers task-aware primary results");
+    check((await page.locator("#sort").innerText()).includes("GW gap"), "sorting label states the single comparable GW-gap metric");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");
     check(await page.locator("#status-filter-control").count() === 0, "publication filter removed from basis mode");
@@ -677,7 +704,16 @@ async function main() {
     await filterToggle.click();
     check(await filterToggle.getAttribute("aria-expanded") === "false" && await page.locator("#element-filter").isHidden(), "移动筛选可再次折叠");
     await screenshot("materials-mobile.png");
+    await go("#/gaps");
+    await page.waitForSelector(".gap-row");
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px Gap cards have no page overflow");
+    check(await page.locator(".gap-table").evaluate(table => table.getBoundingClientRect().width <= innerWidth), "320px Gap table fits the viewport");
+    await screenshot("gaps-mobile.png");
     await go("#/basis");
+    await page.waitForSelector(".basis-row");
+    check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "320px Basis cards have no page overflow");
+    check(await page.locator(".basis-table").evaluate(table => table.getBoundingClientRect().width <= innerWidth), "320px Basis table fits the viewport");
+    await screenshot("basis-mobile.png");
     check(await filterToggle.getAttribute("aria-expanded") === "false", "移动basis筛选初始折叠");
     await filterToggle.click();
     check(await page.locator("#status-filter-control").count() === 0 && await page.locator(".dimension-filter").isHidden(), "移动basis展开不再有publication筛选且不显示dimension");
@@ -725,9 +761,9 @@ async function main() {
     if (referencedFiles.length && externalFixtures) {
       // Rehearsal stand-in for the external object store: fulfill dataset
       // resolve URLs from a local fixture tree keyed by repository path.
-      await context.route(/https:\/\/[^/]+\/datasets\/[^/]+\/[^/]+\/resolve\/main\//, async route => {
+      await context.route(/https:\/\/[^/]+\/datasets\/[^/]+\/[^/]+\/resolve\/[0-9a-f]{40}\//, async route => {
         const url = new URL(route.request().url());
-        const repoRelative = decodeURIComponent(url.pathname.split("/resolve/main/")[1] || "");
+        const repoRelative = decodeURIComponent(url.pathname.split(/\/resolve\/[0-9a-f]{40}\//)[1] || "");
         const local = path.join(externalFixtures, repoRelative);
         try {
           await route.fulfill({ status: 200, body: fs.readFileSync(local),

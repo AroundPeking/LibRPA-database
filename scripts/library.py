@@ -9,6 +9,7 @@ import math
 import re
 import struct
 import time
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 import zlib
@@ -51,8 +52,8 @@ def _validate_referenced(item: dict, label: str) -> None:
     """referenced 档：字节存放在外部对象存储，仓库只保留身份与直链。
 
     完整性锚点是声明的 sha256/size_bytes：上传脚本在上传前逐字节核对，
-    verify 子命令在上线门禁前对外部字节再次核对；本验证器只负责约束
-    直链格式，避免把不可达或非 https 的地址写进公共记录。
+    verify 子命令在上线门禁前对外部字节再次核对。Hugging Face 链接还必须
+    固定到完整提交 OID，避免 resolve/main 在原地覆盖后改变历史证据字节。
     """
     size = item.get("size_bytes")
     if isinstance(size, bool) or not isinstance(size, int) or size <= 0:
@@ -63,6 +64,15 @@ def _validate_referenced(item: dict, label: str) -> None:
     backup = item.get("external_url_backup")
     if backup is not None and (not isinstance(backup, str) or not EXTERNAL_URL.fullmatch(backup)):
         _fail(f"{label}: external_url_backup must be an https URL with a dotted host")
+    for field, candidate in (("external_url", url), ("external_url_backup", backup)):
+        if candidate is None:
+            continue
+        parsed = urllib.parse.urlsplit(candidate)
+        if parsed.hostname not in {"huggingface.co", "hf-mirror.com"}:
+            continue
+        match = re.search(r"/resolve/([^/]+)/", parsed.path)
+        if match is None or not COMMIT.fullmatch(match.group(1)):
+            _fail(f"{label}: {field} must pin Hugging Face bytes to a full commit OID")
 
 
 def _file(root: Path, item: dict, label: str, *, allow_referenced: bool = False) -> None:
@@ -477,46 +487,56 @@ def _external_bytes(root: Path, item: dict, label: str) -> bytes:
 
     验收门禁读的是真实字节：下载后逐字节核对哈希，任何失配或不可达都
     直接失败，而不是把证据当作缺失静默放过。缓存按内容寻址，命中时
-    同样复核哈希，避免中毒缓存影响验收。
+    同样复核哈希，避免中毒缓存影响验收。主站与备用镜像都必须通过同一
+    完整性检查；任一来源失败都不会让未验证字节进入返回值或缓存。
     """
     digest = item.get("sha256")
-    url = item.get("external_url")
-    if not isinstance(digest, str) or not SHA256.fullmatch(digest) or not isinstance(url, str):
+    primary = item.get("external_url")
+    if not isinstance(digest, str) or not SHA256.fullmatch(digest) or not isinstance(primary, str):
         _fail(f"{label}: referenced payload is missing its hash or direct URL")
+    urls = [primary]
+    backup = item.get("external_url_backup")
+    if isinstance(backup, str) and backup and backup not in urls:
+        urls.append(backup)
     cache = root / ".external-cache" / digest[:2] / digest
     if cache.is_file():
         data = cache.read_bytes()
         if hashlib.sha256(data).hexdigest() == digest:
             return data
         cache.unlink()
-    data = None
-    last_error = None
-    for attempt in range(3):
+    errors = []
+    for url in urls:
+        data = None
+        last_error = None
+        for attempt in range(3):
+            try:
+                request = urllib.request.Request(url, headers={"User-Agent": "librpa-database-gate/1.0"})
+                with urllib.request.urlopen(request, timeout=180) as response:
+                    data = response.read()
+                break
+            except Exception as exc:  # noqa: BLE001 - retry transient transport errors
+                last_error = exc
+                if attempt < 2:
+                    time.sleep(4 * (attempt + 1))
+        if data is None:
+            errors.append(f"{url}: {last_error}")
+            continue
+        if hashlib.sha256(data).hexdigest() != digest:
+            errors.append(f"{url}: SHA-256 mismatch")
+            continue
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        temporary = cache.with_name(digest + ".part")
+        temporary.write_bytes(data)
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": "librpa-database-gate/1.0"})
-            with urllib.request.urlopen(request, timeout=180) as response:
-                data = response.read()
-            last_error = None
-            break
-        except Exception as exc:  # noqa: BLE001 - retry transient transport errors
-            last_error = exc
-            time.sleep(4 * (attempt + 1))
-    if data is None:
-        _fail(f"{label}: external payload unreachable at {url} ({last_error})")
-    if hashlib.sha256(data).hexdigest() != digest:
-        _fail(f"{label}: external payload SHA-256 mismatch at {url}")
-    cache.parent.mkdir(parents=True, exist_ok=True)
-    temporary = cache.with_name(digest + ".part")
-    temporary.write_bytes(data)
-    try:
-        temporary.replace(cache)
-    except FileNotFoundError:
-        # A concurrent gate populated the same entry; trust the winner
-        # only when it still hash-matches.
-        if not cache.is_file() or hashlib.sha256(cache.read_bytes()).hexdigest() != digest:
-            cache.write_bytes(data)
-        temporary.unlink(missing_ok=True)
-    return data
+            temporary.replace(cache)
+        except FileNotFoundError:
+            # A concurrent gate populated the same entry; trust the winner
+            # only when it still hash-matches.
+            if not cache.is_file() or hashlib.sha256(cache.read_bytes()).hexdigest() != digest:
+                cache.write_bytes(data)
+            temporary.unlink(missing_ok=True)
+        return data
+    _fail(f"{label}: external payload unreachable with matching SHA-256 ({'; '.join(errors)})")
 
 
 def _payload_bytes(root: Path, item: dict, limit: int | None = None) -> bytes:
@@ -526,12 +546,22 @@ def _payload_bytes(root: Path, item: dict, limit: int | None = None) -> bytes:
     full = root.joinpath(*path.parts).resolve()
     if not full.is_relative_to(root.resolve()):
         return b""
+    if item.get("tier") == "referenced":
+        # During plan → apply → git rm, a referenced entry can briefly coexist
+        # with repository-local bytes. Use that fast path only after hashing the
+        # complete local payload; a stale remnant must never satisfy a preview,
+        # a completeness gate, or a limited-prefix read.
+        if full.is_file():
+            with full.open("rb") as stream:
+                actual = hashlib.file_digest(stream, "sha256").hexdigest()
+                if actual == item.get("sha256"):
+                    stream.seek(0)
+                    return stream.read(limit) if limit else stream.read()
+        data = _external_bytes(root, item, item.get("path") or "payload")
+        return data[:limit] if limit else data
     if full.is_file():
         with full.open("rb") as stream:
             return stream.read(limit) if limit else stream.read()
-    if item.get("tier") == "referenced":
-        data = _external_bytes(root, item, item.get("path") or "payload")
-        return data[:limit] if limit else data
     return b""
 
 

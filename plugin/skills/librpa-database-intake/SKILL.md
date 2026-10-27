@@ -21,8 +21,9 @@ The repository and the bytes are deliberately separated:
   bytes (`data/elements`), the website, the validators, and the CI gates.
 - **HuggingFace dataset** (`AroundPeking/LibRPA-database`): every calculation
   payload byte (inputs, results, logs, figures). Records declare these files
-  with `tier: "referenced"`, a `size_bytes`, a `sha256`, and a primary plus
-  mirror `external_url`.
+  with `tier: "referenced"`, a `size_bytes`, a `sha256`, and primary plus
+  mirror `external_url` values pinned to a full immutable Hugging Face commit
+  OID (never the mutable `resolve/main` alias).
 - **Consequence for intake**: a new calculation is added with its payload files
   as ordinary repository-local files under `data/calculations/`. After the pull
   request merges, the *External archive sync* workflow uploads those bytes to
@@ -215,27 +216,36 @@ Three workflows run per push (and PR):
    `python -m unittest discover -s tests`.
 2. **Publish database** (push to main) — the same checks plus the
    missing-evidence report check and the static site build; the site only
-   deploys when everything passes.
-3. **External archive sync** (after a successful publish) — converts every
-   calculation payload still stored locally to the referenced tier, uploads the
-   bytes to the HuggingFace dataset, regenerates the catalog, and removes the
-   local bytes in an automated commit. Every sync then runs the post-sync
-   triple check (`scripts/verify_post_sync.py --base HEAD~1`): the newly
-   referenced entries are fetched over HTTPS and byte-checked against their
-   declared SHA-256/size, and the tracked tree under `data/calculations` must
-   contain `record.json` manifests only. A failed check turns the sync red.
-   The verifier checks HTTP status explicitly and paces/retries per host
-   (`--delay`): the hf-mirror backup answers rapid request sequences with
-   429 error pages that curl still reports as a completed transfer, and those
-   error pages must never be mistaken for payload bytes.
+   deploys when everything passes. Immediately after deployment, it verifies
+   that `build-info.json` identifies the same clean source commit, then checks
+   the deployed catalog and a random payload sample. Across every commit in
+   the accepted push, it checks each added or modified payload, plus every
+   Git-deleted payload still declared by the accepted catalog (the
+   externalization case). Renames are treated as deletion plus addition, so
+   the new path is checked. A genuine deletion absent from that catalog is not
+   required to remain reachable.
+3. **External archive sync** (after a successful publish) — first binds the
+   accepted Publish `head_sha` so a queued run cannot synchronize a stale
+   revision. It converts every calculation payload still stored locally to the
+   referenced tier, uploads the batch as one Hugging Face commit, records the
+   returned commit OID, and uses that OID in both primary and mirror URLs.
+   HF hash/size verification and the tracked-tree check must pass **before**
+   the automated externalization commit is pushed; the tracked tree under
+   `data/calculations` must contain `record.json` manifests only. Git removal
+   reads the path list with `--pathspec-from-file`, so spaces cannot split a
+   payload path. The verifier checks HTTP status explicitly and paces/retries
+   per host (`--delay`): hf-mirror 429 error pages must never be mistaken for
+   payload bytes, and a rate-limited primary does not block a healthy mirror.
 
-After each sync the owner additionally verifies the deployed site with
-`python3 scripts/verify_post_sync.py --live <site-root>` (default 40-entry
-sample; `--live-all` for the full sweep): every entry in the deployed
-`database/data.json` must resolve over HTTPS — referenced entries at their
-external URL, local-tier entries at the deployed site path. Transmission,
-repository state, and public accessibility are three separate facts; verify
-all three after every upload.
+The live check belongs to Publish rather than the later sync job. Publish's
+concurrency retains pending runs and keeps a newer deployment from replacing
+the accepted revision before its check finishes, so neither a superseded
+pending run nor a stale sync refusal can silently skip live verification. The
+original data Publish checks deployed local-tier URLs; the
+subsequent externalization Publish checks those same paths at their deployed
+referenced-tier URLs. Thus transmission, repository state, and actual public
+accessibility remain three separate facts. For an additional manual full
+sweep, run `python3 scripts/verify_post_sync.py --live <site-root> --live-all`.
 
 Locally, run the same scripts plus `python3 -m unittest discover -s tests` and
 `node --test tests/*.mjs` before submitting. The test suite includes pinned

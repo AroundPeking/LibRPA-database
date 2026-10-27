@@ -47,8 +47,8 @@
         "original_name": "control.in",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/control.in",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/control.in"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/control.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/control.in"
       },
       {
         "role": "inputs",
@@ -60,8 +60,8 @@
         "original_name": "geometry.in",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/geometry.in"
       },
       {
         "role": "inputs",
@@ -73,8 +73,8 @@
         "original_name": "control.in output band section",
         "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/KPT_band"
       },
       {
         "role": "inputs",
@@ -86,8 +86,8 @@
         "original_name": "run_aims.sh",
         "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/aims_run_script.sh",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/inputs/aims_run_script.sh"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/aims_run_script.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/inputs/aims_run_script.sh"
       }
     ],
     "results": [
@@ -101,8 +101,8 @@
         "original_name": "EXX_band1001-1006.out (merged)",
         "transformation": "concatenated verbatim per-segment native tables with renumbered k indices (inclusive-segments convention)",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -114,8 +114,8 @@
         "original_name": "EXX_band2001.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2001.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2001.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2001.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2001.out"
       },
       {
         "role": "results",
@@ -127,8 +127,8 @@
         "original_name": "EXX_band2002.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2002.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2002.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2002.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2002.out"
       },
       {
         "role": "results",
@@ -140,8 +140,8 @@
         "original_name": "EXX_band2003.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2003.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2003.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2003.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2003.out"
       },
       {
         "role": "results",
@@ -153,8 +153,8 @@
         "original_name": "EXX_band2004.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2004.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2004.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2004.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2004.out"
       },
       {
         "role": "results",
@@ -166,8 +166,8 @@
         "original_name": "EXX_band2005.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2005.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2005.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2005.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2005.out"
       },
       {
         "role": "results",
@@ -179,8 +179,8 @@
         "original_name": "EXX_band2006.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2006.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2006.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2006.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/EXX_band2006.out"
       },
       {
         "role": "results",
@@ -192,8 +192,8 @@
         "original_name": "GW_band1001-1006.out (merged)",
         "transformation": "concatenated verbatim per-segment native tables with renumbered k indices (inclusive-segments convention)",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -205,8 +205,8 @@
         "original_name": "GW_band2001.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2001.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2001.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2001.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2001.out"
       },
       {
         "role": "results",
@@ -218,8 +218,8 @@
         "original_name": "GW_band2002.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2002.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2002.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2002.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2002.out"
       },
       {
         "role": "results",
@@ -231,8 +231,8 @@
         "original_name": "GW_band2003.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2003.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2003.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2003.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2003.out"
       },
       {
         "role": "results",
@@ -244,8 +244,8 @@
         "original_name": "GW_band2004.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2004.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2004.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2004.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2004.out"
       },
       {
         "role": "results",
@@ -257,8 +257,8 @@
         "original_name": "GW_band2005.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2005.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2005.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2005.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2005.out"
       },
       {
         "role": "results",
@@ -270,8 +270,8 @@
         "original_name": "GW_band2006.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2006.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2006.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2006.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/results/GW_band2006.out"
       }
     ],
     "logs": [
@@ -285,8 +285,8 @@
         "original_name": "aims.731944.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log"
       },
       {
         "role": "logs",
@@ -298,8 +298,8 @@
         "original_name": "slurm-731944.out",
         "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log"
       },
       {
         "role": "logs",
@@ -311,8 +311,8 @@
         "original_name": "aims.735178.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_stdout.log"
       },
       {
         "role": "logs",
@@ -324,8 +324,8 @@
         "original_name": "slurm-735178.out",
         "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_735178_slurm_stdout.log"
       },
       {
         "role": "logs",
@@ -337,8 +337,8 @@
         "original_name": "aims.736421.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_stdout.log"
       },
       {
         "role": "logs",
@@ -350,8 +350,8 @@
         "original_name": "slurm-736421.out",
         "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_736421_slurm_stdout.log"
       },
       {
         "role": "logs",
@@ -363,8 +363,8 @@
         "original_name": "aims.740569.out",
         "transformation": "none",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log"
       },
       {
         "role": "logs",
@@ -376,8 +376,8 @@
         "original_name": "slurm-740569.out",
         "transformation": "private HPC paths, scheduler variable names and node lists redacted; scientific values retained",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log"
       }
     ],
     "figures": [
@@ -395,8 +395,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/exx_frontier.svg",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/exx_frontier.svg"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -412,8 +412,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/gw_frontier.svg",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/gw_frontier.svg"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -430,8 +430,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/band_frontier_metadata.json",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/NiO/nio-aims-gw-int/figures/band_frontier_metadata.json"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/NiO/nio-aims-gw-int/figures/band_frontier_metadata.json"
       }
     ]
   },

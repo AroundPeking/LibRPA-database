@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <meta name="description" content="A first-principles GW and RPA materials database: quasiparticle gaps, band structures, and RPA energies from ABACUS and FHI-aims workflows, with archived inputs, exact basis files, and software provenance.">
   <title>LibRPA materials database</title>
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261021-archive-v28">
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261021-archive-v28">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261021-archive-v28">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261027-review-v29">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=20261027-review-v29">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261027-review-v29">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261021-archive-v28">
+  <link rel="stylesheet" href="style.css?v=20261027-review-v29">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,9 +28,9 @@
         <a href="#/gaps" data-nav="gaps">Gap overview</a>
         <a href="#/basis" data-nav="basis">Basis library</a>
         <a href="../references/database.md" class="external-nav">Data schema <span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/AroundPeking/abacus-librpa-gw-database" class="external-nav">Source code <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/AroundPeking/LibRPA-database" class="external-nav">Source code <span aria-hidden="true">↗</span></a>
       </nav>
-      <button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
       </button>
@@ -55,7 +55,7 @@
         <div class="intro-text"><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Materials, with evidence.</h1><p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.</p></div>
         <div class="intro-aside">
           <svg class="intro-lattice" viewBox="0 0 280 156" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1"><path d="M36 40 103 16 170 40 103 66Z M103 66 170 40 237 66 170 92Z M36 92 103 66 170 92 103 118Z M36 40v52 M103 16v50 M170 40v52 M237 66v50 M103 66v52 M170 92v50 M36 92 103 118 170 92 237 116 170 142 103 118"/><path class="lattice-guide" d="M12 128 259 34 M12 76 259 128" stroke-dasharray="3 6"/></g><g fill="currentColor"><circle cx="36" cy="40" r="4"/><circle cx="103" cy="16" r="4"/><circle cx="170" cy="40" r="5"/><circle cx="103" cy="66" r="6"/><circle cx="237" cy="66" r="4"/><circle cx="36" cy="92" r="4"/><circle cx="170" cy="92" r="6"/><circle cx="103" cy="118" r="4"/><circle cx="237" cy="116" r="4"/><circle cx="170" cy="142" r="4"/></g></svg>
-          <a class="intro-link" href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contribute a calculation <span aria-hidden="true">↗</span></a>
+          <a class="intro-link" href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contribute a calculation <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="stats" id="stats" aria-label="Database inventory"></div>
@@ -82,7 +82,7 @@
         <div class="catalog-content">
           <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
           <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><button type="button" data-query="SOC">SOC</button><span class="search-tip">Material · element · method · ID · commit</span></div>
-          <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gap">GW gap ↓</option></select></label></div>
+          <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="result">GW gap ↓</option></select></label></div>
           <div id="catalog" class="catalog" aria-busy="true"></div>
           <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
           <p class="catalog-footnote" id="catalog-footnote">One row per calculation. Gaps are in eV and may describe the archived k-path, not the global fundamental gap. A dash means no value is listed; open a record for its definition and evidence.</p>
@@ -91,10 +91,10 @@
       </div>
     </section>
     <section id="detail-view" class="detail-view" hidden aria-live="polite"></section>
-      <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="data.json" download>Download catalog (JSON)</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database">Source code</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/abacus-librpa-gw-database/blob/main/LICENSE">License</a></div></footer>
+      <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="data.json" download>Download catalog (JSON)</a><a href="https://github.com/AroundPeking/LibRPA-database">Source code</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/LICENSE">License</a></div></footer>
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
-  <noscript><p class="notice">JavaScript is needed for searching and browsing the catalog. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/abacus-librpa-gw-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261021-archive-v28"></script>
+  <noscript><p class="notice">JavaScript is needed for searching and browsing the catalog. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/LibRPA-database/tree/main/data">browse the archived files</a>.</p></noscript>
+  <script type="module" src="app.js?v=20261027-review-v29"></script>
 </body>
 </html>

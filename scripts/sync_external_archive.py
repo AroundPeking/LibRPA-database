@@ -67,7 +67,7 @@ def main() -> int:
         print(f"external-archive sync: {len(items)} payload(s), "
               f"{sum(item['size_bytes'] for item in items) / 1e6:.1f} MB")
         plan_path.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n")
-        _run("externalize_files.py", "upload", "--plan", str(plan_path), "--repo-id", args.repo_id)
+        _run("externalize_files.py", "upload", "--plan", str(plan_path), "--repo-id", args.repo_id, "--bulk")
         _run("externalize_files.py", "verify", "--plan", str(plan_path),
              "--url-base", url_base, "--backup-base", backup_base,
              "--workers", str(args.workers))

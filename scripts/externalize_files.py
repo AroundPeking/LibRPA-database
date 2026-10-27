@@ -15,13 +15,16 @@ plan     Identify candidate files (explicit paths or a size threshold) and
 stage    Verify each file's declared SHA-256 against the local bytes and copy
          them into a staging tree that mirrors repository-relative paths.
 apply    Rewrite the matching record.json entries to the referenced tier with
-         direct URLs derived from --url-base (and --backup-base).  Working
-         tree only; review with git diff before committing.
+         direct URLs derived from --url-base (and --backup-base), pinned to
+         the full commit OID recorded by upload. Working tree only; review
+         with git diff before committing.
 unapply  Restore the local-tier entry shape (removes tier/URL fields).
+pin      Rewrite existing referenced URLs to one reviewed immutable HF OID.
 verify   Download each external URL and re-check SHA-256 of the served bytes;
          the go-live gate before any ``git rm`` of local copies.
 upload   Push the staged tree to a Hugging Face dataset repository via
-         huggingface_hub (requires the ``hf`` Python package and a token).
+         huggingface_hub (requires the ``hf`` Python package and a token),
+         then save the returned commit OID(s) in the conversion plan.
 
 The local bytes are never removed by this script.  After ``verify`` passes,
 removal is a reviewed ``git rm`` decision.
@@ -82,10 +85,40 @@ def _locate(record_path: Path, repo_relative: str, record=None):
     raise SystemExit(f"{repo_relative} is not declared in {record_path}")
 
 
-def _url(base: str, repo_relative: str) -> str:
+def _url(base: str, repo_relative: str, revision: str | None = None) -> str:
     base = base.rstrip("/")
+    revision = revision or "main"
+    if not isinstance(revision, str) or not re.fullmatch(r"[A-Za-z0-9_.-]+", revision):
+        raise SystemExit(f"invalid external archive revision: {revision!r}")
     segment = "/".join(urllib.parse.quote(part, safe="") for part in PurePosixPath(repo_relative).parts)
-    return f"{base}/resolve/main/{segment}"
+    return f"{base}/resolve/{revision}/{segment}"
+
+
+def _commit_oid(info) -> str:
+    oid = getattr(info, "oid", None)
+    if not isinstance(oid, str) or not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", oid):
+        raise SystemExit("Hugging Face upload did not return a full commit OID")
+    return oid
+
+
+def _plan_revision(item: dict) -> str:
+    revision = item.get("revision")
+    if not isinstance(revision, str) or not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", revision):
+        raise SystemExit(f"{item.get('path', 'plan item')}: upload must record a full immutable commit OID before verify/apply")
+    return revision
+
+
+def _pin_url(url: str, revision: str) -> str:
+    parts = urllib.parse.urlsplit(url)
+    marker = "/resolve/"
+    start = parts.path.find(marker)
+    if start < 0:
+        raise SystemExit(f"external URL has no /resolve/ revision: {url}")
+    end = parts.path.find("/", start + len(marker))
+    if end < 0:
+        raise SystemExit(f"external URL has no payload path after its revision: {url}")
+    path = parts.path[:start] + marker + revision + parts.path[end:]
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, path, parts.query, parts.fragment))
 
 
 def build_plan(paths: list[str], min_size_mb: float, all_payloads: bool = False) -> list[dict]:
@@ -169,11 +202,12 @@ def cmd_apply(plan: list[dict], url_base: str, backup_base: str | None) -> int:
         if entry.get("sha256") != item["sha256"] or entry.get("size_bytes") != item["size_bytes"]:
             raise SystemExit(f"{item['path']}: record identity drifted from the plan; re-run plan")
         entry["tier"] = "referenced"
-        entry["external_url"] = _url(url_base, item["path"])
+        revision = _plan_revision(item)
+        entry["external_url"] = _url(url_base, item["path"], revision)
         if backup_base:
             if not backup_base.startswith("https://"):
                 raise SystemExit("--backup-base must be an https URL")
-            entry["external_url_backup"] = _url(backup_base, item["path"])
+            entry["external_url_backup"] = _url(backup_base, item["path"], revision)
         print(f"applied referenced tier: {item['path']}")
     for record_path, record in records.items():
         _dump_json(record_path, record)
@@ -195,6 +229,41 @@ def cmd_unapply(paths: list[str]) -> int:
     return 0
 
 
+def cmd_pin(revision: str) -> int:
+    """Pin every referenced calculation payload to one reviewed HF revision."""
+    if not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", revision):
+        raise SystemExit("pin requires a full lowercase Hugging Face commit OID")
+    changed_records = 0
+    changed_entries = 0
+    for record_path in sorted((ROOT / "data" / "calculations").rglob("record.json")):
+        record = _load_json(record_path)
+        changed = False
+        for entries in (record.get("files") or {}).values():
+            for entry in entries or []:
+                if entry.get("tier") != "referenced":
+                    continue
+                entry_changed = False
+                for field in ("external_url", "external_url_backup"):
+                    url = entry.get(field)
+                    if field == "external_url_backup" and url is None:
+                        continue
+                    if not isinstance(url, str) or not url.startswith("https://"):
+                        raise SystemExit(f"{record_path}: referenced entry is missing an https {field}")
+                    if urllib.parse.urlsplit(url).hostname not in {"huggingface.co", "hf-mirror.com"}:
+                        continue
+                    pinned = _pin_url(url, revision)
+                    if pinned != url:
+                        entry[field] = pinned
+                        changed = entry_changed = True
+                if entry_changed:
+                    changed_entries += 1
+        if changed:
+            _dump_json(record_path, record)
+            changed_records += 1
+    print(f"pinned {changed_entries} referenced entries in {changed_records} record(s) to {revision}")
+    return 0
+
+
 def _verify_one(url: str, expected: str) -> str:
     try:
         with tempfile.TemporaryDirectory() as tmp:
@@ -210,9 +279,10 @@ def _verify_one(url: str, expected: str) -> str:
 def cmd_verify(plan: list[dict], url_base: str, backup_base: str | None, workers: int = 1) -> int:
     jobs = []
     for item in plan:
-        jobs.append((_url(url_base, item["path"]), item["sha256"]))
+        revision = _plan_revision(item)
+        jobs.append((_url(url_base, item["path"], revision), item["sha256"]))
         if backup_base:
-            jobs.append((_url(backup_base, item["path"]), item["sha256"]))
+            jobs.append((_url(backup_base, item["path"], revision), item["sha256"]))
     if workers > 1:
         from concurrent.futures import ThreadPoolExecutor
         with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -248,20 +318,25 @@ def cmd_upload(plan: list[dict], repo_id: str, bulk: bool = False) -> int:
         dest = Path(tmp) / "tree"
         cmd_stage(plan, dest)
         if bulk:
-            # One folder upload = one dataset commit for the whole batch;
-            # huggingface_hub parallelizes the small-file transfers itself.
-            api.upload_folder(folder_path=str(dest),
-                              repo_id=repo_id, repo_type="dataset",
-                              commit_message=f"bulk externalize {len(plan)} payloads")
-            print(f"uploaded {len(plan)} file(s) to dataset {repo_id} (bulk)")
+            # One folder upload = one dataset commit for the whole batch. Every
+            # item inherits that immutable revision, so a later overwrite on
+            # main cannot change the bytes addressed by the converted records.
+            info = api.upload_folder(folder_path=str(dest),
+                                     repo_id=repo_id, repo_type="dataset",
+                                     commit_message=f"bulk externalize {len(plan)} payloads")
+            revision = _commit_oid(info)
+            for item in plan:
+                item["revision"] = revision
+            print(f"uploaded {len(plan)} file(s) to dataset {repo_id} (bulk commit {revision})")
             return 0
         for item in plan:
             # One upload per file preserves the exact repository-relative
-            # path; each upload is resumable on its own.
-            api.upload_file(path_or_fileobj=str(dest / item["path"]),
-                            path_in_repo=item["path"],
-                            repo_id=repo_id, repo_type="dataset")
-            print(f"uploaded {item['path']}")
+            # path; each upload is resumable on its own and gets its own OID.
+            info = api.upload_file(path_or_fileobj=str(dest / item["path"]),
+                                   path_in_repo=item["path"],
+                                   repo_id=repo_id, repo_type="dataset")
+            item["revision"] = _commit_oid(info)
+            print(f"uploaded {item['path']} at {item['revision']}")
     print(f"uploaded {len(plan)} file(s) to dataset {repo_id}")
     return 0
 
@@ -290,6 +365,9 @@ def main() -> int:
 
     unapply_cmd = sub.add_parser("unapply", help="restore local-tier entry shape")
     unapply_cmd.add_argument("--paths", nargs="+", required=True)
+
+    pin_cmd = sub.add_parser("pin", help="pin referenced payloads to an immutable HF commit OID")
+    pin_cmd.add_argument("--revision", required=True, help="full 40/64-character dataset commit OID")
 
     verify_cmd = sub.add_parser("verify", help="download external URLs and re-check SHA-256")
     verify_cmd.add_argument("--plan", required=True)
@@ -322,10 +400,16 @@ def main() -> int:
         return cmd_apply(read_plan(args.plan), args.url_base, args.backup_base)
     if args.command == "unapply":
         return cmd_unapply(args.paths)
+    if args.command == "pin":
+        return cmd_pin(args.revision)
     if args.command == "verify":
         return cmd_verify(read_plan(args.plan), args.url_base, args.backup_base, workers=args.workers)
     if args.command == "upload":
-        return cmd_upload(read_plan(args.plan), args.repo_id, bulk=args.bulk)
+        plan = read_plan(args.plan)
+        result = cmd_upload(plan, args.repo_id, bulk=args.bulk)
+        if args.plan != "-":
+            _dump_json(Path(args.plan), plan)
+        return result
     return 2
 
 

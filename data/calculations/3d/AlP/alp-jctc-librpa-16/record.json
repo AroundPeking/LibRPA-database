@@ -57,8 +57,8 @@
         "transformation": "none",
         "original_name": "control.in",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/control.in",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/control.in"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/control.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/control.in"
       },
       {
         "role": "inputs",
@@ -71,8 +71,8 @@
         "transformation": "none",
         "original_name": "geometry.in",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/geometry.in",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/geometry.in"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/geometry.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/geometry.in"
       },
       {
         "role": "inputs",
@@ -85,8 +85,8 @@
         "transformation": "none",
         "original_name": "librpa.in",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/librpa.in",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/librpa.in"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/librpa.in"
       },
       {
         "role": "inputs",
@@ -98,8 +98,8 @@
         "scientific_role": "aims_kpt_band_derived",
         "transformation": "derived Line-mode KPT from the archived control.in output band segment definitions; inclusive-segments convention (each segment includes both endpoints, shared path nodes repeat, count 0 marks a path discontinuity); coordinates taken verbatim from the segment endpoints",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/KPT_band",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/KPT_band"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/KPT_band",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/inputs/KPT_band"
       }
     ],
     "results": [
@@ -114,8 +114,8 @@
         "transformation": "none",
         "original_name": "EXX_band_spin_1.dat",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/results/EXX_band_spin_1.dat",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/results/EXX_band_spin_1.dat"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -128,8 +128,8 @@
         "transformation": "none",
         "original_name": "GW_band_spin_1.dat",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/results/GW_band_spin_1.dat",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/results/GW_band_spin_1.dat"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/results/GW_band_spin_1.dat"
       }
     ],
     "logs": [
@@ -144,8 +144,8 @@
         "transformation": "private cluster software and home path prefixes redacted to a neutral /HPC prefix; scientific values retained",
         "original_name": "aims.out",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/aims.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/aims.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/aims.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/aims.out"
       },
       {
         "role": "logs",
@@ -158,8 +158,8 @@
         "transformation": "none",
         "original_name": "LibRPA.out",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out"
       }
     ],
     "figures": [
@@ -178,8 +178,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/exx_frontier.svg",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/exx_frontier.svg"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/exx_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/exx_frontier.svg"
       },
       {
         "role": "figures",
@@ -196,8 +196,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/gw_frontier.svg",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/gw_frontier.svg"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
@@ -215,8 +215,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/band_frontier_metadata.json",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/band_frontier_metadata.json"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-librpa-16/figures/band_frontier_metadata.json"
       }
     ]
   },

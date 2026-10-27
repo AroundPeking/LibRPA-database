@@ -4,7 +4,7 @@ import { installPreview, installBlobDownloads } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { gapOverview, renderGapOverview } from "./gaps.mjs";
-import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261021-archive-v28";
+import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261027-review-v29";
 
 const $ = selector => document.querySelector(selector);
 const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
@@ -14,6 +14,7 @@ let bySet = new Map();
 let elements = [];
 let corpus = new Map();
 let linked = new Map();
+let searchCorpus = new Map();
 
 function buildIndexes() {
   bySet = new Map(state.sets.map(set => [set.id, set]));
@@ -23,17 +24,20 @@ function buildIndexes() {
     corpus.set(record.id, { record, basis: [...ids].map(id => bySet.get(id)).filter(Boolean) });
     for (const id of ids) { if (!linked.has(id)) linked.set(id, []); linked.get(id).push(record); }
   }
+  for (const record of state.calculations) searchCorpus.set(record.id, materialSearchText(record, corpus.get(record.id)?.basis));
+  for (const set of state.sets) searchCorpus.set(`basis:${set.id}`, basisSearchText(set, linked.get(set.id)));
 }
 
 function matchesQuery(item, isBasis = false) {
   const exactElement = elements.find(element => element.toLowerCase() === state.query.toLowerCase());
   if (exactElement) return isBasis ? item.element === exactElement : recordElements(item).includes(exactElement);
-  return matchesSearch(isBasis ? basisSearchText(item, linked.get(item.id)) : materialSearchText(item, corpus.get(item.id)?.basis), state.query);
+  const text = searchCorpus.get(isBasis ? `basis:${item.id}` : item.id) || "";
+  return matchesSearch(text, state.query);
 }
 
 function filtered() {
   if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element)).sort((a, b) => a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
-  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (primaryResult(b)?.value ?? -Infinity) - (primaryResult(a)?.value ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
+  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (gapOverview(b)?.gw ?? -Infinity) - (gapOverview(a)?.gw ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
 function materialRow(record) {
@@ -74,7 +78,7 @@ function syncFilters() {
   $("#input-filter").value = state.inputs;
   document.querySelectorAll("input[name=dimension]").forEach(input => { input.checked = input.value === state.dimension; });
   document.querySelectorAll("input[name=software]").forEach(input => { input.checked = input.value === state.software; });
-  $("#sort").innerHTML = gaps ? '<option value="result">GW gap ↓</option><option value="material">Material A–Z</option>' : basis ? '<option value="element">Element A–Z</option>' : '<option value="material">Material A–Z</option><option value="result">Primary result ↓</option>';
+  $("#sort").innerHTML = gaps ? '<option value="result">GW gap ↓</option><option value="material">Material A–Z</option>' : basis ? '<option value="element">Element A–Z</option>' : '<option value="material">Material A–Z</option><option value="result">GW gap ↓</option>';
   if (!(gaps ? ["result", "material"] : basis ? ["element"] : ["material", "result"]).includes(state.sort)) state.sort = gaps ? "result" : basis ? "element" : "material";
   $("#sort").value = state.sort;
 }
@@ -162,10 +166,17 @@ function route() {
     state.currentRecord = match[1] === "material" ? record : null;
     $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
     const back = $(".breadcrumb a");
-    if (back && (match[1] === "material" ? state.mode === "materials" : state.mode === "basis")) back.href = state.returnHash;
+    const canRestore = match[1] === "material" ? ["materials", "gaps"].includes(state.mode) : state.mode === "basis";
+    if (back && canRestore) {
+      back.href = state.returnHash;
+      back.textContent = state.mode === "gaps" ? "Gap overview" : state.mode === "basis" ? "Basis library" : "Materials";
+    }
     document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;
-    document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === (match[1] === "material" ? "materials" : "basis") ? "page" : "false"));
+    const currentNav = match[1] === "basis" ? "basis" : state.mode === "gaps" ? "gaps" : "materials";
+    document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === currentNav ? "page" : "false"));
     window.scrollTo(0, 0);
+    const heading = $("#detail-view h1");
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
     if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();
     return;
   }
@@ -177,6 +188,8 @@ function route() {
   state.returnHash = hash;
   syncFilters();
   renderHome();
+  const heading = $("#page-title");
+  if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
 }
 
 async function start() {
@@ -217,7 +230,7 @@ async function start() {
       $(".filter-panel").classList.toggle("filters-expanded", expanded);
     });
     $("#search-examples").addEventListener("click", event => { const button = event.target.closest("[data-query]"); if (button) { state.query = button.dataset.query; $("#search").value = state.query; updateFilter(); } });
-    $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); $("#catalog-title").scrollIntoView({ block: "start" }); } });
+    $("#catalog").addEventListener("click", event => { const button = event.target.closest("[data-page]"); if (button && !button.disabled) { state.page = Number(button.dataset.page); renderHome(); history.replaceState(null, "", listHash()); state.returnHash = listHash(); const title = $("#catalog-title"); title.scrollIntoView({ block: "start" }); title.tabIndex = -1; title.focus({ preventScroll: true }); } });
     document.addEventListener("keydown", event => { if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); } });
     window.addEventListener("hashchange", route);
     installCoverEffects($("#landing-cover"));

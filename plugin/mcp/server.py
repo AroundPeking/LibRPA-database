@@ -31,6 +31,7 @@ import tempfile
 import time
 import urllib.request
 from pathlib import Path
+from urllib.parse import quote
 
 SERVER_NAME = "librpa-database"
 SERVER_VERSION = "1.0.0"
@@ -102,7 +103,8 @@ def _file_url(file: dict) -> str:
     url = file.get("external_url")
     if isinstance(url, str) and url.startswith("https://"):
         return url
-    return f"{_site_root()}/{file.get('path', '')}"
+    path = quote(str(file.get("path", "")), safe="/")
+    return f"{_site_root()}/{path}"
 
 
 def _file_urls(file: dict) -> list:
@@ -113,28 +115,78 @@ def _file_urls(file: dict) -> list:
     return urls
 
 
-def _payload_bytes(file: dict) -> bytes:
+def _cache_path(file: dict) -> Path:
     digest = file.get("sha256")
-    cache = _cache_dir() / str(digest)[:2] / str(digest)
+    if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+        raise ValueError("payload requires a lowercase SHA-256 digest")
+    return _cache_dir() / digest[:2] / digest
+
+
+def _download_verified(url: str, file: dict, cache: Path) -> Path:
+    """Stream one URL into a temporary file and atomically cache valid bytes."""
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    expected = file["sha256"]
+    expected_size = file.get("size_bytes")
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    last_error = None
+    for attempt in range(3):
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(prefix=cache.name + ".", suffix=".part",
+                                             dir=cache.parent, delete=False) as handle:
+                temporary = Path(handle.name)
+            digest = hashlib.sha256()
+            size = 0
+            with urllib.request.urlopen(request, timeout=120) as response, temporary.open("wb") as stream:
+                while True:
+                    chunk = response.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    digest.update(chunk)
+                    size += len(chunk)
+                    stream.write(chunk)
+            if digest.hexdigest() != expected:
+                raise RuntimeError(f"SHA-256 mismatch at {url}")
+            if isinstance(expected_size, int) and not isinstance(expected_size, bool) and size != expected_size:
+                raise RuntimeError(f"size mismatch at {url}: {size} != {expected_size}")
+            temporary.replace(cache)
+            return cache
+        except Exception as error:  # noqa: BLE001 - retry and then try the mirror
+            last_error = error
+            if attempt < 2:
+                time.sleep(2 * (attempt + 1))
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
+    raise RuntimeError(f"no verified payload at {url} ({last_error})")
+
+
+def _payload_path(file: dict) -> Path:
+    """Return exact verified bytes without reading the whole payload into RAM."""
+    cache = _cache_path(file)
+    expected_size = file.get("size_bytes")
     if cache.is_file():
-        data = cache.read_bytes()
-        if hashlib.sha256(data).hexdigest() == digest:
-            return data
+        with cache.open("rb") as stream:
+            valid = hashlib.file_digest(stream, "sha256").hexdigest() == file["sha256"]
+        if valid and isinstance(expected_size, int) and not isinstance(expected_size, bool):
+            valid = cache.stat().st_size == expected_size
+        if valid:
+            return cache
+        cache.unlink(missing_ok=True)
     last_error = None
     for url in _file_urls(file):
         try:
-            data = _fetch(url)
+            return _download_verified(url, file, cache)
         except RuntimeError as error:
             last_error = error
-            continue
-        if hashlib.sha256(data).hexdigest() != digest:
-            last_error = f"SHA-256 mismatch at {url}"
-            continue
-        cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_bytes(data)
-        return data
     raise RuntimeError(f"could not fetch {file.get('path', '?')} with a matching hash "
                        f"({last_error})")
+
+
+def _payload_bytes(file: dict) -> bytes:
+    # Band-table parsing genuinely needs the complete table. Text previews use
+    # _payload_path directly and stay bounded by their requested prefix instead.
+    return _payload_path(file).read_bytes()
 
 
 def _methods_of(record: dict) -> list:
@@ -275,17 +327,22 @@ def tool_read_file(arguments: dict) -> dict:
     if file is None:
         raise ValueError(f"{wanted!r} is not declared in {record.get('id')}; "
                          "use list_files to see the declared paths")
-    max_bytes = min(int(arguments.get("max_bytes", TEXT_LIMIT_DEFAULT)), TEXT_LIMIT_MAX)
-    data = _payload_bytes(file)
-    if b"\x00" in data[:4096]:
-        cached = _cache_dir() / str(file["sha256"])[:2] / str(file["sha256"])
-        return {"path": wanted, "binary": True, "size_bytes": len(data),
+    max_bytes = max(1, min(int(arguments.get("max_bytes", TEXT_LIMIT_DEFAULT)), TEXT_LIMIT_MAX))
+    cached = _payload_path(file)
+    size = cached.stat().st_size
+    with cached.open("rb") as stream:
+        prefix = stream.read(4096)
+    if b"\x00" in prefix:
+        return {"path": wanted, "binary": True, "size_bytes": size,
                 "sha256_verified": True, "cached_at": str(cached),
                 "note": "binary payload; the cached file holds the exact verified bytes"}
-    text = data.decode("utf-8", errors="replace")
-    truncated = len(text) > max_bytes
-    return {"path": wanted, "size_bytes": len(data), "sha256_verified": True,
-            "truncated": truncated, "content": text[:max_bytes]}
+    # TextIOWrapper may decode a small buffered block, but never requires the
+    # full archived file. One extra character determines truncation exactly.
+    with cached.open("r", encoding="utf-8", errors="replace") as stream:
+        preview = stream.read(max_bytes + 1)
+    truncated = len(preview) > max_bytes
+    return {"path": wanted, "size_bytes": size, "sha256_verified": True,
+            "truncated": truncated, "content": preview[:max_bytes]}
 
 
 def tool_get_band_table(arguments: dict) -> dict:

@@ -12,10 +12,11 @@ export function gapOverview(record) {
   }
   if (type === "reader_conversion") {
     const run = record.associated_gw_run;
-    if (run?.scheduler_state !== "COMPLETED" || !run.gap?.g0w0_available
-        || typeof run.gap.g0w0_value !== "number" || !Number.isFinite(run.gap.g0w0_value)) return null;
-    const ks = run.gap.ks_available && Number.isFinite(run.gap.ks_value) ? run.gap.ks_value : null;
-    return { ks, exx: null, gw: run.gap.g0w0_value, scope: "sampled" };
+    if (run?.scheduler_state !== "COMPLETED") return null;
+    const ks = run.gap?.ks_available && typeof run.gap.ks_value === "number" && Number.isFinite(run.gap.ks_value) ? run.gap.ks_value : null;
+    const gw = run.gap?.g0w0_available && typeof run.gap.g0w0_value === "number" && Number.isFinite(run.gap.g0w0_value) ? run.gap.g0w0_value : null;
+    if (ks === null && gw === null) return null;
+    return { ks, exx: null, gw, scope: "sampled" };
   }
   const ks = bandGap(record, "DFT");
   const exx = bandGap(record, "EXX");

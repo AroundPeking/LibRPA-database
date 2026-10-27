@@ -1,12 +1,15 @@
 """Integrity regressions for contributed scientific records."""
 import hashlib
 import importlib.util
+import io
 import json
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -1157,12 +1160,32 @@ libRPA finished successfully
             self.assertNotIn("continue-on-error", text)
             self.assertNotIn("|| true", text)
 
+    def test_external_sync_binds_publish_and_verifies_before_push(self):
+        workflow = (ROOT / ".github/workflows/external-archive-sync.yml").read_text()
+        pages = (ROOT / ".github/workflows/pages.yml").read_text()
+        self.assertIn('EXPECTED_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}', workflow)
+        self.assertIn('echo "publish_sha=$EXPECTED_SHA" >> "$GITHUB_OUTPUT"', workflow)
+        self.assertIn("git --literal-pathspecs rm --quiet --pathspec-from-file=converted-paths.txt", workflow)
+        self.assertNotIn("git rm --quiet $(cat converted-paths.txt)", workflow)
+        self.assertLess(workflow.index("Pre-push gate"), workflow.index("Push the verified externalization commit"))
+        self.assertNotIn("--diff-filter=AD", workflow)
+        self.assertNotIn("scripts/verify_post_sync.py --skip-hash --live", workflow)
+        self.assertIn('PUBLISH_SHA: ${{ github.sha }}', pages)
+        self.assertIn('PUBLISH_BASE: ${{ github.event.before }}', pages)
+        self.assertIn('--live-base "$PUBLISH_BASE"', pages)
+        self.assertIn("queue: max", pages)
+        self.assertIn("--skip-hash --skip-tree", pages)
+        self.assertIn('--live-commit "$PUBLISH_SHA"', pages)
+        self.assertLess(pages.index("uses: actions/deploy-pages@v4"),
+                        pages.index("Verify deployed revision and changed payload paths"))
+
 
 class ReferencedTierTests(unittest.TestCase):
     """外部对象存储档：字节离开仓库后，记录保持身份与完整性锚点。"""
 
-    EXTERNAL = "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-control/logs/librpa.out"
-    BACKUP = "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/data/calculations/3d/Si/si-control/logs/librpa.out"
+    REVISION = "a" * 40
+    EXTERNAL = f"https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/{REVISION}/data/calculations/3d/Si/si-control/logs/librpa.out"
+    BACKUP = f"https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/{REVISION}/data/calculations/3d/Si/si-control/logs/librpa.out"
 
     @classmethod
     def setUpClass(cls):
@@ -1219,6 +1242,17 @@ class ReferencedTierTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "external_url_backup"):
             self.lib.validate(self.root, [self.set], [self.case])
 
+    def test_huggingface_urls_require_an_immutable_commit_oid(self):
+        for field in ("external_url", "external_url_backup"):
+            for revision in ("main", "latest", "a" * 39, "A" * 40):
+                with self.subTest(field=field, revision=revision):
+                    entry = self._referenced_entry(**{
+                        field: f"https://huggingface.co/datasets/x/y/resolve/{revision}/data/a.log"
+                    })
+                    self.case["files"] = {"logs": [entry]}
+                    with self.assertRaisesRegex(ValueError, "full commit OID"):
+                        self.lib.validate(self.root, [self.set], [self.case])
+
     def test_unknown_tier_values_are_rejected(self):
         self.case["files"] = {"logs": [self._referenced_entry(tier="remote")]}
         with self.assertRaisesRegex(ValueError, "unsupported tier"):
@@ -1274,8 +1308,52 @@ class ReferencedTierTests(unittest.TestCase):
             "mpi_ranks": 1, "omp_threads_per_rank": 1, "evidence": [entry["path"]],
         }
         self.lib.validate(self.root, [self.set], [self.case])
-        with self.assertRaisesRegex(ValueError, "external payload unreachable"):
-            self.lib.completeness_issues(self.root, [self.set], self.case)
+        with mock.patch.object(self.lib.urllib.request, "urlopen", side_effect=OSError("offline")) as fetch, \
+                mock.patch.object(self.lib.time, "sleep"):
+            with self.assertRaisesRegex(ValueError, "external payload unreachable"):
+                self.lib.completeness_issues(self.root, [self.set], self.case)
+        self.assertEqual(fetch.call_count, 6)  # three attempts at primary and mirror
+
+    def test_referenced_local_remnant_must_match_the_complete_declared_hash(self):
+        payload = b"verified local bytes\n"
+        entry = self._referenced_entry(sha256=hashlib.sha256(payload).hexdigest(),
+                                       size_bytes=len(payload))
+        local = self.root / entry["path"]
+        local.parent.mkdir(parents=True, exist_ok=True)
+        local.write_bytes(payload)
+        with mock.patch.object(self.lib, "_external_bytes") as external:
+            self.assertEqual(self.lib._payload_bytes(self.root, entry, limit=8), payload[:8])
+        external.assert_not_called()
+        local.write_bytes(b"stale local remnant\n")
+        with mock.patch.object(self.lib, "_external_bytes", return_value=payload) as external:
+            self.assertEqual(self.lib._payload_bytes(self.root, entry, limit=8), payload[:8])
+        external.assert_called_once()
+
+    def test_primary_failure_or_hash_mismatch_falls_back_to_verified_mirror(self):
+        for mode in ("transport", "hash"):
+            with self.subTest(mode=mode):
+                payload = f"correct {mode} payload\n".encode()
+                entry = self._referenced_entry(sha256=hashlib.sha256(payload).hexdigest(),
+                                               size_bytes=len(payload))
+                local = self.root / entry["path"]
+                local.parent.mkdir(parents=True, exist_ok=True)
+                local.write_bytes(b"stale local remnant\n")
+                calls = []
+
+                def fetch(request, timeout):
+                    calls.append(request.full_url)
+                    if request.full_url == self.EXTERNAL:
+                        if mode == "transport":
+                            raise OSError("primary offline")
+                        return io.BytesIO(b"wrong primary bytes")
+                    return io.BytesIO(payload)
+
+                with mock.patch.object(self.lib.urllib.request, "urlopen", side_effect=fetch), \
+                        mock.patch.object(self.lib.time, "sleep"):
+                    self.assertEqual(self.lib._payload_bytes(self.root, entry, limit=7), payload[:7])
+                self.assertIn(self.BACKUP, calls)
+                cache = self.root / ".external-cache" / entry["sha256"][:2] / entry["sha256"]
+                self.assertEqual(cache.read_bytes(), payload)
 
     def test_log_index_accepts_referenced_entries_without_local_bytes(self):
         from build_indexes import _portable_file
@@ -1291,6 +1369,8 @@ class ReferencedTierTests(unittest.TestCase):
 
 class ExternalizeScriptTests(unittest.TestCase):
     """externalize_files.py 的转换回路：plan → stage → apply → unapply。"""
+
+    REVISION = "b" * 40
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -1329,6 +1409,8 @@ class ExternalizeScriptTests(unittest.TestCase):
         staged = staging / self.repo_relative
         self.assertTrue(staged.is_file())
         self.assertEqual(hashlib.sha256(staged.read_bytes()).hexdigest(), plan[0]["sha256"])
+        plan[0]["revision"] = self.REVISION
+        plan_path.write_text(json.dumps(plan), encoding="utf-8")
         self._run("apply", "--plan", str(plan_path),
                   "--url-base", "https://huggingface.co/datasets/AroundPeking/LibRPA-database",
                   "--backup-base", "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database")
@@ -1336,9 +1418,9 @@ class ExternalizeScriptTests(unittest.TestCase):
         entry = converted["files"]["logs"][0]
         self.assertEqual(entry["tier"], "referenced")
         self.assertEqual(entry["external_url"],
-                         "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative)
+                         f"https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/{self.REVISION}/" + self.repo_relative)
         self.assertEqual(entry["external_url_backup"],
-                         "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative)
+                         f"https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/{self.REVISION}/" + self.repo_relative)
         self.assertEqual(entry["sha256"], plan[0]["sha256"])
         self._run("unapply", "--paths", self.repo_relative)
         self.assertEqual(self.record_path.read_bytes(), self.original_bytes)
@@ -1351,6 +1433,16 @@ class ExternalizeScriptTests(unittest.TestCase):
                                 capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("https", result.stderr)
+
+    def test_apply_rejects_a_plan_without_an_uploaded_revision(self):
+        plan_path = self.root / "plan.json"
+        self._run("plan", "--paths", self.repo_relative, "-o", str(plan_path))
+        result = subprocess.run([sys.executable, str(self.script), "--root", str(self.root), "apply",
+                                 "--plan", str(plan_path),
+                                 "--url-base", "https://huggingface.co/datasets/AroundPeking/LibRPA-database"],
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("full immutable commit OID", result.stderr)
 
     def test_apply_converts_every_item_that_shares_a_record(self):
         # A plan can hold several payloads from the same record; every entry
@@ -1368,6 +1460,9 @@ class ExternalizeScriptTests(unittest.TestCase):
         plan = json.loads(plan_path.read_text())
         self.assertEqual(len(plan), 2)
         self.assertEqual({item["path"] for item in plan}, {self.repo_relative, second_relative})
+        for item in plan:
+            item["revision"] = self.REVISION
+        plan_path.write_text(json.dumps(plan), encoding="utf-8")
         self._run("apply", "--plan", str(plan_path),
                   "--url-base", "https://huggingface.co/datasets/AroundPeking/LibRPA-database",
                   "--backup-base", "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database")
@@ -1376,6 +1471,45 @@ class ExternalizeScriptTests(unittest.TestCase):
             self.assertEqual(entry["tier"], "referenced", entry["path"])
             self.assertTrue(entry["external_url"].startswith("https://huggingface.co/datasets/"))
             self.assertTrue(entry["external_url_backup"].startswith("https://hf-mirror.com/datasets/"))
+
+    def test_pin_rewrites_existing_primary_and_mirror_urls(self):
+        record = json.loads(self.record_path.read_text())
+        entry = record["files"]["logs"][0]
+        entry.update(tier="referenced",
+                     external_url="https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative,
+                     external_url_backup="https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/main/" + self.repo_relative)
+        self.record_path.write_text(json.dumps(record), encoding="utf-8")
+        self._run("pin", "--revision", self.REVISION)
+        pinned = json.loads(self.record_path.read_text())["files"]["logs"][0]
+        self.assertIn(f"/resolve/{self.REVISION}/", pinned["external_url"])
+        self.assertIn(f"/resolve/{self.REVISION}/", pinned["external_url_backup"])
+        self.assertNotIn("/resolve/main/", self.record_path.read_text())
+
+    def test_bulk_upload_records_one_commit_oid_for_the_whole_plan(self):
+        spec = importlib.util.spec_from_file_location("externalize_upload_test", self.script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        module.ROOT = self.root
+        plan = module.build_plan([self.repo_relative], 0)
+        calls = []
+
+        class FakeApi:
+            def whoami(self):
+                return {"name": "AroundPeking"}
+
+            def create_repo(self, *args, **kwargs):
+                return None
+
+            def upload_folder(self, **kwargs):
+                calls.append(kwargs)
+                self.uploaded_bytes = (Path(kwargs["folder_path"]) / self_relative).read_bytes()
+                return SimpleNamespace(oid=ExternalizeScriptTests.REVISION)
+
+        self_relative = self.repo_relative
+        with mock.patch.dict(sys.modules, {"huggingface_hub": SimpleNamespace(HfApi=FakeApi)}):
+            self.assertEqual(module.cmd_upload(plan, "AroundPeking/LibRPA-database", bulk=True), 0)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual({item.get("revision") for item in plan}, {self.REVISION})
 
 
 if __name__ == "__main__":
