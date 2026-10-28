@@ -1,17 +1,4 @@
 :root {
-  color-scheme: dark;
-  --bg: #0e141b;
-  --panel: #141d27;
-  --raised: #192531;
-  --hover: #1c2b38;
-  --ink: #e5edf4;
-  --heading: #f5f8fa;
-  --muted: #9daebd;
-  --subtle: #8599aa;
-  --line: #2a3947;
-  --accent: #8ce0c6;
-  --blue: #a0c9f6;
-  --warning: #eed09c;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -420,7 +407,11 @@ dialog pre { max-height: 55vh; overflow: auto; margin: 16px 24px; padding: 18px;
 .radial-metrics table { width: 100%; border-collapse: collapse; }
 .radial-metrics td, .radial-metrics th { padding: 9px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 @media (max-width: 540px) { .radial-content { padding: 0 10px 12px; } .radial-controls { gap: 8px; } .radial-controls label { flex-wrap: wrap; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Original responsive media queries (lines 302-409 above) are superseded by
+   the v2 editorial atlas responsive section below. Base layout properties
+   (display, margin, gap, etc.) from lines 19-301 remain active as the v2
+   layer only overrides colors, sizing, and visual treatment. */
 
 /* ============================================================
    Editorial atlas v2 (2026-10-15): 期刊风浅色主题。
@@ -1054,4 +1045,55 @@ html[data-theme="dark"] .method-delta-st{background:#183342;color:#91d5e9}
   .search-examples{margin-bottom:10px}
   .section-nav{margin:0;padding:7px}
   .result-strip>div{box-shadow:none}
+}
+
+/* ============================================================
+   Skeleton loading (2026-10-28): shimmer placeholder rows.
+   ============================================================ */
+.catalog[aria-busy="true"]{min-height:200px}
+.skeleton-row{display:flex;align-items:center;gap:14px;padding:13px 15px;border-bottom:1px solid var(--line)}
+.skeleton-row:last-child{border-bottom:0}
+.skeleton-bar{height:14px;border-radius:4px;background:var(--tint);position:relative;overflow:hidden}
+.skeleton-bar::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--tint-strong),transparent);animation:shimmer 1.6s ease-in-out infinite}
+.skeleton-bar.w-40{width:40%}.skeleton-bar.w-25{width:25%}.skeleton-bar.w-60{width:60%}.skeleton-bar.w-15{width:15%}.skeleton-bar.w-30{width:30%}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.skeleton-bar::after{animation:none}}
+
+/* ============================================================
+   Citation snippet (2026-10-28): collapsible BibTeX/text.
+   ============================================================ */
+.citation-box{margin-top:18px;border:1px solid var(--line);border-radius:10px;background:var(--tint);overflow:hidden}
+.citation-box>summary{min-height:44px;padding:12px 16px;font-size:14px;color:var(--text-strong);cursor:pointer;list-style:none}
+.citation-box>summary::-webkit-details-marker{display:none}
+.citation-box>summary::before{content:"\201C";font-family:var(--font-display);font-size:18px;color:var(--accent);margin-right:8px}
+.citation-box .citation-body{padding:0 16px 16px}
+.citation-tabs{display:flex;gap:4px;margin-bottom:10px}
+.citation-tab{min-height:36px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text-soft);font-size:13px;cursor:pointer}
+.citation-tab[aria-selected="true"]{color:var(--accent-deep);border-color:var(--line-accent);background:var(--tint-strong);font-weight:600}
+.citation-text{width:100%;min-height:80px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text-strong);font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:12px;line-height:1.7;resize:vertical;overflow-wrap:anywhere}
+.citation-copy{display:inline-flex;align-items:center;min-height:36px;margin-top:8px;padding:7px 14px;border:1px solid var(--line-strong);border-radius:8px;background:var(--panel);color:var(--accent-deep);font-size:13px;font-weight:600;cursor:pointer;gap:6px}
+.citation-copy:hover{background:var(--tint);border-color:var(--line-accent)}
+
+/* ============================================================
+   Print styles (2026-10-28): clean academic output.
+   ============================================================ */
+@media print{
+  html[data-theme="dark"]{color-scheme:light;--bg:#fff!important;--panel:#fff!important;--raised:#fff!important;--hover:#fff!important;--tint:#f5f5f5!important;--tint-strong:#eee!important;--ink:#000!important;--heading:#000!important;--muted:#333!important;--subtle:#555!important;--line:#ccc!important;--line-strong:#999!important;--line-accent:#bbb!important;--accent:#000!important;--accent-deep:#000!important;--blue:#000!important;--text-strong:#000!important;--text-body:#333!important;--text-soft:#555!important;--text-faint:#666!important;--shadow-1:none!important;--shadow-2:none!important}
+  .site-header,.cover-canvas,.cover-orbit,.cover-actions,.theme-toggle,.section-nav,.filter-panel,.search-box,.search-examples,.catalog-toolbar .sort-control,.pagination,.site-footer,.skip-link{display:none!important}
+  body{background:#fff!important;color:#000!important;font-size:11pt;line-height:1.5}
+  main{width:100%!important;padding:0!important}
+  .catalog{border:1px solid #999!important;box-shadow:none!important;background:#fff!important}
+  .catalog-table{min-width:0!important}
+  .catalog-table th,.catalog-table td{padding:6px 8px!important;border-color:#ccc!important}
+  .detail-section{break-inside:avoid;box-shadow:none!important;border:1px solid #ccc!important}
+  .detail-section>summary{background:#fff!important}
+  .detail-section[open]>summary{border-bottom:1px solid #ccc!important}
+  .detail-section:not([open]) .section-body{display:block!important}
+  .detail-section:not([open]) .expand-mark{display:none!important}
+  .result-strip{break-inside:avoid}
+  .result-strip>div{box-shadow:none!important;border:1px solid #ccc!important}
+  .figure-grid figure{break-inside:avoid;box-shadow:none!important}
+  a{color:#000!important;text-decoration:underline!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555}
+  dialog{display:none!important}
 }

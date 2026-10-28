@@ -302,7 +302,7 @@ test("landing entry is a single-screen showcase cover that routes to #/materials
   assert.match(app, /function renderLanding\(\) \{/);
   assert.match(app, /\(path === "#\/" \|\| path === "#" \|\| path === ""\) && !params\.size\) \{ renderLanding\(\); return; \}/);
   assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
-  assert.match(app, /returnHash: "#\/materials" }/);
+  assert.match(app, /returnHash: "#\/materials"/);
   assert.match(details, /href="#\/materials">Materials</);
   assert.match(css, /\.cover\{[^}]*height:100vh;height:100svh/);
   assert.match(css, /\.cover-canvas\{position:absolute;inset:0/);

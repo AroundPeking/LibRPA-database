@@ -7,7 +7,7 @@ import { gapOverview, renderGapOverview } from "./gaps.mjs";
 import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261027-review-v29";
 
 const $ = selector => document.querySelector(selector);
-const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials" };
+const state = { mode: "materials", calculations: [], sets: [], dimension: "all", software: "all", element: "all", inputs: "all", sort: "material", query: "", page: 1, currentRecord: null, returnHash: "#/materials", savedScroll: null };
 const pageSize = 20;
 const gapText = value => value === null ? '<span class="not-reported">—</span>' : value.toFixed(3);
 let bySet = new Map();
@@ -174,6 +174,7 @@ function route() {
     document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;
     const currentNav = match[1] === "basis" ? "basis" : state.mode === "gaps" ? "gaps" : "materials";
     document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === currentNav ? "page" : "false"));
+    state.savedScroll = window.scrollY;
     window.scrollTo(0, 0);
     const heading = $("#detail-view h1");
     if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
@@ -188,11 +189,13 @@ function route() {
   state.returnHash = hash;
   syncFilters();
   renderHome();
+  if (state.savedScroll !== null) { window.scrollTo(0, state.savedScroll); state.savedScroll = null; }
   const heading = $("#page-title");
   if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
 }
 
 async function start() {
+  $("#catalog").innerHTML = Array.from({length:8},()=>'<div class="skeleton-row"><div class="skeleton-bar w-25"></div><div class="skeleton-bar w-15"></div><div class="skeleton-bar w-40"></div><div class="skeleton-bar w-30"></div></div>').join("");
   installPreview($("#file-preview"));
   installBlobDownloads();
   installRadial($("#detail-view"));

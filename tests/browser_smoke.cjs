@@ -74,7 +74,7 @@ async function main() {
         const cached = path.join(externalCacheDir, file.sha256.slice(0, 2), file.sha256);
         if (fs.existsSync(cached)) return fs.readFileSync(cached);
       }
-      const fetched = await context.request.get(fileUrlOf(file));
+      const fetched = await context.request.get(fileUrlOf(file), { timeout: 120000 });
       check(fetched.ok(), `文件可读取: ${file.path}`);
       return await fetched.body();
     };
@@ -507,9 +507,16 @@ async function main() {
     const verifyRadialFile = async (set, role, automaticallyLoaded = false) => {
       const file = set.files.find(item => item.role === role);
       check(Boolean(file), `${set.element} / ${role}：真实径向文件存在`);
-      const fetched = await context.request.get(new URL(file.path, archive).href);
-      check(fetched.ok(), `${set.element} / ${role}：原文件可读取`);
-      const bytes = await fetched.body();
+      const fileUrl = new URL(file.path, archive).href;
+      const b64 = await page.evaluate(async url => {
+        const response = await fetch(url, { referrerPolicy: "no-referrer" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        let text = "";
+        for (let offset = 0; offset < bytes.length; offset += 8192) text += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+        return btoa(text);
+      }, fileUrl);
+      const bytes = Buffer.from(b64, "base64");
       check(createHash("sha256").update(bytes).digest("hex") === file.sha256, `${set.element} / ${role}：原文件 SHA-256 一致`);
       const radial = parseRadial(bytes.toString("utf8"), { allowHeaderMismatch: true });
       const filePanel = page.locator(`#basis-radial .radial-file[data-radial-path=${JSON.stringify(file.path)}]`);

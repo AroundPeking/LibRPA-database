@@ -13,7 +13,7 @@ from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 from urllib.parse import unquote, urlsplit
 
-ROOT_FILES = {"index.html", ".nojekyll", "README.md", "CONTRIBUTING.md", "LICENSE"}
+ROOT_FILES = {"index.html", ".nojekyll", "robots.txt", "sitemap.xml", "README.md", "CONTRIBUTING.md", "LICENSE"}
 REFERENCE_FILES = {"references/database.md", "references/plotting.md"}
 INDEX_FILES = {"data/log-index.json"}
 INTERNAL_WEB_FILES = {"database/archive-completeness.json", "database/missing-evidence.html"}

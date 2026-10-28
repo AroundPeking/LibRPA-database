@@ -40,6 +40,12 @@ function referenceInfo(record) {
   const scopeHtml = scopes.map(scope => `<p class="definition-note"><strong>Source scope</strong> ${esc(paperText(record, scope, "scope"))}</p>`).join("");
   return `<details class="reference-source"><summary>Reference &amp; source evidence <span>Table ${esc(source.table)}</span></summary><div class="reference-body"><p>${esc(source.title)} · PDF p. ${esc(source.pdf_page)} · Table ${esc(source.table)}${source.doi ? ` · DOI ${esc(source.doi)}` : ""}</p><p>The database values are shown once above. This reference records their source; original result files and scientific status remain unchanged.</p>${scopeHtml}<p>${esc(paperText(record, paper.notes || "EXX is archive-derived; the reference has no EXX main column.", "notes"))}</p><p>${evidenceUrl ? `<a href="${esc(evidenceUrl)}" target="_blank" rel="noopener">Download source extract ↗</a>` : ""}</p></div></details>`;
 }
+const citationBox = record => {
+  const url = `https://aroundpeking.github.io/LibRPA-database/#/material/${encodeURIComponent(record.id)}`;
+  const bibtex = `@dataset{${esc(record.id)},\n  title       = {${esc(record.material)} — LibRPA Materials Database},\n  author      = {AroundPeking},\n  year        = {2026},\n  url         = {${url}},\n  note        = {Record ID: ${esc(record.id)}${record.formula ? `; Formula: ${esc(record.formula)}` : ""}}\n}`;
+  const plaintext = `AroundPeking. (2026). ${esc(record.material)} — LibRPA Materials Database. ` + (record.formula ? `Formula: ${esc(record.formula)}. ` : "") + `Record ID: ${esc(record.id)}. Retrieved from ${url}`;
+  return `<details class="citation-box"><summary>Cite this record</summary><div class="citation-body"><div class="citation-tabs"><button type="button" class="citation-tab" aria-selected="true" data-citation="bibtex">BibTeX</button><button type="button" class="citation-tab" aria-selected="false" data-citation="text">Plain text</button></div><textarea class="citation-text" readonly data-citation-content="bibtex">${esc(bibtex)}</textarea><textarea class="citation-text" readonly hidden data-citation-content="text">${esc(plaintext)}</textarea><button type="button" class="citation-copy" data-citation-copy>Copy citation</button></div></details>`;
+};
 const materialLink = record => `#/material/${encodeURIComponent(record.id)}`;
 const basisLink = set => `#/basis/${encodeURIComponent(set.id)}`;
 const section = (id, number, title, body, open = false, badge = "") => `<details class="detail-section" id="${id}" ${open ? "open" : ""}><summary><span class="section-number">${number}</span><h2>${title}</h2>${badge ? `<span class="section-badge">${badge}</span>` : ""}<span class="expand-mark" aria-hidden="true">+</span></summary><div class="section-body">${body}</div></details>`;
@@ -212,7 +218,7 @@ export function renderMaterial(record, sets, allRecords = []) {
   return `<div class="breadcrumb"><a href="#/materials">Materials</a><span>/</span><span>${esc(record.material)}</span></div>
     <div class="detail-header"><div><div class="detail-tags"><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span><span class="record-type-tag">${esc(recordTypeLabel(record))}</span><span class="frontend-tag">${esc(workflowLabel(record))}</span>${chips(methodNames(record))}${spinPolTag(record)}${socTag(record)}</div><h1>${esc(record.material)} <small>${esc(record.formula || "")}</small></h1><p class="detail-id">${esc(record.id)}</p></div><button class="primary-button" type="button" data-section="${readerConversion ? "record-inputs" : "record-inputs"}">${readerConversion ? (inputs.length ? `View inputs (${inputs.length})` : "Input availability") : inputs.length ? `View inputs (${inputs.length})` : "Input availability"}<span aria-hidden="true">↓</span></button></div>
     <p class="record-status">${esc(validationState)}</p><div class="result-strip">${resultStrip}</div>
-    <div class="detail-layout"><aside class="section-nav"><p class="kicker">IN THIS RECORD</p>${nav}<div class="section-tools"><button type="button" class="text-button" data-expand="true">Expand all</button><button type="button" class="text-button" data-expand="false">Collapse all</button></div></aside><div class="detail-content">${body}</div></div>`;
+    <div class="detail-layout"><aside class="section-nav"><p class="kicker">IN THIS RECORD</p>${nav}<div class="section-tools"><button type="button" class="text-button" data-expand="true">Expand all</button><button type="button" class="text-button" data-expand="false">Collapse all</button></div></aside><div class="detail-content">${body}</div></div>${citationBox(record)}`;
 }
 
 export function renderBasis(set, calculations) {
@@ -238,6 +244,10 @@ export function installDetailActions(view, getRecord) {
     if (expand) view.querySelectorAll(".detail-section").forEach(section => { section.open = expand.dataset.expand === "true"; });
     const tab = event.target.closest(".property-tab");
     if (tab) activateTab(tab);
+    const citeTab = event.target.closest(".citation-tab");
+    if (citeTab) { view.querySelectorAll(".citation-tab").forEach(t => t.setAttribute("aria-selected", String(t === citeTab))); view.querySelectorAll("[data-citation-content]").forEach(area => { area.hidden = area.dataset.citationContent !== citeTab.dataset.citation; }); }
+    const copyBtn = event.target.closest("[data-citation-copy]");
+    if (copyBtn) { const active = view.querySelector('[data-citation-content]:not([hidden])'); if (active) { active.select(); try { navigator.clipboard.writeText(active.value); copyBtn.textContent = "Copied!"; setTimeout(() => copyBtn.textContent = "Copy citation", 2000); } catch { document.execCommand("copy"); copyBtn.textContent = "Copied!"; setTimeout(() => copyBtn.textContent = "Copy citation", 2000); } } }
   });
   function activateTab(tab) {
     const panel = view.querySelector("#property-panel");
