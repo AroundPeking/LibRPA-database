@@ -202,7 +202,7 @@ async function route() {
     state.currentRecord = match[1] === "material" ? record : null;
     if (record && match[1] === "material" && !record.files) {
       $("#detail-view").innerHTML = '<div class="detail-loading"><p>Loading record…</p></div>';
-      const path = `data/calculations/${record.dimension}/${record.material}/${record.id}/record.json`;
+      const path = `../data/calculations/${record.dimension}/${record.material}/${record.id}/record.json`;
       try { const resp = await fetch(path); if (resp.ok) { const fullRecord = await resp.json(); Object.assign(record, fullRecord); } } catch {}
     }
     $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
