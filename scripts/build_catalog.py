@@ -39,7 +39,11 @@ LIGHTWEIGHT_SET_KEYS = [
 
 def strip_calculation(record: dict) -> dict:
     """Return a lightweight copy of a calculation record without ``files``."""
-    return {k: record[k] for k in LIGHTWEIGHT_CALC_KEYS if k in record}
+    light = {k: record[k] for k in LIGHTWEIGHT_CALC_KEYS if k in record}
+    files = record.get("files", {})
+    if isinstance(files, dict):
+        light["_file_counts"] = {k: len(v) for k, v in files.items() if isinstance(v, list)}
+    return light
 
 
 def strip_basis_set(record: dict) -> dict:
@@ -70,12 +74,10 @@ def collect_software(calculations: list) -> list[str]:
     for calc in calculations:
         sw = calc.get("software", {})
         if isinstance(sw, dict):
-            for key in ("frontend", "dft", "postprocessing"):
-                val = sw.get(key)
-                if isinstance(val, str) and val:
-                    software.add(val)
-                elif isinstance(val, list):
-                    software.update(v for v in val if isinstance(v, str))
+            software.update(k for k in sw if isinstance(k, str))
+        wf = calc.get("workflow", {})
+        if isinstance(wf, dict) and isinstance(wf.get("frontend"), str):
+            software.add(wf["frontend"])
     return sorted(software)
 
 

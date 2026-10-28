@@ -1,4 +1,4 @@
-import { matchesSearch, materialSearchText, basisSearchText } from "./search.mjs";
+import { matchesSearch, materialSearchText, basisSearchText, normalizeSearchText } from "./search.mjs";
 import { esc, filesOf, recordElements, methodNames, methodTag, socTag, spinPolTag, recordType, atomCount, primaryResult, workflowLabel, workflowFrontend } from "./records.mjs";
 import { installPreview, installBlobDownloads } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
@@ -15,6 +15,8 @@ let elements = [];
 let corpus = new Map();
 let linked = new Map();
 let searchCorpus = new Map();
+let searchIndex = new Map();
+let searchTimer = null;
 
 function buildIndexes() {
   bySet = new Map(state.sets.map(set => [set.id, set]));
@@ -26,6 +28,14 @@ function buildIndexes() {
   }
   for (const record of state.calculations) searchCorpus.set(record.id, materialSearchText(record, corpus.get(record.id)?.basis));
   for (const set of state.sets) searchCorpus.set(`basis:${set.id}`, basisSearchText(set, linked.get(set.id)));
+  searchIndex = new Map();
+  for (const [id, text] of searchCorpus) {
+    const tokens = new Set(normalizeSearchText(text).split(/\s+/u).filter(Boolean));
+    for (const token of tokens) {
+      if (!searchIndex.has(token)) searchIndex.set(token, new Set());
+      searchIndex.get(token).add(id);
+    }
+  }
 }
 
 function matchesQuery(item, isBasis = false) {
@@ -35,13 +45,38 @@ function matchesQuery(item, isBasis = false) {
   return matchesSearch(text, state.query);
 }
 
+function fileCount(record, kind) {
+  if (Array.isArray(record.files?.[kind])) return record.files[kind].length;
+  if (record._file_counts && typeof record._file_counts[kind] === "number") return record._file_counts[kind];
+  return 0;
+}
+
 function filtered() {
-  if (state.mode === "basis") return state.sets.filter(set => matchesQuery(set, true) && (state.element === "all" || state.element === set.element)).sort((a, b) => a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
-  return state.calculations.filter(record => matchesQuery(record) && (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (filesOf(record, "inputs").length > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (gapOverview(b)?.gw ?? -Infinity) - (gapOverview(a)?.gw ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
+  const isBasis = state.mode === "basis";
+  const pool = isBasis ? state.sets : state.calculations;
+  const exactElement = elements.find(element => element.toLowerCase() === state.query.toLowerCase());
+  let candidates;
+  if (exactElement) {
+    candidates = pool.filter(item => isBasis ? item.element === exactElement : recordElements(item).includes(exactElement));
+  } else if (state.query.trim()) {
+    const tokens = normalizeSearchText(state.query).split(/\s+/u).filter(Boolean);
+    if (tokens.length && tokens.every(token => searchIndex.has(token))) {
+      const idSets = tokens.map(token => searchIndex.get(token));
+      let matching = idSets[0];
+      for (let i = 1; i < idSets.length; i++) { const next = new Set(); for (const id of matching) if (idSets[i].has(id)) next.add(id); matching = next; }
+      candidates = [...matching].filter(id => isBasis ? id.startsWith("basis:") : !id.startsWith("basis:")).map(id => { const realId = isBasis ? id.slice(6) : id; return pool.find(item => item.id === realId); }).filter(Boolean);
+    } else {
+      candidates = pool.filter(item => matchesQuery(item, isBasis));
+    }
+  } else {
+    candidates = pool;
+  }
+  if (isBasis) return candidates.filter(set => (state.element === "all" || state.element === set.element)).sort((a, b) => a.element.localeCompare(b.element) || (a.family || "").localeCompare(b.family || "") || a.id.localeCompare(b.id));
+  return candidates.filter(record => (state.dimension === "all" || record.dimension === state.dimension) && (state.software === "all" || workflowFrontend(record) === state.software) && (state.element === "all" || recordElements(record).includes(state.element)) && (state.inputs === "all" || (fileCount(record, "inputs") > 0) === (state.inputs === "available"))).sort((a, b) => (state.sort === "result" ? (gapOverview(b)?.gw ?? -Infinity) - (gapOverview(a)?.gw ?? -Infinity) : 0) || a.material.localeCompare(b.material) || a.id.localeCompare(b.id));
 }
 
 function materialRow(record) {
-  const count = filesOf(record, "inputs").length;
+  const count = fileCount(record, "inputs");
   const methods = methodNames(record).map(methodTag).join("") + spinPolTag(record) + socTag(record) || '<span class="not-reported">—</span>';
   const url = `#/material/${encodeURIComponent(record.id)}`;
   const atoms = atomCount(record);
@@ -58,7 +93,7 @@ function basisRow(set) {
 }
 
 function stats() {
-  const withInputs = state.calculations.filter(r => filesOf(r, "inputs").length).length;
+  const withInputs = state.calculations.filter(r => fileCount(r, "inputs") > 0).length;
   const values = [[state.calculations.length, "Calculation records"], [new Set(state.sets.map(s => s.element)).size, "Elements in basis library"], [state.sets.length, "Basis-set records"], [withInputs, "Records with input files"]];
   $("#stats").innerHTML = values.map(([value, label], i) => `<div><span class="stat-index">0${i + 1}</span><strong>${value}</strong><span>${label}</span></div>`).join("");
   document.querySelectorAll("[data-dimension-count]").forEach(node => { node.textContent = node.dataset.dimensionCount === "all" ? state.calculations.length : state.calculations.filter(c => c.dimension === node.dataset.dimensionCount).length; });
@@ -233,7 +268,7 @@ async function start() {
     buildIndexes();
     stats();
     $("#element-filter").innerHTML = '<option value="all">All elements</option>' + elements.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");
-    $("#search").addEventListener("input", event => { state.query = event.target.value.trim(); updateFilter(); });
+    $("#search").addEventListener("input", event => { state.query = event.target.value.trim(); clearTimeout(searchTimer); searchTimer = setTimeout(updateFilter, 150); });
     for (const [id, key] of [["element-filter", "element"], ["input-filter", "inputs"], ["sort", "sort"]]) $(`#${id}`).addEventListener("change", event => { state[key] = event.target.value; updateFilter(); });
     document.querySelectorAll("input[name=dimension]").forEach(input => input.addEventListener("change", event => { state.dimension = event.target.value; updateFilter(); }));
     document.querySelectorAll("input[name=software]").forEach(input => input.addEventListener("change", event => { state.software = event.target.value; updateFilter(); }));
