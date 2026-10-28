@@ -153,7 +153,7 @@ function resetFilters() {
   updateFilter();
 }
 
-function route() {
+async function route() {
   const hash = location.hash || "#/";
   const match = hash.match(/^#\/(material|basis)\/([^?]+)$/);
   if (match) {
@@ -165,6 +165,11 @@ function route() {
     $("#detail-view").hidden = false;
     document.body.classList.remove("cover-mode");
     state.currentRecord = match[1] === "material" ? record : null;
+    if (record && match[1] === "material" && !record.files) {
+      $("#detail-view").innerHTML = '<div class="detail-loading"><p>Loading record…</p></div>';
+      const path = `data/calculations/${record.dimension}/${record.material}/${record.id}/record.json`;
+      try { const resp = await fetch(path); if (resp.ok) { const fullRecord = await resp.json(); Object.assign(record, fullRecord); } } catch {}
+    }
     $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
     if (record && match[1] === "material") { try { const viewed = JSON.parse(localStorage.getItem("librpa-history") || "[]"); const idx = viewed.indexOf(record.id); if (idx >= 0) viewed.splice(idx, 1); viewed.unshift(record.id); localStorage.setItem("librpa-history", JSON.stringify(viewed.slice(0, 10))); } catch {} }
     const back = $(".breadcrumb a");
@@ -213,12 +218,18 @@ async function start() {
     });
   }
   try {
-    const response = await fetch("data.json", { cache: "no-cache" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    if (!Array.isArray(data.calculations) || !Array.isArray(data.basis_sets)) throw new Error("Invalid catalog format");
-    state.calculations = data.calculations;
-    state.sets = data.basis_sets;
+    const [indexResp, calcsResp, setsResp] = await Promise.all([
+      fetch("catalog/index.json", { cache: "no-cache" }),
+      fetch("catalog/calculations.json", { cache: "no-cache" }),
+      fetch("catalog/basis-sets.json", { cache: "no-cache" })
+    ]);
+    if (!indexResp.ok || !calcsResp.ok || !setsResp.ok) throw new Error("Catalog fetch failed");
+    const indexData = await indexResp.json();
+    const calcsData = await calcsResp.json();
+    const setsData = await setsResp.json();
+    if (!Array.isArray(calcsData.records) || !Array.isArray(setsData.records)) throw new Error("Invalid catalog format");
+    state.calculations = calcsData.records;
+    state.sets = setsData.records;
     buildIndexes();
     stats();
     $("#element-filter").innerHTML = '<option value="all">All elements</option>' + elements.map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");

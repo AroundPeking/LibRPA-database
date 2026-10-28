@@ -1100,8 +1100,9 @@ html[data-theme="dark"] .method-delta-st{background:#183342;color:#91d5e9}
 
 /* ============================================================
    UX enhancements (2026-10-28): comparison, bulk download,
-   JSON-LD (invisible), history sidebar.
+   JSON-LD (invisible), history sidebar, catalog loading.
    ============================================================ */
+.detail-loading{display:flex;align-items:center;justify-content:center;min-height:200px;color:var(--text-soft);font-size:14px}
 .detail-header-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .bulk-download{font-size:13px}
 .bulk-download:disabled{opacity:.6;cursor:wait}

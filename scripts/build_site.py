@@ -315,6 +315,13 @@ def build_site(root: Path, output: Path, commit: str | None = None) -> dict:
     root = root.resolve(strict=True)
     output = output_directory(root, output)
     revision = source_commit(root, commit)
+    # Generate lightweight catalog files before collecting.
+    import sys
+    scripts_dir = str(Path(__file__).resolve().parent)
+    if scripts_dir not in sys.path:
+        sys.path.insert(0, scripts_dir)
+    import build_catalog
+    build_catalog.build_catalog(root)
     files = collect_files(root)
     # 全部依赖检查通过后才开始写出。科学文件始终按固定大小分块复制和校验。
     output.mkdir(parents=True, exist_ok=True)
