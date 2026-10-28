@@ -761,7 +761,7 @@ test("detail page shows cross-frontend same-material comparison with a structure
   const html = renderMaterial(record, [], [record, peer]);
   assert.match(html, /Same material across frontends/);
   assert.match(html, /the FHI-aims frontend/);
-  assert.match(html, /not identical-structure comparisons/);
+  assert.match(html, /cross-frontend reference points/);
   assert.match(html, /si-jctc-aims-gw · Band structure/);
   assert.doesNotMatch(html, /Same-structure calculations/);
   const aimsHtml = renderMaterial(peer, [], [record, peer]);
