@@ -103,7 +103,13 @@ async function main() {
     check(new URL(landingEmblemUrl).pathname === new URL("logo-emblem.png", base).pathname, "封面徽章解析到部署子路径");
     check(await landingEmblem.evaluate(img => { const tile = getComputedStyle(img.parentElement); return tile.backgroundColor === "rgba(255, 255, 255, 0.9)" && tile.borderRadius !== "0px" && tile.padding !== "0px" && tile.backdropFilter !== "none"; }), "封面徽章坐在白色圆角瓷砖上（预览同款展示）");
     check(await page.locator("#landing-view h1").evaluate(h => h.classList.contains("sr-only") && h.textContent === "LibRPA materials database"), "标语已去除，仅保留屏幕阅读器标题");
-    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data; let lit = 0; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) lit++; return lit > 500; }), "GW/RPA 电子海动效正在 canvas 上绘制（电子+泡泡环+屏蔽波纹）");
+    check(await page.locator(".cover-canvas").evaluate(canvas => { if (!canvas.width || !canvas.height) return false; const ctx = canvas.getContext("2d"); const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data; let lit = 0; for (let i = 3; i < data.length; i += 4) if (data[i] > 0) lit++; return lit > 500; }), "水池动效正在 canvas 上绘制（焦散光斑+涟漪波前）");
+    check(await page.evaluate(async () => {
+      const canvas = document.querySelector(".cover-canvas");
+      const first = canvas.toDataURL();
+      await new Promise(resolve => setTimeout(resolve, 400));
+      return canvas.toDataURL() !== first;
+    }), "水面持续流动（canvas 每帧重绘，动画循环没有因为绘图错误而停住）");
     check(await page.locator(".cover-orbit").evaluate(orbit => { const anims = orbit.getAnimations(); return anims.length === 1 && anims[0].playbackRate === 1 && getComputedStyle(orbit).borderRadius === "50%"; }), "徽章外圈极化星环由 WAAPI 驱动常速旋转（RPA 轨道动画）");
     const landingText = await page.locator("#landing-view").innerText();
     check(!/Public preview|strict archive validation|evidence issues|Website publication is not scientific acceptance|Archive only|CI blocked/i.test(landingText), "封面不暴露内部审计或草稿文案");
@@ -121,10 +127,11 @@ async function main() {
     check(await page.locator(".cover-orbit").evaluate(node => node.getAnimations()[0]?.playbackRate > 3), "悬停徽章时星环平滑加速");
     await screenshot("landing-cover.png");
     await page.click(".cover-emblem");
-    await page.waitForSelector(".cover-fly-clone");
+    await page.waitForSelector(".cover-dive");
     await page.waitForSelector(".material-row");
-    await page.waitForSelector(".cover-fly-clone", { state: "detached" });
-    check(await page.locator("#landing-view").isHidden(), "点击徽章触发飞向品牌位的过场动画后进入目录（无整页刷新）");
+    await page.waitForSelector(".cover-dive", { state: "detached" });
+    check(await page.locator("#landing-view").isHidden(), "点击徽章触发潜入水面的过场动画后进入目录（无整页刷新）");
+    check(await page.locator(".cover-dive").count() === 0, "过场结束后水面遮罩被移除，不残留覆盖层");
     check(await page.evaluate(() => !document.body.classList.contains("cover-mode") && getComputedStyle(document.querySelector(".site-header")).visibility === "visible"), "进入目录后顶栏回归");
     await page.click(".brand");
     await page.waitForFunction(() => document.body.classList.contains("cover-mode"));
@@ -139,7 +146,7 @@ async function main() {
     check(await reducedPage.locator(".cover-orbit").evaluate(node => node.getAnimations().length === 0), "减少动态偏好下星环静止");
     await reducedPage.click(".cover-emblem");
     await reducedPage.waitForSelector(".material-row");
-    check(await reducedPage.locator(".cover-fly-clone").count() === 0, "减少动态偏好下直接进入目录，无飞行过场");
+    check(await reducedPage.locator(".cover-dive").count() === 0, "减少动态偏好下直接进入目录，无潜入过场");
     await reducedContext.close();
     const homeText = await page.locator("body").innerText();
     check(await page.locator("#archive-status").count() === 0, "正式网站不展示内部完整性状态横幅");

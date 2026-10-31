@@ -320,18 +320,23 @@ test("landing entry is a single-screen showcase cover that routes to #/materials
   assert.doesNotMatch(app, /landing-search|cover-scroll|landing-intro/);
   assert.match(cover, /prefers-reduced-motion: reduce/);
   assert.match(cover, /playbackRate/);
-  assert.match(cover, /cover-fly-clone/);
+  // the entry is a dive through the water surface, not a fly-to-brand
+  assert.match(cover, /cover-dive/);
+  assert.match(cover, /cover-dive-surface/);
+  assert.doesNotMatch(cover, /cover-fly-clone/);
   assert.match(cover, /preventDefault/);
   assert.match(cover, /a\[href="#\/materials"\]/);
   assert.match(cover, /export function startCoverCanvas/);
   assert.match(cover, /getContext\("2d"\)/);
   assert.match(cover, /setLineDash/);
-  assert.match(cover, /overlap/);
-  assert.match(cover, /b\.flash/);
-  assert.match(cover, /makeRing\(event\.clientX - box\.left - parX, event\.clientY - box\.top - parY, 14, nowSec, true\)/);
+  assert.match(cover, /SURFACE_SQUASH/);
+  assert.match(cover, /CAUSTIC_TILE/);
+  assert.match(cover, /shadowBlur/);
   assert.match(cover, /dataset\.theme === "light"/);
   assert.match(cover, /visibilitychange/);
-  assert.match(css, /\.cover-fly-clone\{position:fixed/);
+  assert.match(css, /\.cover-dive\{position:fixed/);
+  assert.match(css, /\.cover-dive-surface\{position:absolute/);
+  assert.doesNotMatch(css, /\.cover-fly-clone\{position:fixed/);
 });
 
 test("gap overview route, navigation, and table are wired end to end", () => {
