@@ -258,6 +258,100 @@ class PlotBandTests(unittest.TestCase):
         svg = self.plot.render_frontier_svg(table, result, [], "bad", "GW")
         self.assertIn("Frozen occupation-separated energy-rank display", svg)
 
+    def write_kpt(self, tmp, name="KPT_scf", text="K_POINTS\n0\nGamma\n8 8 8 0 0 0\n"):
+        path = Path(tmp) / name
+        path.write_text(text, encoding="utf-8")
+        return path
+
+    def test_scf_grid_parses_abacus_gamma_and_mp_shifts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            gamma = self.write_kpt(tmp)
+            grid = self.plot.parse_scf_grid(gamma)
+            self.assertEqual(grid["mesh"], (8, 8, 8))
+            self.assertEqual(grid["shift"], (0.0, 0.0, 0.0))
+            mp = self.write_kpt(tmp, "KPT_mp", "K_POINTS\n0\nMP\n6 6 6 0.5 0.5 0.5\n")
+            shifted = self.plot.parse_scf_grid(mp)
+            self.assertEqual(shifted["mesh"], (6, 6, 6))
+            self.assertEqual(shifted["shift"], (0.5, 0.5, 0.5))
+
+    def test_scf_grid_parses_fhi_aims_control_in(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            control = Path(tmp) / "control.in"
+            control.write_text("# comment\nk_grid  8  8  8\noutput band  0 0 0  0.5 0 0.5  11 G X\n", encoding="utf-8")
+            grid = self.plot.parse_scf_grid(control)
+            self.assertEqual(grid["mesh"], (8, 8, 8))
+            self.assertEqual(grid["shift"], (0.0, 0.0, 0.0))
+            self.assertIn("fhi-aims", grid["source"])
+
+    def test_k_offset_requires_k_grid_first(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            control = Path(tmp) / "control.in"
+            control.write_text("k_offset 0.5 0.5 0.5\nk_grid 8 8 8\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "must follow k_grid"):
+                self.plot.parse_scf_grid(control)
+
+    def test_scf_grid_rejects_missing_or_unreadable_grid(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            control = Path(tmp) / "control.in"
+            control.write_text("xc  pbe\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "no uniform SCF grid"):
+                self.plot.parse_scf_grid(control)
+            empty = Path(tmp) / "KPT"
+            empty.write_text("K_POINTS\n0\nGamma\n", encoding="utf-8")
+            with self.assertRaises(ValueError):
+                self.plot.parse_scf_grid(empty)
+
+    def test_grid_path_kpoints_selects_only_coincident_rows(self):
+        # 0, 0.125, 0.25 ... on an 8x8x8 mesh: every 8th of the way is a grid point
+        xs = [i / 16 for i in range(17)]
+        rows = [[-1.0, 1.0] for _ in xs]
+        coords = [[x, 0.0, 0.0] for x in xs]
+        table = self.plot.BandTable(xs, rows, [[2, 0]] * len(xs), list(range(1, 18)), coords)
+        grid = {"mesh": (8, 8, 8), "shift": (0.0, 0.0, 0.0)}
+        indices = self.plot.grid_path_kpoints(table, grid)
+        self.assertEqual(indices, [1, 3, 5, 7, 9, 11, 13, 15, 17])
+
+    def test_grid_path_kpoints_respects_a_shift_and_missing_coordinates(self):
+        xs = [0.0, 0.125, 0.25]
+        table = self.plot.BandTable(xs, [[-1.0], [-2.0], [-3.0]], None, [1, 2, 3],
+                                    [[0.0, 0.0, 0.0], [0.0625, 0.0, 0.0], [0.25, 0.0, 0.0]])
+        shifted = self.plot.grid_path_kpoints(table, {"mesh": (8, 8, 8), "shift": (0.5, 0.0, 0.0)})
+        # only k=1/16 lands on the shifted mesh; k=0 and k=1/4 fall between grid points
+        self.assertEqual(shifted, [2])
+        no_coords = self.plot.BandTable(xs, [[-1.0], [-2.0], [-3.0]])
+        self.assertEqual(self.plot.grid_path_kpoints(no_coords, {"mesh": (8, 8, 8), "shift": (0, 0, 0)}), [])
+
+    def test_renderer_marks_only_grid_rows_and_keeps_the_full_curve(self):
+        table = self.make_table()
+        result = self.plot.analyze_frontier(table)
+        plain = self.plot.render_frontier_svg(table, result, [], "no dots", "GW")
+        self.assertNotIn("grid-dots", plain)
+        dotted = self.plot.render_frontier_svg(table, result, [], "dots", "GW", grid_kpoints=[1])
+        self.assertIn('id="GW-grid-dots-1"', dotted)
+        # one dot per displayed band inside the dot layer, and the curve still
+        # spans every native sample (the path element is unchanged)
+        import re
+        groups = re.findall(r'<g id="GW-grid-dots-\d+"[^>]*>(.*?)</g>', dotted)
+        self.assertEqual(len(groups), 4, "one dot group per displayed band")
+        self.assertTrue(all(group.count("<circle") == 1 for group in groups), "one dot at the single grid row")
+        self.assertEqual(re.findall(r'id="GW-rank-\d+" d="([^"]+)"', dotted),
+                         re.findall(r'id="GW-rank-\d+" d="([^"]+)"', plain), "curve geometry unchanged")
+
+    def test_dot_size_is_readable_at_page_scale(self):
+        table = self.make_table()
+        result = self.plot.analyze_frontier(table)
+        dotted = self.plot.render_frontier_svg(table, result, [], "dots", "GW", grid_kpoints=[1])
+        import re
+        radii = {float(value) for value in re.findall(r'<circle[^>]*r="([\d.]+)"', dotted)}
+        self.assertIn(6.0, radii, "grid dots must stay a visible size")
+        self.assertTrue(max(radii) >= 6.0, "no dot may shrink below the readable size")
+
+    def test_renderer_rejects_a_grid_index_outside_the_path(self):
+        table = self.make_table()
+        result = self.plot.analyze_frontier(table)
+        with self.assertRaisesRegex(ValueError, "outside the native path"):
+            self.plot.render_frontier_svg(table, result, [], "bad", "GW", grid_kpoints=[99])
+
     def test_generic_interface_has_no_automatic_occupation_inference(self):
         table = self.plot.BandTable([0, 1], [[-1, 2], [-2, 3]])
         self.assertIsNone(table.occupations)

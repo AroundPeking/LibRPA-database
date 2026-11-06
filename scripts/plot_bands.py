@@ -8,6 +8,7 @@ import hashlib
 import html
 import json
 import math
+import sys
 from pathlib import Path
 from typing import Iterable
 
@@ -94,6 +95,100 @@ def _read_ticks(path: Path | None) -> list[dict]:
             raise ValueError(f"labels[{index}] must contain numeric x and string label")
         result.append({"x": float(tick["x"]), "label": tick["label"]})
     return result
+
+
+def parse_scf_grid(path: Path) -> dict:
+    """读取自洽计算用的均匀网格。
+
+    支持两种归档格式：ABACUS ``KPT``（``K_POINTS / n / Gamma|MP / nk1 nk2 nk3 s1 s2 s3``）
+    与 FHI-aims ``control.in``（``k_grid nk1 nk2 nk3``）。
+    返回网格三方向和每个方向的平移量；平移量用"网格间距的分数"表示。
+    """
+    text = path.read_text(encoding="utf-8", errors="replace")
+    stripped = [line.split("#", 1)[0].strip() for line in text.splitlines()]
+    lines = [line for line in stripped if line]
+
+    # FHI-aims control.in
+    if not lines or lines[0].upper() != "K_POINTS":
+        mesh, offset = None, (0.0, 0.0, 0.0)
+        for line in lines:
+            fields = line.split()
+            if len(fields) >= 4 and fields[0].lower() == "k_grid":
+                try:
+                    mesh = tuple(int(value) for value in fields[1:4])
+                except ValueError as exc:
+                    raise ValueError("k_grid requires three integers") from exc
+            elif len(fields) >= 4 and fields[0].lower() == "k_offset":
+                if mesh is None:
+                    raise ValueError("k_offset must follow k_grid so the offset can be scaled")
+                try:
+                    values = tuple(float(value) for value in fields[1:4])
+                except ValueError as exc:
+                    raise ValueError("k_offset requires three numbers") from exc
+                # aims reports the offset in reciprocal coordinates; a half-grid
+                # Monkhorst-Pack shift is 0.5/nk. Convert to grid-fraction units.
+                offset = tuple(values[i] * (mesh[i] if mesh else 1) for i in range(3))
+        if mesh is None:
+            raise ValueError("no uniform SCF grid found: expected K_POINTS or k_grid")
+        if not all(math.isfinite(value) for value in offset):
+            raise ValueError("invalid grid offset")
+        return {"mesh": mesh, "shift": offset,
+                "shift_meaning": "grid-fraction offset: a path point k belongs to the grid when k*n - shift is an integer",
+                "source": "fhi-aims k_grid", "source_name": path.name}
+
+    # ABACUS KPT
+    if len(lines) < 4:
+        raise ValueError("KPT file is too short to describe a grid")
+    mode = lines[2].strip()
+    fields = lines[3].split()
+    if len(fields) < 3:
+        raise ValueError("KPT grid row requires nk1 nk2 nk3")
+    try:
+        mesh = tuple(int(float(value)) for value in fields[:3])
+    except ValueError as exc:
+        raise ValueError("KPT grid requires integer mesh sizes") from exc
+    shifts = (0.0, 0.0, 0.0)
+    if len(fields) >= 6:
+        try:
+            shifts = tuple(float(value) for value in fields[3:6])
+        except ValueError as exc:
+            raise ValueError("KPT grid shifts must be numeric") from exc
+    if any(size < 1 for size in mesh):
+        raise ValueError("KPT grid sizes must be positive")
+    if mode.lower() == "gamma":
+        shifts = (0.0, 0.0, 0.0)
+    elif mode.lower() != "mp":
+        raise ValueError(f"unsupported KPT grid mode: {mode}")
+    return {"mesh": mesh, "shift": shifts,
+            "shift_meaning": "grid-fraction offset: a path point k belongs to the grid when k*n - shift is an integer",
+            "source": f"abacus KPT ({mode})", "source_name": path.name}
+
+
+def grid_path_kpoints(table: BandTable, grid: dict, tolerance: float = 1e-4) -> list[int]:
+    """返回落在均匀网格上的路径 k 点（从 1 开始的原生行号）。
+
+    判据是分数坐标 ``k*n - shift`` 是否为整数：只有与自洽网格重合的采样点才
+    带有该网格的能量信息，其余路径点只是插值。缺少分数坐标的表无法判定，返回空列表。
+    """
+    if table.fractional_kpoints is None:
+        return []
+    mesh = grid["mesh"]
+    shift = grid.get("shift", (0.0, 0.0, 0.0))
+    if not isinstance(tolerance, (int, float)) or tolerance <= 0:
+        raise ValueError("grid tolerance must be positive")
+    indices = []
+    for row, coordinates in enumerate(table.fractional_kpoints, 1):
+        if len(coordinates) != 3:
+            raise ValueError("fractional k-points must have three components")
+        on_grid = True
+        for value, size, offset in zip(coordinates, mesh, shift):
+            scaled = value * size - offset
+            if abs(scaled - round(scaled)) > tolerance:
+                on_grid = False
+                break
+        if on_grid:
+            indices.append(row)
+    return indices
 
 
 def integer_occupation_boundary(table: BandTable, contract: dict | None = None) -> tuple[int, dict]:
@@ -379,8 +474,14 @@ def analyze_frontier(table: BandTable, occupied_count: int | None = None,
 METHOD_STYLE = {"KS": ("#00A6B4", "9 5"), "EXX": ("#222222", "11 4 2 4"), "GW": ("#E64B35", "")}
 
 
-def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], title: str, method: str) -> str:
-    """可复用的单方法白底矢量图；点位来自未经排序的raw边缘。"""
+def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], title: str, method: str,
+                        grid_kpoints: list[int] | None = None) -> str:
+    """可复用的单方法白底矢量图；点位来自未经排序的raw边缘。
+
+    ``grid_kpoints`` 给出与自洽网格重合的路径行号（从 1 开始）。给出时，每条
+    能带在这些 k 点上画实心圆点——圆点标出的是真正带有网格信息的采样点，而
+    整条曲线仍是原始路径的全部采样。
+    """
     color, dash = METHOD_STYLE[method]
     width, height = 1080, 740
     left, right, top, bottom = 105, 1045, 88, 636
@@ -429,6 +530,22 @@ def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], ti
         dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
         if points:
             parts.append(f'<path id="{method}-rank-{rank}" d="{" ".join(points)}" fill="none" stroke="{color}" stroke-width="2.5"{dash_attr} clip-path="url(#frontier-clip)"/>')
+    if grid_kpoints:
+        # 圆点与曲线同色：颜色属于方法，不额外引入第三套编码。
+        radius = 6.0
+        for rank, column in enumerate(zip(*analysis["display_energies_ev"]), 1):
+            dots = []
+            for row in grid_kpoints:
+                index = row - 1
+                if index < 0 or index >= len(column):
+                    raise ValueError("grid k-point index is outside the native path table")
+                value = column[index]
+                if value is None or not math.isfinite(value):
+                    continue
+                dots.append(f'<circle cx="{xmap(table.x[index]):.3f}" cy="{ymap(value):.3f}" r="{radius}"/>')
+            if dots:
+                parts.append(f'<g id="{method}-grid-dots-{rank}" fill="{color}" clip-path="url(#frontier-clip)">'
+                             + "".join(dots) + "</g>")
     for edge, shape in (("vbm", "circle"), ("cbm", "square")):
         seen = set()
         for number, point in enumerate(analysis[f"{edge}_endpoints"]):
@@ -447,6 +564,7 @@ def render_frontier_svg(table: BandTable, analysis: dict, labels: list[dict], ti
                   f'<text x="31" y="{(top+bottom)/2}" text-anchor="middle" transform="rotate(-90 31 {(top+bottom)/2})" {font} font-size="25">E − E<tspan baseline-shift="sub" font-size="18">VBM</tspan> (eV)</text>',
                   f'<rect x="{right-190}" y="{top+13}" width="177" height="72" fill="white" stroke="black" stroke-width="1.7"/>',
                   f'<line x1="{right-178}" y1="{top+34}" x2="{right-116}" y2="{top+34}" stroke="{color}" stroke-width="2.5"' + (f' stroke-dasharray="{dash}"' if dash else "") + '/>',
+                  (f'<circle cx="{right-147}" cy="{top+34}" r="6.0" fill="{color}"/>' if grid_kpoints else ''),
                   f'<text x="{right-102}" y="{top+41}" {font} font-size="23">{method}</text>',
                   f'<circle cx="{right-173}" cy="{top+64}" r="5" fill="none" stroke="{color}" stroke-width="2"/>',
                   f'<text x="{right-161}" y="{top+70}" {font} font-size="16">VBM</text>',
@@ -462,15 +580,24 @@ def write_sidecar(output: Path, calculation_id: str, input_sha256: str, table_pa
     return metadata
 
 
-def render(table: BandTable, output: Path, labels: list[dict], title: str | None = None) -> None:
+def render(table: BandTable, output: Path, labels: list[dict], title: str | None = None,
+           grid_kpoints: list[int] | None = None, color: str = "#00A6B4") -> None:
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
         raise RuntimeError("rendering requires matplotlib; parsing and provenance do not") from exc
+    rows = [row - 1 for row in (grid_kpoints or [])]
+    if any(row < 0 or row >= len(table.x) for row in rows):
+        raise ValueError("grid k-point index is outside the native path table")
+    dots_x = [table.x[row] for row in rows]
     with plt.rc_context({"font.family": "serif", "axes.labelsize": 12, "axes.titlesize": 14, "axes.titleweight": "bold", "axes.linewidth": 1.5}):
         fig, axis = plt.subplots(figsize=(7.2, 4.4), constrained_layout=True)
         for column in zip(*table.energies):
-            axis.plot(table.x, column, color="#00A6B4", linewidth=1.5)
+            axis.plot(table.x, column, color=color, linewidth=1.5)
+            # same colour, filled: the dot marks a sample the SCF mesh actually has
+            if dots_x:
+                axis.plot(dots_x, [column[row] for row in rows], linestyle="none", marker="o",
+                          markersize=4.0, color=color, zorder=3)
         if labels:
             axis.set_xticks([item["x"] for item in labels], [item["label"] for item in labels])
             for item in labels:
@@ -494,6 +621,9 @@ def main() -> int:
     parser.add_argument("--title")
     parser.add_argument("--format", choices=("generic", "abacus"), default="generic")
     parser.add_argument("--method", choices=tuple(METHOD_STYLE), default="GW")
+    parser.add_argument("--scf-kpt", type=Path,
+                        help="archived uniform SCF mesh (ABACUS KPT or FHI-aims control.in); "
+                             "path points that sit on it are marked with dots")
     args = parser.parse_args()
     table = parse_abacus_band_table(args.table) if args.format == "abacus" else parse_band_table(args.table)
     labels = _read_ticks(args.labels)
@@ -502,13 +632,34 @@ def main() -> int:
         if args.output.suffix.lower() != ".svg":
             parser.error("ABACUS frontier output must be .svg; generic PNG/PDF rendering is separate")
         analysis = analyze_frontier(table)
-        args.output.write_text(render_frontier_svg(table, analysis, labels, args.title or args.calculation_id, args.method), encoding="utf-8")
+        grid = parse_scf_grid(args.scf_kpt) if args.scf_kpt else None
+        dots = grid_path_kpoints(table, grid) if grid else []
+        args.output.write_text(render_frontier_svg(table, analysis, labels, args.title or args.calculation_id,
+                                                   args.method, grid_kpoints=dots or None), encoding="utf-8")
         metadata = write_sidecar(args.output, args.calculation_id, args.input_sha256, args.table, labels)
         metadata["analysis"] = analysis
+        metadata["scf_grid"] = grid
+        metadata["grid_kpoints"] = dots
         args.output.with_suffix(".json").write_text(json.dumps(metadata, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     else:
-        render(table, args.output, labels, args.title)
-        write_sidecar(args.output, args.calculation_id, args.input_sha256, args.table, labels)
+        dots = []
+        grid = None
+        if args.scf_kpt:
+            grid = parse_scf_grid(args.scf_kpt)
+            dots = grid_path_kpoints(table, grid)
+            if not dots:
+                print("warning: this table carries no fractional k coordinates, so no point can be "
+                      "tested against the SCF mesh; the figure is drawn without dots", file=sys.stderr)
+        render(table, args.output, labels, args.title, grid_kpoints=dots,
+               color=METHOD_STYLE[args.method][0])
+        metadata = write_sidecar(args.output, args.calculation_id, args.input_sha256, args.table, labels)
+        metadata["scf_grid"] = grid
+        metadata["grid_kpoints"] = dots
+        if dots:
+            metadata["grid_kpoints_definition"] = ("1-based native path rows whose fractional k satisfies k*n - shift integer; "
+                                                   "dots are the samples the SCF mesh actually contains")
+        args.output.with_suffix(".json").write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(f"band figure written: {args.output}")
     return 0
 

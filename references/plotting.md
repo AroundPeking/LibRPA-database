@@ -117,6 +117,32 @@ The new `ks_frontier.svg`, `exx_frontier.svg`, `gw_frontier.svg`, and
 `band_comparison.svg/json` become secondary, but their bytes and all original
 spectral bytes remain unchanged. Repeated generation must be byte-idempotent.
 
+### Sampling dots: which path points the SCF mesh actually contains
+
+A band path is an interpolation between high-symmetry points. Only the path
+points that also appear in the uniform self-consistent mesh carry energies the
+SCF calculation evaluated; the rest are interpolated. Each frontier figure
+therefore puts a small filled dot — same colour as the line — on those
+coinciding points, so a reader can see the real sampling density instead of
+inferring it from a smooth polyline.
+
+The test is arithmetic. With mesh sizes `n` and a grid-fraction offset `s`, a
+path point at fractional coordinate `k` belongs to the mesh when `k*n - s` is an
+integer for all three directions. A Gamma-centred mesh has `s = 0`; a
+Monkhorst-Pack mesh shifted by half a grid step has `s = 0.5`. For the archived
+Si record the path has 201 points, of which 19 coincide with its 8×8×8 mesh.
+
+Dots appear only when the mesh is archived: `KPT_scf`/`*_scf` for ABACUS, or the
+`k_grid` line of an FHI-aims `control.in`. Records that archive neither are drawn
+without dots, because guessing a mesh from the path would be a fabrication. The
+mesh, the shift, and the dotted 1-based path rows are written into
+`band_frontier_metadata.json` under `scf_grid` and `methods.<method>.grid_dots`.
+Not every point is dotted, and the dots are never thinned to a stride — a stride
+would hide information that the mesh test does not hide.
+
+`scripts/plot_bands.py --scf-kpt <mesh file>` applies the same rule to ad-hoc
+figures, for both the ABACUS SVG and the generic Matplotlib output.
+
 ### Occupations, exported dimensions, and paths
 
 - Physical integer occupations must form a fixed occupied prefix and empty

@@ -128,6 +128,40 @@ def find_audited_kpath(table: object, inputs: dict, root: Path, info: Path | Non
     raise ValueError("no archived Line KPT passed full audit: " + "; ".join(item["reason"] for item in attempts))
 
 
+def find_scf_grid(inputs: dict, root: Path) -> tuple[dict | None, list[dict]]:
+    """找出这份记录自洽计算用的均匀网格，返回网格和逐候选的尝试记录。
+
+    优先用显式的 ``*_scf`` KPT；其次是 FHI-aims 的 ``control.in`` 里的 ``k_grid``。
+    两者都没有时返回 ``None``——此时无法判定哪些路径点落在网格上，图上一律不打点。
+    """
+    attempts = []
+    scf = sorted((entry for name, entry in inputs.items() if name.startswith("KPT") and "_scf" in name),
+                 key=lambda entry: entry["path"])
+    for entry in scf:
+        try:
+            path = root / entry["path"]
+            if not path.is_file() or sha256(path) != entry["sha256"]:
+                raise ValueError("missing or hash-mismatched archived SCF KPT")
+            grid = plot_bands.parse_scf_grid(path)
+            grid.update({"source_path": entry["path"], "rejected_candidates": attempts})
+            return grid, attempts
+        except (ValueError, OSError) as exc:
+            attempts.append({"path": entry["path"], "reason": str(exc)})
+    controls = sorted((entry for name, entry in inputs.items() if name == "control.in"),
+                      key=lambda entry: entry["path"])
+    for entry in controls:
+        try:
+            path = root / entry["path"]
+            if not path.is_file() or sha256(path) != entry["sha256"]:
+                raise ValueError("missing or hash-mismatched archived control.in")
+            grid = plot_bands.parse_scf_grid(path)
+            grid.update({"source_path": entry["path"], "rejected_candidates": attempts})
+            return grid, attempts
+        except (ValueError, OSError) as exc:
+            attempts.append({"path": entry["path"], "reason": str(exc)})
+    return None, attempts
+
+
 def _tail_diagnostics(table: object, export_count: int) -> dict:
     width = len(table.energies[0])
     tail = [row[export_count:] for row in table.energies]
@@ -197,6 +231,15 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
                 "source_sha256": {}, "methods": {}, "rejected": report["rejected"]}
     generated = []
     all_sources = []
+    scf_grid, grid_attempts = find_scf_grid(inputs, root)
+    if scf_grid:
+        metadata["scf_grid"] = scf_grid
+        metadata["scf_grid"]["sampled_note"] = ("dots mark only path points that coincide with the archived SCF mesh; "
+                                                "the curve itself keeps every native sample")
+    else:
+        metadata["scf_grid"] = {"mesh": None, "shift": None,
+                                "rejected_candidates": grid_attempts,
+                                "note": "no archived SCF grid; grid-coincident dots are not drawn because the mesh is unknown"}
     for method in METHODS:
         filename = f"{method}_band_spin_1.dat"
         entry = results.get(filename)
@@ -265,9 +308,20 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
                 report["rejected"][method] = "; ".join(analysis["diagnostic_reasons"])
             output = record_path.parent / "figures" / f"{method.lower()}_frontier.svg"
             report["generated_methods"].append(method)
+            method_grid = []
+            if scf_grid:
+                try:
+                    method_grid = plot_bands.grid_path_kpoints(table, scf_grid)
+                except ValueError as exc:
+                    analysis["grid_dots"] = {"indices": [], "rejected": str(exc)}
+                else:
+                    analysis["grid_dots"] = {"indices": method_grid, "source_path": scf_grid.get("source_path"),
+                                             "mesh": scf_grid["mesh"], "shift": scf_grid.get("shift"),
+                                             "definition": "path rows whose fractional k satisfies k*n - shift integer"}
             if write:
                 output.parent.mkdir(parents=True, exist_ok=True)
-                svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], record.get("material", record["id"]), method)
+                svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], record.get("material", record["id"]), method,
+                                                     grid_kpoints=method_grid or None)
                 if not output.exists() or output.read_text(encoding="utf-8") != svg:
                     output.write_text(svg, encoding="utf-8")
                 generated.append(_file_entry(output, root, f"{method} occupation-separated frontier", sources))

@@ -404,6 +404,68 @@ class BandFigureTests(unittest.TestCase):
             self.assertTrue(metadata["methods"]["GW"]["mapping_one_based"])
             self.assertIn("Frozen occupation-separated energy-rank display", svg.read_text())
 
+    def test_grid_coincident_dots_follow_the_archived_scf_mesh(self):
+        """归档了 SCF 网格的记录才打点；打点位置必须落在网格重合的路径行上。"""
+        ns = {"s": "http://www.w3.org/2000/svg"}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = self.fixture(root)
+            case = path.parent
+            # 把路径采样加密到 9 个点，并归档一个 4x4x4 Gamma 网格
+            for method in generator.METHODS:
+                table = case / f"results/{method}_band_spin_1.dat"
+                high = (2, 4) if method != "EXX" else (40, 55)
+                rows = []
+                for index in range(9):
+                    x = index / 8 * 0.5
+                    rows.append(f"{index + 1} {x:.6f} 0 0 2 -4 2 -1 0 {high[0]} 0 {high[1]}")
+                table.write_text("\n".join(rows) + "\n")
+            nodes = "".join(f"{index / 8 * 0.5:.6f} 0 0 1 # {'G' if index == 0 else ('X' if index == 8 else 'p%d' % index)}\n"
+                            for index in range(9))
+            (case / "inputs/KPT").write_text(f"K_POINTS\n9\nLine\n{nodes}")
+            (case / "inputs/KPT_scf").write_text("K_POINTS\n0\nGamma\n4 4 4 0 0 0\n")
+            (case / "results/band_kpath_info").write_text("4 4 1 9\n" + "".join(
+                f"{index / 8 * 0.5:.6f} 0 0\n" for index in range(9)))
+            record = json.loads(path.read_text())
+            files = {}
+            for role in ("inputs", "results", "logs", "figures"):
+                files[role] = [{"role": role, "path": p.relative_to(root).as_posix(),
+                                "sha256": generator.sha256(p), "size_bytes": p.stat().st_size}
+                               for p in sorted((case / role).iterdir())]
+            record["files"] = files
+            path.write_text(json.dumps(record))
+            report = generator.generate_record(path, root, write=True)
+            self.assertIn("GW", report["generated_methods"])
+            metadata = json.loads((case / "figures/band_frontier_metadata.json").read_text())
+            grid = metadata["scf_grid"]
+            self.assertEqual(tuple(grid["mesh"]), (4, 4, 4))
+            dots = metadata["methods"]["GW"]["grid_dots"]
+            # path x = i/16 for i in 0..8; x*4 is an integer only when i is a
+            # multiple of 4, so rows 1, 5 and 9 are the ones the mesh actually has
+            self.assertEqual(dots["indices"], [1, 5, 9])
+            svg = ET.parse(case / "figures/gw_frontier.svg").getroot()
+            groups = [node for node in svg.iter() if "grid-dots" in (node.get("id") or "")]
+            self.assertEqual(len(groups), 4, "one dot group per displayed band")
+            for group in groups:
+                self.assertEqual(len(list(group)), len(dots["indices"]))
+                self.assertEqual(group.get("fill"), "#E64B35", "dots share the GW line colour")
+            # the curve itself still carries every native sample
+            curves = [node for node in svg.iter() if "rank-" in (node.get("id") or "")]
+            self.assertEqual(len(curves), 4)
+            self.assertTrue(all(curve.get("d").count("L") == 8 for curve in curves))
+
+    def test_records_without_an_archived_grid_get_no_dots(self):
+        ns = {"s": "http://www.w3.org/2000/svg"}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = self.fixture(root)
+            report = generator.generate_record(path, root, write=True)
+            self.assertIn("GW", report["generated_methods"])
+            metadata = json.loads((path.parent / "figures/band_frontier_metadata.json").read_text())
+            self.assertIsNone(metadata["scf_grid"]["mesh"])
+            svg = ET.parse(path.parent / "figures/gw_frontier.svg").getroot()
+            self.assertEqual([node for node in svg.iter() if "grid-dots" in (node.get("id") or "")], [])
+
     def test_actual_svg_markers_are_hollow_at_saved_raw_extrema(self):
         ns = {"s": "http://www.w3.org/2000/svg"}
         for path in ROOT.glob("data/calculations/3d/*/*/figures/band_frontier_metadata.json"):
