@@ -25,7 +25,7 @@ export function gapOverview(record) {
   return { ks, exx, gw, scope: restrictedGap(record) ? "path" : "band" };
 }
 
-const scopeNote = { sampled: " · sampled Γ", path: " · path-resolved" };
+const scopeNote = { sampled: " · sampled Γ" };
 
 export function renderGapOverview(calculations, sort = "result") {
   const rows = calculations

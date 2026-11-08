@@ -111,7 +111,7 @@ def audit_kpath(table: object, kpt: Path, info: Path | None = None) -> dict:
 
 def find_audited_kpath(table: object, inputs: dict, root: Path, info: Path | None) -> tuple[dict, dict]:
     """只用同record实际归档的Line路径，逐候选核验全部采样。"""
-    candidates = sorted((entry for name, entry in inputs.items() if name.startswith("KPT")),
+    candidates = sorted((entry for name, entry in inputs.items() if "KPT" in Path(name).name),
                         key=lambda entry: (Path(entry["path"]).name != "KPT_nscf",
                                            Path(entry["path"]).name != "KPT", entry["path"]))
     attempts = []
@@ -135,7 +135,10 @@ def find_scf_grid(inputs: dict, root: Path) -> tuple[dict | None, list[dict]]:
     两者都没有时返回 ``None``——此时无法判定哪些路径点落在网格上，图上一律不打点。
     """
     attempts = []
-    scf = sorted((entry for name, entry in inputs.items() if name.startswith("KPT") and "_scf" in name),
+    # Archived file names may carry a stage prefix such as ``calculation__``,
+    # so match on the tail of the name rather than on its first characters.
+    scf = sorted((entry for name, entry in inputs.items()
+                  if Path(name).name.endswith("KPT_scf")),
                  key=lambda entry: entry["path"])
     for entry in scf:
         try:
@@ -420,6 +423,12 @@ def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = Fals
                 "source_sha256": {}, "methods": {}}
     writes, generated = {}, []
     all_sources = []
+    hbn_grid, hbn_grid_attempts = find_scf_grid(
+        {Path(entry["path"]).name: entry for group in record["files"].values() for entry in group}, root)
+    metadata["scf_grid"] = (dict(hbn_grid, sampled_note="dots mark only path points that coincide with the archived SCF mesh")
+                            if hbn_grid else
+                            {"mesh": None, "shift": None, "rejected_candidates": hbn_grid_attempts,
+                             "note": "no archived SCF grid; grid-coincident dots are not drawn"})
     for method in METHODS:
         entry, _ = source(f"{method}_band_spin_1.dat")
         table = plot_bands.parse_abacus_band_table(root / entry["path"])
@@ -446,8 +455,15 @@ def generate_hbn_record(record_path: Path, root: Path = ROOT, write: bool = Fals
                          "kpath_audit": path_audit, "source_paths": sources})
         metadata["methods"][method] = analysis
         all_sources.extend(sources)
+        method_grid = plot_bands.grid_path_kpoints(table, hbn_grid) if hbn_grid else []
+        analysis["grid_dots"] = {"indices": method_grid,
+                                 "source_path": hbn_grid.get("source_path") if hbn_grid else None,
+                                 "mesh": hbn_grid["mesh"] if hbn_grid else None,
+                                 "shift": hbn_grid.get("shift") if hbn_grid else None,
+                                 "definition": "path rows whose fractional k satisfies k*n - shift integer"}
         output = record_path.parent / f"figures/{method.lower()}_frontier.svg"
-        svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], "hBN", method).encode("utf-8")
+        svg = plot_bands.render_frontier_svg(table, analysis, path_audit["ticks"], "hBN", method,
+                                             grid_kpoints=method_grid or None).encode("utf-8")
         relative = output.relative_to(root).as_posix()
         writes[relative] = svg
         generated.append({"role": "figures", "path": relative, "sha256": hashlib.sha256(svg).hexdigest(),

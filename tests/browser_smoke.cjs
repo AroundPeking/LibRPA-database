@@ -466,7 +466,7 @@ async function main() {
     check(await reference.locator("table").count() === 0, "no repeated paper/archive value comparison table");
     await reference.locator("summary").click();
     check(await reference.locator("a").first().isVisible(), "source extract remains accessible after expansion");
-    check(hbnHeadline.includes("Path-resolved value"), "paper headline keeps the path-resolved scope beside its number");
+    check(hbnHeadline.includes("6.94183") && !/Path-resolved/.test(hbnHeadline), "hBN 头部直接显示论文数值，不带保留性标签");
     check(!hbnHeadline.includes("Restricted result") && !hbnHeadline.includes("6.68084"), "replacement hBN does not hide its paper value or borrow the old value");
     check((await page.locator(".result-strip > div").nth(0).innerText()).includes("4.68813"), "replacement hBN shows its own cited KS value");
     check((await page.locator(".result-strip > div").nth(1).innerText()).includes("11.020"), "replacement hBN shows its own archived EXX value");
@@ -488,7 +488,7 @@ async function main() {
     await go("#/materials");
     await page.locator("#search").fill("hBN");
     const replacementRow = page.locator(".material-row").filter({ has: page.locator("a[href='#/material/hbn-tzdp10-fgext-20261008']") });
-    check((await replacementRow.innerText()).includes("6.942") && (await replacementRow.innerText()).includes("Path-resolved"), "replacement hBN list shows rounded paper number with path scope");
+    check((await replacementRow.innerText()).includes("6.942") && !/Path-resolved/.test(await replacementRow.innerText()), "hBN 列表直接显示论文数值，不带保留性标签");
     check((await page.locator("#sort").innerText()).includes("GW gap"), "sorting label states the single comparable GW-gap metric");
     await go("#/basis");
     check(await page.locator(".dimension-filter").isHidden(), "dimension filter hidden in basis mode");

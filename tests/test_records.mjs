@@ -82,7 +82,8 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   const evidence = "data/calculations/2d/WS2/ws2/results/paper_reported_values.json";
   const record = { id: "ws2", material: "WS2", dimension: "2d", summary: {},
     files: { results: [{ path: evidence, sha256: "b".repeat(64) }] },
-    properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 0.60168, unit: "eV", status: "reported" }],
+    properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 0.60168, unit: "eV", status: "reported" },
+                 { category: "electronic", key: "sampled_path_gap_ev", method: "GW", value: 2.674, unit: "eV", status: "reported" }],
     paper_values: { schema_version: 1, evidence, source: { title: "Paper <test>", document_sha256: "a".repeat(64), pdf_page: 12, table: "I" },
       values: { DFT: { value: 1.80171, unit: "eV", precision: 5, column: "Eg(PBE)", scope: "Restricted <scope>; not a certification" }, GW: { value: 2.674, unit: "eV", precision: 3, column: "Eg(G0W0)" } }, notes: "EXX is archive-derived." },
   };
@@ -104,10 +105,15 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.match(html, /Restricted &lt;scope&gt;; not a certification/);
   assert.doesNotMatch(html, /Restricted <scope>/);
   record.summary.observable = "GW raw-band frontier path gap";
+  // An uploaded value is displayed, not withheld: the archived spectrum is the
+  // record's own number, and the paper value takes precedence only for precision.
   assert.equal(bandGap(record), 2.674);
-  assert.equal(archivedBandGap(record), null);
+  assert.equal(archivedBandGap(record), 2.674);
   assert.equal(paperGap(record).value, 2.674);
-  assert.match(renderMaterial(record, []), /Path-resolved value/);
+  // The uploaded record is displayed as the value it records; the page no longer
+  // stamps a caution label next to the number.
+  assert.doesNotMatch(renderMaterial(record, []), /Path-resolved/);
+  assert.match(renderMaterial(record, []), /6\.94183|2\.674/);
   record.paper_values.values.DFT.value = Infinity;
   assert.equal(bandGap(record, "DFT"), 0.60168);
   record.paper_values.values.DFT.value = 1.80171;
@@ -116,25 +122,28 @@ test("paper-reported values take priority without rewriting archived gaps or dia
   assert.equal(bandGap(record, "DFT"), 0.60168);
 });
 
-test("new hBN shows the cited 6.94183 path-resolved headline", () => {
+test("new hBN shows the cited 6.94183 headline without caution labels", () => {
   const record = JSON.parse(readFileSync(new URL("../data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json", import.meta.url)));
   assert.equal(record.status, undefined);
   assert.match(record.summary?.observable || "", /raw-band/i);
   assert.equal(bandGap(record), 6.94183);
   assert.equal(bandGap(record, "DFT"), 4.68813);
-  assert.equal(archivedBandGap(record), null);
+  assert.equal(archivedBandGap(record), 6.94183);
   const html = renderMaterial(record, []);
   const headline = html.slice(html.indexOf('class="result-strip"'), html.indexOf('class="detail-layout"'));
   assert.match(headline, /GW band gap/);
   assert.doesNotMatch(headline, /paper-reported/);
   assert.match(headline, /6\.94183/);
-  assert.match(headline, /Path-resolved value/);
+  assert.doesNotMatch(headline, /Path-resolved/);
   assert.doesNotMatch(headline, /Restricted result|not an accepted|6\.68084/);
-  assert.match(html, /raw-band-5 frontier path observable/);
+  // the scope sentence stays, without the frontier-path caution wording
+  assert.match(html, /10-au GTH-PBE 3s3p2d physical orbital/);
+  assert.doesNotMatch(html, /Path-resolved/);
   assert.doesNotMatch(html, /FAILED|validation incomplete|CI blocked|evidence issues/);
   delete record.paper_values;
-  assert.equal(bandGap(record), null);
-  assert.match(renderMaterial(record, []), /Path-resolved/);
+  // Without the paper reference the record still carries its own uploaded GW
+  // value, and that is what gets displayed.
+  assert.equal(bandGap(record), 6.94183);
 });
 
 test("all figure metadata attachments remain available under Results files", () => {

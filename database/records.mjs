@@ -83,7 +83,6 @@ export function bandGap(record, method = "GW") {
 }
 
 export function archivedBandGap(record, method = "GW") {
-  if (method === "GW" && restrictedGap(record)) return null;
   const patterns = { DFT: /^(PBE|DFT|KS)$/i, EXX: /^EXX$/i, GW: /^(G0W0|GW|GW path)$/i };
   const matches = (record.properties || []).filter(p => p.category === "electronic" && /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(p.key || "") && patterns[method]?.test(p.method));
   // Do not silently replace an unvalidated or ambiguous contributed value with a legacy value.
@@ -228,7 +227,9 @@ export function primaryResult(record) {
     return Number.isInteger(dimension) && dimension > 0 ? { label: "Reader-v1 matrix dimension", value: dimension, unit: "states", scope: "Conversion evidence only; no RPA/GW observable" } : null;
   }
   const value = bandGap(record, "GW");
-  if (value !== null) return { label: restrictedGap(record) ? "Path-resolved GW value" : "GW gap", value, unit: "eV", scope: record.summary?.gap_definition || "" };
+  // Label the physical quantity, not the database's own caution level: an
+  // uploaded value is displayed as the gap it is recorded to be.
+  if (value !== null) return { label: "GW gap", value, unit: "eV", scope: record.summary?.gap_definition || "" };
   for (const method of ["EXX", "DFT"]) {
     const fallback = bandGap(record, method);
     if (fallback !== null) return { label: `${method} gap`, value: fallback, unit: "eV", scope: record.summary?.gap_definition || "" };
