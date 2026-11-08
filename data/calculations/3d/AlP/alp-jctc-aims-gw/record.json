@@ -170,9 +170,9 @@
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-jctc-aims-gw/figures/gw_frontier.svg",
-        "sha256": "41fffc3dce253d1ff9c8ea893366c2c41276d9a5acfbefb20f56fc4989da614b",
-        "size_bytes": 34785,
-        "original_sha256": "41fffc3dce253d1ff9c8ea893366c2c41276d9a5acfbefb20f56fc4989da614b",
+        "sha256": "a278b492c1e9e0612b2d193d2d7658e6cca84b5a5ee59b1d3931682d5a170d25",
+        "size_bytes": 43796,
+        "original_sha256": "a278b492c1e9e0612b2d193d2d7658e6cca84b5a5ee59b1d3931682d5a170d25",
         "label": "GW occupation-separated frontier",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -181,15 +181,15 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/gw_frontier.svg",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/gw_frontier.svg"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/f1de53c5378d4ef234c6e8d9ec43a11e984870ad/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/gw_frontier.svg",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/f1de53c5378d4ef234c6e8d9ec43a11e984870ad/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/gw_frontier.svg"
       },
       {
         "role": "figures",
         "path": "data/calculations/3d/AlP/alp-jctc-aims-gw/figures/band_frontier_metadata.json",
-        "sha256": "503776703a90c24ffbfae7744e0e787d26bd3f0ddc7386193f4dfd3e9615ea4a",
-        "size_bytes": 274404,
-        "original_sha256": "503776703a90c24ffbfae7744e0e787d26bd3f0ddc7386193f4dfd3e9615ea4a",
+        "sha256": "14b699a35e1ef1c50fa81d6d7aa1859f6ca38586a9b07eed4f014a2976f0f984",
+        "size_bytes": 275725,
+        "original_sha256": "14b699a35e1ef1c50fa81d6d7aa1859f6ca38586a9b07eed4f014a2976f0f984",
         "label": "Frontier display mappings, raw audit and provenance",
         "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
         "source_paths": [
@@ -198,8 +198,8 @@
         ],
         "display_priority": "primary",
         "tier": "referenced",
-        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/band_frontier_metadata.json",
-        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/339cc4610e6de418f9794752e8a235d3caafc07d/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/band_frontier_metadata.json"
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/f1de53c5378d4ef234c6e8d9ec43a11e984870ad/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/band_frontier_metadata.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/f1de53c5378d4ef234c6e8d9ec43a11e984870ad/data/calculations/3d/AlP/alp-jctc-aims-gw/figures/band_frontier_metadata.json"
       }
     ]
   },
