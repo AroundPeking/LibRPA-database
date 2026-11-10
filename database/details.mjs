@@ -241,13 +241,16 @@ function basisFactBlock(set, linked) {
   if (!label) {
     return '<div class="notice"><strong>Size facts not derived yet</strong><p>This record has no derived label. Run <code>scripts/basis_labels.py --write</code> to compute the valence count, the orbital and auxiliary dimensions, and the linked results from the payload bytes.</p></div>';
   }
+  // Every size is per atom, and the page says so instead of leaving the reader
+  // to guess whether "697" means the set or the structure.
   const figures = [
     ["Valence electrons", label.valence_electrons === null || label.valence_electrons === undefined ? "not declared" : String(label.valence_electrons)],
     ["Numerical orbital", label.orbital ? `${label.orbital.shells} · ${label.orbital.dimension_per_atom} functions per atom` : "none"],
     ["Auxiliary basis", label.auxiliary ? `${label.auxiliary.shells} · ${label.auxiliary.dimension_per_atom} functions per atom` : "none"],
   ];
+  const definition = label.size_definition ? `<p class="table-description">${esc(label.size_definition)}</p>` : "";
   const results = (label.uses || []).map(use => `<li><a href="#/material/${encodeURIComponent(use.record_id)}">${esc(use.material || use.record_id)}</a>${use.formula && use.formula !== use.material ? ` <span class="table-description">${esc(use.formula)}</span>` : ""}${use.result ? ` — ${esc(use.result)}` : ' <span class="not-reported">no reported result</span>'}</li>`).join("");
-  return `<div class="basis-facts-panel"><dl class="metadata-list">${figures.map(([term, value]) => `<dt>${esc(term)}</dt><dd>${esc(value)}</dd>`).join("")}</dl><p class="basis-facts-usage">${results ? `Already used by ${label.uses.length} calculation${label.uses.length === 1 ? "" : "s"}:<ul class="linked-records">${results}</ul>` : "No calculation in the archive has used this set yet."}</p></div>`;
+  return `<div class="basis-facts-panel"><dl class="metadata-list">${figures.map(([term, value]) => `<dt>${esc(term)}</dt><dd>${esc(value)}</dd>`).join("")}</dl>${definition}<p class="basis-facts-usage">${results ? `Already used by ${label.uses.length} calculation${label.uses.length === 1 ? "" : "s"}:<ul class="linked-records">${results}</ul>` : "No calculation in the archive has used this set yet."}</p></div>`;
 }
 
 export function renderBasis(set, calculations) {

@@ -19,6 +19,21 @@
       "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 23,
+          "P": 21,
+          "D": 20,
+          "F": 16,
+          "G": 11,
+          "H": 8,
+          "I": 4,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 569
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 23,

@@ -28,6 +28,15 @@
       "label": "P_gga_10au_110Ry_3s3p2d.orb",
       "transformation": "none",
       "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      },
+      "dimensions_previous": {
         "lmax": 4.0,
         "counts": {
           "S": 3,
@@ -48,6 +57,21 @@
       "label": "P_3s3p2d2f2g_1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 13,
+          "P": 13,
+          "D": 12,
+          "F": 11,
+          "G": 10,
+          "H": 7,
+          "I": 7,
+          "J": 3,
+          "K": 3
+        },
+        "basis_dimension": 543
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 13,

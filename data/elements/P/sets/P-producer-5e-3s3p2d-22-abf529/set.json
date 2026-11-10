@@ -38,7 +38,16 @@
       "transformation": "none",
       "source_declarations": [
         "P_gga_10au_100Ry_3s3p2d.orb"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
     },
     {
       "role": "abf",
@@ -51,7 +60,22 @@
       "transformation": "none",
       "source_declarations": [
         "P_3s3p2d2f1g_pca1e-6.abfs"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 14,
+          "P": 14,
+          "D": 14,
+          "F": 13,
+          "G": 11,
+          "H": 8,
+          "I": 6,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 529
+      }
     }
   ],
   "generation_provenance": {

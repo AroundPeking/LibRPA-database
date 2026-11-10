@@ -46,6 +46,21 @@
       "label": "Mg_6s3p2d2f2g_1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 18,
+          "P": 15,
+          "D": 15,
+          "F": 14,
+          "G": 12,
+          "H": 8,
+          "I": 8,
+          "J": 4,
+          "K": 3
+        },
+        "basis_dimension": 647
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 18,

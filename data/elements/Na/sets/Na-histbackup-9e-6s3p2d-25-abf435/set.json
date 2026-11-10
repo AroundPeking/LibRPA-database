@@ -35,7 +35,16 @@
       "original_sha256": "b6d970b5faa723700546d288e71e24c3e22531a355689cf81243d94cb5d0bc61",
       "label": "Na_gga_10au_100Ry_6s3p2d.orb",
       "original_name": "Na_gga_10au_100Ry_6s3p2d.orb",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 25
+      }
     },
     {
       "role": "abf",
@@ -46,6 +55,21 @@
       "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 19,
+          "P": 15,
+          "D": 13,
+          "F": 11,
+          "G": 10,
+          "H": 5,
+          "I": 4,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 435
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 19,

@@ -37,6 +37,15 @@
           "label": "Al_gga_10au_110Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -63,6 +72,21 @@
           "label": "Al_gth_3s3p2d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 10,
+              "H": 8,
+              "I": 6,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 530
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -96,13 +120,11 @@
         "element": "Al",
         "valence_electrons": 3,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -130,7 +152,9 @@
             "result": "GW gap 1.58 eV"
           }
         ],
-        "sentence": "Al: 3 valence electrons, 3s3p2d0f0g, 22 functions per atom, 530 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Al: 3 valence electrons, 3s3p2d, 22 functions per atom, 530 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
       }
     },
     {
@@ -175,6 +199,15 @@
           "label": "Al_gga_8au_100Ry_6s6p2d.orb",
           "original_name": "Al_gga_8au_100Ry_6s6p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 2
+            },
+            "basis_dimension": 34
+          },
           "display_name": "Al_gga_8au_100Ry_6s6p2d.orb",
           "download_name": "Al_gga_8au_100Ry_6s6p2d.orb",
           "name_source": "recorded",
@@ -191,6 +224,21 @@
           "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 23,
+              "P": 21,
+              "D": 20,
+              "F": 16,
+              "G": 11,
+              "H": 8,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 569
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 23,
@@ -264,6 +312,8 @@
             "result": "GW gap 2.37 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Al: 11 valence electrons, 6s6p2d, 34 functions per atom, 569 auxiliary functions per atom. 2 calculations: AlAs GW gap 2.01 eV; AlP GW gap 2.37 eV."
       }
     },
@@ -288,6 +338,21 @@
           "label": "Al_6s6p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 23,
+              "P": 21,
+              "D": 20,
+              "F": 16,
+              "G": 11,
+              "H": 8,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 569
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 23,
@@ -350,6 +415,15 @@
           "original_sha256": "e982eab124d9d0e1615167609c39b8c80a52d316bd51e7607ab1b8e08a505448",
           "label": "As_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "As_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "As_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -365,6 +439,21 @@
           "original_sha256": "eaff838978a4d938adcfb2f6651806e24d8308aa8765ef1b1c042618012396df",
           "label": "As_str_3s3p2d2f1g_1e-4.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 9,
+              "G": 8,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 400
+          },
           "display_name": "As_str_3s3p2d2f1g_1e-4.abfs",
           "download_name": "As_str_3s3p2d2f1g_1e-4.abfs",
           "name_source": "recorded",
@@ -414,6 +503,8 @@
             "result": "GW gap 1.39 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "As: 15 valence electrons, 3s3p2d, 22 functions per atom, 400 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.39 eV."
       }
     },
@@ -453,6 +544,15 @@
           "label": "As_gga_10au_130Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -479,6 +579,21 @@
           "label": "As_3s3p2d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 8,
+              "I": 7,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 557
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -512,13 +627,11 @@
         "element": "As",
         "valence_electrons": 15,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -546,7 +659,9 @@
             "result": "GW gap 1.38 eV"
           }
         ],
-        "sentence": "As: 15 valence electrons, 3s3p2d0f0g, 22 functions per atom, 557 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "As: 15 valence electrons, 3s3p2d, 22 functions per atom, 557 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
       }
     },
     {
@@ -591,6 +706,15 @@
           "label": "As_gga_8au_100Ry_3s3p2d.orb",
           "original_name": "As_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "As_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "As_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -607,6 +731,21 @@
           "label": "As_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 411
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -680,6 +819,8 @@
             "result": "GW gap 1.76 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "As: 5 valence electrons, 3s3p2d, 22 functions per atom, 411 auxiliary functions per atom. 2 calculations: AlAs GW gap 2.01 eV; BAs GW gap 1.76 eV."
       }
     },
@@ -704,6 +845,21 @@
           "label": "As_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 411
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -791,6 +947,21 @@
           "label": "B_GTH-PBE_TZDP_fgext_foraux_pca1e-4_242.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 8,
+              "D": 6,
+              "F": 6,
+              "G": 5,
+              "H": 3,
+              "I": 2,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 242
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -856,6 +1027,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 242 auxiliary functions per atom. 1 calculation: hBN."
       }
     },
@@ -919,6 +1092,21 @@
           "label": "B_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 13,
@@ -984,6 +1172,8 @@
             "result": "GW gap 6.32 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 418 auxiliary functions per atom. 1 calculation: BN GW gap 6.32 eV."
       }
     },
@@ -1029,6 +1219,15 @@
           "label": "B_gga_8au_100Ry_3s3p2d.orb",
           "original_name": "B_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "B_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "B_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -1045,6 +1244,21 @@
           "label": "B_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 13,
@@ -1118,6 +1332,8 @@
             "result": "GW gap 2.03 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 418 auxiliary functions per atom. 2 calculations: BAs GW gap 1.76 eV; BP GW gap 2.03 eV."
       }
     },
@@ -1142,6 +1358,21 @@
           "label": "B_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 13,
@@ -1204,6 +1435,15 @@
           "original_sha256": "a407796660f1d0b3c51f2da38697edb73dfcfcfd6912bf30606e7b7893f8cdaa",
           "label": "Bi_gga_10au_130Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "Bi_gga_10au_130Ry_3s3p2d.orb",
           "download_name": "Bi_gga_10au_130Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -1219,6 +1459,21 @@
           "original_sha256": "226999e6a73a2a4e5850e677d4604df6ea7182b3631362d996653464c6d19fdd",
           "label": "Bi_4s4p3d2f2g_1e-4.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 9,
+              "F": 8,
+              "G": 8,
+              "H": 5,
+              "I": 5,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 426
+          },
           "display_name": "Bi_4s4p3d2f2g_1e-4.abfs",
           "download_name": "Bi_4s4p3d2f2g_1e-4.abfs",
           "name_source": "recorded",
@@ -1236,13 +1491,11 @@
         "element": "Bi",
         "valence_electrons": 23,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -1270,7 +1523,9 @@
             "result": "GW gap 0.25 eV"
           }
         ],
-        "sentence": "Bi: 23 valence electrons, 3s3p2d0f0g, 22 functions per atom, 426 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Bi: 23 valence electrons, 3s3p2d, 22 functions per atom, 426 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
       }
     },
     {
@@ -1313,6 +1568,15 @@
           "label": "C_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -1339,13 +1603,11 @@
         "element": "C",
         "valence_electrons": 4,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -1366,7 +1628,9 @@
             "result": "RPA cohesive energy 6.16 eV/atom"
           }
         ],
-        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 2 calculations: C2 RPA cohesive energy 6.90 eV/atom; SiC RPA cohesive energy 6.16 eV/atom."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "C: 4 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 2 calculations: C2 RPA cohesive energy 6.90 eV/atom; SiC RPA cohesive energy 6.16 eV/atom."
       }
     },
     {
@@ -1391,6 +1655,23 @@
         },
         {
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 2,
+              "P": 2,
+              "D": 1
+            },
+            "basis_dimension": 13
+          },
+          "label": "C_gga_8au_100Ry_2s2p1d.orb",
+          "original_name": "C_gga_8au_100Ry_2s2p1d.orb",
+          "original_sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+          "path": "data/elements/C/orbitals/e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811.orb",
+          "role": "nao",
+          "sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
+          "size_bytes": 91797,
+          "transformation": "none",
+          "dimensions_previous": {
             "basis_dimension": 13,
             "counts": {
               "D": 1,
@@ -1401,14 +1682,6 @@
             },
             "lmax": 2.0
           },
-          "label": "C_gga_8au_100Ry_2s2p1d.orb",
-          "original_name": "C_gga_8au_100Ry_2s2p1d.orb",
-          "original_sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
-          "path": "data/elements/C/orbitals/e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811.orb",
-          "role": "nao",
-          "sha256": "e8085a5ff072b38b68d641803b681cd3008b9f82e6cf118aac457fa88e209811",
-          "size_bytes": 91797,
-          "transformation": "none",
           "display_name": "C_gga_8au_100Ry_2s2p1d.orb",
           "download_name": "C_gga_8au_100Ry_2s2p1d.orb",
           "name_source": "recorded",
@@ -1474,6 +1747,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "C: 4 valence electrons, 2s2p1d, 13 functions per atom, no auxiliary basis. 3 calculations: C1024; C2048; C512."
       }
     },
@@ -1513,6 +1788,15 @@
           "label": "C_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -1539,6 +1823,21 @@
           "label": "C_8au_3s3p2d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 14,
+              "D": 14,
+              "F": 11,
+              "G": 10,
+              "H": 8,
+              "I": 7,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 568
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -1572,13 +1871,11 @@
         "element": "C",
         "valence_electrons": 4,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -1606,7 +1903,9 @@
             "result": "GW gap 2.26 eV"
           }
         ],
-        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, 568 auxiliary functions per atom. 1 calculation: SiC GW gap 2.26 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "C: 4 valence electrons, 3s3p2d, 22 functions per atom, 568 auxiliary functions per atom. 1 calculation: SiC GW gap 2.26 eV."
       }
     },
     {
@@ -1645,6 +1944,15 @@
           "label": "C_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -1671,6 +1979,21 @@
           "label": "C_3s3p2d2f2g_1e-7.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 15,
+              "P": 17,
+              "D": 18,
+              "F": 15,
+              "G": 14,
+              "H": 10,
+              "I": 8,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 697
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 15,
@@ -1704,13 +2027,11 @@
         "element": "C",
         "valence_electrons": 4,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -1738,7 +2059,9 @@
             "result": "GW gap 5.55 eV"
           }
         ],
-        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, 697 auxiliary functions per atom. 1 calculation: C GW gap 5.55 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "C: 4 valence electrons, 3s3p2d, 22 functions per atom, 697 auxiliary functions per atom. 1 calculation: C GW gap 5.55 eV."
       }
     },
     {
@@ -1801,6 +2124,21 @@
           "label": "Ca_6s3p2d2f1g_pca1e-10.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 33,
+              "P": 29,
+              "D": 29,
+              "F": 25,
+              "G": 20,
+              "H": 9,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 844
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 33,
@@ -1866,6 +2204,8 @@
             "result": "GW gap 6.37 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ca: 10 valence electrons, 6s3p2d, 25 functions per atom, 844 auxiliary functions per atom. 1 calculation: CaO GW gap 6.37 eV."
       }
     },
@@ -1930,6 +2270,21 @@
           "label": "Cd_8au_6s3p3d2f1g_1e-4.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 11,
+              "F": 10,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 393
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -1996,6 +2351,8 @@
             "result": "GW gap 2.08 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Cd: 20 valence electrons, 6s3p3d2f, 44 functions per atom, 393 auxiliary functions per atom. 1 calculation: CdS GW gap 2.08 eV."
       }
     },
@@ -2040,6 +2397,15 @@
           "label": "Cl_gga_8au_100Ry_3s3p2d.orb",
           "original_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "Cl_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -2056,6 +2422,21 @@
           "label": "Cl_8au3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 11,
+              "D": 12,
+              "F": 10,
+              "G": 8,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 396
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -2121,6 +2502,8 @@
             "result": "GW gap 7.83 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Cl: 7 valence electrons, 3s3p2d, 22 functions per atom, 396 auxiliary functions per atom. 1 calculation: NaCl GW gap 7.83 eV."
       }
     },
@@ -2145,6 +2528,21 @@
           "label": "Cl_8au3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 11,
+              "D": 12,
+              "F": 10,
+              "G": 8,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 396
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -2229,6 +2627,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 9,
+              "D": 9,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 357
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -2333,6 +2746,8 @@
           "dimension_per_atom": 357
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -2376,6 +2791,16 @@
           "source_declarations": [
             "../assets/Cu/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
           "display_name": "Cu_Recovered-producer-bound-assets_nao_bcdb17217b5e.orb",
           "download_name": "Cu_Recovered-producer-bound-assets_nao_bcdb17217b5e.orb",
           "name_source": "descriptive_alias",
@@ -2393,6 +2818,21 @@
           "source_declarations": [
             "../assets/Cu/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 9,
+              "D": 9,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 357
+          },
           "display_name": "Cu_Recovered-producer-bound-assets_abf_1c561fdc83f1.abfs",
           "download_name": "Cu_Recovered-producer-bound-assets_abf_1c561fdc83f1.abfs",
           "name_source": "descriptive_alias",
@@ -2441,6 +2881,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. 1 calculation: CuInP2Se6."
       },
       "used_by": [
@@ -2507,6 +2949,20 @@
           "label": "ORBITAL_8U.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 7,
+            "counts": {
+              "S": 10,
+              "P": 10,
+              "D": 10,
+              "F": 9,
+              "G": 8,
+              "H": 7,
+              "I": 6,
+              "J": 5
+            },
+            "basis_dimension": 455
+          },
+          "dimensions_previous": {
             "lmax": 7.0,
             "counts": {
               "S": 10,
@@ -2571,6 +3027,8 @@
             "result": "GW gap 14.00 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "F: 7 valence electrons, 3s3p2d, 22 functions per atom, 455 auxiliary functions per atom. 1 calculation: LiF GW gap 14.00 eV."
       }
     },
@@ -2631,6 +3089,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 8,
+              "D": 10,
+              "F": 7,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 359
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -2735,6 +3208,8 @@
           "dimension_per_atom": 359
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -2773,6 +3248,16 @@
           "original_sha256": "fdca55c2cf87df666d2fe201d32e633eaebb39724c115b5d6bd186877585efd5",
           "label": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 4,
+              "F": 2
+            },
+            "basis_dimension": 58
+          },
           "display_name": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
           "download_name": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
           "name_source": "recorded",
@@ -2788,6 +3273,21 @@
           "original_sha256": "fd83a29b2e5fc066a043752ced89845754fb40439d2806830cca61c6030dd4c2",
           "label": "Ga_str_6s6p4d2f1g_1e-4.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 14,
+              "D": 14,
+              "F": 12,
+              "G": 10,
+              "H": 7,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 489
+          },
           "display_name": "Ga_str_6s6p4d2f1g_1e-4.abfs",
           "download_name": "Ga_str_6s6p4d2f1g_1e-4.abfs",
           "name_source": "recorded",
@@ -2838,6 +3338,8 @@
             "result": "GW gap 1.39 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ga: 21 valence electrons, 6s6p4d2f, 58 functions per atom, 489 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.39 eV."
       }
     },
@@ -2877,6 +3379,16 @@
           "label": "Ga_gga_10au_130Ry_4s4p3d2f.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 4,
+              "P": 4,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 45
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 4,
@@ -2903,6 +3415,21 @@
           "label": "Ga_4s4p3d2f2g_1e-10.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 24,
+              "P": 23,
+              "D": 26,
+              "F": 23,
+              "G": 23,
+              "H": 16,
+              "I": 12,
+              "J": 4,
+              "K": 3
+            },
+            "basis_dimension": 1034
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 24,
@@ -2936,13 +3463,12 @@
         "element": "Ga",
         "valence_electrons": 21,
         "orbital": {
-          "shells": "4s4p3d2f0g",
+          "shells": "4s4p3d2f",
           "channels": {
             "S": 4,
             "P": 4,
             "D": 3,
-            "F": 2,
-            "G": 0
+            "F": 2
           },
           "dimension_per_atom": 45
         },
@@ -2970,7 +3496,9 @@
             "result": "GW gap 1.38 eV"
           }
         ],
-        "sentence": "Ga: 21 valence electrons, 4s4p3d2f0g, 45 functions per atom, 1034 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Ga: 21 valence electrons, 4s4p3d2f, 45 functions per atom, 1034 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
       }
     },
     {
@@ -3009,6 +3537,16 @@
           "label": "Ga_gga_10au_130Ry_4s4p3d2f.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 4,
+              "P": 4,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 45
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 4,
@@ -3035,6 +3573,21 @@
           "label": "Ga_4s4p3d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 15,
+              "P": 13,
+              "D": 13,
+              "F": 12,
+              "G": 12,
+              "H": 8,
+              "I": 8,
+              "J": 4,
+              "K": 3
+            },
+            "basis_dimension": 614
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 15,
@@ -3068,13 +3621,12 @@
         "element": "Ga",
         "valence_electrons": 21,
         "orbital": {
-          "shells": "4s4p3d2f0g",
+          "shells": "4s4p3d2f",
           "channels": {
             "S": 4,
             "P": 4,
             "D": 3,
-            "F": 2,
-            "G": 0
+            "F": 2
           },
           "dimension_per_atom": 45
         },
@@ -3102,7 +3654,9 @@
             "result": "GW gap 2.25 eV"
           }
         ],
-        "sentence": "Ga: 21 valence electrons, 4s4p3d2f0g, 45 functions per atom, 614 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Ga: 21 valence electrons, 4s4p3d2f, 45 functions per atom, 614 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
       }
     },
     {
@@ -3166,6 +3720,21 @@
           "label": "Ga_str_6s6p4d2f1g_1e-5.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 18,
+              "P": 17,
+              "D": 18,
+              "F": 16,
+              "G": 14,
+              "H": 10,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 632
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 18,
@@ -3232,6 +3801,8 @@
             "result": "GW gap 2.86 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ga: 21 valence electrons, 6s6p4d2f, 58 functions per atom, 632 auxiliary functions per atom. 1 calculation: GaN GW gap 2.86 eV."
       }
     },
@@ -3275,6 +3846,16 @@
           "source_declarations": [
             "../assets/Ga/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Ga_Recovered-producer-bound-assets_nao_91cbd05a0580.orb",
           "download_name": "Ga_Recovered-producer-bound-assets_nao_91cbd05a0580.orb",
           "name_source": "descriptive_alias",
@@ -3292,6 +3873,21 @@
           "source_declarations": [
             "../assets/Ga/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 8,
+              "D": 10,
+              "F": 7,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 359
+          },
           "display_name": "Ga_Recovered-producer-bound-assets_abf_be91e23e2170.abfs",
           "download_name": "Ga_Recovered-producer-bound-assets_abf_be91e23e2170.abfs",
           "name_source": "descriptive_alias",
@@ -3340,6 +3936,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. 1 calculation: GaTe."
       },
       "used_by": [
@@ -3403,6 +4001,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 9,
+              "H": 6,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 415
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -3676,6 +4289,8 @@
           "dimension_per_atom": 415
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 415 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -3789,6 +4404,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -3849,6 +4466,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 426
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -4044,6 +4676,8 @@
           "dimension_per_atom": 426
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -4170,6 +4804,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -4296,6 +4932,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -4356,6 +4994,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 406
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -4538,6 +5191,8 @@
           "dimension_per_atom": 406
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 406 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -4651,6 +5306,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -4696,6 +5353,16 @@
           "source_declarations": [
             "../assets/Ge/Ge_gga_10au_150Ry_6s6p3d2f.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 53
+          },
           "display_name": "Ge_Recovered-producer-bound-assets_nao_ebe513b2dd0e.orb",
           "download_name": "Ge_Recovered-producer-bound-assets_nao_ebe513b2dd0e.orb",
           "name_source": "descriptive_alias",
@@ -4713,6 +5380,21 @@
           "source_declarations": [
             "../assets/Ge/Ge_stringent_plusg_pca1e-4.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 426
+          },
           "display_name": "Ge_Recovered-producer-bound-assets_abf_a8f0b316f98c.abfs",
           "download_name": "Ge_Recovered-producer-bound-assets_abf_a8f0b316f98c.abfs",
           "name_source": "descriptive_alias",
@@ -4764,6 +5446,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. 1 calculation: GeTe."
       }
     },
@@ -4848,6 +5532,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "H: 1 valence electrons, 4s3p, 13 functions per atom, no auxiliary basis. 1 calculation: H2."
       }
     },
@@ -4934,6 +5620,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "H: 1 valence electrons, 4s3p2d, 23 functions per atom, no auxiliary basis. 1 calculation: LiH."
       }
     },
@@ -5018,6 +5706,8 @@
             "result": "RPA cohesive energy 2.39 eV/atom"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "H: 1 valence electrons, 3s2p, 9 functions per atom, no auxiliary basis. 1 calculation: LiH RPA cohesive energy 2.39 eV/atom."
       }
     },
@@ -5078,6 +5768,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 380
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -5182,6 +5887,8 @@
           "dimension_per_atom": 380
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -5242,6 +5949,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 362
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -5450,6 +6172,8 @@
           "dimension_per_atom": 362
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -5615,6 +6339,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -5660,6 +6386,16 @@
             "../../producer/assets/In/physical.orb",
             "../assets/In/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
           "download_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
           "name_source": "descriptive_alias",
@@ -5677,6 +6413,21 @@
           "source_declarations": [
             "../assets/In/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 362
+          },
           "display_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
           "download_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
           "name_source": "descriptive_alias",
@@ -5725,6 +6476,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: In2Se3."
       },
       "used_by": [
@@ -5773,6 +6526,16 @@
             "../../producer/assets/In/physical.orb",
             "../assets/In/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
           "download_name": "In_Recovered-producer-bound-assets_nao_31069bf2c90d.orb",
           "name_source": "descriptive_alias",
@@ -5790,6 +6553,21 @@
           "source_declarations": [
             "../assets/In/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 362
+          },
           "display_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
           "download_name": "In_Recovered-producer-bound-assets_abf_9f0c2109bcac.abfs",
           "name_source": "descriptive_alias",
@@ -5838,6 +6616,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: InSe."
       },
       "used_by": [
@@ -5884,6 +6664,16 @@
           "source_declarations": [
             "../assets/In/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "In_Recovered-producer-bound-assets_nao_1e03723e5306.orb",
           "download_name": "In_Recovered-producer-bound-assets_nao_1e03723e5306.orb",
           "name_source": "descriptive_alias",
@@ -5901,6 +6691,21 @@
           "source_declarations": [
             "../assets/In/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 380
+          },
           "display_name": "In_Recovered-producer-bound-assets_abf_6e1db5b44e37.abfs",
           "download_name": "In_Recovered-producer-bound-assets_abf_6e1db5b44e37.abfs",
           "name_source": "descriptive_alias",
@@ -5949,6 +6754,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. 1 calculation: CuInP2Se6."
       },
       "used_by": [
@@ -6046,6 +6853,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Li: 3 valence electrons, 8s3p2d, 27 functions per atom, no auxiliary basis. 2 calculations: Li2; LiH."
       }
     },
@@ -6130,6 +6939,8 @@
             "result": "RPA cohesive energy 2.39 eV/atom"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Li: 3 valence electrons, 6s2p, 12 functions per atom, no auxiliary basis. 1 calculation: LiH RPA cohesive energy 2.39 eV/atom."
       }
     },
@@ -6192,6 +7003,20 @@
           "label": "ORBITAL_10U.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 7,
+            "counts": {
+              "S": 10,
+              "P": 10,
+              "D": 10,
+              "F": 9,
+              "G": 8,
+              "H": 7,
+              "I": 6,
+              "J": 5
+            },
+            "basis_dimension": 455
+          },
+          "dimensions_previous": {
             "lmax": 7.0,
             "counts": {
               "S": 10,
@@ -6255,6 +7080,8 @@
             "result": "GW gap 14.00 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Li: 3 valence electrons, 6s2p, 12 functions per atom, 455 auxiliary functions per atom. 1 calculation: LiF GW gap 14.00 eV."
       }
     },
@@ -6341,6 +7168,8 @@
             "result": "RPA cohesive energy 4.98 eV/atom"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mg: 10 valence electrons, 6s3p2d, 25 functions per atom, no auxiliary basis. 1 calculation: MgO RPA cohesive energy 4.98 eV/atom."
       }
     },
@@ -6404,6 +7233,21 @@
           "label": "Mg_6s3p2d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 18,
+              "P": 15,
+              "D": 15,
+              "F": 14,
+              "G": 12,
+              "H": 8,
+              "I": 8,
+              "J": 4,
+              "K": 3
+            },
+            "basis_dimension": 647
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 18,
@@ -6469,6 +7313,8 @@
             "result": "GW gap 7.39 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mg: 10 valence electrons, 6s3p2d, 25 functions per atom, 647 auxiliary functions per atom. 1 calculation: MgO GW gap 7.39 eV."
       }
     },
@@ -6529,6 +7375,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 10,
+              "F": 9,
+              "G": 7,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 396
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -6841,6 +7702,8 @@
           "dimension_per_atom": 396
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -6967,6 +7830,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7093,6 +7958,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7157,6 +8024,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 8,
+              "P": 6,
+              "D": 7,
+              "F": 5,
+              "G": 5,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 256
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 8,
@@ -7326,6 +8208,8 @@
           "dimension_per_atom": 256
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -7454,6 +8338,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7595,6 +8481,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7685,6 +8573,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
       }
     },
@@ -7811,6 +8701,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7924,6 +8816,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -7966,6 +8860,16 @@
           "label": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "original_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 4,
+              "P": 2,
+              "D": 2,
+              "F": 1
+            },
+            "basis_dimension": 27
+          },
           "display_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "download_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "name_source": "recorded",
@@ -7982,6 +8886,21 @@
           "label": "Mo_4s2p2d1f1g_1e-6.abfs",
           "original_name": "Mo_4s2p2d1f1g_1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 359
+          },
           "display_name": "Mo_4s2p2d1f1g_1e-6.abfs",
           "download_name": "Mo_4s2p2d1f1g_1e-6.abfs",
           "name_source": "recorded",
@@ -8036,6 +8955,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 359 auxiliary functions per atom. 1 calculation: MoS2."
       }
     },
@@ -8081,6 +9002,16 @@
           "source_declarations": [
             "Mo_gga_10au_100Ry_4s2p2d1f.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 4,
+              "P": 2,
+              "D": 2,
+              "F": 1
+            },
+            "basis_dimension": 27
+          },
           "display_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "download_name": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
           "name_source": "recorded",
@@ -8100,6 +9031,21 @@
           "source_declarations": [
             "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 8,
+              "P": 6,
+              "D": 7,
+              "F": 5,
+              "G": 5,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 256
+          },
           "display_name": "Mo_Recovered-producer-bound-assets_abf_3f9f08c7e3ef.abfs",
           "download_name": "Mo_Recovered-producer-bound-assets_abf_3f9f08c7e3ef.abfs",
           "name_source": "descriptive_alias",
@@ -8148,6 +9094,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. 1 calculation: MoS2-WS2."
       },
       "used_by": [
@@ -8196,6 +9144,16 @@
             "../../assets/Mo/physical.orb",
             "../assets/Mo/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
           "display_name": "Mo_Recovered-producer-bound-assets_nao_a259e30e8d20.orb",
           "download_name": "Mo_Recovered-producer-bound-assets_nao_a259e30e8d20.orb",
           "name_source": "descriptive_alias",
@@ -8213,6 +9171,21 @@
           "source_declarations": [
             "../assets/Mo/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 10,
+              "F": 9,
+              "G": 7,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 396
+          },
           "display_name": "Mo_Recovered-producer-bound-assets_abf_6f0882fc4b22.abfs",
           "download_name": "Mo_Recovered-producer-bound-assets_abf_6f0882fc4b22.abfs",
           "name_source": "descriptive_alias",
@@ -8261,6 +9234,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. 1 calculation: MoTe2."
       },
       "used_by": [
@@ -8328,6 +9303,21 @@
           "label": "N_GTH-PBE_TZDP_fgext_foraux_pca1e-4_268.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 8,
+              "D": 7,
+              "F": 6,
+              "G": 6,
+              "H": 3,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 268
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 9,
@@ -8393,6 +9383,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: hBN."
       }
     },
@@ -8480,6 +9472,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "N: 5 valence electrons, 4s4p3d, 31 functions per atom, no auxiliary basis. 1 calculation: N2."
       }
     },
@@ -8543,6 +9537,21 @@
           "label": "N_8au_3s3p2d1f1g_1e-5.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 10,
+              "D": 9,
+              "F": 8,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 310
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -8608,6 +9617,8 @@
             "result": "GW gap 2.86 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 310 auxiliary functions per atom. 1 calculation: GaN GW gap 2.86 eV."
       }
     },
@@ -8671,6 +9682,21 @@
           "label": "N_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 11,
+              "D": 12,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 399
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -8736,6 +9762,8 @@
             "result": "GW gap 6.32 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 399 auxiliary functions per atom. 1 calculation: BN GW gap 6.32 eV."
       }
     },
@@ -8795,6 +9823,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 10,
+              "D": 10,
+              "F": 7,
+              "G": 7,
+              "H": 3,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 309
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 13,
@@ -8924,6 +9967,8 @@
           "dimension_per_atom": 309
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Na: 9 valence electrons, 6s3p2d, 25 functions per atom, 309 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -8968,6 +10013,15 @@
           "label": "Na_gga_10au_100Ry_6s3p2d.orb",
           "original_name": "Na_gga_10au_100Ry_6s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 25
+          },
           "display_name": "Na_gga_10au_100Ry_6s3p2d.orb",
           "download_name": "Na_gga_10au_100Ry_6s3p2d.orb",
           "name_source": "recorded",
@@ -8984,6 +10038,21 @@
           "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 19,
+              "P": 15,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 435
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 19,
@@ -9049,6 +10118,8 @@
             "result": "GW gap 7.83 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Na: 9 valence electrons, 6s3p2d, 25 functions per atom, 435 auxiliary functions per atom. 1 calculation: NaCl GW gap 7.83 eV."
       }
     },
@@ -9073,6 +10144,21 @@
           "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 19,
+              "P": 15,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 435
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 19,
@@ -9135,6 +10221,15 @@
           "original_sha256": "053cb13c2cb16be359081fc207184ff32f7f5260f54312e6c2e524fe6afd150c",
           "label": "O_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "O_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "O_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -9150,6 +10245,21 @@
           "original_sha256": "2465e6bcf72e5fc4857c88e0d6f8f945f45e0084feac0cfd980c2404bad1b62c",
           "label": "O_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 13,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 424
+          },
           "display_name": "O_3s3p2d1f1g_pca1e-6.abfs",
           "download_name": "O_3s3p2d1f1g_pca1e-6.abfs",
           "name_source": "recorded",
@@ -9199,6 +10309,8 @@
             "result": "GW gap 1.92 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 424 auxiliary functions per atom. 1 calculation: ZnO GW gap 1.92 eV."
       }
     },
@@ -9285,6 +10397,8 @@
             "result": "RPA cohesive energy 4.98 eV/atom"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: MgO RPA cohesive energy 4.98 eV/atom."
       }
     },
@@ -9348,6 +10462,21 @@
           "label": "O_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 13,
+              "D": 13,
+              "F": 11,
+              "G": 10,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 424
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -9413,6 +10542,8 @@
             "result": "GW gap 6.37 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 424 auxiliary functions per atom. 1 calculation: CaO GW gap 6.37 eV."
       }
     },
@@ -9476,6 +10607,21 @@
           "label": "O_3s3p2d2f2g_1e-5.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 11,
+              "D": 12,
+              "F": 11,
+              "G": 9,
+              "H": 7,
+              "I": 6,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 514
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -9541,6 +10687,8 @@
             "result": "GW gap 7.39 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 514 auxiliary functions per atom. 1 calculation: MgO GW gap 7.39 eV."
       }
     },
@@ -9600,6 +10748,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 8,
+              "D": 8,
+              "F": 7,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 291
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 9,
@@ -9703,6 +10866,8 @@
           "dimension_per_atom": 291
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -9742,6 +10907,15 @@
           "label": "P_gga_10au_110Ry_3s3p2d.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -9768,6 +10942,21 @@
           "label": "P_3s3p2d2f2g_1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 12,
+              "F": 11,
+              "G": 10,
+              "H": 7,
+              "I": 7,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 543
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 13,
@@ -9801,13 +10990,11 @@
         "element": "P",
         "valence_electrons": 5,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -9835,7 +11022,9 @@
             "result": "GW gap 2.25 eV"
           }
         ],
-        "sentence": "P: 5 valence electrons, 3s3p2d0f0g, 22 functions per atom, 543 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 543 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
       }
     },
     {
@@ -9880,6 +11069,15 @@
           "label": "P_gga_8au_100Ry_3s3p2d.orb",
           "original_name": "P_gga_8au_100Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "P_gga_8au_100Ry_3s3p2d.orb",
           "download_name": "P_gga_8au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -9896,6 +11094,21 @@
           "label": "P_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 12,
+              "D": 12,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 402
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -9969,6 +11182,8 @@
             "result": "GW gap 2.03 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 402 auxiliary functions per atom. 2 calculations: AlP GW gap 2.37 eV; BP GW gap 2.03 eV."
       }
     },
@@ -10012,6 +11227,15 @@
           "source_declarations": [
             "../assets/P/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "P_Recovered-producer-bound-assets_nao_fd4f098119f4.orb",
           "download_name": "P_Recovered-producer-bound-assets_nao_fd4f098119f4.orb",
           "name_source": "descriptive_alias",
@@ -10029,6 +11253,21 @@
           "source_declarations": [
             "../assets/P/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 8,
+              "D": 8,
+              "F": 7,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 291
+          },
           "display_name": "P_Recovered-producer-bound-assets_abf_4a331a41ddda.abfs",
           "download_name": "P_Recovered-producer-bound-assets_abf_4a331a41ddda.abfs",
           "name_source": "descriptive_alias",
@@ -10076,6 +11315,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: CuInP2Se6."
       },
       "used_by": [
@@ -10126,6 +11367,15 @@
           "source_declarations": [
             "P_gga_10au_100Ry_3s3p2d.orb"
           ],
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "P_gga_10au_100Ry_3s3p2d.orb",
           "download_name": "P_gga_10au_100Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -10145,6 +11395,21 @@
           "source_declarations": [
             "P_3s3p2d2f1g_pca1e-6.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 14,
+              "D": 14,
+              "F": 13,
+              "G": 11,
+              "H": 8,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 529
+          },
           "display_name": "P_3s3p2d2f1g_pca1e-6.abfs",
           "download_name": "P_3s3p2d2f1g_pca1e-6.abfs",
           "name_source": "recorded",
@@ -10197,6 +11462,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 529 auxiliary functions per atom. 1 calculation: Phosphorene."
       }
     },
@@ -10221,6 +11488,21 @@
           "label": "P_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 12,
+              "D": 12,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 402
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -10304,6 +11586,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 8,
+              "D": 8,
+              "F": 7,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 291
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 9,
@@ -10407,6 +11704,8 @@
           "dimension_per_atom": 291
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -10518,6 +11817,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -10644,6 +11945,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -10708,6 +12011,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 7,
+              "P": 7,
+              "D": 7,
+              "F": 6,
+              "G": 6,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 298
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 7,
@@ -10877,6 +12195,8 @@
           "dimension_per_atom": 298
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -11003,6 +12323,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -11144,6 +12466,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -11169,6 +12493,23 @@
         },
         {
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "label": "S_gga_10au_110Ry_3s3p2d.orb",
+          "original_name": "S_gga_10au_110Ry_3s3p2d.orb",
+          "original_sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+          "path": "data/elements/S/orbitals/366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517.orb",
+          "role": "nao",
+          "sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+          "size_bytes": 187545,
+          "transformation": "none",
+          "dimensions_previous": {
             "basis_dimension": 22,
             "counts": {
               "D": 2,
@@ -11179,14 +12520,6 @@
             },
             "lmax": 4.0
           },
-          "label": "S_gga_10au_110Ry_3s3p2d.orb",
-          "original_name": "S_gga_10au_110Ry_3s3p2d.orb",
-          "original_sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
-          "path": "data/elements/S/orbitals/366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517.orb",
-          "role": "nao",
-          "sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
-          "size_bytes": 187545,
-          "transformation": "none",
           "display_name": "S_gga_10au_110Ry_3s3p2d.orb",
           "download_name": "S_gga_10au_110Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -11216,13 +12549,11 @@
         "element": "S",
         "valence_electrons": 6,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -11236,7 +12567,9 @@
             "result": null
           }
         ],
-        "sentence": "S: 6 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 1 calculation: WS2."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: WS2."
       }
     },
     {
@@ -11299,6 +12632,21 @@
           "label": "S_8au_3s3p2d1f1g_1e-4.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 8,
+              "F": 6,
+              "G": 5,
+              "H": 3,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 268
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -11364,6 +12712,8 @@
             "result": "GW gap 2.08 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: CdS GW gap 2.08 eV."
       }
     },
@@ -11488,6 +12838,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -11599,6 +12951,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -11641,6 +12995,15 @@
           "label": "S_gga_10au_110Ry_2s2p1d.orb",
           "original_name": "S_gga_10au_110Ry_2s2p1d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 2,
+              "P": 2,
+              "D": 1
+            },
+            "basis_dimension": 13
+          },
           "display_name": "S_gga_10au_110Ry_2s2p1d.orb",
           "download_name": "S_gga_10au_110Ry_2s2p1d.orb",
           "name_source": "recorded",
@@ -11657,6 +13020,21 @@
           "label": "S_2s2p1d1f1g_1e-6.abfs",
           "original_name": "S_2s2p1d1f1g_1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 8,
+              "P": 8,
+              "D": 8,
+              "F": 6,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 283
+          },
           "display_name": "S_2s2p1d1f1g_1e-6.abfs",
           "download_name": "S_2s2p1d1f1g_1e-6.abfs",
           "name_source": "recorded",
@@ -11678,13 +13056,11 @@
         "element": "S",
         "valence_electrons": 6,
         "orbital": {
-          "shells": "2s2p1d0f0g",
+          "shells": "2s2p1d",
           "channels": {
             "S": 2,
             "P": 2,
-            "D": 1,
-            "F": 0,
-            "G": 0
+            "D": 1
           },
           "dimension_per_atom": 13
         },
@@ -11712,7 +13088,9 @@
             "result": null
           }
         ],
-        "sentence": "S: 6 valence electrons, 2s2p1d0f0g, 13 functions per atom, 283 auxiliary functions per atom. 1 calculation: MoS2."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "S: 6 valence electrons, 2s2p1d, 13 functions per atom, 283 auxiliary functions per atom. 1 calculation: MoS2."
       }
     },
     {
@@ -11757,6 +13135,16 @@
           "source_declarations": [
             "S_gga_10au_100Ry_2s2p2d1f.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 2,
+              "P": 2,
+              "D": 2,
+              "F": 1
+            },
+            "basis_dimension": 25
+          },
           "display_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
           "download_name": "S_gga_10au_100Ry_2s2p2d1f.orb",
           "name_source": "recorded",
@@ -11776,6 +13164,21 @@
           "source_declarations": [
             "assets/S_GTH-PBE_foraux_1g_pca1e-4_naux298.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 7,
+              "P": 7,
+              "D": 7,
+              "F": 6,
+              "G": 6,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 298
+          },
           "display_name": "S_Recovered-producer-bound-assets_abf_5db18b7495ee.abfs",
           "download_name": "S_Recovered-producer-bound-assets_abf_5db18b7495ee.abfs",
           "name_source": "descriptive_alias",
@@ -11824,6 +13227,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. 1 calculation: MoS2-WS2."
       },
       "used_by": [
@@ -11870,6 +13275,15 @@
           "source_declarations": [
             "../assets/S/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "S_Recovered-producer-bound-assets_nao_b720ce20436a.orb",
           "download_name": "S_Recovered-producer-bound-assets_nao_b720ce20436a.orb",
           "name_source": "descriptive_alias",
@@ -11887,6 +13301,21 @@
           "source_declarations": [
             "../assets/S/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 8,
+              "D": 8,
+              "F": 7,
+              "G": 6,
+              "H": 4,
+              "I": 3,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 291
+          },
           "display_name": "S_Recovered-producer-bound-assets_abf_33c8ad22f5e3.abfs",
           "download_name": "S_Recovered-producer-bound-assets_abf_33c8ad22f5e3.abfs",
           "name_source": "descriptive_alias",
@@ -11934,6 +13363,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: TiS3."
       },
       "used_by": [
@@ -11976,6 +13407,16 @@
           "label": "Sb_gga_10au_150Ry_3s3p2d2f.orb",
           "transformation": "none",
           "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2,
+              "F": 2
+            },
+            "basis_dimension": 36
+          },
+          "dimensions_previous": {
             "lmax": 4.0,
             "counts": {
               "S": 3,
@@ -12002,6 +13443,21 @@
           "label": "Sb_gth_3s3p2d2f2g_1e-8.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 18,
+              "P": 20,
+              "D": 20,
+              "F": 17,
+              "G": 16,
+              "H": 12,
+              "I": 10,
+              "J": 4,
+              "K": 3
+            },
+            "basis_dimension": 814
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 18,
@@ -12035,13 +13491,12 @@
         "element": "Sb",
         "valence_electrons": 5,
         "orbital": {
-          "shells": "3s3p2d2f0g",
+          "shells": "3s3p2d2f",
           "channels": {
             "S": 3,
             "P": 3,
             "D": 2,
-            "F": 2,
-            "G": 0
+            "F": 2
           },
           "dimension_per_atom": 36
         },
@@ -12069,7 +13524,9 @@
             "result": "GW gap 1.58 eV"
           }
         ],
-        "sentence": "Sb: 5 valence electrons, 3s3p2d2f0g, 36 functions per atom, 814 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Sb: 5 valence electrons, 3s3p2d2f, 36 functions per atom, 814 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
       }
     },
     {
@@ -12129,6 +13586,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 10,
+              "D": 11,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -12376,6 +13848,8 @@
           "dimension_per_atom": 418
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -12489,6 +13963,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -12549,6 +14025,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 383
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -12744,6 +14235,8 @@
           "dimension_per_atom": 383
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -12883,6 +14376,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -12944,6 +14439,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 14,
+              "D": 13,
+              "F": 12,
+              "G": 10,
+              "H": 8,
+              "I": 7,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 570
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -13064,6 +14574,8 @@
           "dimension_per_atom": 570
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 6 valence electrons, 3s3p2d2f1g, 45 functions per atom, 570 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -13089,6 +14601,23 @@
         },
         {
           "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
+          "label": "Se_gga_10au_110Ry_3s3p2d.orb",
+          "original_name": "Se_gga_10au_110Ry_3s3p2d.orb",
+          "original_sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
+          "path": "data/elements/Se/orbitals/3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2.orb",
+          "role": "nao",
+          "sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
+          "size_bytes": 187546,
+          "transformation": "none",
+          "dimensions_previous": {
             "basis_dimension": 22,
             "counts": {
               "D": 2,
@@ -13099,14 +14628,6 @@
             },
             "lmax": 4.0
           },
-          "label": "Se_gga_10au_110Ry_3s3p2d.orb",
-          "original_name": "Se_gga_10au_110Ry_3s3p2d.orb",
-          "original_sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
-          "path": "data/elements/Se/orbitals/3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2.orb",
-          "role": "nao",
-          "sha256": "3c0cf8a33c9d4a1d56429d771dd50961c81711f5598685ba2d5d4f7e8244e3e2",
-          "size_bytes": 187546,
-          "transformation": "none",
           "display_name": "Se_gga_10au_110Ry_3s3p2d.orb",
           "download_name": "Se_gga_10au_110Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -13136,13 +14657,11 @@
         "element": "Se",
         "valence_electrons": 6,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -13156,7 +14675,9 @@
             "result": null
           }
         ],
-        "sentence": "Se: 6 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Se: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
       }
     },
     {
@@ -13194,6 +14715,15 @@
           "original_sha256": "331d72437ddc29105438a6ec1a840f4354d3d26b75b191027ca775c00b976904",
           "label": "Se_gga_10au_110Ry_3s3p2d.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 2,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 2
+            },
+            "basis_dimension": 22
+          },
           "display_name": "Se_gga_10au_110Ry_3s3p2d.orb",
           "download_name": "Se_gga_10au_110Ry_3s3p2d.orb",
           "name_source": "recorded",
@@ -13209,6 +14739,21 @@
           "original_sha256": "50e5c2ee0291ddaed2a2f584071e22155eb845148b5e94f59de04cafa8cb0429",
           "label": "Se_4s4p3d2f2g_1e-4.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 10,
+              "D": 9,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 5,
+              "J": 3,
+              "K": 3
+            },
+            "basis_dimension": 421
+          },
           "display_name": "Se_4s4p3d2f2g_1e-4.abfs",
           "download_name": "Se_4s4p3d2f2g_1e-4.abfs",
           "name_source": "recorded",
@@ -13226,13 +14771,11 @@
         "element": "Se",
         "valence_electrons": 24,
         "orbital": {
-          "shells": "3s3p2d0f0g",
+          "shells": "3s3p2d",
           "channels": {
             "S": 3,
             "P": 3,
-            "D": 2,
-            "F": 0,
-            "G": 0
+            "D": 2
           },
           "dimension_per_atom": 22
         },
@@ -13260,7 +14803,9 @@
             "result": "GW gap 0.25 eV"
           }
         ],
-        "sentence": "Se: 24 valence electrons, 3s3p2d0f0g, 22 functions per atom, 421 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "Se: 24 valence electrons, 3s3p2d, 22 functions per atom, 421 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
       }
     },
     {
@@ -13371,6 +14916,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -13413,6 +14960,16 @@
           "label": "Se_gga_10au_100Ry_3s3p3d2f.orb",
           "original_name": "Se_gga_10au_100Ry_3s3p3d2f.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Se_gga_10au_100Ry_3s3p3d2f.orb",
           "download_name": "Se_gga_10au_100Ry_3s3p3d2f.orb",
           "name_source": "recorded",
@@ -13429,6 +14986,21 @@
           "label": "Se_3s3p3d2f1g_1e-6.abfs",
           "original_name": "Se_3s3p3d2f1g_1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 13,
+              "P": 13,
+              "D": 14,
+              "F": 13,
+              "G": 11,
+              "H": 8,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 525
+          },
           "display_name": "Se_3s3p3d2f1g_1e-6.abfs",
           "download_name": "Se_3s3p3d2f1g_1e-6.abfs",
           "name_source": "recorded",
@@ -13483,6 +15055,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 525 auxiliary functions per atom. 1 calculation: WSe2."
       }
     },
@@ -13526,6 +15100,16 @@
           "source_declarations": [
             "../assets/Se/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
           "download_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
           "name_source": "descriptive_alias",
@@ -13543,6 +15127,21 @@
           "source_declarations": [
             "../assets/Se/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 10,
+              "D": 11,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
           "display_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
           "download_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
           "name_source": "descriptive_alias",
@@ -13591,6 +15190,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: CuInP2Se6."
       },
       "used_by": [
@@ -13639,6 +15240,16 @@
           "source_declarations": [
             "../assets/Se/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
           "download_name": "Se_Recovered-producer-bound-assets_nao_71b39321e69f.orb",
           "name_source": "descriptive_alias",
@@ -13656,6 +15267,21 @@
           "source_declarations": [
             "../assets/Se/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 10,
+              "D": 11,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 418
+          },
           "display_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
           "download_name": "Se_Recovered-producer-bound-assets_abf_909fa1b62f28.abfs",
           "name_source": "descriptive_alias",
@@ -13707,6 +15333,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: SnSe."
       }
     },
@@ -13752,6 +15380,16 @@
             "../../producer/assets/Se/physical.orb",
             "../assets/Se/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 53
+          },
           "display_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
           "download_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
           "name_source": "descriptive_alias",
@@ -13769,6 +15407,21 @@
           "source_declarations": [
             "../assets/Se/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 383
+          },
           "display_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
           "download_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
           "name_source": "descriptive_alias",
@@ -13817,6 +15470,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: In2Se3."
       },
       "used_by": [
@@ -13865,6 +15520,16 @@
             "../../producer/assets/Se/physical.orb",
             "../assets/Se/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 53
+          },
           "display_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
           "download_name": "Se_Recovered-producer-bound-assets_nao_97bc2f989786.orb",
           "name_source": "descriptive_alias",
@@ -13882,6 +15547,21 @@
           "source_declarations": [
             "../assets/Se/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 8,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 383
+          },
           "display_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
           "download_name": "Se_Recovered-producer-bound-assets_abf_3045e43687ba.abfs",
           "name_source": "descriptive_alias",
@@ -13930,6 +15610,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: InSe."
       },
       "used_by": [
@@ -14027,6 +15709,8 @@
             "result": "RPA cohesive energy 6.16 eV/atom"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 2 calculations: Si2 RPA cohesive energy 4.43 eV/atom; SiC RPA cohesive energy 6.16 eV/atom."
       }
     },
@@ -14090,6 +15774,21 @@
           "label": "Si_3s3p2d1f1g_pca1e-6.abfs",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 12,
+              "D": 11,
+              "F": 9,
+              "G": 9,
+              "H": 6,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 397
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -14163,6 +15862,8 @@
             "result": "GW gap 2.26 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, 397 auxiliary functions per atom. 2 calculations: Si GW gap 1.06 eV; SiC GW gap 2.26 eV."
       }
     },
@@ -14223,6 +15924,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 393
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 10,
@@ -14470,6 +16186,8 @@
           "dimension_per_atom": 393
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -14583,6 +16301,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -14643,6 +16363,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 14,
+              "P": 12,
+              "D": 12,
+              "F": 9,
+              "G": 8,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 423
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 14,
@@ -14838,6 +16573,8 @@
           "dimension_per_atom": 423
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 423 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -14964,6 +16701,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 22 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -15090,6 +16829,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -15150,6 +16891,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 8,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 404
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -15332,6 +17088,8 @@
           "dimension_per_atom": 404
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 404 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -15445,6 +17203,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -15490,6 +17250,16 @@
           "source_declarations": [
             "../assets/Sn/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Sn_Recovered-producer-bound-assets_nao_fbc28c0832e3.orb",
           "download_name": "Sn_Recovered-producer-bound-assets_nao_fbc28c0832e3.orb",
           "name_source": "descriptive_alias",
@@ -15507,6 +17277,21 @@
           "source_declarations": [
             "../assets/Sn/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 10,
+              "P": 9,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 393
+          },
           "display_name": "Sn_Recovered-producer-bound-assets_abf_2e2118b38c0f.abfs",
           "download_name": "Sn_Recovered-producer-bound-assets_abf_2e2118b38c0f.abfs",
           "name_source": "descriptive_alias",
@@ -15558,6 +17343,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. 1 calculation: SnSe."
       }
     },
@@ -15618,6 +17405,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 339
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -15878,6 +17680,8 @@
           "dimension_per_atom": 339
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -15991,6 +17795,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -16051,6 +17857,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 15,
+              "P": 12,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 445
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 15,
@@ -16246,6 +18067,8 @@
           "dimension_per_atom": 445
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -16372,6 +18195,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -16432,6 +18257,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 9,
+              "P": 9,
+              "D": 9,
+              "F": 7,
+              "G": 7,
+              "H": 5,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 360
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 9,
@@ -16562,6 +18402,8 @@
           "dimension_per_atom": 360
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 360 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -16622,6 +18464,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 8,
+              "D": 10,
+              "F": 8,
+              "G": 8,
+              "H": 6,
+              "I": 6,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 404
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 11,
@@ -16739,6 +18596,8 @@
           "dimension_per_atom": 404
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 404 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -16852,6 +18711,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -16895,6 +18756,16 @@
           "source_declarations": [
             "../assets/Te/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
           "download_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
           "name_source": "descriptive_alias",
@@ -16912,6 +18783,21 @@
           "source_declarations": [
             "../assets/Te/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 339
+          },
           "display_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
           "download_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
           "name_source": "descriptive_alias",
@@ -16960,6 +18846,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: GaTe."
       },
       "used_by": [
@@ -17008,6 +18896,16 @@
             "../../assets/Te/physical.orb",
             "../assets/Te/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 3,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 41
+          },
           "display_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
           "download_name": "Te_Recovered-producer-bound-assets_nao_1811dd6bdb49.orb",
           "name_source": "descriptive_alias",
@@ -17025,6 +18923,21 @@
           "source_declarations": [
             "../assets/Te/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 11,
+              "P": 9,
+              "D": 10,
+              "F": 7,
+              "G": 7,
+              "H": 5,
+              "I": 4,
+              "J": 1,
+              "K": 1
+            },
+            "basis_dimension": 339
+          },
           "display_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
           "download_name": "Te_Recovered-producer-bound-assets_abf_76104079ff2c.abfs",
           "name_source": "descriptive_alias",
@@ -17073,6 +18986,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: MoTe2."
       },
       "used_by": [
@@ -17121,6 +19036,16 @@
           "source_declarations": [
             "../assets/Te/Te_gga_10au_150Ry_6s6p3d2f.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 6,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 53
+          },
           "display_name": "Te_Recovered-producer-bound-assets_nao_ff9cffd0684c.orb",
           "download_name": "Te_Recovered-producer-bound-assets_nao_ff9cffd0684c.orb",
           "name_source": "descriptive_alias",
@@ -17138,6 +19063,21 @@
           "source_declarations": [
             "../assets/Te/Te_stringent_plusg_pca1e-4.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 15,
+              "P": 12,
+              "D": 13,
+              "F": 10,
+              "G": 9,
+              "H": 6,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 445
+          },
           "display_name": "Te_Recovered-producer-bound-assets_abf_c4a4940ba579.abfs",
           "download_name": "Te_Recovered-producer-bound-assets_abf_c4a4940ba579.abfs",
           "name_source": "descriptive_alias",
@@ -17189,6 +19129,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. 1 calculation: GeTe."
       }
     },
@@ -17249,6 +19191,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 10,
+              "F": 8,
+              "G": 7,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 376
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 12,
@@ -17353,6 +19310,8 @@
           "dimension_per_atom": 376
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -17396,6 +19355,16 @@
           "source_declarations": [
             "../assets/Ti/physical.orb"
           ],
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
           "display_name": "Ti_Recovered-producer-bound-assets_nao_9c756a056d24.orb",
           "download_name": "Ti_Recovered-producer-bound-assets_nao_9c756a056d24.orb",
           "name_source": "descriptive_alias",
@@ -17413,6 +19382,21 @@
           "source_declarations": [
             "../assets/Ti/auxiliary.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 12,
+              "P": 10,
+              "D": 10,
+              "F": 8,
+              "G": 7,
+              "H": 6,
+              "I": 4,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 376
+          },
           "display_name": "Ti_Recovered-producer-bound-assets_abf_8fc9ce28a64a.abfs",
           "download_name": "Ti_Recovered-producer-bound-assets_abf_8fc9ce28a64a.abfs",
           "name_source": "descriptive_alias",
@@ -17461,6 +19445,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. 1 calculation: TiS3."
       },
       "used_by": [
@@ -17590,6 +19576,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -17716,6 +19704,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -17844,6 +19834,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -17909,6 +19901,21 @@
           "label": "payload",
           "transformation": "none",
           "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 19,
+              "P": 17,
+              "D": 19,
+              "F": 17,
+              "G": 16,
+              "H": 9,
+              "I": 7,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 665
+          },
+          "dimensions_previous": {
             "lmax": 8.0,
             "counts": {
               "S": 19,
@@ -18031,6 +20038,8 @@
           "dimension_per_atom": 665
         },
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. No calculation in the archive has used it yet."
       }
     },
@@ -18056,6 +20065,24 @@
         },
         {
           "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
+          "label": "W_gga_10au_110Ry_6s3p3d2f.orb",
+          "original_name": "W_gga_10au_110Ry_6s3p3d2f.orb",
+          "original_sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
+          "path": "data/elements/W/orbitals/96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad.orb",
+          "role": "nao",
+          "sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
+          "size_bytes": 327825,
+          "transformation": "none",
+          "dimensions_previous": {
             "basis_dimension": 44,
             "counts": {
               "D": 3,
@@ -18066,14 +20093,6 @@
             },
             "lmax": 4.0
           },
-          "label": "W_gga_10au_110Ry_6s3p3d2f.orb",
-          "original_name": "W_gga_10au_110Ry_6s3p3d2f.orb",
-          "original_sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
-          "path": "data/elements/W/orbitals/96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad.orb",
-          "role": "nao",
-          "sha256": "96a3dd0a23e38ba35966bd92cda22cf5abe51e42d8eff3f1ce4b89110b34f6ad",
-          "size_bytes": 327825,
-          "transformation": "none",
           "display_name": "W_gga_10au_110Ry_6s3p3d2f.orb",
           "download_name": "W_gga_10au_110Ry_6s3p3d2f.orb",
           "name_source": "recorded",
@@ -18103,13 +20122,12 @@
         "element": "W",
         "valence_electrons": 14,
         "orbital": {
-          "shells": "6s3p3d2f0g",
+          "shells": "6s3p3d2f",
           "channels": {
             "S": 6,
             "P": 3,
             "D": 3,
-            "F": 2,
-            "G": 0
+            "F": 2
           },
           "dimension_per_atom": 44
         },
@@ -18123,7 +20141,9 @@
             "result": null
           }
         ],
-        "sentence": "W: 14 valence electrons, 6s3p3d2f0g, 44 functions per atom, no auxiliary basis. 1 calculation: WS2."
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: WS2."
       }
     },
     {
@@ -18251,6 +20271,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 28 valence electrons, 6s3p3d3f2g, 69 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -18366,6 +20388,8 @@
         },
         "auxiliary": null,
         "uses": [],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 28 valence electrons, 6s3p3d3f2g, 69 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
       }
     },
@@ -18408,6 +20432,16 @@
           "label": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "original_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
           "display_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "download_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "name_source": "recorded",
@@ -18424,6 +20458,21 @@
           "label": "W_6s3p3d2f1g_1e-6.abfs",
           "original_name": "W_6s3p3d2f1g_1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 19,
+              "P": 17,
+              "D": 19,
+              "F": 17,
+              "G": 16,
+              "H": 9,
+              "I": 7,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 665
+          },
           "display_name": "W_6s3p3d2f1g_1e-6.abfs",
           "download_name": "W_6s3p3d2f1g_1e-6.abfs",
           "name_source": "recorded",
@@ -18478,6 +20527,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 665 auxiliary functions per atom. 1 calculation: WSe2."
       }
     },
@@ -18523,6 +20574,17 @@
           "source_declarations": [
             "W_gga_10au_100Ry_6s3p3d2f.orb"
           ],
+          "dimensions": {
+            "lmax": 4,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2,
+              "G": 1
+            },
+            "basis_dimension": 53
+          },
           "display_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "download_name": "W_gga_10au_100Ry_6s3p3d2f.orb",
           "name_source": "recorded",
@@ -18542,6 +20604,21 @@
           "source_declarations": [
             "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
           ],
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 19,
+              "P": 17,
+              "D": 19,
+              "F": 17,
+              "G": 16,
+              "H": 9,
+              "I": 7,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 665
+          },
           "display_name": "W_6s3p3d2f1g_1e-6.abfs",
           "download_name": "W_6s3p3d2f1g_1e-6.abfs",
           "name_source": "recorded",
@@ -18593,6 +20670,8 @@
             "result": null
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. 1 calculation: MoS2-WS2."
       },
       "used_by": [
@@ -18634,6 +20713,16 @@
           "original_sha256": "d4eb1961983aa6a3947e1a6b1e9df1dfc657f97fda7a3795ad3aba6ea177a417",
           "label": "Zn_gga_10au_100Ry_6s3p3d2f.orb",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 3,
+            "counts": {
+              "S": 6,
+              "P": 3,
+              "D": 3,
+              "F": 2
+            },
+            "basis_dimension": 44
+          },
           "display_name": "Zn_gga_10au_100Ry_6s3p3d2f.orb",
           "download_name": "Zn_gga_10au_100Ry_6s3p3d2f.orb",
           "name_source": "recorded",
@@ -18649,6 +20738,21 @@
           "original_sha256": "e85a10826002ae3f902ba5f7344a68a6abf1ea42c47f4b69712d21c9c29a73e2",
           "label": "Zn_6s3p3d2f1g_pca1e-6.abfs",
           "transformation": "none",
+          "dimensions": {
+            "lmax": 8,
+            "counts": {
+              "S": 18,
+              "P": 14,
+              "D": 13,
+              "F": 12,
+              "G": 10,
+              "H": 8,
+              "I": 5,
+              "J": 2,
+              "K": 1
+            },
+            "basis_dimension": 499
+          },
           "display_name": "Zn_6s3p3d2f1g_pca1e-6.abfs",
           "download_name": "Zn_6s3p3d2f1g_pca1e-6.abfs",
           "name_source": "recorded",
@@ -18699,6 +20803,8 @@
             "result": "GW gap 1.92 eV"
           }
         ],
+        "size_basis": "per atom",
+        "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
         "sentence": "Zn: 20 valence electrons, 6s3p3d2f, 44 functions per atom, 499 auxiliary functions per atom. 1 calculation: ZnO GW gap 1.92 eV."
       }
     }

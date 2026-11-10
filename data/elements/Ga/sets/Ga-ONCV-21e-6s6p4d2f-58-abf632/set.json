@@ -47,6 +47,21 @@
       "label": "Ga_str_6s6p4d2f1g_1e-5.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 18,
+          "P": 17,
+          "D": 18,
+          "F": 16,
+          "G": 14,
+          "H": 10,
+          "I": 6,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 632
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 18,

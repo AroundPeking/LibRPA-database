@@ -26,7 +26,17 @@
       "size_bytes": 331407,
       "original_sha256": "fdca55c2cf87df666d2fe201d32e633eaebb39724c115b5d6bd186877585efd5",
       "label": "Ga_gga_8au_100Ry_6s6p4d2f.orb",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 3,
+        "counts": {
+          "S": 6,
+          "P": 6,
+          "D": 4,
+          "F": 2
+        },
+        "basis_dimension": 58
+      }
     },
     {
       "role": "abf",
@@ -35,7 +45,22 @@
       "size_bytes": 1560607,
       "original_sha256": "fd83a29b2e5fc066a043752ced89845754fb40439d2806830cca61c6030dd4c2",
       "label": "Ga_str_6s6p4d2f1g_1e-4.abfs",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 14,
+          "P": 14,
+          "D": 14,
+          "F": 12,
+          "G": 10,
+          "H": 7,
+          "I": 5,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 489
+      }
     }
   ],
   "used_by": [],

@@ -19,6 +19,21 @@
       "label": "Na_6s3p2d1f1g_pca1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 19,
+          "P": 15,
+          "D": 13,
+          "F": 11,
+          "G": 10,
+          "H": 5,
+          "I": 4,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 435
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 19,

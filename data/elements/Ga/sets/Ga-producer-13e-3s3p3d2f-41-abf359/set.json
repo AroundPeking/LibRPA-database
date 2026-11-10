@@ -36,7 +36,17 @@
       "transformation": "none",
       "source_declarations": [
         "../assets/Ga/physical.orb"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 3,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 3,
+          "F": 2
+        },
+        "basis_dimension": 41
+      }
     },
     {
       "role": "abf",
@@ -49,7 +59,22 @@
       "transformation": "none",
       "source_declarations": [
         "../assets/Ga/auxiliary.abfs"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 10,
+          "P": 8,
+          "D": 10,
+          "F": 7,
+          "G": 8,
+          "H": 5,
+          "I": 4,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 359
+      }
     }
   ],
   "generation_provenance": {

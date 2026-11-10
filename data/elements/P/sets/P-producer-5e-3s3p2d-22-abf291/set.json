@@ -36,7 +36,16 @@
       "transformation": "none",
       "source_declarations": [
         "../assets/P/physical.orb"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
     },
     {
       "role": "abf",
@@ -49,7 +58,22 @@
       "transformation": "none",
       "source_declarations": [
         "../assets/P/auxiliary.abfs"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 9,
+          "P": 8,
+          "D": 8,
+          "F": 7,
+          "G": 6,
+          "H": 4,
+          "I": 3,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 291
+      }
     }
   ],
   "generation_provenance": {

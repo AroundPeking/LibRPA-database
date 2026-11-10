@@ -33,7 +33,16 @@
       "original_sha256": "e34b7e0d3e8c7e7c1eefca6af4fb8a3f95c9ca60d5161b308e3cf3abebc1a0e6",
       "label": "S_gga_10au_110Ry_2s2p1d.orb",
       "original_name": "S_gga_10au_110Ry_2s2p1d.orb",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 2,
+          "P": 2,
+          "D": 1
+        },
+        "basis_dimension": 13
+      }
     },
     {
       "role": "abf",
@@ -43,7 +52,22 @@
       "original_sha256": "072f87e16c6b389947ed0ddaaca1ad1b600fcb46c3e4550ba08d645402c771d4",
       "label": "S_2s2p1d1f1g_1e-6.abfs",
       "original_name": "S_2s2p1d1f1g_1e-6.abfs",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 8,
+          "P": 8,
+          "D": 8,
+          "F": 6,
+          "G": 6,
+          "H": 4,
+          "I": 3,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 283
+      }
     }
   ],
   "generation_provenance": {

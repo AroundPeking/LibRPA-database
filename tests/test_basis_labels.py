@@ -91,6 +91,21 @@ class LabelFactsTest(unittest.TestCase):
         self.assertEqual(labels.dimension(counts), 397)
         self.assertTrue(labels.shells(counts).endswith("1j1k"))
 
+    def test_a_zero_channel_is_not_a_shell(self):
+        # Headers list every l up to Lmax, so "Forbital--> 0" is common; showing
+        # it would claim f functions the set does not have.
+        path = self.root / "zero.orb"
+        path.write_text(
+            "Number of Sorbital-->       3\n"
+            "Number of Porbital-->       3\n"
+            "Number of Dorbital-->       2\n"
+            "Number of Forbital-->       0\n",
+            encoding="utf-8",
+        )
+        counts = labels.channels(path)
+        self.assertEqual(counts, {"S": 3, "P": 3, "D": 2})
+        self.assertEqual(labels.shells(counts), "3s3p2d")
+
     def test_an_unreadable_orbital_raises(self):
         path = self.root / "bad.orb"
         path.write_text("nothing here\n", encoding="utf-8")

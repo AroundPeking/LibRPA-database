@@ -14,6 +14,23 @@
     },
     {
       "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      },
+      "label": "S_gga_10au_110Ry_3s3p2d.orb",
+      "original_name": "S_gga_10au_110Ry_3s3p2d.orb",
+      "original_sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+      "path": "data/elements/S/orbitals/366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517.orb",
+      "role": "nao",
+      "sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
+      "size_bytes": 187545,
+      "transformation": "none",
+      "dimensions_previous": {
         "basis_dimension": 22,
         "counts": {
           "D": 2,
@@ -23,15 +40,7 @@
           "S": 3
         },
         "lmax": 4.0
-      },
-      "label": "S_gga_10au_110Ry_3s3p2d.orb",
-      "original_name": "S_gga_10au_110Ry_3s3p2d.orb",
-      "original_sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
-      "path": "data/elements/S/orbitals/366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517.orb",
-      "role": "nao",
-      "sha256": "366da5091efc3ff81f14d583ef014b56a8b2efeb1237f4337915b0e0e8516517",
-      "size_bytes": 187545,
-      "transformation": "none"
+      }
     }
   ],
   "generation_provenance": {

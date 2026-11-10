@@ -39,6 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 DEGENERACY = {"S": 1, "P": 3, "D": 5, "F": 7, "G": 9, "H": 11, "I": 13, "J": 15, "K": 17}
 _ANGULAR_ORDER = list(DEGENERACY)
+_ANGULAR_INDEX = {letter: index for index, letter in enumerate(_ANGULAR_ORDER)}
 _CHANNEL = re.compile(r"Number of ([A-Z])orbital\s*-->\s*(\d+)")
 _Z_VALENCE = re.compile(r'z_valence\s*=\s*"?\s*([0-9.]+)')
 
@@ -74,12 +75,18 @@ def valence_electrons(path: Path) -> int | float | None:
 
 
 def channels(path: Path) -> dict[str, int]:
-    """Read the per-l radial channel counts from an .orb or .abfs header."""
+    """Read the per-l radial channel counts from an .orb or .abfs header.
+
+    Zero channels are dropped: generators write every l up to Lmax, so a header
+    commonly says ``Number of Forbital--> 0``, and keeping it would render as
+    ``3s3p2d0f0g`` - claiming f and g functions the set does not have.
+    """
     text = path.read_text(errors="replace")[:65536]
     found = {letter: int(count) for letter, count in _CHANNEL.findall(text)}
-    if not found:
+    nonzero = {letter: count for letter, count in found.items() if count}
+    if not nonzero:
         raise LabelError(f"{path.name}: no angular-momentum channels in the header")
-    return {letter: found[letter] for letter in _ANGULAR_ORDER if letter in found}
+    return {letter: nonzero[letter] for letter in _ANGULAR_ORDER if letter in nonzero}
 
 
 def dimension(counts: Mapping[str, int]) -> int:
@@ -87,7 +94,15 @@ def dimension(counts: Mapping[str, int]) -> int:
 
 
 def shells(counts: Mapping[str, int]) -> str:
-    return "".join(f"{count}{letter.lower()}" for letter, count in counts.items())
+    """Shell string, e.g. ``3s3p2d``. A zero channel is not a shell.
+
+    Several .orb headers list ``Number of Forbital--> 0`` because the generator
+    always writes every l up to Lmax. Rendering that as ``3s3p2d0f0g`` claims
+    the set has f and g functions, which it does not; only nonzero channels.
+    """
+    return "".join(
+        f"{count}{letter.lower()}" for letter, count in counts.items() if count
+    )
 
 
 def headline(record: Mapping[str, Any]) -> dict[str, Any] | None:
@@ -183,6 +198,40 @@ def payload_facts(root: Path, item: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def reconciled_dimensions(root: Path, basis: Mapping[str, Any]) -> dict[str, Any]:
+    """Bring the recorded ``dimensions`` in line with the payload bytes.
+
+    The label is computed from the files, but each file entry also carries a
+    ``dimensions`` block written at intake. Those disagree with the bytes for 60
+    auxiliary bases (the intake pass stopped at Lmax-1, missing J and K) and are
+    absent for 70 payloads. A record whose own numbers contradict its own files
+    is worse than one that carries no numbers, so the entry is corrected to what
+    the file says and the previous value is kept under ``dimensions_previous``
+    when it differed.
+    """
+    changed = 0
+    for item in basis.get("files") or []:
+        role = item.get("role")
+        if role not in {"nao", "abf"}:
+            continue
+        counts = {key: value for key, value in channels(root / item["path"]).items() if value}
+        if not counts:
+            continue
+        wanted = {
+            "lmax": max(_ANGULAR_INDEX[letter] for letter in counts),
+            "counts": counts,
+            "basis_dimension": dimension(counts),
+        }
+        recorded = item.get("dimensions")
+        if recorded == wanted:
+            continue
+        if recorded is not None:
+            item.setdefault("dimensions_previous", recorded)
+        item["dimensions"] = wanted
+        changed += 1
+    return {"files_reconciled": changed}
+
+
 def label_for_set(root: Path, basis: Mapping[str, Any], uses) -> dict[str, Any]:
     """Build the derived label block for one element set."""
     payloads = {item.get("role"): item for item in basis.get("files") or []}
@@ -191,14 +240,14 @@ def label_for_set(root: Path, basis: Mapping[str, Any], uses) -> dict[str, Any]:
     if "pp" in payloads:
         valence = valence_electrons(root / payloads["pp"]["path"])
     if "nao" in payloads:
-        counts = channels(root / payloads["nao"]["path"])
+        counts = {key: value for key, value in channels(root / payloads["nao"]["path"]).items() if value}
         orbital = {
             "shells": shells(counts),
             "channels": counts,
             "dimension_per_atom": dimension(counts),
         }
     if "abf" in payloads:
-        counts = channels(root / payloads["abf"]["path"])
+        counts = {key: value for key, value in channels(root / payloads["abf"]["path"]).items() if value}
         auxiliary = {
             "shells": shells(counts),
             "channels": counts,
@@ -211,6 +260,14 @@ def label_for_set(root: Path, basis: Mapping[str, Any], uses) -> dict[str, Any]:
         "orbital": orbital,
         "auxiliary": auxiliary,
         "uses": list(uses),
+        # Every size is per atom. Saying so in the data, not only in the prose,
+        # lets the site and any consumer state it once instead of each guessing.
+        "size_basis": "per atom",
+        "size_definition": (
+            "sum over angular momenta of (number of radial functions) x (2l + 1), "
+            "read from each payload header; one .orb or .abfs describes a single "
+            "atom, so the structure total is this times the atom count"
+        ),
         "sentence": sentence(basis.get("element"), valence, orbital, auxiliary, uses),
     }
 
@@ -226,6 +283,7 @@ def build_labels(catalog: Mapping[str, Any], root: Path = ROOT) -> dict[str, Any
             # facts; a label claiming sizes for them would be fabricated.
             continue
         linked = uses.get(basis.get("id"), [])
+        reconciled_dimensions(root, basis)
         basis[LABEL_FIELD] = label_for_set(root, basis, linked)
         # ``used_by`` was maintained by hand at intake time and covers 30 of the
         # 76 sets that records actually reference. The records are the authority,

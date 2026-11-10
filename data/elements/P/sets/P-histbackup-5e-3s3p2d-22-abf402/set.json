@@ -36,7 +36,16 @@
       "original_sha256": "9408b5bb1fe8c71dbfee880d2dbbb2e057a34927b4081606124aea3b346dd3fe",
       "label": "P_gga_8au_100Ry_3s3p2d.orb",
       "original_name": "P_gga_8au_100Ry_3s3p2d.orb",
-      "transformation": "none"
+      "transformation": "none",
+      "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      }
     },
     {
       "role": "abf",
@@ -47,6 +56,21 @@
       "label": "P_3s3p2d1f1g_pca1e-6.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 12,
+          "P": 12,
+          "D": 12,
+          "F": 9,
+          "G": 9,
+          "H": 6,
+          "I": 4,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 402
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 12,

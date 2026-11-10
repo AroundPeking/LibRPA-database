@@ -47,6 +47,21 @@
       "label": "Cd_8au_6s3p3d2f1g_1e-4.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 12,
+          "P": 10,
+          "D": 11,
+          "F": 10,
+          "G": 8,
+          "H": 5,
+          "I": 4,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 393
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 12,

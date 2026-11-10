@@ -46,6 +46,21 @@
       "label": "O_3s3p2d2f2g_1e-5.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 12,
+          "P": 11,
+          "D": 12,
+          "F": 11,
+          "G": 9,
+          "H": 7,
+          "I": 6,
+          "J": 3,
+          "K": 3
+        },
+        "basis_dimension": 514
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 12,

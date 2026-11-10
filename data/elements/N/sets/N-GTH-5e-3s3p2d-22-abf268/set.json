@@ -46,6 +46,21 @@
       "label": "N_GTH-PBE_TZDP_fgext_foraux_pca1e-4_268.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 9,
+          "P": 8,
+          "D": 7,
+          "F": 6,
+          "G": 6,
+          "H": 3,
+          "I": 3,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 268
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 9,

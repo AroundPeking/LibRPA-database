@@ -32,6 +32,15 @@
       "label": "C_gga_8au_100Ry_3s3p2d.orb",
       "transformation": "none",
       "dimensions": {
+        "lmax": 2,
+        "counts": {
+          "S": 3,
+          "P": 3,
+          "D": 2
+        },
+        "basis_dimension": 22
+      },
+      "dimensions_previous": {
         "lmax": 4.0,
         "counts": {
           "S": 3,

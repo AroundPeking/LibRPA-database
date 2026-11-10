@@ -46,6 +46,21 @@
       "label": "Ca_6s3p2d2f1g_pca1e-10.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 33,
+          "P": 29,
+          "D": 29,
+          "F": 25,
+          "G": 20,
+          "H": 9,
+          "I": 6,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 844
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 33,

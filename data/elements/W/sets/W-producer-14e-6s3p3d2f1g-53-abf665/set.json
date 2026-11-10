@@ -36,7 +36,18 @@
       "transformation": "none",
       "source_declarations": [
         "W_gga_10au_100Ry_6s3p3d2f.orb"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 4,
+        "counts": {
+          "S": 6,
+          "P": 3,
+          "D": 3,
+          "F": 2,
+          "G": 1
+        },
+        "basis_dimension": 53
+      }
     },
     {
       "role": "abf",
@@ -49,7 +60,22 @@
       "transformation": "none",
       "source_declarations": [
         "assets/W_6s3p3d2f1g_1e-6_naux665_control.abfs"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 19,
+          "P": 17,
+          "D": 19,
+          "F": 17,
+          "G": 16,
+          "H": 9,
+          "I": 7,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 665
+      }
     }
   ],
   "generation_provenance": {

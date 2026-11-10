@@ -46,6 +46,20 @@
       "label": "ORBITAL_8U.abfs",
       "transformation": "none",
       "dimensions": {
+        "lmax": 7,
+        "counts": {
+          "S": 10,
+          "P": 10,
+          "D": 10,
+          "F": 9,
+          "G": 8,
+          "H": 7,
+          "I": 6,
+          "J": 5
+        },
+        "basis_dimension": 455
+      },
+      "dimensions_previous": {
         "lmax": 7.0,
         "counts": {
           "S": 10,

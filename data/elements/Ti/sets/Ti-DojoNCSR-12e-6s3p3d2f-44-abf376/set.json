@@ -47,6 +47,21 @@
       "label": "payload",
       "transformation": "none",
       "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 12,
+          "P": 10,
+          "D": 10,
+          "F": 8,
+          "G": 7,
+          "H": 6,
+          "I": 4,
+          "J": 2,
+          "K": 1
+        },
+        "basis_dimension": 376
+      },
+      "dimensions_previous": {
         "lmax": 8.0,
         "counts": {
           "S": 12,

@@ -36,7 +36,17 @@
       "transformation": "none",
       "source_declarations": [
         "Mo_gga_10au_100Ry_4s2p2d1f.orb"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 3,
+        "counts": {
+          "S": 4,
+          "P": 2,
+          "D": 2,
+          "F": 1
+        },
+        "basis_dimension": 27
+      }
     },
     {
       "role": "abf",
@@ -49,7 +59,22 @@
       "transformation": "none",
       "source_declarations": [
         "assets/Mo_GTH-PBE_foraux_1g_pca1e-4_naux256.abfs"
-      ]
+      ],
+      "dimensions": {
+        "lmax": 8,
+        "counts": {
+          "S": 8,
+          "P": 6,
+          "D": 7,
+          "F": 5,
+          "G": 5,
+          "H": 4,
+          "I": 3,
+          "J": 1,
+          "K": 1
+        },
+        "basis_dimension": 256
+      }
     }
   ],
   "generation_provenance": {
