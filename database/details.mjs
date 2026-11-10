@@ -101,7 +101,11 @@ function basisBindings(record, sets) {
       return `<div class="binding-card"><div class="binding-heading"><h3>${esc(species.element)} <span>${esc(label)}</span></h3></div><p class="binding-id">${esc(species.linkage || "Species defaults are inlined in this calculation's control.in.")}</p></div>`;
     }
     const files = boundFiles(set, species).filter(f => ["pp", "nao", "abf", "for_aux"].includes(f.role));
-    return `<div class="binding-card"><div class="binding-heading"><h3>${esc(set.element)} <span>${esc(set.family || "Basis set")}</span></h3><a href="${basisLink(set)}">Basis record ↗</a></div><p class="binding-id">${esc(set.id)}</p>${renderFiles(files)}</div>`;
+    // A calculation page names the basis the same way the basis page does: what
+    // it contains, then the id as bookkeeping. Two pages describing one basis in
+    // two different languages is how the id became the only thing readers saw.
+    const facts = set.label ? `${esc(set.label.sentence)}` : `<p class="binding-id">${esc(set.id)}</p>`;
+    return `<div class="binding-card"><div class="binding-heading"><h3>${esc(set.element)} <span>${esc(set.family || "Basis set")}</span></h3><a href="${basisLink(set)}">Basis record ↗</a></div><p class="binding-facts">${facts}</p><p class="binding-id">${esc(set.id)}</p>${renderFiles(files)}</div>`;
   }).join("");
   const candidates = (record.basis_candidates || []).map(candidate => {
     const set = byId.get(candidate.set_id);

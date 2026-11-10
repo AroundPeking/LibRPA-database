@@ -1139,3 +1139,6 @@ html[data-theme="dark"] .method-delta-st{background:#183342;color:#91d5e9}
 .basis-facts-usage { margin: 0; font-size: 13px; line-height: 1.7; }
 .basis-facts-usage .linked-records { margin-top: 6px; }
 @media (max-width: 720px) { .basis-facts-panel { padding: 12px 14px; } }
+
+/* The basis a calculation used, described by what it contains. */
+.binding-facts { margin: 4px 0 2px; font-size: 13px; line-height: 1.7; }
