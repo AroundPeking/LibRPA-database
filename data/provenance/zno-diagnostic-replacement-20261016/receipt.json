@@ -53,7 +53,7 @@
     "note": "unchanged; both STRU inputs describe the same zincblende 2-atom primitive cell"
   },
   "basis_binding": {
-    "note": "existing sets Zn-ks-backup-gw-264a08e95623 / O-ks-backup-gw-0451062ba5e3 retained: the diagnostic package's NAO and ABFS files are byte-identical to the registered assets, and the SG15 v1.0 pseudopotentials used via the reused producer match the registered Zn_ONCV_PBE-1.0.upf / O_ONCV_PBE-1.0.upf payloads (hashes cb86317885a0..., 8e871106df46... confirmed across the diagnostic project's staged copies)"
+    "note": "existing sets Zn-KSbackup-20e-6s3p3d2f-44-abf499 / O-KSbackup-6e-3s3p2d-22-abf424 retained: the diagnostic package's NAO and ABFS files are byte-identical to the registered assets, and the SG15 v1.0 pseudopotentials used via the reused producer match the registered Zn_ONCV_PBE-1.0.upf / O_ONCV_PBE-1.0.upf payloads (hashes cb86317885a0..., 8e871106df46... confirmed across the diagnostic project's staged copies)"
   },
   "software_identity": {
     "librpa": "executable SHA-256 archived; exception pair retired",

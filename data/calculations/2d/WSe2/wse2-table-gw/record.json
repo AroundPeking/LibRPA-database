@@ -12,7 +12,7 @@
         "nao": "W_gga_10au_100Ry_6s3p3d2f.orb",
         "abf": "W_6s3p3d2f1g_1e-6.abfs"
       },
-      "set_id": "W-archived-903311a3907b",
+      "set_id": "W-histraw-14e-6s3p3d2f-44-abf665",
       "source_receipt": "data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json"
     },
     {
@@ -22,19 +22,19 @@
         "nao": "Se_gga_10au_100Ry_3s3p3d2f.orb",
         "abf": "Se_3s3p3d2f1g_1e-6.abfs"
       },
-      "set_id": "Se-archived-2a24b0da3f66",
+      "set_id": "Se-histraw-16e-3s3p3d2f-41-abf525",
       "source_receipt": "data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json"
     }
   ],
   "basis_candidates": [
     {
       "element": "W",
-      "set_id": "W-GTH-759520698480",
+      "set_id": "W-GTH-14e-6s3p3d2f1g-53-abf665",
       "scope": "contextual producer-used candidate; exact GW binding pending"
     },
     {
       "element": "Se",
-      "set_id": "Se-GTH-4b941920e1f4",
+      "set_id": "Se-GTH-6e-3s3p2d2f1g-45-abf570",
       "scope": "contextual producer-used candidate; exact GW binding pending"
     }
   ],

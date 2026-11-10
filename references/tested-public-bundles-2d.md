@@ -41,7 +41,7 @@ PBE-only screen, generation-only candidate, or a failed/pending gate.
 
 The hBN extension record is the one exact 2D calculation-to-set binding in the
 current import: `hbn-tzdp10-fgext-20261008` uses
-`B-GTH-e07d6fb55c4a` and `N-GTH-f896bb84c70f`. Its PBE raw-5 gap is 4.688128 eV
+`B-GTH-3e-3s3p2d-22-abf242` and `N-GTH-5e-3s3p2d-22-abf268`. Its PBE raw-5 gap is 4.688128 eV
 and its K-to-Gamma conduction ordering fails the same-PP PBE gate, so its GW
 path gap is retained as a restricted raw-band path observable, not as a
 complete fundamental-gap acceptance. The other material records keep their

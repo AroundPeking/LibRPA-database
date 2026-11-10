@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Ti",
-      "set_id": "Ti-producer-aca7f2a7c3303ab3ab87",
+      "set_id": "Ti-producer-12e-6s3p3d2f-44-abf376",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Ti/pp.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "S",
-      "set_id": "S-producer-00c084a9b599e991b102",
+      "set_id": "S-producer-6e-3s3p2d-22-abf291",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/S/pp.upf",
@@ -31,12 +31,12 @@
   "basis_candidates": [
     {
       "element": "Ti",
-      "set_id": "Ti-Dojo-NC-SR-ca1f36a7957f",
+      "set_id": "Ti-DojoNCSR-12e-6s3p3d2f-44-abf376",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "S",
-      "set_id": "S-Dojo-NC-SR-87f36c0d139f",
+      "set_id": "S-DojoNCSR-6e-3s3p2d-22-abf291",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     }
   ],

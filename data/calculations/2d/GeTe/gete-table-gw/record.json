@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Ge",
-      "set_id": "Ge-producer-dcdf905c08c4860733f3",
+      "set_id": "Ge-producer-22e-6s6p3d2f-53-abf426",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Ge/Ge.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "Te",
-      "set_id": "Te-producer-4955a4a8e12c1ad36d71",
+      "set_id": "Te-producer-24e-6s6p3d2f-53-abf445",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Te/Te.upf",
@@ -31,12 +31,12 @@
   "basis_candidates": [
     {
       "element": "Ge",
-      "set_id": "Ge-Dojo-NC-SR-d7e00de0eca1",
+      "set_id": "Ge-DojoNCSR-14e-3s3p3d2f-41-abf415",
       "scope": "contextual historical producer pair; exact calculation binding pending"
     },
     {
       "element": "Te",
-      "set_id": "Te-Dojo-NC-SR-d80b74a2c848",
+      "set_id": "Te-DojoNCSR-16e-3s3p3d2f-41-abf339",
       "scope": "contextual historical producer pair; exact calculation binding pending"
     }
   ],

@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Mo",
-      "set_id": "Mo-producer-e35dc97023358b55e3fd",
+      "set_id": "Mo-producer-14e-6s3p3d2f-44-abf396",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../../assets/Mo/pp.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "Te",
-      "set_id": "Te-producer-0faf76f566580802fc41",
+      "set_id": "Te-producer-16e-3s3p3d2f-41-abf339-mote2-table-gw",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../../assets/Te/pp.upf",
@@ -31,12 +31,12 @@
   "basis_candidates": [
     {
       "element": "Mo",
-      "set_id": "Mo-Dojo-stringent-36db113d05f8",
+      "set_id": "Mo-DojoStr-14e-6s3p3d2f-44-abf396",
       "scope": "contextual generation/radial candidate; material acceptance pending"
     },
     {
       "element": "Te",
-      "set_id": "Te-Dojo-NC-SR-6a1ccd56018e",
+      "set_id": "Te-DojoNCSR-16e-3s3p3d2f-41-noabf",
       "scope": "contextual repository paired candidate; exact GW binding pending"
     }
   ],

@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "B",
-      "set_id": "B-backup-993943b4b5a5232d88f963b6ffb4b49f6cfff5802c774e2df9094369f5816a6d",
+      "set_id": "B-histbackup-3e-3s3p2d-22-abf418",
       "asset_aliases": {
         "pp": "B_ONCV_PBE-1.0.upf",
         "nao": "B_gga_8au_100Ry_3s3p2d.orb",
@@ -15,12 +15,12 @@
       },
       "missing_roles": [],
       "linkage": "original-path backup association; not a runtime sealed asset manifest",
-      "previous_set_id": "B-PP-unresolved-753b50e020c3",
+      "previous_set_id": "B-unresolved",
       "source_receipt": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
     },
     {
       "element": "P",
-      "set_id": "P-backup-10529c3d5ebb46c0790e7ec42c193b65c227b6b03995c7b1fe55d5fa39d7d5f1",
+      "set_id": "P-histbackup-5e-3s3p2d-22-abf402",
       "asset_aliases": {
         "pp": "P_ONCV_PBE-1.0.upf",
         "nao": "P_gga_8au_100Ry_3s3p2d.orb",
@@ -28,7 +28,7 @@
       },
       "missing_roles": [],
       "linkage": "original-path backup association; not a runtime sealed asset manifest",
-      "previous_set_id": "P-PP-unresolved-95089e7953f1",
+      "previous_set_id": "P-unresolved",
       "source_receipt": "data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json"
     }
   ],

@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Mo",
-      "set_id": "Mo-producer-dbad35284206dfde5407",
+      "set_id": "Mo-producer-14e-4s2p2d1f-27-abf256",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "Mo-GTH-PBE-q14-cp2k-default-grid.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "W",
-      "set_id": "W-producer-47c306ca61924b1a7b19",
+      "set_id": "W-producer-14e-6s3p3d2f1g-53-abf665",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "W-GTH-PBE-q14-cp2k-default-grid.upf",
@@ -29,7 +29,7 @@
     },
     {
       "element": "S",
-      "set_id": "S-producer-f0bb18bb4c7d704bb369",
+      "set_id": "S-producer-6e-2s2p2d1f-25-abf298",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "S-GTH-PBE-q6-cp2k-default-grid.upf",
@@ -42,17 +42,17 @@
   "basis_candidates": [
     {
       "element": "Mo",
-      "set_id": "Mo-GTH-5d48871deb09",
+      "set_id": "Mo-GTH-14e-4s2p2d1f-27-abf256",
       "scope": "contextual producer-used candidate; exact material binding pending"
     },
     {
       "element": "S",
-      "set_id": "S-GTH-7d963648ee3b",
+      "set_id": "S-GTH-6e-2s2p2d1f-25-abf298",
       "scope": "contextual producer-used candidate; exact material binding pending"
     },
     {
       "element": "W",
-      "set_id": "W-GTH-759520698480",
+      "set_id": "W-GTH-14e-6s3p3d2f1g-53-abf665",
       "scope": "contextual producer-used candidate; exact material binding pending"
     }
   ],

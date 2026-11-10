@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Cu",
-      "set_id": "Cu-producer-175ba275f4bf9025866e",
+      "set_id": "Cu-producer-19e-6s3p3d2f-44-abf357",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Cu/pp.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "In",
-      "set_id": "In-producer-30797a82c39e68265b35",
+      "set_id": "In-producer-13e-3s3p3d2f-41-abf380",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/In/pp.upf",
@@ -29,7 +29,7 @@
     },
     {
       "element": "P",
-      "set_id": "P-producer-a78b12ec5bc708e4dc50",
+      "set_id": "P-producer-5e-3s3p2d-22-abf291",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/P/pp.upf",
@@ -40,7 +40,7 @@
     },
     {
       "element": "Se",
-      "set_id": "Se-producer-b4a24ceb4139fbf7b600",
+      "set_id": "Se-producer-16e-3s3p3d2f-41-abf418-cuinp2se6-table-gw",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Se/pp.upf",
@@ -53,22 +53,22 @@
   "basis_candidates": [
     {
       "element": "Cu",
-      "set_id": "Cu-Dojo-NC-SR-02a16f01f27e",
+      "set_id": "Cu-DojoNCSR-19e-6s3p3d2f-44-abf357",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "In",
-      "set_id": "In-Dojo-NC-SR-42d20f9dfceb",
+      "set_id": "In-DojoNCSR-13e-3s3p3d2f-41-abf380",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "P",
-      "set_id": "P-Dojo-NC-SR-c5d36e93d8c7",
+      "set_id": "P-DojoNCSR-5e-3s3p2d-22-abf291",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "Se",
-      "set_id": "Se-Dojo-NC-SR-7c3a95ba989c",
+      "set_id": "Se-DojoNCSR-16e-3s3p3d2f-41-abf418",
       "scope": "contextual matched PBE candidate; exact GW binding pending"
     }
   ],

@@ -12,7 +12,7 @@
         "nao": "Mo_gga_10au_100Ry_4s2p2d1f.orb",
         "abf": "Mo_4s2p2d1f1g_1e-6.abfs"
       },
-      "set_id": "Mo-archived-f96ef4503563",
+      "set_id": "Mo-histraw-14e-4s2p2d1f-27-abf359",
       "source_receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
     },
     {
@@ -22,19 +22,19 @@
         "nao": "S_gga_10au_110Ry_2s2p1d.orb",
         "abf": "S_2s2p1d1f1g_1e-6.abfs"
       },
-      "set_id": "S-archived-2db59f5656b9",
+      "set_id": "S-histraw-6e-2s2p1d-13-abf283",
       "source_receipt": "data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json"
     }
   ],
   "basis_candidates": [
     {
       "element": "Mo",
-      "set_id": "Mo-GTH-055578b42276",
+      "set_id": "Mo-GTH-14e-6s3p3d2f-44-noabf-e9561c0b",
       "scope": "contextual PBE candidate; exact GW binding pending"
     },
     {
       "element": "S",
-      "set_id": "S-GTH-e25dc80ae001",
+      "set_id": "S-GTH-6e-3s3p3d2f-41-noabf",
       "scope": "contextual PBE candidate; exact GW binding pending"
     }
   ],

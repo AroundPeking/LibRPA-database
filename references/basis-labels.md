@@ -1,8 +1,12 @@
 # Basis labels: describing a set by what it contains
 
-An element set is stored as `Si-SG15-e11ce28df010`. The id answers "which
-record is this" and nothing else. A reader choosing a basis needs three facts
-and one history:
+An element set is named by its facts:
+
+    Si-SG15-4e-3s3p2d-22-abf397
+
+element, family, valence electrons, orbital shells, orbital functions per atom,
+auxiliary functions per atom. A reader can compare two of them without looking
+anything up. The three facts that decide the choice, plus one history:
 
 * how many electrons the pseudopotential keeps in the valence (Si: 4);
 * how large the numerical orbital is (`3s3p2d`, 22 functions per atom);
@@ -12,6 +16,23 @@ and one history:
 `scripts/basis_labels.py` derives those facts and `build_catalog` attaches them
 to every basis set as a `label` block, so the website and any downstream tool
 read one computed statement instead of interpreting an id.
+`scripts/rename_basis_sets.py` puts the same facts into the id itself, which is
+why `Si-SG15-4e-3s3p2d-22-abf397` and the label sentence for that set agree.
+
+## The id rule, and when the facts are not enough
+
+    <Element>-<Family>-<valence>e-<NAO shells>-<orbital functions>-abf<auxiliary functions>
+
+or `-noabf` when the set has no auxiliary basis. A set with no `pp`/`nao`
+payload (an FHI-aims species-defaults fragment) cannot be sized and keeps
+`<Element>-<Family>` only.
+
+Two different payloads can share every one of those numbers - `Mo-GTH` and
+`Mo-SG15` both read `14e-6s3p3d2f-44` - so the id gains the first eight
+characters of the role-to-SHA-256 map. When two records hold byte-identical
+payloads, the suffix is the calculation that used the copy, because that is the
+only difference left; if nothing used either, the script refuses and asks for
+the two records to be merged rather than inventing a distinction.
 
 ## Derived, never stored by hand
 

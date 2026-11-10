@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "In",
-      "set_id": "In-producer-be4aeecb20718e6a297b",
+      "set_id": "In-producer-13e-3s3p3d2f-41-abf362-in2se3-table-gw",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../../producer/assets/In/pp.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "Se",
-      "set_id": "Se-producer-2bee458929b6f726dc39",
+      "set_id": "Se-producer-24e-6s6p3d2f-53-abf383-in2se3-table-gw",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../../producer/assets/Se/pp.upf",
@@ -31,12 +31,12 @@
   "basis_candidates": [
     {
       "element": "In",
-      "set_id": "In-Dojo-NC-SR-42d20f9dfceb",
+      "set_id": "In-DojoNCSR-13e-3s3p3d2f-41-abf380",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "Se",
-      "set_id": "Se-Dojo-NC-SR-7c3a95ba989c",
+      "set_id": "Se-DojoNCSR-16e-3s3p3d2f-41-abf418",
       "scope": "contextual matched PBE candidate; exact GW binding pending"
     }
   ],

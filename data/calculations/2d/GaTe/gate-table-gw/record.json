@@ -7,7 +7,7 @@
   "species": [
     {
       "element": "Ga",
-      "set_id": "Ga-producer-a8299a579fc785a0b761",
+      "set_id": "Ga-producer-13e-3s3p3d2f-41-abf359",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Ga/pp.upf",
@@ -18,7 +18,7 @@
     },
     {
       "element": "Te",
-      "set_id": "Te-producer-c03b683549acd98ed6a5",
+      "set_id": "Te-producer-16e-3s3p3d2f-41-abf339-gate-table-gw",
       "missing_roles": [],
       "asset_aliases": {
         "pp": "../assets/Te/pp.upf",
@@ -31,12 +31,12 @@
   "basis_candidates": [
     {
       "element": "Ga",
-      "set_id": "Ga-Dojo-NC-SR-ba0b3befe97a",
+      "set_id": "Ga-DojoNCSR-13e-3s3p3d2f-41-abf359",
       "scope": "contextual atomic-generation candidate; exact GW binding pending"
     },
     {
       "element": "Te",
-      "set_id": "Te-Dojo-NC-SR-6a1ccd56018e",
+      "set_id": "Te-DojoNCSR-16e-3s3p3d2f-41-noabf",
       "scope": "contextual repository paired candidate; exact GW binding pending"
     }
   ],
