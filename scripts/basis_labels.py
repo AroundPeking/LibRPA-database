@@ -145,6 +145,9 @@ def sentence(element: str, valence, orbital, auxiliary, uses) -> str:
     pieces: list[str] = []
     if valence is not None:
         pieces.append(f"{valence} valence electrons")
+    elif orbital:
+        # Say it, rather than omitting the first thing a reader looks for.
+        pieces.append("valence electron count not declared by the pseudopotential")
     if orbital:
         pieces.append(f"{orbital['shells']}, {orbital['dimension_per_atom']} functions per atom")
     if auxiliary:

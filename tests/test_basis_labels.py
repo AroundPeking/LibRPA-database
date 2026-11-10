@@ -142,6 +142,13 @@ class LabelSentenceTest(unittest.TestCase):
         uses = labels.uses_by_set([self.record("dft", "Si", "Si", gap=0.56, method="PBE")])["Si-test"]
         self.assertIsNone(uses[0]["result"])
 
+    def test_a_missing_valence_count_is_stated_not_omitted(self):
+        # Otherwise the reader sees no valence line and reads it as zero.
+        text = labels.sentence(
+            "Si", None, {"shells": "3s3p2d", "dimension_per_atom": 22}, None, []
+        )
+        self.assertIn("not declared", text)
+
     def test_an_unused_set_says_so(self):
         b = basis(self.root)
         block = labels.label_for_set(self.root, b, [])
