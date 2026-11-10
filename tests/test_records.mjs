@@ -277,7 +277,9 @@ test("basis library catalogues ABACUS assets only, without publication labels", 
   assert.doesNotMatch(app, /publication-tag|statusNames|status-filter/);
   assert.doesNotMatch(details, /publication-tag|Published set|Published basis set/);
   assert.doesNotMatch(index, /status-filter|PUBLICATION/);
-  assert.match(app, /\["Element \/ family", "Assets", "Recorded scope", "Linked", ""\]/);
+  // The basis table now leads with what a set contains and what it produced;
+  // the id alone is not something a reader chooses a basis by.
+  assert.match(app, /\["Element \/ family", "What it contains", "What it produced", "Assets", "Linked", ""\]/);
 });
 
 test("aims records show species-default binding notes without basis-library links", () => {
@@ -673,7 +675,8 @@ test("responsive reading refinements cover every catalog and dark method chips",
   assert.match(css, /--text-faint:#526f7b/);
   assert.match(css, /\.gap-table,\.catalog-table\.basis-table\{display:block;min-width:0/);
   assert.match(css, /\.gap-table \.gap-row>td:nth-child\(6\)::before\{content:"GW"\}/);
-  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(3\)::before\{content:"Recorded scope"\}/);
+  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(2\)::before\{content:"What it contains"\}/);
+  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(3\)::before\{content:"What it produced"\}/);
   assert.match(css, /\.section-nav\{flex-wrap:nowrap;overflow-x:auto/);
   assert.match(css, /\.header-inner\{display:grid;grid-template-columns:minmax\(0,1fr\) auto/);
   assert.match(css, /html\[data-theme="dark"\] \.method-rpa\{background:#21371f;color:#b5dfa0\}/);

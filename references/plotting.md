@@ -38,6 +38,12 @@ prominent warning and retains all original blocks.
 - Radial smoothness does not replace periodic physical-overlap tests, local RI
   conditioning, Coulomb/EXX/GW accuracy checks, or convergence acceptance.
 
+## Basis library labels
+
+See `basis-labels.md`: every element set carries a derived label (valence
+electrons, orbital and auxiliary dimensions, linked results) so a reader never
+has to choose a basis from a hash-suffixed id.
+
 ## Reference band plotting
 
 `scripts/plot_bands.py` defines the database plotting input: one data row per

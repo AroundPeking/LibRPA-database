@@ -17,6 +17,8 @@ from pathlib import Path, PurePosixPath
 
 from asset_names import enrich_catalog
 
+from basis_labels import build_labels as apply_basis_labels
+
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 COMMIT = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
 GROUPS = {"inputs", "results", "logs", "figures"}
@@ -1619,11 +1621,15 @@ def build_catalog(root: Path) -> dict:
             "status": "incomplete" if issues else "complete",
             "issues": issues,
         }})
-    return enrich_catalog({
+    catalog = {
         "schema_version": 1,
         "basis_sets": [_public_entry(item) for item in sets if not _is_aims_species_defaults(item)],
         "calculations": [_public_entry(case) for case in catalog_cases],
-    })
+    }
+    # The size/usage label is derived from the archived payload bytes and the
+    # calculation records, so it is computed here rather than stored: a stored
+    # copy would drift from the files it describes.
+    return enrich_catalog(apply_basis_labels(catalog, root))
 
 
 def sync_catalog(root: Path, catalog: dict, write: bool = False) -> None:

@@ -34,6 +34,14 @@ LIGHTWEIGHT_CALC_KEYS = [
 LIGHTWEIGHT_SET_KEYS = [
     "id", "element", "family", "files",  # basis-set files are small; keep them
     "generation_provenance", "notes", "publication", "schema_version",
+    # The derived size/usage label (valence electrons, orbital and auxiliary
+    # dimensions, linked results) is what a reader chooses a basis by; without
+    # it the site can only show the hash-suffixed id.
+    "label",
+    # The basis page renders the recorded validation scope and source; both
+    # were being dropped here, so the page showed "Recorded basis data" for
+    # every set.
+    "validation_scope", "source", "used_by",
 ]
 
 

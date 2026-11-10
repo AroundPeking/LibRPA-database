@@ -86,10 +86,33 @@ function materialRow(record) {
   return `<tr class="material-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.formula || record.material)}</span></th><td><span class="record-type-tag">${esc(workflowLabel(record))}</span></td><td><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td><div class="method-list">${methods}</div></td><td class="primary-result"><strong>${primaryValue}</strong>${primary ? `<span class="table-description">${esc(primary.label)}</span>` : ""}</td><td>${count ? `<span class="availability"><i aria-hidden="true"></i>${count} files</span>` : '<span class="not-reported">—</span>'}</td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
 }
 
+// A basis is identified by what it contains, not by the hash suffix on its id.
+// The label is derived by scripts/basis_labels.py from the payload bytes: the
+// valence electron count, the orbital and auxiliary dimensions, and what the
+// set has already produced. Anything missing falls back to the raw record
+// rather than to a blank cell, so a stale catalog is visible instead of silent.
+function basisFacts(set) {
+  const label = set.label;
+  if (!label) return { valence: "—", orbital: "—", auxiliary: "—", usage: "" };
+  const orbital = label.orbital ? `${esc(label.orbital.shells)} · ${label.orbital.dimension_per_atom}/atom` : "—";
+  const auxiliary = label.auxiliary ? `${esc(label.auxiliary.shells)} · ${label.auxiliary.dimension_per_atom}/atom` : "no auxiliary basis";
+  const usage = (label.uses || [])
+    .map(use => `${esc(use.material || use.record_id)}${use.result ? ` ${esc(use.result)}` : ""}`)
+    .join("; ");
+  return {
+    valence: label.valence_electrons === null || label.valence_electrons === undefined ? "—" : esc(String(label.valence_electrons)),
+    orbital,
+    auxiliary,
+    usage,
+  };
+}
+
 function basisRow(set) {
   const payloads = (set.files || []).filter(f => ["pp", "nao", "for_aux", "abf"].includes(f.role));
   const roles = [...new Set(payloads.map(f => f.role))].map(role => `<span class="asset-role">${esc(role.toUpperCase())}</span>`).join("");
-  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td><div class="method-list">${roles}</div></td><td class="basis-scope">${esc(set.validation_scope || "Recorded basis data")}</td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.id)}">↗</a></td></tr>`;
+  const facts = basisFacts(set);
+  const usage = facts.usage ? `<span class="table-description">${facts.usage}</span>` : '<span class="not-reported">no calculation yet</span>';
+  return `<tr class="basis-row"><th scope="row"><a class="material-link" href="#/basis/${encodeURIComponent(set.id)}">${esc(set.element)}</a><span class="table-description">${esc(set.family || "Basis family")}</span></th><td class="basis-facts"><span class="basis-fact">${facts.valence} valence electrons</span><span class="basis-fact">NAO ${facts.orbital}</span><span class="basis-fact">ABF ${facts.auxiliary}</span></td><td class="basis-usage">${usage}</td><td><div class="method-list">${roles}</div></td><td class="numeric">${(linked.get(set.id) || []).length}</td><td class="open-cell"><a href="#/basis/${encodeURIComponent(set.id)}" aria-label="Open basis set ${esc(set.element)} ${esc(set.family || "")}">↗</a></td></tr>`;
 }
 
 function stats() {
@@ -169,8 +192,8 @@ function renderHome() {
   $("#empty").hidden = records.length > 0;
   $("#catalog").hidden = !records.length;
   $("#catalog").setAttribute("aria-busy", "false");
-  const headings = basis ? ["Element / family", "Assets", "Recorded scope", "Linked", ""] : ["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""];
-  $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and evidence-linked electronic-structure results"}</caption><thead><tr>${headings.map(heading => `<th scope="col">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
+  const headings = basis ? ["Element / family", "What it contains", "What it produced", "Assets", "Linked", ""] : ["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""];
+  $("#catalog").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="${basis ? "Basis sets" : "Calculation records"}"><table class="catalog-table ${basis ? "basis-table basis-facts-table" : ""}"><caption class="sr-only">${basis ? "Basis library" : "Materials and evidence-linked electronic-structure results"}</caption><thead><tr>${headings.map(heading => `<th scope="col">${heading || '<span class="sr-only">Open record</span>'}</th>`).join("")}</tr></thead><tbody>${records.slice(start, start + pageSize).map(basis ? basisRow : materialRow).join("")}</tbody></table></div><div class="pagination"><span>${records.length ? start + 1 : 0}–${Math.min(start + pageSize, records.length)} of ${records.length}</span><div><button type="button" data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Previous page">←</button><span>Page ${state.page} / ${pages}</span><button type="button" data-page="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Next page">→</button></div></div>`;
   document.title = `${basis ? "Basis library" : "Materials"} · LibRPA`;
   document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === state.mode ? "page" : "false"));
 }

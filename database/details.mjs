@@ -229,11 +229,29 @@ export function renderMaterial(record, sets, allRecords = []) {
     <div class="detail-layout"><aside class="section-nav"><p class="kicker">IN THIS RECORD</p>${nav}<div class="section-tools"><button type="button" class="text-button" data-expand="true">Expand all</button><button type="button" class="text-button" data-expand="false">Collapse all</button></div></aside><div class="detail-content">${body}</div></div>${citationBox(record)}${jsonLd(record)}`;
 }
 
+// The facts a reader needs first: how many electrons are in the valence, how
+// big each basis is, and what this set has already produced. The id stays in
+// the header as bookkeeping.
+function basisFactBlock(set, linked) {
+  const label = set.label;
+  if (!label) {
+    return '<div class="notice"><strong>Size facts not derived yet</strong><p>This record has no derived label. Run <code>scripts/basis_labels.py --write</code> to compute the valence count, the orbital and auxiliary dimensions, and the linked results from the payload bytes.</p></div>';
+  }
+  const figures = [
+    ["Valence electrons", label.valence_electrons === null || label.valence_electrons === undefined ? "not declared" : String(label.valence_electrons)],
+    ["Numerical orbital", label.orbital ? `${label.orbital.shells} · ${label.orbital.dimension_per_atom} functions per atom` : "none"],
+    ["Auxiliary basis", label.auxiliary ? `${label.auxiliary.shells} · ${label.auxiliary.dimension_per_atom} functions per atom` : "none"],
+  ];
+  const results = (label.uses || []).map(use => `<li><a href="#/material/${encodeURIComponent(use.record_id)}">${esc(use.material || use.record_id)}</a>${use.formula && use.formula !== use.material ? ` <span class="table-description">${esc(use.formula)}</span>` : ""}${use.result ? ` — ${esc(use.result)}` : ' <span class="not-reported">no reported result</span>'}</li>`).join("");
+  return `<div class="basis-facts-panel"><dl class="metadata-list">${figures.map(([term, value]) => `<dt>${esc(term)}</dt><dd>${esc(value)}</dd>`).join("")}</dl><p class="basis-facts-usage">${results ? `Already used by ${label.uses.length} calculation${label.uses.length === 1 ? "" : "s"}:<ul class="linked-records">${results}</ul>` : "No calculation in the archive has used this set yet."}</p></div>`;
+}
+
 export function renderBasis(set, calculations) {
   const linked = calculations.filter(record => (record.species || []).some(s => s.set_id === set.id) || (record.basis_candidates || []).some(s => s.set_id === set.id));
   const payloads = (set.files || []).filter(file => ["pp", "nao", "abf", "for_aux"].includes(file.role));
   const evidence = (set.files || []).filter(file => !payloads.includes(file));
   return `<div class="breadcrumb"><a href="#/basis">Basis library</a><span>/</span><span>${esc(set.element)}</span></div><div class="detail-header"><div><p class="kicker">ELEMENT BASIS RECORD</p><h1>${esc(set.element)} <small>${esc(set.family || "Basis set")}</small></h1><p class="detail-id">${esc(set.id)}</p></div></div>
+    ${basisFactBlock(set, linked)}
     <div class="notice"><strong>Basis data record</strong><p>${esc(set.validation_scope || "Basis data and provenance")}</p>${set.notes ? `<p>${esc(set.notes)}</p>` : ""}</div>
     ${section("basis-assets", "01", "Basis files", `<p class="section-intro">Readable download names are separate from immutable storage. Descriptive aliases are labelled explicitly; calculation-specific filenames are used where available.</p>${renderFiles(payloads)}`, true, `${payloads.length} files`)}
     ${section("basis-radial", "02", "Radial orbitals by angular momentum", radialSection(set), true, "NAO / ABF")}

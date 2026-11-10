@@ -125,7 +125,13 @@ main { width: min(1392px, calc(100% - 80px)); margin: 0 auto; padding: 32px 0 0;
 .open-cell a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; font-size: 18px; color: var(--subtle); padding: 6px; }
 .open-cell a:hover { color: var(--accent); }
 .basis-table { min-width: 760px; }
+.basis-table.basis-facts-table { min-width: 1040px; }
 .basis-table .basis-scope { max-width: 340px; white-space: normal; font-size: 12px; line-height: 1.7; }
+/* The three facts a basis is chosen by, stacked so each stays readable at the
+   column width a wide table gives them. */
+.basis-facts { display: flex; flex-direction: column; gap: 2px; font-size: 12px; line-height: 1.6; }
+.basis-fact { white-space: nowrap; color: var(--ink-2, inherit); }
+.basis-usage { max-width: 300px; white-space: normal; font-size: 12px; line-height: 1.7; }
 .publication-tag { display: inline-block; color: var(--warning); background: #302b23; border: 1px solid #493d2c; border-radius: 3px; padding: 3px 7px; font-size: 12px; white-space: nowrap; }
 .pagination { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; color: var(--subtle); font-size: 12px; }
 .pagination > div { display: flex; align-items: center; gap: 14px; }
@@ -1012,10 +1018,12 @@ html[data-theme="dark"] .method-delta-st{background:#183342;color:#91d5e9}
   .gap-table .material-link{min-height:44px}
   .gap-table .gap-cell{min-width:0}
   .gap-table .gw-line{min-height:30px}
-  .catalog-table.basis-table .basis-row>td:nth-child(2)::before{content:"Assets"}
-  .catalog-table.basis-table .basis-row>td:nth-child(3)::before{content:"Recorded scope"}
-  .catalog-table.basis-table .basis-row>td:nth-child(4)::before{content:"Linked calculations"}
-  .catalog-table.basis-table .basis-row>td:nth-child(2),.catalog-table.basis-table .basis-row>td:nth-child(3),.catalog-table.basis-table .basis-row>td:nth-child(4){grid-column:1/-1}
+  .catalog-table.basis-table .basis-row>td:nth-child(2)::before{content:"What it contains"}
+  .catalog-table.basis-table .basis-row>td:nth-child(3)::before{content:"What it produced"}
+  .catalog-table.basis-table .basis-row>td:nth-child(4)::before{content:"Assets"}
+  .catalog-table.basis-table .basis-row>td:nth-child(5)::before{content:"Linked calculations"}
+  .catalog-table.basis-table .basis-row>td:nth-child(2),.catalog-table.basis-table .basis-row>td:nth-child(3),.catalog-table.basis-table .basis-row>td:nth-child(4),.catalog-table.basis-table .basis-row>td:nth-child(5){grid-column:1/-1}
+  .catalog-table.basis-table .basis-row>td:nth-child(2) .basis-fact{white-space:normal}
   .catalog-table.basis-table .basis-scope{max-width:none;font-size:14px;line-height:1.65}
   .catalog-table:not(.basis-table) .material-row>.open-cell,.gap-table .gap-row>.open-cell,.catalog-table.basis-table .basis-row>.open-cell{position:absolute!important;top:6px;right:5px;padding:0!important;border:0!important;background:transparent!important}
   .catalog-table:not(.basis-table) .material-row>.open-cell::before,.gap-table .gap-row>.open-cell::before,.catalog-table.basis-table .basis-row>.open-cell::before{display:none}
@@ -1124,3 +1132,10 @@ html[data-theme="dark"] .method-delta-st{background:#183342;color:#91d5e9}
 .sidebar-history a{font-size:13px;color:var(--text-body)}
 .sidebar-history a:hover{color:var(--accent-deep)}
 @media (max-width:820px){.detail-header-actions{flex-direction:column;align-items:stretch}.detail-header-actions .primary-button,.detail-header-actions .bulk-download{width:100%;justify-content:center}}
+
+/* Facts a basis is chosen by, shown before the provenance notice. */
+.basis-facts-panel { margin: 18px 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.basis-facts-panel .metadata-list { margin: 0 0 10px; }
+.basis-facts-usage { margin: 0; font-size: 13px; line-height: 1.7; }
+.basis-facts-usage .linked-records { margin-top: 6px; }
+@media (max-width: 720px) { .basis-facts-panel { padding: 12px 14px; } }

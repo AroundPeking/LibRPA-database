@@ -87,7 +87,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "alsb-paper-gw_gth_modspencer"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Al",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "12s12p12d10f10g8h6i3j3k",
+          "channels": {
+            "S": 12,
+            "P": 12,
+            "D": 12,
+            "F": 10,
+            "G": 10,
+            "H": 8,
+            "I": 6,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 530
+        },
+        "uses": [
+          {
+            "record_id": "alsb-paper-gw_gth_modspencer",
+            "material": "AlSb",
+            "formula": "AlSb",
+            "dimension": "3d",
+            "result": "GW gap 1.58 eV"
+          }
+        ],
+        "sentence": "Al: 3 valence electrons, 3s3p2d0f0g, 22 functions per atom, 530 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -221,7 +264,53 @@
       "used_by": [
         "alas-paper-paper",
         "alp-paper-k8_shrink_wing"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Al",
+        "valence_electrons": 11,
+        "orbital": {
+          "shells": "6s6p2d",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 2
+          },
+          "dimension_per_atom": 34
+        },
+        "auxiliary": {
+          "shells": "23s21p20d16f11g8h4i1j1k",
+          "channels": {
+            "S": 23,
+            "P": 21,
+            "D": 20,
+            "F": 16,
+            "G": 11,
+            "H": 8,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 569
+        },
+        "uses": [
+          {
+            "record_id": "alas-paper-paper",
+            "material": "AlAs",
+            "formula": "AlAs",
+            "dimension": "3d",
+            "result": "GW gap 2.01 eV"
+          },
+          {
+            "record_id": "alp-paper-k8_shrink_wing",
+            "material": "AlP",
+            "formula": "AlP",
+            "dimension": "3d",
+            "result": "GW gap 2.37 eV"
+          }
+        ],
+        "sentence": "Al: 11 valence electrons, 6s6p2d, 34 functions per atom, 569 auxiliary functions per atom. 2 calculations: AlAs GW gap 2.01 eV; AlP GW gap 2.37 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -309,7 +398,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gaas-paper-gw_xsoc_1e-10"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "As",
+        "valence_electrons": 15,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s12p13d11f10g8h7i3j3k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 13,
+            "F": 11,
+            "G": 10,
+            "H": 8,
+            "I": 7,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 557
+        },
+        "uses": [
+          {
+            "record_id": "gaas-paper-gw_xsoc_1e-10",
+            "material": "GaAs",
+            "formula": "GaAs",
+            "dimension": "3d",
+            "result": "GW gap 1.38 eV"
+          }
+        ],
+        "sentence": "As: 15 valence electrons, 3s3p2d0f0g, 22 functions per atom, 557 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -443,7 +575,53 @@
       "used_by": [
         "alas-paper-paper",
         "bas-paper-k8_shrink_wing"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "As",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s12p12d10f9g6h4i1j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 411
+        },
+        "uses": [
+          {
+            "record_id": "alas-paper-paper",
+            "material": "AlAs",
+            "formula": "AlAs",
+            "dimension": "3d",
+            "result": "GW gap 2.01 eV"
+          },
+          {
+            "record_id": "bas-paper-k8_shrink_wing",
+            "material": "BAs",
+            "formula": "BAs",
+            "dimension": "3d",
+            "result": "GW gap 1.76 eV"
+          }
+        ],
+        "sentence": "As: 5 valence electrons, 3s3p2d, 22 functions per atom, 411 auxiliary functions per atom. 2 calculations: AlAs GW gap 2.01 eV; BAs GW gap 1.76 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -503,7 +681,48 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "gaas-abacus-gw-soc-32freq"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "As",
+        "valence_electrons": 15,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s9p10d9f8g6h5i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 9,
+            "G": 8,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 400
+        },
+        "uses": [
+          {
+            "record_id": "gaas-abacus-gw-soc-32freq",
+            "material": "GaAs",
+            "formula": "GaAs",
+            "dimension": "3d",
+            "result": "GW gap 1.39 eV"
+          }
+        ],
+        "sentence": "As: 15 valence electrons, 3s3p2d, 22 functions per atom, 400 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.39 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -589,7 +808,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "hbn-tzdp10-fgext-20261008"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "B",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s8p6d6f5g3h2i1j1k",
+          "channels": {
+            "S": 10,
+            "P": 8,
+            "D": 6,
+            "F": 6,
+            "G": 5,
+            "H": 3,
+            "I": 2,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 242
+        },
+        "uses": [
+          {
+            "record_id": "hbn-tzdp10-fgext-20261008",
+            "material": "hBN",
+            "formula": "hBN",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 242 auxiliary functions per atom. 1 calculation: hBN."
+      }
     },
     {
       "schema_version": 1,
@@ -722,7 +982,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "bn-paper-sg15"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "B",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "13s13p13d10f9g6h4i1j1k",
+          "channels": {
+            "S": 13,
+            "P": 13,
+            "D": 13,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 418
+        },
+        "uses": [
+          {
+            "record_id": "bn-paper-sg15",
+            "material": "BN",
+            "formula": "BN",
+            "dimension": "3d",
+            "result": "GW gap 6.32 eV"
+          }
+        ],
+        "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 418 auxiliary functions per atom. 1 calculation: BN GW gap 6.32 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -809,7 +1110,53 @@
       "used_by": [
         "bas-paper-k8_shrink_wing",
         "bp-paper-k8_shrink_wing"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "B",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "13s13p13d10f9g6h4i1j1k",
+          "channels": {
+            "S": 13,
+            "P": 13,
+            "D": 13,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 418
+        },
+        "uses": [
+          {
+            "record_id": "bas-paper-k8_shrink_wing",
+            "material": "BAs",
+            "formula": "BAs",
+            "dimension": "3d",
+            "result": "GW gap 1.76 eV"
+          },
+          {
+            "record_id": "bp-paper-k8_shrink_wing",
+            "material": "BP",
+            "formula": "BP",
+            "dimension": "3d",
+            "result": "GW gap 2.03 eV"
+          }
+        ],
+        "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 418 auxiliary functions per atom. 2 calculations: BAs GW gap 1.76 eV; BP GW gap 2.03 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -869,7 +1216,50 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "bi2se3-abacus-gw-dzp"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Bi",
+        "valence_electrons": 23,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s9p9d8f8g5h5i3j3k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 9,
+            "F": 8,
+            "G": 8,
+            "H": 5,
+            "I": 5,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 426
+        },
+        "uses": [
+          {
+            "record_id": "bi2se3-abacus-gw-dzp",
+            "material": "Bi2Se3",
+            "formula": "Bi2Se3",
+            "dimension": "3d",
+            "result": "GW gap 0.25 eV"
+          }
+        ],
+        "sentence": "Bi: 23 valence electrons, 3s3p2d0f0g, 22 functions per atom, 426 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
+      }
     },
     {
       "element": "C",
@@ -933,10 +1323,50 @@
         "collection": "Verified large-system carbon GW calculations"
       },
       "used_by": [
-        "c512-gamma-g0w0-20260519",
-        "c1024-gamma-g0w0-20260521"
+        "c1024-gamma-g0w0-20260521",
+        "c2048-rpa-20260614",
+        "c512-gamma-g0w0-20260519"
       ],
-      "validation_scope": "Exact production PP and physical NAO used by the approved 512- and 1024-atom carbon GW records. The auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload."
+      "validation_scope": "Exact production PP and physical NAO used by the approved 512- and 1024-atom carbon GW records. The auxiliary basis was generated in-run by PCA and is not represented as an .abfs payload.",
+      "label": {
+        "schema_version": 1,
+        "element": "C",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "2s2p1d",
+          "channels": {
+            "S": 2,
+            "P": 2,
+            "D": 1
+          },
+          "dimension_per_atom": 13
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "c1024-gamma-g0w0-20260521",
+            "material": "C",
+            "formula": "C1024",
+            "dimension": "3d",
+            "result": null
+          },
+          {
+            "record_id": "c2048-rpa-20260614",
+            "material": "C",
+            "formula": "C2048",
+            "dimension": "3d",
+            "result": null
+          },
+          {
+            "record_id": "c512-gamma-g0w0-20260519",
+            "material": "C",
+            "formula": "C512",
+            "dimension": "3d",
+            "result": null
+          }
+        ],
+        "sentence": "C: 4 valence electrons, 2s2p1d, 13 functions per atom, no auxiliary basis. 3 calculations: C1024; C2048; C512."
+      }
     },
     {
       "schema_version": 1,
@@ -997,7 +1427,41 @@
       "used_by": [
         "c-delta-st-rpa-20260824",
         "sic-delta-st-rpa-20260829"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "C",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "c-delta-st-rpa-20260824",
+            "material": "C",
+            "formula": "C2",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 6.90 eV/atom"
+          },
+          {
+            "record_id": "sic-delta-st-rpa-20260829",
+            "material": "SiC",
+            "formula": "SiC",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 6.16 eV/atom"
+          }
+        ],
+        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 2 calculations: C2 RPA cohesive energy 6.90 eV/atom; SiC RPA cohesive energy 6.16 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -1085,7 +1549,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "sic-paper-pca1e-6"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "C",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s14p14d11f10g8h7i3j3k",
+          "channels": {
+            "S": 14,
+            "P": 14,
+            "D": 14,
+            "F": 11,
+            "G": 10,
+            "H": 8,
+            "I": 7,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 568
+        },
+        "uses": [
+          {
+            "record_id": "sic-paper-pca1e-6",
+            "material": "SiC",
+            "formula": "SiC",
+            "dimension": "3d",
+            "result": "GW gap 2.26 eV"
+          }
+        ],
+        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, 568 auxiliary functions per atom. 1 calculation: SiC GW gap 2.26 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1173,7 +1680,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "c-paper-sg15_cs1e-5"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "C",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "15s17p18d15f14g10h8i3j3k",
+          "channels": {
+            "S": 15,
+            "P": 17,
+            "D": 18,
+            "F": 15,
+            "G": 14,
+            "H": 10,
+            "I": 8,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 697
+        },
+        "uses": [
+          {
+            "record_id": "c-paper-sg15_cs1e-5",
+            "material": "C",
+            "formula": "C",
+            "dimension": "3d",
+            "result": "GW gap 5.55 eV"
+          }
+        ],
+        "sentence": "C: 4 valence electrons, 3s3p2d0f0g, 22 functions per atom, 697 auxiliary functions per atom. 1 calculation: C GW gap 5.55 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1259,7 +1809,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "cao-paper-24freq"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ca",
+        "valence_electrons": 10,
+        "orbital": {
+          "shells": "6s3p2d",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "33s29p29d25f20g9h6i2j1k",
+          "channels": {
+            "S": 33,
+            "P": 29,
+            "D": 29,
+            "F": 25,
+            "G": 20,
+            "H": 9,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 844
+        },
+        "uses": [
+          {
+            "record_id": "cao-paper-24freq",
+            "material": "CaO",
+            "formula": "CaO",
+            "dimension": "3d",
+            "result": "GW gap 6.37 eV"
+          }
+        ],
+        "sentence": "Ca: 10 valence electrons, 6s3p2d, 25 functions per atom, 844 auxiliary functions per atom. 1 calculation: CaO GW gap 6.37 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1346,7 +1937,49 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "cds-paper-debug"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Cd",
+        "valence_electrons": 20,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s10p11d10f8g5h4i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 11,
+            "F": 10,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 393
+        },
+        "uses": [
+          {
+            "record_id": "cds-paper-debug",
+            "material": "CdS",
+            "formula": "CdS",
+            "dimension": "3d",
+            "result": "GW gap 2.08 eV"
+          }
+        ],
+        "sentence": "Cd: 20 valence electrons, 6s3p3d2f, 44 functions per atom, 393 auxiliary functions per atom. 1 calculation: CdS GW gap 2.08 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1478,7 +2111,46 @@
       },
       "used_by": [
         "nacl-paper-sg15"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Cl",
+        "valence_electrons": 7,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "11s11p12d10f8g6h4i1j1k",
+          "channels": {
+            "S": 11,
+            "P": 11,
+            "D": 12,
+            "F": 10,
+            "G": 8,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 396
+        },
+        "uses": [
+          {
+            "record_id": "nacl-paper-sg15",
+            "material": "NaCl",
+            "formula": "NaCl",
+            "dimension": "3d",
+            "result": "GW gap 7.83 eV"
+          }
+        ],
+        "sentence": "Cl: 7 valence electrons, 3s3p2d, 22 functions per atom, 396 auxiliary functions per atom. 1 calculation: NaCl GW gap 7.83 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1609,7 +2281,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Cu",
+        "valence_electrons": 19,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s9p9d8f7g5h4i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 9,
+            "D": 9,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 357
+        },
+        "uses": [],
+        "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -1676,7 +2380,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Cu",
+        "valence_electrons": 19,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s9p9d8f7g5h4i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 9,
+            "D": 9,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 357
+        },
+        "uses": [
+          {
+            "record_id": "cuinp2se6-table-gw",
+            "material": "CuInP2Se6",
+            "formula": "CuInP2Se6",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+      },
+      "used_by": [
+        "cuinp2se6-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -1762,7 +2509,47 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "lif-paper-jy"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "F",
+        "valence_electrons": 7,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s10p10d9f8g7h6i5j",
+          "channels": {
+            "S": 10,
+            "P": 10,
+            "D": 10,
+            "F": 9,
+            "G": 8,
+            "H": 7,
+            "I": 6,
+            "J": 5
+          },
+          "dimension_per_atom": 455
+        },
+        "uses": [
+          {
+            "record_id": "lif-paper-jy",
+            "material": "LiF",
+            "formula": "LiF",
+            "dimension": "3d",
+            "result": "GW gap 14.00 eV"
+          }
+        ],
+        "sentence": "F: 7 valence electrons, 3s3p2d, 22 functions per atom, 455 auxiliary functions per atom. 1 calculation: LiF GW gap 14.00 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -1893,7 +2680,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s8p10d7f8g5h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 8,
+            "D": 10,
+            "F": 7,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 359
+        },
+        "uses": [],
+        "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -1980,7 +2799,49 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gan-paper-pca1e-6"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 21,
+        "orbital": {
+          "shells": "6s6p4d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 4,
+            "F": 2
+          },
+          "dimension_per_atom": 58
+        },
+        "auxiliary": {
+          "shells": "18s17p18d16f14g10h6i2j1k",
+          "channels": {
+            "S": 18,
+            "P": 17,
+            "D": 18,
+            "F": 16,
+            "G": 14,
+            "H": 10,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 632
+        },
+        "uses": [
+          {
+            "record_id": "gan-paper-pca1e-6",
+            "material": "GaN",
+            "formula": "GaN",
+            "dimension": "3d",
+            "result": "GW gap 2.86 eV"
+          }
+        ],
+        "sentence": "Ga: 21 valence electrons, 6s6p4d2f, 58 functions per atom, 632 auxiliary functions per atom. 1 calculation: GaN GW gap 2.86 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -2068,7 +2929,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gaas-paper-gw_xsoc_1e-10"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 21,
+        "orbital": {
+          "shells": "4s4p3d2f0g",
+          "channels": {
+            "S": 4,
+            "P": 4,
+            "D": 3,
+            "F": 2,
+            "G": 0
+          },
+          "dimension_per_atom": 45
+        },
+        "auxiliary": {
+          "shells": "24s23p26d23f23g16h12i4j3k",
+          "channels": {
+            "S": 24,
+            "P": 23,
+            "D": 26,
+            "F": 23,
+            "G": 23,
+            "H": 16,
+            "I": 12,
+            "J": 4,
+            "K": 3
+          },
+          "dimension_per_atom": 1034
+        },
+        "uses": [
+          {
+            "record_id": "gaas-paper-gw_xsoc_1e-10",
+            "material": "GaAs",
+            "formula": "GaAs",
+            "dimension": "3d",
+            "result": "GW gap 1.38 eV"
+          }
+        ],
+        "sentence": "Ga: 21 valence electrons, 4s4p3d2f0g, 45 functions per atom, 1034 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.38 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -2156,7 +3060,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gap-paper-gw_shrink_chi"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 21,
+        "orbital": {
+          "shells": "4s4p3d2f0g",
+          "channels": {
+            "S": 4,
+            "P": 4,
+            "D": 3,
+            "F": 2,
+            "G": 0
+          },
+          "dimension_per_atom": 45
+        },
+        "auxiliary": {
+          "shells": "15s13p13d12f12g8h8i4j3k",
+          "channels": {
+            "S": 15,
+            "P": 13,
+            "D": 13,
+            "F": 12,
+            "G": 12,
+            "H": 8,
+            "I": 8,
+            "J": 4,
+            "K": 3
+          },
+          "dimension_per_atom": 614
+        },
+        "uses": [
+          {
+            "record_id": "gap-paper-gw_shrink_chi",
+            "material": "GaP",
+            "formula": "GaP",
+            "dimension": "3d",
+            "result": "GW gap 2.25 eV"
+          }
+        ],
+        "sentence": "Ga: 21 valence electrons, 4s4p3d2f0g, 45 functions per atom, 614 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -2216,7 +3163,49 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "gaas-abacus-gw-soc-32freq"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 21,
+        "orbital": {
+          "shells": "6s6p4d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 4,
+            "F": 2
+          },
+          "dimension_per_atom": 58
+        },
+        "auxiliary": {
+          "shells": "14s14p14d12f10g7h5i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 14,
+            "D": 14,
+            "F": 12,
+            "G": 10,
+            "H": 7,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 489
+        },
+        "uses": [
+          {
+            "record_id": "gaas-abacus-gw-soc-32freq",
+            "material": "GaAs",
+            "formula": "GaAs",
+            "dimension": "3d",
+            "result": "GW gap 1.39 eV"
+          }
+        ],
+        "sentence": "Ga: 21 valence electrons, 6s6p4d2f, 58 functions per atom, 489 auxiliary functions per atom. 1 calculation: GaAs GW gap 1.39 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -2283,7 +3272,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Ga",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s8p10d7f8g5h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 8,
+            "D": 10,
+            "F": 7,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 359
+        },
+        "uses": [
+          {
+            "record_id": "gate-table-gw",
+            "material": "GaTe",
+            "formula": "GaTe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. 1 calculation: GaTe."
+      },
+      "used_by": [
+        "gate-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -2377,7 +3409,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -2677,7 +3727,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f9g6h6i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 9,
+            "H": 6,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 415
+        },
+        "uses": [],
+        "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 415 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -2899,7 +3981,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 22,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d10f9g6h4i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 426
+        },
+        "uses": [],
+        "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3006,7 +4120,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 22,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3113,7 +4245,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3207,7 +4357,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3416,7 +4584,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f8g6h6i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 406
+        },
+        "uses": [],
+        "sentence": "Ge: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 406 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3488,7 +4688,47 @@
       },
       "used_by": [
         "gete-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Ge",
+        "valence_electrons": 22,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d10f9g6h4i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 426
+        },
+        "uses": [
+          {
+            "record_id": "gete-table-gw",
+            "material": "GeTe",
+            "formula": "GeTe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. 1 calculation: GeTe."
+      }
     },
     {
       "schema_version": 1,
@@ -3547,7 +4787,31 @@
       ],
       "used_by": [
         "h2-delta-st-rpa-20260906"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "H",
+        "valence_electrons": 1,
+        "orbital": {
+          "shells": "4s3p",
+          "channels": {
+            "S": 4,
+            "P": 3
+          },
+          "dimension_per_atom": 13
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "h2-delta-st-rpa-20260906",
+            "material": "H2",
+            "formula": "H2",
+            "dimension": "3d",
+            "result": null
+          }
+        ],
+        "sentence": "H: 1 valence electrons, 4s3p, 13 functions per atom, no auxiliary basis. 1 calculation: H2."
+      }
     },
     {
       "schema_version": 1,
@@ -3607,7 +4871,32 @@
       ],
       "used_by": [
         "lih-molecule-delta-st-rpa-20260913"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "H",
+        "valence_electrons": 1,
+        "orbital": {
+          "shells": "4s3p2d",
+          "channels": {
+            "S": 4,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 23
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "lih-molecule-delta-st-rpa-20260913",
+            "material": "LiH",
+            "formula": "LiH",
+            "dimension": "3d",
+            "result": null
+          }
+        ],
+        "sentence": "H: 1 valence electrons, 4s3p2d, 23 functions per atom, no auxiliary basis. 1 calculation: LiH."
+      }
     },
     {
       "schema_version": 1,
@@ -3666,7 +4955,31 @@
       ],
       "used_by": [
         "lih-solid-delta-st-rpa-20260831"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "H",
+        "valence_electrons": 1,
+        "orbital": {
+          "shells": "3s2p",
+          "channels": {
+            "S": 3,
+            "P": 2
+          },
+          "dimension_per_atom": 9
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "lih-solid-delta-st-rpa-20260831",
+            "material": "LiH",
+            "formula": "LiH",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 2.39 eV/atom"
+          }
+        ],
+        "sentence": "H: 1 valence electrons, 3s2p, 9 functions per atom, no auxiliary basis. 1 calculation: LiH RPA cohesive energy 2.39 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -3797,7 +5110,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f8g6h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 380
+        },
+        "uses": [],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -3943,7 +5288,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -4178,7 +5541,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d7f8g5h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 362
+        },
+        "uses": [],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -4245,7 +5640,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f8g6h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 380
+        },
+        "uses": [
+          {
+            "record_id": "cuinp2se6-table-gw",
+            "material": "CuInP2Se6",
+            "formula": "CuInP2Se6",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+      },
+      "used_by": [
+        "cuinp2se6-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -4314,7 +5752,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d7f8g5h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 362
+        },
+        "uses": [
+          {
+            "record_id": "in2se3-table-gw",
+            "material": "In2Se3",
+            "formula": "In2Se3",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: In2Se3."
+      },
+      "used_by": [
+        "in2se3-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -4383,7 +5864,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "In",
+        "valence_electrons": 13,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d7f8g5h4i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 362
+        },
+        "uses": [
+          {
+            "record_id": "inse-table-gw",
+            "material": "InSe",
+            "formula": "InSe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: InSe."
+      },
+      "used_by": [
+        "inse-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -4444,7 +5968,39 @@
       "used_by": [
         "li2-delta-st-rpa-20260913",
         "lih-molecule-delta-st-rpa-20260913"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Li",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "8s3p2d",
+          "channels": {
+            "S": 8,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 27
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "li2-delta-st-rpa-20260913",
+            "material": "Li2",
+            "formula": "Li2",
+            "dimension": "3d",
+            "result": null
+          },
+          {
+            "record_id": "lih-molecule-delta-st-rpa-20260913",
+            "material": "LiH",
+            "formula": "LiH",
+            "dimension": "3d",
+            "result": null
+          }
+        ],
+        "sentence": "Li: 3 valence electrons, 8s3p2d, 27 functions per atom, no auxiliary basis. 2 calculations: Li2; LiH."
+      }
     },
     {
       "schema_version": 1,
@@ -4503,7 +6059,31 @@
       ],
       "used_by": [
         "lih-solid-delta-st-rpa-20260831"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Li",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "6s2p",
+          "channels": {
+            "S": 6,
+            "P": 2
+          },
+          "dimension_per_atom": 12
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "lih-solid-delta-st-rpa-20260831",
+            "material": "LiH",
+            "formula": "LiH",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 2.39 eV/atom"
+          }
+        ],
+        "sentence": "Li: 3 valence electrons, 6s2p, 12 functions per atom, no auxiliary basis. 1 calculation: LiH RPA cohesive energy 2.39 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -4588,7 +6168,46 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "lif-paper-jy"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Li",
+        "valence_electrons": 3,
+        "orbital": {
+          "shells": "6s2p",
+          "channels": {
+            "S": 6,
+            "P": 2
+          },
+          "dimension_per_atom": 12
+        },
+        "auxiliary": {
+          "shells": "10s10p10d9f8g7h6i5j",
+          "channels": {
+            "S": 10,
+            "P": 10,
+            "D": 10,
+            "F": 9,
+            "G": 8,
+            "H": 7,
+            "I": 6,
+            "J": 5
+          },
+          "dimension_per_atom": 455
+        },
+        "uses": [
+          {
+            "record_id": "lif-paper-jy",
+            "material": "LiF",
+            "formula": "LiF",
+            "dimension": "3d",
+            "result": "GW gap 14.00 eV"
+          }
+        ],
+        "sentence": "Li: 3 valence electrons, 6s2p, 12 functions per atom, 455 auxiliary functions per atom. 1 calculation: LiF GW gap 14.00 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -4648,7 +6267,32 @@
       ],
       "used_by": [
         "mgo-delta-st-rpa-20260829"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Mg",
+        "valence_electrons": 10,
+        "orbital": {
+          "shells": "6s3p2d",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "mgo-delta-st-rpa-20260829",
+            "material": "MgO",
+            "formula": "MgO",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 4.98 eV/atom"
+          }
+        ],
+        "sentence": "Mg: 10 valence electrons, 6s3p2d, 25 functions per atom, no auxiliary basis. 1 calculation: MgO RPA cohesive energy 4.98 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -4734,7 +6378,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "mgo-paper-fix_gap"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Mg",
+        "valence_electrons": 10,
+        "orbital": {
+          "shells": "6s3p2d",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "18s15p15d14f12g8h8i4j3k",
+          "channels": {
+            "S": 18,
+            "P": 15,
+            "D": 15,
+            "F": 14,
+            "G": 12,
+            "H": 8,
+            "I": 8,
+            "J": 4,
+            "K": 3
+          },
+          "dimension_per_atom": 647
+        },
+        "uses": [
+          {
+            "record_id": "mgo-paper-fix_gap",
+            "material": "MgO",
+            "formula": "MgO",
+            "dimension": "3d",
+            "result": "GW gap 7.39 eV"
+          }
+        ],
+        "sentence": "Mg: 10 valence electrons, 6s3p2d, 25 functions per atom, 647 auxiliary functions per atom. 1 calculation: MgO GW gap 7.39 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -5073,7 +6758,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s10p10d9f7g6h5i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 10,
+            "F": 9,
+            "G": 7,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 396
+        },
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5180,7 +6897,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5287,7 +7022,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5409,7 +7162,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5609,7 +7380,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "4s2p2d1f",
+          "channels": {
+            "S": 4,
+            "P": 2,
+            "D": 2,
+            "F": 1
+          },
+          "dimension_per_atom": 27
+        },
+        "auxiliary": {
+          "shells": "8s6p7d5f5g4h3i1j1k",
+          "channels": {
+            "S": 8,
+            "P": 6,
+            "D": 7,
+            "F": 5,
+            "G": 5,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 256
+        },
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "element": "Mo",
@@ -5672,7 +7475,33 @@
       "used_by": [
         "mose2-table-gw"
       ],
-      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed.",
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "mose2-table-gw",
+            "material": "MoSe2",
+            "formula": "MoSe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
+      }
     },
     {
       "schema_version": 1,
@@ -5781,7 +7610,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5875,7 +7722,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -5982,7 +7847,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -6053,7 +7936,47 @@
       },
       "used_by": [
         "mos2-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "4s2p2d1f",
+          "channels": {
+            "S": 4,
+            "P": 2,
+            "D": 2,
+            "F": 1
+          },
+          "dimension_per_atom": 27
+        },
+        "auxiliary": {
+          "shells": "12s10p10d8f8g5h4i1j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 359
+        },
+        "uses": [
+          {
+            "record_id": "mos2-table-gw",
+            "material": "MoS2",
+            "formula": "MoS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 359 auxiliary functions per atom. 1 calculation: MoS2."
+      }
     },
     {
       "schema_version": 1,
@@ -6124,7 +8047,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "4s2p2d1f",
+          "channels": {
+            "S": 4,
+            "P": 2,
+            "D": 2,
+            "F": 1
+          },
+          "dimension_per_atom": 27
+        },
+        "auxiliary": {
+          "shells": "8s6p7d5f5g4h3i1j1k",
+          "channels": {
+            "S": 8,
+            "P": 6,
+            "D": 7,
+            "F": 5,
+            "G": 5,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 256
+        },
+        "uses": [
+          {
+            "record_id": "mos2_ws2-table-gw",
+            "material": "MoS2-WS2",
+            "formula": "MoS2-WS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+      },
+      "used_by": [
+        "mos2_ws2-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -6193,7 +8159,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Mo",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s10p10d9f7g6h5i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 10,
+            "F": 9,
+            "G": 7,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 396
+        },
+        "uses": [
+          {
+            "record_id": "mote2-table-gw",
+            "material": "MoTe2",
+            "formula": "MoTe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. 1 calculation: MoTe2."
+      },
+      "used_by": [
+        "mote2-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -6280,7 +8289,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "hbn-tzdp10-fgext-20261008"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "N",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "9s8p7d6f6g3h3i1j1k",
+          "channels": {
+            "S": 9,
+            "P": 8,
+            "D": 7,
+            "F": 6,
+            "G": 6,
+            "H": 3,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 268
+        },
+        "uses": [
+          {
+            "record_id": "hbn-tzdp10-fgext-20261008",
+            "material": "hBN",
+            "formula": "hBN",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: hBN."
+      }
     },
     {
       "schema_version": 1,
@@ -6341,7 +8391,32 @@
       ],
       "used_by": [
         "n2-delta-st-rpa-20260913"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "N",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "4s4p3d",
+          "channels": {
+            "S": 4,
+            "P": 4,
+            "D": 3
+          },
+          "dimension_per_atom": 31
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "n2-delta-st-rpa-20260913",
+            "material": "N2",
+            "formula": "N2",
+            "dimension": "3d",
+            "result": null
+          }
+        ],
+        "sentence": "N: 5 valence electrons, 4s4p3d, 31 functions per atom, no auxiliary basis. 1 calculation: N2."
+      }
     },
     {
       "schema_version": 1,
@@ -6427,7 +8502,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gan-paper-pca1e-6"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "N",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s10p9d8f6g4h3i1j1k",
+          "channels": {
+            "S": 10,
+            "P": 10,
+            "D": 9,
+            "F": 8,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 310
+        },
+        "uses": [
+          {
+            "record_id": "gan-paper-pca1e-6",
+            "material": "GaN",
+            "formula": "GaN",
+            "dimension": "3d",
+            "result": "GW gap 2.86 eV"
+          }
+        ],
+        "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 310 auxiliary functions per atom. 1 calculation: GaN GW gap 2.86 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -6513,7 +8629,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "bn-paper-sg15"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "N",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "12s11p12d9f9g6h4i1j1k",
+          "channels": {
+            "S": 12,
+            "P": 11,
+            "D": 12,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 399
+        },
+        "uses": [
+          {
+            "record_id": "bn-paper-sg15",
+            "material": "BN",
+            "formula": "BN",
+            "dimension": "3d",
+            "result": "GW gap 6.32 eV"
+          }
+        ],
+        "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 399 auxiliary functions per atom. 1 calculation: BN GW gap 6.32 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -6669,7 +8826,38 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Na",
+        "valence_electrons": 9,
+        "orbital": {
+          "shells": "6s3p2d",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "13s10p10d7f7g3h3i1j1k",
+          "channels": {
+            "S": 13,
+            "P": 10,
+            "D": 10,
+            "F": 7,
+            "G": 7,
+            "H": 3,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 309
+        },
+        "uses": [],
+        "sentence": "Na: 9 valence electrons, 6s3p2d, 25 functions per atom, 309 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -6801,7 +8989,46 @@
       },
       "used_by": [
         "nacl-paper-sg15"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Na",
+        "valence_electrons": 9,
+        "orbital": {
+          "shells": "6s3p2d",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "19s15p13d11f10g5h4i1j1k",
+          "channels": {
+            "S": 19,
+            "P": 15,
+            "D": 13,
+            "F": 11,
+            "G": 10,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 435
+        },
+        "uses": [
+          {
+            "record_id": "nacl-paper-sg15",
+            "material": "NaCl",
+            "formula": "NaCl",
+            "dimension": "3d",
+            "result": "GW gap 7.83 eV"
+          }
+        ],
+        "sentence": "Na: 9 valence electrons, 6s3p2d, 25 functions per atom, 435 auxiliary functions per atom. 1 calculation: NaCl GW gap 7.83 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -6861,7 +9088,32 @@
       ],
       "used_by": [
         "mgo-delta-st-rpa-20260829"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "O",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "mgo-delta-st-rpa-20260829",
+            "material": "MgO",
+            "formula": "MgO",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 4.98 eV/atom"
+          }
+        ],
+        "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: MgO RPA cohesive energy 4.98 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -6947,7 +9199,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "mgo-paper-fix_gap"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "O",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "12s11p12d11f9g7h6i3j3k",
+          "channels": {
+            "S": 12,
+            "P": 11,
+            "D": 12,
+            "F": 11,
+            "G": 9,
+            "H": 7,
+            "I": 6,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 514
+        },
+        "uses": [
+          {
+            "record_id": "mgo-paper-fix_gap",
+            "material": "MgO",
+            "formula": "MgO",
+            "dimension": "3d",
+            "result": "GW gap 7.39 eV"
+          }
+        ],
+        "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 514 auxiliary functions per atom. 1 calculation: MgO GW gap 7.39 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -7033,7 +9326,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "cao-paper-24freq"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "O",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s13p13d11f10g5h4i1j1k",
+          "channels": {
+            "S": 14,
+            "P": 13,
+            "D": 13,
+            "F": 11,
+            "G": 10,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 424
+        },
+        "uses": [
+          {
+            "record_id": "cao-paper-24freq",
+            "material": "CaO",
+            "formula": "CaO",
+            "dimension": "3d",
+            "result": "GW gap 6.37 eV"
+          }
+        ],
+        "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 424 auxiliary functions per atom. 1 calculation: CaO GW gap 6.37 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -7093,7 +9427,48 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "zno-abacus-gw-sg15"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "O",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s13p13d11f10g5h4i1j1k",
+          "channels": {
+            "S": 14,
+            "P": 13,
+            "D": 13,
+            "F": 11,
+            "G": 10,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 424
+        },
+        "uses": [
+          {
+            "record_id": "zno-abacus-gw-sg15",
+            "material": "ZnO",
+            "formula": "ZnO",
+            "dimension": "3d",
+            "result": "GW gap 1.92 eV"
+          }
+        ],
+        "sentence": "O: 6 valence electrons, 3s3p2d, 22 functions per atom, 424 auxiliary functions per atom. 1 calculation: ZnO GW gap 1.92 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -7223,7 +9598,38 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "P",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "9s8p8d7f6g4h3i1j1k",
+          "channels": {
+            "S": 9,
+            "P": 8,
+            "D": 8,
+            "F": 7,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 291
+        },
+        "uses": [],
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -7311,7 +9717,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "gap-paper-gw_shrink_chi"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "P",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "13s13p12d11f10g7h7i3j3k",
+          "channels": {
+            "S": 13,
+            "P": 13,
+            "D": 12,
+            "F": 11,
+            "G": 10,
+            "H": 7,
+            "I": 7,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 543
+        },
+        "uses": [
+          {
+            "record_id": "gap-paper-gw_shrink_chi",
+            "material": "GaP",
+            "formula": "GaP",
+            "dimension": "3d",
+            "result": "GW gap 2.25 eV"
+          }
+        ],
+        "sentence": "P: 5 valence electrons, 3s3p2d0f0g, 22 functions per atom, 543 auxiliary functions per atom. 1 calculation: GaP GW gap 2.25 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -7445,7 +9894,53 @@
       "used_by": [
         "alp-paper-k8_shrink_wing",
         "bp-paper-k8_shrink_wing"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "P",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "12s12p12d9f9g6h4i1j1k",
+          "channels": {
+            "S": 12,
+            "P": 12,
+            "D": 12,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 402
+        },
+        "uses": [
+          {
+            "record_id": "alp-paper-k8_shrink_wing",
+            "material": "AlP",
+            "formula": "AlP",
+            "dimension": "3d",
+            "result": "GW gap 2.37 eV"
+          },
+          {
+            "record_id": "bp-paper-k8_shrink_wing",
+            "material": "BP",
+            "formula": "BP",
+            "dimension": "3d",
+            "result": "GW gap 2.03 eV"
+          }
+        ],
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 402 auxiliary functions per atom. 2 calculations: AlP GW gap 2.37 eV; BP GW gap 2.03 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -7512,7 +10007,49 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "P",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "9s8p8d7f6g4h3i1j1k",
+          "channels": {
+            "S": 9,
+            "P": 8,
+            "D": 8,
+            "F": 7,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 291
+        },
+        "uses": [
+          {
+            "record_id": "cuinp2se6-table-gw",
+            "material": "CuInP2Se6",
+            "formula": "CuInP2Se6",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+      },
+      "used_by": [
+        "cuinp2se6-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -7590,7 +10127,46 @@
       },
       "used_by": [
         "phosphorene-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "P",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "14s14p14d13f11g8h6i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 14,
+            "D": 14,
+            "F": 13,
+            "G": 11,
+            "H": 8,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 529
+        },
+        "uses": [
+          {
+            "record_id": "phosphorene-table-gw",
+            "material": "Phosphorene",
+            "formula": "Phosphorene",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 529 auxiliary functions per atom. 1 calculation: Phosphorene."
+      }
     },
     {
       "schema_version": 1,
@@ -7720,7 +10296,38 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "9s8p8d7f6g4h3i1j1k",
+          "channels": {
+            "S": 9,
+            "P": 8,
+            "D": 8,
+            "F": 7,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 291
+        },
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -7813,7 +10420,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -7921,7 +10545,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "element": "S",
@@ -7985,7 +10626,34 @@
       "used_by": [
         "ws2-table-gw"
       ],
-      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed.",
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "ws2-table-gw",
+            "material": "WS2",
+            "formula": "WS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "S: 6 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 1 calculation: WS2."
+      }
     },
     {
       "schema_version": 1,
@@ -8185,7 +10853,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "2s2p2d1f",
+          "channels": {
+            "S": 2,
+            "P": 2,
+            "D": 2,
+            "F": 1
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "7s7p7d6f6g5h4i1j1k",
+          "channels": {
+            "S": 7,
+            "P": 7,
+            "D": 7,
+            "F": 6,
+            "G": 6,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 298
+        },
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -8307,7 +11007,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -8415,7 +11133,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -8501,7 +11236,48 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "cds-paper-debug"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "10s9p8d6f5g3h3i1j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 8,
+            "F": 6,
+            "G": 5,
+            "H": 3,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 268
+        },
+        "uses": [
+          {
+            "record_id": "cds-paper-debug",
+            "material": "CdS",
+            "formula": "CdS",
+            "dimension": "3d",
+            "result": "GW gap 2.08 eV"
+          }
+        ],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: CdS GW gap 2.08 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -8594,7 +11370,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -8700,7 +11493,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -8771,7 +11581,48 @@
       },
       "used_by": [
         "mos2-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "2s2p1d0f0g",
+          "channels": {
+            "S": 2,
+            "P": 2,
+            "D": 1,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 13
+        },
+        "auxiliary": {
+          "shells": "8s8p8d6f6g4h3i1j1k",
+          "channels": {
+            "S": 8,
+            "P": 8,
+            "D": 8,
+            "F": 6,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 283
+        },
+        "uses": [
+          {
+            "record_id": "mos2-table-gw",
+            "material": "MoS2",
+            "formula": "MoS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "S: 6 valence electrons, 2s2p1d0f0g, 13 functions per atom, 283 auxiliary functions per atom. 1 calculation: MoS2."
+      }
     },
     {
       "schema_version": 1,
@@ -8838,7 +11689,49 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "9s8p8d7f6g4h3i1j1k",
+          "channels": {
+            "S": 9,
+            "P": 8,
+            "D": 8,
+            "F": 7,
+            "G": 6,
+            "H": 4,
+            "I": 3,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 291
+        },
+        "uses": [
+          {
+            "record_id": "tis3-table-gw",
+            "material": "TiS3",
+            "formula": "TiS3",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: TiS3."
+      },
+      "used_by": [
+        "tis3-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -8909,7 +11802,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "S",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "2s2p2d1f",
+          "channels": {
+            "S": 2,
+            "P": 2,
+            "D": 2,
+            "F": 1
+          },
+          "dimension_per_atom": 25
+        },
+        "auxiliary": {
+          "shells": "7s7p7d6f6g5h4i1j1k",
+          "channels": {
+            "S": 7,
+            "P": 7,
+            "D": 7,
+            "F": 6,
+            "G": 6,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 298
+        },
+        "uses": [
+          {
+            "record_id": "mos2_ws2-table-gw",
+            "material": "MoS2-WS2",
+            "formula": "MoS2-WS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+      },
+      "used_by": [
+        "mos2_ws2-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -8997,7 +11933,50 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "alsb-paper-gw_gth_modspencer"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Sb",
+        "valence_electrons": 5,
+        "orbital": {
+          "shells": "3s3p2d2f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 2,
+            "G": 0
+          },
+          "dimension_per_atom": 36
+        },
+        "auxiliary": {
+          "shells": "18s20p20d17f16g12h10i4j3k",
+          "channels": {
+            "S": 18,
+            "P": 20,
+            "D": 20,
+            "F": 17,
+            "G": 16,
+            "H": 12,
+            "I": 10,
+            "J": 4,
+            "K": 3
+          },
+          "dimension_per_atom": 814
+        },
+        "uses": [
+          {
+            "record_id": "alsb-paper-gw_gth_modspencer",
+            "material": "AlSb",
+            "formula": "AlSb",
+            "dimension": "3d",
+            "result": "GW gap 1.58 eV"
+          }
+        ],
+        "sentence": "Sb: 5 valence electrons, 3s3p2d2f0g, 36 functions per atom, 814 auxiliary functions per atom. 1 calculation: AlSb GW gap 1.58 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -9271,7 +12250,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s10p11d9f9g6h5i2j1k",
+          "channels": {
+            "S": 11,
+            "P": 10,
+            "D": 11,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 418
+        },
+        "uses": [],
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -9365,7 +12376,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -9485,7 +12514,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -9707,7 +12754,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d8f7g5h4i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 383
+        },
+        "uses": [],
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "element": "Se",
@@ -9771,7 +12850,34 @@
       "used_by": [
         "mose2-table-gw"
       ],
-      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed.",
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "mose2-table-gw",
+            "material": "MoSe2",
+            "formula": "MoSe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 6 valence electrons, 3s3p2d0f0g, 22 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
+      }
     },
     {
       "schema_version": 1,
@@ -9918,7 +13024,40 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d2f1g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 2,
+            "G": 1
+          },
+          "dimension_per_atom": 45
+        },
+        "auxiliary": {
+          "shells": "14s14p13d12f10g8h7i3j3k",
+          "channels": {
+            "S": 14,
+            "P": 14,
+            "D": 13,
+            "F": 12,
+            "G": 10,
+            "H": 8,
+            "I": 7,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 570
+        },
+        "uses": [],
+        "sentence": "Se: 6 valence electrons, 3s3p2d2f1g, 45 functions per atom, 570 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -10011,7 +13150,24 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 6,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Se: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -10082,7 +13238,47 @@
       },
       "used_by": [
         "wse2-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "13s13p14d13f11g8h6i2j1k",
+          "channels": {
+            "S": 13,
+            "P": 13,
+            "D": 14,
+            "F": 13,
+            "G": 11,
+            "H": 8,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 525
+        },
+        "uses": [
+          {
+            "record_id": "wse2-table-gw",
+            "material": "WSe2",
+            "formula": "WSe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 525 auxiliary functions per atom. 1 calculation: WSe2."
+      }
     },
     {
       "schema_version": 1,
@@ -10142,7 +13338,50 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "bi2se3-abacus-gw-dzp"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "3s3p2d0f0g",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2,
+            "F": 0,
+            "G": 0
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "11s10p9d8f7g5h5i3j3k",
+          "channels": {
+            "S": 11,
+            "P": 10,
+            "D": 9,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 5,
+            "J": 3,
+            "K": 3
+          },
+          "dimension_per_atom": 421
+        },
+        "uses": [
+          {
+            "record_id": "bi2se3-abacus-gw-dzp",
+            "material": "Bi2Se3",
+            "formula": "Bi2Se3",
+            "dimension": "3d",
+            "result": "GW gap 0.25 eV"
+          }
+        ],
+        "sentence": "Se: 24 valence electrons, 3s3p2d0f0g, 22 functions per atom, 421 auxiliary functions per atom. 1 calculation: Bi2Se3 GW gap 0.25 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -10211,7 +13450,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d8f7g5h4i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 383
+        },
+        "uses": [
+          {
+            "record_id": "inse-table-gw",
+            "material": "InSe",
+            "formula": "InSe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: InSe."
+      },
+      "used_by": [
+        "inse-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -10280,7 +13562,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d8f7g5h4i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 8,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 383
+        },
+        "uses": [
+          {
+            "record_id": "in2se3-table-gw",
+            "material": "In2Se3",
+            "formula": "In2Se3",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: In2Se3."
+      },
+      "used_by": [
+        "in2se3-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -10347,7 +13672,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s10p11d9f9g6h5i2j1k",
+          "channels": {
+            "S": 11,
+            "P": 10,
+            "D": 11,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 418
+        },
+        "uses": [
+          {
+            "record_id": "cuinp2se6-table-gw",
+            "material": "CuInP2Se6",
+            "formula": "CuInP2Se6",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+      },
+      "used_by": [
+        "cuinp2se6-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -10419,7 +13787,47 @@
       },
       "used_by": [
         "snse-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Se",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s10p11d9f9g6h5i2j1k",
+          "channels": {
+            "S": 11,
+            "P": 10,
+            "D": 11,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 418
+        },
+        "uses": [
+          {
+            "record_id": "snse-table-gw",
+            "material": "SnSe",
+            "formula": "SnSe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: SnSe."
+      }
     },
     {
       "schema_version": 1,
@@ -10480,7 +13888,39 @@
       "used_by": [
         "si-delta-st-rpa-20260824",
         "sic-delta-st-rpa-20260829"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Si",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "si-delta-st-rpa-20260824",
+            "material": "Si",
+            "formula": "Si2",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 4.43 eV/atom"
+          },
+          {
+            "record_id": "sic-delta-st-rpa-20260829",
+            "material": "SiC",
+            "formula": "SiC",
+            "dimension": "3d",
+            "result": "RPA cohesive energy 6.16 eV/atom"
+          }
+        ],
+        "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 2 calculations: Si2 RPA cohesive energy 4.43 eV/atom; SiC RPA cohesive energy 6.16 eV/atom."
+      }
     },
     {
       "schema_version": 1,
@@ -10566,7 +14006,56 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [
+        "si-paper-all_kpath",
+        "sic-paper-pca1e-6"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Si",
+        "valence_electrons": 4,
+        "orbital": {
+          "shells": "3s3p2d",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 2
+          },
+          "dimension_per_atom": 22
+        },
+        "auxiliary": {
+          "shells": "12s12p11d9f9g6h4i1j1k",
+          "channels": {
+            "S": 12,
+            "P": 12,
+            "D": 11,
+            "F": 9,
+            "G": 9,
+            "H": 6,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 397
+        },
+        "uses": [
+          {
+            "record_id": "si-paper-all_kpath",
+            "material": "Si",
+            "formula": "Si",
+            "dimension": "3d",
+            "result": "GW gap 1.06 eV"
+          },
+          {
+            "record_id": "sic-paper-pca1e-6",
+            "material": "SiC",
+            "formula": "SiC",
+            "dimension": "3d",
+            "result": "GW gap 2.26 eV"
+          }
+        ],
+        "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, 397 auxiliary functions per atom. 2 calculations: Si GW gap 1.06 eV; SiC GW gap 2.26 eV."
+      }
     },
     {
       "schema_version": 1,
@@ -10660,7 +14149,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -10934,7 +14441,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f8g6h5i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 393
+        },
+        "uses": [],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11156,7 +14695,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 22,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "14s12p12d9f8g6h5i2j1k",
+          "channels": {
+            "S": 14,
+            "P": 12,
+            "D": 12,
+            "F": 9,
+            "G": 8,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 423
+        },
+        "uses": [],
+        "sentence": "Sn: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 423 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11263,7 +14834,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 22,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Sn: 22 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11370,7 +14959,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11464,7 +15071,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11673,7 +15298,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s8p10d8f8g6h6i2j1k",
+          "channels": {
+            "S": 11,
+            "P": 8,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 404
+        },
+        "uses": [],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 404 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -11745,7 +15402,47 @@
       },
       "used_by": [
         "snse-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Sn",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "10s9p10d8f8g6h5i2j1k",
+          "channels": {
+            "S": 10,
+            "P": 9,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 393
+        },
+        "uses": [
+          {
+            "record_id": "snse-table-gw",
+            "material": "SnSe",
+            "formula": "SnSe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. 1 calculation: SnSe."
+      }
     },
     {
       "schema_version": 1,
@@ -11839,7 +15536,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12126,7 +15841,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s9p10d7f7g5h4i1j1k",
+          "channels": {
+            "S": 11,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 339
+        },
+        "uses": [],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12233,7 +15980,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12455,7 +16220,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "15s12p13d10f9g6h5i2j1k",
+          "channels": {
+            "S": 15,
+            "P": 12,
+            "D": 13,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 445
+        },
+        "uses": [],
+        "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12612,7 +16409,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "9s9p9d7f7g5h5i2j1k",
+          "channels": {
+            "S": 9,
+            "P": 9,
+            "D": 9,
+            "F": 7,
+            "G": 7,
+            "H": 5,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 360
+        },
+        "uses": [],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 360 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12706,7 +16535,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12850,7 +16697,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s8p10d8f8g6h6i2j1k",
+          "channels": {
+            "S": 11,
+            "P": 8,
+            "D": 10,
+            "F": 8,
+            "G": 8,
+            "H": 6,
+            "I": 6,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 404
+        },
+        "uses": [],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 404 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -12919,7 +16798,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s9p10d7f7g5h4i1j1k",
+          "channels": {
+            "S": 11,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 339
+        },
+        "uses": [
+          {
+            "record_id": "mote2-table-gw",
+            "material": "MoTe2",
+            "formula": "MoTe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: MoTe2."
+      },
+      "used_by": [
+        "mote2-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -12991,7 +16913,47 @@
       },
       "used_by": [
         "gete-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 24,
+        "orbital": {
+          "shells": "6s6p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 6,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "15s12p13d10f9g6h5i2j1k",
+          "channels": {
+            "S": 15,
+            "P": 12,
+            "D": 13,
+            "F": 10,
+            "G": 9,
+            "H": 6,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 445
+        },
+        "uses": [
+          {
+            "record_id": "gete-table-gw",
+            "material": "GeTe",
+            "formula": "GeTe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. 1 calculation: GeTe."
+      }
     },
     {
       "schema_version": 1,
@@ -13058,7 +17020,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Te",
+        "valence_electrons": 16,
+        "orbital": {
+          "shells": "3s3p3d2f",
+          "channels": {
+            "S": 3,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 41
+        },
+        "auxiliary": {
+          "shells": "11s9p10d7f7g5h4i1j1k",
+          "channels": {
+            "S": 11,
+            "P": 9,
+            "D": 10,
+            "F": 7,
+            "G": 7,
+            "H": 5,
+            "I": 4,
+            "J": 1,
+            "K": 1
+          },
+          "dimension_per_atom": 339
+        },
+        "uses": [
+          {
+            "record_id": "gate-table-gw",
+            "material": "GaTe",
+            "formula": "GaTe",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: GaTe."
+      },
+      "used_by": [
+        "gate-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -13189,7 +17194,39 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "Ti",
+        "valence_electrons": 12,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s10p10d8f7g6h4i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 10,
+            "F": 8,
+            "G": 7,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 376
+        },
+        "uses": [],
+        "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -13256,7 +17293,50 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "Ti",
+        "valence_electrons": 12,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "12s10p10d8f7g6h4i2j1k",
+          "channels": {
+            "S": 12,
+            "P": 10,
+            "D": 10,
+            "F": 8,
+            "G": 7,
+            "H": 6,
+            "I": 4,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 376
+        },
+        "uses": [
+          {
+            "record_id": "tis3-table-gw",
+            "material": "TiS3",
+            "formula": "TiS3",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. 1 calculation: TiS3."
+      },
+      "used_by": [
+        "tis3-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -13363,7 +17443,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -13470,7 +17568,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -13579,7 +17695,25 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "element": "W",
@@ -13643,7 +17777,34 @@
       "used_by": [
         "ws2-table-gw"
       ],
-      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed."
+      "validation_scope": "Exact production pseudopotential and physical NAO bound to the hash-matched paper GW run. The auxiliary basis was generated in-run by PCA and no standalone .abfs payload is claimed.",
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f0g",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2,
+            "G": 0
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": null,
+        "uses": [
+          {
+            "record_id": "ws2-table-gw",
+            "material": "WS2",
+            "formula": "WS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f0g, 44 functions per atom, no auxiliary basis. 1 calculation: WS2."
+      }
     },
     {
       "schema_version": 1,
@@ -13796,7 +17957,40 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f1g",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2,
+            "G": 1
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "19s17p19d17f16g9h7i2j1k",
+          "channels": {
+            "S": 19,
+            "P": 17,
+            "D": 19,
+            "F": 17,
+            "G": 16,
+            "H": 9,
+            "I": 7,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 665
+        },
+        "uses": [],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -13904,7 +18098,26 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 28,
+        "orbital": {
+          "shells": "6s3p3d3f2g",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 3,
+            "G": 2
+          },
+          "dimension_per_atom": 69
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "W: 28 valence electrons, 6s3p3d3f2g, 69 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -13999,7 +18212,26 @@
         "commit": null,
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
-      "used_by": []
+      "used_by": [],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 28,
+        "orbital": {
+          "shells": "6s3p3d3f2g",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 3,
+            "G": 2
+          },
+          "dimension_per_atom": 69
+        },
+        "auxiliary": null,
+        "uses": [],
+        "sentence": "W: 28 valence electrons, 6s3p3d3f2g, 69 functions per atom, no auxiliary basis. No calculation in the archive has used it yet."
+      }
     },
     {
       "schema_version": 1,
@@ -14070,7 +18302,47 @@
       },
       "used_by": [
         "wse2-table-gw"
-      ]
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "19s17p19d17f16g9h7i2j1k",
+          "channels": {
+            "S": 19,
+            "P": 17,
+            "D": 19,
+            "F": 17,
+            "G": 16,
+            "H": 9,
+            "I": 7,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 665
+        },
+        "uses": [
+          {
+            "record_id": "wse2-table-gw",
+            "material": "WSe2",
+            "formula": "WSe2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 665 auxiliary functions per atom. 1 calculation: WSe2."
+      }
     },
     {
       "schema_version": 1,
@@ -14143,7 +18415,51 @@
       ],
       "generation_provenance": {
         "status": "historical producer association verified; generation history not reassessed"
-      }
+      },
+      "label": {
+        "schema_version": 1,
+        "element": "W",
+        "valence_electrons": 14,
+        "orbital": {
+          "shells": "6s3p3d2f1g",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2,
+            "G": 1
+          },
+          "dimension_per_atom": 53
+        },
+        "auxiliary": {
+          "shells": "19s17p19d17f16g9h7i2j1k",
+          "channels": {
+            "S": 19,
+            "P": 17,
+            "D": 19,
+            "F": 17,
+            "G": 16,
+            "H": 9,
+            "I": 7,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 665
+        },
+        "uses": [
+          {
+            "record_id": "mos2_ws2-table-gw",
+            "material": "MoS2-WS2",
+            "formula": "MoS2-WS2",
+            "dimension": "2d",
+            "result": null
+          }
+        ],
+        "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+      },
+      "used_by": [
+        "mos2_ws2-table-gw"
+      ]
     },
     {
       "schema_version": 1,
@@ -14203,7 +18519,49 @@
           ]
         }
       ],
-      "used_by": []
+      "used_by": [
+        "zno-abacus-gw-sg15"
+      ],
+      "label": {
+        "schema_version": 1,
+        "element": "Zn",
+        "valence_electrons": 20,
+        "orbital": {
+          "shells": "6s3p3d2f",
+          "channels": {
+            "S": 6,
+            "P": 3,
+            "D": 3,
+            "F": 2
+          },
+          "dimension_per_atom": 44
+        },
+        "auxiliary": {
+          "shells": "18s14p13d12f10g8h5i2j1k",
+          "channels": {
+            "S": 18,
+            "P": 14,
+            "D": 13,
+            "F": 12,
+            "G": 10,
+            "H": 8,
+            "I": 5,
+            "J": 2,
+            "K": 1
+          },
+          "dimension_per_atom": 499
+        },
+        "uses": [
+          {
+            "record_id": "zno-abacus-gw-sg15",
+            "material": "ZnO",
+            "formula": "ZnO",
+            "dimension": "3d",
+            "result": "GW gap 1.92 eV"
+          }
+        ],
+        "sentence": "Zn: 20 valence electrons, 6s3p3d2f, 44 functions per atom, 499 auxiliary functions per atom. 1 calculation: ZnO GW gap 1.92 eV."
+      }
     }
   ],
   "calculations": [
