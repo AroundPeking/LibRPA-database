@@ -168,13 +168,45 @@ def set_facts(root: Path, set_json: Path) -> dict[str, Any]:
     facts["auxiliary_dimension"] = (
         dimension(channels(root / by_role["abf"]["path"])) if "abf" in by_role else None
     )
+    if "species_defaults" in by_role:
+        facts.update(species_defaults_facts(root / by_role["species_defaults"]["path"]))
     return facts
+
+
+_SPECIES_LINE = re.compile(r"^\s*species\s+([A-Z][a-z]?)", re.MULTILINE)
+_TIER_LINE = re.compile(r'Suggested "([a-z_]+)"')
+
+
+def species_defaults_facts(path: Path) -> dict[str, Any]:
+    """What an FHI-aims species-defaults fragment actually declares.
+
+    These payloads carry no pseudopotential or orbital, so they cannot be sized.
+    What they do carry is the species they describe and, when the file says so,
+    the tier - and those are the facts that distinguish one fragment from
+    another.
+    """
+    text = path.read_text(errors="replace")
+    species = _SPECIES_LINE.search(text)
+    tier = _TIER_LINE.search(text)
+    return {
+        "declared_species": species.group(1) if species else None,
+        "tier": tier.group(1) if tier else None,
+    }
 
 
 def base_id(facts: Mapping[str, Any]) -> str:
     """The fact-only name, before any disambiguation."""
     element = facts["element"]
     token = family_token(facts["family"])
+    if token == "aims" and facts.get("declared_species"):
+        # The species is normally the set's own element, so repeating it would
+        # read "Al-aims-Al". Only a fragment for another element needs to say so.
+        parts = [element, token]
+        if facts["declared_species"] != element:
+            parts.append(facts["declared_species"])
+        if facts.get("tier"):
+            parts.append(facts["tier"])
+        return "-".join(parts)
     if not facts["has_sizes"] or not facts["valence"] or not facts["orbital_shells"]:
         return f"{element}-{token}"
     parts = [

@@ -104,10 +104,15 @@ class FactIdTest(unittest.TestCase):
         new_id = rename.build_mapping(self.root)["Si-ONCV-aaaa"]["new_id"]
         self.assertTrue(new_id.endswith("-noabf"), new_id)
 
-    def test_a_set_without_payload_sizes_keeps_element_and_family(self) -> None:
+    def test_a_species_defaults_fragment_is_named_by_species_and_tier(self) -> None:
+        # No pp/nao means no sizes; what the file does declare is the species and
+        # (sometimes) the FHI-aims tier, which is what separates two fragments.
         path = self.root / "data" / "elements" / "Si" / "sets" / "Si-aims-aaaa" / "set.json"
         path.parent.mkdir(parents=True)
-        payload = write(self.root / "data" / "elements" / "Si" / "species_defaults" / "x.in", "tier 1\n")
+        payload = write(
+            self.root / "data" / "elements" / "Si" / "species_defaults" / "x.in",
+            "#  Suggested \"intermediate\" defaults for Si atom\n  species        Si\n",
+        )
         path.write_text(
             json.dumps(
                 {
@@ -122,7 +127,34 @@ class FactIdTest(unittest.TestCase):
             ),
             encoding="utf-8",
         )
-        self.assertEqual(rename.build_mapping(self.root)["Si-aims-aaaa"]["new_id"], "Si-aims")
+        self.assertEqual(
+            rename.build_mapping(self.root)["Si-aims-aaaa"]["new_id"], "Si-aims-intermediate"
+        )
+
+    def test_a_fragment_for_another_element_says_which(self) -> None:
+        path = self.root / "data" / "elements" / "Ga" / "sets" / "Ga-aims-bbbb" / "set.json"
+        path.parent.mkdir(parents=True)
+        payload = write(
+            self.root / "data" / "elements" / "Ga" / "species_defaults" / "sb.in",
+            "  species        Sb\n",
+        )
+        path.write_text(
+            json.dumps(
+                {
+                    "schema_version": 1,
+                    "id": "Ga-aims-bbbb",
+                    "element": "Ga",
+                    "family": "FHI-aims species defaults (control.in inline)",
+                    "files": [
+                        {"role": "species_defaults", "path": str(payload.relative_to(self.root)), "sha256": "0" * 64}
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        self.assertEqual(
+            rename.build_mapping(self.root)["Ga-aims-bbbb"]["new_id"], "Ga-aims-Sb"
+        )
 
     def test_same_facts_different_bytes_get_a_content_suffix(self) -> None:
         # Same valence, same shells, same dimensions: the facts cannot separate
