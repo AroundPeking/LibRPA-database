@@ -4,7 +4,8 @@ import { bandGap, archivedBandGap, paperGap, boundFiles, publicPath, fileUrl, fi
 import { renderFiles } from "../database/files.mjs";
 import { renderPropertyPanel } from "../database/properties.mjs";
 import { renderMaterial } from "../database/details.mjs";
-import { gapOverview, renderGapOverview } from "../database/gaps.mjs";
+import { gapOverview, renderGapOverview, renderGapChart } from "../database/gaps.mjs";
+import { recordFacts, filterFacts, sortFacts, readExplorerParams, writeExplorerParams, renderMaterialRow, visibleColumns, COLUMNS } from "../database/explorer.mjs";
 import { readFileSync } from "node:fs";
 
 test("stage-resolved controls retain redaction provenance while publishing the archive-completeness gap", () => {
@@ -234,13 +235,16 @@ test("home typography and controls stay readable at mobile breakpoints", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const index = readFileSync(new URL("../database/index.html", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
-  assert.match(css, /body \{[^}]*font-size: 16px/);
-  assert.match(css, /\.catalog-table tbody td \{[^}]*font-size: 14px/);
-  assert.match(css, /\.software-entry code \{[^}]*font-size: 13px/);
+  assert.match(css, /(?:^|\n)body\s*\{[^}]*font-size:\s*16px/);
+  assert.match(css, /\.catalog-table tbody td\s*\{[^}]*font-size:\s*14px/);
+  assert.match(css, /\.software-entry code\s*\{[^}]*font-size:\s*13px/);
   assert.doesNotMatch(css, /font(?:-size)?:\s*(?:[6-9]|10|11)px/);
-  assert.match(css, /\.pagination button \{[^}]*height: 44px/);
-  assert.match(css, /\.dialog-close \{[^}]*width: 44px; height: 44px/);
-  assert.match(index, /class="intro-lattice"[^>]*aria-hidden="true"/);
+  assert.match(css, /\.pagination button\s*\{[^}]*height:\s*44px/);
+  assert.match(css, /\.dialog-close\s*\{[^}]*width:\s*44px;\s*height:\s*44px/);
+  // Periodic-table cells and every button or select keep 44px touch targets.
+  assert.match(css, /button\.pt-cell\s*\{[^}]*min-height:\s*44px/);
+  assert.match(css, /button,select\s*\{[^}]*min-height:\s*44px/);
+  assert.match(index, /<div class="stats" id="stats" aria-label="Database inventory"><\/div>/);
   assert.match(index, /id="filter-toggle"[^>]*aria-expanded="false"/);
   assert.match(app, /Materials, with evidence\./);
   assert.match(app, /path-resolved and sampled-grid observables are not presented as global fundamental gaps/i);
@@ -255,9 +259,18 @@ test("software filter narrows the calculation catalog by workflow frontend", () 
   assert.match(index, /name="software" value="all" checked/);
   assert.match(index, /name="software" value="abacus"/);
   assert.match(index, /name="software" value="fhi_aims"/);
-  assert.match(app, /state\.software === "all" \|\| workflowFrontend\(record\) === state\.software/);
-  assert.match(app, /\[\"sw\", state\.software, \"all\"\]/);
-  assert.match(app, /\[\"all\", \"abacus\", \"fhi_aims\"\]\.includes\(params\.get\(\"sw\"\)\)/);
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  const facts = catalog.calculations.map(recordFacts);
+  for (const frontend of ["abacus", "fhi_aims"]) {
+    const kept = filterFacts(facts, { software: frontend });
+    assert.ok(kept.length > 0 && kept.every(row => row.frontend === frontend), frontend);
+    assert.equal(kept.length, catalog.calculations.filter(record => workflowFrontend(record) === frontend).length, frontend);
+  }
+  assert.equal(filterFacts(facts, { software: "all" }).length, facts.length);
+  assert.equal(readExplorerParams(new URLSearchParams("sw=fhi_aims")).software, "fhi_aims");
+  assert.equal(readExplorerParams(new URLSearchParams("sw=vasp")).software, "all");
+  assert.equal(writeExplorerParams({ ...readExplorerParams(new URLSearchParams("")), software: "abacus" }).get("sw"), "abacus");
+  assert.equal(writeExplorerParams(readExplorerParams(new URLSearchParams(""))).has("sw"), false);
   assert.match(app, /\$\(\"\.software-filter\"\)\.hidden = basis/);
   assert.match(index, /Download catalog \(JSON\)/);
 });
@@ -352,7 +365,8 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.match(index, /href="#\/gaps" data-nav="gaps">Gap overview</);
   assert.match(app, /path === "#\/gaps" \? "gaps"/);
   assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
-  assert.match(app, /renderGapOverview\(state\.calculations, state\.sort\)/);
+  assert.match(app, /renderGapOverview\(state\.calculations, state\.sort === "material" \? "material" : "result"\)/);
+  assert.match(app, /renderGapChart\(state\.calculations, \{ width \}\)/);
   assert.match(app, /\["materials", "gaps"\]\.includes\(state\.mode\)/);
   assert.match(app, /back\.textContent = state\.mode === "gaps" \? "Gap overview"/);
   assert.match(app, /state\.mode === "gaps" \? "gaps" : "materials"/);
@@ -370,6 +384,22 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.match(table, /gap-bar/);
   assert.doesNotMatch(table, /c-rpa/);
   assert.equal(gapOverview({ id: "x", dimension: "3d", record_type: "rpa_energy", properties: [] }), null);
+  // The scatter plots only records with both a PBE/KS and a GW value, colours
+  // them by front end, and keeps the parity line and both axis labels.
+  const chart = renderGapChart([
+    { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
+    { id: "si-aims", material: "Si", dimension: "3d", workflow: { frontend: "fhi_aims", task: "gw" }, properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.5, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.2, unit: "eV", status: "reported" }] },
+    { id: "gw-only", material: "X", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "GW", value: 3, unit: "eV", status: "reported" }] },
+  ], { width: 600 });
+  assert.equal((chart.match(/class="gap-point"/g) || []).length, 2);
+  assert.match(chart, /data-frontend="fhi_aims"/);
+  assert.match(chart, /class="chart-parity"/);
+  assert.match(chart, /PBE \/ KS gap \(eV\)/);
+  assert.match(chart, /GW gap \(eV\)/);
+  assert.match(chart, /width="600"/);
+  assert.match(chart, /r="12"/, "hit targets are 24px across");
+  assert.doesNotMatch(chart, /gw-only/);
+  assert.equal(renderGapChart([]), "");
   const restricted = { id: "r", material: "R", dimension: "2d", summary: { observable: "GW raw-band frontier path gap" }, properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 1.2, unit: "eV", status: "reported" }, { category: "electronic", key: "sampled_path_gap_ev", method: "GW", value: 6.5, unit: "eV", status: "reported" }] };
   assert.equal(gapOverview(restricted).scope, "path");
   const sampled = { id: "s", material: "S", dimension: "3d", record_type: "large_system_gw", properties: [{ key: "sampled_grid_gap_ev", category: "electronic", method: "PBE", value: 4.2, unit: "eV", status: "validated", definition: "Γ regular grid" }] };
@@ -387,7 +417,7 @@ test("dark mode toggle is wired with persisted preference and token overrides", 
   assert.match(app, /localStorage\.setItem\("theme", next\)/);
   assert.match(app, /document\.documentElement\.dataset\.theme === "dark" \? "light" : "dark"/);
   assert.match(css, /html\[data-theme="dark"\]\{/);
-  assert.match(css, /--bg:#0d181d/);
+  assert.match(css, /html\[data-theme="dark"\]\{[^}]*--bg:#0d131b/);
   assert.match(css, /\.search-box\[hidden\],\.search-examples\[hidden\],\.filter-panel\[hidden\]\{display:none\}/);
   assert.match(detailsModule(), /decoding="async"/);
   assert.match(index, /Data schema/);
@@ -426,8 +456,8 @@ test("header shows the Plan A render on a white tile with vector icon links", ()
   for (const retired of ["logo.svg", "logo-navbar-light.svg", "logo-mark.svg"]) {
     assert.throws(() => readFileSync(new URL(`../database/${retired}`, import.meta.url)), `${retired} retired`);
   }
-  assert.match(css, /\.brand-mark \{[^}]*background: #fff;[^}]*border-radius: 12px/);
-  assert.match(css, /\.brand:hover \.brand-mark \{[^}]*drop-shadow/);
+  assert.match(css, /\.brand-mark\s*\{[^}]*background:\s*#fff;[^}]*border-radius:\s*12px/);
+  assert.match(css, /\.brand:hover \.brand-mark\s*\{[^}]*drop-shadow/);
 });
 
 test("recorded software identifiers are displayed without internal missing-version warnings", () => {
@@ -660,27 +690,41 @@ test("reader conversion handles independent KS and GW availability without stale
 test("mobile calculation catalog uses semantic cards instead of an 850px table", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
-  assert.match(css, /\.catalog-table:not\(\.basis-table\)\{display:block;min-width:0/);
-  assert.match(css, /content:"Primary result"/);
-  assert.match(app, /\["Material", "Software", "Scale", "Methods", "Primary result", "Inputs", ""\]/);
-  assert.match(app, /<option value="result">GW gap ↓<\/option>/);
-  assert.match(app, /gapOverview\(b\)\?\.gw/);
+  const catalog = JSON.parse(readFileSync(new URL("../database/data.json", import.meta.url), "utf8"));
+  // Below 820px rows become cards; every cell names itself through data-label.
+  assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.catalog-table,\.gap-table\{display:block;min-width:0!important/);
+  assert.match(css, /td\[data-label\]::before[^{]*\{content:attr\(data-label\)/);
+  const facts = recordFacts(catalog.calculations.find(record => record.id === "si-paper-all_kpath"));
+  const row = renderMaterialRow(facts, visibleColumns(COLUMNS.map(column => column.key)));
+  const cells = row.match(/<td(?! class="open-cell")[^>]*>/g);
+  assert.equal(cells.length, COLUMNS.length - 1);
+  assert.ok(cells.every(cell => /data-label="[^"]+"/.test(cell)), "every data cell carries its label");
+  assert.match(row, /<td data-label="Workflow"><span class="record-type-tag">ABACUS \+ LibRPA<\/span><\/td>/);
+  assert.match(row, /class="primary-result" data-label="Primary result"><strong>1\.060 <small>eV<\/small><\/strong>/);
+  // "GW gap" sorting reads the Gap-overview value, never a mixed-unit headline.
+  assert.match(app, /\["gw:desc", "GW gap ↓"\]/);
   assert.doesNotMatch(app, /primaryResult\(b\)\?\.value|Primary result ↓/);
-  assert.match(app, /<td><span class="record-type-tag">\$\{esc\(workflowLabel\(record\)\)\}<\/span><\/td>/);
+  const sorted = sortFacts(catalog.calculations.map(recordFacts), "gw", "desc");
+  const values = sorted.map(item => item.gw);
+  const firstMissing = values.indexOf(null);
+  assert.ok(firstMissing > 0 && values.slice(firstMissing).every(value => value === null), "records without a GW gap sort last");
+  assert.ok(values.slice(0, firstMissing).every((value, index, list) => index === 0 || list[index - 1] >= value));
+  assert.equal(values[0], gapOverview(catalog.calculations.find(record => record.id === sorted[0].id)).gw);
   assert.match(app, /large-system GW results, and reader-format provenance/);
 });
 
 test("responsive reading refinements cover every catalog and dark method chips", () => {
   const css = readFileSync(new URL("../database/style.css", import.meta.url), "utf8");
-  assert.match(css, /--text-faint:#526f7b/);
-  assert.match(css, /\.gap-table,\.catalog-table\.basis-table\{display:block;min-width:0/);
-  assert.match(css, /\.gap-table \.gap-row>td:nth-child\(6\)::before\{content:"GW"\}/);
-  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(2\)::before\{content:"What it contains"\}/);
-  assert.match(css, /\.catalog-table\.basis-table \.basis-row>td:nth-child\(3\)::before\{content:"What it produced"\}/);
-  assert.match(css, /\.section-nav\{flex-wrap:nowrap;overflow-x:auto/);
+  const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
+  assert.match(css, /:root\{[^}]*--text-faint:#5f6b7d/);
+  const table = renderGapOverview([{ id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] }]);
+  for (const label of ["Software", "Scale", "PBE / KS", "EXX", "GW"]) assert.ok(table.includes(`data-label="${label}"`), label);
+  assert.match(app, /data-label="What it contains"/);
+  assert.match(app, /data-label="What it produced"/);
+  assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.section-nav\{position:static;display:flex;[^}]*overflow-x:auto/);
   assert.match(css, /\.header-inner\{display:grid;grid-template-columns:minmax\(0,1fr\) auto/);
-  assert.match(css, /html\[data-theme="dark"\] \.method-rpa\{background:#21371f;color:#b5dfa0\}/);
-  assert.match(css, /html\[data-theme="dark"\] \.method-delta-st\{background:#183342;color:#91d5e9\}/);
+  assert.match(css, /html\[data-theme="dark"\] \.method-rpa\{background:#1e331b;color:#b5dfa0\}/);
+  assert.match(css, /html\[data-theme="dark"\] \.method-delta-st\{background:#163340;color:#91d5e9\}/);
 });
 
 test("performance summary includes cluster and accelerator fields when present", () => {

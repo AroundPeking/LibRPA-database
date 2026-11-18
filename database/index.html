@@ -24,8 +24,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261028-fix-v35">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap">
-  <link rel="stylesheet" href="style.css?v=20261028-fix-v35">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=20261118-explorer-v36">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -39,6 +39,7 @@
         <a href="#/materials" data-nav="materials">Materials</a>
         <a href="#/gaps" data-nav="gaps">Gap overview</a>
         <a href="#/basis" data-nav="basis">Basis library</a>
+        <a href="#/agents" data-nav="agents">API &amp; agents</a>
         <a href="../references/database.md" class="external-nav">Data schema <span aria-hidden="true">↗</span></a>
         <a href="https://github.com/AroundPeking/LibRPA-database" class="external-nav">Source code <span aria-hidden="true">↗</span></a>
       </nav>
@@ -63,17 +64,33 @@
       </div>
     </section>
     <section id="home-view" hidden aria-labelledby="page-title">
-      <div class="intro">
-        <div class="intro-text"><p class="kicker">OPEN DATA / REPRODUCIBLE RESEARCH</p><h1 id="page-title">Materials, with evidence.</h1><p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.</p></div>
-        <div class="intro-aside">
-          <svg class="intro-lattice" viewBox="0 0 280 156" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1"><path d="M36 40 103 16 170 40 103 66Z M103 66 170 40 237 66 170 92Z M36 92 103 66 170 92 103 118Z M36 40v52 M103 16v50 M170 40v52 M237 66v50 M103 66v52 M170 92v50 M36 92 103 118 170 92 237 116 170 142 103 118"/><path class="lattice-guide" d="M12 128 259 34 M12 76 259 128" stroke-dasharray="3 6"/></g><g fill="currentColor"><circle cx="36" cy="40" r="4"/><circle cx="103" cy="16" r="4"/><circle cx="170" cy="40" r="5"/><circle cx="103" cy="66" r="6"/><circle cx="237" cy="66" r="4"/><circle cx="36" cy="92" r="4"/><circle cx="170" cy="92" r="6"/><circle cx="103" cy="118" r="4"/><circle cx="237" cy="116" r="4"/><circle cx="170" cy="142" r="4"/></g></svg>
-          <a class="intro-link" href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contribute a calculation <span aria-hidden="true">↗</span></a>
+      <div class="explorer-hero">
+        <div class="intro-text">
+          <p class="kicker" id="page-kicker">MATERIALS EXPLORER</p>
+          <h1 id="page-title">Materials, with evidence.</h1>
+          <p id="intro-copy">Electronic bands, original inputs, and exact basis files — linked to each calculation and its software provenance.</p>
         </div>
+        <div class="stats" id="stats" aria-label="Database inventory"></div>
       </div>
-      <div class="stats" id="stats" aria-label="Database inventory"></div>
+      <div class="search-panel">
+        <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
+        <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><button type="button" data-query="SOC">SOC</button><span class="search-tip">Material · element · method · ID · commit</span></div>
+        <details class="ptable-panel" id="ptable-panel" open>
+          <summary><span class="ptable-title">Periodic table</span><span class="ptable-hint" id="ptable-hint">Select elements to filter; shading shows how many records contain each element.</span></summary>
+          <div class="element-bar">
+            <div class="element-chips" id="element-chips" aria-live="polite"></div>
+            <fieldset class="element-mode" id="element-mode">
+              <legend class="sr-only">Element match</legend>
+              <label><input type="radio" name="elmode" value="all" checked><span>Contains all</span></label>
+              <label><input type="radio" name="elmode" value="only"><span>Only these</span></label>
+            </fieldset>
+          </div>
+          <div class="ptable-wrap" id="periodic-table"></div>
+        </details>
+      </div>
       <div class="browser-layout">
         <aside class="filter-panel" aria-label="Filter records">
-          <div class="filter-heading"><h2>Refine results</h2><button id="filter-toggle" type="button" class="text-button" aria-expanded="false" aria-controls="filter-options">Show filters <span aria-hidden="true">+</span></button><button id="reset-filters" type="button" class="text-button">Reset</button></div>
+          <div class="filter-heading"><h2>Filters</h2><button id="filter-toggle" type="button" class="text-button" aria-expanded="false" aria-controls="filter-options">Show filters <span aria-hidden="true">+</span></button><button id="reset-filters" type="button" class="text-button">Reset</button></div>
           <div class="filter-options" id="filter-options">
           <fieldset class="dimension-filter"><legend>DIMENSION</legend>
             <label><input type="radio" name="dimension" value="all" checked><span>All dimensions</span><b data-dimension-count="all"></b></label>
@@ -81,9 +98,28 @@
             <label><input type="radio" name="dimension" value="3d"><span>3D materials</span><b data-dimension-count="3d"></b></label>
           </fieldset>
           <fieldset class="software-filter"><legend>SOFTWARE</legend>
-            <label><input type="radio" name="software" value="all" checked><span>All software</span></label>
-            <label><input type="radio" name="software" value="abacus"><span>ABACUS workflows</span></label>
-            <label><input type="radio" name="software" value="fhi_aims"><span>FHI-aims workflows</span></label>
+            <label><input type="radio" name="software" value="all" checked><span>All software</span><b data-software-count="all"></b></label>
+            <label><input type="radio" name="software" value="abacus"><span>ABACUS workflows</span><b data-software-count="abacus"></b></label>
+            <label><input type="radio" name="software" value="fhi_aims"><span>FHI-aims workflows</span><b data-software-count="fhi_aims"></b></label>
+          </fieldset>
+          <fieldset class="type-filter"><legend>RECORD TYPE</legend>
+            <label><input type="radio" name="type" value="all" checked><span>All types</span><b data-type-count="all"></b></label>
+            <label><input type="radio" name="type" value="band"><span>Band structure</span><b data-type-count="band"></b></label>
+            <label><input type="radio" name="type" value="large_system_gw"><span>Large-system GW</span><b data-type-count="large_system_gw"></b></label>
+            <label><input type="radio" name="type" value="rpa_energy"><span>RPA energy</span><b data-type-count="rpa_energy"></b></label>
+            <label><input type="radio" name="type" value="reader_conversion"><span>Reader conversion</span><b data-type-count="reader_conversion"></b></label>
+          </fieldset>
+          <fieldset class="method-filter"><legend>METHODS</legend>
+            <label><input type="checkbox" name="method" value="GW"><span>GW</span><b data-method-count="GW"></b></label>
+            <label><input type="checkbox" name="method" value="EXX"><span>EXX</span><b data-method-count="EXX"></b></label>
+            <label><input type="checkbox" name="method" value="RPA"><span>RPA</span><b data-method-count="RPA"></b></label>
+            <label><input type="checkbox" name="method" value="Delta-ST"><span>Delta-Sternheimer</span><b data-method-count="Delta-ST"></b></label>
+            <label><input type="checkbox" name="method" value="SPIN"><span>Spin-polarized</span><b data-method-count="SPIN"></b></label>
+            <label><input type="checkbox" name="method" value="SOC"><span>Spin–orbit coupling</span><b data-method-count="SOC"></b></label>
+          </fieldset>
+          <fieldset class="gap-filter"><legend>GW GAP (eV)</legend>
+            <div class="range-inputs"><label><span class="sr-only">Minimum GW gap in eV</span><input id="gap-min" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Min"></label><span aria-hidden="true">–</span><label><span class="sr-only">Maximum GW gap in eV</span><input id="gap-max" type="number" inputmode="decimal" step="0.1" min="0" placeholder="Max"></label></div>
+            <p class="filter-hint">Records that list no GW gap are left out while a range is set.</p>
           </fieldset>
           <label class="select-control" for="element-filter"><span>ELEMENT</span><select id="element-filter"><option value="all">All elements</option></select></label>
           <label class="select-control" id="input-filter-control" for="input-filter"><span>INPUT FILES</span><select id="input-filter"><option value="all">All records</option><option value="available">Input files available</option></select></label>
@@ -92,9 +128,16 @@
           </div>
         </aside>
         <div class="catalog-content">
-          <div class="search-box"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.6"/></svg><label class="sr-only" for="search">Search database</label><input id="search" type="search" autocomplete="off" placeholder="Search material, formula, element, or calculation ID"><kbd aria-hidden="true">/</kbd></div>
-          <div class="search-examples" id="search-examples"><span>Try</span><button type="button" data-query="MoS₂">MoS₂</button><button type="button" data-query="Si">Si</button><button type="button" data-query="hBN">hBN</button><button type="button" data-query="FHI-aims">FHI-aims</button><button type="button" data-query="SOC">SOC</button><span class="search-tip">Material · element · method · ID · commit</span></div>
-          <div class="catalog-toolbar"><div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div><label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="result">GW gap ↓</option></select></label></div>
+          <div class="catalog-toolbar">
+            <div><h2 id="catalog-title">Calculation records</h2><p id="result-count" aria-live="polite">Loading archive…</p></div>
+            <div class="toolbar-actions">
+              <details class="toolbar-menu" id="columns-menu"><summary>Columns</summary><div class="menu-panel" id="columns-panel"></div></details>
+              <details class="toolbar-menu" id="export-menu"><summary>Export</summary><div class="menu-panel"><button type="button" data-export="csv">Download CSV <small>current results</small></button><button type="button" data-export="json">Download JSON <small>current results</small></button><a href="data.json" download>Complete catalog <small>data.json</small></a></div></details>
+              <label class="sort-control" for="sort">Sort by <select id="sort"><option value="material">Material A–Z</option><option value="gw">GW gap ↓</option></select></label>
+            </div>
+          </div>
+          <div class="active-filters" id="active-filters" hidden></div>
+          <div id="gap-chart" class="gap-chart" hidden></div>
           <div id="catalog" class="catalog" aria-busy="true"></div>
           <div id="empty" class="empty-panel" hidden><h3>No matching records</h3><p>Try another material, an element symbol, or reset the filters.</p><button type="button" id="empty-reset" class="outline-button">Clear filters</button></div>
           <p class="catalog-footnote" id="catalog-footnote">One row per calculation. Gaps are in eV and may describe the archived k-path, not the global fundamental gap. A dash means no value is listed; open a record for its definition and evidence.</p>
@@ -103,10 +146,83 @@
       </div>
     </section>
     <section id="detail-view" class="detail-view" hidden aria-live="polite"></section>
-      <footer class="site-footer"><span>LibRPA <span aria-hidden="true">/</span> Materials data platform</span><div><a href="data.json" download>Download catalog (JSON)</a><a href="https://github.com/AroundPeking/LibRPA-database">Source code</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/LICENSE">License</a></div></footer>
+    <section id="agents-view" class="agents-view" hidden aria-labelledby="agents-title">
+      <div class="breadcrumb"><a href="#/materials">Materials</a><span>/</span><span>API &amp; agents</span></div>
+      <div class="page-hero">
+        <p class="kicker">PROGRAMMATIC ACCESS</p>
+        <h1 id="agents-title">API &amp; agents</h1>
+        <p>Every record on this site is plain JSON with hash-anchored payload URLs. Scripts read it over HTTPS, and AI agents read it through a read-only MCP server. Neither path can change the archive: new data arrives as a pull request that CI validates and a maintainer reviews.</p>
+      </div>
+      <div class="access-grid">
+        <article class="access-card"><span class="access-tag">Read</span><h2>MCP server</h2><p>A stdio server that needs only the Python standard library and no credentials. It searches the catalog, opens records, returns SHA-256-verified file contents, parses band tables, and compares gaps.</p></article>
+        <article class="access-card"><span class="access-tag">Read</span><h2>HTTP &amp; JSON</h2><p>Static JSON on GitHub Pages: a light catalog, one record per calculation, and payloads in the external archive with SHA-256 values and mirror URLs.</p></article>
+        <article class="access-card access-write"><span class="access-tag">Write</span><h2>Pull request</h2><p>A contribution is a branch with one record, its evidence files, and regenerated indexes. CI runs the maintainers' gates; merging publishes the record and archives the bytes.</p></article>
+      </div>
+      <section class="doc-section" aria-labelledby="agents-mcp">
+        <h2 id="agents-mcp">Install the MCP server and skills</h2>
+        <p>In Claude Code, the repository is a plugin marketplace. One plugin installs the read-only MCP server together with two skills: one for reading data, one for contributing a calculation as a pull request.</p>
+        <div class="code-block"><button type="button" class="copy-button" data-copy>Copy</button><pre><code>/plugin marketplace add AroundPeking/LibRPA-database
+/plugin install librpa-database@librpa</code></pre></div>
+        <p>Any other MCP client (Claude Desktop, Cursor, Codex, and others) runs the same single-file server. It needs Python 3.9 or newer and works from a downloaded copy of <code>plugin/mcp/server.py</code>.</p>
+        <div class="code-block"><button type="button" class="copy-button" data-copy>Copy</button><pre><code>{
+  "mcpServers": {
+    "librpa-database": {
+      "command": "python3",
+      "args": ["/path/to/LibRPA-database/plugin/mcp/server.py"]
+    }
+  }
+}</code></pre></div>
+        <div class="table-wrap"><table class="doc-table"><caption class="sr-only">MCP tools</caption><thead><tr><th scope="col">Tool</th><th scope="col">What it returns</th></tr></thead><tbody>
+          <tr><th scope="row"><code>database_overview</code></th><td>Record and basis-set counts, elements with record counts, record types, front ends, and where to start.</td></tr>
+          <tr><th scope="row"><code>search_materials</code></th><td>Records filtered by text, elements (contains all or only these), dimension, front end, record type, methods, and GW-gap range, with their gap values.</td></tr>
+          <tr><th scope="row"><code>get_material</code></th><td>One complete record: properties, software identity, species bindings, and every declared file with its URLs.</td></tr>
+          <tr><th scope="row"><code>list_files</code></th><td>The declared files of a record, with tier, size, and primary and mirror URLs.</td></tr>
+          <tr><th scope="row"><code>read_file</code></th><td>One payload, verified against its SHA-256 before the text is returned.</td></tr>
+          <tr><th scope="row"><code>get_band_table</code></th><td>A KS, EXX, or GW band export parsed into k-points, energies, and occupations.</td></tr>
+          <tr><th scope="row"><code>compare_gaps</code></th><td>PBE/KS, EXX, and GW gaps side by side, each with its scope, as on the Gap overview page.</td></tr>
+          <tr><th scope="row"><code>list_basis_sets</code> · <code>get_basis_set</code></th><td>The basis library: valence electrons, orbital and auxiliary sizes, payload URLs, and the calculations that used each set.</td></tr>
+          <tr><th scope="row"><code>contribution_guide</code></th><td>The pull-request workflow, required evidence, and local gates for adding a calculation.</td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="doc-section" aria-labelledby="agents-http">
+        <h2 id="agents-http">Read over HTTP</h2>
+        <p>All paths are relative to <code>https://aroundpeking.github.io/LibRPA-database/</code>. Payloads in the external archive carry <code>external_url</code>, a mirror in <code>external_url_backup</code>, <code>size_bytes</code>, and <code>sha256</code>; verify the hash after downloading.</p>
+        <div class="table-wrap"><table class="doc-table"><caption class="sr-only">HTTP endpoints</caption><thead><tr><th scope="col">Path</th><th scope="col">Contents</th></tr></thead><tbody>
+          <tr><th scope="row"><code>database/catalog/index.json</code></th><td>Totals, elements, and software names.</td></tr>
+          <tr><th scope="row"><code>database/catalog/calculations.json</code></th><td>Every calculation record without its file lists (fast first load).</td></tr>
+          <tr><th scope="row"><code>database/catalog/basis-sets.json</code></th><td>Every basis set with its files and size labels.</td></tr>
+          <tr><th scope="row"><code>database/data.json</code></th><td>The complete catalog, including every declared file.</td></tr>
+          <tr><th scope="row"><code>data/calculations/&lt;2d|3d&gt;/&lt;Material&gt;/&lt;id&gt;/record.json</code></th><td>One complete record; each record page shows its exact URL.</td></tr>
+          <tr><th scope="row"><code>llms.txt</code></th><td>A short plain-text guide to these endpoints for language models.</td></tr>
+        </tbody></table></div>
+        <div class="code-block"><button type="button" class="copy-button" data-copy>Copy</button><pre><code>curl -s https://aroundpeking.github.io/LibRPA-database/database/data.json -o data.json
+python3 -c "import json; c = json.load(open('data.json')); print(len(c['calculations']), 'records')"</code></pre></div>
+      </section>
+      <section class="doc-section" aria-labelledby="agents-contribute">
+        <h2 id="agents-contribute">Contribute through a pull request</h2>
+        <p>The database has no write API. Every new calculation goes through review, by a person or by an agent following the <code>librpa-database-intake</code> skill:</p>
+        <ol class="flow-steps">
+          <li><strong>Fork and branch.</strong> Create <code>add/&lt;case-id&gt;</code> in your fork of the repository.</li>
+          <li><strong>Add the record.</strong> Put <code>record.json</code> with <code>inputs/</code>, <code>results/</code>, <code>logs/</code>, and <code>figures/</code> under <code>data/calculations/&lt;2d|3d&gt;/&lt;Material&gt;/&lt;case-id&gt;/</code>. Sanitize private paths first, then record each file's SHA-256.</li>
+          <li><strong>Regenerate, never hand-edit.</strong> Rebuild the catalog, the log index, and the evidence report with the repository scripts.</li>
+          <li><strong>Run the gates.</strong> Catalog and index checks, the public scan, and both test suites must pass locally.</li>
+          <li><strong>Open the pull request.</strong> The template asks for the candidate summary: source run, observable and scope, evidence, and limitations. CI runs <em>Validate database</em> on it.</li>
+          <li><strong>Review and merge.</strong> After a maintainer merges, <em>Publish database</em> deploys the site and <em>External archive sync</em> moves the payload bytes to the dataset archive. Contributors need no archive account.</li>
+        </ol>
+        <p class="doc-links"><a class="outline-button" href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contribution rules <span aria-hidden="true">↗</span></a><a class="outline-button" href="https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/skills/librpa-database-intake/SKILL.md">Intake skill <span aria-hidden="true">↗</span></a><a class="outline-button" href="https://github.com/AroundPeking/LibRPA-database/tree/main/plugin">Plugin source <span aria-hidden="true">↗</span></a></p>
+      </section>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-brand"><strong>LibRPA <span aria-hidden="true">/</span> Materials data platform</strong><span>GW and RPA results with their inputs, basis files, and software identity.</span></div>
+      <nav class="footer-links" aria-label="Footer">
+        <div><h2>Data</h2><a href="data.json" download>Download catalog (JSON)</a><a href="../references/database.md">Data schema</a><a href="#/gaps">Gap overview</a></div>
+        <div><h2>Agents</h2><a href="#/agents">API &amp; agents</a><a href="../llms.txt">llms.txt</a><a href="https://github.com/AroundPeking/LibRPA-database/tree/main/plugin">MCP server &amp; skills</a></div>
+        <div><h2>Project</h2><a href="https://github.com/AroundPeking/LibRPA-database">Source code</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md">Contributing</a><a href="https://github.com/AroundPeking/LibRPA-database/blob/main/LICENSE">License</a></div>
+      </nav>
+    </footer>
   </main>
   <dialog id="file-preview" aria-labelledby="preview-heading"><div class="preview-heading"><div><p class="kicker">ARCHIVED FILE / READ ONLY</p><h2 id="preview-heading"></h2></div><button class="dialog-close" type="button" aria-label="Close file preview">×</button></div><p class="preview-path"></p><p class="preview-status" role="status"></p><pre tabindex="0"></pre><div class="preview-footer"><a class="outline-button preview-download" href="#" download>Download original file ↓</a></div></dialog>
   <noscript><p class="notice">JavaScript is needed for searching and browsing the catalog. <a href="data.json">Download the complete JSON catalog</a> or <a href="https://github.com/AroundPeking/LibRPA-database/tree/main/data">browse the archived files</a>.</p></noscript>
-  <script type="module" src="app.js?v=20261028-fix-v35"></script>
+  <script type="module" src="app.js?v=20261118-explorer-v36"></script>
 </body>
 </html>
