@@ -1,47 +1,62 @@
-# LibRPA database plugin — skills + MCP for AI agents
+# LibRPA database plugin — MCP server + skills for AI agents
 
-Two ways for an AI agent (or a human with curl) to work with the
+One plugin gives an AI agent both halves of working with the
 [LibRPA materials database](https://aroundpeking.github.io/LibRPA-database/database/):
 
-- **Read data** — the MCP server (`mcp/server.py`) or the query skill.
-- **Contribute calculations** — the intake skill walks an agent through
-  validating a finished RPA/GW run, building the record, passing every
-  repository gate, and submitting a pull request. After the PR merges, an
-  automated workflow uploads the payload bytes to the external archive;
-  contributors never need a HuggingFace account.
+| | How | What it can do |
+|---|---|---|
+| **Read** | `mcp/server.py`, a read-only MCP server | search, open records, read SHA-256-verified files, parse band tables, compare gaps, browse the basis library |
+| **Write** | `skills/librpa-database-intake`, a pull-request procedure | validate a finished run, build the record, pass every repository gate, open a pull request |
 
-Everything here is read-only against published endpoints (or, for intake,
-works inside a clone of this repository). No credentials are required.
+The split is deliberate. The server holds no credentials and cannot change
+anything, so a client can approve its tools without review. A contribution goes
+through the agent's ordinary `git` and `gh` permissions, then through CI (*Validate
+database*) and maintainer review. After merge, the *External archive sync* workflow
+uploads the payload bytes, so contributors never need a Hugging Face account.
+
+A third piece, `skills/librpa-database-query`, reads the same data over plain HTTPS
+for runtimes without MCP.
 
 ## Layout
 
 ```
+.claude-plugin/marketplace.json            # (repository root) makes the repo a plugin marketplace
 plugin/
-  skills/librpa-database-intake/SKILL.md   # how to add a calculation (PR flow)
-  skills/librpa-database-query/SKILL.md    # how to read data without MCP
-  mcp/server.py                            # stdio MCP server, stdlib only
+  .claude-plugin/plugin.json               # plugin manifest
+  .mcp.json                                # registers mcp/server.py for the plugin
+  mcp/server.py                            # stdio MCP server, Python standard library only
+  skills/librpa-database-query/SKILL.md    # read without MCP (HTTP + JSON)
+  skills/librpa-database-intake/SKILL.md   # contribute a calculation as a pull request
 ```
 
-## Install the skills
+## Install in Claude Code
 
-Any agent that loads markdown skills (ZCode, Claude Code, and compatible
-runtimes):
-
-```bash
-git clone https://github.com/AroundPeking/LibRPA-database.git
-mkdir -p ~/.zcode/skills            # or ~/.claude/skills for Claude Code
-cp -R LibRPA-database/plugin/skills/* ~/.zcode/skills/
+```text
+/plugin marketplace add AroundPeking/LibRPA-database
+/plugin install librpa-database@librpa
 ```
 
-The skills then trigger on their descriptions: intake when adding a
-calculation, query when reading data.
+From a shell: `claude plugin marketplace add AroundPeking/LibRPA-database`, then
+`claude plugin install librpa-database@librpa`. The MCP server appears in `/mcp` as
+`plugin:librpa-database:librpa-database`, and the skills as
+`/librpa-database:librpa-database-query` and `/librpa-database:librpa-database-intake`.
 
-## Install the MCP server
+The server runs with `python3` by default. If your system names the interpreter
+differently (on Windows usually `python` or `py`), set `LIBRPA_PYTHON` in the
+environment Claude Code starts from, or in the `env` block of your Claude Code
+settings:
 
-`mcp/server.py` is a single-file, zero-dependency (Python ≥ 3.9 standard
-library) stdio server. Register it with your client:
+```json
+{ "env": { "LIBRPA_PYTHON": "python" } }
+```
 
-ZCode (`~/.zcode/settings.json`, or the equivalent MCP configuration):
+To try a local checkout without installing it: `claude --plugin-dir ./plugin`.
+
+## Use the server from any other MCP client
+
+`mcp/server.py` is a single file with no dependencies beyond Python ≥ 3.9. A
+downloaded copy works on its own. Claude Desktop (`claude_desktop_config.json`),
+Cursor, Codex, ZCode, and other clients use the same `mcpServers` shape:
 
 ```json
 {
@@ -54,9 +69,7 @@ ZCode (`~/.zcode/settings.json`, or the equivalent MCP configuration):
 }
 ```
 
-Claude Desktop (`claude_desktop_config.json`) and Cursor use the same shape
-under their own `mcpServers` keys. A single downloaded copy of `server.py`
-also works — it does not need the rest of the repository.
+Claude Code without the plugin: `claude mcp add librpa-database -- python3 /absolute/path/to/server.py`.
 
 Networks that require a proxy: export `HTTPS_PROXY` in the environment the
 server inherits. The payload mirror (`external_url_backup`) is reachable from
@@ -64,42 +77,71 @@ mainland China without a proxy.
 
 ### Tools
 
+Every tool is annotated `readOnlyHint: true`.
+
 | Tool | What it does |
 |---|---|
-| `search_materials` | AND-token search over material/formula/id/methods/properties |
-| `get_material` | one full record (properties, software, species, files+URLs) |
-| `list_files` | declared files of a record, with tier/size/primary+mirror URLs |
+| `database_overview` | counts per element, record type, front end, dimension, and method; where to start |
+| `search_materials` | text plus filters: elements (`element_mode` `all` or `only`), dimension, front end, record type, methods, GW-gap range, inputs; sortable and paged |
+| `get_material` | one full record (properties, software, species, files and URLs) plus the values the website derives |
+| `list_files` | declared files of a record, with tier, size, and primary and mirror URLs |
 | `read_file` | fetch one payload, verify its SHA-256, return the text |
-| `get_band_table` | parse a KS/EXX/GW band export into k-points/energies/occupations |
-| `list_basis_sets` | pseudopotential / NAO / auxiliary basis payloads per element |
+| `get_band_table` | parse a KS/EXX/GW band export into k-points, energies, and occupations |
+| `compare_gaps` | PBE/KS, EXX, and GW gaps side by side, each with its scope and definition |
+| `list_basis_sets` | pseudopotential / NAO / auxiliary basis sets per element, with size labels |
+| `get_basis_set` | one basis set: payloads with SHA-256, provenance, and the calculations that used it |
+| `contribution_guide` | the pull-request workflow, local gates, and prohibitions |
+
+Gap, method, element, and headline values come from Python ports of
+`database/records.mjs` and `database/gaps.mjs`; `tests/test_mcp_server.py`
+checks that both give identical results for every record in the catalog.
+
+### Resources and prompts
+
+- Resources: `librpa://overview`, `librpa://contributing`, and the templates
+  `librpa://record/{record_id}` and `librpa://basis/{set_id}`.
+- Prompts: `investigate-material` (survey one material with each value's scope)
+  and `contribute-calculation` (prepare a finished run as a pull request).
 
 ### Verify the install
 
 ```bash
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"hand","version":"0"}}}
-{"jsonrpc":"2.0","method":"notifications/initialized"}
-{"jsonrpc":"2.0","id":2,"method":"tools/list"}' | python3 plugin/mcp/server.py
+printf '%s\n' \
+  '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"hand","version":"0"}}}' \
+  '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+  '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' | python3 plugin/mcp/server.py
 ```
 
 You should get an `initialize` result naming `librpa-database` and a
-`tools/list` result with six tools.
+`tools/list` result with ten tools.
 
 ### Environment variables (all optional)
 
-- `LIBRPA_DB_CATALOG_URL` — catalog JSON location (default: the published
-  `data.json`; accepts a local path for offline use)
+- `LIBRPA_PYTHON` — interpreter the plugin uses to start the server (default `python3`)
+- `LIBRPA_DB_CATALOG_URL` — catalog location (default: the published
+  `data.json`; a local file path works for offline use)
 - `LIBRPA_DB_SITE_ROOT` — root for repository-local file URLs
 - `LIBRPA_DB_CACHE_DIR` — payload cache (default: system temp directory;
   payloads are cached content-addressed after hash verification)
 - `LIBRPA_DB_TTL_SECONDS` — catalog cache lifetime (default 600)
 
+## Install the skills elsewhere
+
+Agents that load markdown skills without the plugin system can copy them:
+
+```bash
+git clone https://github.com/AroundPeking/LibRPA-database.git
+mkdir -p ~/.zcode/skills            # or ~/.claude/skills, ~/.codex/skills, ...
+cp -R LibRPA-database/plugin/skills/* ~/.zcode/skills/
+```
+
 ## Intake in one paragraph
 
-Clone this repository, create `data/calculations/<2d|3d>/<Material>/<case-id>/`
-with `record.json` + `inputs/` + `results/` + `logs/` (+ `figures/`), following
-`plugin/skills/librpa-database-intake/SKILL.md` for the schema, sanitization,
-and evidence rules. Regenerate the generated artifacts with the repository
-scripts, run the gate chain and both test suites, push a branch, and open a PR.
-CI must pass; after merge the external-archive sync uploads the bytes and
-rewrites the record automatically. The full procedure, prohibitions, and stop
-conditions live in the skill.
+Fork the repository and create a branch `add/<case-id>`. Add
+`data/calculations/<2d|3d>/<Material>/<case-id>/` with `record.json` and
+`inputs/`, `results/`, `logs/` (and `figures/`), following
+`skills/librpa-database-intake/SKILL.md` for the schema, sanitization, and
+evidence rules. Regenerate the generated files with the repository scripts, run
+the gate chain and both test suites, push the branch, and open a pull request;
+the template asks for the candidate summary. CI must pass. After merge, the
+external-archive sync uploads the bytes and rewrites the record automatically.

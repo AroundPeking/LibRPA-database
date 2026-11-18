@@ -1,0 +1,32 @@
+# LibRPA materials database
+
+> Open archive of GW and RPA calculations from ABACUS and FHI-aims front ends with LibRPA: band structures, quasiparticle gaps, RPA energies, large-system GW, and reader conversions. Each record keeps its inputs, exact basis files, software identity, and SHA-256-anchored payloads. Reading is open over HTTPS and through a read-only MCP server; new data arrives only as reviewed GitHub pull requests.
+
+## Read the data
+
+- [Catalog index](https://aroundpeking.github.io/LibRPA-database/database/catalog/index.json): totals, elements, and software names
+- [Calculation catalog](https://aroundpeking.github.io/LibRPA-database/database/catalog/calculations.json): every calculation record without its file lists
+- [Basis library](https://aroundpeking.github.io/LibRPA-database/database/catalog/basis-sets.json): pseudopotential, numerical-orbital, and auxiliary-basis sets with size labels
+- [Complete catalog](https://aroundpeking.github.io/LibRPA-database/database/data.json): every record with every declared file (size, SHA-256, primary and mirror URLs)
+- One record: `https://aroundpeking.github.io/LibRPA-database/data/calculations/<2d|3d>/<Material>/<id>/record.json`
+
+## Before quoting a value
+
+- Read `summary.observable` and `summary.gap_definition` first. Many gaps are sampled band-path or sampled-Γ observables, not global fundamental gaps.
+- `properties[]` entries carry `method`, `value`, `unit`, `status`, and `evidence` (declared file paths).
+- Verify `sha256` after downloading a payload. `external_url_backup` is a mirror that is reachable from mainland China.
+
+## Agents
+
+- [MCP server and skills](https://github.com/AroundPeking/LibRPA-database/tree/main/plugin): read-only stdio MCP server (Python standard library only) with query and intake skills. In Claude Code: `/plugin marketplace add AroundPeking/LibRPA-database`, then `/plugin install librpa-database@librpa`.
+- [API & agents page](https://aroundpeking.github.io/LibRPA-database/database/#/agents): endpoints, MCP tools, and the contribution flow.
+
+## Contribute
+
+- [Contribution rules](https://github.com/AroundPeking/LibRPA-database/blob/main/CONTRIBUTING.md): a new calculation is a pull request; CI validates it and a maintainer merges it.
+- [Intake skill](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/skills/librpa-database-intake/SKILL.md): the evidence, sanitization, and gate procedure an agent follows.
+
+## Optional
+
+- [Data schema](https://aroundpeking.github.io/LibRPA-database/references/database.md)
+- [Plotting contract](https://aroundpeking.github.io/LibRPA-database/references/plotting.md)

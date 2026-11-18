@@ -111,10 +111,42 @@ when preparing a contributor PR):
    attribution; Mode B pushes a branch (`add/<case-id>`) and opens a pull
    request titled `Add <case-id> (<record_type>)` whose description carries the
    candidate summary: source, observable with scope, evidence checklist, and
-   any limitations. Never bypass hooks, never force-push.
+   any limitations (see "Opening the pull request" below). Never bypass hooks,
+   never force-push.
 
 After merge, CI publishes the site and the *External archive sync* workflow
 externalizes the new payloads automatically. Nothing else is required.
+
+## Opening the pull request (Mode B)
+
+The MCP server is read-only by design; the pull request is the only write
+path. With the GitHub CLI authenticated as the contributor:
+
+```bash
+gh repo fork AroundPeking/LibRPA-database --clone --remote
+cd LibRPA-database
+git switch -c add/<case-id>
+# add the record, regenerate the generated files, run every gate (see below)
+git status --short                      # stage only the intended paths
+git add data/calculations/<2d|3d>/<Material>/<case-id> database/data.json         data/log-index.json database/missing-evidence.html         database/archive-completeness.json archive-completeness.json
+git commit -m "Add <case-id> (<record_type>)"
+git push -u origin add/<case-id>
+gh pr create --repo AroundPeking/LibRPA-database --base main   --title "Add <case-id> (<record_type>)" --body-file pr-body.md
+```
+
+- Pushing and opening the pull request publish the contributor's work under
+  their account: ask the user before each, and show them the pull request
+  body first.
+- `.github/pull_request_template.md` lists what the body carries: the
+  candidate summary, the evidence checklist, the gates run locally, and the
+  limitations. Fill it in rather than deleting sections.
+- Pin-count updates in `tests/test_records.mjs` or `tests/test_library.py`
+  belong in the same pull request, each explained in the body.
+- *Validate database* runs on the pull request. If it fails, fix the cause in
+  a new commit on the same branch; never weaken a gate or a pinned
+  expectation to make it pass.
+- Read the full `git push` output (push protection and hook messages appear
+  there), then report the pull request URL to the user.
 
 ## Record types
 
@@ -198,6 +230,7 @@ python3 scripts/library.py --write-catalog          # database/data.json
 python3 scripts/build_indexes.py --write            # data/log-index.json
 python3 scripts/export_missing_evidence.py --write  # database/missing-evidence.html
 cp database/archive-completeness.json archive-completeness.json
+python3 scripts/build_catalog.py                    # optional: database/catalog/ fast-load copy (Publish rebuilds it)
 python3 scripts/library.py --check-catalog
 python3 scripts/build_indexes.py --check
 ```

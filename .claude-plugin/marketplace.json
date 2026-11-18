@@ -1,0 +1,21 @@
+{
+  "name": "librpa",
+  "description": "Agent plugins for the LibRPA materials database.",
+  "owner": {
+    "name": "AroundPeking",
+    "url": "https://github.com/AroundPeking"
+  },
+  "plugins": [
+    {
+      "name": "librpa-database",
+      "source": "./plugin",
+      "version": "1.1.0",
+      "description": "Read-only MCP server plus query and intake skills: search and read GW/RPA records with hash-verified payloads, and contribute calculations as pull requests.",
+      "category": "science",
+      "keywords": ["materials", "gw", "rpa", "librpa", "mcp"],
+      "homepage": "https://aroundpeking.github.io/LibRPA-database/database/#/agents",
+      "repository": "https://github.com/AroundPeking/LibRPA-database",
+      "license": "MIT"
+    }
+  ]
+}
