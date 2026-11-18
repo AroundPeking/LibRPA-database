@@ -230,3 +230,19 @@ public basis library catalogues ABACUS basis records only; FHI-aims species
 defaults (FHI-aims' own tier classification) stay in the per-element set
 registries as byte-exact binding evidence and are inlined in each
 calculation's archived `control.in`.
+
+## Submit a pull request
+
+Data reaches the database only through reviewed pull requests; there is no
+write API. Fork the repository, create a branch named `add/<case-id>`, add the
+record with its evidence, regenerate the generated files with the scripts, and
+run the checks above. Then open a pull request against `main`. The template
+asks for the candidate summary: source run, observable and its exact scope,
+software identity, basis bindings, and limitations. **Validate database** runs
+on every pull request. After a maintainer merges, **Publish database** deploys
+the site and **External archive sync** moves new payload bytes to the dataset
+archive, so contributors need no archive account.
+
+AI agents can follow the same path with the `librpa-database-intake` skill in
+[`plugin/`](https://github.com/AroundPeking/LibRPA-database/tree/main/plugin), which also packages a read-only MCP server for
+reading the data.

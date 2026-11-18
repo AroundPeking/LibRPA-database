@@ -41,17 +41,30 @@ database/                                         catalog UI; data.json is the m
 data/log-index.json                               exactly one owner per retained log
 ```
 
-## Programmatic access
+## Programmatic access and AI agents
 
 ```bash
 curl -s https://aroundpeking.github.io/LibRPA-database/database/data.json -o data.json
 ```
 
 Each declared file carries its hash and download URLs — verify the SHA-256
-after downloading. For AI agents, the
+after downloading. The [API & agents page](https://aroundpeking.github.io/LibRPA-database/database/#/agents)
+lists every endpoint, and [`llms.txt`](https://aroundpeking.github.io/LibRPA-database/llms.txt)
+summarizes them for language models.
+
+AI agents read through MCP and write through pull requests. The
 [`plugin/` directory](https://github.com/AroundPeking/LibRPA-database/tree/main/plugin)
-packages a zero-dependency read-only MCP server and two skills: contributing a
-calculation as a pull request, and reading the data without MCP.
+is a Claude Code plugin (this repository is its marketplace) that bundles a
+zero-dependency, read-only MCP server with two skills: reading the data, and
+contributing a calculation as a pull request.
+
+```text
+/plugin marketplace add AroundPeking/LibRPA-database
+/plugin install librpa-database@librpa
+```
+
+Other MCP clients run `plugin/mcp/server.py` directly with Python ≥ 3.9; see
+the [plugin README](https://github.com/AroundPeking/LibRPA-database/blob/main/plugin/README.md).
 
 ## Validate and deploy
 

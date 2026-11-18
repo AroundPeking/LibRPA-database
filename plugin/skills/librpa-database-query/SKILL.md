@@ -1,15 +1,51 @@
 ---
 name: librpa-database-query
-description: Use when reading, searching, or downloading data from the LibRPA materials database without the MCP server — catalog structure, search semantics, hash-verified payload downloads from the external archive, band-table parsing, and the record schema.
+description: Use when reading, searching, comparing, or downloading data from the LibRPA materials database (GW/RPA band gaps, band structures, RPA energies, basis sets) — which MCP tool answers which question, how to quote gap values with their scope, and the plain-HTTP fallback (catalog structure, search semantics, hash-verified downloads, band-table parsing, record schema) for runtimes without the MCP server.
 ---
 
-# LibRPA Database Query (plain HTTP)
+# LibRPA Database Query
+
+## With the MCP server (preferred)
+
+If the `librpa-database` MCP server is connected (installed by the
+`librpa-database` plugin, or registered from `plugin/mcp/server.py`), use its
+read-only tools instead of fetching JSON by hand:
+
+| Question | Tool |
+|---|---|
+| What is in the database? | `database_overview` |
+| Which records match a material, element set, method, front end, or GW-gap range? | `search_materials` (`elements` + `element_mode: "only"` for an exact chemical system) |
+| How do PBE/KS, EXX, and GW gaps compare across codes? | `compare_gaps` |
+| Everything about one record | `get_material` (its `derived` block holds the values the website shows) |
+| Which files does a record archive? / read one | `list_files`, then `read_file` (SHA-256 verified) |
+| Band energies along the archived k-path | `get_band_table` (ABACUS exports) |
+| Which basis did a calculation use? | `get_material` → `species`, then `get_basis_set` |
+
+The server never writes. To add data, follow the `librpa-database-intake`
+skill (pull request) or call `contribution_guide`.
+
+## Quoting values correctly
+
+- Quote `summary.observable` and `summary.gap_definition` next to any gap. Many
+  gaps are sampled band-path or sampled-Γ observables, not global fundamental
+  gaps; `compare_gaps` labels each row `band`, `path`, or `sampled`.
+- Compare values across front ends only when their definitions agree;
+  same-structure records share a `structure_identity` fingerprint.
+- Report the record id and its `page_url` so a reader can check the evidence.
+
+## Without MCP (plain HTTP)
+
+The sections below read the same data with `curl` and the Python standard
+library.
 
 ## What you are reading
 
 - Catalog: `https://aroundpeking.github.io/LibRPA-database/database/data.json`
-  (~2.6 MB) — every calculation record with all properties, software identity,
+  (~4 MB) — every calculation record with all properties, software identity,
   species bindings, and declared files. One fetch serves most questions.
+  Lighter views without file lists: `database/catalog/calculations.json`,
+  `database/catalog/basis-sets.json`, and `database/catalog/index.json`.
+- One record: `https://aroundpeking.github.io/LibRPA-database/data/calculations/<2d|3d>/<Material>/<id>/record.json`.
 - Payload bytes: declared files with `tier: "referenced"` live in the
   HuggingFace dataset `AroundPeking/LibRPA-database`; each entry carries
   `external_url` (primary), `external_url_backup` (mirror), `size_bytes`, and
@@ -93,6 +129,8 @@ parser (`scripts/plot_bands.py`) enforces.
 
 ## Machine access via MCP
 
-If your runtime supports MCP, the read-only server in `plugin/mcp/server.py`
-exposes the same operations as tools (search, get record, list files,
-hash-verified read, band table parse) — see `plugin/README.md`.
+The read-only server in `plugin/mcp/server.py` exposes these operations as
+tools, resources (`librpa://record/{record_id}`, `librpa://basis/{set_id}`),
+and prompts. Install it with the plugin (`/plugin marketplace add
+AroundPeking/LibRPA-database`, then `/plugin install librpa-database@librpa`)
+or register the single file with any MCP client — see `plugin/README.md`.

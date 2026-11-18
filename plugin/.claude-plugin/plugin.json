@@ -1,0 +1,13 @@
+{
+  "name": "librpa-database",
+  "version": "1.1.0",
+  "description": "Read the LibRPA materials database (GW and RPA results with their inputs, basis files, and SHA-256-verified payloads) through a read-only MCP server, and contribute calculations as reviewed pull requests.",
+  "author": {
+    "name": "AroundPeking",
+    "url": "https://github.com/AroundPeking"
+  },
+  "homepage": "https://aroundpeking.github.io/LibRPA-database/database/#/agents",
+  "repository": "https://github.com/AroundPeking/LibRPA-database",
+  "license": "MIT",
+  "keywords": ["materials", "gw", "rpa", "librpa", "abacus", "fhi-aims", "electronic-structure", "mcp"]
+}
