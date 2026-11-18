@@ -54,6 +54,19 @@ preventing a historical result from being misrepresented as a matched test.
 For a controlled basis comparison, an optional `basis_comparison` object may
 record accepted and failed candidates and a concise evidence-based conclusion.
 
+## Gap comparison and optional experimental references
+
+The comparison page reads calculation records, not a material-level average. The binary transition-metal oxide preset is a composition shortcut (O and exactly one group 3–11 element); it does not assign valence, phase, or magnetic order. **Material** mode does not require a reference value. The **Kohn–Sham** axis does not imply that every starting point used PBE. A path-limited gap, a sampled-grid gap and a paper-reported value retain their original definitions.
+
+A measurement is optional. Do not copy one between records by formula. To register a comparable value, place `experimental_gap` on its calculation record:
+
+- `value`, `unit` (`eV`), `definition`: the measured gap and what was measured (including optical vs. fundamental, temperature and sample conditions as applicable).
+- `source`: a `citation`, a precise `locator` (figure, table or page), and a `doi` or HTTPS `url` for the measurement itself.
+- `compatibility`: `record_id`, `structure_sha256` matching the record’s `cell-sites-v1` identity, and `structure_note` explaining why the measured phase and conditions apply to the calculated cell. The hash identifies the reviewed calculation; it is not evidence that the cell is physical.
+- `compatibility.methods`: keyed by the compared series. Each approved entry needs `compatible: true`, a `reason` explaining why the observable is comparable, and its exact `observable` ID (`property:<key>:<method>`, `paper:<method>`, or `associated:<series>`).
+
+If the geometry is artificial, the phase unknown, or the observables incompatible, do not approve the pairing. Missing references never become zeros or calculated substitutes. For future QSGW or DMFT entries, contribute a finite, evidence-linked electronic gap property with an explicit method, eV unit, status and definition. A workflow tag alone does not create a series.
+
 ## Basis-set record
 
 The important fields are:

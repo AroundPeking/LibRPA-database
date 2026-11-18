@@ -28,7 +28,8 @@ LIGHTWEIGHT_CALC_KEYS = [
     "properties", "summary", "source", "species", "basis_candidates",
     "structure_identity", "paper_values", "performance",
     "archive_completeness", "scientific_scope", "schema_version",
-    "recommendation", "missing",
+    "recommendation", "missing", "computational_scale", "associated_gw_run",
+    "experimental_gap",
 ]
 
 LIGHTWEIGHT_SET_KEYS = [
@@ -48,9 +49,18 @@ LIGHTWEIGHT_SET_KEYS = [
 def strip_calculation(record: dict) -> dict:
     """Return a lightweight copy of a calculation record without ``files``."""
     light = {k: record[k] for k in LIGHTWEIGHT_CALC_KEYS if k in record}
+    if record.get("method_diagnostics"):
+        light["method_diagnostics"] = [{k: d.get(k) for k in ("method", "status")}
+                                       for d in record["method_diagnostics"]]
     files = record.get("files", {})
     if isinstance(files, dict):
         light["_file_counts"] = {k: len(v) for k, v in files.items() if isinstance(v, list)}
+        # The overview must apply the same paper-value evidence check as the
+        # detail page, without making a lightweight record look fully loaded.
+        path = (record.get("paper_values") or {}).get("evidence")
+        result = next((f for f in files.get("results", []) if path and f.get("path") == path), None)
+        if result:
+            light["_paper_result"] = {"path": path, "sha256": result.get("sha256")}
     return light
 
 
@@ -106,14 +116,14 @@ def build_catalog(root: Path) -> dict:
     # Write all calculations as a single file (122 records → ~546 KB)
     # At scale this will be split into pages.
     calc_path = catalog_dir / "calculations.json"
-    with calc_path.open("w", encoding="utf-8") as f:
+    with calc_path.open("w", encoding="utf-8", newline="\n") as f:
         json.dump({"records": light_calcs}, f, separators=(",", ":"))
         f.write("\n")
 
     # Basis sets: keep as-is (small)
     light_sets = [strip_basis_set(s) for s in basis_sets]
     sets_path = catalog_dir / "basis-sets.json"
-    with sets_path.open("w", encoding="utf-8") as f:
+    with sets_path.open("w", encoding="utf-8", newline="\n") as f:
         json.dump({"records": light_sets}, f, separators=(",", ":"))
         f.write("\n")
 
@@ -126,7 +136,7 @@ def build_catalog(root: Path) -> dict:
         "schema_version": 1,
     }
     index_path = catalog_dir / "index.json"
-    with index_path.open("w", encoding="utf-8") as f:
+    with index_path.open("w", encoding="utf-8", newline="\n") as f:
         json.dump(index, f, separators=(",", ":"))
         f.write("\n")
 

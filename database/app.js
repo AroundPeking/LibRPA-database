@@ -3,7 +3,8 @@ import { esc, recordElements } from "./records.mjs";
 import { installPreview, installBlobDownloads } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
-import { gapOverview, renderGapOverview, renderGapChart, installGapChartTooltip } from "./gaps.mjs";
+import { buildGapComparison, renderGapOverview, renderGapChart, installGapChartTooltip } from "./gaps.mjs";
+import { gapInventory, selectedGapRecords, readGapParams, writeGapParams, syncGapControls, installGapControls } from "./gap-controls.mjs";
 import { installCoverEffects, replayCoverEntrance, startCoverCanvas } from "./cover.mjs?v=20261027-review-v29";
 import { recordFacts, filterFacts, facetCounts, sortFacts, visibleColumns, renderHeader, renderMaterialRow, factsToCsv, factsToJson, readExplorerParams, writeExplorerParams, COLUMNS, DEFAULT_COLUMNS, DEFAULT_DIRECTION, PAGE_SIZES, RECORD_TYPES, METHOD_FACETS } from "./explorer.mjs";
 import { renderPeriodicTable, ELEMENT_BY_SYMBOL } from "./ptable.mjs";
@@ -19,6 +20,7 @@ let searchCorpus = new Map();
 let searchIndex = new Map();
 let searchTimer = null;
 let gapTimer = null;
+let gapCatalog, comparison;
 
 function storedColumns() {
   try {
@@ -47,6 +49,7 @@ function buildIndexes() {
     }
   }
   state.facts = state.calculations.map(recordFacts);
+  gapCatalog = gapInventory(state.calculations);
 }
 
 // Ids matching the free-text query, or null when there is no query. An exact
@@ -185,11 +188,11 @@ function syncFilters() {
   $$("input[name=type]").forEach(input => { input.checked = input.value === state.type; });
   $$("input[name=method]").forEach(input => { input.checked = state.methods.includes(input.value); });
   $$("input[name=elmode]").forEach(input => { input.checked = input.value === state.elementMode; });
-  const options = gaps ? [["gw", "GW gap ↓"], ["material", "Material A–Z"]]
+  const options = gaps ? [["result", "Largest selected gap ↓"], ["material", "Material A–Z"]]
     : basis ? [["element", "Element A–Z"]]
-    : [["material:asc", "Material A–Z"], ["gw:desc", "GW gap ↓"], ["gw:asc", "GW gap ↑"], ["ks:desc", "PBE / KS gap ↓"], ["atoms:desc", "Atoms ↓"], ["id:asc", "Record ID"]];
+    : [["material:asc", "Material A–Z"], ["gw:desc", "GW gap ↓"], ["gw:asc", "GW gap ↑"], ["ks:desc", "KS gap ↓"], ["atoms:desc", "Atoms ↓"], ["id:asc", "Record ID"]];
   $("#sort").innerHTML = options.map(([value, label]) => `<option value="${value}">${label}</option>`).join("");
-  const current = gaps ? (state.sort === "material" ? "material" : "gw") : basis ? "element" : `${state.sort}:${state.dir}`;
+  const current = gaps ? (state.sort === "material" ? "material" : "result") : basis ? "element" : `${state.sort}:${state.dir}`;
   if (!options.some(([value]) => value === current)) $("#sort").insertAdjacentHTML("beforeend", `<option value="${current}">${esc(COLUMNS.find(column => column.sort === state.sort)?.label || state.sort)} ${state.dir === "desc" ? "↓" : "↑"}</option>`);
   $("#sort").value = current;
 }
@@ -203,7 +206,10 @@ function listHash() {
       if (state.query) params.set("q", state.query);
       if (state.elements.length) params.set("el", state.elements.join(","));
       if (state.page > 1) params.set("page", state.page);
-    } else if (state.sort === "material") params.set("sort", "material");
+    } else {
+      params = writeGapParams(comparison);
+      if (state.sort === "material") params.set("sort", "material");
+    }
   }
   const query = params.toString();
   const prefix = state.mode === "basis" ? "#/basis" : state.mode === "gaps" ? "#/gaps" : "#/materials";
@@ -268,22 +274,25 @@ function renderHome() {
   showView("home");
   $("#page-kicker").textContent = basis ? "BASIS LIBRARY" : gaps ? "GAP OVERVIEW" : "MATERIALS EXPLORER";
   $("#page-title").textContent = basis ? "The basis behind each result." : gaps ? "Band gaps, across materials." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Every recorded gap value in one place: PBE / KS, EXX, and GW side by side, one row per calculation, ready for cross-material comparison." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Compare calculated gaps for the materials you choose. Use the Kohn–Sham gap as a baseline, compare methods by material, or select a matched experimental measurement." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : gaps ? "Gap overview" : "Calculation records";
-  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : gaps ? "One row per calculation that lists at least one gap value. Values are in eV and keep each record's own definition (path observable, sampled Γ, or paper reference); the bar scales to the largest GW value in the table. A dash means no value is listed." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
+  $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : gaps ? "Use Cite beside a result to copy its record citation and find available sources. A shared material name does not establish the same structure or gap definition." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
   markNavigation(state.mode);
   renderHistory();
   $("#catalog").setAttribute("aria-busy", "false");
+  $("#gap-controls").hidden = !gaps;
   $("#gap-chart").hidden = !gaps;
   if (gaps) {
-    const rows = state.calculations.filter(record => gapOverview(record));
-    $("#result-count").textContent = `${rows.length} of ${state.calculations.length} records list a gap value`;
+    syncGapControls($("#gap-controls"), gapCatalog, comparison);
+    const records = selectedGapRecords(gapCatalog, comparison);
+    const { counts } = buildGapComparison(records, comparison);
+    $("#result-count").textContent = `${counts.rows} calculation record${counts.rows === 1 ? '' : 's'} · ${counts.points} plotted value${counts.points === 1 ? '' : 's'}`;
     $("#active-filters").hidden = true;
     $("#empty").hidden = true;
     $("#catalog").hidden = false;
-    renderChart();
-    $("#catalog").innerHTML = renderGapOverview(state.calculations, state.sort === "material" ? "material" : "result");
+    renderChart(records);
+    $("#catalog").innerHTML = renderGapOverview(records, state.sort, comparison);
     document.title = "Gap overview · LibRPA";
     return;
   }
@@ -316,10 +325,10 @@ function renderHome() {
 
 // The chart is drawn at the card's real pixel width so its labels keep their
 // set size on every screen; it is redrawn when the window size changes.
-function renderChart() {
+function renderChart(records = selectedGapRecords(gapCatalog, comparison)) {
   const card = $("#gap-chart");
   const width = Math.max(300, Math.round(card.getBoundingClientRect().width) - 42);
-  card.innerHTML = renderGapChart(state.calculations, { width });
+  card.innerHTML = renderGapChart(records, { ...comparison, width });
 }
 
 function updateFilter() {
@@ -355,11 +364,15 @@ async function copyText(button, text) {
 
 async function route() {
   const hash = location.hash || "#/";
-  const match = hash.match(/^#\/(material|basis)\/([^?]+)$/);
+  const [path, query] = hash.split("?");
+  const params = new URLSearchParams(query);
+  const match = path.match(/^#\/(material|basis)\/([^?]+)$/);
   if (match) {
     let id;
     try { id = decodeURIComponent(match[2]); } catch { id = null; }
     const record = (match[1] === "material" ? state.calculations : state.sets).find(r => r.id === id);
+    if (!$("#home-view").hidden) state.savedScroll = window.scrollY;
+    const cite = match[1] === "material" && params.get("cite") === "1";
     showView("detail");
     state.currentRecord = match[1] === "material" ? record : null;
     if (record && match[1] === "material" && !record.files) {
@@ -367,7 +380,7 @@ async function route() {
       const path = `../data/calculations/${record.dimension}/${record.material}/${record.id}/record.json`;
       try { const resp = await fetch(path); if (resp.ok) { const fullRecord = await resp.json(); Object.assign(record, fullRecord); } } catch {}
     }
-    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
+    $("#detail-view").innerHTML = record ? match[1] === "material" ? renderMaterial(record, state.sets, state.calculations, { cite }) : renderBasis(record, state.calculations) : '<div class="empty-panel"><h1>Record not found</h1><p>This ID is not in the public catalog.</p><a href="#/materials">Return to materials</a></div>';
     if (record && match[1] === "material") { try { const viewed = JSON.parse(localStorage.getItem("librpa-history") || "[]"); const idx = viewed.indexOf(record.id); if (idx >= 0) viewed.splice(idx, 1); viewed.unshift(record.id); localStorage.setItem("librpa-history", JSON.stringify(viewed.slice(0, 10))); } catch {} }
     const back = $(".breadcrumb a");
     const canRestore = match[1] === "material" ? ["materials", "gaps"].includes(state.mode) : state.mode === "basis";
@@ -377,20 +390,24 @@ async function route() {
     }
     document.title = `${record?.material || record?.id || "Record not found"} · LibRPA`;
     markNavigation(match[1] === "basis" ? "basis" : state.mode === "gaps" ? "gaps" : "materials");
-    state.savedScroll = window.scrollY;
     window.scrollTo(0, 0);
     const heading = $("#detail-view h1");
     if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+    if (record && cite) {
+      const box = $("#record-citation");
+      if (box) { box.open = true; box.scrollIntoView({ block: "start" }); box.querySelector("summary").focus({ preventScroll: true }); }
+    }
     if (record && match[1] === "basis") $("#detail-view .radial-file[open] [data-radial-load]")?.click();
     return;
   }
-  const path = hash.split("?")[0];
-  const params = new URLSearchParams(hash.split("?")[1] || "");
   if ((path === "#/" || path === "#" || path === "") && !params.size) { renderLanding(); return; }
   if (path === "#/agents") { renderAgents(); return; }
   state.mode = path === "#/basis" ? "basis" : path === "#/gaps" ? "gaps" : "materials";
   Object.assign(state, readExplorerParams(params, elements));
-  if (state.mode === "gaps") state.sort = params.get("sort") === "material" ? "material" : "gw";
+  if (state.mode === "gaps") {
+    comparison = readGapParams(params, gapCatalog);
+    state.sort = params.get("sort") === "material" ? "material" : "result";
+  }
   if (state.mode === "basis") state.sort = "element";
   state.returnHash = hash;
   syncFilters();
@@ -510,6 +527,7 @@ function installExplorer() {
     if (event.key === "Escape") for (const menu of $$(".toolbar-menu[open]")) { menu.open = false; menu.querySelector("summary").focus(); }
     if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); }
   });
+  installGapControls($("#gap-controls"), gapCatalog, () => comparison, updateFilter);
   installGapChartTooltip($("#gap-chart"));
   let resizeTimer = null;
   window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (!$("#gap-chart").hidden) renderChart(); }, 200); });

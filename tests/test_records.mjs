@@ -365,27 +365,27 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.match(index, /href="#\/gaps" data-nav="gaps">Gap overview</);
   assert.match(app, /path === "#\/gaps" \? "gaps"/);
   assert.match(app, /state\.mode === "gaps" \? "#\/gaps" : "#\/materials"/);
-  assert.match(app, /renderGapOverview\(state\.calculations, state\.sort === "material" \? "material" : "result"\)/);
-  assert.match(app, /renderGapChart\(state\.calculations, \{ width \}\)/);
+  assert.match(app, /renderGapOverview\(records, state.sort, comparison\)/);
+  assert.match(app, /renderGapChart\(records, \{ \.\.\.comparison, width \}\)/);
   assert.match(app, /\["materials", "gaps"\]\.includes\(state\.mode\)/);
   assert.match(app, /back\.textContent = state\.mode === "gaps" \? "Gap overview"/);
   assert.match(app, /state\.mode === "gaps" \? "gaps" : "materials"/);
-  assert.match(app, /records list a gap value/);
+  assert.match(index, /id="gap-add-material"/);
   assert.match(css, /\.browser-layout:has\(>\.filter-panel\[hidden\]\)\{grid-template-columns:minmax\(0,1fr\)\}/);
   assert.match(css, /\.gw-line\{display:flex/);
   const table = renderGapOverview([
     { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
     { id: "c-rpa", material: "C", dimension: "3d", record_type: "rpa_energy", properties: [{ key: "rpa_correlation_energy", value: -1, unit: "Ha", status: "reported" }] },
   ]);
-  assert.match(table, /PBE \/ KS<\/th>/);
-  assert.match(table, /EXX<\/th>/);
+  assert.match(table, /KS gap<\/th>/i);
+  assert.doesNotMatch(table, /EXX<\/th>/);
   assert.match(table, /GW<\/th>/);
   assert.match(table, /Si/);
-  assert.match(table, /gap-bar/);
+  assert.match(table, /si-band\?cite=1/);
   assert.doesNotMatch(table, /c-rpa/);
   assert.equal(gapOverview({ id: "x", dimension: "3d", record_type: "rpa_energy", properties: [] }), null);
-  // The scatter plots only records with both a PBE/KS and a GW value, colours
-  // them by front end, and keeps the parity line and both axis labels.
+  // The default scatter needs both same-record values. Points retain
+  // workflow metadata but identify their series by calculated method.
   const chart = renderGapChart([
     { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
     { id: "si-aims", material: "Si", dimension: "3d", workflow: { frontend: "fhi_aims", task: "gw" }, properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.5, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.2, unit: "eV", status: "reported" }] },
@@ -394,12 +394,13 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.equal((chart.match(/class="gap-point"/g) || []).length, 2);
   assert.match(chart, /data-frontend="fhi_aims"/);
   assert.match(chart, /class="chart-parity"/);
-  assert.match(chart, /PBE \/ KS gap \(eV\)/);
+  assert.match(chart, /KS gap \(eV\)/);
+  assert.match(chart, /data-method="gw"/);
   assert.match(chart, /GW gap \(eV\)/);
   assert.match(chart, /width="600"/);
   assert.match(chart, /r="12"/, "hit targets are 24px across");
   assert.doesNotMatch(chart, /gw-only/);
-  assert.equal(renderGapChart([]), "");
+  assert.match(renderGapChart([]), /No points to plot/);
   const restricted = { id: "r", material: "R", dimension: "2d", summary: { observable: "GW raw-band frontier path gap" }, properties: [{ category: "electronic", key: "sampled_path_gap_ev", method: "PBE", value: 1.2, unit: "eV", status: "reported" }, { category: "electronic", key: "sampled_path_gap_ev", method: "GW", value: 6.5, unit: "eV", status: "reported" }] };
   assert.equal(gapOverview(restricted).scope, "path");
   const sampled = { id: "s", material: "S", dimension: "3d", record_type: "large_system_gw", properties: [{ key: "sampled_grid_gap_ev", category: "electronic", method: "PBE", value: 4.2, unit: "eV", status: "validated", definition: "Γ regular grid" }] };
@@ -718,7 +719,7 @@ test("responsive reading refinements cover every catalog and dark method chips",
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   assert.match(css, /:root\{[^}]*--text-faint:#5f6b7d/);
   const table = renderGapOverview([{ id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] }]);
-  for (const label of ["Software", "Scale", "PBE / KS", "EXX", "GW"]) assert.ok(table.includes(`data-label="${label}"`), label);
+  for (const label of ["Software", "Scale", "DFT / KS gap", "GW"]) assert.ok(table.includes(`data-label="${label}"`), label);
   assert.match(app, /data-label="What it contains"/);
   assert.match(app, /data-label="What it produced"/);
   assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.section-nav\{position:static;display:flex;[^}]*overflow-x:auto/);
