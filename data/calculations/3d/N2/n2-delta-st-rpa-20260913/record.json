@@ -374,6 +374,7 @@
   },
   "formula": "N2",
   "id": "n2-delta-st-rpa-20260913",
+  "experimental_gap": null,
   "material": "N2",
   "missing": [
     "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",

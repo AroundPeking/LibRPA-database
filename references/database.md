@@ -58,11 +58,32 @@ record accepted and failed candidates and a concise evidence-based conclusion.
 
 The comparison page reads calculation records, not a material-level average. The binary transition-metal oxide preset is a composition shortcut (O and exactly one group 3–11 element); it does not assign valence, phase, or magnetic order. **Material** mode does not require a reference value. The **Kohn–Sham** axis does not imply that every starting point used PBE. A path-limited gap, a sampled-grid gap and a paper-reported value retain their original definitions.
 
-A measurement is optional. Do not copy one between records by formula. To register a comparable value, place `experimental_gap` on its calculation record:
+### Recording an experimental gap
 
-- `value`, `unit` (`eV`), `definition`: the measured gap and what was measured (including optical vs. fundamental, temperature and sample conditions as applicable).
-- `source`: a `citation`, a precise `locator` (figure, table or page), and a `doi` or HTTPS `url` for the measurement itself.
-- `compatibility`: `record_id`, `structure_sha256` matching the record’s `cell-sites-v1` identity, and `structure_note` explaining why the measured phase and conditions apply to the calculated cell. The hash identifies the reviewed calculation; it is not evidence that the cell is physical.
+Edit the calculation’s `record.json`, not the generated catalog. Leave `"experimental_gap": null` when no measurement has been entered. This means **not recorded**, not a measured zero. Older records may omit the field. When a measurement is available, replace `null` with the object below. This is a **fill-in template**, not data: supply a numeric `value`, the measured gap definition (for example optical absorption onset vs. fundamental gap), and a source before submitting it.
+
+```json
+{
+  "experimental_gap": {
+    "value": null,
+    "unit": "eV",
+    "definition": "",
+    "sample_structure": {
+      "phase": null,
+      "space_group": null,
+      "lattice_angstrom": { "a": null, "b": null, "c": null },
+      "angles_deg": { "alpha": null, "beta": null, "gamma": null }
+    },
+    "conditions": { "temperature_K": null, "note": null },
+    "source": { "citation": "", "locator": "", "doi": "" },
+    "compatibility": null
+  }
+}
+```
+
+- `sample_structure` describes the **measured sample**, not the simulation cell. Record the reported phase, space group and lattice parameters; leave unknown quantities null or omit them. Do not copy lattice parameters from the calculation. Use `conditions.note` for details such as layer count, substrate or pressure.
+- `source` gives a citation, a precise locator (figure, table or page), and a DOI or HTTPS `url` for the measurement itself.
+- `compatibility: null` stores the measurement **without** plotting it against a calculation. Do not match by formula alone. After review, set `compatibility` to an object with `record_id`, `structure_sha256` matching the record’s `cell-sites-v1` identity, and `structure_note` explaining why the measured phase and conditions apply to that cell. The hash identifies the reviewed calculation; it is not evidence that the cell is physical.
 - `compatibility.methods`: keyed by the compared series. Each approved entry needs `compatible: true`, a `reason` explaining why the observable is comparable, and its exact `observable` ID (`property:<key>:<method>`, `paper:<method>`, or `associated:<series>`).
 
 If the geometry is artificial, the phase unknown, or the observables incompatible, do not approve the pairing. Missing references never become zeros or calculated substitutes. For future QSGW or DMFT entries, contribute a finite, evidence-linked electronic gap property with an explicit method, eV unit, status and definition. A workflow tag alone does not create a series.

@@ -499,6 +499,7 @@
   },
   "formula": "LiH",
   "id": "lih-molecule-delta-st-rpa-20260913",
+  "experimental_gap": null,
   "material": "LiH",
   "missing": [
     "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",

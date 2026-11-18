@@ -443,6 +443,7 @@
   },
   "formula": "MgO",
   "id": "mgo-delta-st-rpa-20260829",
+  "experimental_gap": null,
   "material": "MgO",
   "missing": [
     "The per-atom Mg and O reference totals of the reused exact-FD8 atom campaign are not mirrored as numeric files; only the combined cohesive energy is archived. The archived Mg/O atom INPUT/KPT/STRU are the production reference inputs of that campaign.",

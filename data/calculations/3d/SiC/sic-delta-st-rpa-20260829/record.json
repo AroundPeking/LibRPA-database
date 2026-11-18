@@ -513,6 +513,7 @@
   },
   "formula": "SiC",
   "id": "sic-delta-st-rpa-20260829",
+  "experimental_gap": null,
   "material": "SiC",
   "missing": [
     "The per-atom Si reference total of the 16-frequency screening recompute is not mirrored as a numeric file; only the combined cohesive energy and the reused C atom reference are archived.",

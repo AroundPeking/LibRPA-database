@@ -100,7 +100,7 @@ function experiment(record) {
   const exp = record.experimental_gap;
   if (!exp) return { reason: 'No experimental gap supplied.' };
   const href = sourceLink(exp.source);
-  if (exp.unit !== 'eV' || !Number.isFinite(exp.value) || !text(exp.definition) || !href)
+  if (exp.unit !== 'eV' || !Number.isFinite(exp.value) || exp.value < 0 || !text(exp.definition) || !href)
     return { reason: 'Experimental value, gap definition, or source incomplete.' };
   const c = exp.compatibility, fp = structureFingerprint(record);
   if (!text(record.id) || c?.record_id !== record.id || !fp || c.structure_sha256 !== fp || !text(c.structure_note))

@@ -47,6 +47,10 @@ the current check still blocks acceptance. No receipt/manifest replacement
 contract validated against real cases has been implemented; a self-declared
 Boolean flag cannot bypass this requirement.
 
+### Add an experimental band gap (optional)
+
+In the calculation’s `record.json`, keep `"experimental_gap": null` until a sourced measurement is available. To fill it in, use the [experimental gap template](references/database.md#recording-an-experimental-gap). Record the measured sample’s phase and cell parameters when reported, not those of the simulated cell. A sourced measurement can be stored with `compatibility: null`; approving it for the comparison plot is a separate step. Regenerate the catalogs rather than editing the website copies by hand.
+
 ### Strict complete-upload requirements
 
 - Real, readable, declared `INPUT`, `KPT`, `STRU`, and `librpa.in` files with
