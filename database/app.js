@@ -284,6 +284,7 @@ function renderHome() {
   $("#gap-controls").hidden = !gaps;
   $("#gap-chart").hidden = !gaps;
   if (gaps) {
+    $("#gap-no-measurements").hidden = state.calculations.some(record => Number.isFinite(record.experimental_gap?.value));
     syncGapControls($("#gap-controls"), gapCatalog, comparison);
     const records = selectedGapRecords(gapCatalog, comparison);
     const { counts } = buildGapComparison(records, comparison);
