@@ -339,11 +339,10 @@ def _paper_gap(record: dict, method: str):
 
 
 def _archived_band_gap(record: dict, method: str):
-    patterns = {"DFT": r"(PBE|DFT|KS)", "EXX": r"EXX", "GW": r"(G0W0|GW|GW path)"}
     matches = [item for item in record.get("properties") or []
                if item.get("category") == "electronic"
                and re.fullmatch(r"(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)", str(item.get("key") or ""))
-               and re.fullmatch(patterns[method], str(item.get("method")), re.I)]
+               and _gap_family(item.get("method")) == method]
     if matches:
         only = matches[0]
         valid = (len(matches) == 1 and only.get("unit") == "eV" and only.get("status") != "failed"
@@ -367,6 +366,27 @@ def _band_gap(record: dict, method: str):
     return paper["value"] if paper else _archived_band_gap(record, method)
 
 
+# Which family a recorded gap belongs to. This mirrors ``gapFamily`` in
+# database/records.mjs: the mean-field bucket is defined by exclusion so that a
+# functional the archive has not seen yet (HSE06, PBE0, SCAN, ...) lands in the
+# Kohn-Sham column instead of disappearing from the overview.
+_MANY_BODY_FAMILY = (
+    (re.compile(r"^(?:G0W0|GW|GW path|QSGW)$", re.I), "GW"),
+    (re.compile(r"^EXX$", re.I), "EXX"),
+    (re.compile(r"^RPA$", re.I), "RPA"),
+    (re.compile(r"^BSE$", re.I), "BSE"),
+    (re.compile(r"^DMFT$", re.I), "DMFT"),
+)
+
+
+def _gap_family(method) -> str:
+    name = str(method or "").strip()
+    for pattern, family in _MANY_BODY_FAMILY:
+        if pattern.match(name):
+            return family
+    return "DFT"
+
+
 def _finite_property(record: dict, predicate):
     matches = [item for item in record.get("properties") or []
                if item.get("status") != "failed" and _number(item.get("value")) and predicate(item)]
@@ -374,10 +394,10 @@ def _finite_property(record: dict, predicate):
 
 
 def _sampled_grid_gap(record: dict, method: str = "G0W0"):
-    pattern = r"(?:PBE|DFT|KS)" if method == "PBE" else r"(?:G0W0|GW)"
+    family = "DFT" if method in ("PBE", "DFT") else _gap_family(method)
     return _finite_property(record, lambda item: item.get("category") == "electronic"
                             and item.get("key") == "sampled_grid_gap_ev" and item.get("unit") == "eV"
-                            and re.fullmatch(pattern, str(item.get("method") or ""), re.I))
+                            and _gap_family(item.get("method")) == family)
 
 
 def _gap_overview(record: dict):
@@ -580,7 +600,7 @@ def tool_database_overview(arguments: dict) -> dict:
         "catalog_url": _catalog_url(),
         "start_with": [
             "search_materials to find records by text, elements, method, front end, or GW-gap range",
-            "compare_gaps to put PBE/KS, EXX, and GW gaps side by side",
+            "compare_gaps to put KS, EXX, and GW gaps side by side",
             "get_material, list_files, and read_file for one record and its hash-verified files",
         ],
         "reading_rule": "Quote summary.observable and summary.gap_definition with any gap: many values are "
@@ -972,7 +992,7 @@ TOOLS = [
     {
         "name": "compare_gaps",
         "title": "Compare band gaps",
-        "description": "PBE/KS, EXX, and GW gaps side by side for every record that lists one, as on the "
+        "description": "KS, EXX, and GW gaps side by side for every record that lists one, as on the "
                        "website's Gap overview, each with its scope (band, path, or sampled Gamma), "
                        "observable, and gap definition. Filter by material or formula, record ids, "
                        "elements, or front end.",
@@ -1074,7 +1094,7 @@ def _prompt(name: str, arguments: dict) -> dict:
         text = (f"Report what the LibRPA materials database holds for {material}.\n"
                 f"1. Call search_materials with query '{material}' (or with elements and element_mode 'only' "
                 "for a chemical system) and list the records by front end and record type.\n"
-                f"2. Call compare_gaps with material '{material}' and present PBE/KS, EXX, and GW side by side.\n"
+                f"2. Call compare_gaps with material '{material}' and present KS, EXX, and GW side by side.\n"
                 "3. For the record you rely on, call get_material and quote summary.observable and "
                 "summary.gap_definition next to every number. Never call a sampled path or sampled Gamma gap a "
                 "fundamental gap, and compare across codes only when the definitions agree.\n"

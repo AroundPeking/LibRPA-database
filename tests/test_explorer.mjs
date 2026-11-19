@@ -148,7 +148,14 @@ test("table header and rows follow the visible columns", () => {
   const row = renderMaterialRow(facts.find(item => item.id === "mos2_ws2-table-gw"), visibleColumns(COLUMNS.map(column => column.key)));
   assert.match(row, /class="material-link" href="#\/material\/mos2_ws2-table-gw">MoS<sub>2<\/sub>-WS<sub>2<\/sub><\/a>/);
   assert.match(row, /<span class="element-chip">W<\/span>/);
-  assert.match(row, /aria-label="Open MoS2-WS2 calculation mos2_ws2-table-gw"/);
+  // The whole row is the click target now; the material cell still carries a
+  // real link so keyboard and middle-click keep working.
+  assert.match(row, /<tr class="material-row" data-href="#\/material\/mos2_ws2-table-gw">/);
+  assert.doesNotMatch(row, /class="open-cell"/);
+  assert.match(row, /<a class="material-link" href="#\/material\/mos2_ws2-table-gw">/);
+  // The header must not reserve a column for an arrow that no longer exists.
+  assert.equal((header.match(/<th scope="col"/g) || []).length, columns.length);
+  assert.doesNotMatch(header, /Open record/);
 });
 
 test("record pages offer the MCP calls and record JSON for that record", () => {

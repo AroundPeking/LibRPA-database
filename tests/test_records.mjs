@@ -377,14 +377,14 @@ test("gap overview route, navigation, and table are wired end to end", () => {
     { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
     { id: "c-rpa", material: "C", dimension: "3d", record_type: "rpa_energy", properties: [{ key: "rpa_correlation_energy", value: -1, unit: "Ha", status: "reported" }] },
   ]);
-  assert.match(table, /PBE \/ KS<\/th>/);
+  assert.match(table, /KS<\/th>/);
   assert.match(table, /EXX<\/th>/);
   assert.match(table, /GW<\/th>/);
   assert.match(table, /Si/);
   assert.match(table, /gap-bar/);
   assert.doesNotMatch(table, /c-rpa/);
   assert.equal(gapOverview({ id: "x", dimension: "3d", record_type: "rpa_energy", properties: [] }), null);
-  // The scatter plots only records with both a PBE/KS and a GW value, colours
+  // The scatter plots only records with both a KS and a GW value, colours
   // them by front end, and keeps the parity line and both axis labels.
   const chart = renderGapChart([
     { id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "PBE", value: 0.6, unit: "eV", status: "reported" }, { category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] },
@@ -394,7 +394,7 @@ test("gap overview route, navigation, and table are wired end to end", () => {
   assert.equal((chart.match(/class="gap-point"/g) || []).length, 2);
   assert.match(chart, /data-frontend="fhi_aims"/);
   assert.match(chart, /class="chart-parity"/);
-  assert.match(chart, /PBE \/ KS gap \(eV\)/);
+  assert.match(chart, /KS gap \(eV\)/);
   assert.match(chart, /GW gap \(eV\)/);
   assert.match(chart, /width="600"/);
   assert.match(chart, /r="12"/, "hit targets are 24px across");
@@ -577,7 +577,11 @@ test("method chips show the recorded mean-field functional instead of generic DF
   assert.deepEqual(methodNames({ functional: "PBE", properties: [] }), ["PBE"], "a declared functional lights the chip without any property");
   assert.deepEqual(methodNames({ functional: "HSE", properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["HSE", "GW"]);
   assert.deepEqual(methodNames({ functional: "PBE", properties: [{ category: "electronic", method: "LDA", status: "reported" }] }), ["PBE"], "the archived declaration wins over a disagreeing property label");
-  assert.deepEqual(methodNames({ functional: "PW91", properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["GW"], "unknown declared tokens are ignored");
+  // Any functional that is not a many-body method is mean-field: the intake
+  // gate canonicalises the declaration first, so a new functional must not be
+  // dropped just because its name is not on a list we wrote today.
+  assert.deepEqual(methodNames({ functional: "PBE0", properties: [{ category: "electronic", method: "G0W0", status: "reported" }] }), ["PBE0", "GW"], "an unseen hybrid functional still gets a chip");
+  assert.deepEqual(methodNames({ functional: "HSE06", properties: [] }), ["HSE06"]);
   assert.deepEqual(methodNames({ properties: [{ category: "electronic", method: "EXX", status: "reported" }] }), ["EXX"], "the EXX branch must match the EXX pattern, not a literal");
   assert.equal(methodTag("PBE"), '<span class="method-tag method-dft">PBE</span>');
   assert.equal(methodTag("LDA"), '<span class="method-tag method-dft">LDA</span>');
@@ -718,7 +722,7 @@ test("responsive reading refinements cover every catalog and dark method chips",
   const app = readFileSync(new URL("../database/app.js", import.meta.url), "utf8");
   assert.match(css, /:root\{[^}]*--text-faint:#5f6b7d/);
   const table = renderGapOverview([{ id: "si-band", material: "Si", dimension: "3d", properties: [{ category: "electronic", key: "band_gap", method: "GW", value: 1.1, unit: "eV", status: "reported" }] }]);
-  for (const label of ["Software", "Scale", "PBE / KS", "EXX", "GW"]) assert.ok(table.includes(`data-label="${label}"`), label);
+  for (const label of ["Software", "Scale", "KS", "EXX", "GW"]) assert.ok(table.includes(`data-label="${label}"`), label);
   assert.match(app, /data-label="What it contains"/);
   assert.match(app, /data-label="What it produced"/);
   assert.match(css, /@media \(max-width:820px\)\{[\s\S]*?\.section-nav\{position:static;display:flex;[^}]*overflow-x:auto/);

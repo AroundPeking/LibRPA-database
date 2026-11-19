@@ -5,10 +5,10 @@ export function gapOverview(record) {
   const type = recordType(record);
   if (type === "rpa_energy") return null;
   if (type === "large_system_gw") {
-    const pbe = sampledGridGap(record, "PBE");
+    const ksGap = sampledGridGap(record, "PBE");
     const gw = sampledGridGap(record, "G0W0");
-    if (!pbe && !gw) return null;
-    return { ks: pbe?.value ?? null, exx: null, gw: gw?.value ?? null, scope: "sampled" };
+    if (!ksGap && !gw) return null;
+    return { ks: ksGap?.value ?? null, exx: null, gw: gw?.value ?? null, scope: "sampled" };
   }
   if (type === "reader_conversion") {
     const run = record.associated_gw_run;
@@ -35,7 +35,7 @@ function niceAxis(max) {
   return { top, ticks };
 }
 
-// GW against PBE/KS for every record that lists both: the parity line shows
+// GW against the Kohn-Sham gap for every record that lists both: the parity line shows
 // the quasiparticle correction at a glance. Each point keeps its record's own
 // gap definition; the table below remains the complete, exact view.
 export function renderGapChart(calculations, { width = 760 } = {}) {
@@ -60,12 +60,12 @@ export function renderGapChart(calculations, { width = 760 } = {}) {
     .map(({ record, gaps }) => {
       const frontend = workflowFrontend(record);
       const precision = gaps.scope === "sampled" ? 5 : 3;
-      const label = `${record.material} (${record.id}): GW ${gaps.gw.toFixed(precision)} eV, PBE / KS ${gaps.ks.toFixed(precision)} eV, ${workflowLabel(record)}`;
+      const label = `${record.material} (${record.id}): GW ${gaps.gw.toFixed(precision)} eV, KS ${gaps.ks.toFixed(precision)} eV, ${workflowLabel(record)}`;
       const cx = x(gaps.ks).toFixed(1), cy = y(gaps.gw).toFixed(1);
       return `<a class="gap-point" href="#/material/${encodeURIComponent(record.id)}" data-frontend="${frontend}" data-gw="${gaps.gw.toFixed(precision)}" data-ks="${gaps.ks.toFixed(precision)}" data-material="${esc(record.material)}" data-id="${esc(record.id)}" data-workflow="${esc(workflowLabel(record))}" aria-label="${esc(label)}"><circle class="gap-hit" cx="${cx}" cy="${cy}" r="12"/><circle class="gap-dot" cx="${cx}" cy="${cy}" r="5"/></a>`;
     }).join("");
-  const svg = `<svg class="gap-scatter" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="GW gap against PBE / KS gap for ${points.length} records">${grid}<line class="chart-axis" x1="${left}" x2="${width - right}" y1="${y(0)}" y2="${y(0)}"/><line class="chart-axis" x1="${left}" x2="${left}" y1="${top}" y2="${y(0)}"/><line class="chart-parity" x1="${x(0)}" y1="${y(0)}" x2="${x(parity).toFixed(1)}" y2="${y(parity).toFixed(1)}"/><text class="chart-label" x="${left + plotWidth / 2}" y="${height - 10}" text-anchor="middle">PBE / KS gap (eV)</text><text class="chart-label" transform="translate(16 ${top + plotHeight / 2}) rotate(-90)" text-anchor="middle">GW gap (eV)</text>${dots}</svg>`;
-  return `<figure class="chart-card"><figcaption><div><h3>GW against PBE / KS gap</h3><p>${points.length} records list both values. Points above the dashed parity line have a GW gap larger than the mean-field gap; each keeps its record's own definition (band path, sampled Γ, or paper value).</p></div><ul class="chart-legend"><li><span class="legend-dot" data-frontend="abacus" aria-hidden="true"></span>ABACUS workflows</li><li><span class="legend-dot" data-frontend="fhi_aims" aria-hidden="true"></span>FHI-aims workflows</li><li><span class="legend-line" aria-hidden="true"></span>GW = PBE / KS</li></ul></figcaption><div class="chart-frame">${svg}<div class="chart-tooltip" role="status" hidden></div></div></figure>`;
+  const svg = `<svg class="gap-scatter" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="GW gap against the Kohn-Sham gap for ${points.length} records">${grid}<line class="chart-axis" x1="${left}" x2="${width - right}" y1="${y(0)}" y2="${y(0)}"/><line class="chart-axis" x1="${left}" x2="${left}" y1="${top}" y2="${y(0)}"/><line class="chart-parity" x1="${x(0)}" y1="${y(0)}" x2="${x(parity).toFixed(1)}" y2="${y(parity).toFixed(1)}"/><text class="chart-label" x="${left + plotWidth / 2}" y="${height - 10}" text-anchor="middle">KS gap (eV)</text><text class="chart-label" transform="translate(16 ${top + plotHeight / 2}) rotate(-90)" text-anchor="middle">GW gap (eV)</text>${dots}</svg>`;
+  return `<figure class="chart-card"><figcaption><div><h3>GW against the KS gap</h3><p>${points.length} records list both values. Points above the dashed parity line have a GW gap larger than the Kohn-Sham gap; each keeps its record's own definition (band path, sampled Γ, or paper value).</p></div><ul class="chart-legend"><li><span class="legend-dot" data-frontend="abacus" aria-hidden="true"></span>ABACUS workflows</li><li><span class="legend-dot" data-frontend="fhi_aims" aria-hidden="true"></span>FHI-aims workflows</li><li><span class="legend-line" aria-hidden="true"></span>GW = KS</li></ul></figcaption><div class="chart-frame">${svg}<div class="chart-tooltip" role="status" hidden></div></div></figure>`;
 }
 
 // Value-first hover and focus readout for the scatter points. Labels come from
@@ -76,7 +76,7 @@ export function installGapChartTooltip(container) {
     const frame = container.querySelector(".chart-frame");
     if (!tooltip || !frame) return;
     tooltip.replaceChildren();
-    const rows = [["GW", point.dataset.gw], ["PBE / KS", point.dataset.ks]];
+    const rows = [["GW", point.dataset.gw], ["KS", point.dataset.ks]];
     for (const [name, value] of rows) {
       const row = document.createElement("p");
       const strong = document.createElement("strong");
@@ -119,7 +119,7 @@ export function renderGapOverview(calculations, sort = "result") {
     const value = gapValue => gapValue === null ? '<span class="not-reported">—</span>' : gapValue.toFixed(precision);
     const bar = gaps.gw === null ? "" : `<span class="gap-bar" aria-hidden="true"><i style="width:${Math.max(3, Math.round(gaps.gw / (maxGw || 1) * 100))}%"></i></span>`;
     const atoms = atomCount(record);
-    return `<tr class="gap-row"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.id)}${scopeNote[gaps.scope] || ""}</span></th><td data-label="Software"><span class="record-type-tag">${esc(workflowLabel(record))}</span></td><td data-label="Scale"><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td class="numeric" data-label="PBE / KS">${value(gaps.ks)}</td><td class="numeric" data-label="EXX">${value(gaps.exx)}</td><td class="numeric gap-cell" data-label="GW"><div class="gw-line"><strong class="gw-value">${value(gaps.gw)}</strong>${bar}</div></td><td class="open-cell"><a href="${url}" aria-label="Open ${esc(record.material)} calculation ${esc(record.id)}">↗</a></td></tr>`;
+    return `<tr class="gap-row" data-href="${url}"><th scope="row"><a class="material-link" href="${url}">${esc(record.material)}</a><span class="table-description">${esc(record.id)}${scopeNote[gaps.scope] || ""}</span></th><td data-label="Software"><span class="record-type-tag">${esc(workflowLabel(record))}</span></td><td data-label="Scale"><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span>${atoms ? `<span class="table-description">${atoms} atoms</span>` : ""}</td><td class="numeric" data-label="KS">${value(gaps.ks)}</td><td class="numeric" data-label="EXX">${value(gaps.exx)}</td><td class="numeric gap-cell" data-label="GW"><div class="gw-line"><strong class="gw-value">${value(gaps.gw)}</strong>${bar}</div></td></tr>`;
   }).join("");
-  return `<div class="table-wrap" tabindex="0" role="region" aria-label="Gap overview"><table class="gap-table"><caption class="sr-only">Recorded band gap values across materials</caption><thead><tr><th scope="col">Material</th><th scope="col">Software</th><th scope="col">Scale</th><th scope="col">PBE / KS</th><th scope="col">EXX</th><th scope="col">GW</th><th scope="col"><span class="sr-only">Open record</span></th></tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="Gap overview"><table class="gap-table"><caption class="sr-only">Recorded band gap values across materials</caption><thead><tr><th scope="col">Material</th><th scope="col">Software</th><th scope="col">Scale</th><th scope="col">KS</th><th scope="col">EXX</th><th scope="col">GW</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }

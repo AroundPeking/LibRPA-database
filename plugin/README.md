@@ -87,7 +87,7 @@ Every tool is annotated `readOnlyHint: true`.
 | `list_files` | declared files of a record, with tier, size, and primary and mirror URLs |
 | `read_file` | fetch one payload, verify its SHA-256, return the text |
 | `get_band_table` | parse a KS/EXX/GW band export into k-points, energies, and occupations |
-| `compare_gaps` | PBE/KS, EXX, and GW gaps side by side, each with its scope and definition |
+| `compare_gaps` | KS, EXX, and GW gaps side by side, each with its scope and definition |
 | `list_basis_sets` | pseudopotential / NAO / auxiliary basis sets per element, with size labels |
 | `get_basis_set` | one basis set: payloads with SHA-256, provenance, and the calculations that used it |
 | `contribution_guide` | the pull-request workflow, local gates, and prohibitions |

@@ -15,7 +15,7 @@ read-only tools instead of fetching JSON by hand:
 |---|---|
 | What is in the database? | `database_overview` |
 | Which records match a material, element set, method, front end, or GW-gap range? | `search_materials` (`elements` + `element_mode: "only"` for an exact chemical system) |
-| How do PBE/KS, EXX, and GW gaps compare across codes? | `compare_gaps` |
+| How do KS, EXX, and GW gaps compare across codes? | `compare_gaps` |
 | Everything about one record | `get_material` (its `derived` block holds the values the website shows) |
 | Which files does a record archive? / read one | `list_files`, then `read_file` (SHA-256 verified) |
 | Band energies along the archived k-path | `get_band_table` (ABACUS exports) |

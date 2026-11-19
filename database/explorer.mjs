@@ -179,12 +179,11 @@ export const COLUMNS = [
   { key: "type", label: "Record type", sort: "type", visible: false },
   { key: "scale", label: "Scale", sort: "atoms", visible: true },
   { key: "methods", label: "Methods", visible: true },
-  { key: "ks", label: "PBE / KS gap (eV)", sort: "ks", numeric: true, visible: true },
+  { key: "ks", label: "KS gap (eV)", sort: "ks", numeric: true, visible: true },
   { key: "exx", label: "EXX gap (eV)", sort: "exx", numeric: true, visible: false },
   { key: "gw", label: "GW gap (eV)", sort: "gw", numeric: true, visible: false },
   { key: "primary", label: "Primary result", visible: true },
   { key: "elements", label: "Elements", visible: false },
-  { key: "inputs", label: "Inputs", sort: "inputs", visible: true },
 ];
 
 export const DEFAULT_COLUMNS = COLUMNS.filter(column => column.fixed || column.visible).map(column => column.key);
@@ -195,12 +194,11 @@ const CELLS = {
   type: facts => `<td data-label="Record type"><span class="type-tag">${esc(facts.typeLabel)}</span></td>`,
   scale: facts => `<td data-label="Scale"><span class="dimension-tag">${esc(String(facts.dimension).toUpperCase())}</span>${facts.atoms ? `<span class="table-description">${facts.atoms} atoms</span>` : ""}</td>`,
   methods: facts => `<td data-label="Methods"><div class="method-list">${facts.methods.map(methodTag).join("") || missing}</div></td>`,
-  ks: gapCell("ks", "PBE / KS gap (eV)"),
+  ks: gapCell("ks", "KS gap (eV)"),
   exx: gapCell("exx", "EXX gap (eV)"),
   gw: gapCell("gw", "GW gap (eV)"),
   primary: primaryCell,
   elements: facts => `<td data-label="Elements"><div class="element-list">${facts.elements.map(symbol => `<span class="element-chip">${esc(symbol)}</span>`).join("")}</div></td>`,
-  inputs: facts => `<td data-label="Inputs">${facts.inputs ? `<span class="availability"><i aria-hidden="true"></i>${facts.inputs} files</span>` : missing}</td>`,
 };
 
 export function visibleColumns(keys = DEFAULT_COLUMNS) {
@@ -216,12 +214,17 @@ export function renderHeader(columns, sort, direction) {
     const arrow = active ? (direction === "desc" ? "↓" : "↑") : "↕";
     return `<th scope="col" aria-sort="${state}"${column.numeric ? ' class="numeric"' : ""}><button type="button" class="sort-button${active ? " is-active" : ""}" data-sort-key="${column.sort}">${esc(column.label)}<span aria-hidden="true">${arrow}</span></button></th>`;
   }).join("");
-  return `<thead><tr>${cells}<th scope="col"><span class="sr-only">Open record</span></th></tr></thead>`;
+  // No trailing "open record" column: the row itself opens the record, so a
+  // header over an arrow that no longer exists would be an empty cell.
+  return `<thead><tr>${cells}</tr></thead>`;
 }
 
 export function renderMaterialRow(facts, columns) {
   const url = `#/material/${encodeURIComponent(facts.id)}`;
-  return `<tr class="material-row">${columns.map(column => CELLS[column.key](facts, url)).join("")}<td class="open-cell"><a href="${url}" aria-label="Open ${esc(facts.material)} calculation ${esc(facts.id)}">↗</a></td></tr>`;
+  // The whole row is the target: data-href lets the catalog delegate one click
+  // handler instead of asking the reader to aim at a trailing arrow. The
+  // material cell keeps a real link, so keyboard and middle-click still work.
+  return `<tr class="material-row" data-href="${url}">${columns.map(column => CELLS[column.key](facts, url)).join("")}</tr>`;
 }
 
 export const EXPORT_FIELDS = [

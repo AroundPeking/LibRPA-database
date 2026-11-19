@@ -5,7 +5,9 @@ const initialCategories = [
   { slug: "energetic", label: "Energetics" },
   { slug: "performance", label: "Performance" },
   { slug: "topological", label: "Topology" },
-  { slug: "optical", label: "Optical" },
+  // BSE and any future optical response land here. The label says what the
+  // category is for, so an exciton binding energy does not look out of place.
+  { slug: "optical", label: "Excitons and optical" },
   { slug: "magnetic", label: "Magnetic" },
   { slug: "structural", label: "Structural" },
   { slug: "other", label: "Other" },

@@ -303,6 +303,10 @@ html[data-theme="dark"] .pt-heat-4{color:#ffffff}
 .primary-result{font-variant-numeric:tabular-nums}
 .primary-result strong{display:block;color:var(--text-strong);font-size:15px;font-weight:600}
 .primary-result small{color:var(--text-soft);font-size:12px;font-weight:400}
+/* The whole record row is the click target; the cursor and hover tint say so. */
+.material-row[data-href]{cursor:pointer}
+.material-row[data-href]:hover>th,.material-row[data-href]:hover>td{background:var(--tint)}
+.material-row[data-href]:focus-within>th,.material-row[data-href]:focus-within>td{background:var(--tint)}
 .open-cell{width:52px;padding:6px 8px!important}
 .open-cell a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;color:var(--text-faint);font-size:18px}
 .open-cell a:hover{background:var(--tint);color:var(--accent-deep);text-decoration:none}

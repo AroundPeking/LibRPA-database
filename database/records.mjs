@@ -86,9 +86,30 @@ export function bandGap(record, method = "GW") {
   return archivedBandGap(record, method);
 }
 
+// Which family a recorded gap belongs to. The database will keep growing past
+// PBE: hybrid functionals (HSE06, PBE0), meta-GGA (SCAN), and anything else a
+// mean-field run names. Listing the functionals we ship today would silently
+// drop tomorrow's, so the mean-field bucket is defined by exclusion: a gap that
+// is not a known many-body method is a Kohn-Sham gap, whatever functional
+// produced it. The record page still names the exact functional that ran.
+const MANY_BODY_FAMILY = [
+  [/^(?:G0W0|GW|GW path|QSGW)$/i, "GW"],
+  [/^EXX$/i, "EXX"],
+  [/^RPA$/i, "RPA"],
+  [/^BSE$/i, "BSE"],
+  [/^DMFT$/i, "DMFT"],
+];
+
+// "DFT" is the catch-all: every functional the archive has not seen yet lands
+// in the Kohn-Sham column instead of vanishing from the overview.
+export function gapFamily(method) {
+  const name = String(method ?? "").trim();
+  for (const [pattern, family] of MANY_BODY_FAMILY) if (pattern.test(name)) return family;
+  return "DFT";
+}
+
 export function archivedBandGap(record, method = "GW") {
-  const patterns = { DFT: /^(PBE|DFT|KS)$/i, EXX: /^EXX$/i, GW: /^(G0W0|GW|GW path)$/i };
-  const matches = (record.properties || []).filter(p => p.category === "electronic" && /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(p.key || "") && patterns[method]?.test(p.method));
+  const matches = (record.properties || []).filter(p => p.category === "electronic" && /^(?:band_gap|sampled_path_gap(?:_ev)?|path_gap(?:_ev)?)$/.test(p.key || "") && gapFamily(p.method) === method);
   // Do not silently replace an unvalidated or ambiguous contributed value with a legacy value.
   if (matches.length) {
     return matches.length === 1 && matches[0].unit === "eV" && matches[0].status !== "failed" && typeof matches[0].value === "number" && Number.isFinite(matches[0].value) ? matches[0].value : null;
@@ -100,15 +121,22 @@ export function archivedBandGap(record, method = "GW") {
   return null;
 }
 
-const MEAN_FIELD_FUNCTIONALS = ["PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"];
+// Any declared functional the many-body list does not claim is a mean-field
+// functional: PBE today, HSE06 or PBE0 tomorrow. Naming them here would drop
+// the next one silently, so the chip falls back to the archived declaration.
+// Delta-ST is a response scheme rather than a functional and keeps its own tag;
+// a garbage token cannot reach here because the intake gate canonicalises the
+// declaration (scripts/library.py FUNCTIONAL_NAMES) before it is recorded.
+const RESPONSE_SCHEME = /^Delta-ST$/i;
+const isMeanField = method => Boolean(method) && !RESPONSE_SCHEME.test(method) && gapFamily(method) === "DFT";
 
 export function methodNames(record) {
   const corpus = [...filesOf(record, "results"), ...filesOf(record, "logs")].map(f => `${f.label || ""} ${f.path?.split("/").at(-1)}`).join(" ");
   const active = (record.properties || []).filter(p => p.category === "electronic" && p.status !== "failed");
   const props = active.map(p => p.method).join(" ");
   const associated = record.associated_gw_run?.scheduler_state === "COMPLETED" ? record.associated_gw_run.task || "G0W0" : "";
-  const declared = MEAN_FIELD_FUNCTIONALS.includes(record?.functional) ? record.functional : null;
-  const fromProperties = new Set(active.map(p => p.method).filter(method => MEAN_FIELD_FUNCTIONALS.includes(method)));
+  const declared = isMeanField(record?.functional) ? record.functional : null;
+  const fromProperties = new Set(active.map(p => p.method).filter(isMeanField));
   const functional = declared || (fromProperties.size === 1 ? [...fromProperties][0] : null);
   const evidence = `${corpus} ${props} ${associated}`;
   const methods = [];
@@ -125,7 +153,9 @@ export function methodNames(record) {
 }
 
 export function methodTag(method) {
-  const tagClass = MEAN_FIELD_FUNCTIONALS.includes(method) ? "dft" : method.toLowerCase();
+  // Every mean-field functional shares the "dft" chip colour, so a new one
+  // (HSE06, PBE0, ...) does not render as an unstyled tag.
+  const tagClass = isMeanField(method) ? "dft" : method.toLowerCase();
   return `<span class="method-tag method-${tagClass}">${method}</span>`;
 }
 
@@ -199,7 +229,10 @@ function finiteProperty(record, predicate) {
 }
 
 export function sampledGridGap(record, method = "G0W0") {
-  return finiteProperty(record, property => property.category === "electronic" && property.key === "sampled_grid_gap_ev" && property.unit === "eV" && new RegExp(method === "PBE" ? "^(?:PBE|DFT|KS)$" : "^(?:G0W0|GW)$", "i").test(property.method || ""));
+  // A sampled Γ gap on a regular grid is bucketed the same way a path gap is,
+  // so a hybrid-functional grid run keeps its value in the Kohn-Sham column.
+  const family = method === "PBE" || method === "DFT" ? "DFT" : gapFamily(method);
+  return finiteProperty(record, property => property.category === "electronic" && property.key === "sampled_grid_gap_ev" && property.unit === "eV" && gapFamily(property.method) === family);
 }
 
 export function primaryResult(record) {

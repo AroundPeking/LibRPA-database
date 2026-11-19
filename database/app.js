@@ -187,7 +187,7 @@ function syncFilters() {
   $$("input[name=elmode]").forEach(input => { input.checked = input.value === state.elementMode; });
   const options = gaps ? [["gw", "GW gap ↓"], ["material", "Material A–Z"]]
     : basis ? [["element", "Element A–Z"]]
-    : [["material:asc", "Material A–Z"], ["gw:desc", "GW gap ↓"], ["gw:asc", "GW gap ↑"], ["ks:desc", "PBE / KS gap ↓"], ["atoms:desc", "Atoms ↓"], ["id:asc", "Record ID"]];
+    : [["material:asc", "Material A–Z"], ["gw:desc", "GW gap ↓"], ["gw:asc", "GW gap ↑"], ["ks:desc", "KS gap ↓"], ["atoms:desc", "Atoms ↓"], ["id:asc", "Record ID"]];
   $("#sort").innerHTML = options.map(([value, label]) => `<option value="${value}">${label}</option>`).join("");
   const current = gaps ? (state.sort === "material" ? "material" : "gw") : basis ? "element" : `${state.sort}:${state.dir}`;
   if (!options.some(([value]) => value === current)) $("#sort").insertAdjacentHTML("beforeend", `<option value="${current}">${esc(COLUMNS.find(column => column.sort === state.sort)?.label || state.sort)} ${state.dir === "desc" ? "↓" : "↑"}</option>`);
@@ -268,7 +268,7 @@ function renderHome() {
   showView("home");
   $("#page-kicker").textContent = basis ? "BASIS LIBRARY" : gaps ? "GAP OVERVIEW" : "MATERIALS EXPLORER";
   $("#page-title").textContent = basis ? "The basis behind each result." : gaps ? "Band gaps, across materials." : "Materials, with evidence.";
-  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Every recorded gap value in one place: PBE / KS, EXX, and GW side by side, one row per calculation, ready for cross-material comparison." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
+  $("#intro-copy").textContent = basis ? "Inspect pseudopotentials, physical orbitals, and auxiliary basis functions — with original files and linked calculations." : gaps ? "Every recorded gap value in one place: KS, EXX, and GW side by side, one row per calculation, ready for cross-material comparison." : "Electronic bands, RPA energies, large-system GW results, and reader-format provenance — with original inputs, basis provenance, and evidence.";
   $("#search").placeholder = basis ? "Search element, family, original filename, or linked material" : "Search material, formula, element, or calculation ID";
   $("#catalog-title").textContent = basis ? "Basis-set records" : gaps ? "Gap overview" : "Calculation records";
   $("#catalog-footnote").textContent = basis ? "Open a basis record for readable filenames, downloads, radial functions, and linked calculations." : gaps ? "One row per calculation that lists at least one gap value. Values are in eV and keep each record's own definition (path observable, sampled Γ, or paper reference); the bar scales to the largest GW value in the table. A dash means no value is listed." : "One row per calculation. Primary results retain their recorded unit and scope; path-resolved and sampled-grid observables are not presented as global fundamental gaps. A dash means no value is listed. Open a record for source evidence and definitions.";
@@ -498,6 +498,14 @@ function installExplorer() {
       title.scrollIntoView({ block: "start" });
       title.tabIndex = -1;
       title.focus({ preventScroll: true });
+      return;
+    }
+    // Anywhere on a row opens its record - the catalog table and the Gap
+    // overview table share this container. Modified clicks and clicks that land
+    // on a real link keep the browser's own behaviour.
+    const row = event.target.closest("tr[data-href]");
+    if (row && !event.target.closest("a") && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && event.button === 0) {
+      location.hash = row.dataset.href;
     }
   });
   $("#catalog").addEventListener("change", event => { if (event.target.id === "page-size") { state.size = Number(event.target.value); updateFilter(); } });
@@ -511,6 +519,7 @@ function installExplorer() {
     if (event.key === "/" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$("#home-view").hidden && !$(".search-box").hidden && !$("#file-preview").open) { event.preventDefault(); $("#search").focus(); }
   });
   installGapChartTooltip($("#gap-chart"));
+
   let resizeTimer = null;
   window.addEventListener("resize", () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { if (!$("#gap-chart").hidden) renderChart(); }, 200); });
   // The periodic table remembers whether this viewer keeps it open; without a
