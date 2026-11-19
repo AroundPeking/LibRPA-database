@@ -177,6 +177,20 @@ async function main() {
     await page.locator(".breadcrumb a").click();
     await page.waitForSelector(".gap-row");
     check(await page.locator("#catalog-title").innerText() === "Gap overview", "Gap detail returns to Gap overview rather than Materials");
+    await page.locator('#gap-family').selectOption('tm-oxides');
+    await page.locator('#gap-add-material').selectOption('NiO');
+    check(await page.locator('#gap-axis').inputValue() === 'material', 'oxide preset does not require a KS reference');
+    check(await page.locator('.gap-point[data-method="exx"]').count() > 0, 'NiO EXX points are present');
+    await page.locator('#gap-series input[value="exx"]').uncheck();
+    check(await page.locator('.gap-point[data-method="exx"]').count() === 0, 'turning a method off removes its points');
+    const selectedUrl = page.url();
+    await page.locator('.gap-cite').first().click();
+    await page.waitForSelector('#record-citation[open]');
+    await page.locator('#cite-tab-bibtex').click();
+    check((await page.locator('[data-citation-content="bibtex"]').inputValue()).includes('nio-aims-gw-int'), 'BibTeX identifies the selected calculation');
+    await page.locator('.breadcrumb a').click();
+    await page.waitForSelector('.gap-row');
+    check(page.url() === selectedUrl, 'return link restores exact comparison and enabled series');
     await go("#/materials");
     for (const expected of [
       { id: "c512-gamma-g0w0-20260519", states: "6656", atoms: "512", gap: "6.09949", wall: "18:42:46", nodes: "4", mpi: "4", omp: "96" },

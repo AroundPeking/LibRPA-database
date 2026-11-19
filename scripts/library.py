@@ -341,6 +341,108 @@ def _validate_paper_values(root: Path, case: dict, label: str) -> None:
             _fail(f"{label}.paper_values.{method}: finite eV value, precision, column and scope are required")
 
 
+def _https_source_url(value: object) -> bool:
+    if not isinstance(value, str) or re.search(r"[\s\x00-\x1f\x7f\\]", value):
+        return False
+    try:
+        url = urllib.parse.urlsplit(value)
+        _ = url.port  # Reject malformed or out-of-range ports.
+        return bool(url.scheme == "https" and url.hostname and url.username is None)
+    except ValueError:
+        return False
+
+
+def _validate_experimental_gap(case: dict, label: str) -> None:
+    gap = case.get("experimental_gap")
+    if gap is None:
+        return
+    label += ".experimental_gap"
+
+    def obj(value: object, path: str) -> dict:
+        if not isinstance(value, dict):
+            _fail(f"{path}: expected an object")
+        return value
+
+    def text(value: object, path: str) -> None:
+        if not isinstance(value, str) or not value.strip():
+            _fail(f"{path}: expected a non-empty string")
+
+    def finite(value: object) -> bool:
+        return type(value) is int or (type(value) is float and math.isfinite(value))
+
+    obj(gap, label)
+    value = gap.get("value")
+    if not finite(value) or value < 0:
+        _fail(f"{label}.value: expected a finite nonnegative number")
+    if gap.get("unit") != "eV":
+        _fail(f"{label}.unit: expected eV")
+    text(gap.get("definition"), f"{label}.definition")
+    source = obj(gap.get("source"), f"{label}.source")
+    for field in ("citation", "locator"):
+        text(source.get(field), f"{label}.source.{field}")
+    doi = source.get("doi")
+    if not ((isinstance(doi, str) and re.fullmatch(r"10\.[0-9]{4,9}/\S+", doi))
+            or _https_source_url(source.get("url"))):
+        _fail(f"{label}.source: expected a DOI or HTTPS URL without credentials")
+
+    sample = gap.get("sample_structure")
+    if sample is not None:
+        path = f"{label}.sample_structure"
+        obj(sample, path)
+        for field in ("phase", "space_group"):
+            if sample.get(field) is not None:
+                text(sample[field], f"{path}.{field}")
+        for field, axes in (("lattice_angstrom", ("a", "b", "c")), ("angles_deg", ("alpha", "beta", "gamma"))):
+            if sample.get(field) is None:
+                continue
+            for axis, number in obj(sample[field], f"{path}.{field}").items():
+                if axis not in axes:
+                    _fail(f"{path}.{field}.{axis}: expected one of {', '.join(axes)}")
+                if number is None:
+                    continue
+                if not finite(number) or number <= 0:
+                    _fail(f"{path}.{field}.{axis}: expected a finite positive number")
+                if field == "angles_deg" and number >= 180:
+                    _fail(f"{path}.{field}.{axis}: angle must be less than 180 degrees")
+
+    conditions = gap.get("conditions")
+    if conditions is not None:
+        path = f"{label}.conditions"
+        obj(conditions, path)
+        temperature = conditions.get("temperature_K")
+        if temperature is not None and (not finite(temperature) or temperature < 0):
+            _fail(f"{path}.temperature_K: expected a finite nonnegative number")
+        if conditions.get("note") is not None:
+            text(conditions["note"], f"{path}.note")
+
+    # No match is inferred from the material, measured cell or conditions. The
+    # comparison reader checks the attested observable against the selected one.
+    compatibility = gap.get("compatibility")
+    if compatibility is None:
+        return
+    path = f"{label}.compatibility"
+    obj(compatibility, path)
+    methods = obj(compatibility.get("methods", {}), f"{path}.methods")
+    approved = False
+    for key, match in methods.items():
+        method_path = f"{path}.methods.{key}"
+        obj(match, method_path)
+        if not isinstance(match.get("compatible"), bool):
+            _fail(f"{method_path}.compatible: expected a boolean")
+        if match["compatible"]:
+            approved = True
+            for field in ("observable", "reason"):
+                text(match.get(field), f"{method_path}.{field}")
+    if approved:
+        if compatibility.get("record_id") != case["id"]:
+            _fail(f"{path}.record_id: must match this record's id")
+        identity = case.get("structure_identity")  # Already checked against the archived input.
+        if (not isinstance(identity, dict) or identity.get("algorithm") != _STRUCTURE_ALGORITHM
+                or compatibility.get("structure_sha256") != identity["sha256"]):
+            _fail(f"{path}.structure_sha256: must match this record's {_STRUCTURE_ALGORITHM} identity")
+        text(compatibility.get("structure_note"), f"{path}.structure_note")
+
+
 def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
     def check_private_paths(value: object, label: str) -> None:
         if isinstance(value, str) and PRIVATE_PATH.search(value):
@@ -458,6 +560,7 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
 
         _validate_workflow_contract(case, label, declared_paths)
         _validate_structure_identity(root, case, declared_paths)
+        _validate_experimental_gap(case, label)
         _validate_properties(case, label, declared_paths)
         _validate_paper_values(root, case, label)
 
@@ -1614,6 +1717,7 @@ def build_catalog(root: Path) -> dict:
     for case in cases:
         issues = completeness_issues(root, sets, case)
         catalog_cases.append({**case,
+                              "experimental_gap": case.get("experimental_gap"),
                               "spin_orbit": _spin_orbit_enabled(root, case),
                               "spin_polarized": _spin_polarized_enabled(root, case),
                               "functional": _mean_field_functional(root, case),

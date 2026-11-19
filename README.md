@@ -16,6 +16,12 @@ previews, and downloads every archived file. The companion
 [ABACUS + LibRPA GW basis skill](https://github.com/AroundPeking/abacus-librpa-gw-basis-skill)
 covers the ABACUS/NAO workflow itself.
 
+## Compare and cite band gaps
+
+Open the [gap comparison](https://aroundpeking.github.io/LibRPA-database/database/#/gaps) to choose materials and calculated methods. Use **Material** to compare methods without a common baseline; the **binary transition-metal oxides** preset selects that view. **Kohn–Sham gap** uses each calculation’s own starting point. **Experimental gap** only plots measurements explicitly matched to the record’s structure and observable. A paper-reported calculation is not a measurement. An empty plot does not mean a zero gap.
+
+Share the filtered page URL to reproduce the selection. For numerical values, use **Cite** in the table to cite the individual calculation record and, where listed, its original source. Include the measurement source when using an experimental value. Records with the same formula are not averaged and may describe different structures, magnetic states or sampling paths.
+
 ## Where the files live
 
 | Layer | Location |

@@ -2,7 +2,8 @@ import { esc, formulaHtml, publicPath, fileUrl, fileMirrorUrl, isExternalFile, f
 import { renderFiles } from "./files.mjs";
 import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs, getPropertyCategories } from "./properties.mjs";
-import { recordJsonUrl } from "./explorer.mjs";
+import { recordJsonUrl, recordPageUrl } from "./explorer.mjs";
+import { citationBox, installCitationActions, paperEvidenceUrl } from "./citation.mjs";
 
 const gapText = (value, precision = 3) => value === null ? "—" : `${value.toFixed(precision)} <small>eV</small>`;
 
@@ -36,17 +37,11 @@ function referenceInfo(record) {
   const methods = ["DFT", "GW"].filter(method => paperGap(record, method));
   if (!methods.length) return "";
   const source = paper.source;
-  const evidenceUrl = publicPath(paper.evidence);
+  const evidenceUrl = paperEvidenceUrl(record);
   const scopes = [...new Set(methods.map(method => paperGap(record, method).scope).filter(Boolean))];
   const scopeHtml = scopes.map(scope => `<p class="definition-note"><strong>Source scope</strong> ${esc(paperText(record, scope, "scope"))}</p>`).join("");
-  return `<details class="reference-source"><summary>Reference &amp; source evidence <span>Table ${esc(source.table)}</span></summary><div class="reference-body"><p>${esc(source.title)} · PDF p. ${esc(source.pdf_page)} · Table ${esc(source.table)}${source.doi ? ` · DOI ${esc(source.doi)}` : ""}</p><p>The database values are shown once above. This reference records their source; original result files and scientific status remain unchanged.</p>${scopeHtml}<p>${esc(paperText(record, paper.notes || "EXX is archive-derived; the reference has no EXX main column.", "notes"))}</p><p>${evidenceUrl ? `<a href="${esc(evidenceUrl)}" target="_blank" rel="noopener">Download source extract ↗</a>` : ""}</p></div></details>`;
+  return `<details class="reference-source"><summary>Reference &amp; source evidence <span>Table ${esc(source.table)}</span></summary><div class="reference-body"><p>${esc(source.title)} · PDF p. ${esc(source.pdf_page)} · Table ${esc(source.table)}${source.doi ? ` · DOI ${esc(source.doi)}` : ""}</p><p>The database values are shown once above. This reference records their source; original result files and scientific status remain unchanged.</p>${scopeHtml}<p>${esc(paperText(record, paper.notes || "EXX is archive-derived; the reference has no EXX main column.", "notes"))}</p><p>${evidenceUrl ? `<a href="${esc(evidenceUrl)}" target="_blank" rel="noopener">Download source extract ↗</a>` : paper.evidence ? `Download source extract: see the file links in the <a href="${esc(recordJsonUrl(record))}">full record JSON</a>.` : ""}</p></div></details>`;
 }
-const citationBox = record => {
-  const url = `https://aroundpeking.github.io/LibRPA-database/#/material/${encodeURIComponent(record.id)}`;
-  const bibtex = `@dataset{${esc(record.id)},\n  title       = {${esc(record.material)} — LibRPA Materials Database},\n  author      = {AroundPeking},\n  year        = {2026},\n  url         = {${url}},\n  note        = {Record ID: ${esc(record.id)}${record.formula ? `; Formula: ${esc(record.formula)}` : ""}}\n}`;
-  const plaintext = `AroundPeking. (2026). ${esc(record.material)} — LibRPA Materials Database. ` + (record.formula ? `Formula: ${esc(record.formula)}. ` : "") + `Record ID: ${esc(record.id)}. Retrieved from ${url}`;
-  return `<details class="citation-box"><summary>Cite this record</summary><div class="citation-body"><div class="citation-tabs"><button type="button" class="citation-tab" aria-selected="true" data-citation="bibtex">BibTeX</button><button type="button" class="citation-tab" aria-selected="false" data-citation="text">Plain text</button></div><textarea class="citation-text" readonly data-citation-content="bibtex">${esc(bibtex)}</textarea><textarea class="citation-text" readonly hidden data-citation-content="text">${esc(plaintext)}</textarea><button type="button" class="citation-copy" data-citation-copy>Copy citation</button></div></details>`;
-};
 // The same record, as an agent or a script reads it: the MCP calls that
 // return it and the static JSON URL behind them. Band tables are offered only
 // when the record archives an ABACUS band export the server can parse.
@@ -60,9 +55,10 @@ const apiBox = record => {
 };
 const gapsListed = record => ["DFT", "EXX", "GW"].some(method => bandGap(record, method) !== null);
 const jsonLd = record => {
-  const url = `https://aroundpeking.github.io/LibRPA-database/#/material/${encodeURIComponent(record.id)}`;
-  const ld = { "@context": "https://schema.org", "@type": "Dataset", name: `${record.material} — LibRPA Materials Database`, description: record.summary?.observable || "Electronic structure calculation with archived inputs, basis files, and software provenance.", creator: { "@type": "Organization", name: "AroundPeking" }, datePublished: "2026", license: record.source?.license || "See repository LICENSE", isAccessibleForFree: true, url, identifier: record.id, variableMeasured: (record.properties || []).map(p => p.label).filter(Boolean).slice(0, 10) };
-  return `<script type="application/ld+json" data-jsonld>${esc(JSON.stringify(ld, null, 2))}</script>`;
+  const ld = { "@context": "https://schema.org", "@type": "Dataset", name: `${record.material} — LibRPA Materials Database`, description: record.summary?.observable, license: record.source?.license, isAccessibleForFree: true, url: recordPageUrl(record), identifier: record.id, variableMeasured: (record.properties || []).map(p => p.label).filter(Boolean).slice(0, 10) };
+  // Script contents are raw text, not HTML entities. Escape '<' to prevent
+  // a record title from terminating the script without changing JSON values.
+  return `<script type="application/ld+json" data-jsonld>${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`;
 };
 const compareTable = (record, peers) => {
   if (!peers.length) return "";
@@ -158,7 +154,7 @@ function archiveCompletenessNotice(record) {
   return `<div class="notice"><strong>Archive completeness: incomplete</strong><p>This record is retained with the missing-evidence items below; they are tracked in the <a href="missing-evidence.html">missing-evidence checklist</a> and do not alter the archived numerical results.</p><ul>${items}</ul></div>`;
 }
 
-export function renderMaterial(record, sets, allRecords = []) {
+export function renderMaterial(record, sets, allRecords = [], { cite = false } = {}) {
   const inputs = filesOf(record, "inputs");
   const results = filesOf(record, "results");
   const logs = filesOf(record, "logs");
@@ -280,9 +276,9 @@ export function renderMaterial(record, sets, allRecords = []) {
   const nav = sections.map(item => jump(item.id, item.nav)).join("");
   const body = sections.map((item, index) => section(item.id, String(index + 1).padStart(2, "0"), item.title, item.html, item.open === true, item.badge || "")).join("");
   return `<div class="breadcrumb"><a href="#/materials">Materials</a><span>/</span><span>${esc(record.material)}</span></div>
-    <div class="detail-header"><div><div class="detail-tags"><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span><span class="record-type-tag">${esc(recordTypeLabel(record))}</span><span class="frontend-tag">${esc(workflowLabel(record))}</span>${chips(methodNames(record))}${spinPolTag(record)}${socTag(record)}</div><h1>${formulaHtml(record.material)}${record.formula && record.formula !== record.material ? ` <small>${formulaHtml(record.formula)}</small>` : ""}</h1><p class="detail-id"><code>${esc(record.id)}</code><button type="button" class="copy-id" data-copy="${esc(record.id)}" aria-label="Copy record ID ${esc(record.id)}">Copy ID</button></p></div><div class="detail-header-actions"><button class="primary-button" type="button" data-section="${readerConversion ? "record-inputs" : "record-inputs"}">${readerConversion ? (inputs.length ? `View inputs (${inputs.length})` : "Input availability") : inputs.length ? `View inputs (${inputs.length})` : "Input availability"}<span aria-hidden="true">↓</span></button>${bulkDownloadButton(record)}<button class="outline-button" type="button" data-section="record-api">API <span aria-hidden="true">{ }</span></button></div></div>
+    <div class="detail-header"><div><div class="detail-tags"><span class="dimension-tag">${esc(record.dimension.toUpperCase())}</span><span class="record-type-tag">${esc(recordTypeLabel(record))}</span><span class="frontend-tag">${esc(workflowLabel(record))}</span>${chips(methodNames(record))}${spinPolTag(record)}${socTag(record)}</div><h1>${formulaHtml(record.material)}${record.formula && record.formula !== record.material ? ` <small>${formulaHtml(record.formula)}</small>` : ""}</h1><p class="detail-id"><code>${esc(record.id)}</code><button type="button" class="copy-id" data-copy="${esc(record.id)}" aria-label="Copy record ID ${esc(record.id)}">Copy ID</button><a href="${materialLink(record)}?cite=1" data-section="record-citation">Cite this record</a></p></div><div class="detail-header-actions"><button class="primary-button" type="button" data-section="${readerConversion ? "record-inputs" : "record-inputs"}">${readerConversion ? (inputs.length ? `View inputs (${inputs.length})` : "Input availability") : inputs.length ? `View inputs (${inputs.length})` : "Input availability"}<span aria-hidden="true">↓</span></button>${bulkDownloadButton(record)}<button class="outline-button" type="button" data-section="record-api">API <span aria-hidden="true">{ }</span></button></div></div>
     <p class="record-status">${esc(validationState)}</p><div class="result-strip">${resultStrip}</div>
-    <div class="detail-layout"><aside class="section-nav"><p class="kicker">IN THIS RECORD</p>${nav}<div class="section-tools"><button type="button" class="text-button" data-expand="true">Expand all</button><button type="button" class="text-button" data-expand="false">Collapse all</button></div></aside><div class="detail-content">${body}</div></div>${citationBox(record)}${apiBox(record)}${jsonLd(record)}`;
+    ${citationBox(record, cite)}<div class="detail-layout"><aside class="section-nav"><p class="kicker">IN THIS RECORD</p>${nav}<div class="section-tools"><button type="button" class="text-button" data-expand="true">Expand all</button><button type="button" class="text-button" data-expand="false">Collapse all</button></div></aside><div class="detail-content">${body}</div></div>${apiBox(record)}${jsonLd(record)}`;
 }
 
 // The facts a reader needs first: how many electrons are in the valence, how
@@ -319,6 +315,7 @@ export function renderBasis(set, calculations) {
 }
 
 export function installDetailActions(view, getRecord) {
+  installCitationActions(view);
   view.addEventListener("click", event => {
     const anchor = event.target.closest("[data-section]");
     if (anchor) {
@@ -329,10 +326,6 @@ export function installDetailActions(view, getRecord) {
     if (expand) view.querySelectorAll(".detail-section").forEach(section => { section.open = expand.dataset.expand === "true"; });
     const tab = event.target.closest(".property-tab");
     if (tab) activateTab(tab);
-    const citeTab = event.target.closest(".citation-tab");
-    if (citeTab) { view.querySelectorAll(".citation-tab").forEach(t => t.setAttribute("aria-selected", String(t === citeTab))); view.querySelectorAll("[data-citation-content]").forEach(area => { area.hidden = area.dataset.citationContent !== citeTab.dataset.citation; }); }
-    const copyBtn = event.target.closest("[data-citation-copy]");
-    if (copyBtn) { const active = view.querySelector('[data-citation-content]:not([hidden])'); if (active) { active.select(); try { navigator.clipboard.writeText(active.value); copyBtn.textContent = "Copied!"; setTimeout(() => copyBtn.textContent = "Copy citation", 2000); } catch { document.execCommand("copy"); copyBtn.textContent = "Copied!"; setTimeout(() => copyBtn.textContent = "Copy citation", 2000); } } }
     const bulkBtn = event.target.closest("[data-bulk-download]");
     if (bulkBtn) { bulkBtn.disabled = true; const orig = bulkBtn.innerHTML; bulkBtn.innerHTML = "Preparing downloads…"; const record = getRecord(); if (record) { const allFiles = [...filesOf(record, "inputs"), ...filesOf(record, "results"), ...filesOf(record, "logs"), ...filesOf(record, "figures")]; const unique = [...new Map(allFiles.map(f => [f.path, f])).values()]; let done = 0; const next = async () => { if (done >= unique.length || bulkBtn.dataset.cancelled) { bulkBtn.disabled = false; bulkBtn.innerHTML = orig; return; } const file = unique[done++]; try { const url = fileUrl(file); if (!url) { next(); return; } const isExt = isExternalFile(file); if (isExt) { const resp = await fetch(url, { referrerPolicy: "no-referrer" }); if (!resp.ok) throw new Error(`HTTP ${resp.status}`); const blob = await resp.blob(); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = downloadName(file); a.click(); URL.revokeObjectURL(a.href); } else { const a = document.createElement("a"); a.href = url; a.download = downloadName(file); a.click(); } } catch { /* mirror fallback already in files.mjs */ } bulkBtn.innerHTML = `Downloading ${done}/${unique.length}…`; setTimeout(next, 400); }; next(); } }
   });

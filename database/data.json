@@ -20813,6 +20813,7 @@
     {
       "schema_version": 1,
       "id": "cuinp2se6-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "CuInP2Se6",
       "formula": "CuInP2Se6",
@@ -21375,6 +21376,7 @@
     {
       "schema_version": 1,
       "id": "gate-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "GaTe",
       "formula": "GaTe",
@@ -21921,6 +21923,7 @@
     {
       "schema_version": 1,
       "id": "gete-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "GeTe",
       "formula": "GeTe",
@@ -22422,6 +22425,7 @@
     {
       "schema_version": 1,
       "id": "in2se3-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "In2Se3",
       "formula": "In2Se3",
@@ -22968,6 +22972,7 @@
     {
       "schema_version": 1,
       "id": "inse-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "InSe",
       "formula": "InSe",
@@ -23514,6 +23519,7 @@
     {
       "schema_version": 1,
       "id": "mos2-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "MoS2",
       "formula": "MoS2",
@@ -23986,6 +23992,7 @@
     {
       "schema_version": 1,
       "id": "mos2_ws2-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "MoS2-WS2",
       "formula": "MoS2-WS2",
@@ -24882,6 +24889,7 @@
       },
       "formula": "MoSe2",
       "id": "mose2-table-gw",
+      "experimental_gap": null,
       "material": "MoSe2",
       "missing": [
         "Full immutable ABACUS commit or executable SHA-256 was not retained.",
@@ -25039,6 +25047,7 @@
     {
       "schema_version": 1,
       "id": "mote2-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "MoTe2",
       "formula": "MoTe2",
@@ -25553,6 +25562,7 @@
     {
       "schema_version": 1,
       "id": "phosphorene-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "Phosphorene",
       "formula": "Phosphorene",
@@ -26020,6 +26030,7 @@
     {
       "schema_version": 1,
       "id": "snse-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "SnSe",
       "formula": "SnSe",
@@ -26537,6 +26548,7 @@
     {
       "schema_version": 1,
       "id": "tis3-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "TiS3",
       "formula": "TiS3",
@@ -27438,6 +27450,7 @@
       },
       "formula": "WS2",
       "id": "ws2-table-gw",
+      "experimental_gap": null,
       "material": "WS2",
       "missing": [
         "Full immutable ABACUS commit or executable SHA-256 was not retained.",
@@ -27595,6 +27608,7 @@
     {
       "schema_version": 1,
       "id": "wse2-table-gw",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "WSe2",
       "formula": "WSe2",
@@ -28067,6 +28081,7 @@
     {
       "schema_version": 1,
       "id": "hbn-tzdp10-fgext-20261008",
+      "experimental_gap": null,
       "dimension": "2d",
       "material": "hBN",
       "formula": "hBN",
@@ -34804,6 +34819,7 @@
     {
       "schema_version": 1,
       "id": "alas-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlAs",
       "formula": "AlAs",
@@ -35061,6 +35077,7 @@
     {
       "schema_version": 1,
       "id": "alas-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlAs",
       "formula": "AlAs",
@@ -35362,6 +35379,7 @@
     {
       "schema_version": 1,
       "id": "alas-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlAs",
       "formula": "AlAs",
@@ -35663,6 +35681,7 @@
     {
       "schema_version": 1,
       "id": "alas-paper-paper",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlAs",
       "formula": "AlAs",
@@ -36154,6 +36173,7 @@
     {
       "schema_version": 1,
       "id": "alp-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlP",
       "formula": "AlP",
@@ -36414,6 +36434,7 @@
     {
       "schema_version": 1,
       "id": "alp-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlP",
       "formula": "AlP",
@@ -36709,6 +36730,7 @@
     {
       "schema_version": 1,
       "id": "alp-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlP",
       "formula": "AlP",
@@ -37010,6 +37032,7 @@
     {
       "schema_version": 1,
       "id": "alp-paper-k8_shrink_wing",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlP",
       "formula": "AlP",
@@ -37501,6 +37524,7 @@
     {
       "schema_version": 1,
       "id": "alsb-paper-gw_gth_modspencer",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "AlSb",
       "formula": "AlSb",
@@ -37973,6 +37997,7 @@
     {
       "schema_version": 1,
       "id": "bas-paper-k8_shrink_wing",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BAs",
       "formula": "BAs",
@@ -38464,6 +38489,7 @@
     {
       "schema_version": 1,
       "id": "bn-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BN",
       "formula": "BN",
@@ -38724,6 +38750,7 @@
     {
       "schema_version": 1,
       "id": "bn-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BN",
       "formula": "BN",
@@ -39036,6 +39063,7 @@
     {
       "schema_version": 1,
       "id": "bn-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BN",
       "formula": "BN",
@@ -39337,6 +39365,7 @@
     {
       "schema_version": 1,
       "id": "bn-paper-sg15",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BN",
       "formula": "BN",
@@ -39809,6 +39838,7 @@
     {
       "schema_version": 1,
       "id": "bp-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BP",
       "formula": "BP",
@@ -40069,6 +40099,7 @@
     {
       "schema_version": 1,
       "id": "bp-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BP",
       "formula": "BP",
@@ -40364,6 +40395,7 @@
     {
       "schema_version": 1,
       "id": "bp-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BP",
       "formula": "BP",
@@ -40665,6 +40697,7 @@
     {
       "schema_version": 1,
       "id": "bp-paper-k8_shrink_wing",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "BP",
       "formula": "BP",
@@ -41156,6 +41189,7 @@
     {
       "schema_version": 1,
       "id": "bi2se3-abacus-gw-dzp",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "Bi2Se3",
       "formula": "Bi2Se3",
@@ -42082,6 +42116,7 @@
       },
       "formula": "C2",
       "id": "c-delta-st-rpa-20260824",
+      "experimental_gap": null,
       "material": "C",
       "missing": [
         "The C atom reference chain (job 21662288) ran under the earlier unified ABACUS build 556aa49f074746909b9c02c862ac2faa08c145ed (SHA-256 6663de9c4857cf7d012aae06d06572ae5bbc79ca5236ac80d057d325175b1366); the archived software identity covers the solid production chain of the accepted endpoint.",
@@ -42225,6 +42260,7 @@
     {
       "schema_version": 1,
       "id": "c-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "C",
       "formula": "C",
@@ -42479,6 +42515,7 @@
     {
       "schema_version": 1,
       "id": "c-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "C",
       "formula": "C",
@@ -42768,6 +42805,7 @@
     {
       "schema_version": 1,
       "id": "c-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "C",
       "formula": "C",
@@ -43063,6 +43101,7 @@
     {
       "schema_version": 1,
       "id": "c-paper-sg15_cs1e-5",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "C",
       "formula": "C",
@@ -43672,6 +43711,7 @@
       },
       "formula": "C1024",
       "id": "c1024-gamma-g0w0-20260521",
+      "experimental_gap": null,
       "material": "C",
       "missing": [
         "Historical full ABACUS and LibRPA source commits were not retained; executable SHA-256 identities are preserved."
@@ -44163,6 +44203,7 @@
       },
       "formula": "C2048",
       "id": "c2048-reader-v1-20260607",
+      "experimental_gap": null,
       "material": "C",
       "missing": [
         "Raw reader-v1 binary and legacy text eigenvector files are not mirrored in this database.",
@@ -44471,6 +44512,7 @@
       },
       "formula": "C2048",
       "id": "c2048-rpa-20260614",
+      "experimental_gap": null,
       "material": "C",
       "missing": [
         "The historical ABACUS and LibRPA source commit hashes were not retained.",
@@ -44720,6 +44762,7 @@
       },
       "formula": "C512",
       "id": "c512-gamma-g0w0-20260519",
+      "experimental_gap": null,
       "material": "C",
       "missing": [
         "Historical full ABACUS and LibRPA source commits were not retained; executable SHA-256 identities are preserved."
@@ -44838,6 +44881,7 @@
     {
       "schema_version": 1,
       "id": "cao-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CaO",
       "formula": "CaO",
@@ -45096,6 +45140,7 @@
     {
       "schema_version": 1,
       "id": "cao-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CaO",
       "formula": "CaO",
@@ -45397,6 +45442,7 @@
     {
       "schema_version": 1,
       "id": "cao-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CaO",
       "formula": "CaO",
@@ -45698,6 +45744,7 @@
     {
       "schema_version": 1,
       "id": "cao-paper-24freq",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CaO",
       "formula": "CaO",
@@ -46170,6 +46217,7 @@
     {
       "schema_version": 1,
       "id": "cds-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CdS",
       "formula": "CdS",
@@ -46427,6 +46475,7 @@
     {
       "schema_version": 1,
       "id": "cds-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CdS",
       "formula": "CdS",
@@ -46728,6 +46777,7 @@
     {
       "schema_version": 1,
       "id": "cds-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CdS",
       "formula": "CdS",
@@ -47029,6 +47079,7 @@
     {
       "schema_version": 1,
       "id": "cds-paper-debug",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "CdS",
       "formula": "CdS",
@@ -47501,6 +47552,7 @@
     {
       "schema_version": 1,
       "id": "gaas-abacus-gw-soc-32freq",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -47969,6 +48021,7 @@
     {
       "schema_version": 1,
       "id": "gaas-jctc-aims-32ac",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -48185,6 +48238,7 @@
     {
       "schema_version": 1,
       "id": "gaas-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -48445,6 +48499,7 @@
     {
       "schema_version": 1,
       "id": "gaas-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -48794,6 +48849,7 @@
     {
       "schema_version": 1,
       "id": "gaas-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -49143,6 +49199,7 @@
     {
       "schema_version": 1,
       "id": "gaas-paper-gw_xsoc_1e-10",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaAs",
       "formula": "GaAs",
@@ -49659,6 +49716,7 @@
     {
       "schema_version": 1,
       "id": "gan-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaN",
       "formula": "GaN",
@@ -49920,6 +49978,7 @@
     {
       "schema_version": 1,
       "id": "gan-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaN",
       "formula": "GaN",
@@ -50215,6 +50274,7 @@
     {
       "schema_version": 1,
       "id": "gan-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaN",
       "formula": "GaN",
@@ -50564,6 +50624,7 @@
     {
       "schema_version": 1,
       "id": "gan-paper-pca1e-6",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaN",
       "formula": "GaN",
@@ -51036,6 +51097,7 @@
     {
       "schema_version": 1,
       "id": "gap-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaP",
       "formula": "GaP",
@@ -51296,6 +51358,7 @@
     {
       "schema_version": 1,
       "id": "gap-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaP",
       "formula": "GaP",
@@ -51591,6 +51654,7 @@
     {
       "schema_version": 1,
       "id": "gap-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaP",
       "formula": "GaP",
@@ -51892,6 +51956,7 @@
     {
       "schema_version": 1,
       "id": "gap-paper-gw_shrink_chi",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaP",
       "formula": "GaP",
@@ -52364,6 +52429,7 @@
     {
       "schema_version": 1,
       "id": "gasb-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaSb",
       "formula": "GaSb",
@@ -52621,6 +52687,7 @@
     {
       "schema_version": 1,
       "id": "gasb-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaSb",
       "formula": "GaSb",
@@ -52922,6 +52989,7 @@
     {
       "schema_version": 1,
       "id": "gasb-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "GaSb",
       "formula": "GaSb",
@@ -53612,6 +53680,7 @@
       },
       "formula": "H2",
       "id": "h2-delta-st-rpa-20260906",
+      "experimental_gap": null,
       "material": "H2",
       "missing": [
         "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
@@ -53773,6 +53842,7 @@
     {
       "schema_version": 1,
       "id": "inp-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "InP",
       "formula": "InP",
@@ -54030,6 +54100,7 @@
     {
       "schema_version": 1,
       "id": "inp-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "InP",
       "formula": "InP",
@@ -54331,6 +54402,7 @@
     {
       "schema_version": 1,
       "id": "inp-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "InP",
       "formula": "InP",
@@ -54632,6 +54704,7 @@
     {
       "schema_version": 1,
       "id": "kcl-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KCl",
       "formula": "KCl",
@@ -54889,6 +54962,7 @@
     {
       "schema_version": 1,
       "id": "kcl-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KCl",
       "formula": "KCl",
@@ -55190,6 +55264,7 @@
     {
       "schema_version": 1,
       "id": "kcl-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KCl",
       "formula": "KCl",
@@ -55491,6 +55566,7 @@
     {
       "schema_version": 1,
       "id": "kf-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KF",
       "formula": "KF",
@@ -55748,6 +55824,7 @@
     {
       "schema_version": 1,
       "id": "kf-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KF",
       "formula": "KF",
@@ -56049,6 +56126,7 @@
     {
       "schema_version": 1,
       "id": "kf-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "KF",
       "formula": "KF",
@@ -56694,6 +56772,7 @@
       },
       "formula": "Li2",
       "id": "li2-delta-st-rpa-20260913",
+      "experimental_gap": null,
       "material": "Li2",
       "missing": [
         "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
@@ -56856,6 +56935,7 @@
     {
       "schema_version": 1,
       "id": "licl-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiCl",
       "formula": "LiCl",
@@ -57113,6 +57193,7 @@
     {
       "schema_version": 1,
       "id": "licl-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiCl",
       "formula": "LiCl",
@@ -57414,6 +57495,7 @@
     {
       "schema_version": 1,
       "id": "licl-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiCl",
       "formula": "LiCl",
@@ -57715,6 +57797,7 @@
     {
       "schema_version": 1,
       "id": "lif-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiF",
       "formula": "LiF",
@@ -57976,6 +58059,7 @@
     {
       "schema_version": 1,
       "id": "lif-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiF",
       "formula": "LiF",
@@ -58325,6 +58409,7 @@
     {
       "schema_version": 1,
       "id": "lif-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiF",
       "formula": "LiF",
@@ -58674,6 +58759,7 @@
     {
       "schema_version": 1,
       "id": "lif-paper-jy",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "LiF",
       "formula": "LiF",
@@ -59644,6 +59730,7 @@
       },
       "formula": "LiH",
       "id": "lih-molecule-delta-st-rpa-20260913",
+      "experimental_gap": null,
       "material": "LiH",
       "missing": [
         "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
@@ -60356,6 +60443,7 @@
       },
       "formula": "LiH",
       "id": "lih-solid-delta-st-rpa-20260831",
+      "experimental_gap": null,
       "material": "LiH",
       "performance": {
         "cluster_label": "df_dcu",
@@ -60974,6 +61062,7 @@
       },
       "formula": "MgO",
       "id": "mgo-delta-st-rpa-20260829",
+      "experimental_gap": null,
       "material": "MgO",
       "missing": [
         "The per-atom Mg and O reference totals of the reused exact-FD8 atom campaign are not mirrored as numeric files; only the combined cohesive energy is archived. The archived Mg/O atom INPUT/KPT/STRU are the production reference inputs of that campaign.",
@@ -61100,6 +61189,7 @@
     {
       "schema_version": 1,
       "id": "mgo-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgO",
       "formula": "MgO",
@@ -61360,6 +61450,7 @@
     {
       "schema_version": 1,
       "id": "mgo-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgO",
       "formula": "MgO",
@@ -61703,6 +61794,7 @@
     {
       "schema_version": 1,
       "id": "mgo-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgO",
       "formula": "MgO",
@@ -62052,6 +62144,7 @@
     {
       "schema_version": 1,
       "id": "mgo-paper-fix_gap",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgO",
       "formula": "MgO",
@@ -62524,6 +62617,7 @@
     {
       "schema_version": 1,
       "id": "mgs-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgS",
       "formula": "MgS",
@@ -62781,6 +62875,7 @@
     {
       "schema_version": 1,
       "id": "mgs-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgS",
       "formula": "MgS",
@@ -63082,6 +63177,7 @@
     {
       "schema_version": 1,
       "id": "mgs-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "MgS",
       "formula": "MgS",
@@ -63756,6 +63852,7 @@
       },
       "formula": "N2",
       "id": "n2-delta-st-rpa-20260913",
+      "experimental_gap": null,
       "material": "N2",
       "missing": [
         "The molecular campaign's per-job slurm scheduler logs and the producer build tree are not mirrored; the archived RUN_PROVENANCE files carry the executable hash and job identifiers.",
@@ -63919,6 +64016,7 @@
     {
       "schema_version": 1,
       "id": "nacl-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaCl",
       "formula": "NaCl",
@@ -64179,6 +64277,7 @@
     {
       "schema_version": 1,
       "id": "nacl-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaCl",
       "formula": "NaCl",
@@ -64474,6 +64573,7 @@
     {
       "schema_version": 1,
       "id": "nacl-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaCl",
       "formula": "NaCl",
@@ -64775,6 +64875,7 @@
     {
       "schema_version": 1,
       "id": "nacl-paper-sg15",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaCl",
       "formula": "NaCl",
@@ -65268,6 +65369,7 @@
     {
       "schema_version": 1,
       "id": "naf-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaF",
       "formula": "NaF",
@@ -65526,6 +65628,7 @@
     {
       "schema_version": 1,
       "id": "naf-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaF",
       "formula": "NaF",
@@ -65827,6 +65930,7 @@
     {
       "schema_version": 1,
       "id": "naf-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NaF",
       "formula": "NaF",
@@ -66128,6 +66232,7 @@
     {
       "schema_version": 1,
       "id": "nio-aims-gw-int",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "NiO",
       "formula": "NiO",
@@ -67086,6 +67191,7 @@
       },
       "formula": "Si2",
       "id": "si-delta-st-rpa-20260824",
+      "experimental_gap": null,
       "material": "Si",
       "missing": [
         "The ABACUS executable identity of the 2026-08-12 Si atom reference campaign was not retained locally; the accepted atom endpoint is preserved in the archived campaign CSV. The solid production chain identity is archived in full.",
@@ -67229,6 +67335,7 @@
     {
       "schema_version": 1,
       "id": "si-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "Si",
       "formula": "Si",
@@ -67483,6 +67590,7 @@
     {
       "schema_version": 1,
       "id": "si-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "Si",
       "formula": "Si",
@@ -67820,6 +67928,7 @@
     {
       "schema_version": 1,
       "id": "si-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "Si",
       "formula": "Si",
@@ -68163,6 +68272,7 @@
     {
       "schema_version": 1,
       "id": "si-paper-all_kpath",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "Si",
       "formula": "Si",
@@ -69136,6 +69246,7 @@
       },
       "formula": "SiC",
       "id": "sic-delta-st-rpa-20260829",
+      "experimental_gap": null,
       "material": "SiC",
       "missing": [
         "The per-atom Si reference total of the 16-frequency screening recompute is not mirrored as a numeric file; only the combined cohesive energy and the reused C atom reference are archived.",
@@ -69288,6 +69399,7 @@
     {
       "schema_version": 1,
       "id": "sic-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "SiC",
       "formula": "SiC",
@@ -69548,6 +69660,7 @@
     {
       "schema_version": 1,
       "id": "sic-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "SiC",
       "formula": "SiC",
@@ -69843,6 +69956,7 @@
     {
       "schema_version": 1,
       "id": "sic-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "SiC",
       "formula": "SiC",
@@ -70144,6 +70258,7 @@
     {
       "schema_version": 1,
       "id": "sic-paper-pca1e-6",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "SiC",
       "formula": "SiC",
@@ -70616,6 +70731,7 @@
     {
       "schema_version": 1,
       "id": "zno-abacus-gw-sg15",
+      "experimental_gap": null,
       "material": "ZnO",
       "formula": "ZnO",
       "dimension": "3d",
@@ -71106,6 +71222,7 @@
     {
       "schema_version": 1,
       "id": "zno-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnO",
       "formula": "ZnO",
@@ -71363,6 +71480,7 @@
     {
       "schema_version": 1,
       "id": "zno-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnO",
       "formula": "ZnO",
@@ -71712,6 +71830,7 @@
     {
       "schema_version": 1,
       "id": "zno-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnO",
       "formula": "ZnO",
@@ -72078,6 +72197,7 @@
     {
       "schema_version": 1,
       "id": "zns-jctc-aims-gw",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnS",
       "formula": "ZnS",
@@ -72335,6 +72455,7 @@
     {
       "schema_version": 1,
       "id": "zns-jctc-librpa-16",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnS",
       "formula": "ZnS",
@@ -72636,6 +72757,7 @@
     {
       "schema_version": 1,
       "id": "zns-jctc-librpa-32",
+      "experimental_gap": null,
       "dimension": "3d",
       "material": "ZnS",
       "formula": "ZnS",

@@ -69,9 +69,10 @@ export function paperGap(record, method = "GW") {
   const paper = record.paper_values;
   const value = paper?.values?.[method];
   const source = paper?.source;
+  const evidenceFiles = record.files ? filesOf(record, "results") : [record._paper_result].filter(Boolean);
   if (!paper || !source || !/^[0-9a-f]{64}$/i.test(source.document_sha256 || "") ||
       !Number.isInteger(source.pdf_page) || source.pdf_page < 1 || !source.table ||
-      !filesOf(record, "results").some(file => file.path === paper.evidence && /^[0-9a-f]{64}$/i.test(file.sha256 || "")) ||
+      !evidenceFiles.some(file => file.path === paper.evidence && /^[0-9a-f]{64}$/i.test(file.sha256 || "")) ||
       !value || value.unit !== "eV" || !Number.isFinite(value.value) ||
       !Number.isInteger(value.precision) || value.precision < 0 || value.precision > 8 || !value.column) return null;
   return value;

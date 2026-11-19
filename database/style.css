@@ -333,7 +333,7 @@ html[data-theme="dark"] .pt-heat-4{color:#ffffff}
 
 /* ---------- Gap overview: table and chart ---------- */
 .gap-table{min-width:820px}
-.gap-table tbody th{max-width:330px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gap-table tbody th{max-width:330px;white-space:normal;overflow-wrap:anywhere}
 .gap-table tbody td{white-space:nowrap}
 .gap-table .table-description{display:inline;margin-left:8px}
 .gap-table .dimension-tag{margin-right:4px}
@@ -344,6 +344,12 @@ html[data-theme="dark"] .pt-heat-4{color:#ffffff}
 .gw-line{display:flex;align-items:center;gap:12px}
 .gap-bar{flex:1;height:6px;min-width:70px;border-radius:3px;background:var(--tint);overflow:hidden}
 .gap-bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--heat-3),var(--accent))}
+.gap-controls{margin:0 0 16px;padding:16px 20px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card)}
+.comparison-selects{display:flex;align-items:flex-end;flex-wrap:wrap;gap:12px 20px}
+.comparison-selects label,.gap-controls legend{color:var(--text-soft);font-weight:600;font-size:13px}
+.comparison-selects select{display:block;width:100%;margin-top:4px;padding:6px 10px;color:var(--text-strong);background:var(--raised);border:1px solid var(--line-strong);border-radius:var(--r-ctl);font-size:14px}
+.comparison-chips,#gap-series{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}.comparison-chips{margin:8px 0 12px;color:var(--subtle);font-size:13px}
+.gap-controls fieldset{margin:0;padding:0;border:0}.gap-controls legend{padding:0}#gap-series label{display:inline-flex;align-items:center;gap:5px;min-height:36px;color:var(--ink);font-size:14px;cursor:pointer}
 .gap-chart{margin-bottom:16px}
 .chart-card{margin:0;padding:18px 20px 14px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--chart-surface);box-shadow:var(--shadow-1)}
 .chart-card figcaption{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:10px 24px;margin-bottom:6px}
@@ -352,7 +358,9 @@ html[data-theme="dark"] .pt-heat-4{color:#ffffff}
 .chart-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;padding:0;list-style:none;color:var(--text-body);font-size:13px}
 .chart-legend li{display:inline-flex;align-items:center;gap:8px}
 .legend-dot{width:10px;height:10px;border-radius:50%;background:var(--series-1)}
-.legend-dot[data-frontend="fhi_aims"]{background:var(--series-2)}
+.gap-point,.gap-symbol{--method-color:var(--series-1)}
+[data-method="exx"]{--method-color:var(--series-2)}[data-method="gw"]{--method-color:#228178}[data-method="ks"]{--method-color:#8f69cb}[data-method="qsgw"]{--method-color:#b28728}[data-method="dmft"]{--method-color:#c0638c}
+.gap-symbol[data-method] .gap-dot{fill:var(--method-color)}
 .legend-line{width:18px;border-top:2px dashed var(--text-faint)}
 .chart-frame{position:relative}
 .gap-scatter{display:block;width:100%;height:auto;overflow:visible}
@@ -363,7 +371,10 @@ html[data-theme="dark"] .pt-heat-4{color:#ffffff}
 .chart-label{fill:var(--text-body);font-size:13px;font-weight:600;font-family:var(--font-ui)}
 .gap-hit{fill:transparent}
 .gap-dot{fill:var(--series-1);stroke:var(--chart-surface);stroke-width:2;transition:r .12s ease}
-.gap-point[data-frontend="fhi_aims"] .gap-dot{fill:var(--series-2)}
+.gap-point[data-method] .gap-dot{fill:var(--method-color)}
+.gap-table .gap-meta,.gap-table .gap-scope{max-width:38ch;white-space:normal;overflow-wrap:anywhere;color:var(--text-soft);font-size:12px}
+.gap-meta p{margin:4px 0;text-align:left}.gap-cite{display:inline-block;padding:4px;font-size:14px}.chart-empty{color:var(--text-soft);max-width:72ch;margin:10px 0}
+
 .gap-point:hover .gap-dot,.gap-point:focus-visible .gap-dot{r:7;stroke:var(--text-strong)}
 .gap-point:focus-visible{outline:none}
 .chart-tooltip{position:absolute;z-index:5;min-width:170px;max-width:260px;padding:8px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--panel);box-shadow:var(--shadow-2);color:var(--text-soft);font-size:13px;line-height:1.5;pointer-events:none}
