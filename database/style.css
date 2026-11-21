@@ -559,6 +559,9 @@ html[data-theme="dark"] .notice.warning strong{color:#e6bd73}
 .structure-canvas svg{display:block;width:100%;height:auto;max-height:360px;pointer-events:none}
 .structure-legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:13px}
 .structure-attachment+.structure-attachment{margin-top:24px}
+.structure-duplicate{margin:10px 0 0;padding:10px 12px;border:1px dashed var(--line-strong);border-radius:8px;background:var(--panel);color:var(--text-soft);font-size:13px;overflow-wrap:anywhere}
+.structure-duplicate code{font-size:12.5px}
+.structure-duplicate-file{display:block;margin-top:2px;color:var(--text-faint)}
 .structure-legend span{display:inline-flex;align-items:center;gap:6px}
 .structure-legend i{width:11px;height:11px;border-radius:50%}
 @media(max-width:700px){.structure-grid{grid-template-columns:1fr}.structure-view-actions button{min-height:44px;min-width:44px}}

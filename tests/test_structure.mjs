@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { parseStructure, reciprocalCell, brillouinZone, getSpecialPoints, structureScene, sceneSvg, structurePreview, loadStructureFile } from "../database/structure.mjs";
+import { parseStructure, reciprocalCell, brillouinZone, getSpecialPoints, structureScene, sceneSvg, structurePreview, structureFingerprint, groupStructureFiles, structureLabels, loadStructureFile } from "../database/structure.mjs";
 import { renderMaterial } from "../database/details.mjs";
 
 const dot = (a,b) => a.reduce((s,x,i) => s+x*b[i],0);
@@ -158,6 +158,49 @@ test("each downloadable structure has its own preview below the file row", () =>
   assert.match(page,/data-preview="data\/solid__STRU"/);
   assert.match(page,/&lt;solid&gt;/);
   assert.ok(page.indexOf('data-preview="data/solid__STRU"') < page.indexOf('data-structure-path="data/solid__STRU"'));
+});
+
+test("a file that repeats an earlier structure keeps its row but not a second preview", () => {
+  const one={path:"data/scf/STRU",sha256:"a".repeat(64),label:"scf / STRU"};
+  const again={path:"data/band/STRU",sha256:"a".repeat(64),label:"band / STRU"};
+  const other={path:"data/atom/STRU",sha256:"b".repeat(64),label:"atom / STRU"};
+  const groups=groupStructureFiles([one,again,other]);
+  assert.deepEqual(groups.map(g=>g.preview),[true,false,true]);
+  assert.equal(groups[1].sameAs.name,"scf / STRU");
+  assert.equal(groups[1].sameAs.reason,"sha256");
+  // A non-structure input is passed through untouched.
+  assert.equal(groupStructureFiles([{path:"data/INPUT",sha256:"c".repeat(64)}])[0].preview,false);
+
+  const page=renderMaterial({id:"test",material:"MoS2",dimension:"2d",summary:{},files:{inputs:[one,again,other]}},[]);
+  assert.equal((page.match(/data-structure-path=/g)||[]).length,2);
+  assert.equal((page.match(/class="structure-duplicate"/g)||[]).length,1);
+  assert.match(page,/Same structure as <code>scf \/ STRU<\/code>/);
+  // Two files both labelled "STRU" must be distinguishable in the pointer.
+  const sameName = [
+    {path:"data/c/inputs/calculation__STRU",sha256:"a".repeat(64),label:"STRU"},
+    {path:"data/c/inputs/calculation__pbe_path__STRU",sha256:"a".repeat(64),label:"STRU"},
+  ];
+  const names = structureLabels(sameName);
+  assert.notEqual(names.get(sameName[0].path), names.get(sameName[1].path));
+  assert.match(renderMaterial({id:"t",material:"B",dimension:"2d",summary:{},files:{inputs:sameName}},[]), /Same structure as <code>calculation \/ STRU<\/code>/);
+  assert.match(page,/band \/ STRU/,"the repeated file is still named in the pointer");
+  assert.match(page,/data-preview="data\/band\/STRU"/,"its download row survives");
+  // Both rows are still listed in display order.
+  assert.ok(page.indexOf("data-preview=\"data/scf/STRU\"") < page.indexOf("data-preview=\"data/band/STRU\""));
+});
+
+test("the preview fingerprint ignores site order and sub-1e-4 noise only", () => {
+  const base={cell:[[3,0,0],[0,3,0],[0,0,30]],sites:[{element:"Mo",position:[0,0,1]},{element:"S",position:[0,0,2]}]};
+  const reordered={cell:base.cell,sites:[...base.sites].reverse()};
+  const nudged={cell:[[3.00001,0,0],[0,3,0],[0,0,30]],sites:base.sites};
+  const vacuum={cell:[[3,0,0],[0,3,0],[0,0,40]],sites:base.sites};
+  const permuted={cell:[base.cell[1],base.cell[0],base.cell[2]],sites:base.sites};
+  assert.equal(structureFingerprint(base),structureFingerprint(reordered));
+  assert.equal(structureFingerprint(base),structureFingerprint(nudged));
+  // A different cell is never treated as the same crystal.
+  assert.notEqual(structureFingerprint(base),structureFingerprint(vacuum));
+  assert.notEqual(structureFingerprint(base),structureFingerprint(permuted));
+  assert.deepEqual(JSON.parse(JSON.stringify(base)).sites.length,2,"fingerprinting does not mutate its input");
 });
 
 test("source is parsed only after SHA verification; mirror retries the same identity", async () => {

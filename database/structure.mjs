@@ -274,9 +274,62 @@ export function sceneSvg(scene, camera = defaultCamera(), label = "Crystal struc
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-label="${esc(label)}"><g font-family="system-ui,sans-serif" font-size="14">${faces}${edges}${atoms}${points}${orientation}</g></svg>`;
 }
 
-export function structurePreview(file) {
+// Cell and sites rounded to 1e-4 Å, sites sorted, so two files that describe
+// the same crystal compare equal even when their text differs (a stripped
+// ABFS_ORBITAL block, a rewritten asset path, a different vacuum layer in a
+// slab). Lattice orientation is not normalised: a permuted cell counts as a
+// different preview, because deciding that two settings are equivalent is a
+// scientific judgement this code must not make silently.
+export function structureFingerprint(structure) {
+  const q = value => Math.round(value * 1e4);
+  const cell = structure.cell.map(row => row.map(q).join(",")).join(";");
+  const sites = structure.sites.map(site => `${site.element}@${site.position.map(q).join(",")}`).sort().join(";");
+  return `${cell}|${sites}`;
+}
+
+export function structurePreview(file, { sameAs = null } = {}) {
   if (!structureFormat(file)) return "";
+  // A file that repeats a structure already previewed above keeps its download
+  // row but gets a pointer instead of a second identical pair of drawings.
+  if (sameAs) return `<p class="structure-duplicate"><span aria-hidden="true">↳</span> Same structure as <code>${esc(sameAs.name)}</code>${sameAs.reason === "sha256" ? " (byte-identical file)" : ""}; its preview is shown there.</p>`;
   return `<div class="structure-preview" data-structure-path="${esc(file.path)}"><p class="structure-status" role="status" hidden></p><button type="button" class="text-button" data-structure-retry hidden>Retry preview</button><div class="structure-plots"></div></div>`;
+}
+
+// A reader has to be able to tell which file the pointer refers to. Labels are
+// often just "STRU" for several stages, so a label that repeats among the
+// structure files is qualified by the stage carried in the path.
+export function structureLabels(files) {
+  const plain = file => file.display_name || file.label || file.path.split("/").at(-1).split("__").at(-1);
+  const counts = new Map();
+  for (const file of files) { const name = plain(file); counts.set(name, (counts.get(name) || 0) + 1); }
+  const labels = new Map();
+  for (const file of files) {
+    const name = plain(file);
+    if ((counts.get(name) || 0) < 2) { labels.set(file.path, name); continue; }
+    // Spell the path the way the download row already reads: stage folders and
+    // the "stage__FILE" convention both become " / " segments.
+    const parts = file.path.split("/");
+    const stem = parts.at(-1).split("__");
+    const qualified = stem.length > 1 ? stem.join(" / ") : [parts.at(-2), stem[0]].filter(Boolean).join(" / ");
+    labels.set(file.path, qualified || name);
+  }
+  return labels;
+}
+
+// Static first pass: identical bytes are the same structure without downloading
+// anything. The caller passes the structure files in display order and gets
+// back, per file, either a preview marker or the earlier file it repeats.
+export function groupStructureFiles(files) {
+  const labels = structureLabels(files), seen = new Map(), groups = [];
+  for (const file of files) {
+    if (!structureFormat(file)) { groups.push({ file, preview: false, sameAs: null }); continue; }
+    const key = /^[a-f0-9]{64}$/.test(file.sha256 || "") ? file.sha256 : `path:${file.path}`;
+    const first = seen.get(key);
+    if (first) { groups.push({ file, preview: false, sameAs: { name: first.name, reason: "sha256" } }); continue; }
+    seen.set(key, { file, name: labels.get(file.path) });
+    groups.push({ file, preview: true, sameAs: null });
+  }
+  return groups;
 }
 
 export async function loadStructureFile(file, fetcher = fetch) {
@@ -298,12 +351,27 @@ export async function loadStructureFile(file, fetcher = fetch) {
 
 export function installStructurePreview(view, getRecord) {
   const states = new WeakMap();
+  // fingerprint -> { root, name } of the first preview that drew that crystal,
+  // so a later file describing the identical structure does not draw it again.
+  const drawn = new Map();
   const draw = (root, kind) => {
     const state = states.get(root), panel = root.querySelector(`[data-structure-panel="${kind}"]`);
     if (!state?.scenes[kind] || !panel) return;
     panel.querySelector(".structure-canvas").innerHTML = sceneSvg(state.scenes[kind], state.cameras[kind], kind === "cell" ? "Crystal structure" : "First Brillouin zone");
   };
   const panel = (kind, title) => `<article class="structure-plot" data-structure-panel="${kind}"><div class="structure-plot-heading"><h3>${title}</h3><div class="structure-view-actions"><button type="button" data-structure-camera="out" aria-label="Zoom out ${title}">−</button><button type="button" data-structure-camera="in" aria-label="Zoom in ${title}">+</button><button type="button" data-structure-camera="reset" aria-label="Reset ${title} view">Reset</button></div></div><div class="structure-canvas" tabindex="0" role="group" aria-label="${title}. Drag or use arrow keys to rotate; plus and minus to zoom; Home to reset."></div></article>`;
+  // Same disambiguation as the static pass, so a pointer never says
+  // "Same structure as STRU" when three files are called STRU.
+  const nameMap = () => structureLabels(getRecord()?.files?.inputs || []);
+  const displayName = file => nameMap().get(file.path) || file.path.split("/").at(-1);
+  // Replace this preview with a pointer to the one that already rendered the
+  // same crystal. The download row above it stays, so the file is still reachable.
+  const collapse = (root, file, target) => {
+    states.delete(root);
+    root.dataset.structureDuplicateOf = target.root.dataset.structurePath || "";
+    root.className = "structure-duplicate";
+    root.innerHTML = `<span aria-hidden="true">↳</span> Same structure as <code>${esc(target.name)}</code>; its preview is shown there.<span class="structure-duplicate-file">${esc(displayName(file))} differs only in file contents.</span>`;
+  };
   const load = async root => {
     const files = getRecord()?.files?.inputs || [], path = root.dataset.structurePath;
     const file = files.find(f => f.path === path);
@@ -316,6 +384,18 @@ export function installStructurePreview(view, getRecord) {
       if (!file) throw new Error("Structure file unavailable");
       const structure = await loadStructureFile(file);
       if (!root.isConnected || states.get(root)?.token !== token) return;
+      // Byte-different files can still describe the same crystal. Look for an
+      // earlier preview that already drew it before spending a second drawing.
+      const fingerprint = structureFingerprint(structure);
+      const earlier = drawn.get(fingerprint);
+      if (earlier && earlier.root !== root) {
+        // A preview from a previous record leaves the page behind; drop the
+        // stale entry instead of pointing the reader at nothing.
+        if (earlier.root.isConnected) { collapse(root, file, earlier); return; }
+        drawn.delete(fingerprint);
+      }
+      drawn.set(fingerprint, { root, name: displayName(file) });
+      root.dataset.structureFingerprint = fingerprint;
       const state = { token, scenes: { cell: structureScene(structure) }, cameras: { cell: defaultCamera(), bz: defaultCamera() } };
       states.set(root, state);
       let zoneError;
@@ -335,7 +415,15 @@ export function installStructurePreview(view, getRecord) {
   };
   view.addEventListener("toggle", event => {
     if (event.target.id !== "record-structure" || !event.target.open) return;
-    for (const root of event.target.querySelectorAll(".structure-preview")) if (!states.has(root)) load(root);
+    // Load in display order: the first structure in the section keeps the
+    // preview, and later files describing the same crystal point back at it.
+    // Loading concurrently would let whichever download finishes first win, so
+    // the retained preview could change between page loads.
+    (async () => {
+      for (const root of event.target.querySelectorAll(".structure-preview")) {
+        if (!states.has(root)) await load(root);
+      }
+    })();
   }, true);
   const moveCamera = (root, kind, action) => {
     const state = states.get(root);
