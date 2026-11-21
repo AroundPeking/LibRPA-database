@@ -6,8 +6,8 @@
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "program_output_exception_baseline": "data/historical-program-output-exceptions.json",
   "stats": {
-    "total": 122,
-    "complete": 64,
+    "total": 123,
+    "complete": 65,
     "incomplete": 58,
     "issue_count": 74,
     "accepted_exception_count": 74,
@@ -1791,6 +1791,18 @@
     },
     {
       "id": "si-jctc-librpa-32",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
+      "blocking_categories": {}
+    },
+    {
+      "id": "si-libbse-exciton-20261120",
       "material": "Si",
       "dimension": "3d",
       "status": "complete",

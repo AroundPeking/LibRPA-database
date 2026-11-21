@@ -348,3 +348,84 @@ the archived spectra and their original frozen selections. Their expanded
 viewports show those selections in full without changing the data. When
 figure-derived and paper values differ, the Overview displays them in
 separate columns; figures are not modified to simulate agreement.
+
+
+## Exciton densities: the BSE counterpart of a band figure
+
+`scripts/plot_exciton_slice.py` renders a density slice that a BSE run already
+wrote, and `scripts/plot_exciton_density.py` derives one from archived
+amplitudes. Both are the same tools the `oh-my-librpa` skill ships; they live
+here so an archived exciton figure can be regenerated from the record's own
+bytes, the way `scripts/generate_band_figures.py` regenerates band figures.
+
+```bash
+python3 scripts/plot_exciton_slice.py results/exciton_density_cond_elec.dat \
+    results/exciton_density_cond_hole.dat \
+    --labels "conditional electron" "conditional hole" \
+    --output figures/exciton_conditional.svg --audit figures/exciton_conditional.audit.json
+```
+
+The slice reader is **standard-library only**, which matters because the gates
+run without numpy. `plot_exciton_density.py` does need numpy — it evaluates
+Bloch sums of atomic orbitals on a real-space grid — and says so with a clear
+message instead of an ImportError traceback.
+
+Conventions the plotter reads from the `# ABACUS_EXCITON_SLICE 1` header rather
+than assuming:
+
+| header line | use |
+|---|---|
+| `grid <nu> <nv> u_range ... v_range ...` | panel extents in primitive cells |
+| `density_kind average_elec` / `conditional_hole` | which particle was integrated out |
+| `plane ab slice_pos_bohr ...` | which in-plane axes the two axes map to |
+| `fixed_particle hole position_bohr x y z` | where the pinned particle sat, in Bohr |
+| `kpoints 14 14 14` | the mesh that entered the coherent sum, i.e. the repeat period |
+| `bvk 7 7 7` | the coarse mesh a dual-grid header inherits — **not** the period |
+
+Two things follow from those conventions and are easy to get wrong:
+
+- **The repeat period of a conditional density is the mesh of the coherent sum,
+  not `bvk`.** A dual-grid run sums over the dense mesh while the header's
+  `bvk` still names the coarse one, so reading `bvk` puts the pinned particle’s
+  periodic images at the wrong spacing. The plotter prefers `kpoints` and falls
+  back to `bvk` only when it is absent.
+- **A large native slice is block-averaged for display.** A 225 × 225 panel would
+  need 50 000 rectangles per panel; the plotter averages blocks down to at most
+  160 cells per side and records the factor as `display_block_average` in the
+  audit so the figure never implies native resolution.
+
+The audit JSON carries each slice's SHA-256, parsed header, value range and
+display downsampling, so a reviewer can tell exactly what the figure shows.
+
+### Regenerating a record's exciton figures
+
+The archived PNGs of a calculation record were produced with
+`scripts/plot_exciton_slice.py`. To regenerate them from the record's own bytes:
+
+```bash
+cd data/calculations/3d/Si/si-libbse-exciton-20261120
+python3 ../../../../../scripts/plot_exciton_slice.py \
+    results/exciton_density_cond_elec.dat results/exciton_density_cond_hole.dat \
+    --labels "conditional electron" "conditional hole" \
+    --title "Si conditional exciton density" \
+    --output /tmp/exciton_conditional.svg --audit /tmp/exciton_conditional.audit.json
+```
+
+The record's `inputs/` also carries the reproduction kit — the wavefunctions, the
+first ten states' amplitudes, the orbital file and `stru_out` — with which
+`scripts/plot_exciton_density.py` rebuilds the densities from scratch:
+
+```bash
+mkdir /tmp/repro && cd /tmp/repro
+tar xzf .../results/wfk.tgz
+tar xzf .../results/first10_states_amplitudes.tar.gz
+cp .../inputs/Si_gga_8au_100Ry_3s3p2d.orb .../inputs/stru_out .
+python3 .../scripts/plot_exciton_density.py --workdir . --nscf-dir wfk --amplitudes . \
+    --orb Si_gga_8au_100Ry_3s3p2d.orb --state 0 --kind cond-elec \
+    --fixed-point 2.5755 2.5755 2.5755 --plane ab --slice-pos 1.8211 \
+    --npoints 224 --range -14 14 -14 14 --out /tmp/repro/density
+```
+
+That path needs numpy and takes minutes, which is why the record also archives the
+finished `.dat` slices: a reader who only wants to check the figure does not have
+to rerun the reconstruction.

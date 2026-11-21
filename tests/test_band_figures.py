@@ -377,7 +377,7 @@ class BandFigureTests(unittest.TestCase):
                 self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
         if declared:
-            self.assertEqual(declared, 194)
+            self.assertEqual(declared, 197)
 
     def test_nonpositive_selected_gap_unreferences_previous_svg_without_deleting(self):
         with tempfile.TemporaryDirectory() as tmp:
