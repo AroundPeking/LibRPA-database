@@ -22,6 +22,19 @@ Open the [gap comparison](https://aroundpeking.github.io/LibRPA-database/databas
 
 Share the filtered page URL to reproduce the selection. For numerical values, use **Cite** in the table to cite the individual calculation record and, where listed, its original source. Include the measurement source when using an experimental value. Records with the same formula are not averaged and may describe different structures, magnetic states or sampling paths.
 
+## Preview crystal structures
+
+Open **Crystal structure** on a material page to rotate and zoom the input
+cell and its first Brillouin zone below the corresponding file download. Each
+preview reads that STRU, FHI-aims `geometry.in`, or POSCAR file. The zone
+belongs to the input cell; supercells and 2D vacuum directions retain
+their corresponding reciprocal-space geometry.
+
+Special-point labels follow the [Setyawan–Curtarolo convention](https://docs.ase-lib.org/ase/dft/kpoints.html).
+Primitive cubic, FCC, BCC, tetragonal, orthorhombic, and hexagonal cell settings
+are recognized under rotations and signed axis permutations. Other cell
+settings currently show Γ only.
+
 ## Where the files live
 
 | Layer | Location |

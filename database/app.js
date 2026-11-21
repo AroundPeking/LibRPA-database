@@ -2,6 +2,7 @@ import { matchesSearch, materialSearchText, basisSearchText, normalizeSearchText
 import { esc, recordElements } from "./records.mjs";
 import { installPreview, installBlobDownloads } from "./files.mjs";
 import { installRadial } from "./radial.mjs";
+import { installStructurePreview } from "./structure.mjs";
 import { renderMaterial, renderBasis, installDetailActions } from "./details.mjs";
 import { buildGapComparison, renderGapOverview, renderGapChart, installGapChartTooltip } from "./gaps.mjs";
 import { gapInventory, selectedGapRecords, readGapParams, writeGapParams, syncGapControls, installGapControls } from "./gap-controls.mjs";
@@ -557,6 +558,7 @@ async function start() {
   installPreview($("#file-preview"));
   installBlobDownloads();
   installRadial($("#detail-view"));
+  installStructurePreview($("#detail-view"), () => state.currentRecord);
   installDetailActions($("#detail-view"), () => state.currentRecord);
   const themeToggle = $("#theme-toggle");
   if (themeToggle) {

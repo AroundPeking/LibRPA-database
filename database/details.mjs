@@ -4,6 +4,7 @@ import { radialSection } from "./radial.mjs";
 import { renderPropertyPanel, renderPropertyTabs, getPropertyCategories } from "./properties.mjs";
 import { recordJsonUrl, recordPageUrl } from "./explorer.mjs";
 import { citationBox, installCitationActions, paperEvidenceUrl } from "./citation.mjs";
+import { structurePreview } from "./structure.mjs";
 
 const gapText = (value, precision = 3) => value === null ? "—" : `${value.toFixed(precision)} <small>eV</small>`;
 
@@ -188,7 +189,7 @@ export function renderMaterial(record, sets, allRecords = [], { cite = false } =
   // headline: the gap definition note in Overview already states what the value is.
   const scopedObservable = "";
   const overview = `${scopedObservable}${sameStructureNotice(record, allRecords)}${crossFrontendNotice(record, allRecords)}${archiveCompletenessNotice(record)}${referenceInfo(record)}<p class="detail-note">Calculation data, methods, and provenance are organized in the sections below.</p>${sourceInfo(record)}${record.summary?.gap_definition ? `<p class="definition-note"><strong>Gap definition</strong> ${esc(record.summary.gap_definition)}</p>` : ""}`;
-  const structureHtml = structure.length ? `<p class="section-intro">Structure files attached to this calculation. Files from different calculation stages remain separately identified.</p>${renderFiles(structure, { input: true })}` : '<div class="empty-panel"><h3>Structure data</h3><p>This record presents the calculation results and attached provenance files; no separate STRU, CIF, or equivalent structure file is listed.</p></div>';
+  const structureHtml = structure.length ? structure.map(file => `<div class="structure-attachment">${renderFiles([file], { input: true })}${structurePreview(file)}</div>`).join("") : '<div class="empty-panel"><h3>Structure data</h3><p>This record presents the calculation results and attached provenance files; no separate STRU, CIF, or equivalent structure file is listed.</p></div>';
   const bandsHtml = `<p class="section-intro">Figure style and data contracts: <a href="../references/plotting.md">plotting reference</a> · <a href="https://github.com/AroundPeking/LibRPA-database/blob/main/scripts/generate_band_figures.py" target="_blank" rel="noopener">reusable band-figure script ↗</a>. Each method uses its own occupied path VBM. The y range shows the full extent of the selected curves without adding bands.</p>${mainFigures.length ? `${figureGrid(mainFigures)}<p class="definition-note">Band figures follow the recorded k-path; refer to the definition and scope in Overview.</p>` : '<p class="empty-panel">No band figures are recorded; the archived result files are listed under Results files.</p>'}`;
   const sampledPbe = sampledGridGap(record, "PBE");
   const sampledGw = sampledGridGap(record, "G0W0");
