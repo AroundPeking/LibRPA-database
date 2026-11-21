@@ -1,3 +1,5 @@
 *.orb -diff
 *.upf -diff
 *.abfs -diff
+# Preserve archived structure fixture bytes, including their original trailing spaces.
+tests/fixtures/structures/* -text -whitespace

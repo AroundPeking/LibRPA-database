@@ -545,6 +545,24 @@ html[data-theme="dark"] .notice.warning strong{color:#e6bd73}
 .copy-button{position:absolute;top:8px;right:8px;min-height:32px;padding:2px 10px;border:1px solid rgba(255,255,255,.22);border-radius:6px;background:rgba(255,255,255,.08);color:#dfe8f3;font-size:12px;font-weight:600}
 .copy-button:hover{background:rgba(255,255,255,.16)}
 
+/* ---------- Crystal structure previews ---------- */
+.structure-status,.structure-metrics{font-size:13px;color:var(--text-soft);overflow-wrap:anywhere}
+.structure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.structure-plot{min-width:0;border:1px solid var(--line);border-radius:var(--r-card);background:var(--raised);overflow:hidden}
+.structure-plot-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--line)}
+.structure-plot-heading h3{margin:0;font-size:14px}
+.structure-view-actions{display:flex;gap:4px}
+.structure-view-actions button{min-height:36px;min-width:36px;padding:4px 8px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);color:var(--text-strong);font-size:13px}
+.structure-view-actions button:hover{border-color:var(--accent);color:var(--accent)}
+.structure-canvas{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;min-height:220px;display:grid;align-items:center;padding:10px}
+.structure-canvas:active{cursor:grabbing}
+.structure-canvas svg{display:block;width:100%;height:auto;max-height:360px;pointer-events:none}
+.structure-legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:13px}
+.structure-attachment+.structure-attachment{margin-top:24px}
+.structure-legend span{display:inline-flex;align-items:center;gap:6px}
+.structure-legend i{width:11px;height:11px;border-radius:50%}
+@media(max-width:700px){.structure-grid{grid-template-columns:1fr}.structure-view-actions button{min-height:44px;min-width:44px}}
+
 /* ---------- Basis records & radial plots ---------- */
 .basis-facts-panel{margin:0 0 16px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--panel);box-shadow:var(--shadow-1)}
 .basis-facts-panel .metadata-list{margin:0 0 10px}
