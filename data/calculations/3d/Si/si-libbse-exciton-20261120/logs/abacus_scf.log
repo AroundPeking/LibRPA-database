@@ -1,0 +1,138 @@
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   wqd10nbe13c07
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+Info: Local MPI proc number: 8,OpenMP thread number: 3,Total thread number: 24,Local thread limit: 256
+
+                     ▄████▄ █████▄ ▄████▄ ▄█████ ██  ██ ▄█████ 
+                     ██▄▄██ ██▄▄██ ██▄▄██ ██     ██  ██ ▀▀▀▄▄▄ 
+                     ██  ██ ██▄▄█▀ ██  ██ ▀█████ ▀████▀ █████▀ 
+
+                                                                                     
+                                v3.11.0-beta10
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Wed Nov 18 06:12:53 2026
+ MAKE THE DIR         : OUT.scf/
+ RUNNING WITH DEVICE  : CPU / AMD EPYC 9755 128-Core Processor (x2)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ UNIFORM GRID DIM     : 54 * 54 * 54
+ UNIFORM GRID DIM(BIG): 27 * 27 * 27
+ DONE(0.28208    SEC) : SETUP UNITCELL
+ DONE(0.285555   SEC) : INIT K-POINTS
+ ----------------------------------------------------------------
+ Self-consistent calculations for electrons
+ ----------------------------------------------------------------
+ SPIN    KPOINTS         PROCESSES   THREADS/PROC  THREADS/TOTAL 
+ 1       343             8           3             24            
+ ----------------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ----------------------------------------------------------------
+ TOTAL NBASE 44
+ ELEMENT ORBITALS        NBASE       NATOM       
+ Si      3s3p2d-8au      22          2           
+ ----------------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ----------------------------------------------------------------
+ DONE(0.299176   SEC) : INIT PLANEWAVE
+ START CHARGE         : ATOMIC
+ DONE(0.362236   SEC) : CHARGE
+ DONE(0.363252   SEC) : POTENTIALS
+
+ ================================================================
+ SELF-CONSISTENT: 
+ ================================================================
+ DONE(0.384522   SEC) : INIT SCF
+ ITER     ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1   -2.14387936e+02   0.00000000e+00   1.4818e-01   1.32
+ GE2   -2.14361043e+02   2.68934194e-02   8.2143e-02   1.27
+ GE3   -2.14368980e+02  -7.93714190e-03   9.2818e-03   1.25
+[wqd10nbe13c07:03201] 7 more processes have sent help message help-mpi-btl-openib.txt / error in device init
+[wqd10nbe13c07:03201] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+ GE4   -2.14369108e+02  -1.28649723e-04   7.1043e-04   1.29
+ GE5   -2.14369111e+02  -2.31938102e-06   1.5991e-04   1.36
+ GE6   -2.14369111e+02  -8.09222610e-08   1.9861e-05   1.31
+ GE7   -2.14369111e+02  -2.43087524e-10   6.2335e-06   1.24
+ GE8   -2.14369111e+02  -1.36504110e-10   6.4078e-08   1.32
+Use rpa_ccp_rmesh_times=5 to calculate cut Coulomb
+EXX cal_Hs timing summary: full = 74.4683 s
+KS eigenvector writer: binary v1 MPI-IO, bounded pack buffer, file ./OUT.librpa/KS_eigenvector_0.dat
+rpa_pca_threshold: 10
+rpa_ccp_rmesh_times_cut: 5
+rpa_ccp_rmesh_times_ewald: 2
+rpa_lcao_exx(Ha): -2.115085233334863
+etxc(Ha): -2.402282662617605
+etot(Ha): -7.877916695383695
+Etot_without_rpa(Ha): -7.590719266100953
+ DONE(608.662130808000029 SEC) : exx_cut_coulomb->init
+ DONE(997.954856816999950 SEC) : cal_large_Vs start
+ DONE(1040.828828467999983 SEC) : cal_large_Vs end
+ DONE(1047.129039847000286 SEC) : cal_large_Cs
+ DONE(1047.601391825000292 SEC) : Vs_period
+ DONE(1048.338303969000208 SEC) : Vs_period_comm
+ DONE(1300.022157307000043 SEC) : out_large_Vs
+ DONE(1300.298514270999704 SEC) : out_large_Cs
+Ewald short-range tail:
+  mode: warn
+  lambda: 1.000000000000e+00
+  full-range source: exx_ccp_rmesh_times=2.000000000000e+00
+  exact radial mesh factor: 2.000000000000e+00
+  production period: 11 11 11
+  probe period: 13 13 13
+  production blocks: 834
+  shell blocks: 3464
+  max |Vbare-Vgauss|_F: 0.000000000000e+00
+  sum |Vbare-Vgauss|_F: 0.000000000000e+00
+  relative max: 0.000000000000e+00
+  relative sum: 0.000000000000e+00
+  max Hermitian residual: 0.000000000000e+00
+  worst I,J,R: 0 0 0 0 0
+  worst distance/bare/Gaussian: 0.000000000000e+00 0.000000000000e+00 0.000000000000e+00
+  coverage complete: true
+  expansion: 0
+  decision: accepted
+Calculating velocity matrix in KS presentation...
+ DONE(1958.861760051000147 SEC) : Finish velocity matrix in KS presentation.
+
+ TIME STATISTICS
+----------------------------------------------------------------------
+   CLASS_NAME            NAME         TIME/s   CALLS    AVG/s  PER/%  
+----------------------------------------------------------------------
+                 total                1964.62 23333    0.08    100.00 
+ Driver          atomic_world         1964.62 1        1964.62 100.00 
+ Relax_Driver    relax_driver         1962.17 1        1962.17 99.88  
+ ESolver_KS      runner               1962.17 1        1962.17 99.88  
+ ESolver_KS_LCAO after_scf            1951.78 1        1951.78 99.35  
+ ModuleIO        ctrl_scf_lcao        1951.71 1        1951.71 99.34  
+ RPA_LRI         postSCF              1946.92 1        1946.92 99.10  
+ RPA_LRI         cal_postSCF_exx      232.83  1        232.83  11.85  
+ Matrix_Orbs21   init_radial_table    260.40  5        52.08   13.25  
+ Center2_Orb     cal_ST_Phi12_R       820.67  89866    0.01    41.77  
+ Exx_LRI         init_spencer         497.34  2        248.67  25.31  
+ LRI_CV          set_orbitals         812.80  5        162.56  41.37  
+ Matrix_Orbs11   init_radial_table    599.25  7        85.61   30.50  
+ LRI_CV          cal_datas            53.45   9        5.94    2.72   
+ Exx_LRI         cal_exx_elec         74.60   1        74.60   3.80   
+ RPA_LRI         cal_large_Cs         1056.58 1        1056.58 53.78  
+ RPA_LRI         out_coulomb_k        251.68  1        251.68  12.81  
+ RPA_LRI         out_abfs_overlap_v1  384.94  1        384.94  19.59  
+ RPA_LRI         output_ewald_coulomb 181.12  1        181.12  9.22   
+ Exx_LRI         init                 93.81   1        93.81   4.77   
+ Exx_LRI         cal_ewald_coulomb    77.66   1        77.66   3.95   
+----------------------------------------------------------------------
+
+
+ START  Time  : Wed Nov 18 06:12:53 2026
+ FINISH Time  : Wed Nov 18 06:45:38 2026
+ TOTAL  Time  : 1965
+ SEE INFORMATION IN : OUT.scf/
+WALL=1966.91 MAXRSSKB=11511024

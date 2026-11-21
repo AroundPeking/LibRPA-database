@@ -100,7 +100,8 @@ node --test tests/*.mjs
 CI accepts only the historical software-identity pairs frozen in
 `data/historical-software-identity-exceptions.json`; a new record needs a full
 source commit or the executable's SHA-256. Band figures are rebuilt with
-`scripts/generate_band_figures.py` (display and evidence contract in
+`scripts/generate_band_figures.py` and exciton-density figures with
+`scripts/plot_exciton_slice.py` (display and evidence contract in
 [`references/plotting.md`](references/plotting.md)). Contribution rules:
 [`CONTRIBUTING.md`](CONTRIBUTING.md).
 

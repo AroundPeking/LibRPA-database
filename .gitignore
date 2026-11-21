@@ -11,3 +11,4 @@ test-results/
 # Validator cache for referenced-tier payload bytes fetched from the
 # external archive; content-addressed, never part of the repository.
 .external-cache/
+.dsh-project-memory/

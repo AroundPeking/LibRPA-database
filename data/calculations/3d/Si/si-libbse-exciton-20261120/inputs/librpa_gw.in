@@ -1,0 +1,40 @@
+task = g0w0
+input_dir = OUT.librpa
+input_preset = abacus
+# ABACUS writes the diagonal KS-basis Vxc values to OUT.<suffix>, not rpa_outdir.
+fn_vxc_scf = ../OUT.scf/vxc_out.dat
+output_dir = librpa.d
+
+# reader-v1 file names.  ABACUS prefixes them with `v1_`, while the driver's
+# FHI-aims-era defaults still say `Cs_data` / `coulomb_mat`, so every prefix
+# that lands in a v1 export has to be spelled out here.
+prefix_lri_coeff         = v1_Cs_data_
+prefix_lri_coeff_shrink  = v1_Cs_shrinked_data_
+prefix_shrink_sinvS      = v1_shrink_sinvS_
+# LibRPA itself only needs the *shrink*-basis cut Coulomb (it runs with
+# use_shrink_abfs = t), and in reader-v1 mode that family is v1_coulomb_cut_iq_*.
+# The large-basis `coulomb_unshrinked_cut_*` that LibBSE pairs with basis_aux_out
+# is produced separately by `out_unshrinked_v 1`; do not point this at it.
+prefix_coul_cut          = v1_coulomb_cut_iq_
+prefix_coul_full         = v1_coulomb_full_iq_
+
+# Si pseudopotential: all four occupied + four empty states.
+# Zero-based, half-open QP interval; keep consistent with nocc/nvirt.
+i_state_low = 0
+i_state_high = 8
+nfreq = 16
+tfgrids_type = minimax
+parallel_routing = libri
+
+option_dielect_func = 3
+replace_w_head = t
+use_scalapack_gw_wc = t
+vq_threshold = 0
+sqrt_coulomb_threshold = 0
+use_shrink_abfs = t
+use_shrink_chi = f
+
+# LibBSE requires both the QP energies and the lowest-frequency Wc blocks.
+output_energy_qp = t
+output_wc_rf = t
+ifreq_output_wc_end = 1

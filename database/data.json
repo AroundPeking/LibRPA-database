@@ -15814,6 +15814,7 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": [
+        "si-libbse-exciton-20261120",
         "si-paper-all_kpath",
         "sic-paper-pca1e-6"
       ],
@@ -15848,6 +15849,13 @@
         },
         "uses": [
           {
+            "record_id": "si-libbse-exciton-20261120",
+            "material": "Si",
+            "formula": "Si",
+            "dimension": "3d",
+            "result": "GW gap 1.07 eV"
+          },
+          {
             "record_id": "si-paper-all_kpath",
             "material": "Si",
             "formula": "Si",
@@ -15864,7 +15872,7 @@
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, 397 auxiliary functions per atom. 2 calculations: Si GW gap 1.06 eV; SiC GW gap 2.26 eV."
+        "sentence": "Si: 4 valence electrons, 3s3p2d, 22 functions per atom, 397 auxiliary functions per atom. 3 calculations: Si GW gap 1.07 eV; Si GW gap 1.06 eV; SiC GW gap 2.26 eV."
       }
     },
     {
@@ -68261,6 +68269,477 @@
         "run_directory": "librpa-32",
         "dataset_directory": "dataset/for_librpa-32"
       },
+      "spin_orbit": false,
+      "spin_polarized": false,
+      "functional": "PBE",
+      "archive_completeness": {
+        "status": "complete",
+        "issues": []
+      }
+    },
+    {
+      "schema_version": 1,
+      "id": "si-libbse-exciton-20261120",
+      "dimension": "3d",
+      "material": "Si",
+      "formula": "Si",
+      "record_type": "band",
+      "workflow": {
+        "frontend": "abacus",
+        "task": "gw"
+      },
+      "computational_scale": {
+        "atom_count": 2,
+        "n_bands": 8,
+        "n_path_kpoints": 61,
+        "state_count": 43904,
+        "occupied_states": 4,
+        "unoccupied_states": 4
+      },
+      "species": [
+        {
+          "element": "Si",
+          "set_id": "Si-SG15-4e-3s3p2d-22-abf397",
+          "missing_roles": [],
+          "linkage": "byte-identical PP / NAO / ABF matched to the registered set"
+        }
+      ],
+      "software": {
+        "abacus": {
+          "executable_sha256": "2e109ae77e83b32c932a80b0940ad8c871901a805cf9db8494b8c81b186ec9e0",
+          "source_url": "https://github.com/AroundPeking/abacus-develop",
+          "identity_note": "ABACUS v3.11.0-beta10, Release build. The SCF/NSCF stages ran before the assert-IO patch was applied, so this hash is the pre-patch binary."
+        },
+        "librpa": {
+          "executable_sha256": "7c7428b66274dec29cb8907c02e1a0187064bfd77b094734b231d9d6d39d60a5",
+          "source_url": "https://github.com/AESM-Group/LibRPA",
+          "identity_note": "Build tree reported GITDIR-NOTFOUND, so only the executable hash is available."
+        }
+      },
+      "summary": {
+        "observable": "G0W0 direct gap and exciton binding energy on the dense 7x7x7 -> 14x14x14 dual grid",
+        "value": 3.19394,
+        "unit": "eV",
+        "gw_gap_ev": 3.19394,
+        "gap_definition": "GW direct gap from the 14x14x14 dense mesh band table; the k-path table gives 3.19400 eV, a 0.06 meV difference",
+        "scope": "Si diamond primitive cell, SG15 PP with 3s3p2d NAO and 3s3p2d1f1g ABF (pca 1e-6), 7x7x7 RI with 14x14x14 BSE fine grid, TDA singlet, 4 occupied + 4 empty states."
+      },
+      "files": {
+        "inputs": [
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/INPUT_nscf",
+            "sha256": "e71812e3fbc3024a680245be163d8ca73b4c5044a6cf517dd502790d3be6f541",
+            "size_bytes": 667,
+            "role": "inputs",
+            "label": "INPUT_nscf"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/INPUT_scf",
+            "sha256": "fd677096f4c57a891e2e0ce74466d3d984660935c8d2744ba5a456be081fa2bf",
+            "size_bytes": 2034,
+            "role": "inputs",
+            "label": "INPUT_scf"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT",
+            "sha256": "65df67271250ac2b722f9df6f43a751b83aac9ad755d648051a5463ec5c239f9",
+            "size_bytes": 97,
+            "role": "inputs",
+            "label": "KPT"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT_nscf",
+            "sha256": "21ac9a38c336fa256a068f57e4c863633f7ff9564b7c16d02fa82f24cfc7876a",
+            "size_bytes": 32,
+            "role": "inputs",
+            "label": "KPT_nscf"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT_scf",
+            "sha256": "e96682e95b8efcad1690b3ebbed3dd7d6f330414a830c9261490a88a5ed85842",
+            "size_bytes": 29,
+            "role": "inputs",
+            "label": "KPT_scf"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/STRU",
+            "sha256": "7ef28b4da6a36006009130ff2f491801caf8918391a7235033b6f26972f884ac",
+            "size_bytes": 358,
+            "role": "inputs",
+            "label": "STRU"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/Si_gga_8au_100Ry_3s3p2d.orb",
+            "sha256": "9e991e921b2544e3f57e0c87b8a1ea0525f0b4e9e1940b109b0adc40e6b51548",
+            "size_bytes": 147311,
+            "role": "inputs",
+            "label": "Si_gga_8au_100Ry_3s3p2d.orb"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/abacus_bse_INPUT",
+            "sha256": "12aeddfe77fe16e0a7a5ba2d66ff244f260d504289e4e33089f93b8246297580",
+            "size_bytes": 1843,
+            "role": "inputs",
+            "label": "abacus_bse_INPUT"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/bse_slurm_script.sh",
+            "sha256": "1b6a5c88013f0fce4713091662471f8cacf74408faff57617b8ea29c4ab8a750",
+            "size_bytes": 1605,
+            "role": "inputs",
+            "label": "bse_slurm_script.sh"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/gw_slurm_script.sh",
+            "sha256": "aafbc948d81f776bc494e8fb4d8160c477aebebad82f332ca9967e71afb904dc",
+            "size_bytes": 2027,
+            "role": "inputs",
+            "label": "gw_slurm_script.sh"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/libbse.in",
+            "sha256": "8d2b0d49da9601cde6e34312865d81abe430ff15b77fd44d6c61ba825b01b019",
+            "size_bytes": 775,
+            "role": "inputs",
+            "label": "libbse.in"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/librpa_band.in",
+            "sha256": "a178c35e381e01274e2b793cf05e845f3eb89b7c3ac9f6676abfb66f073f37fd",
+            "size_bytes": 1222,
+            "role": "inputs",
+            "label": "librpa_band.in"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/librpa_gw.in",
+            "sha256": "9de9b7aebd7899178ab871cfc1e87b42efe0286195cf5802aca9711a86b84ba8",
+            "size_bytes": 1456,
+            "role": "inputs",
+            "label": "librpa_gw.in"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/nscf_slurm_script.sh",
+            "sha256": "7710613392e18f6b7dea4707b88b3508c186928c09253d1409e96256dd05ea6e",
+            "size_bytes": 1144,
+            "role": "inputs",
+            "label": "nscf_slurm_script.sh"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/scf_slurm_script.sh",
+            "sha256": "4e61cfa37892bafb1b19b3bba4f686098f9e2b385909527242f5c019e2f98696",
+            "size_bytes": 3362,
+            "role": "inputs",
+            "label": "scf_slurm_script.sh"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/stru_out",
+            "sha256": "faf26b4c2688fa5b7c69d19d76a8bcb17a8a5f783acea2e7c82c5301a6f5f6f7",
+            "size_bytes": 616,
+            "role": "inputs",
+            "label": "stru_out"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/librpa.in",
+            "sha256": "9de9b7aebd7899178ab871cfc1e87b42efe0286195cf5802aca9711a86b84ba8",
+            "size_bytes": 1456,
+            "role": "inputs",
+            "label": "librpa.in"
+          }
+        ],
+        "results": [
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/EXX_band_spin_1.dat",
+            "sha256": "83758bda0d2791dcbae33568d1ed3a07e90dd756e0fd11a8675e5559f0f754e6",
+            "size_bytes": 17751,
+            "role": "results",
+            "label": "EXX_band_spin_1.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/GW_band_spin_1.dat",
+            "sha256": "a16488a7c9bc2cb448c732061974588eb0ca8c84ae19306cd7d7f634b9511d5e",
+            "size_bytes": 17751,
+            "role": "results",
+            "label": "GW_band_spin_1.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/KS_band_spin_1.dat",
+            "sha256": "7e46abf32b7e34e77c4d34a84055ed642d725aecb2ee0b0a190445cecce1c18e",
+            "size_bytes": 17751,
+            "role": "results",
+            "label": "KS_band_spin_1.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/band_kpath_info",
+            "sha256": "7eb9a0c7f6f46b9132913e0d7d1a107d9205058f229526409446a365a24fadc9",
+            "size_bytes": 3380,
+            "role": "results",
+            "label": "band_kpath_info"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/eps2_singlet_tda.dat",
+            "sha256": "2fc8f09daad0b5d5f742050c21f5a41fd7aca9dd601b3d214042a4d999f1a4c4",
+            "size_bytes": 29148,
+            "role": "results",
+            "label": "eps2_singlet_tda.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/exciton_density_avg_elec.dat",
+            "sha256": "05024ba86f4493cadb700172be6fafb05a89b9530c1d17bebb0350c6b3bac3f6",
+            "size_bytes": 93930,
+            "role": "results",
+            "label": "exciton_density_avg_elec.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/exciton_density_avg_hole.dat",
+            "sha256": "98c7b8456b01f327ca179b0142ae0c79bfd08d09ee48982ed2d3461c853f15b2",
+            "size_bytes": 93930,
+            "role": "results",
+            "label": "exciton_density_avg_hole.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/exciton_density_cond_elec.dat",
+            "sha256": "cb9689eeacaece173763c7700862c86a679044ee61fbf1d8474a3083ce5587b4",
+            "size_bytes": 759759,
+            "role": "results",
+            "label": "exciton_density_cond_elec.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/exciton_density_cond_hole.dat",
+            "sha256": "d5ed949a10ba698cb964798f8b5509ecc8c7400888d1f51249e8177d3b560f9f",
+            "size_bytes": 759763,
+            "role": "results",
+            "label": "exciton_density_cond_hole.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/exciton_weight_state0.dat",
+            "sha256": "2a0124d02f485920abbe808240d84150be0ef7586b1922105d8e087efd4b25e0",
+            "size_bytes": 64830,
+            "role": "results",
+            "label": "exciton_weight_state0.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/first10_states_amplitudes.tar.gz",
+            "sha256": "266874b7abedb6f650339cbac636644bf6b5ef443feda0f321fd3b4c44dfa957",
+            "size_bytes": 5605298,
+            "role": "results",
+            "label": "first10_states_amplitudes.tar.gz"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/oscillator_strength_singlet_tda.dat",
+            "sha256": "1e8e6b7f4e5ea99d5050cadde71e3d0aad9554f182b51506954465467ca90044",
+            "size_bytes": 4423297,
+            "role": "results",
+            "label": "oscillator_strength_singlet_tda.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/spectrum_singlet_tda.dat",
+            "sha256": "abacac18a097db10d40ce4ed89a638fbe1f8ccd5926dbfbf8f5ba95c05978937",
+            "size_bytes": 114207,
+            "role": "results",
+            "label": "spectrum_singlet_tda.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/trans_kweight_singlet_tda.dat",
+            "sha256": "80c435b26160747ffa2dfef53e9fad83cb5c1e0caac6b9c956920c9cbb1a4b2a",
+            "size_bytes": 181431,
+            "role": "results",
+            "label": "trans_kweight_singlet_tda.dat"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/results/wfk.tgz",
+            "sha256": "e41e85bc7c3569dcc4d93de08f904feb2bca09cf5284d93df4d519bfa893abd6",
+            "size_bytes": 65997284,
+            "role": "results",
+            "label": "wfk.tgz"
+          }
+        ],
+        "logs": [
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/abacus_nscf.log",
+            "sha256": "dc7026c3119e8db09801fbb66ee0d36a69e9b71bcc42bff01722dddce48743f3",
+            "size_bytes": 5155,
+            "role": "logs",
+            "label": "abacus_nscf.log"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/abacus_scf.log",
+            "sha256": "ff6c7030ccff7cfb18d0579a55afcb65b181dd5660894d3259e8b401bef893b8",
+            "size_bytes": 7102,
+            "role": "logs",
+            "label": "abacus_scf.log"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/libbse_stdout.log",
+            "sha256": "e55b0e1cabe7b533450c8c15f9ed7d14d24360b1a6b3eb79ce10872706787245",
+            "size_bytes": 1074472,
+            "role": "logs",
+            "label": "libbse_stdout.log"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/librpa_band_stdout.log",
+            "sha256": "fa3ae8822b82d5911ce12b7309b8d052ee8bd3cb264b0ed9fb8fd4698d634379",
+            "size_bytes": 1490073,
+            "role": "logs",
+            "label": "librpa_band_stdout.log"
+          },
+          {
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/librpa_gw_stdout.log",
+            "sha256": "279b29e5a401f9561420695a10e3c718bdd1086a3d57f800f31cf5c11f53175c",
+            "size_bytes": 1466899,
+            "role": "logs",
+            "label": "librpa_gw_stdout.log"
+          }
+        ],
+        "figures": [
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/ks_frontier.svg",
+            "sha256": "0d92b06d87c53d47bec8181764e4f074452494fa2fd6435eb6e7ae825e3b435e",
+            "size_bytes": 14965,
+            "original_sha256": "0d92b06d87c53d47bec8181764e4f074452494fa2fd6435eb6e7ae825e3b435e",
+            "label": "KS occupation-separated frontier",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/KS_band_spin_1.dat",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/exx_frontier.svg",
+            "sha256": "e956782dfc942bac8037c47857cb8f539507b78369456adb1974772576ff8472",
+            "size_bytes": 14471,
+            "original_sha256": "e956782dfc942bac8037c47857cb8f539507b78369456adb1974772576ff8472",
+            "label": "EXX occupation-separated frontier",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/gw_frontier.svg",
+            "sha256": "32b417be66109e13d37084842e877f9c75eb27559dac54dac0efdcf276adf9e4",
+            "size_bytes": 14781,
+            "original_sha256": "32b417be66109e13d37084842e877f9c75eb27559dac54dac0efdcf276adf9e4",
+            "label": "GW occupation-separated frontier",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/GW_band_spin_1.dat",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/band_frontier_metadata.json",
+            "sha256": "d7c6b20c0e37ba900ba169f1926a3f141e6caf7c6f0a4c4b6eb5fb36d46e6fad",
+            "size_bytes": 136324,
+            "original_sha256": "d7c6b20c0e37ba900ba169f1926a3f141e6caf7c6f0a4c4b6eb5fb36d46e6fad",
+            "label": "Frontier display mappings, raw audit and provenance",
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/KS_band_spin_1.dat",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/inputs/KPT",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/band_kpath_info",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/Si/si-libbse-exciton-20261120/results/GW_band_spin_1.dat"
+            ],
+            "display_priority": "primary"
+          }
+        ]
+      },
+      "missing": [],
+      "properties": [
+        {
+          "key": "band_gap",
+          "category": "electronic",
+          "label": "Sampled path band gap",
+          "method": "PBE",
+          "value": 0.58432,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "PBE gap on the L-Gamma-X-W-K sampled path (61 points)",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/KS_band_spin_1.dat"
+          ]
+        },
+        {
+          "key": "band_gap",
+          "category": "electronic",
+          "label": "Sampled path band gap",
+          "method": "EXX",
+          "value": 5.57034,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "EXX gap on the L-Gamma-X-W-K sampled path (61 points)",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/EXX_band_spin_1.dat"
+          ]
+        },
+        {
+          "key": "band_gap",
+          "category": "electronic",
+          "label": "Sampled path band gap",
+          "method": "G0W0",
+          "value": 1.0652,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "G0W0@PBE gap on the L-Gamma-X-W-K sampled path (61 points)",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/GW_band_spin_1.dat"
+          ]
+        },
+        {
+          "key": "exciton_binding_energy",
+          "category": "optical",
+          "label": "Exciton binding energy",
+          "method": "BSE",
+          "value": 0.018465,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "TDA singlet lowest excitation subtracted from the GW direct gap, 7x7x7 RI on the 14x14x14 fine grid",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/eps2_singlet_tda.dat"
+          ]
+        },
+        {
+          "key": "exciton_lowest_excitation",
+          "category": "optical",
+          "label": "Lowest excitation energy",
+          "method": "BSE",
+          "value": 3.175475,
+          "unit": "eV",
+          "status": "reported",
+          "definition": "Lowest TDA singlet excitation on the 14x14x14 fine grid",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/oscillator_strength_singlet_tda.dat"
+          ]
+        },
+        {
+          "key": "optical_absorption_peak",
+          "category": "optical",
+          "label": "Absorption peak",
+          "method": "BSE",
+          "value": {
+            "energy_ev": 4.09,
+            "eps2": 38.4
+          },
+          "unit": "eV",
+          "status": "reported",
+          "definition": "Largest eps2 peak of the TDA singlet spectrum, 0.15 eV Lorentzian broadening",
+          "evidence": [
+            "data/calculations/3d/Si/si-libbse-exciton-20261120/results/eps2_singlet_tda.dat"
+          ]
+        }
+      ],
+      "experimental_gap": null,
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
