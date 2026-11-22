@@ -1024,12 +1024,12 @@
             "material": "hBN",
             "formula": "hBN",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 6.94 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 242 auxiliary functions per atom. 1 calculation: hBN."
+        "sentence": "B: 3 valence electrons, 3s3p2d, 22 functions per atom, 242 auxiliary functions per atom. 1 calculation: hBN GW gap 6.94 eV."
       }
     },
     {
@@ -2878,12 +2878,12 @@
             "material": "CuInP2Se6",
             "formula": "CuInP2Se6",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.80 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+        "sentence": "Cu: 19 valence electrons, 6s3p3d2f, 44 functions per atom, 357 auxiliary functions per atom. 1 calculation: CuInP2Se6 GW gap 1.80 eV."
       },
       "used_by": [
         "cuinp2se6-table-gw"
@@ -3933,12 +3933,12 @@
             "material": "GaTe",
             "formula": "GaTe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.66 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. 1 calculation: GaTe."
+        "sentence": "Ga: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 359 auxiliary functions per atom. 1 calculation: GaTe GW gap 2.66 eV."
       },
       "used_by": [
         "gate-table-gw"
@@ -5443,12 +5443,12 @@
             "material": "GeTe",
             "formula": "GeTe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.38 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. 1 calculation: GeTe."
+        "sentence": "Ge: 22 valence electrons, 6s6p3d2f, 53 functions per atom, 426 auxiliary functions per atom. 1 calculation: GeTe GW gap 1.38 eV."
       }
     },
     {
@@ -6473,12 +6473,12 @@
             "material": "In2Se3",
             "formula": "In2Se3",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.50 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: In2Se3."
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: In2Se3 GW gap 1.50 eV."
       },
       "used_by": [
         "in2se3-table-gw"
@@ -6613,12 +6613,12 @@
             "material": "InSe",
             "formula": "InSe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.43 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: InSe."
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 362 auxiliary functions per atom. 1 calculation: InSe GW gap 2.43 eV."
       },
       "used_by": [
         "inse-table-gw"
@@ -6751,12 +6751,12 @@
             "material": "CuInP2Se6",
             "formula": "CuInP2Se6",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.80 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+        "sentence": "In: 13 valence electrons, 3s3p3d2f, 41 functions per atom, 380 auxiliary functions per atom. 1 calculation: CuInP2Se6 GW gap 1.80 eV."
       },
       "used_by": [
         "cuinp2se6-table-gw"
@@ -8570,12 +8570,12 @@
             "material": "MoSe2",
             "formula": "MoSe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.09 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: MoSe2 GW gap 2.09 eV."
       }
     },
     {
@@ -8952,12 +8952,12 @@
             "material": "MoS2",
             "formula": "MoS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.37 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 359 auxiliary functions per atom. 1 calculation: MoS2."
+        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 359 auxiliary functions per atom. 1 calculation: MoS2 GW gap 2.37 eV."
       }
     },
     {
@@ -9091,12 +9091,12 @@
             "material": "MoS2-WS2",
             "formula": "MoS2-WS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.87 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+        "sentence": "Mo: 14 valence electrons, 4s2p2d1f, 27 functions per atom, 256 auxiliary functions per atom. 1 calculation: MoS2-WS2 GW gap 1.87 eV."
       },
       "used_by": [
         "mos2_ws2-table-gw"
@@ -9231,12 +9231,12 @@
             "material": "MoTe2",
             "formula": "MoTe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.65 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. 1 calculation: MoTe2."
+        "sentence": "Mo: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 396 auxiliary functions per atom. 1 calculation: MoTe2 GW gap 1.65 eV."
       },
       "used_by": [
         "mote2-table-gw"
@@ -9380,12 +9380,12 @@
             "material": "hBN",
             "formula": "hBN",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 6.94 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: hBN."
+        "sentence": "N: 5 valence electrons, 3s3p2d, 22 functions per atom, 268 auxiliary functions per atom. 1 calculation: hBN GW gap 6.94 eV."
       }
     },
     {
@@ -11312,12 +11312,12 @@
             "material": "CuInP2Se6",
             "formula": "CuInP2Se6",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.80 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: CuInP2Se6 GW gap 1.80 eV."
       },
       "used_by": [
         "cuinp2se6-table-gw"
@@ -11459,12 +11459,12 @@
             "material": "Phosphorene",
             "formula": "Phosphorene",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.94 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 529 auxiliary functions per atom. 1 calculation: Phosphorene."
+        "sentence": "P: 5 valence electrons, 3s3p2d, 22 functions per atom, 529 auxiliary functions per atom. 1 calculation: Phosphorene GW gap 1.94 eV."
       }
     },
     {
@@ -12564,12 +12564,12 @@
             "material": "WS2",
             "formula": "WS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.67 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: WS2."
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: WS2 GW gap 2.67 eV."
       }
     },
     {
@@ -13085,12 +13085,12 @@
             "material": "MoS2",
             "formula": "MoS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.37 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "S: 6 valence electrons, 2s2p1d, 13 functions per atom, 283 auxiliary functions per atom. 1 calculation: MoS2."
+        "sentence": "S: 6 valence electrons, 2s2p1d, 13 functions per atom, 283 auxiliary functions per atom. 1 calculation: MoS2 GW gap 2.37 eV."
       }
     },
     {
@@ -13224,12 +13224,12 @@
             "material": "MoS2-WS2",
             "formula": "MoS2-WS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.87 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+        "sentence": "S: 6 valence electrons, 2s2p2d1f, 25 functions per atom, 298 auxiliary functions per atom. 1 calculation: MoS2-WS2 GW gap 1.87 eV."
       },
       "used_by": [
         "mos2_ws2-table-gw"
@@ -13360,12 +13360,12 @@
             "material": "TiS3",
             "formula": "TiS3",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.25 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: TiS3."
+        "sentence": "S: 6 valence electrons, 3s3p2d, 22 functions per atom, 291 auxiliary functions per atom. 1 calculation: TiS3 GW gap 1.25 eV."
       },
       "used_by": [
         "tis3-table-gw"
@@ -14672,12 +14672,12 @@
             "material": "MoSe2",
             "formula": "MoSe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.09 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: MoSe2."
+        "sentence": "Se: 6 valence electrons, 3s3p2d, 22 functions per atom, no auxiliary basis. 1 calculation: MoSe2 GW gap 2.09 eV."
       }
     },
     {
@@ -15052,12 +15052,12 @@
             "material": "WSe2",
             "formula": "WSe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.30 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 525 auxiliary functions per atom. 1 calculation: WSe2."
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 525 auxiliary functions per atom. 1 calculation: WSe2 GW gap 2.30 eV."
       }
     },
     {
@@ -15187,12 +15187,12 @@
             "material": "CuInP2Se6",
             "formula": "CuInP2Se6",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.80 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: CuInP2Se6."
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: CuInP2Se6 GW gap 1.80 eV."
       },
       "used_by": [
         "cuinp2se6-table-gw"
@@ -15330,12 +15330,12 @@
             "material": "SnSe",
             "formula": "SnSe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.75 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: SnSe."
+        "sentence": "Se: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 418 auxiliary functions per atom. 1 calculation: SnSe GW gap 1.75 eV."
       }
     },
     {
@@ -15467,12 +15467,12 @@
             "material": "In2Se3",
             "formula": "In2Se3",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.50 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: In2Se3."
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: In2Se3 GW gap 1.50 eV."
       },
       "used_by": [
         "in2se3-table-gw"
@@ -15607,12 +15607,12 @@
             "material": "InSe",
             "formula": "InSe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.43 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: InSe."
+        "sentence": "Se: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 383 auxiliary functions per atom. 1 calculation: InSe GW gap 2.43 eV."
       },
       "used_by": [
         "inse-table-gw"
@@ -17348,12 +17348,12 @@
             "material": "SnSe",
             "formula": "SnSe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.75 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. 1 calculation: SnSe."
+        "sentence": "Sn: 14 valence electrons, 3s3p3d2f, 41 functions per atom, 393 auxiliary functions per atom. 1 calculation: SnSe GW gap 1.75 eV."
       }
     },
     {
@@ -18851,12 +18851,12 @@
             "material": "GaTe",
             "formula": "GaTe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.66 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: GaTe."
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: GaTe GW gap 2.66 eV."
       },
       "used_by": [
         "gate-table-gw"
@@ -18991,12 +18991,12 @@
             "material": "MoTe2",
             "formula": "MoTe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.65 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: MoTe2."
+        "sentence": "Te: 16 valence electrons, 3s3p3d2f, 41 functions per atom, 339 auxiliary functions per atom. 1 calculation: MoTe2 GW gap 1.65 eV."
       },
       "used_by": [
         "mote2-table-gw"
@@ -19134,12 +19134,12 @@
             "material": "GeTe",
             "formula": "GeTe",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.38 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. 1 calculation: GeTe."
+        "sentence": "Te: 24 valence electrons, 6s6p3d2f, 53 functions per atom, 445 auxiliary functions per atom. 1 calculation: GeTe GW gap 1.38 eV."
       }
     },
     {
@@ -19450,12 +19450,12 @@
             "material": "TiS3",
             "formula": "TiS3",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.25 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. 1 calculation: TiS3."
+        "sentence": "Ti: 12 valence electrons, 6s3p3d2f, 44 functions per atom, 376 auxiliary functions per atom. 1 calculation: TiS3 GW gap 1.25 eV."
       },
       "used_by": [
         "tis3-table-gw"
@@ -20146,12 +20146,12 @@
             "material": "WS2",
             "formula": "WS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.67 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: WS2."
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, no auxiliary basis. 1 calculation: WS2 GW gap 2.67 eV."
       }
     },
     {
@@ -20532,12 +20532,12 @@
             "material": "WSe2",
             "formula": "WSe2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 2.30 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 665 auxiliary functions per atom. 1 calculation: WSe2."
+        "sentence": "W: 14 valence electrons, 6s3p3d2f, 44 functions per atom, 665 auxiliary functions per atom. 1 calculation: WSe2 GW gap 2.30 eV."
       }
     },
     {
@@ -20675,12 +20675,12 @@
             "material": "MoS2-WS2",
             "formula": "MoS2-WS2",
             "dimension": "2d",
-            "result": null
+            "result": "GW gap 1.87 eV"
           }
         ],
         "size_basis": "per atom",
         "size_definition": "sum over angular momenta of (number of radial functions) x (2l + 1), read from each payload header; one .orb or .abfs describes a single atom, so the structure total is this times the atom count",
-        "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. 1 calculation: MoS2-WS2."
+        "sentence": "W: 14 valence electrons, 6s3p3d2f1g, 53 functions per atom, 665 auxiliary functions per atom. 1 calculation: MoS2-WS2 GW gap 1.87 eV."
       },
       "used_by": [
         "mos2_ws2-table-gw"

@@ -51,10 +51,16 @@ LABEL_FIELD = "label"
 HEADLINE_PROPERTIES: tuple[tuple[str, frozenset[str]], ...] = (
     ("band_gap", frozenset({"G0W0", "GW", "QSGW"})),
     ("rpa_cohesive_energy", frozenset({"RPA"})),
+    # Records imported from the 2D manuscript catalog store their headline as
+    # summary_value with method "GW path". Without this entry every basis set
+    # those records use renders "no reported result", which reads like the
+    # calculation produced nothing rather than like a different key spelling.
+    ("summary_value", frozenset({"GW PATH", "GW", "G0W0"})),
 )
 _HEADLINE_PHRASE = {
     "band_gap": "GW gap",
     "rpa_cohesive_energy": "RPA cohesive energy",
+    "summary_value": "GW gap",
 }
 
 
