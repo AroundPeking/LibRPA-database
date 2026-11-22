@@ -42,7 +42,7 @@
   "value": 3.19394,
   "unit": "eV",
   "gw_gap_ev": 3.19394,
-  "gap_definition": "GW direct gap from the 14x14x14 dense mesh band table; the k-path table gives 3.19400 eV, a 0.06 meV difference",
+  "gap_definition": "Two numbers, kept apart on purpose. The sampled-path gap on L-Gamma-X-W-K is 1.0652 eV indirect; the dense 14x14x14 mesh gives 1.0630 eV, a 2 meV agreement. The direct gap on the same mesh is 3.19394 eV, and it is the reference the exciton binding energy is subtracted from.",
   "scope": "Si diamond primitive cell, SG15 PP with 3s3p2d NAO and 3s3p2d1f1g ABF (pca 1e-6), 7x7x7 RI with 14x14x14 BSE fine grid, TDA singlet, 4 occupied + 4 empty states."
  },
  "files": {
@@ -630,5 +630,13 @@
     "data/calculations/3d/Si/si-libbse-exciton-20261120/results/eps2_singlet_tda.dat"
    ]
   }
- ]
+ ],
+ "derived": {
+  "primary_result": {
+   "label": "G0W0 gap (sampled path)",
+   "value": 1.0652,
+   "unit": "eV",
+   "scope": "Indirect gap on the archived L-Gamma-X-W-K path (61 points); the dense 14x14x14 mesh gives 1.0630 eV. Not a global Brillouin-zone gap."
+  }
+ }
 }
