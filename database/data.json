@@ -68872,10 +68872,10 @@
           "category": "optical",
           "label": "Exciton binding energy",
           "method": "BSE",
-          "value": 0.018465,
-          "unit": "eV",
+          "value": 18.465,
+          "unit": "meV",
           "status": "reported",
-          "definition": "TDA singlet lowest excitation subtracted from the GW direct gap, 7x7x7 RI on the 14x14x14 fine grid",
+          "definition": "GW direct gap minus the lowest TDA singlet excitation, 7x7x7 RI on the 14x14x14 fine grid; 18.465 meV = 0.018465 eV",
           "evidence": [
             "data/calculations/3d/Si/si-libbse-exciton-20261120/results/eps2_singlet_tda.dat"
           ]
