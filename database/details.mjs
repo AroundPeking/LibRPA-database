@@ -92,12 +92,18 @@ const figureGrid = files => `<div class="figure-grid">${files.map(file => {
 function softwareInfo(record) {
   const frontend = workflowFrontend(record);
   const frontendName = frontendLabel(record);
-  return [frontend, "librpa"].map(name => {
+  // List the codes the record actually names. An exciton record carries LibBSE
+  // beside the front end and LibRPA, and omitting it would leave the code that
+  // produced the spectrum uncredited.
+  const apps = [frontend, "librpa", "libbse"].filter(name => record.software?.[name]);
+  return apps.map(name => {
     const app = record.software?.[name] || {};
     const fullCommit = /^(?:[0-9a-f]{40}|[0-9a-f]{64})$/i.test(app.commit || "");
     const url = /^https:\/\/github\.com\/[^\s]+$/.test(app.source_url || "") && fullCommit ? `${app.source_url.replace(/\/$/, "")}/commit/${app.commit}` : null;
     const identity = url ? `<a href="${esc(url)}" target="_blank" rel="noopener">Source code ↗</a>` : '<span>Calculation software</span>';
-    return `<div class="software-entry"><h3>${name === frontend ? frontendName : "LibRPA"}</h3>${identity}${app.identity_note ? `<p>${esc(app.identity_note)}</p>` : ""}</div>`;
+    const displayName = name === frontend ? frontendName
+      : name === "libbse" ? "LibBSE" : "LibRPA";
+    return `<div class="software-entry"><h3>${displayName}</h3>${identity}${app.identity_note ? `<p>${esc(app.identity_note)}</p>` : ""}</div>`;
   }).join("");
 }
 
@@ -246,8 +252,11 @@ export function renderMaterial(record, sets, allRecords = [], { cite = false } =
   // is "does this record carry optical data", not "is the method called BSE",
   // so a future TDDFT or GW-BSE variant lands here without a code change.
   const opticalProperties = visibleProperties.filter(property => property.category === "optical");
+  // Match the file's own name and label, never the whole path: the path
+  // contains the record id, and a record called "...-exciton-..." would then
+  // pull every one of its band figures into this section.
   const opticalFigures = figureFiles.filter(file => /\.(?:svg|png|jpe?g|webp)$/i.test(file.path)
-    && /bse|opti|absorp|exciton|dielectric|spectrum/i.test(`${file.path} ${file.label || ""}`));
+    && /bse|opti|absorp|exciton|dielectric|spectrum/i.test(`${fileName(file)} ${file.label || ""}`));
   const bseFigures = opticalFigures.filter(file => file.display_priority === "primary");
   const showOptical = opticalProperties.length > 0 || opticalFigures.length > 0;
   const opticalHtml = `<p class="section-intro">Excitonic and optical response recorded for this calculation. Values keep the definition and unit of the source run; a binding energy is not a band gap.</p>${opticalFigures.length ? figureGrid(bseFigures.length ? bseFigures : opticalFigures) : ""}${opticalProperties.length ? `<div class="metric-grid">${opticalProperties.map(property => `<div><span>${esc(property.label || property.key)}${property.method ? ` · ${esc(property.method)}` : ""}</span><strong>${formatField(property.value)}${property.unit ? ` <small>${esc(property.unit)}</small>` : ""}</strong></div>`).join("")}</div>` : ""}`;

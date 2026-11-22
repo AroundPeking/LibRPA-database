@@ -228,7 +228,7 @@ ELEMENT_SYMBOLS = frozenset((
     "Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og").split())
 RECORD_TYPES = ("band", "large_system_gw", "rpa_energy", "reader_conversion")
 MEAN_FIELD_FUNCTIONALS = ("PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE")
-METHOD_FACETS = ("GW", "EXX", "RPA", "Delta-ST", "SPIN", "SOC")
+METHOD_FACETS = ("GW", "EXX", "RPA", "BSE", "Delta-ST", "SPIN", "SOC")
 GAP_SCOPES = {
     "band": "band-structure record; the value keeps the record's own gap definition "
             "(often a sampled k-path observable, not a global fundamental gap)",
@@ -307,6 +307,13 @@ def _method_names(record: dict) -> list:
         methods.append("RPA")
     if (record.get("workflow") or {}).get("response") == "delta_sternheimer":
         methods.append("Delta-ST")
+    # BSE: an excitonic response, declared by an optical property or by an
+    # archived BSE input. Keep this in step with database/records.mjs, since the
+    # parity test compares the two readers chip by chip.
+    optical_bse = any(item.get("method") == "BSE" and item.get("status") != "failed"
+                      for item in record.get("properties") or [])
+    if optical_bse or re.search(r"\bbse\b", corpus, re.I):
+        methods.append("BSE")
     return methods
 
 

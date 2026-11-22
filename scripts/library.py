@@ -34,7 +34,7 @@ EXTERNAL_URL = re.compile(
     r"(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])*)+"
     r"(?::[0-9]{1,5})?(?:/[^\s#]*)?(?:\?[^\s#]*)?(?:#[^\s]*)?$"
 )
-SOFTWARE_NAMES = {"abacus", "fhi_aims", "librpa"}
+SOFTWARE_NAMES = {"abacus", "fhi_aims", "librpa", "libbse"}
 SOFTWARE_IDENTITY_ISSUE = re.compile(
     r"^software\.(abacus|fhi_aims|librpa)\.identity: full immutable commit or executable SHA-256 is required$"
 )
@@ -535,6 +535,10 @@ def validate(root: Path, sets: list[dict], cases: list[dict]) -> None:
         identity_apps = [frontend]
         if not (frontend == "fhi_aims" and isinstance(workflow_identity, dict) and workflow_identity.get("task") == "gw") and not script_evaluated:
             identity_apps.append("librpa")
+        # LibBSE participates only when the record declares it; when it does, it
+        # needs the same immutable identity as the other two codes.
+        if "libbse" in software:
+            identity_apps.append("libbse")
         for name in identity_apps:
             app = software.get(name)
             if not isinstance(app, dict):

@@ -114,11 +114,13 @@ html[data-theme="dark"] .theme-toggle .icon-sun{display:none}
 .method-gw{background:#e2edfb;color:#1c5cab}
 .method-rpa{background:#e7f4e1;color:#2f6a1f}
 .method-delta-st{background:#e0f2f6;color:#1f5f73}
+.method-bse{background:#fdeee2;color:#8a4a12}
 .method-soc{background:#fdf0dc;color:#7f5208}
 .method-spin{background:#fbe5ec;color:#86304d}
 html[data-theme="dark"] .method-dft{background:#202b3a;color:#b8c6da}
 html[data-theme="dark"] .method-exx{background:#2a2442;color:#c9b6ef}
 html[data-theme="dark"] .method-gw{background:#16304f;color:#9ec5f4}
+html[data-theme="dark"] .method-bse{background:#3d2a1a;color:#f0b87e}
 html[data-theme="dark"] .method-rpa{background:#1e331b;color:#b5dfa0}
 html[data-theme="dark"] .method-delta-st{background:#163340;color:#91d5e9}
 html[data-theme="dark"] .method-soc{background:#3a2d17;color:#f2c98a}

@@ -150,6 +150,12 @@ export function methodNames(record) {
   // Delta-Sternheimer response chain: declared by the workflow marker, not
   // by property methods (the energies are still RPA observables)
   if (record?.workflow?.response === "delta_sternheimer") methods.push("Delta-ST");
+  // BSE: an excitonic response, declared by an optical property or by an
+  // archived BSE input. It is not a gap, so it never comes from the gap
+  // columns; the optical section decides how to present the values.
+  const opticalBse = (record.properties || []).some(p => p.method === "BSE" && p.status !== "failed")
+    || /\bbse\b/i.test(corpus);
+  if (opticalBse) methods.push("BSE");
   return methods;
 }
 
