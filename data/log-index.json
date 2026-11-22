@@ -1993,31 +1993,36 @@
       "calculation_id": "si-libbse-exciton-20261120",
       "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/abacus_nscf.log",
       "sha256": "dc7026c3119e8db09801fbb66ee0d36a69e9b71bcc42bff01722dddce48743f3",
-      "label": "abacus_nscf.log"
+      "label": "abacus_nscf.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-libbse-exciton-20261120",
       "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/abacus_scf.log",
       "sha256": "ff6c7030ccff7cfb18d0579a55afcb65b181dd5660894d3259e8b401bef893b8",
-      "label": "abacus_scf.log"
+      "label": "abacus_scf.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-libbse-exciton-20261120",
       "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/libbse_stdout.log",
       "sha256": "e55b0e1cabe7b533450c8c15f9ed7d14d24360b1a6b3eb79ce10872706787245",
-      "label": "libbse_stdout.log"
+      "label": "libbse_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-libbse-exciton-20261120",
       "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/librpa_band_stdout.log",
       "sha256": "fa3ae8822b82d5911ce12b7309b8d052ee8bd3cb264b0ed9fb8fd4698d634379",
-      "label": "librpa_band_stdout.log"
+      "label": "librpa_band_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-libbse-exciton-20261120",
       "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/logs/librpa_gw_stdout.log",
       "sha256": "279b29e5a401f9561420695a10e3c718bdd1086a3d57f800f31cf5c11f53175c",
-      "label": "librpa_gw_stdout.log"
+      "label": "librpa_gw_stdout.log",
+      "tier": "referenced"
     },
     {
       "calculation_id": "si-paper-all_kpath",
