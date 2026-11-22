@@ -68652,6 +68652,42 @@
               "data/calculations/3d/Si/si-libbse-exciton-20261120/results/GW_band_spin_1.dat"
             ],
             "display_priority": "primary"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/absorption_eps2.png",
+            "sha256": "99da59f1ad9190abe2d9952b27d9f2c2084a26b79f492af4ac7aacd47587a797",
+            "size_bytes": 45399,
+            "label": "Absorption spectrum eps2",
+            "original_sha256": "99da59f1ad9190abe2d9952b27d9f2c2084a26b79f492af4ac7aacd47587a797",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/exciton_avg_777.png",
+            "sha256": "537df10f03edbc7c1227a043af35c8d9df8e3973e6507dd556d4a1307281c46b",
+            "size_bytes": 81831,
+            "label": "Average exciton density",
+            "original_sha256": "537df10f03edbc7c1227a043af35c8d9df8e3973e6507dd556d4a1307281c46b",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/exciton_conditional_777.png",
+            "sha256": "f4628f9ea65c5958710689cede0b85ae6e2a0c8d7e40443b1d32fabec7ac8de6",
+            "size_bytes": 276169,
+            "label": "Conditional exciton density",
+            "original_sha256": "f4628f9ea65c5958710689cede0b85ae6e2a0c8d7e40443b1d32fabec7ac8de6",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/3d/Si/si-libbse-exciton-20261120/figures/gw_band_pbe_gw.png",
+            "sha256": "3cc8f0914a166c7ab11cf8af245331aa13dc03052fb10c41756d6e6270b23d74",
+            "size_bytes": 149132,
+            "label": "PBE vs G0W0 band structure",
+            "original_sha256": "3cc8f0914a166c7ab11cf8af245331aa13dc03052fb10c41756d6e6270b23d74",
+            "transformation": "none"
           }
         ]
       },
