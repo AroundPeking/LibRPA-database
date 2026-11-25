@@ -6,8 +6,8 @@
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "program_output_exception_baseline": "data/historical-program-output-exceptions.json",
   "stats": {
-    "total": 123,
-    "complete": 65,
+    "total": 124,
+    "complete": 66,
     "incomplete": 58,
     "issue_count": 74,
     "accepted_exception_count": 74,
@@ -134,6 +134,18 @@
           "software.librpa.identity: full immutable commit or executable SHA-256 is required"
         ]
       },
+      "blocking_categories": {}
+    },
+    {
+      "id": "mos2-bse-14x14-20261125",
+      "material": "MoS2",
+      "dimension": "2d",
+      "status": "complete",
+      "gate_status": "accepted",
+      "issues": [],
+      "accepted_issues": [],
+      "blocking_issues": [],
+      "missing_categories": {},
       "blocking_categories": {}
     },
     {
