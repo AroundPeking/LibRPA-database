@@ -1,0 +1,44 @@
+# g0w0_band on the Gamma-K-M-Gamma path: the RI/Wc side is identical to the
+# 14x14x1 production run, only the QP table switches to the 121 path points.
+task = g0w0_band
+input_dir = ./OUT.librpa_path
+input_preset = abacus
+output_dir = ./librpa_band.d
+output_level = info
+
+version_coul_reader = 1
+version_lri_reader = 1
+prefix_coul_full = v1_coulomb_full_iq_
+prefix_coul_cut = v1_coulomb_cut_iq_
+prefix_lri_coeff = v1_Cs_data_
+prefix_lri_coeff_shrink = v1_Cs_shrinked_data_
+prefix_shrink_sinvS = v1_shrink_sinvS_
+prefix_eigvecs_scf = KS_eigenvector
+prefix_velocity = velocity_matrix
+fn_stru = stru_out
+fn_bz_sampling = bz_sampling_out
+fn_basis_wfc = basis_wfc_out
+fn_basis_aux = basis_aux_out
+fn_basis_aux_shrink = basis_aux_shrink_out
+fn_eigocc_scf = band_out
+fn_vxc_scf = vxc_out.dat
+
+i_state_low = 0
+i_state_high = 88
+nfreq = 16
+tfgrids_type = minimax
+n_params_anacon = 12
+parallel_routing = libri
+
+option_dielect_func = 3
+replace_w_head = t
+use_2d_dielectric = t
+use_fullcoul_eps = t
+use_fullcoul_wc = t
+use_scalapack_gw_wc = t
+vq_threshold = 0
+sqrt_coulomb_threshold = 0
+use_shrink_abfs = t
+use_shrink_chi = f
+
+output_energy_qp = t

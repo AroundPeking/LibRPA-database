@@ -1,0 +1,28 @@
+# MoS2 monolayer BSE: RI/screening on the sparse 14x14x1 mesh, QP energies and
+# the band sum on the dense 30x30x1 mesh. Paths are relative to THIS file.
+input_dir                  ../librpa_gw/OUT.librpa
+input_format               librpa
+qp_data                    ../librpa_gw/OUT.librpa/energy_qp_fine
+qp_format                  energy_qp
+screened_format            librpa_wc
+screened_dir               ../librpa_gw/OUT.librpa/librpa.d
+output_dir                 libbse.d
+
+# MoS2 has 13 occupied bands; take the top 4 valence and bottom 4 conduction
+nocc                       4
+nvirt                      4
+bse_nstates                -1
+bse_solver                 elpa
+bse_spin_types             singlet
+bse_tda                    tda
+
+# ri_hartree=1 keeps the LibRI Hartree term; fine_kgrid=1 reads the dense QP
+bse_ri_hartree             1
+bse_use_fine_kgrid         1
+
+abs_gauge                  velocity
+wavefunction_gauge         first_k
+spectrum_broadening_ev     0.10
+spectrum_energy_step_ev    0.01
+spectrum_energy_min_ev     0.0
+spectrum_energy_max_ev     6.0
