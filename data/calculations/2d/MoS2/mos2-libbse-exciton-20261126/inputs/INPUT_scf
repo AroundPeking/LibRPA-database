@@ -1,0 +1,70 @@
+INPUT_PARAMETERS
+# ---- MoS2 2D GW+BSE: stage 1 SCF + LibRPA producer ----
+suffix                  ABACUS
+calculation             scf
+basis_type              lcao
+ks_solver               genelpa
+ntype                   2
+nspin                   1
+noncolin                0
+lspinorb                0
+dft_functional          pbe
+
+# 2D 结构：面内 14x14，真空间距 1
+# Keep symmetry 1. The LibRPA export is then symmetry-reduced (196 -> 24
+# irreducible k points) and LibRPA needs use_symmetry_rpa/gw on to accept it.
+# That used to be a dead end because the symmetric head/wing demanded an
+# external full-BZ PyATB velocity_matrix; with option_velocity = native LibRPA
+# expands the 24 IBZ points to the full mesh itself and differentiates the H(R),
+# S(R), r(R) blocks from this same run, so the IBZ grid is accepted and the SCF
+# costs 40 minutes instead of nearly 5 hours.
+symmetry                1
+ecutwfc                 120
+scf_thr                 1e-9
+scf_nmax                200
+nbands                  88
+
+smearing_method         gaussian
+smearing_sigma          1e-4
+
+# ---- LibRPA producer ----
+out_librpa_reader_version 1
+rpa                     1
+rpa_outdir              OUT.librpa
+rpa_out_vel             1
+out_mat_xc              1
+# The optional second integer is the TEXT precision, default 8. LibRPA's native
+# velocity checks |U^T S U - I| < 1e-6 against the S(R) it reads back, and an
+# 8-significant-digit S puts that residual at 1.13e-6 for this 88-orbital basis,
+# so the run aborts in the localized-velocity preflight. 16 restores full double
+# precision. The same applies to the position matrix.
+out_mat_hs2             1 16
+out_mat_r               1 16
+out_chg                 1
+
+# ---- EXX / strict-2D ----
+exx_singularity_correction massidda
+exx_ewald_dimension      2
+# warn (default) reports without expanding; enlarge grows the real-space
+# range until converged, which is what costs the extra memory.  Start with
+# warn, then escalate only if the log reports an incomplete outer shell.
+exx_ewald_tail_check     warn
+exx_separate_loop        1
+exx_pca_threshold        10
+exx_ccp_rmesh_times      3
+rpa_ccp_rmesh_times      6
+exx_real_number          1
+
+# ---- 辅助基 shrink + 筛选 ----
+shrink_abfs_pca_thr      1e-4
+shrink_lu_inv_thr        1e-3
+exx_rotate_abfs          1
+out_unshrinked_v         1
+
+# ---- log_erfc 截断库仑（需 pick/rpa_cut_coulomb_master_ghj）----
+rpa_cut_coulomb          log_erfc
+# 2D 必须用 inscribed：legacy 的 Rcut 随 k 网格增大
+#   14x14 -> 23.1 A (< c=30 A, 勉强安全)
+#   30x30 -> 38.4 A (> c=30 A, 截断球跨过真空层，把 z 周期像算进来)
+# inscribed 给 c/2 = 15.0 A，永不含周期像
+rpa_cut_radius           inscribed

@@ -1633,39 +1633,52 @@
       "tier": "referenced"
     },
     {
-      "calculation_id": "mos2-bse-14x14-20261125",
-      "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_nscf_band.log",
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_30x30.log",
+      "sha256": "556097b8ef3a436a8bc806966b06dbbbce0e8faf8928a73e5a95805e95d30744",
+      "label": "abacus_nscf_30x30.log"
+    },
+    {
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_band_14x14.log",
       "sha256": "2deb22c9a1524653abe4dcab85b3f2ac097e71692c1c72c1ab956def39de8287",
-      "label": "ABACUS 121-point path NSCF",
-      "tier": "referenced"
+      "label": "abacus_nscf_band_14x14.log"
     },
     {
-      "calculation_id": "mos2-bse-14x14-20261125",
-      "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log",
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log",
       "sha256": "3ce9bb3f3d20bff5531110c86f00c0e0b0976c92a06bbdc8efce288d0a6b7d09",
-      "label": "ABACUS 14x14x1 SCF",
-      "tier": "referenced"
+      "label": "abacus_scf.log"
     },
     {
-      "calculation_id": "mos2-bse-14x14-20261125",
-      "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log",
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_14x14.log",
       "sha256": "73fcfc1e182bb2866d22290743e48fa49e093df3ac84c2f23f5a0e61186ae871",
-      "label": "LibBSE TDA singlet run",
-      "tier": "referenced"
+      "label": "libbse_14x14.log"
     },
     {
-      "calculation_id": "mos2-bse-14x14-20261125",
-      "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_band_stdout.log",
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log",
+      "sha256": "07544682a4d54ec503b5f2cc57fe0b481f3d9598bee9c136e1a303a04fd10143",
+      "label": "libbse_30x30.log"
+    },
+    {
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_band_14x14.log",
       "sha256": "2d888ff74fca3b9409e06531d5b048c5a3ed621df4d97e814023aa5ef2af7165",
-      "label": "LibRPA G0W0 on the band path",
-      "tier": "referenced"
+      "label": "librpa_band_14x14.log"
     },
     {
-      "calculation_id": "mos2-bse-14x14-20261125",
-      "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log",
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_14x14.log",
       "sha256": "c70655882fe50c6666b43b8444351bf02910f7746258b7b54b5f2ad761f4b0ae",
-      "label": "LibRPA G0W0 on the 14x14x1 mesh",
-      "tier": "referenced"
+      "label": "librpa_gw_14x14.log"
+    },
+    {
+      "calculation_id": "mos2-libbse-exciton-20261126",
+      "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log",
+      "sha256": "d48c52ce8b9697ef00cbb5ce1cf65e8e51cc44190c41705534972f9dd4192408",
+      "label": "librpa_gw_30x30.log"
     },
     {
       "calculation_id": "mose2-table-gw",

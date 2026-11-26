@@ -1,0 +1,97 @@
+--------------------------------------------------------------------------
+WARNING: There is at least one non-excluded one OpenFabrics device found,
+but there are no active ports detected (or Open MPI was unable to use
+them).  This is most certainly not what you wanted.  Check your
+cables, subnet manager configuration, etc.  The openib BTL will be
+ignored for this job.
+
+  Local host: wqd10nbc04c09
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   wqd10nbc04c09
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+Info: Local MPI proc number: 8,OpenMP thread number: 8,Total thread number: 64,Local thread limit: 256
+
+                     ▄████▄ █████▄ ▄████▄ ▄█████ ██  ██ ▄█████ 
+                     ██▄▄██ ██▄▄██ ██▄▄██ ██     ██  ██ ▀▀▀▄▄▄ 
+                     ██  ██ ██▄▄█▀ ██  ██ ▀█████ ▀████▀ █████▀ 
+
+                                                                                     
+                                v3.11.0-beta10
+
+               Atomic-orbital Based Ab-initio Computation at UStc                    
+
+                     Website: http://abacus.ustc.edu.cn/                             
+               Documentation: https://abacus.deepmodeling.com/                       
+                  Repository: https://github.com/abacusmodeling/abacus-develop       
+                              https://github.com/deepmodeling/abacus-develop         
+                      Commit: unknown
+
+ Wed Nov 25 15:53:47 2026
+ MAKE THE DIR         : OUT.dense30/
+ RUNNING WITH DEVICE  : CPU / AMD EPYC 9755 128-Core Processor (x2)
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+ WARNING: some of potential function is set to zero cause of less than 1e-30.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ Warning: the number of valence electrons in pseudopotential > 6 for Mo: [Kr] 4d5 5s1
+ Pseudopotentials with additional electrons can yield (more) accurate outcomes, but may be less efficient.
+ If you're confident that your chosen pseudopotential is appropriate, you can safely ignore this warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ UNIFORM GRID DIM     : 45 * 45 * 400
+ UNIFORM GRID DIM(BIG): 9 * 9 * 80
+ DONE(0.0608031  SEC) : SETUP UNITCELL
+ DONE(0.0654053  SEC) : INIT K-POINTS
+ ----------------------------------------------------------------
+ ----------------------------------------------------------------
+ SPIN    KPOINTS         PROCESSES   THREADS/PROC  THREADS/TOTAL 
+ 1       900             8           8             64            
+ ----------------------------------------------------------------
+ Use Systematically Improvable Atomic bases
+ ----------------------------------------------------------------
+ TOTAL NBASE 88
+ ELEMENT ORBITALS        NBASE       NATOM       
+ Mo      6s3p3d2f-10au   44          1           
+ S       3s3p2d-10au     22          2           
+ ----------------------------------------------------------------
+ Initial plane wave basis and FFT box
+ ----------------------------------------------------------------
+ DONE(0.23565    SEC) : INIT PLANEWAVE
+ START CHARGE         : FILE
+ DONE(1.54422    SEC) : CHARGE
+ DONE(1.60676    SEC) : POTENTIALS
+
+ ================================================================
+ NONSELF-CONSISTENT: 
+ ================================================================
+ DONE(2.49341    SEC) : INIT SCF
+[wqd10nbc04c09:04655] 6 more processes have sent help message help-mpi-btl-openib.txt / no active ports found
+[wqd10nbc04c09:04655] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+ ITER     ETOT/eV          EDIFF/eV         DRHO     TIME/s
+ GE1   -2.51552088e+03   0.00000000e+00   0.0000e+00 1964.67
+
+ TIME STATISTICS
+--------------------------------------------------------------
+  CLASS_NAME       NAME       TIME/s   CALLS    AVG/s  PER/%  
+--------------------------------------------------------------
+              total           1985.08 10064    0.20    100.00 
+ Driver       atomic_world    1985.08 1        1985.08 100.00 
+ Relax_Driver relax_driver    1969.34 1        1969.34 99.21  
+ ESolver_KS   runner          1969.34 1        1969.34 99.21  
+ HSolverLCAO  solve           1963.13 1        1963.13 98.89  
+ HamiltLCAO   updateHk        29.97   900      0.03    1.51   
+ OperatorLCAO init            29.89   4500     0.01    1.51   
+ HSolverLCAO  hamiltSolvePsiK 1922.19 900      2.14    96.83  
+ DiagoElpa    elpa_solve      1900.33 900      2.11    95.73  
+--------------------------------------------------------------
+
+
+ START  Time  : Wed Nov 25 15:53:47 2026
+ FINISH Time  : Wed Nov 25 16:26:52 2026
+ TOTAL  Time  : 1985
+ SEE INFORMATION IN : OUT.dense30/
+WALL=1987.67 MAXRSSKB=475396

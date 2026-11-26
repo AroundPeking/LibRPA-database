@@ -7677,7 +7677,7 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": [
-        "mos2-bse-14x14-20261125"
+        "mos2-libbse-exciton-20261126"
       ],
       "previous_id": "Mo-Dojo-stringent-36db113d05f8",
       "label": {
@@ -7711,7 +7711,7 @@
         },
         "uses": [
           {
-            "record_id": "mos2-bse-14x14-20261125",
+            "record_id": "mos2-libbse-exciton-20261126",
             "material": "MoS2",
             "formula": "MoS2",
             "dimension": "2d",
@@ -11708,7 +11708,7 @@
         "status": "historical inputs if attached; generation-time provenance is not inferred from filenames"
       },
       "used_by": [
-        "mos2-bse-14x14-20261125"
+        "mos2-libbse-exciton-20261126"
       ],
       "previous_id": "S-Dojo-NC-SR-87f36c0d139f",
       "label": {
@@ -11741,7 +11741,7 @@
         },
         "uses": [
           {
-            "record_id": "mos2-bse-14x14-20261125",
+            "record_id": "mos2-libbse-exciton-20261126",
             "material": "MoS2",
             "formula": "MoS2",
             "dimension": "2d",
@@ -23580,7 +23580,7 @@
     },
     {
       "schema_version": 1,
-      "id": "mos2-bse-14x14-20261125",
+      "id": "mos2-libbse-exciton-20261126",
       "material": "MoS2",
       "formula": "MoS2",
       "dimension": "2d",
@@ -23634,599 +23634,38 @@
         "n_bands": 88,
         "n_path_kpoints": 121,
         "n_mesh_kpoints": 196,
+        "n_fine_kpoints": 900,
         "state_count": 3136,
+        "fine_state_count": 14400,
         "occupied_states": 13,
         "unoccupied_states": 75,
         "excitonic_occupied_states": 4,
         "excitonic_unoccupied_states": 4
       },
       "performance": {
-        "wall_time_seconds": 24312,
+        "wall_time_seconds": 53031,
         "nodes": 1,
         "mpi_ranks": 8,
         "omp_threads_per_rank": 20,
         "cluster_label": "BSCC-M9",
         "evidence": [
-          "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log",
-          "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log",
-          "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log"
+          "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log",
+          "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log",
+          "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log"
         ],
-        "note": "Summed over the five production stages measured by the scheduler: SCF 3061 s (8 ranks x 20 threads), 14x14x1 G0W0 11933 s and band G0W0 8285 s (1 rank x 32 threads each), path NSCF 295 s (4 x 8) and LibBSE 738 s (1 x 16). The rank and thread counts below are the SCF stage."
+        "note": "Summed over the production stages measured by the scheduler: SCF 3061 s, 14x14x1 G0W0 11933 s, path NSCF 295 s, path G0W0 8285 s, 30x30 NSCF 1988 s, 30x30 G0W0 8438 s, 14x14 BSE 738 s, 30x30 BSE 16538 s, band preprocess 1755 s. Rank and thread counts below are the SCF stage."
       },
       "structure_identity": {
         "algorithm": "cell-sites-v1",
         "sha256": "6b637f64b5f65c76e1b57b9afd5c59e2718b62eeaef1ba96ad6f32de30862d73",
-        "evidence": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/STRU"
+        "evidence": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/STRU"
       },
       "recommendation": null,
       "missing": [
         "ABACUS and LibRPA source commits are not recoverable: both build trees lack .git, so executable SHA-256 values are the identity."
       ],
       "source": {
-        "collection": "MoS2 2D GW+BSE reproduction, 2026-11-25"
-      },
-      "files": {
-        "inputs": [
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_scf",
-            "sha256": "515b1746120d364ace396cbf8470f2159c22eccfc718e1e617ea2660b86353ea",
-            "size_bytes": 2728,
-            "label": "INPUT_scf",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_scf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_scf"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_scf",
-            "sha256": "58bd42fbae6a7dc1a48c7c221d26798cb0dd2002fbbd2d157508502c9f9a966a",
-            "size_bytes": 31,
-            "label": "KPT_scf",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_scf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_scf"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/STRU",
-            "sha256": "21b3cac458002df1b355699ff65914a9a10c30000d90b2aee8d8665a740989af",
-            "size_bytes": 569,
-            "label": "STRU",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/STRU",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/STRU"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_nscf_band",
-            "sha256": "89d2047c2271878ae2fbdec3bd957aa02018dd790420906114e508e0c6614523",
-            "size_bytes": 977,
-            "label": "INPUT_nscf_band",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_nscf_band",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/INPUT_nscf_band"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_band",
-            "sha256": "5bcc947829ff58bbc6b97b260422d4c4335d7040503e0b7aa758faa0aefc16ac",
-            "size_bytes": 195,
-            "label": "KPT_band",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_band",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/KPT_band"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa.in",
-            "sha256": "bb0477129857d75e89de0fc9337055a2e612116384dd31f50457514d3b5aaf05",
-            "size_bytes": 1968,
-            "label": "librpa.in",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa.in",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa.in"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa_band.in",
-            "sha256": "0266724a64bbf7c725264c162d58df9c0e4aa97c62e69edd58620eea753fd3b7",
-            "size_bytes": 1136,
-            "label": "librpa_band.in",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa_band.in",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/librpa_band.in"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/libbse.in",
-            "sha256": "a94e01e642a8cd0317438d53574c021027f6003a2946b2278448fcb5ca25c4ed",
-            "size_bytes": 1073,
-            "label": "libbse.in",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/libbse.in",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/libbse.in"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/scf_slurm.sh",
-            "sha256": "286f5ac54af95c5db74d545cc3ae8f4f7e2c14cef50de7de69e7dbe077398acb",
-            "size_bytes": 2169,
-            "label": "scf_slurm.sh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/scf_slurm.sh",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/scf_slurm.sh"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/nscf_band_slurm.sh",
-            "sha256": "65a92203e1aaac5a44f3edbd53c93356beb67ef015e1be298a0945abbde762e4",
-            "size_bytes": 873,
-            "label": "nscf_band_slurm.sh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/nscf_band_slurm.sh",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/nscf_band_slurm.sh"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/gw_slurm.sh",
-            "sha256": "967ea157892cb0cf1653b30dc83d54e3c27cf150e03c5559ea72e31fb6ea6b7f",
-            "size_bytes": 1005,
-            "label": "gw_slurm.sh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/gw_slurm.sh",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/gw_slurm.sh"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/band_gw_slurm.sh",
-            "sha256": "398c381f3aacbc8d4b68888f0dd82770f90ee274a576878093221934db885370",
-            "size_bytes": 942,
-            "label": "band_gw_slurm.sh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/band_gw_slurm.sh",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/band_gw_slurm.sh"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/bse_slurm.sh",
-            "sha256": "62ab3213c28de3b1283028828fd87b23b582e43f267e5c5f8d8c0c3b10be881e",
-            "size_bytes": 916,
-            "label": "bse_slurm.sh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/bse_slurm.sh",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/bse_slurm.sh"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_exciton_density.py",
-            "sha256": "7dee0df3ae3ab352eb8b1ab74fe83e6b4839e768b3a9753452758f236c0944e5",
-            "size_bytes": 8232,
-            "label": "exciton_density reconstruction script",
-            "transformation": "sanitized",
-            "note": "Reproduces an archived result from this record's own bytes; not a production input.",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_exciton_density.py",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_exciton_density.py"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_make_wfk.py",
-            "sha256": "166c2b1c7b30cab4279f6fb24a6c695c718af0c8ddf9ec37c061a2e29af55738",
-            "size_bytes": 3215,
-            "label": "make_wfk reconstruction script",
-            "transformation": "sanitized",
-            "note": "Reproduces an archived result from this record's own bytes; not a production input.",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_make_wfk.py",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_make_wfk.py"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_exciton_slice.py",
-            "sha256": "078671d4a979452cbf387674fdee150aa1b89d28c96180adcb0a86a64df7ed61",
-            "size_bytes": 4205,
-            "label": "plot_exciton_slice reconstruction script",
-            "transformation": "sanitized",
-            "note": "Reproduces an archived result from this record's own bytes; not a production input.",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_exciton_slice.py",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_exciton_slice.py"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_spectrum.py",
-            "sha256": "e13e49536a13308bc2e784b67ba3e81c2b4402be4000e2e72c4a4369e7a6b971",
-            "size_bytes": 4077,
-            "label": "plot_spectrum reconstruction script",
-            "transformation": "sanitized",
-            "note": "Reproduces an archived result from this record's own bytes; not a production input.",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_spectrum.py",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_plot_spectrum.py"
-          },
-          {
-            "role": "inputs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_render_mos2_bands.py",
-            "sha256": "4ee177c48d1c2d09181f694c53e66a3c965d9b98a4f5945dc2499a9f1218475a",
-            "size_bytes": 2326,
-            "label": "render_mos2_bands reconstruction script",
-            "transformation": "sanitized",
-            "note": "Reproduces an archived result from this record's own bytes; not a production input.",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_render_mos2_bands.py",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/inputs/reconstruct_render_mos2_bands.py"
-          }
-        ],
-        "results": [
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat",
-            "sha256": "010166cea66a009db5874034ff9ee79ab33490ef599b0ca461520506b75d088f",
-            "size_bytes": 325611,
-            "label": "KS bands on Gamma-K-M-Gamma",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat",
-            "sha256": "c68db66882989fa08eeaed0eeb7a6b8db7847586f02ca7da12c79f07211353b2",
-            "size_bytes": 325611,
-            "label": "EXX bands on the same path",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat",
-            "sha256": "e87447286bbbc210b4f20c59567df4598080b96bee5727b4ee01fb979079df87",
-            "size_bytes": 325611,
-            "label": "G0W0 bands on the same path",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info",
-            "sha256": "28e89f6dbd63fbac011da0f5cd4f7252cf303c4d1f58e047d3fd9871bdef6377",
-            "size_bytes": 6680,
-            "label": "k-path header (88 bands, 121 points)",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_kpath_info"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json",
-            "sha256": "51b18510e80e0aaffe3d3fcf57b0890990083d8e2747e506471c9bb0ddf10470",
-            "size_bytes": 60275,
-            "label": "frozen display window, edge audit and per-k mapping",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/energy_qp",
-            "sha256": "634836a1782e56397b7dd7ad3f3d3d1171d1eb8c67a96ff8cf20456364c7112b",
-            "size_bytes": 144996,
-            "label": "QP energies on the 14x14x1 mesh (196 k)",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/energy_qp",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/energy_qp"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/Excitation_Energy_singlet.dat",
-            "sha256": "e74d46279ac9e515c5503e832c6c064fa7f0c6bba61848f1995a6bf48d955ade",
-            "size_bytes": 47041,
-            "label": "TDA singlet excitation ladder (Ry)",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/Excitation_Energy_singlet.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/Excitation_Energy_singlet.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat",
-            "sha256": "add1d2c065d94123c0646dbe691bc2ba288bce64a9afd32a6e914588c964fd8d",
-            "size_bytes": 312593,
-            "label": "velocity-gauge oscillator strengths",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/spectrum_singlet_tda.dat",
-            "sha256": "6708655f25ab0bf5849b48f1dea2457bcee8d25b7b69c256126ec591a353431f",
-            "size_bytes": 47707,
-            "label": "Lorentz-broadened oscillator-strength density",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/spectrum_singlet_tda.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/spectrum_singlet_tda.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat",
-            "sha256": "94cf3aa68f376315f01795bca331a4c6a89c3da8727e8ad14f7f45a489e2ffb2",
-            "size_bytes": 14546,
-            "label": "eps2 converted with the 1/(N_k V) factor",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_elec.dat",
-            "sha256": "d44faf0ec937029b1e9102ad44f68cea0cca38a893b6b3498cbd56ab1c92c779",
-            "size_bytes": 56132,
-            "label": "state-0 electron density slice",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_elec.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_elec.dat"
-          },
-          {
-            "role": "results",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_hole.dat",
-            "sha256": "46a27955c54cf40dee0b86686285dc4463906961e97ede222b38b01838c9fbe5",
-            "size_bytes": 56132,
-            "label": "state-0 hole density slice",
-            "transformation": "none",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_hole.dat",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_hole.dat"
-          }
-        ],
-        "logs": [
-          {
-            "role": "logs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log",
-            "sha256": "3ce9bb3f3d20bff5531110c86f00c0e0b0976c92a06bbdc8efce288d0a6b7d09",
-            "size_bytes": 394534,
-            "label": "ABACUS 14x14x1 SCF",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log"
-          },
-          {
-            "role": "logs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_nscf_band.log",
-            "sha256": "2deb22c9a1524653abe4dcab85b3f2ac097e71692c1c72c1ab956def39de8287",
-            "size_bytes": 116205,
-            "label": "ABACUS 121-point path NSCF",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_nscf_band.log",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_nscf_band.log"
-          },
-          {
-            "role": "logs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log",
-            "sha256": "c70655882fe50c6666b43b8444351bf02910f7746258b7b54b5f2ad761f4b0ae",
-            "size_bytes": 790851,
-            "label": "LibRPA G0W0 on the 14x14x1 mesh",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log"
-          },
-          {
-            "role": "logs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_band_stdout.log",
-            "sha256": "2d888ff74fca3b9409e06531d5b048c5a3ed621df4d97e814023aa5ef2af7165",
-            "size_bytes": 2758601,
-            "label": "LibRPA G0W0 on the band path",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_band_stdout.log",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_band_stdout.log"
-          },
-          {
-            "role": "logs",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log",
-            "sha256": "73fcfc1e182bb2866d22290743e48fa49e093df3ac84c2f23f5a0e61186ae871",
-            "size_bytes": 122098,
-            "label": "LibBSE TDA singlet run",
-            "transformation": "sanitized",
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log"
-          }
-        ],
-        "figures": [
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.png",
-            "sha256": "318845061d2f326333a8dddde94a25ed6ba6c1e6a8aed2dbecd4da202d73e3f5",
-            "size_bytes": 296268,
-            "label": "mos2_ks_frontier.png",
-            "transformation": "none",
-            "method": "KS",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.png"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.pdf",
-            "sha256": "96049536afe742c1f7744999df25c1bc35924095b23246b5e35ad1b581ed80cd",
-            "size_bytes": 58466,
-            "label": "mos2_ks_frontier.pdf",
-            "transformation": "none",
-            "method": "KS",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.pdf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_ks_frontier.pdf"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.png",
-            "sha256": "3508617ab3fa8f728cf9d4dc6ee14c0686c3b9607a9141c9ac2dd31f70117121",
-            "size_bytes": 259098,
-            "label": "mos2_exx_frontier.png",
-            "transformation": "none",
-            "method": "EXX",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.png"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.pdf",
-            "sha256": "7fde84af99f9a10e3af4a89aaa062b1c9b9eb4d8be39ae2ab8a8ed4d55474b1d",
-            "size_bytes": 58996,
-            "label": "mos2_exx_frontier.pdf",
-            "transformation": "none",
-            "method": "EXX",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.pdf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exx_frontier.pdf"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.png",
-            "sha256": "fe60d63a96b289cb3295be5b3fde74a193574d1196635948f4cc11b9ea670ac7",
-            "size_bytes": 316826,
-            "label": "mos2_gw_frontier.png",
-            "transformation": "none",
-            "method": "GW",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.png"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.pdf",
-            "sha256": "188ee038fc9226745e5cc90b140a8c9556068239cf2b8b26998e958d781f6baa",
-            "size_bytes": 60293,
-            "label": "mos2_gw_frontier.pdf",
-            "transformation": "none",
-            "method": "GW",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/band_window_and_provenance.json"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.pdf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_gw_frontier.pdf"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.png",
-            "sha256": "dc9c49a4f9d4cff4e8e2ff39c227808e23c75dd7cd74adccf7938e60ea070b73",
-            "size_bytes": 221899,
-            "label": "absorption spectrum and exciton ladder",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.png"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.pdf",
-            "sha256": "20c5a5dd3e4c772b7f995d1167888f51ece395c6883e7a92ef2648dfa297f09b",
-            "size_bytes": 73841,
-            "label": "absorption spectrum and exciton ladder",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat",
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.pdf",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_absorption.pdf"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_elec.png",
-            "sha256": "f4e7e058a45c20e7e834730384f7859ce6cc741d4217cf56a2723bb4789ed7e1",
-            "size_bytes": 519482,
-            "label": "exciton electron density (state 0)",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_elec.dat"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_elec.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_elec.png"
-          },
-          {
-            "role": "figures",
-            "path": "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_hole.png",
-            "sha256": "9c7eeb173390b38b6249823bf68c9c65fb80a8c363a77b98bb254d3ea1cac14a",
-            "size_bytes": 514469,
-            "label": "exciton hole density (state 0)",
-            "transformation": "none",
-            "source_paths": [
-              "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/exciton_density_avg_hole.dat"
-            ],
-            "tier": "referenced",
-            "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_hole.png",
-            "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/20b278d34e38e85f4087042eeaed93ad6bebcdc3/data/calculations/2d/MoS2/mos2-bse-14x14-20261125/figures/mos2_exciton_density_hole.png"
-          }
-        ]
+        "collection": "MoS2 2D GW+BSE reproduction, 2026-11-26"
       },
       "properties": [
         {
@@ -24239,7 +23678,7 @@
           "status": "reported",
           "definition": "Sampled path CBM minus VBM along Gamma-K-M-Gamma (121 points) from the finite original bands; not a full-Brillouin-zone fundamental gap.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/KS_band_spin_1.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/KS_band_spin_1.dat"
           ]
         },
         {
@@ -24252,7 +23691,7 @@
           "status": "reported",
           "definition": "Same path and definition as the PBE entry.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/EXX_band_spin_1.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/EXX_band_spin_1.dat"
           ]
         },
         {
@@ -24265,60 +23704,60 @@
           "status": "reported",
           "definition": "Same path and definition as the PBE entry.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/GW_band_spin_1.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/GW_band_spin_1.dat"
           ]
         },
         {
-          "key": "mesh_gap_ev",
+          "key": "sampled_grid_gap_ev",
           "category": "electronic",
-          "label": "14x14x1 mesh QP gap",
+          "label": "30x30x1 mesh QP gap",
           "method": "G0W0",
-          "value": 2.5263,
+          "value": 2.39727,
           "unit": "eV",
           "status": "reported",
-          "definition": "CBM minus VBM over the 196 points of the 14x14x1 mesh used as the BSE transition grid. 14 is not divisible by 3, so K is not on this mesh: this is a sampled-mesh gap, not the value at K.",
+          "definition": "CBM minus VBM over the 900 points of the 30x30x1 fine mesh used as the BSE transition grid. 30 is divisible by 3, so K is on this mesh and the value coincides with the K-point path gap.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/energy_qp"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/energy_qp_fine_30x30"
           ]
         },
         {
           "key": "exciton_lowest_excitation",
           "category": "optical",
-          "label": "Lowest bright singlet excitation",
+          "label": "Lowest bright singlet excitation (30x30 fine grid)",
           "method": "BSE",
-          "value": 1.944831,
+          "value": 1.942436,
           "unit": "eV",
           "status": "reported",
-          "definition": "Lowest TDA singlet root carrying oscillator strength in the 1-5 eV window; the bare lowest eigenvalue is dark.",
+          "definition": "Lowest TDA singlet root carrying oscillator strength in the 1-5 eV window on the 900-point fine grid; the bare lowest eigenvalue is dark.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/oscillator_strength_singlet_tda.dat"
           ]
         },
         {
           "key": "exciton_binding_energy",
           "category": "optical",
-          "label": "Exciton binding energy",
+          "label": "Exciton binding energy (30x30 fine grid)",
           "method": "BSE",
-          "value": 0.5815,
+          "value": 0.4548,
           "unit": "eV",
-          "status": "provisional",
-          "definition": "14x14x1 mesh QP gap 2.5263 eV minus the 1.944831 eV lowest bright excitation. Both numbers come from the same 196-point mesh, which does not contain K; a denser mesh is required before this is converged.",
+          "status": "reported",
+          "definition": "30x30x1 mesh QP gap 2.39727 eV minus the 1.942436 eV lowest bright excitation. Screening and RI come from the coarser 14x14x1 grid, which is the dual-grid approximation this record documents.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/energy_qp",
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/oscillator_strength_singlet_tda.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/energy_qp_fine_30x30",
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/oscillator_strength_singlet_tda.dat"
           ]
         },
         {
           "key": "absorption_peak_energy",
           "category": "optical",
-          "label": "Strongest absorption peak",
+          "label": "Strongest absorption peak (30x30 fine grid)",
           "method": "BSE",
-          "value": 2.59,
+          "value": 2.6,
           "unit": "eV",
-          "status": "provisional",
+          "status": "reported",
           "definition": "Global maximum of eps2(w) in the 1-5 eV window at 0.10 eV broadening.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/eps2_singlet_tda.dat"
           ]
         },
         {
@@ -24326,34 +23765,518 @@
           "category": "optical",
           "label": "eps2 at the strongest peak",
           "method": "BSE",
-          "value": 5.591,
+          "value": 5.425,
           "unit": "dimensionless",
-          "status": "provisional",
-          "definition": "eps2 includes the 2 pi^2/(N_k V) factor with the primitive-cell volume 1777.44 bohr^3 (|a1 x a2| * c) and the f_file/2 correction. The raw spectrum_* file is an extensive quantity and is not eps2.",
+          "status": "reported",
+          "definition": "eps2 includes the 2 pi^2/(N_k V) factor with the primitive-cell volume 1777.44 bohr^3 (|a1 x a2| . c) and the f_file/2 correction, and is checked against the f-sum rule. The raw spectrum_* file is an extensive quantity and is not eps2.",
           "evidence": [
-            "data/calculations/2d/MoS2/mos2-bse-14x14-20261125/results/eps2_singlet_tda.dat"
+            "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/eps2_singlet_tda.dat"
           ]
         }
       ],
       "scientific_scope": {
-        "original_status": "pipeline demonstration",
-        "transition_grid": "14x14x1 (196 k), used as both the coarse and the fine grid",
+        "original_status": "dual-grid BSE demonstration",
+        "transition_grid": "coarse 14x14x1 (196 k) for screening and RI, fine 30x30x1 (900 k) for the BSE transition space",
         "caveats": [
-          "The 14x14x1 mesh does not contain K, so the mesh QP gap and the exciton binding energy are not converged with respect to the k mesh.",
-          "The G0W0 step used the pyatb velocity source that reads the velocity_matrix ABACUS wrote, not the native H(R)/S(R)/r(R) differentiation.",
-          "LibBSE ran with bse_use_fine_kgrid 0: the coarse and fine grids are the same 196-point mesh, so no interpolation to a denser grid was applied.",
-          "Two GW entries on the 121-point path (bands 62 and 67) are nonfinite where the QPE solver failed. Both lie far outside the plotted near-gap window (bands 10-17) and are kept visible in the archived table rather than removed.",
-          "The exciton density slices were reconstructed from the BSE amplitudes with alter_excitons_gw_bse_20261105/scripts/exciton_density_from_amplitudes.py, patched in three documented ways: the l<=3 harmonics were added (this basis has an f shell), per-atom orbital blocks were sized from each species (Mo 44, S 22), and the band window offset was set to LibBSE's reported core offset 9 so the amplitudes pair with bands 10-17 instead of 1-8. Without the third patch the electron density peaks at S rather than at Mo.",
-          "eps2 is normalised by the primitive-cell volume 1777.44 bohr^3, taken from |a1 x a2| * c with a1 = 3.184 A and c = 30 A. The hexagonal form (sqrt(3)/2) a^2 c gives the same number; multiplying it by 3 is a common slip and would understate eps2 by a factor of three.",
-          "The eps2 normalisation was checked against the f-sum rule: integrating omega*eps2 to 30 eV gives 0.0948 in Hartree units, against the analytic 2*pi^2*sum(f_phys)/(N_k*V) = 0.0947, a ratio of 1.001. The 33% figure spectrum_to_eps2.py prints is the band-window completeness (4 occupied + 4 empty of 88 bands), not a normalisation deficit."
+          "Screening and the RI coefficients come from the 14x14x1 grid while the transition space uses 30x30x1. This is the dual-grid approximation LibBSE supports through bse_use_fine_kgrid=1; it is not a fully self-consistent 30x30 screening.",
+          "The G0W0 steps used the pyatb velocity source that reads the velocity_matrix ABACUS wrote, not the native H(R)/S(R)/r(R) differentiation.",
+          "The 14x14x1 mesh does not contain K, so its mesh gap 2.52630 eV is a sampled value below the K-point gap. The 30x30x1 mesh does contain K, so the fine-grid gap 2.39727 eV coincides with the K-point path gap. The two binding energies are quoted against their own grid gap and must not be compared to each other directly.",
+          "eps2 is normalised by the primitive-cell volume 1777.44 bohr^3, taken from |a1 x a2| . c with a1 = 3.184 A and c = 30 A. The hexagonal form (sqrt(3)/2) a^2 c gives the same number; multiplying it by 3 is a common slip and would understate eps2 by a factor of three.",
+          "The eps2 normalisation was checked against the f-sum rule: integrating omega*eps2 to 30 eV reproduces the analytic 2*pi^2*sum(f_phys)/(N_k*V) to 0.1%.",
+          "The exciton density slices were reconstructed with a wrapper around alter_excitons_gw_bse_20261105/scripts/exciton_density_from_amplitudes.py, patched in three documented ways: the l<=3 harmonics (this basis has an f shell), per-species orbital widths (Mo 44, S 22), and the LibBSE band-window offset 9. Without the offset the electron density peaks at S rather than at Mo.",
+          "The 30x30 path band tables carry only the 8 near-gap states requested by i_state_low/high; the 88-band path tables and the frontier figures come from the separate 121-point path run on the same SCF density."
+        ]
+      },
+      "files": {
+        "inputs": [
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_nscf_30x30",
+            "sha256": "7987b1cd85e90ca17ef24e1b56a390cbe63f017e6a0ffb30e87d9b58720da173",
+            "size_bytes": 983,
+            "label": "INPUT_nscf_30x30",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_scf",
+            "sha256": "515b1746120d364ace396cbf8470f2159c22eccfc718e1e617ea2660b86353ea",
+            "size_bytes": 2728,
+            "label": "INPUT_scf",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_30x30",
+            "sha256": "c4da00cd809895eb6a6aa538fd8798458b9fcbad23d3c9231d33ffc7477fc76b",
+            "size_bytes": 31,
+            "label": "KPT_30x30",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_scf",
+            "sha256": "58bd42fbae6a7dc1a48c7c221d26798cb0dd2002fbbd2d157508502c9f9a966a",
+            "size_bytes": 31,
+            "label": "KPT_scf",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/STRU",
+            "sha256": "21b3cac458002df1b355699ff65914a9a10c30000d90b2aee8d8665a740989af",
+            "size_bytes": 569,
+            "label": "STRU",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/bse30_slurm.sh",
+            "sha256": "5cfed0e794347cc2dcfec7231d1ae4a607af0cababa67517a1a0ceeaf87fc135",
+            "size_bytes": 898,
+            "label": "bse30_slurm.sh",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/gw30_slurm.sh",
+            "sha256": "9b7ea074bde007347d30682e76206246ddbc2dbc64b9e233b53cad1948fb5d48",
+            "size_bytes": 950,
+            "label": "gw30_slurm.sh",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse.in",
+            "sha256": "5311db15f7eae11ed1268bf60533d520bf147d6ec15c08dc06662049b8ba12d3",
+            "size_bytes": 1212,
+            "label": "libbse.in",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse_30x30.in",
+            "sha256": "25955acb197f463fe65bec0c06a78c23fccd3d83c1b74aba4ffe15f7e3397b30",
+            "size_bytes": 1221,
+            "label": "libbse_30x30.in",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa.in",
+            "sha256": "13fd6924702d913c9b3db27dbb100be52418f06dce6ca0db7893b272447f8970",
+            "size_bytes": 2440,
+            "label": "librpa.in",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa_30x30.in",
+            "sha256": "9dcd894b3d7deed10033f8b947f8de1dfef754a3fe22db7cee74bdead4365699",
+            "size_bytes": 1138,
+            "label": "librpa_30x30.in",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/nscf30_slurm.sh",
+            "sha256": "80068eb5e01de97abd04a58c8cde8654a03e5c95679d3487ffd6704ac6ae32fd",
+            "size_bytes": 1015,
+            "label": "nscf30_slurm.sh",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_exciton_density.py",
+            "sha256": "7dee0df3ae3ab352eb8b1ab74fe83e6b4839e768b3a9753452758f236c0944e5",
+            "size_bytes": 8232,
+            "label": "reconstruct_exciton_density.py",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_make_wfk.py",
+            "sha256": "166c2b1c7b30cab4279f6fb24a6c695c718af0c8ddf9ec37c061a2e29af55738",
+            "size_bytes": 3215,
+            "label": "reconstruct_make_wfk.py",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_eps2.py",
+            "sha256": "4ba322c9c1632d8ddd1bb1fce8497f7512a3f5581383ab4c41241a154ab504f7",
+            "size_bytes": 3163,
+            "label": "reconstruct_plot_eps2.py",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_exciton_pair.py",
+            "sha256": "950c21fd9888016031ae734cddff1bb46546f1c54861130f05646b0ab6cd4f5a",
+            "size_bytes": 4641,
+            "label": "reconstruct_plot_exciton_pair.py",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_render_mos2_bands.py",
+            "sha256": "4ee177c48d1c2d09181f694c53e66a3c965d9b98a4f5945dc2499a9f1218475a",
+            "size_bytes": 2326,
+            "label": "reconstruct_render_mos2_bands.py",
+            "transformation": "none"
+          }
+        ],
+        "results": [
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/EXX_band_spin_1.dat",
+            "sha256": "0ac8e2957310e9546e461196a5f8965c0929c6a672dc6d84fb2b1cef2a6a274e",
+            "size_bytes": 261900,
+            "label": "EXX_band_spin_1.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/Excitation_Energy_singlet.dat",
+            "sha256": "92d09f44262a68f975845939a44e8e8a26102a2e21c5454fc18b7e8fc03e6617",
+            "size_bytes": 216001,
+            "label": "Excitation_Energy_singlet.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/GW_band_spin_1.dat",
+            "sha256": "ff9fc07d4fed24aab5fd7baa36e7688efc1baf5926fa5fde49a343cac0ce267f",
+            "size_bytes": 261900,
+            "label": "GW_band_spin_1.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/KS_band_spin_1.dat",
+            "sha256": "bac544df3be4deff63ffec35e8017e26210faf891c9f9136712a7dd057e9ee31",
+            "size_bytes": 261900,
+            "label": "KS_band_spin_1.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_kpath_info",
+            "sha256": "28e89f6dbd63fbac011da0f5cd4f7252cf303c4d1f58e047d3fd9871bdef6377",
+            "size_bytes": 6680,
+            "label": "band_kpath_info",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_window_and_provenance.json",
+            "sha256": "51b18510e80e0aaffe3d3fcf57b0890990083d8e2747e506471c9bb0ddf10470",
+            "size_bytes": 60275,
+            "label": "band_window_and_provenance.json",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/eps2_singlet_tda.dat",
+            "sha256": "cd0d35b7af693e87b115a4a20e28d79f5dcef9695b8bd091c60b8e611c1a8a76",
+            "size_bytes": 14546,
+            "label": "eps2_singlet_tda.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec.dat",
+            "sha256": "152e87505a405761aba52289531b4d35af441cf3d9e7f52088a9713414cf7547",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_elec.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_14x14.dat",
+            "sha256": "d44faf0ec937029b1e9102ad44f68cea0cca38a893b6b3498cbd56ab1c92c779",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_elec_14x14.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_30x30.dat",
+            "sha256": "152e87505a405761aba52289531b4d35af441cf3d9e7f52088a9713414cf7547",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_elec_30x30.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole.dat",
+            "sha256": "c6925bc6c81b052172b37b0a2e31bcf6b61cd56ea96427cea3a909e3a02be728",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_hole.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_14x14.dat",
+            "sha256": "46a27955c54cf40dee0b86686285dc4463906961e97ede222b38b01838c9fbe5",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_hole_14x14.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_30x30.dat",
+            "sha256": "c6925bc6c81b052172b37b0a2e31bcf6b61cd56ea96427cea3a909e3a02be728",
+            "size_bytes": 56132,
+            "label": "exciton_density_avg_hole_30x30.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec.dat",
+            "sha256": "1054d1bf32706b7d295b0ce35764a5a19666859423ead1d7647d6cd8761be7f4",
+            "size_bytes": 56190,
+            "label": "exciton_density_cond_elec.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_14x14.dat",
+            "sha256": "63c567b35458f3e238edc225733e59afab4625063445b2ee917bb461fed99674",
+            "size_bytes": 56190,
+            "label": "exciton_density_cond_elec_14x14.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_30x30.dat",
+            "sha256": "1054d1bf32706b7d295b0ce35764a5a19666859423ead1d7647d6cd8761be7f4",
+            "size_bytes": 56190,
+            "label": "exciton_density_cond_elec_30x30.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole.dat",
+            "sha256": "b038c854e57c5bfd42717d0badaf43d2c7ff7093d4691a51aef06facf045b2f0",
+            "size_bytes": 56194,
+            "label": "exciton_density_cond_hole.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_14x14.dat",
+            "sha256": "46a3e1ba2b53aa041c75ecd7d016c111f087199e2d57a0b289c939fb575b3d19",
+            "size_bytes": 56194,
+            "label": "exciton_density_cond_hole_14x14.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_30x30.dat",
+            "sha256": "b038c854e57c5bfd42717d0badaf43d2c7ff7093d4691a51aef06facf045b2f0",
+            "size_bytes": 56194,
+            "label": "exciton_density_cond_hole_30x30.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/oscillator_strength_singlet_tda.dat",
+            "sha256": "1945b6a9b6cec343f333f52c5d975e2f6283a8bea68a75bd79ce63dd46f7bc53",
+            "size_bytes": 1443393,
+            "label": "oscillator_strength_singlet_tda.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/spectrum_singlet_tda.dat",
+            "sha256": "973fff552515ca5b2e69540762758871ae037562df2f3b21e4628f51e2d90bea",
+            "size_bytes": 47707,
+            "label": "spectrum_singlet_tda.dat",
+            "transformation": "none"
+          },
+          {
+            "role": "results",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/energy_qp_fine_30x30",
+            "sha256": "4a85be525cf208267869c4173fb46839408c4961dd9a3c5b91287f2ea4c4da79",
+            "size_bytes": 667956,
+            "label": "QP energies on the 30x30x1 fine grid (900 k)",
+            "transformation": "none"
+          }
+        ],
+        "logs": [
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_30x30.log",
+            "sha256": "556097b8ef3a436a8bc806966b06dbbbce0e8faf8928a73e5a95805e95d30744",
+            "size_bytes": 5227,
+            "label": "abacus_nscf_30x30.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_band_14x14.log",
+            "sha256": "2deb22c9a1524653abe4dcab85b3f2ac097e71692c1c72c1ab956def39de8287",
+            "size_bytes": 116205,
+            "label": "abacus_nscf_band_14x14.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log",
+            "sha256": "3ce9bb3f3d20bff5531110c86f00c0e0b0976c92a06bbdc8efce288d0a6b7d09",
+            "size_bytes": 394534,
+            "label": "abacus_scf.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_14x14.log",
+            "sha256": "73fcfc1e182bb2866d22290743e48fa49e093df3ac84c2f23f5a0e61186ae871",
+            "size_bytes": 122098,
+            "label": "libbse_14x14.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log",
+            "sha256": "07544682a4d54ec503b5f2cc57fe0b481f3d9598bee9c136e1a303a04fd10143",
+            "size_bytes": 378362,
+            "label": "libbse_30x30.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_band_14x14.log",
+            "sha256": "2d888ff74fca3b9409e06531d5b048c5a3ed621df4d97e814023aa5ef2af7165",
+            "size_bytes": 2758601,
+            "label": "librpa_band_14x14.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_14x14.log",
+            "sha256": "c70655882fe50c6666b43b8444351bf02910f7746258b7b54b5f2ad761f4b0ae",
+            "size_bytes": 790851,
+            "label": "librpa_gw_14x14.log",
+            "transformation": "sanitized"
+          },
+          {
+            "role": "logs",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log",
+            "sha256": "d48c52ce8b9697ef00cbb5ce1cf65e8e51cc44190c41705534972f9dd4192408",
+            "size_bytes": 832337,
+            "label": "librpa_gw_30x30.log",
+            "transformation": "sanitized"
+          }
+        ],
+        "figures": [
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_14x14.png",
+            "sha256": "510ea70a5e241877a51fbdb981d11cb76583d2b54d245de760383717ad57a37c",
+            "size_bytes": 179242,
+            "label": "absorption_eps2_14x14.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_30x30.png",
+            "sha256": "983376622213800d2d94dab64191743e57313d6ea7e089f925e7ebb83daa0069",
+            "size_bytes": 178991,
+            "label": "absorption_eps2_30x30.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_14x14.png",
+            "sha256": "7e6009f05991c05a4e1c831a42ea7cc9c0787ffb62aa9279611641d64f123a80",
+            "size_bytes": 854474,
+            "label": "exciton_avg_14x14.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_30x30.png",
+            "sha256": "d4172d802154cc0dcf7f82891bb8c617ef10f4a657d9101448eb057c77e8e583",
+            "size_bytes": 859264,
+            "label": "exciton_avg_30x30.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_14x14.png",
+            "sha256": "fde860c18f57d77185669a869ff708eabd8db9abbcf48a6aa1bb6f1ead3766fc",
+            "size_bytes": 1309984,
+            "label": "exciton_conditional_14x14.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_30x30.png",
+            "sha256": "8379f252c28dc2f48c2d86270c65b4f728b9f2dd1ec35cfc1d595e278831fd1b",
+            "size_bytes": 1355174,
+            "label": "exciton_conditional_30x30.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_exx.pdf",
+            "sha256": "4381af9ae3daced4b36149f42cd4b4cea3fffd6eed2030ebb7044fee1715c90a",
+            "size_bytes": 58996,
+            "label": "mos2_14x14_20261123_exx.pdf",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_exx.png",
+            "sha256": "3508617ab3fa8f728cf9d4dc6ee14c0686c3b9607a9141c9ac2dd31f70117121",
+            "size_bytes": 259098,
+            "label": "mos2_14x14_20261123_exx.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_gw.pdf",
+            "sha256": "2603af4b45a8e59f54ce7ffbacdb0b40303af49956fc301c6477d3761da22078",
+            "size_bytes": 60293,
+            "label": "mos2_14x14_20261123_gw.pdf",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_gw.png",
+            "sha256": "fe60d63a96b289cb3295be5b3fde74a193574d1196635948f4cc11b9ea670ac7",
+            "size_bytes": 316826,
+            "label": "mos2_14x14_20261123_gw.png",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_ks.pdf",
+            "sha256": "73afa0762b934028332588226b18bc6270e11a1729491ae09419c51a633460fc",
+            "size_bytes": 58466,
+            "label": "mos2_14x14_20261123_ks.pdf",
+            "transformation": "none"
+          },
+          {
+            "role": "figures",
+            "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_ks.png",
+            "sha256": "318845061d2f326333a8dddde94a25ed6ba6c1e6a8aed2dbecd4da202d73e3f5",
+            "size_bytes": 296268,
+            "label": "mos2_14x14_20261123_ks.png",
+            "transformation": "none"
+          }
         ]
       },
       "spin_orbit": false,
       "spin_polarized": false,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "complete",
-        "issues": []
+        "status": "incomplete",
+        "issues": [
+          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+        ]
       }
     },
     {

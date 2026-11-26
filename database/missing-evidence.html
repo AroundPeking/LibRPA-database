@@ -4,7 +4,7 @@
 :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#10151e;color:#e9eef6;font:16px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 24px 80px}h1{font-size:30px;line-height:1.3;margin:0 0 16px}h2{font-size:22px;margin:0}h2 span{font-size:14px;color:#a9c0df}.summary,.case,.notes{padding:22px;margin:18px 0;background:#1a2330;border:1px solid #35455c;border-radius:10px}.summary{border-color:#cfa85e}.counts{font-size:22px;color:#ffd68b}.muted,.case-id{color:#bed0e5}.case-id{overflow-wrap:anywhere;margin:6px 0}input{width:100%;padding:13px 16px;background:#0b111b;border:1px solid #6c82a0;border-radius:8px;color:#f4f7fb;font:inherit}input:focus{outline:2px solid #78bafa;outline-offset:2px}label{display:block;margin-bottom:8px}code,pre{font:14px/1.75 ui-monospace,SFMono-Regular,monospace;overflow-wrap:anywhere;white-space:pre-wrap}li{margin:8px 0}ol{padding-left:36px}details{margin-top:16px;border-top:1px solid #35455c;padding-top:12px}summary{cursor:pointer;color:#98ccff}pre{color:#d4e1f0}[hidden]{display:none!important}.toolbar{position:sticky;top:0;background:#10151eee;padding:18px 0;z-index:2;backdrop-filter:blur(8px)}footer{color:#a7bdd8;margin-top:30px}@media(max-width:600px){main{padding:24px 14px}.case,.summary,.notes{padding:16px}h1{font-size:25px}}
 </style></head><body><main>
 <h1>GW database: complete missing-evidence checklist</h1><p class="muted">All original raw completeness issues are preserved by material and case. The fixed historical acceptance baselines (software identity, delta-Sternheimer program output) change only the CI decision, not these facts or scientific acceptance.</p><p><a href="index.html#/" style="color:#98ccff">Back to database</a> · <a href="archive-completeness.json" style="color:#98ccff">Download full JSON report</a></p>
-<section class="summary"><div class="counts">74 original issues · 58/124 records with raw issues</div><p>Raw completeness: blocked; CI gate: complete; 74 grandfathered historical exception issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
+<section class="summary"><div class="counts">75 original issues · 59/124 records with raw issues</div><p>Raw completeness: blocked; CI gate: blocked; 74 grandfathered historical exception issues. Supplementary items, redrawn figures, and runtime seal gaps are excluded from these counts.</p></section>
 <section class="notes"><ul><li>Missing evidence means the public archive is not closed; it does not prove that files are absent from the original private directory. Do not search again for already archived files.</li><li>Seven potential ABACUS identity groups and five potential LibRPA identity groups have been located in the original private sources but are not fully audited. They do not automatically close any fullcommit issue.</li><li>Inspect existing stage controls, logs, and receipts first, then recover evidence from the same historical run. Do not substitute the current HEAD, another material, or a new case.</li><li>Raw upload completeness, the fixed historical acceptance baselines (software identity, delta-Sternheimer program output), a full runtime seal, and numerical/scientific acceptance are separate levels. This checklist does not change scientific status.</li></ul></section>
 <div class="toolbar"><label for="search">Search material / case ID / dimension</label><input id="search" type="search" placeholder="For example: GeTe, MoSe2, C512, 3d" autocomplete="off"><p id="result-count" class="muted" aria-live="polite">Showing all 124 records</p></div>
 <article class="case" data-search="cuinp2se6 · 2d · cuinp2se6-table-gw"><h2>CuInP2Se6 <span>2d</span></h2><p class="case-id">cuinp2se6-table-gw</p><p>incomplete · 2 original issues</p><ol start="1"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CuInP2Se6 | 2d | cuinp2se6-table-gw ===
@@ -219,25 +219,27 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/InSe/inse-table-gw/results/stage_input_receipt.json
   data/calculations/2d/InSe/inse-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-bse-14x14-20261125"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-bse-14x14-20261125</p><p>complete · 0 original issues</p><ol start="11"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-bse-14x14-20261125 ===
-Archive completeness: complete
-Record: data/calculations/2d/MoS2/mos2-bse-14x14-20261125/record.json
+</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-libbse-exciton-20261126"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-libbse-exciton-20261126</p><p>incomplete · 1 original issues</p><ol start="11"><li><code>figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-libbse-exciton-20261126 ===
+Archive completeness: incomplete
+Record: data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/record.json
 Original raw completeness issues (full, unmodified text)
-  None.
+  [011] figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required
 Existing logs (cross-check first)
-  data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_scf.log
-  data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/abacus_nscf_band.log
-  data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_gw_stdout.log
-  data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/librpa_band_stdout.log
-  data/calculations/2d/MoS2/mos2-bse-14x14-20261125/logs/libbse_stdout.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_30x30.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_band_14x14.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_14x14.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_band_14x14.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_14x14.log
+  data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-table-gw"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-table-gw</p><p>incomplete · 2 original issues</p><ol start="11"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-table-gw ===
+</pre></details></article><article class="case" data-search="mos2 · 2d · mos2-table-gw"><h2>MoS2 <span>2d</span></h2><p class="case-id">mos2-table-gw</p><p>incomplete · 2 original issues</p><ol start="12"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2 | 2d | mos2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/MoS2/mos2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [011] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [012] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [012] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [013] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -257,12 +259,12 @@ Stages to cross-check: EXX/GW (LibRPA)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoS2/mos2-table-gw/results/raw_input_receipt.json
-</pre></details></article><article class="case" data-search="mos2-ws2 · 2d · mos2_ws2-table-gw"><h2>MoS2-WS2 <span>2d</span></h2><p class="case-id">mos2_ws2-table-gw</p><p>incomplete · 2 original issues</p><ol start="13"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2-WS2 | 2d | mos2_ws2-table-gw ===
+</pre></details></article><article class="case" data-search="mos2-ws2 · 2d · mos2_ws2-table-gw"><h2>MoS2-WS2 <span>2d</span></h2><p class="case-id">mos2_ws2-table-gw</p><p>incomplete · 2 original issues</p><ol start="14"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoS2-WS2 | 2d | mos2_ws2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [013] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [014] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [014] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [015] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [23fb18a26bee]; SCF [2574059c9692]
@@ -295,12 +297,12 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/stage_input_receipt.json
   data/calculations/2d/MoS2-WS2/mos2_ws2-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="mose2 · 2d · mose2-table-gw"><h2>MoSe2 <span>2d</span></h2><p class="case-id">mose2-table-gw</p><p>incomplete · 2 original issues</p><ol start="15"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoSe2 | 2d | mose2-table-gw ===
+</pre></details></article><article class="case" data-search="mose2 · 2d · mose2-table-gw"><h2>MoSe2 <span>2d</span></h2><p class="case-id">mose2-table-gw</p><p>incomplete · 2 original issues</p><ol start="16"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoSe2 | 2d | mose2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/MoSe2/mose2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [015] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [016] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [016] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [017] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -334,12 +336,12 @@ Existing logs (cross-check first)
   data/calculations/2d/MoSe2/mose2-table-gw/logs/LibRPA.828137.out
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoSe2/mose2-table-gw/results/stage_input_receipt.json
-</pre></details></article><article class="case" data-search="mote2 · 2d · mote2-table-gw"><h2>MoTe2 <span>2d</span></h2><p class="case-id">mote2-table-gw</p><p>incomplete · 2 original issues</p><ol start="17"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoTe2 | 2d | mote2-table-gw ===
+</pre></details></article><article class="case" data-search="mote2 · 2d · mote2-table-gw"><h2>MoTe2 <span>2d</span></h2><p class="case-id">mote2-table-gw</p><p>incomplete · 2 original issues</p><ol start="18"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MoTe2 | 2d | mote2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/MoTe2/mote2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [017] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [018] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [018] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [019] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [a9314a2d7fbb]; SCF [b03cf07e253c]
@@ -374,12 +376,12 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/MoTe2/mote2-table-gw/results/stage_input_receipt.json
   data/calculations/2d/MoTe2/mote2-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="phosphorene · 2d · phosphorene-table-gw"><h2>Phosphorene <span>2d</span></h2><p class="case-id">phosphorene-table-gw</p><p>incomplete · 2 original issues</p><ol start="19"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Phosphorene | 2d | phosphorene-table-gw ===
+</pre></details></article><article class="case" data-search="phosphorene · 2d · phosphorene-table-gw"><h2>Phosphorene <span>2d</span></h2><p class="case-id">phosphorene-table-gw</p><p>incomplete · 2 original issues</p><ol start="20"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Phosphorene | 2d | phosphorene-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/Phosphorene/phosphorene-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [019] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [020] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [020] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [021] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: gw [gw]
@@ -409,12 +411,12 @@ Existing stage controls (inspect first; do not search again)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/Phosphorene/phosphorene-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="snse · 2d · snse-table-gw"><h2>SnSe <span>2d</span></h2><p class="case-id">snse-table-gw</p><p>incomplete · 2 original issues</p><ol start="21"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SnSe | 2d | snse-table-gw ===
+</pre></details></article><article class="case" data-search="snse · 2d · snse-table-gw"><h2>SnSe <span>2d</span></h2><p class="case-id">snse-table-gw</p><p>incomplete · 2 original issues</p><ol start="22"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SnSe | 2d | snse-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/SnSe/snse-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [021] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [022] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [022] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [023] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: scf [scf]; band [band]; gw [gw]; exx [exx]
@@ -447,12 +449,12 @@ Existing stage controls (inspect first; do not search again)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/SnSe/snse-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="tis3 · 2d · tis3-table-gw"><h2>TiS3 <span>2d</span></h2><p class="case-id">tis3-table-gw</p><p>incomplete · 2 original issues</p><ol start="23"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== TiS3 | 2d | tis3-table-gw ===
+</pre></details></article><article class="case" data-search="tis3 · 2d · tis3-table-gw"><h2>TiS3 <span>2d</span></h2><p class="case-id">tis3-table-gw</p><p>incomplete · 2 original issues</p><ol start="24"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== TiS3 | 2d | tis3-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/TiS3/tis3-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [023] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [024] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [024] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [025] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: NSCF [20f55412a54c]; SCF [222dbd31dfe0]
@@ -489,12 +491,12 @@ Existing logs: not declared in the public record; inspect historical sources fir
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/TiS3/tis3-table-gw/results/stage_input_receipt.json
   data/calculations/2d/TiS3/tis3-table-gw/results/producer_assets_receipt.json
-</pre></details></article><article class="case" data-search="ws2 · 2d · ws2-table-gw"><h2>WS2 <span>2d</span></h2><p class="case-id">ws2-table-gw</p><p>incomplete · 2 original issues</p><ol start="25"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WS2 | 2d | ws2-table-gw ===
+</pre></details></article><article class="case" data-search="ws2 · 2d · ws2-table-gw"><h2>WS2 <span>2d</span></h2><p class="case-id">ws2-table-gw</p><p>incomplete · 2 original issues</p><ol start="26"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WS2 | 2d | ws2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/WS2/ws2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [025] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [026] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [026] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [027] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -527,12 +529,12 @@ Existing logs (cross-check first)
   data/calculations/2d/WS2/ws2-table-gw/logs/LibRPA.825549.out
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/WS2/ws2-table-gw/results/stage_input_receipt.json
-</pre></details></article><article class="case" data-search="wse2 · 2d · wse2-table-gw"><h2>WSe2 <span>2d</span></h2><p class="case-id">wse2-table-gw</p><p>incomplete · 2 original issues</p><ol start="27"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WSe2 | 2d | wse2-table-gw ===
+</pre></details></article><article class="case" data-search="wse2 · 2d · wse2-table-gw"><h2>WSe2 <span>2d</span></h2><p class="case-id">wse2-table-gw</p><p>incomplete · 2 original issues</p><ol start="28"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== WSe2 | 2d | wse2-table-gw ===
 Archive completeness: incomplete
 Record: data/calculations/2d/WSe2/wse2-table-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [027] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [028] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [028] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [029] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -552,7 +554,7 @@ Stages to cross-check: EXX/GW (LibRPA)
 Existing logs: not declared in the public record; inspect historical sources first.
 Existing receipts/manifests (cross-check first)
   data/calculations/2d/WSe2/wse2-table-gw/results/raw_input_receipt.json
-</pre></details></article><article class="case" data-search="hbn · 2d · hbn-tzdp10-fgext-20261008"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-tzdp10-fgext-20261008</p><p>complete · 0 original issues</p><ol start="29"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== hBN | 2d | hbn-tzdp10-fgext-20261008 ===
+</pre></details></article><article class="case" data-search="hbn · 2d · hbn-tzdp10-fgext-20261008"><h2>hBN <span>2d</span></h2><p class="case-id">hbn-tzdp10-fgext-20261008</p><p>complete · 0 original issues</p><ol start="30"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== hBN | 2d | hbn-tzdp10-fgext-20261008 ===
 Archive completeness: complete
 Record: data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/record.json
 Original raw completeness issues (full, unmodified text)
@@ -579,7 +581,7 @@ Existing receipts/manifests (cross-check first)
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/calculation__gw_k12_fgext_20261008__PYATB_RECEIPT.txt
   data/calculations/2d/hBN/hbn-tzdp10-fgext-20261008/results/librpa_build_identity_receipt.json
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-aims-gw"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="29"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-aims-gw"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="30"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/AlAs/alas-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -588,7 +590,7 @@ Existing logs (cross-check first)
   data/calculations/3d/AlAs/alas-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-librpa-16"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="29"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-librpa-16"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="30"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/AlAs/alas-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -598,7 +600,7 @@ Existing logs (cross-check first)
   data/calculations/3d/AlAs/alas-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-librpa-32"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="29"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="alas · 3d · alas-jctc-librpa-32"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="30"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/AlAs/alas-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -608,11 +610,11 @@ Existing logs (cross-check first)
   data/calculations/3d/AlAs/alas-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alas · 3d · alas-paper-paper"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-paper-paper</p><p>incomplete · 1 original issues</p><ol start="29"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-paper-paper ===
+</pre></details></article><article class="case" data-search="alas · 3d · alas-paper-paper"><h2>AlAs <span>3d</span></h2><p class="case-id">alas-paper-paper</p><p>incomplete · 1 original issues</p><ol start="30"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlAs | 3d | alas-paper-paper ===
 Archive completeness: incomplete
 Record: data/calculations/3d/AlAs/alas-paper-paper/record.json
 Original raw completeness issues (full, unmodified text)
-  [029] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [030] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -626,24 +628,24 @@ Existing logs (cross-check first)
   data/calculations/3d/AlAs/alas-paper-paper/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/AlAs/alas-paper-paper/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-aims-gw"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="30"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-aims-gw"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="31"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/AlP/alp-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [030] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [031] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/AlP/alp-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-librpa-16"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="31"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-librpa-16"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="32"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/AlP/alp-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [031] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [032] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/AlP/alp-jctc-librpa-16/logs/aims.out
   data/calculations/3d/AlP/alp-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-librpa-32"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="32"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="alp · 3d · alp-jctc-librpa-32"><h2>AlP <span>3d</span></h2><p class="case-id">alp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="33"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/AlP/alp-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -653,11 +655,11 @@ Existing logs (cross-check first)
   data/calculations/3d/AlP/alp-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="alp · 3d · alp-paper-k8_shrink_wing"><h2>AlP <span>3d</span></h2><p class="case-id">alp-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="32"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="alp · 3d · alp-paper-k8_shrink_wing"><h2>AlP <span>3d</span></h2><p class="case-id">alp-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="33"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlP | 3d | alp-paper-k8_shrink_wing ===
 Archive completeness: incomplete
 Record: data/calculations/3d/AlP/alp-paper-k8_shrink_wing/record.json
 Original raw completeness issues (full, unmodified text)
-  [032] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [033] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -671,11 +673,11 @@ Existing logs (cross-check first)
   data/calculations/3d/AlP/alp-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/AlP/alp-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="alsb · 3d · alsb-paper-gw_gth_modspencer"><h2>AlSb <span>3d</span></h2><p class="case-id">alsb-paper-gw_gth_modspencer</p><p>incomplete · 1 original issues</p><ol start="33"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlSb | 3d | alsb-paper-gw_gth_modspencer ===
+</pre></details></article><article class="case" data-search="alsb · 3d · alsb-paper-gw_gth_modspencer"><h2>AlSb <span>3d</span></h2><p class="case-id">alsb-paper-gw_gth_modspencer</p><p>incomplete · 1 original issues</p><ol start="34"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== AlSb | 3d | alsb-paper-gw_gth_modspencer ===
 Archive completeness: incomplete
 Record: data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/record.json
 Original raw completeness issues (full, unmodified text)
-  [033] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [034] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -688,11 +690,11 @@ Existing logs (cross-check first)
   data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/abacus.out
   data/calculations/3d/AlSb/alsb-paper-gw_gth_modspencer/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bas · 3d · bas-paper-k8_shrink_wing"><h2>BAs <span>3d</span></h2><p class="case-id">bas-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="34"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BAs | 3d | bas-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="bas · 3d · bas-paper-k8_shrink_wing"><h2>BAs <span>3d</span></h2><p class="case-id">bas-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="35"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BAs | 3d | bas-paper-k8_shrink_wing ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BAs/bas-paper-k8_shrink_wing/record.json
 Original raw completeness issues (full, unmodified text)
-  [034] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [035] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -706,24 +708,24 @@ Existing logs (cross-check first)
   data/calculations/3d/BAs/bas-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/BAs/bas-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-aims-gw"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="35"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-aims-gw"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="36"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BN/bn-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [035] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [036] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/BN/bn-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-librpa-16"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="36"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-librpa-16"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="37"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BN/bn-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [036] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [037] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/BN/bn-jctc-librpa-16/logs/aims.out
   data/calculations/3d/BN/bn-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-librpa-32"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="37"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="bn · 3d · bn-jctc-librpa-32"><h2>BN <span>3d</span></h2><p class="case-id">bn-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="38"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/BN/bn-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -733,11 +735,11 @@ Existing logs (cross-check first)
   data/calculations/3d/BN/bn-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="bn · 3d · bn-paper-sg15"><h2>BN <span>3d</span></h2><p class="case-id">bn-paper-sg15</p><p>incomplete · 1 original issues</p><ol start="37"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-paper-sg15 ===
+</pre></details></article><article class="case" data-search="bn · 3d · bn-paper-sg15"><h2>BN <span>3d</span></h2><p class="case-id">bn-paper-sg15</p><p>incomplete · 1 original issues</p><ol start="38"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BN | 3d | bn-paper-sg15 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BN/bn-paper-sg15/record.json
 Original raw completeness issues (full, unmodified text)
-  [037] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [038] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -750,24 +752,24 @@ Existing logs (cross-check first)
   data/calculations/3d/BN/bn-paper-sg15/logs/abacus.out
   data/calculations/3d/BN/bn-paper-sg15/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-aims-gw"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="38"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-aims-gw"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="39"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BP/bp-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [038] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [039] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/BP/bp-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-librpa-16"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="39"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-librpa-16"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="40"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BP/bp-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [039] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [040] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/BP/bp-jctc-librpa-16/logs/aims.out
   data/calculations/3d/BP/bp-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-librpa-32"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="40"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="bp · 3d · bp-jctc-librpa-32"><h2>BP <span>3d</span></h2><p class="case-id">bp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="41"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/BP/bp-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -777,11 +779,11 @@ Existing logs (cross-check first)
   data/calculations/3d/BP/bp-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="bp · 3d · bp-paper-k8_shrink_wing"><h2>BP <span>3d</span></h2><p class="case-id">bp-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="40"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-paper-k8_shrink_wing ===
+</pre></details></article><article class="case" data-search="bp · 3d · bp-paper-k8_shrink_wing"><h2>BP <span>3d</span></h2><p class="case-id">bp-paper-k8_shrink_wing</p><p>incomplete · 1 original issues</p><ol start="41"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== BP | 3d | bp-paper-k8_shrink_wing ===
 Archive completeness: incomplete
 Record: data/calculations/3d/BP/bp-paper-k8_shrink_wing/record.json
 Original raw completeness issues (full, unmodified text)
-  [040] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [041] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -795,11 +797,11 @@ Existing logs (cross-check first)
   data/calculations/3d/BP/bp-paper-k8_shrink_wing/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/BP/bp-paper-k8_shrink_wing/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="bi2se3 · 3d · bi2se3-abacus-gw-dzp"><h2>Bi2Se3 <span>3d</span></h2><p class="case-id">bi2se3-abacus-gw-dzp</p><p>incomplete · 1 original issues</p><ol start="41"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Bi2Se3 | 3d | bi2se3-abacus-gw-dzp ===
+</pre></details></article><article class="case" data-search="bi2se3 · 3d · bi2se3-abacus-gw-dzp"><h2>Bi2Se3 <span>3d</span></h2><p class="case-id">bi2se3-abacus-gw-dzp</p><p>incomplete · 1 original issues</p><ol start="42"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Bi2Se3 | 3d | bi2se3-abacus-gw-dzp ===
 Archive completeness: incomplete
 Record: data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/record.json
 Original raw completeness issues (full, unmodified text)
-  [041] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [042] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -813,7 +815,7 @@ Existing logs (cross-check first)
   data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/librpa.out
   data/calculations/3d/Bi2Se3/bi2se3-abacus-gw-dzp/logs/gw_slurm_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c-delta-st-rpa-20260824"><h2>C <span>3d</span></h2><p class="case-id">c-delta-st-rpa-20260824</p><p>complete · 0 original issues</p><ol start="42"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-delta-st-rpa-20260824 ===
+</pre></details></article><article class="case" data-search="c · 3d · c-delta-st-rpa-20260824"><h2>C <span>3d</span></h2><p class="case-id">c-delta-st-rpa-20260824</p><p>complete · 0 original issues</p><ol start="43"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-delta-st-rpa-20260824 ===
 Archive completeness: complete
 Record: data/calculations/3d/C/c-delta-st-rpa-20260824/record.json
 Original raw completeness issues (full, unmodified text)
@@ -839,24 +841,24 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c-delta-st-rpa-20260824/logs/c_atom_librpa_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="c · 3d · c-jctc-aims-gw"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="42"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="c · 3d · c-jctc-aims-gw"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="43"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/C/c-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [042] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [043] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/C/c-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c-jctc-librpa-16"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="43"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="c · 3d · c-jctc-librpa-16"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="44"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/C/c-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [043] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [044] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/C/c-jctc-librpa-16/logs/aims.out
   data/calculations/3d/C/c-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c-jctc-librpa-32"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="44"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="c · 3d · c-jctc-librpa-32"><h2>C <span>3d</span></h2><p class="case-id">c-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="45"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/C/c-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -866,11 +868,11 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="c · 3d · c-paper-sg15_cs1e-5"><h2>C <span>3d</span></h2><p class="case-id">c-paper-sg15_cs1e-5</p><p>incomplete · 1 original issues</p><ol start="44"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-paper-sg15_cs1e-5 ===
+</pre></details></article><article class="case" data-search="c · 3d · c-paper-sg15_cs1e-5"><h2>C <span>3d</span></h2><p class="case-id">c-paper-sg15_cs1e-5</p><p>incomplete · 1 original issues</p><ol start="45"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c-paper-sg15_cs1e-5 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/C/c-paper-sg15_cs1e-5/record.json
 Original raw completeness issues (full, unmodified text)
-  [044] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [045] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -883,7 +885,7 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/abacus.out
   data/calculations/3d/C/c-paper-sg15_cs1e-5/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c1024-gamma-g0w0-20260521"><h2>C <span>3d</span></h2><p class="case-id">c1024-gamma-g0w0-20260521</p><p>complete · 0 original issues</p><ol start="45"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c1024-gamma-g0w0-20260521 ===
+</pre></details></article><article class="case" data-search="c · 3d · c1024-gamma-g0w0-20260521"><h2>C <span>3d</span></h2><p class="case-id">c1024-gamma-g0w0-20260521</p><p>complete · 0 original issues</p><ol start="46"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c1024-gamma-g0w0-20260521 ===
 Archive completeness: complete
 Record: data/calculations/3d/C/c1024-gamma-g0w0-20260521/record.json
 Original raw completeness issues (full, unmodified text)
@@ -892,7 +894,7 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c1024-gamma-g0w0-20260521/logs/slurm-1827023.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="c · 3d · c2048-reader-v1-20260607"><h2>C <span>3d</span></h2><p class="case-id">c2048-reader-v1-20260607</p><p>complete · 0 original issues</p><ol start="45"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-reader-v1-20260607 ===
+</pre></details></article><article class="case" data-search="c · 3d · c2048-reader-v1-20260607"><h2>C <span>3d</span></h2><p class="case-id">c2048-reader-v1-20260607</p><p>complete · 0 original issues</p><ol start="46"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-reader-v1-20260607 ===
 Archive completeness: complete
 Record: data/calculations/3d/C/c2048-reader-v1-20260607/record.json
 Original raw completeness issues (full, unmodified text)
@@ -909,12 +911,12 @@ Existing logs (cross-check first)
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/C/c2048-reader-v1-20260607/results/reader_v1_conversion_receipt.json
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="c · 3d · c2048-rpa-20260614"><h2>C <span>3d</span></h2><p class="case-id">c2048-rpa-20260614</p><p>incomplete · 2 original issues</p><ol start="45"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-rpa-20260614 ===
+</pre></details></article><article class="case" data-search="c · 3d · c2048-rpa-20260614"><h2>C <span>3d</span></h2><p class="case-id">c2048-rpa-20260614</p><p>incomplete · 2 original issues</p><ol start="46"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c2048-rpa-20260614 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/C/c2048-rpa-20260614/record.json
 Original raw completeness issues (full, unmodified text)
-  [045] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [046] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [046] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [047] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -938,7 +940,7 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_slurm_stderr.log
   data/calculations/3d/C/c2048-rpa-20260614/logs/abacus_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="c · 3d · c512-gamma-g0w0-20260519"><h2>C <span>3d</span></h2><p class="case-id">c512-gamma-g0w0-20260519</p><p>complete · 0 original issues</p><ol start="47"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c512-gamma-g0w0-20260519 ===
+</pre></details></article><article class="case" data-search="c · 3d · c512-gamma-g0w0-20260519"><h2>C <span>3d</span></h2><p class="case-id">c512-gamma-g0w0-20260519</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== C | 3d | c512-gamma-g0w0-20260519 ===
 Archive completeness: complete
 Record: data/calculations/3d/C/c512-gamma-g0w0-20260519/record.json
 Original raw completeness issues (full, unmodified text)
@@ -947,7 +949,7 @@ Existing logs (cross-check first)
   data/calculations/3d/C/c512-gamma-g0w0-20260519/logs/slurm-1817756.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-aims-gw"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="47"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-aims-gw"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/CaO/cao-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -956,7 +958,7 @@ Existing logs (cross-check first)
   data/calculations/3d/CaO/cao-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-librpa-16"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="47"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-librpa-16"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/CaO/cao-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -966,7 +968,7 @@ Existing logs (cross-check first)
   data/calculations/3d/CaO/cao-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-librpa-32"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="47"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="cao · 3d · cao-jctc-librpa-32"><h2>CaO <span>3d</span></h2><p class="case-id">cao-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/CaO/cao-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -976,11 +978,11 @@ Existing logs (cross-check first)
   data/calculations/3d/CaO/cao-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cao · 3d · cao-paper-24freq"><h2>CaO <span>3d</span></h2><p class="case-id">cao-paper-24freq</p><p>incomplete · 1 original issues</p><ol start="47"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-paper-24freq ===
+</pre></details></article><article class="case" data-search="cao · 3d · cao-paper-24freq"><h2>CaO <span>3d</span></h2><p class="case-id">cao-paper-24freq</p><p>incomplete · 1 original issues</p><ol start="48"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CaO | 3d | cao-paper-24freq ===
 Archive completeness: incomplete
 Record: data/calculations/3d/CaO/cao-paper-24freq/record.json
 Original raw completeness issues (full, unmodified text)
-  [047] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [048] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -993,7 +995,7 @@ Existing logs (cross-check first)
   data/calculations/3d/CaO/cao-paper-24freq/logs/abacus.out
   data/calculations/3d/CaO/cao-paper-24freq/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-aims-gw"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-aims-gw"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="49"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/CdS/cds-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1002,7 +1004,7 @@ Existing logs (cross-check first)
   data/calculations/3d/CdS/cds-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-librpa-16"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-librpa-16"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="49"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/CdS/cds-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1012,7 +1014,7 @@ Existing logs (cross-check first)
   data/calculations/3d/CdS/cds-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-librpa-32"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="48"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="cds · 3d · cds-jctc-librpa-32"><h2>CdS <span>3d</span></h2><p class="case-id">cds-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="49"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/CdS/cds-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1022,11 +1024,11 @@ Existing logs (cross-check first)
   data/calculations/3d/CdS/cds-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="cds · 3d · cds-paper-debug"><h2>CdS <span>3d</span></h2><p class="case-id">cds-paper-debug</p><p>incomplete · 1 original issues</p><ol start="48"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-paper-debug ===
+</pre></details></article><article class="case" data-search="cds · 3d · cds-paper-debug"><h2>CdS <span>3d</span></h2><p class="case-id">cds-paper-debug</p><p>incomplete · 1 original issues</p><ol start="49"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== CdS | 3d | cds-paper-debug ===
 Archive completeness: incomplete
 Record: data/calculations/3d/CdS/cds-paper-debug/record.json
 Original raw completeness issues (full, unmodified text)
-  [048] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [049] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1039,11 +1041,11 @@ Existing logs (cross-check first)
   data/calculations/3d/CdS/cds-paper-debug/logs/abacus.out
   data/calculations/3d/CdS/cds-paper-debug/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-abacus-gw-soc-32freq"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-abacus-gw-soc-32freq</p><p>incomplete · 1 original issues</p><ol start="49"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-abacus-gw-soc-32freq ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-abacus-gw-soc-32freq"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-abacus-gw-soc-32freq</p><p>incomplete · 1 original issues</p><ol start="50"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-abacus-gw-soc-32freq ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/record.json
 Original raw completeness issues (full, unmodified text)
-  [049] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [050] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1059,7 +1061,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/abacus_nscf_slurm_stdout.log
   data/calculations/3d/GaAs/gaas-abacus-gw-soc-32freq/logs/gw_slurm_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-aims-32ac"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-aims-32ac</p><p>complete · 0 original issues</p><ol start="50"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-aims-32ac ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-aims-32ac"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-aims-32ac</p><p>complete · 0 original issues</p><ol start="51"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-aims-32ac ===
 Archive completeness: complete
 Record: data/calculations/3d/GaAs/gaas-jctc-aims-32ac/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1068,15 +1070,15 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-jctc-aims-32ac/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-aims-gw"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="50"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-aims-gw"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="51"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaAs/gaas-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [050] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [051] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-librpa-16"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="51"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-librpa-16"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="52"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaAs/gaas-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1086,7 +1088,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-librpa-32"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="51"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-jctc-librpa-32"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="52"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaAs/gaas-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1096,11 +1098,11 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gaas · 3d · gaas-paper-gw_xsoc_1e-10"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-paper-gw_xsoc_1e-10</p><p>incomplete · 1 original issues</p><ol start="51"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-paper-gw_xsoc_1e-10 ===
+</pre></details></article><article class="case" data-search="gaas · 3d · gaas-paper-gw_xsoc_1e-10"><h2>GaAs <span>3d</span></h2><p class="case-id">gaas-paper-gw_xsoc_1e-10</p><p>incomplete · 1 original issues</p><ol start="52"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaAs | 3d | gaas-paper-gw_xsoc_1e-10 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/record.json
 Original raw completeness issues (full, unmodified text)
-  [051] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [052] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1113,24 +1115,24 @@ Existing logs (cross-check first)
   data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/abacus.out
   data/calculations/3d/GaAs/gaas-paper-gw_xsoc_1e-10/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-aims-gw"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="52"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-aims-gw"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="53"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaN/gan-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [052] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [053] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/GaN/gan-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-librpa-16"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="53"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-librpa-16"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="54"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaN/gan-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [053] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [054] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/GaN/gan-jctc-librpa-16/logs/aims.out
   data/calculations/3d/GaN/gan-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-librpa-32"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="54"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="gan · 3d · gan-jctc-librpa-32"><h2>GaN <span>3d</span></h2><p class="case-id">gan-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="55"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaN/gan-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1140,11 +1142,11 @@ Existing logs (cross-check first)
   data/calculations/3d/GaN/gan-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gan · 3d · gan-paper-pca1e-6"><h2>GaN <span>3d</span></h2><p class="case-id">gan-paper-pca1e-6</p><p>incomplete · 1 original issues</p><ol start="54"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-paper-pca1e-6 ===
+</pre></details></article><article class="case" data-search="gan · 3d · gan-paper-pca1e-6"><h2>GaN <span>3d</span></h2><p class="case-id">gan-paper-pca1e-6</p><p>incomplete · 1 original issues</p><ol start="55"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaN | 3d | gan-paper-pca1e-6 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaN/gan-paper-pca1e-6/record.json
 Original raw completeness issues (full, unmodified text)
-  [054] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [055] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1157,24 +1159,24 @@ Existing logs (cross-check first)
   data/calculations/3d/GaN/gan-paper-pca1e-6/logs/abacus.out
   data/calculations/3d/GaN/gan-paper-pca1e-6/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-aims-gw"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="55"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-aims-gw"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="56"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaP/gap-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [055] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [056] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/GaP/gap-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-librpa-16"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="56"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-librpa-16"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="57"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaP/gap-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [056] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [057] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/GaP/gap-jctc-librpa-16/logs/aims.out
   data/calculations/3d/GaP/gap-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-librpa-32"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="57"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="gap · 3d · gap-jctc-librpa-32"><h2>GaP <span>3d</span></h2><p class="case-id">gap-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaP/gap-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1184,11 +1186,11 @@ Existing logs (cross-check first)
   data/calculations/3d/GaP/gap-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gap · 3d · gap-paper-gw_shrink_chi"><h2>GaP <span>3d</span></h2><p class="case-id">gap-paper-gw_shrink_chi</p><p>incomplete · 1 original issues</p><ol start="57"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-paper-gw_shrink_chi ===
+</pre></details></article><article class="case" data-search="gap · 3d · gap-paper-gw_shrink_chi"><h2>GaP <span>3d</span></h2><p class="case-id">gap-paper-gw_shrink_chi</p><p>incomplete · 1 original issues</p><ol start="58"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaP | 3d | gap-paper-gw_shrink_chi ===
 Archive completeness: incomplete
 Record: data/calculations/3d/GaP/gap-paper-gw_shrink_chi/record.json
 Original raw completeness issues (full, unmodified text)
-  [057] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [058] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1201,7 +1203,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/abacus.out
   data/calculations/3d/GaP/gap-paper-gw_shrink_chi/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-aims-gw"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-aims-gw"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/GaSb/gasb-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1210,7 +1212,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaSb/gasb-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-librpa-16"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-librpa-16"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaSb/gasb-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1220,7 +1222,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaSb/gasb-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-librpa-32"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="gasb · 3d · gasb-jctc-librpa-32"><h2>GaSb <span>3d</span></h2><p class="case-id">gasb-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== GaSb | 3d | gasb-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/GaSb/gasb-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1230,7 +1232,7 @@ Existing logs (cross-check first)
   data/calculations/3d/GaSb/gasb-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="h2 · 3d · h2-delta-st-rpa-20260906"><h2>H2 <span>3d</span></h2><p class="case-id">h2-delta-st-rpa-20260906</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== H2 | 3d | h2-delta-st-rpa-20260906 ===
+</pre></details></article><article class="case" data-search="h2 · 3d · h2-delta-st-rpa-20260906"><h2>H2 <span>3d</span></h2><p class="case-id">h2-delta-st-rpa-20260906</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== H2 | 3d | h2-delta-st-rpa-20260906 ===
 Archive completeness: complete
 Record: data/calculations/3d/H2/h2-delta-st-rpa-20260906/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1246,7 +1248,7 @@ Existing logs (cross-check first)
   data/calculations/3d/H2/h2-delta-st-rpa-20260906/logs/h_atom_producer_result_summary.txt
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-aims-gw"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-aims-gw"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/InP/inp-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1255,7 +1257,7 @@ Existing logs (cross-check first)
   data/calculations/3d/InP/inp-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-librpa-16"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-librpa-16"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/InP/inp-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1265,7 +1267,7 @@ Existing logs (cross-check first)
   data/calculations/3d/InP/inp-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-librpa-32"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="inp · 3d · inp-jctc-librpa-32"><h2>InP <span>3d</span></h2><p class="case-id">inp-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== InP | 3d | inp-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/InP/inp-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1275,7 +1277,7 @@ Existing logs (cross-check first)
   data/calculations/3d/InP/inp-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-aims-gw"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-aims-gw"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/KCl/kcl-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1284,7 +1286,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KCl/kcl-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-librpa-16"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-librpa-16"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/KCl/kcl-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1294,7 +1296,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KCl/kcl-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-librpa-32"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="kcl · 3d · kcl-jctc-librpa-32"><h2>KCl <span>3d</span></h2><p class="case-id">kcl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KCl | 3d | kcl-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/KCl/kcl-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1304,7 +1306,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KCl/kcl-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-aims-gw"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-aims-gw"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/KF/kf-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1313,7 +1315,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KF/kf-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-librpa-16"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-librpa-16"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/KF/kf-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1323,7 +1325,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KF/kf-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-librpa-32"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="kf · 3d · kf-jctc-librpa-32"><h2>KF <span>3d</span></h2><p class="case-id">kf-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== KF | 3d | kf-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/KF/kf-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1333,7 +1335,7 @@ Existing logs (cross-check first)
   data/calculations/3d/KF/kf-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="li2 · 3d · li2-delta-st-rpa-20260913"><h2>Li2 <span>3d</span></h2><p class="case-id">li2-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Li2 | 3d | li2-delta-st-rpa-20260913 ===
+</pre></details></article><article class="case" data-search="li2 · 3d · li2-delta-st-rpa-20260913"><h2>Li2 <span>3d</span></h2><p class="case-id">li2-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Li2 | 3d | li2-delta-st-rpa-20260913 ===
 Archive completeness: complete
 Record: data/calculations/3d/Li2/li2-delta-st-rpa-20260913/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1347,7 +1349,7 @@ Existing logs (cross-check first)
   data/calculations/3d/Li2/li2-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-aims-gw"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-aims-gw"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/LiCl/licl-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1356,7 +1358,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiCl/licl-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-librpa-16"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-librpa-16"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiCl/licl-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1366,7 +1368,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiCl/licl-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-librpa-32"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="58"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="licl · 3d · licl-jctc-librpa-32"><h2>LiCl <span>3d</span></h2><p class="case-id">licl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiCl | 3d | licl-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiCl/licl-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1376,15 +1378,15 @@ Existing logs (cross-check first)
   data/calculations/3d/LiCl/licl-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-aims-gw"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="58"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-aims-gw"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="59"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/LiF/lif-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [058] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [059] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/LiF/lif-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-librpa-16"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-librpa-16"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="60"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiF/lif-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1394,7 +1396,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiF/lif-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-librpa-32"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="59"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="lif · 3d · lif-jctc-librpa-32"><h2>LiF <span>3d</span></h2><p class="case-id">lif-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="60"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiF/lif-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1404,11 +1406,11 @@ Existing logs (cross-check first)
   data/calculations/3d/LiF/lif-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="lif · 3d · lif-paper-jy"><h2>LiF <span>3d</span></h2><p class="case-id">lif-paper-jy</p><p>incomplete · 1 original issues</p><ol start="59"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-paper-jy ===
+</pre></details></article><article class="case" data-search="lif · 3d · lif-paper-jy"><h2>LiF <span>3d</span></h2><p class="case-id">lif-paper-jy</p><p>incomplete · 1 original issues</p><ol start="60"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiF | 3d | lif-paper-jy ===
 Archive completeness: incomplete
 Record: data/calculations/3d/LiF/lif-paper-jy/record.json
 Original raw completeness issues (full, unmodified text)
-  [059] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [060] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1421,7 +1423,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiF/lif-paper-jy/logs/abacus.out
   data/calculations/3d/LiF/lif-paper-jy/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="lih · 3d · lih-molecule-delta-st-rpa-20260913"><h2>LiH <span>3d</span></h2><p class="case-id">lih-molecule-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="60"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiH | 3d | lih-molecule-delta-st-rpa-20260913 ===
+</pre></details></article><article class="case" data-search="lih · 3d · lih-molecule-delta-st-rpa-20260913"><h2>LiH <span>3d</span></h2><p class="case-id">lih-molecule-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="61"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiH | 3d | lih-molecule-delta-st-rpa-20260913 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1440,7 +1442,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiH/lih-molecule-delta-st-rpa-20260913/logs/li_atom_abacus_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="lih · 3d · lih-solid-delta-st-rpa-20260831"><h2>LiH <span>3d</span></h2><p class="case-id">lih-solid-delta-st-rpa-20260831</p><p>complete · 0 original issues</p><ol start="60"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiH | 3d | lih-solid-delta-st-rpa-20260831 ===
+</pre></details></article><article class="case" data-search="lih · 3d · lih-solid-delta-st-rpa-20260831"><h2>LiH <span>3d</span></h2><p class="case-id">lih-solid-delta-st-rpa-20260831</p><p>complete · 0 original issues</p><ol start="61"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== LiH | 3d | lih-solid-delta-st-rpa-20260831 ===
 Archive completeness: complete
 Record: data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1468,7 +1470,7 @@ Existing logs (cross-check first)
   data/calculations/3d/LiH/lih-solid-delta-st-rpa-20260831/logs/h_atom_librpa_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-delta-st-rpa-20260829"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-delta-st-rpa-20260829</p><p>complete · 0 original issues</p><ol start="60"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-delta-st-rpa-20260829 ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-delta-st-rpa-20260829"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-delta-st-rpa-20260829</p><p>complete · 0 original issues</p><ol start="61"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-delta-st-rpa-20260829 ===
 Archive completeness: complete
 Record: data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1491,24 +1493,24 @@ Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-delta-st-rpa-20260829/logs/solid_librpa_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-aims-gw"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="60"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-aims-gw"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="61"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/MgO/mgo-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [060] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [061] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-librpa-16"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="61"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-librpa-16"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="62"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/MgO/mgo-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [061] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [062] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-jctc-librpa-16/logs/aims.out
   data/calculations/3d/MgO/mgo-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-librpa-32"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="62"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-jctc-librpa-32"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="63"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/MgO/mgo-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1518,11 +1520,11 @@ Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mgo · 3d · mgo-paper-fix_gap"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-paper-fix_gap</p><p>incomplete · 1 original issues</p><ol start="62"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-paper-fix_gap ===
+</pre></details></article><article class="case" data-search="mgo · 3d · mgo-paper-fix_gap"><h2>MgO <span>3d</span></h2><p class="case-id">mgo-paper-fix_gap</p><p>incomplete · 1 original issues</p><ol start="63"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgO | 3d | mgo-paper-fix_gap ===
 Archive completeness: incomplete
 Record: data/calculations/3d/MgO/mgo-paper-fix_gap/record.json
 Original raw completeness issues (full, unmodified text)
-  [062] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [063] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1535,7 +1537,7 @@ Existing logs (cross-check first)
   data/calculations/3d/MgO/mgo-paper-fix_gap/logs/abacus.out
   data/calculations/3d/MgO/mgo-paper-fix_gap/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-aims-gw"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="63"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-aims-gw"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="64"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/MgS/mgs-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1544,7 +1546,7 @@ Existing logs (cross-check first)
   data/calculations/3d/MgS/mgs-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-librpa-16"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="63"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-librpa-16"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="64"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/MgS/mgs-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1554,7 +1556,7 @@ Existing logs (cross-check first)
   data/calculations/3d/MgS/mgs-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-librpa-32"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="63"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="mgs · 3d · mgs-jctc-librpa-32"><h2>MgS <span>3d</span></h2><p class="case-id">mgs-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="64"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== MgS | 3d | mgs-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/MgS/mgs-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1564,7 +1566,7 @@ Existing logs (cross-check first)
   data/calculations/3d/MgS/mgs-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="n2 · 3d · n2-delta-st-rpa-20260913"><h2>N2 <span>3d</span></h2><p class="case-id">n2-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="63"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== N2 | 3d | n2-delta-st-rpa-20260913 ===
+</pre></details></article><article class="case" data-search="n2 · 3d · n2-delta-st-rpa-20260913"><h2>N2 <span>3d</span></h2><p class="case-id">n2-delta-st-rpa-20260913</p><p>complete · 0 original issues</p><ol start="64"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== N2 | 3d | n2-delta-st-rpa-20260913 ===
 Archive completeness: complete
 Record: data/calculations/3d/N2/n2-delta-st-rpa-20260913/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1580,24 +1582,24 @@ Existing logs (cross-check first)
   data/calculations/3d/N2/n2-delta-st-rpa-20260913/logs/n_atom_producer_result_summary.txt
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-aims-gw"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="63"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-aims-gw"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="64"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/NaCl/nacl-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [063] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [064] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/NaCl/nacl-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-librpa-16"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="64"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-librpa-16"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="65"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/NaCl/nacl-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [064] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [065] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/NaCl/nacl-jctc-librpa-16/logs/aims.out
   data/calculations/3d/NaCl/nacl-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-librpa-32"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="65"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-jctc-librpa-32"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="66"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/NaCl/nacl-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1607,12 +1609,12 @@ Existing logs (cross-check first)
   data/calculations/3d/NaCl/nacl-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="nacl · 3d · nacl-paper-sg15"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-paper-sg15</p><p>incomplete · 2 original issues</p><ol start="65"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-paper-sg15 ===
+</pre></details></article><article class="case" data-search="nacl · 3d · nacl-paper-sg15"><h2>NaCl <span>3d</span></h2><p class="case-id">nacl-paper-sg15</p><p>incomplete · 2 original issues</p><ol start="66"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaCl | 3d | nacl-paper-sg15 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/NaCl/nacl-paper-sg15/record.json
 Original raw completeness issues (full, unmodified text)
-  [065] software.abacus.identity: full immutable commit or executable SHA-256 is required
-  [066] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [066] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [067] software.librpa.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -1634,7 +1636,7 @@ Existing logs (cross-check first)
   data/calculations/3d/NaCl/nacl-paper-sg15/logs/librpa.out
 Existing receipts/manifests (cross-check first)
   data/calculations/3d/NaCl/nacl-paper-sg15/results/backup_assets_receipt.json
-</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-aims-gw"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="67"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-aims-gw"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="68"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/NaF/naf-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1643,7 +1645,7 @@ Existing logs (cross-check first)
   data/calculations/3d/NaF/naf-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-librpa-16"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="67"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-librpa-16"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="68"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/NaF/naf-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1653,7 +1655,7 @@ Existing logs (cross-check first)
   data/calculations/3d/NaF/naf-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-librpa-32"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="67"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="naf · 3d · naf-jctc-librpa-32"><h2>NaF <span>3d</span></h2><p class="case-id">naf-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="68"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NaF | 3d | naf-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/NaF/naf-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1663,11 +1665,11 @@ Existing logs (cross-check first)
   data/calculations/3d/NaF/naf-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="nio · 3d · nio-aims-gw-int"><h2>NiO <span>3d</span></h2><p class="case-id">nio-aims-gw-int</p><p>incomplete · 1 original issues</p><ol start="67"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NiO | 3d | nio-aims-gw-int ===
+</pre></details></article><article class="case" data-search="nio · 3d · nio-aims-gw-int"><h2>NiO <span>3d</span></h2><p class="case-id">nio-aims-gw-int</p><p>incomplete · 1 original issues</p><ol start="68"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== NiO | 3d | nio-aims-gw-int ===
 Archive completeness: incomplete
 Record: data/calculations/3d/NiO/nio-aims-gw-int/record.json
 Original raw completeness issues (full, unmodified text)
-  [067] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [068] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_stdout.log
   data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_731944_slurm_stdout.log
@@ -1678,7 +1680,7 @@ Existing logs (cross-check first)
   data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_stdout.log
   data/calculations/3d/NiO/nio-aims-gw-int/logs/aims_740569_slurm_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="si · 3d · si-delta-st-rpa-20260824"><h2>Si <span>3d</span></h2><p class="case-id">si-delta-st-rpa-20260824</p><p>complete · 0 original issues</p><ol start="68"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-delta-st-rpa-20260824 ===
+</pre></details></article><article class="case" data-search="si · 3d · si-delta-st-rpa-20260824"><h2>Si <span>3d</span></h2><p class="case-id">si-delta-st-rpa-20260824</p><p>complete · 0 original issues</p><ol start="69"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-delta-st-rpa-20260824 ===
 Archive completeness: complete
 Record: data/calculations/3d/Si/si-delta-st-rpa-20260824/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1702,24 +1704,24 @@ Existing logs (cross-check first)
   data/calculations/3d/Si/si-delta-st-rpa-20260824/logs/solid_librpa_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="si · 3d · si-jctc-aims-gw"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="68"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="si · 3d · si-jctc-aims-gw"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="69"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/Si/si-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [068] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [069] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/Si/si-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="si · 3d · si-jctc-librpa-16"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="69"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="si · 3d · si-jctc-librpa-16"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="70"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/Si/si-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [069] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [070] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/Si/si-jctc-librpa-16/logs/aims.out
   data/calculations/3d/Si/si-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="si · 3d · si-jctc-librpa-32"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="70"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="si · 3d · si-jctc-librpa-32"><h2>Si <span>3d</span></h2><p class="case-id">si-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="71"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/Si/si-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1729,7 +1731,7 @@ Existing logs (cross-check first)
   data/calculations/3d/Si/si-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="si · 3d · si-libbse-exciton-20261120"><h2>Si <span>3d</span></h2><p class="case-id">si-libbse-exciton-20261120</p><p>complete · 0 original issues</p><ol start="70"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-libbse-exciton-20261120 ===
+</pre></details></article><article class="case" data-search="si · 3d · si-libbse-exciton-20261120"><h2>Si <span>3d</span></h2><p class="case-id">si-libbse-exciton-20261120</p><p>complete · 0 original issues</p><ol start="71"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-libbse-exciton-20261120 ===
 Archive completeness: complete
 Record: data/calculations/3d/Si/si-libbse-exciton-20261120/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1742,11 +1744,11 @@ Existing logs (cross-check first)
   data/calculations/3d/Si/si-libbse-exciton-20261120/logs/librpa_gw_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="si · 3d · si-paper-all_kpath"><h2>Si <span>3d</span></h2><p class="case-id">si-paper-all_kpath</p><p>incomplete · 1 original issues</p><ol start="70"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-paper-all_kpath ===
+</pre></details></article><article class="case" data-search="si · 3d · si-paper-all_kpath"><h2>Si <span>3d</span></h2><p class="case-id">si-paper-all_kpath</p><p>incomplete · 1 original issues</p><ol start="71"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== Si | 3d | si-paper-all_kpath ===
 Archive completeness: incomplete
 Record: data/calculations/3d/Si/si-paper-all_kpath/record.json
 Original raw completeness issues (full, unmodified text)
-  [070] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [071] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1759,7 +1761,7 @@ Existing logs (cross-check first)
   data/calculations/3d/Si/si-paper-all_kpath/logs/abacus.out
   data/calculations/3d/Si/si-paper-all_kpath/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-delta-st-rpa-20260829"><h2>SiC <span>3d</span></h2><p class="case-id">sic-delta-st-rpa-20260829</p><p>complete · 0 original issues</p><ol start="71"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-delta-st-rpa-20260829 ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-delta-st-rpa-20260829"><h2>SiC <span>3d</span></h2><p class="case-id">sic-delta-st-rpa-20260829</p><p>complete · 0 original issues</p><ol start="72"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-delta-st-rpa-20260829 ===
 Archive completeness: complete
 Record: data/calculations/3d/SiC/sic-delta-st-rpa-20260829/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1786,24 +1788,24 @@ Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/si_atom_librpa_stdout.log
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-aims-gw"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="71"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-aims-gw"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-aims-gw</p><p>incomplete · 1 original issues</p><ol start="72"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-aims-gw ===
 Archive completeness: incomplete
 Record: data/calculations/3d/SiC/sic-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
-  [071] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [072] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-librpa-16"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="72"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-librpa-16"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-librpa-16</p><p>incomplete · 1 original issues</p><ol start="73"><li><code>software.fhi_aims.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-librpa-16 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/SiC/sic-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
-  [072] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
+  [073] software.fhi_aims.identity: full immutable commit or executable SHA-256 is required
 Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-jctc-librpa-16/logs/aims.out
   data/calculations/3d/SiC/sic-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-librpa-32"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="73"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-jctc-librpa-32"><h2>SiC <span>3d</span></h2><p class="case-id">sic-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="74"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/SiC/sic-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1813,11 +1815,11 @@ Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="sic · 3d · sic-paper-pca1e-6"><h2>SiC <span>3d</span></h2><p class="case-id">sic-paper-pca1e-6</p><p>incomplete · 1 original issues</p><ol start="73"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-paper-pca1e-6 ===
+</pre></details></article><article class="case" data-search="sic · 3d · sic-paper-pca1e-6"><h2>SiC <span>3d</span></h2><p class="case-id">sic-paper-pca1e-6</p><p>incomplete · 1 original issues</p><ol start="74"><li><code>software.librpa.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== SiC | 3d | sic-paper-pca1e-6 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/SiC/sic-paper-pca1e-6/record.json
 Original raw completeness issues (full, unmodified text)
-  [073] software.librpa.identity: full immutable commit or executable SHA-256 is required
+  [074] software.librpa.identity: full immutable commit or executable SHA-256 is required
 LibRPA immutable identity to close: software.librpa.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: EXX/GW (LibRPA)
@@ -1830,11 +1832,11 @@ Existing logs (cross-check first)
   data/calculations/3d/SiC/sic-paper-pca1e-6/logs/abacus.out
   data/calculations/3d/SiC/sic-paper-pca1e-6/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-abacus-gw-sg15"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-abacus-gw-sg15</p><p>incomplete · 1 original issues</p><ol start="74"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-abacus-gw-sg15 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-abacus-gw-sg15"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-abacus-gw-sg15</p><p>incomplete · 1 original issues</p><ol start="75"><li><code>software.abacus.identity: full immutable commit or executable SHA-256 is required</code></li></ol><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-abacus-gw-sg15 ===
 Archive completeness: incomplete
 Record: data/calculations/3d/ZnO/zno-abacus-gw-sg15/record.json
 Original raw completeness issues (full, unmodified text)
-  [074] software.abacus.identity: full immutable commit or executable SHA-256 is required
+  [075] software.abacus.identity: full immutable commit or executable SHA-256 is required
 ABACUS immutable identity to close: software.abacus.identity
 The public historical identity chain is not closed. Audit existing/located evidence first; this does not prove that the files are absent.
 Stages to cross-check: SCF/DF/NSCF (ABACUS)
@@ -1849,7 +1851,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/gw_slurm_stdout.log
   data/calculations/3d/ZnO/zno-abacus-gw-sg15/logs/submitted_jobs.txt
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-aims-gw"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-aims-gw"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1858,7 +1860,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-16"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-16"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1868,7 +1870,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-32"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="zno · 3d · zno-jctc-librpa-32"><h2>ZnO <span>3d</span></h2><p class="case-id">zno-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnO | 3d | zno-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnO/zno-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1878,7 +1880,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnO/zno-jctc-librpa-32/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-aims-gw"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-aims-gw ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-aims-gw"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-aims-gw</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-aims-gw ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-aims-gw/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1887,7 +1889,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnS/zns-jctc-aims-gw/logs/aims.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-16"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-16 ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-16"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-16</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-16 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-librpa-16/record.json
 Original raw completeness issues (full, unmodified text)
@@ -1897,7 +1899,7 @@ Existing logs (cross-check first)
   data/calculations/3d/ZnS/zns-jctc-librpa-16/logs/librpa.out
 Existing receipts/manifests: not declared in the public record; inspect historical sources first.
 No current raw completeness issues; this does not automatically establish a full runtime mirror or scientific acceptance.
-</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-32"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="75"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-32 ===
+</pre></details></article><article class="case" data-search="zns · 3d · zns-jctc-librpa-32"><h2>ZnS <span>3d</span></h2><p class="case-id">zns-jctc-librpa-32</p><p>complete · 0 original issues</p><ol start="76"></ol><p>No current raw completeness issues; scientific acceptance is not automatic.</p><details><summary>Evidence to recover, existing files, and stage identity checklist</summary><pre>=== ZnS | 3d | zns-jctc-librpa-32 ===
 Archive completeness: complete
 Record: data/calculations/3d/ZnS/zns-jctc-librpa-32/record.json
 Original raw completeness issues (full, unmodified text)

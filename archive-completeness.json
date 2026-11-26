@@ -1,19 +1,23 @@
 {
   "schema_version": 2,
   "status": "blocked",
-  "gate_status": "complete",
+  "gate_status": "blocked",
   "integrity_issues": [],
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "program_output_exception_baseline": "data/historical-program-output-exceptions.json",
   "stats": {
     "total": 124,
-    "complete": 66,
-    "incomplete": 58,
-    "issue_count": 74,
+    "complete": 65,
+    "incomplete": 59,
+    "issue_count": 75,
     "accepted_exception_count": 74,
-    "blocking_case_count": 0,
-    "blocking_issue_count": 0,
+    "blocking_case_count": 1,
+    "blocking_issue_count": 1,
     "missing_categories": {
+      "figures": {
+        "cases": 1,
+        "issues": 1
+      },
       "software": {
         "cases": 58,
         "issues": 74
@@ -137,16 +141,28 @@
       "blocking_categories": {}
     },
     {
-      "id": "mos2-bse-14x14-20261125",
+      "id": "mos2-libbse-exciton-20261126",
       "material": "MoS2",
       "dimension": "2d",
-      "status": "complete",
-      "gate_status": "accepted",
-      "issues": [],
+      "status": "incomplete",
+      "gate_status": "blocked",
+      "issues": [
+        "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+      ],
       "accepted_issues": [],
-      "blocking_issues": [],
-      "missing_categories": {},
-      "blocking_categories": {}
+      "blocking_issues": [
+        "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+      ],
+      "missing_categories": {
+        "figures": [
+          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+        ]
+      },
+      "blocking_categories": {
+        "figures": [
+          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+        ]
+      }
     },
     {
       "id": "mos2-table-gw",

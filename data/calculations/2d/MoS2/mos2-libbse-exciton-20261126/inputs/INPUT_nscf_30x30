@@ -1,0 +1,32 @@
+INPUT_PARAMETERS
+# Band path for the database figures: Gamma-K-M-Gamma, 121 points, matching the
+# archived mos2-table-gw endpoints (0, 40, 80, 120) so the panels are comparable.
+suffix                   dense30
+read_file_dir           ../scf/OUT.ABACUS
+pseudo_dir              ./
+orbital_dir             ./
+calculation             nscf
+basis_type              lcao
+ks_solver               genelpa
+ntype                   2
+nspin                   1
+noncolin                0
+lspinorb                0
+dft_functional          pbe
+
+# 121 path points: symmetry must be -1 so every k is enumerated
+symmetry                 -1
+ecutwfc                 120
+scf_thr                 1e-9
+scf_nmax                100
+nbands                   88
+init_chg                file
+out_chg                 -1
+
+smearing_method         gaussian
+smearing_sigma          1e-4
+
+# wp: wavefunction for the LibRPA band channel
+out_wfc_lcao            1
+out_mat_xc              1
+out_librpa_reader_version 1
