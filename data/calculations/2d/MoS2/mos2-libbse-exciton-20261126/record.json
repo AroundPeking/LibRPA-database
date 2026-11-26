@@ -218,7 +218,10 @@
         "sha256": "7987b1cd85e90ca17ef24e1b56a390cbe63f017e6a0ffb30e87d9b58720da173",
         "size_bytes": 983,
         "label": "INPUT_nscf_30x30",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_nscf_30x30",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_nscf_30x30"
       },
       {
         "role": "inputs",
@@ -226,7 +229,10 @@
         "sha256": "515b1746120d364ace396cbf8470f2159c22eccfc718e1e617ea2660b86353ea",
         "size_bytes": 2728,
         "label": "INPUT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/INPUT_scf"
       },
       {
         "role": "inputs",
@@ -234,7 +240,10 @@
         "sha256": "c4da00cd809895eb6a6aa538fd8798458b9fcbad23d3c9231d33ffc7477fc76b",
         "size_bytes": 31,
         "label": "KPT_30x30",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_30x30",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_30x30"
       },
       {
         "role": "inputs",
@@ -242,7 +251,10 @@
         "sha256": "58bd42fbae6a7dc1a48c7c221d26798cb0dd2002fbbd2d157508502c9f9a966a",
         "size_bytes": 31,
         "label": "KPT_scf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_scf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/KPT_scf"
       },
       {
         "role": "inputs",
@@ -250,7 +262,10 @@
         "sha256": "21b3cac458002df1b355699ff65914a9a10c30000d90b2aee8d8665a740989af",
         "size_bytes": 569,
         "label": "STRU",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/STRU",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/STRU"
       },
       {
         "role": "inputs",
@@ -258,7 +273,10 @@
         "sha256": "5cfed0e794347cc2dcfec7231d1ae4a607af0cababa67517a1a0ceeaf87fc135",
         "size_bytes": 898,
         "label": "bse30_slurm.sh",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/bse30_slurm.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/bse30_slurm.sh"
       },
       {
         "role": "inputs",
@@ -266,7 +284,10 @@
         "sha256": "9b7ea074bde007347d30682e76206246ddbc2dbc64b9e233b53cad1948fb5d48",
         "size_bytes": 950,
         "label": "gw30_slurm.sh",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/gw30_slurm.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/gw30_slurm.sh"
       },
       {
         "role": "inputs",
@@ -274,7 +295,10 @@
         "sha256": "5311db15f7eae11ed1268bf60533d520bf147d6ec15c08dc06662049b8ba12d3",
         "size_bytes": 1212,
         "label": "libbse.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse.in"
       },
       {
         "role": "inputs",
@@ -282,7 +306,10 @@
         "sha256": "25955acb197f463fe65bec0c06a78c23fccd3d83c1b74aba4ffe15f7e3397b30",
         "size_bytes": 1221,
         "label": "libbse_30x30.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse_30x30.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/libbse_30x30.in"
       },
       {
         "role": "inputs",
@@ -290,7 +317,10 @@
         "sha256": "13fd6924702d913c9b3db27dbb100be52418f06dce6ca0db7893b272447f8970",
         "size_bytes": 2440,
         "label": "librpa.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa.in"
       },
       {
         "role": "inputs",
@@ -298,7 +328,10 @@
         "sha256": "9dcd894b3d7deed10033f8b947f8de1dfef754a3fe22db7cee74bdead4365699",
         "size_bytes": 1138,
         "label": "librpa_30x30.in",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa_30x30.in",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/librpa_30x30.in"
       },
       {
         "role": "inputs",
@@ -306,7 +339,10 @@
         "sha256": "80068eb5e01de97abd04a58c8cde8654a03e5c95679d3487ffd6704ac6ae32fd",
         "size_bytes": 1015,
         "label": "nscf30_slurm.sh",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/nscf30_slurm.sh",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/nscf30_slurm.sh"
       },
       {
         "role": "inputs",
@@ -314,7 +350,10 @@
         "sha256": "7dee0df3ae3ab352eb8b1ab74fe83e6b4839e768b3a9753452758f236c0944e5",
         "size_bytes": 8232,
         "label": "reconstruct_exciton_density.py",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_exciton_density.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_exciton_density.py"
       },
       {
         "role": "inputs",
@@ -322,7 +361,10 @@
         "sha256": "166c2b1c7b30cab4279f6fb24a6c695c718af0c8ddf9ec37c061a2e29af55738",
         "size_bytes": 3215,
         "label": "reconstruct_make_wfk.py",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_make_wfk.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_make_wfk.py"
       },
       {
         "role": "inputs",
@@ -330,7 +372,10 @@
         "sha256": "4ba322c9c1632d8ddd1bb1fce8497f7512a3f5581383ab4c41241a154ab504f7",
         "size_bytes": 3163,
         "label": "reconstruct_plot_eps2.py",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_eps2.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_eps2.py"
       },
       {
         "role": "inputs",
@@ -338,7 +383,10 @@
         "sha256": "950c21fd9888016031ae734cddff1bb46546f1c54861130f05646b0ab6cd4f5a",
         "size_bytes": 4641,
         "label": "reconstruct_plot_exciton_pair.py",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_exciton_pair.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_plot_exciton_pair.py"
       },
       {
         "role": "inputs",
@@ -346,7 +394,10 @@
         "sha256": "4ee177c48d1c2d09181f694c53e66a3c965d9b98a4f5945dc2499a9f1218475a",
         "size_bytes": 2326,
         "label": "reconstruct_render_mos2_bands.py",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_render_mos2_bands.py",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/inputs/reconstruct_render_mos2_bands.py"
       }
     ],
     "results": [
@@ -356,7 +407,10 @@
         "sha256": "0ac8e2957310e9546e461196a5f8965c0929c6a672dc6d84fb2b1cef2a6a274e",
         "size_bytes": 261900,
         "label": "EXX_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/EXX_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/EXX_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -364,7 +418,10 @@
         "sha256": "92d09f44262a68f975845939a44e8e8a26102a2e21c5454fc18b7e8fc03e6617",
         "size_bytes": 216001,
         "label": "Excitation_Energy_singlet.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/Excitation_Energy_singlet.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/Excitation_Energy_singlet.dat"
       },
       {
         "role": "results",
@@ -372,7 +429,10 @@
         "sha256": "ff9fc07d4fed24aab5fd7baa36e7688efc1baf5926fa5fde49a343cac0ce267f",
         "size_bytes": 261900,
         "label": "GW_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/GW_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/GW_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -380,7 +440,10 @@
         "sha256": "bac544df3be4deff63ffec35e8017e26210faf891c9f9136712a7dd057e9ee31",
         "size_bytes": 261900,
         "label": "KS_band_spin_1.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/KS_band_spin_1.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/KS_band_spin_1.dat"
       },
       {
         "role": "results",
@@ -388,7 +451,10 @@
         "sha256": "28e89f6dbd63fbac011da0f5cd4f7252cf303c4d1f58e047d3fd9871bdef6377",
         "size_bytes": 6680,
         "label": "band_kpath_info",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_kpath_info",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_kpath_info"
       },
       {
         "role": "results",
@@ -396,7 +462,10 @@
         "sha256": "51b18510e80e0aaffe3d3fcf57b0890990083d8e2747e506471c9bb0ddf10470",
         "size_bytes": 60275,
         "label": "band_window_and_provenance.json",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_window_and_provenance.json",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/band_window_and_provenance.json"
       },
       {
         "role": "results",
@@ -404,7 +473,10 @@
         "sha256": "cd0d35b7af693e87b115a4a20e28d79f5dcef9695b8bd091c60b8e611c1a8a76",
         "size_bytes": 14546,
         "label": "eps2_singlet_tda.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/eps2_singlet_tda.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/eps2_singlet_tda.dat"
       },
       {
         "role": "results",
@@ -412,7 +484,10 @@
         "sha256": "152e87505a405761aba52289531b4d35af441cf3d9e7f52088a9713414cf7547",
         "size_bytes": 56132,
         "label": "exciton_density_avg_elec.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec.dat"
       },
       {
         "role": "results",
@@ -420,7 +495,10 @@
         "sha256": "d44faf0ec937029b1e9102ad44f68cea0cca38a893b6b3498cbd56ab1c92c779",
         "size_bytes": 56132,
         "label": "exciton_density_avg_elec_14x14.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_14x14.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_14x14.dat"
       },
       {
         "role": "results",
@@ -428,7 +506,10 @@
         "sha256": "152e87505a405761aba52289531b4d35af441cf3d9e7f52088a9713414cf7547",
         "size_bytes": 56132,
         "label": "exciton_density_avg_elec_30x30.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_30x30.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_elec_30x30.dat"
       },
       {
         "role": "results",
@@ -436,7 +517,10 @@
         "sha256": "c6925bc6c81b052172b37b0a2e31bcf6b61cd56ea96427cea3a909e3a02be728",
         "size_bytes": 56132,
         "label": "exciton_density_avg_hole.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole.dat"
       },
       {
         "role": "results",
@@ -444,7 +528,10 @@
         "sha256": "46a27955c54cf40dee0b86686285dc4463906961e97ede222b38b01838c9fbe5",
         "size_bytes": 56132,
         "label": "exciton_density_avg_hole_14x14.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_14x14.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_14x14.dat"
       },
       {
         "role": "results",
@@ -452,7 +539,10 @@
         "sha256": "c6925bc6c81b052172b37b0a2e31bcf6b61cd56ea96427cea3a909e3a02be728",
         "size_bytes": 56132,
         "label": "exciton_density_avg_hole_30x30.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_30x30.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_avg_hole_30x30.dat"
       },
       {
         "role": "results",
@@ -460,7 +550,10 @@
         "sha256": "1054d1bf32706b7d295b0ce35764a5a19666859423ead1d7647d6cd8761be7f4",
         "size_bytes": 56190,
         "label": "exciton_density_cond_elec.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec.dat"
       },
       {
         "role": "results",
@@ -468,7 +561,10 @@
         "sha256": "63c567b35458f3e238edc225733e59afab4625063445b2ee917bb461fed99674",
         "size_bytes": 56190,
         "label": "exciton_density_cond_elec_14x14.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_14x14.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_14x14.dat"
       },
       {
         "role": "results",
@@ -476,7 +572,10 @@
         "sha256": "1054d1bf32706b7d295b0ce35764a5a19666859423ead1d7647d6cd8761be7f4",
         "size_bytes": 56190,
         "label": "exciton_density_cond_elec_30x30.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_30x30.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_elec_30x30.dat"
       },
       {
         "role": "results",
@@ -484,7 +583,10 @@
         "sha256": "b038c854e57c5bfd42717d0badaf43d2c7ff7093d4691a51aef06facf045b2f0",
         "size_bytes": 56194,
         "label": "exciton_density_cond_hole.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole.dat"
       },
       {
         "role": "results",
@@ -492,7 +594,10 @@
         "sha256": "46a3e1ba2b53aa041c75ecd7d016c111f087199e2d57a0b289c939fb575b3d19",
         "size_bytes": 56194,
         "label": "exciton_density_cond_hole_14x14.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_14x14.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_14x14.dat"
       },
       {
         "role": "results",
@@ -500,7 +605,10 @@
         "sha256": "b038c854e57c5bfd42717d0badaf43d2c7ff7093d4691a51aef06facf045b2f0",
         "size_bytes": 56194,
         "label": "exciton_density_cond_hole_30x30.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_30x30.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/exciton_density_cond_hole_30x30.dat"
       },
       {
         "role": "results",
@@ -508,7 +616,10 @@
         "sha256": "1945b6a9b6cec343f333f52c5d975e2f6283a8bea68a75bd79ce63dd46f7bc53",
         "size_bytes": 1443393,
         "label": "oscillator_strength_singlet_tda.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/oscillator_strength_singlet_tda.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/oscillator_strength_singlet_tda.dat"
       },
       {
         "role": "results",
@@ -516,7 +627,10 @@
         "sha256": "973fff552515ca5b2e69540762758871ae037562df2f3b21e4628f51e2d90bea",
         "size_bytes": 47707,
         "label": "spectrum_singlet_tda.dat",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/spectrum_singlet_tda.dat",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/spectrum_singlet_tda.dat"
       },
       {
         "role": "results",
@@ -524,7 +638,10 @@
         "sha256": "4a85be525cf208267869c4173fb46839408c4961dd9a3c5b91287f2ea4c4da79",
         "size_bytes": 667956,
         "label": "QP energies on the 30x30x1 fine grid (900 k)",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/energy_qp_fine_30x30",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/results/energy_qp_fine_30x30"
       }
     ],
     "logs": [
@@ -534,7 +651,10 @@
         "sha256": "556097b8ef3a436a8bc806966b06dbbbce0e8faf8928a73e5a95805e95d30744",
         "size_bytes": 5227,
         "label": "abacus_nscf_30x30.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_30x30.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_30x30.log"
       },
       {
         "role": "logs",
@@ -542,7 +662,10 @@
         "sha256": "2deb22c9a1524653abe4dcab85b3f2ac097e71692c1c72c1ab956def39de8287",
         "size_bytes": 116205,
         "label": "abacus_nscf_band_14x14.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_band_14x14.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_nscf_band_14x14.log"
       },
       {
         "role": "logs",
@@ -550,7 +673,10 @@
         "sha256": "3ce9bb3f3d20bff5531110c86f00c0e0b0976c92a06bbdc8efce288d0a6b7d09",
         "size_bytes": 394534,
         "label": "abacus_scf.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/abacus_scf.log"
       },
       {
         "role": "logs",
@@ -558,7 +684,10 @@
         "sha256": "73fcfc1e182bb2866d22290743e48fa49e093df3ac84c2f23f5a0e61186ae871",
         "size_bytes": 122098,
         "label": "libbse_14x14.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_14x14.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_14x14.log"
       },
       {
         "role": "logs",
@@ -566,7 +695,10 @@
         "sha256": "07544682a4d54ec503b5f2cc57fe0b481f3d9598bee9c136e1a303a04fd10143",
         "size_bytes": 378362,
         "label": "libbse_30x30.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/libbse_30x30.log"
       },
       {
         "role": "logs",
@@ -574,7 +706,10 @@
         "sha256": "2d888ff74fca3b9409e06531d5b048c5a3ed621df4d97e814023aa5ef2af7165",
         "size_bytes": 2758601,
         "label": "librpa_band_14x14.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_band_14x14.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_band_14x14.log"
       },
       {
         "role": "logs",
@@ -582,7 +717,10 @@
         "sha256": "c70655882fe50c6666b43b8444351bf02910f7746258b7b54b5f2ad761f4b0ae",
         "size_bytes": 790851,
         "label": "librpa_gw_14x14.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_14x14.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_14x14.log"
       },
       {
         "role": "logs",
@@ -590,7 +728,10 @@
         "sha256": "d48c52ce8b9697ef00cbb5ce1cf65e8e51cc44190c41705534972f9dd4192408",
         "size_bytes": 832337,
         "label": "librpa_gw_30x30.log",
-        "transformation": "sanitized"
+        "transformation": "sanitized",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/logs/librpa_gw_30x30.log"
       }
     ],
     "figures": [
@@ -600,7 +741,10 @@
         "sha256": "510ea70a5e241877a51fbdb981d11cb76583d2b54d245de760383717ad57a37c",
         "size_bytes": 179242,
         "label": "absorption_eps2_14x14.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_14x14.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_14x14.png"
       },
       {
         "role": "figures",
@@ -608,7 +752,10 @@
         "sha256": "983376622213800d2d94dab64191743e57313d6ea7e089f925e7ebb83daa0069",
         "size_bytes": 178991,
         "label": "absorption_eps2_30x30.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_30x30.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/absorption_eps2_30x30.png"
       },
       {
         "role": "figures",
@@ -616,7 +763,10 @@
         "sha256": "7e6009f05991c05a4e1c831a42ea7cc9c0787ffb62aa9279611641d64f123a80",
         "size_bytes": 854474,
         "label": "exciton_avg_14x14.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_14x14.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_14x14.png"
       },
       {
         "role": "figures",
@@ -624,7 +774,10 @@
         "sha256": "d4172d802154cc0dcf7f82891bb8c617ef10f4a657d9101448eb057c77e8e583",
         "size_bytes": 859264,
         "label": "exciton_avg_30x30.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_30x30.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_avg_30x30.png"
       },
       {
         "role": "figures",
@@ -632,7 +785,10 @@
         "sha256": "fde860c18f57d77185669a869ff708eabd8db9abbcf48a6aa1bb6f1ead3766fc",
         "size_bytes": 1309984,
         "label": "exciton_conditional_14x14.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_14x14.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_14x14.png"
       },
       {
         "role": "figures",
@@ -640,7 +796,10 @@
         "sha256": "8379f252c28dc2f48c2d86270c65b4f728b9f2dd1ec35cfc1d595e278831fd1b",
         "size_bytes": 1355174,
         "label": "exciton_conditional_30x30.png",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_30x30.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/exciton_conditional_30x30.png"
       },
       {
         "role": "figures",
@@ -648,7 +807,10 @@
         "sha256": "4381af9ae3daced4b36149f42cd4b4cea3fffd6eed2030ebb7044fee1715c90a",
         "size_bytes": 58996,
         "label": "mos2_exx_frontier.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.pdf"
       },
       {
         "role": "figures",
@@ -657,7 +819,10 @@
         "size_bytes": 259098,
         "label": "mos2_exx_frontier.png",
         "transformation": "none",
-        "method": "EXX"
+        "method": "EXX",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.png"
       },
       {
         "role": "figures",
@@ -665,7 +830,10 @@
         "sha256": "2603af4b45a8e59f54ce7ffbacdb0b40303af49956fc301c6477d3761da22078",
         "size_bytes": 60293,
         "label": "mos2_gw_frontier.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.pdf"
       },
       {
         "role": "figures",
@@ -674,7 +842,10 @@
         "size_bytes": 316826,
         "label": "mos2_gw_frontier.png",
         "transformation": "none",
-        "method": "GW"
+        "method": "GW",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.png"
       },
       {
         "role": "figures",
@@ -682,7 +853,10 @@
         "sha256": "73afa0762b934028332588226b18bc6270e11a1729491ae09419c51a633460fc",
         "size_bytes": 58466,
         "label": "mos2_ks_frontier.pdf",
-        "transformation": "none"
+        "transformation": "none",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.pdf",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.pdf"
       },
       {
         "role": "figures",
@@ -691,7 +865,10 @@
         "size_bytes": 296268,
         "label": "mos2_ks_frontier.png",
         "transformation": "none",
-        "method": "KS"
+        "method": "KS",
+        "tier": "referenced",
+        "external_url": "https://huggingface.co/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.png",
+        "external_url_backup": "https://hf-mirror.com/datasets/AroundPeking/LibRPA-database/resolve/d8ede10571e8a2acc94e9af6886ce07b28d0b7ce/data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.png"
       }
     ]
   }
