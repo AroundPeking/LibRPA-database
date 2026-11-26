@@ -644,51 +644,54 @@
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_exx.pdf",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.pdf",
         "sha256": "4381af9ae3daced4b36149f42cd4b4cea3fffd6eed2030ebb7044fee1715c90a",
         "size_bytes": 58996,
-        "label": "mos2_14x14_20261123_exx.pdf",
+        "label": "mos2_exx_frontier.pdf",
         "transformation": "none"
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_exx.png",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_exx_frontier.png",
         "sha256": "3508617ab3fa8f728cf9d4dc6ee14c0686c3b9607a9141c9ac2dd31f70117121",
         "size_bytes": 259098,
-        "label": "mos2_14x14_20261123_exx.png",
-        "transformation": "none"
+        "label": "mos2_exx_frontier.png",
+        "transformation": "none",
+        "method": "EXX"
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_gw.pdf",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.pdf",
         "sha256": "2603af4b45a8e59f54ce7ffbacdb0b40303af49956fc301c6477d3761da22078",
         "size_bytes": 60293,
-        "label": "mos2_14x14_20261123_gw.pdf",
+        "label": "mos2_gw_frontier.pdf",
         "transformation": "none"
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_gw.png",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_gw_frontier.png",
         "sha256": "fe60d63a96b289cb3295be5b3fde74a193574d1196635948f4cc11b9ea670ac7",
         "size_bytes": 316826,
-        "label": "mos2_14x14_20261123_gw.png",
-        "transformation": "none"
+        "label": "mos2_gw_frontier.png",
+        "transformation": "none",
+        "method": "GW"
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_ks.pdf",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.pdf",
         "sha256": "73afa0762b934028332588226b18bc6270e11a1729491ae09419c51a633460fc",
         "size_bytes": 58466,
-        "label": "mos2_14x14_20261123_ks.pdf",
+        "label": "mos2_ks_frontier.pdf",
         "transformation": "none"
       },
       {
         "role": "figures",
-        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_14x14_20261123_ks.png",
+        "path": "data/calculations/2d/MoS2/mos2-libbse-exciton-20261126/figures/mos2_ks_frontier.png",
         "sha256": "318845061d2f326333a8dddde94a25ed6ba6c1e6a8aed2dbecd4da202d73e3f5",
         "size_bytes": 296268,
-        "label": "mos2_14x14_20261123_ks.png",
-        "transformation": "none"
+        "label": "mos2_ks_frontier.png",
+        "transformation": "none",
+        "method": "KS"
       }
     ]
   }
