@@ -1,0 +1,35 @@
+INPUT_PARAMETERS
+pseudo_dir              ./
+orbital_dir             ./
+calculation             scf
+ntype                   1
+nbands                  832
+ecutwfc                 150
+smearing_method         fixed
+basis_type              lcao
+ks_solver               genelpa
+dft_functional          pbe
+symmetry                1
+scf_nmax                60
+scf_thr                 1e-7
+
+rpa                     1
+rpa_out_vel             1
+out_librpa_reader_version 1
+rpa_ccp_rmesh_times     6
+rpa_abfs_preorth        onsite_coulomb
+
+shrink_abfs_pca_thr     -1
+exx_pca_threshold       10
+exx_opt_orb_lmax        6
+exx_opt_orb_ecut        150
+exx_opt_orb_tolerence   1e-12
+exx_ccp_rmesh_times     3
+exx_real_number         1
+exx_singularity_correction massidda
+latname                 user_defined_lattice
+
+out_mat_hs2             1
+out_mat_r               1
+out_chg                 1
+out_mat_xc              1
