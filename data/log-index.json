@@ -2095,6 +2095,24 @@
       "tier": "referenced"
     },
     {
+      "calculation_id": "si64-gw-aux139-20261127",
+      "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/logs/gw_slurm_stdout.log",
+      "sha256": "3b0fe318a52e2afebf985ca9aab56c028a35a17c98ebb2d44f2272843e7b04eb",
+      "label": "Slurm job stdout"
+    },
+    {
+      "calculation_id": "si64-gw-aux139-20261127",
+      "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/logs/librpa_gw_stderr.log",
+      "sha256": "b97d887a3e55c3aba06b7e4ba17570152f3606a3d293f091a2d209b819eb1007",
+      "label": "LibRPA program stderr"
+    },
+    {
+      "calculation_id": "si64-gw-aux139-20261127",
+      "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/logs/librpa_gw_stdout.log",
+      "sha256": "578038f2e747f5878a498c1de2725ce0e310d126664e88b50af4696f006faeea",
+      "label": "LibRPA program stdout"
+    },
+    {
       "calculation_id": "sic-delta-st-rpa-20260829",
       "path": "data/calculations/3d/SiC/sic-delta-st-rpa-20260829/logs/c_atom_abacus_stdout.log",
       "sha256": "a1ed0ed7065176dc458a7457686631249970e40b24c7ff2ae9d10f28ee2f6bd4",

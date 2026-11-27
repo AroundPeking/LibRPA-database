@@ -6,15 +6,19 @@
   "software_exception_baseline": "data/historical-software-identity-exceptions.json",
   "program_output_exception_baseline": "data/historical-program-output-exceptions.json",
   "stats": {
-    "total": 124,
+    "total": 125,
     "complete": 65,
-    "incomplete": 59,
-    "issue_count": 75,
+    "incomplete": 60,
+    "issue_count": 77,
     "accepted_exception_count": 74,
-    "blocking_case_count": 1,
-    "blocking_issue_count": 1,
+    "blocking_case_count": 2,
+    "blocking_issue_count": 3,
     "missing_categories": {
       "figures": {
+        "cases": 2,
+        "issues": 2
+      },
+      "inputs": {
         "cases": 1,
         "issues": 1
       },
@@ -1860,6 +1864,38 @@
         ]
       },
       "blocking_categories": {}
+    },
+    {
+      "id": "si64-gw-aux139-20261127",
+      "material": "Si",
+      "dimension": "3d",
+      "status": "incomplete",
+      "gate_status": "blocked",
+      "issues": [
+        "input librpa.in: missing readable declared production input in this calculation",
+        "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+      ],
+      "accepted_issues": [],
+      "blocking_issues": [
+        "input librpa.in: missing readable declared production input in this calculation",
+        "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+      ],
+      "missing_categories": {
+        "inputs": [
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "figures": [
+          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+        ]
+      },
+      "blocking_categories": {
+        "inputs": [
+          "input librpa.in: missing readable declared production input in this calculation"
+        ],
+        "figures": [
+          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
+        ]
+      }
     },
     {
       "id": "sic-delta-st-rpa-20260829",
