@@ -10,9 +10,8 @@
   "note": "Sampled path only, not a global Brillouin-zone gap or numerical acceptance. Original comparison artifacts and raw sources unchanged.",
   "source_sha256": {
     "data/calculations/3d/Si/si64-gw-aux139-20261127/results/KS_band_spin_1.dat": "8f787c7c8202fda34072b0bbb25ce84996165bce74c1c9c25054ca458e623f95",
-    "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_nscf": "7f7aaa96cd40fc678d9aa2e07231c1f536309536ba270e0bbcb1e5417410f340",
+    "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf": "7f7aaa96cd40fc678d9aa2e07231c1f536309536ba270e0bbcb1e5417410f340",
     "data/calculations/3d/Si/si64-gw-aux139-20261127/results/band_kpath_info": "de3610e730eafb8c9340f32f94aa9b87d1b7e2e0d704596a6887913697f56bae",
-    "data/calculations/3d/Si/si64-gw-aux139-20261127/logs/librpa.out": "578038f2e747f5878a498c1de2725ce0e310d126664e88b50af4696f006faeea",
     "data/calculations/3d/Si/si64-gw-aux139-20261127/results/EXX_band_spin_1.dat": "92a355f1d0d18b670b235406e037c9e62972d10d5bfd3f6c6d2196c75510719e",
     "data/calculations/3d/Si/si64-gw-aux139-20261127/results/GW_band_spin_1.dat": "234b10184cb5bdbe64df0d19bbe1f3bf35f18e0121c745fbd53a7456f9f05a97"
   },
@@ -64717,7 +64716,7 @@
           61
         ],
         "max_info_coordinate_error": 3.00000000119649e-08,
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_nscf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
         "rejected_candidates": [],
         "header_schema": [
           "nbasis",
@@ -64737,7 +64736,7 @@
           37,
           45
         ],
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_scf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_scf",
         "mesh": [
           3,
           3,
@@ -129211,7 +129210,7 @@
           61
         ],
         "max_info_coordinate_error": 3.00000000119649e-08,
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_nscf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
         "rejected_candidates": [],
         "header_schema": [
           "nbasis",
@@ -129231,7 +129230,7 @@
           37,
           45
         ],
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_scf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_scf",
         "mesh": [
           3,
           3,
@@ -193809,7 +193808,7 @@
           61
         ],
         "max_info_coordinate_error": 3.00000000119649e-08,
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_nscf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
         "rejected_candidates": [],
         "header_schema": [
           "nbasis",
@@ -193829,7 +193828,7 @@
           37,
           45
         ],
-        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_scf",
+        "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_scf",
         "mesh": [
           3,
           3,
@@ -193858,8 +193857,8 @@
     ],
     "shift_meaning": "grid-fraction offset: a path point k belongs to the grid when k*n - shift is an integer",
     "source": "abacus KPT (Gamma)",
-    "source_name": "abacus_KPT_scf",
-    "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/abacus_KPT_scf",
+    "source_name": "KPT_scf",
+    "source_path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_scf",
     "rejected_candidates": [],
     "sampled_note": "dots mark only path points that coincide with the archived SCF mesh; the curve itself keeps every native sample"
   }

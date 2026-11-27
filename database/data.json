@@ -70611,6 +70611,14 @@
           },
           {
             "role": "inputs",
+            "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/librpa.in",
+            "sha256": "377780f2a86b311569eaf859b7ea448baa323c33c9043afa377d79ae097ed6e5",
+            "size_bytes": 1598,
+            "label": "librpa.in",
+            "transformation": "none"
+          },
+          {
+            "role": "inputs",
             "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/librpa_gw.in",
             "sha256": "377780f2a86b311569eaf859b7ea448baa323c33c9043afa377d79ae097ed6e5",
             "size_bytes": 1598,
@@ -70692,32 +70700,62 @@
             "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/figures/ks_frontier.svg",
             "sha256": "a4d27b57a161e23b4dd11a193101fac39b243163ff26de5dd6dbc8722f20ef81",
             "size_bytes": 32173,
+            "original_sha256": "a4d27b57a161e23b4dd11a193101fac39b243163ff26de5dd6dbc8722f20ef81",
             "label": "KS occupation-separated frontier",
-            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged"
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/KS_band_spin_1.dat",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
           },
           {
             "role": "figures",
             "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/figures/exx_frontier.svg",
             "sha256": "55802bd101c51d39ff77cabc69de4d7b2823be5ed703e0f16c8ad9a658641cf9",
             "size_bytes": 33968,
+            "original_sha256": "55802bd101c51d39ff77cabc69de4d7b2823be5ed703e0f16c8ad9a658641cf9",
             "label": "EXX occupation-separated frontier",
-            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged"
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
           },
           {
             "role": "figures",
             "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/figures/gw_frontier.svg",
             "sha256": "eaae8d97ae232793dccfd64ed2794c60d95221273bb9385b98aedff6e9b53e4f",
             "size_bytes": 32289,
+            "original_sha256": "eaae8d97ae232793dccfd64ed2794c60d95221273bb9385b98aedff6e9b53e4f",
             "label": "GW occupation-separated frontier",
-            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged"
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/GW_band_spin_1.dat",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/band_kpath_info"
+            ],
+            "display_priority": "primary"
           },
           {
             "role": "figures",
             "path": "data/calculations/3d/Si/si64-gw-aux139-20261127/figures/band_frontier_metadata.json",
-            "sha256": "57c5dfbbc473e55944cf45e695b7d32fa1d9f0ed4eb4d0ce3f79f597fcbc8a5f",
-            "size_bytes": 3352420,
+            "sha256": "6b1edf1fdcfc5071347e75542efbb9f4232d89d9cc3d3259bab69c8ec7c292f8",
+            "size_bytes": 3352218,
+            "original_sha256": "6b1edf1fdcfc5071347e75542efbb9f4232d89d9cc3d3259bab69c8ec7c292f8",
             "label": "Frontier display mappings, raw audit and provenance",
-            "transformation": "derived audit sidecar; raw data unchanged"
+            "transformation": "derived frozen occupation-separated frontier display; raw data unchanged",
+            "source_paths": [
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/KS_band_spin_1.dat",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/inputs/KPT_nscf",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/band_kpath_info",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/EXX_band_spin_1.dat",
+              "data/calculations/3d/Si/si64-gw-aux139-20261127/results/GW_band_spin_1.dat"
+            ],
+            "display_priority": "primary"
           }
         ]
       },
@@ -70730,11 +70768,8 @@
       "spin_polarized": false,
       "functional": "PBE",
       "archive_completeness": {
-        "status": "incomplete",
-        "issues": [
-          "input librpa.in: missing readable declared production input in this calculation",
-          "figures: a readable nonempty band figure (SVG/PNG/PDF) with valid same-record band provenance is required"
-        ]
+        "status": "complete",
+        "issues": []
       }
     },
     {
