@@ -18,6 +18,24 @@ if SPEC is None or SPEC.loader is None:
 plot_bands = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(plot_bands)
 METHODS = ("KS", "EXX", "GW")
+# Bands kept on each side of the gap. The default (3 + 4) suits small cells
+# whose valence manifold is a handful of bands. A large supercell needs a wider
+# window or the figure reads as a few flat lines, so a record may declare
+# {"figure_window": {"occupied": N, "empty": M}}. The window is a display
+# choice only: the gap audit always runs over the full spectrum.
+DEFAULT_FIGURE_WINDOW = {"occupied": 3, "empty": 4}
+
+
+def _figure_window(record: dict) -> dict:
+    declared = record.get("figure_window") or {}
+    window = dict(DEFAULT_FIGURE_WINDOW)
+    for key in ("occupied", "empty"):
+        if key in declared:
+            value = declared[key]
+            if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+                raise ValueError(f"figure_window.{key} must be a positive integer")
+            window[key] = value
+    return window
 
 
 def sha256(path: Path) -> str:
@@ -217,6 +235,7 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
     results = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("results", [])}
     inputs = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("inputs", [])}
     logs = {Path(entry["path"]).name: entry for entry in record.get("files", {}).get("logs", [])}
+    window = _figure_window(record)
     log_entry = logs.get("librpa.out")
     occupied_count = None
     if log_entry and (root / log_entry["path"]).is_file():
@@ -229,6 +248,7 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
         report["rejected"]["all"] = "spin2 table present; this single-spin generator refuses rather than silently omitting spin2"
         return report
     metadata = {"schema_version": 2, "calculation_id": record["id"], "energy_unit": "eV",
+                "figure_window": window,
                 "comparison_mode": "single method, own occupied sampled-path VBM reference",
                 "note": "Sampled path only, not a global Brillouin-zone gap or numerical acceptance. Original comparison artifacts and raw sources unchanged.",
                 "source_sha256": {}, "methods": {}, "rejected": report["rejected"]}
@@ -294,6 +314,8 @@ def generate_record(record_path: Path, root: Path = ROOT, write: bool = False,
                                            "explicit archive contract: full occupied value is 2/nk (spin-degenerate) or 1/nk (spinor channel) rounded to five decimals; the constant uniform-weight prefix count itself fixes the occupied-band boundary")}
             analysis = plot_bands.analyze_frontier(table, occupied_count=occupied_count,
                                                    occupation_contract=contract,
+                                                   occupied_window=window["occupied"],
+                                                   empty_window=window["empty"],
                                                    diagnostic_evidence=[log_entry["path"]] if occupied_count and log_entry else None,
                                                    known_pathological=(_known_pathology(record, method) or
                                                                        (method == "GW" and export_count < len(table.energies[0]))),

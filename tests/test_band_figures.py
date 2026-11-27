@@ -359,8 +359,12 @@ class BandFigureTests(unittest.TestCase):
             references = {entry["path"] for entry in record["files"]["figures"]}
             for method, analysis in metadata["methods"].items():
                 svg = (path.parent / f"figures/{method.lower()}_frontier.svg").relative_to(ROOT).as_posix()
-                self.assertEqual(len(analysis["raw_selected_occupied_bands"]), 3)
-                self.assertEqual(len(analysis["raw_selected_empty_bands"]), 4)
+                # 窗口是每条记录自己声明的显示选择，默认 3+4；这里核验图与
+                # sidecar 自洽，而不是把所有记录钉在同一个窗口上。
+                self.assertEqual(len(analysis["raw_selected_occupied_bands"]),
+                                 metadata.get("figure_window", {}).get("occupied", 3))
+                self.assertEqual(len(analysis["raw_selected_empty_bands"]),
+                                 metadata.get("figure_window", {}).get("empty", 4))
                 if analysis["original_frontier_admission_audit"]["sampled_path_gap_ev"] <= 0:
                     self.assertEqual(record["material"] in {"GaAs", "GaP"}, True)
                     self.assertEqual(method, "GW")
@@ -377,7 +381,8 @@ class BandFigureTests(unittest.TestCase):
                 self.assertEqual(analysis["viewport"]["cut_states"], [])
                 self.assertTrue(analysis["viewport"]["selected_raw_window_frozen_before_sorting"])
         if declared:
-            self.assertEqual(declared, 197)
+            # 每条可读 sidecar 的记录贡献 KS/EXX/GW 三张 frontier 图。
+            self.assertEqual(declared, 200)
 
     def test_nonpositive_selected_gap_unreferences_previous_svg_without_deleting(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -657,6 +662,35 @@ class BandFigureTests(unittest.TestCase):
             self.assertEqual([tick["x"] for tick in audit["ticks"]], [4, 9, 13])
             self.assertEqual(audit["ticks"][0]["label"], "Γ")
             self.assertFalse(audit["reciprocal_metric_available"])
+
+
+    def test_figure_window_defaults_and_record_override(self):
+        """窗口默认 3+4；record 声明 figure_window 时按声明画，非法值拒绝。"""
+        self.assertEqual(generator._figure_window({}), {"occupied": 3, "empty": 4})
+        self.assertEqual(generator._figure_window({"figure_window": {"occupied": 8, "empty": 10}}),
+                         {"occupied": 8, "empty": 10})
+        # 只覆盖一侧时另一侧保持默认
+        self.assertEqual(generator._figure_window({"figure_window": {"empty": 6}}),
+                         {"occupied": 3, "empty": 6})
+        for bad in ({"occupied": 0}, {"occupied": -1}, {"empty": 1.5}, {"occupied": True},
+                    {"empty": "8"}):
+            with self.subTest(figure_window=bad):
+                with self.assertRaises(ValueError):
+                    generator._figure_window({"figure_window": bad})
+
+    def test_figure_window_does_not_change_the_gap(self):
+        """窗口只影响显示；全谱 gap 必须与窗口无关。"""
+        n = 12
+        energies = [[float(i) for i in range(n)] for _ in range(3)]
+        occupations = [[2.0] * 4 + [0.0] * (n - 4) for _ in range(3)]
+        table = generator.plot_bands.BandTable([1, 2, 3], energies, occupations, [1, 2, 3],
+                                               [[0, 0, 0], [0.5, 0, 0], [0.5, 0.5, 0]])
+        narrow = generator.plot_bands.analyze_frontier(table, occupied_window=2, empty_window=2)
+        wide = generator.plot_bands.analyze_frontier(table, occupied_window=4, empty_window=6)
+        self.assertEqual(narrow["sampled_path_gap_ev"], wide["sampled_path_gap_ev"])
+        self.assertEqual(len(narrow["raw_selected_occupied_bands"]), 2)
+        self.assertEqual(len(wide["raw_selected_occupied_bands"]), 4)
+        self.assertEqual(len(wide["raw_selected_empty_bands"]), 6)
 
 
 if __name__ == "__main__":

@@ -973,10 +973,10 @@ test("catalog method chips keep the method-dft class for every mean-field functi
       assert.ok(["DFT", "PBE", "LDA", "GGA", "PBEsol", "SCAN", "HSE"].includes(text), `${record.id}: unexpected chip text ${text}`);
     }
   }
-  assert.equal(catalog.calculations.filter(record => record.functional === "PBE").length, 123);
-  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 124);
+  assert.equal(catalog.calculations.filter(record => record.functional === "PBE").length, 124);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("PBE")).length, 125);
   assert.equal(catalog.calculations.filter(record => methodNames(record).includes("DFT")).length, 0);
-  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 86);
+  assert.equal(catalog.calculations.filter(record => methodNames(record).includes("EXX")).length, 87);
   const rpaChips = catalog.calculations.filter(record => methodNames(record).includes("RPA"));
   assert.equal(rpaChips.length, 10);
   const c2048 = rpaChips.find(record => record.id === "c2048-rpa-20260614");
