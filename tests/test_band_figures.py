@@ -479,7 +479,10 @@ class BandFigureTests(unittest.TestCase):
                 if analysis["figure_status"] == "rejected":
                     continue
                 with self.subTest(calculation=metadata["calculation_id"], method=method):
-                    svg = ET.parse(path.parent / f"{method.lower()}_frontier.svg").getroot()
+                    # 归档图可能已外置到数据集，按声明路径回源取真实字节。
+                    record_json = path.parent.parent / "record.json"
+                    svg_path = payload_file(record_json, f"figures/{method.lower()}_frontier.svg")
+                    svg = ET.parse(svg_path).getroot()
                     self.assertEqual(len(svg.findall("s:path", ns)),
                                      len(analysis["raw_selected_occupied_bands"] + analysis["raw_selected_empty_bands"]))
                     lower, upper = analysis["y_limits_ev"]
